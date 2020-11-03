@@ -24,6 +24,7 @@ import re
 import tempfile
 import uuid
 import zipfile
+import ntpath
 
 # This will hold the xule plugin module
 _xule_plugin_info = None
@@ -2161,7 +2162,7 @@ def add_css(main_html, template_catalog, options):
             link = etree.SubElement(head, "link")
             link.set('rel', 'stylesheet')
             link.set('type', 'text/css')
-            link.set('href', options.ferc_render_css_file)
+            link.set('href', ntpath.basename(options.ferc_render_css_file))
 
     else: # the file name is in the catalog
         for css_file_name in template_catalog.get('css',tuple()):

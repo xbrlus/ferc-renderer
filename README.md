@@ -26,7 +26,18 @@ The FERC publihes different template sets for each form, including different tem
 
 In addition the FERC publishes seperate template sets for individual schedules.  This means a single schedule can be rendered for review rather than rendering the entire form.
 
-All form template sets published by the FERC are downloadable here: https://www.ferc.gov/sites/default/files/2020-09/Renderings.zip
+All form template sets published by the FERC are downloadable here: https://www.ferc.gov/sites/default/files/2020-09/Renderings.zip - these are also posted in this repository and can be used with the Arelle command below as the ferc-render-template-set parameter:
+
+ - Form 1: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_1.zip
+ - Form 1F: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_1F.zip
+ - Form 1 3Q Electric: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_1_3Q_Electric.zip
+ - Form 2: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_2.zip
+ - Form 2A: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_2A.zip
+ - Form 2 3Q Gas: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_2_3Q_Gas.zip
+ - Form 6: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_6.zip
+ - Form 6Q: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_6Q.zip
+ - Form 60: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_60.zip
+ - Form 714: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_714.zip
 
 Instructions for rendering forms are available here: https://www.ferc.gov/sites/default/files/2020-09/RenderForms.pdf
 
@@ -51,4 +62,3 @@ This will refer to an external CSS file in the template. To include the css file
                         --ferc-render-css-file.
 
 These two options should be used by default.  The css file that should be used is “form-template.css”.  The option in the should be “keep the css file separated” to tell it to return it as its own filing.
-

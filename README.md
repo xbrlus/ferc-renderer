@@ -48,17 +48,17 @@ The command to generate a rendered  filing is as follows:
 
 This will refer to an external CSS file in the template. To include the css file in the rendered file the following options are used:
 
- `` --ferc-render-css-file = FERC_RENDER_CSS_FILE``
+ ``--ferc-render-css-file = FERC_RENDER_CSS_FILE``
  
                         Identify the CSS file that sould be used. This will
                         overwrite the name of the CSS file that is included in
                         the template set.
                         
                         
-  ``--ferc-render-inline-css``
+ ``--ferc-render-inline-css``
   
                         Indicates that the CSS should be inlined in the
                         generated HTML file. This option must be used with
                         --ferc-render-css-file.
 
-These two options should be used by default.  The css file that should be used is “form-template.css”.  The option in the should be “keep the css file separated” to tell it to return it as its own filing.
+These two options should be used by default.  To include FERC rendering CSS styles from the template in the head your rendered HTML, use ``--ferc-render-css-file = form-template.css`` along with the ``--ferc-render-inline-css`` command.  Excluding the ``--ferc-render-inline-css`` will generate a separate CSS file linked within the HTML. All FERC rendering templates use **form-template.css** as the default name for CSS files.

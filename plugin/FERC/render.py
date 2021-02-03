@@ -1424,7 +1424,9 @@ def setup_inline_html(modelXbrl):
     irefs = html.find('.//ix:references', namespaces=_XULE_NAMESPACE_MAP)
     for doc_ref in modelXbrl.modelDocument.referencesDocument.values():
         if doc_ref.referringModelObject.elementNamespaceURI == 'http://www.xbrl.org/2003/linkbase':
-            if doc_ref.referringModelObject.localName == 'schemaRef' and doc_ref.referenceType == 'href':
+            if (doc_ref.referringModelObject.localName == 'schemaRef' and
+                    ((hasattr(doc_ref, 'referenceType') and doc_ref.referenceType == 'href') or
+                     (hasattr(doc_ref, 'referenceTypes') and 'href' in doc_ref.referenceTypes))):
                 link = etree.SubElement(irefs, '{http://www.xbrl.org/2003/linkbase}schemaRef')
                 link.set('{http://www.w3.org/1999/xlink}type', 'simple')
                 link.set('{http://www.w3.org/1999/xlink}href', doc_ref.referringModelObject.attrib['{http://www.w3.org/1999/xlink}href'])

@@ -1336,14 +1336,15 @@ def get_dates(modelXbrl):
 
     if modelXbrl.modelDocument.type == Type.SCHEMA:
         # This will be a blank rendering
-        return ('current-start',
+        return (
+            'current-start',
             'current-end',
             'prior-start',
             'prior-end',
             'prior2-start',
             'prior2-end',
             'month-ends'
-            )        
+        )
 
     report_year_fact = get_fact_by_local_name(modelXbrl, 'ReportYear')
     report_period_fact = get_fact_by_local_name(modelXbrl, 'ReportPeriod')
@@ -1364,27 +1365,22 @@ def get_dates(modelXbrl):
             )
         )
 
-    month_day = {'Q4': ('01-01', '12-31'),
-                 'Q3': ('01-01', '09-30'),
-                 'Q2': ('01-01', '06-30'),
-                 'Q1': ('01-01', '03-31')}
-    
-    current_start = '{}-{}'.format(report_year_fact.value, '01-01')
-    current_end ='{}-{}'.format(report_year_fact.value, month_day[report_period_fact.value][1])
-    prior_start = '{}-{}'.format(int(report_year_fact.value) - 1, '01-01')
-    prior_end = '{}-{}'.format(int(report_year_fact.value) - 1, month_day[report_period_fact.value][1])
-    prior2_start = '{}-{}'.format(int(report_year_fact.value) - 2, '01-01')
-    prior2_end = '{}-{}'.format(int(report_year_fact.value) - 2, month_day[report_period_fact.value][1])
-    month_ends = ','.join(tuple(str(calendar.monthrange(int(report_year_fact.xValue), x)[1]) for x in range(1,13)))
+    month_day = {
+        'Q4': ('01-01', '12-31'),
+        'Q3': ('01-01', '09-30'),
+        'Q2': ('01-01', '06-30'),
+        'Q1': ('01-01', '03-31')
+    }
 
-    return (('current-start={}'.format(current_start)),
-            ('current-end={}'.format(current_end)),
-            ('prior-start={}'.format(prior_start)),
-            ('prior-end={}'.format(prior_end)),
-            ('prior2-start={}'.format(prior2_start)),
-            ('prior2-end={}'.format(prior2_end)),
-            ('month-ends={}'.format(month_ends))
-           )
+    return (
+        ('current-start={}-{}'.format(report_year, '01-01')),
+        ('current-end={}-{}'.format(report_year, month_day[report_period][1])),
+        ('prior-start={}-{}'.format(int(report_year) - 1, '01-01')),
+        ('prior-end={}-{}'.format(int(report_year) - 1, month_day[report_period][1])),
+        ('prior2-start={}-{}'.format(int(report_year) - 2, '01-01')),
+        ('prior2-end={}-{}'.format(int(report_year) - 2, month_day[report_period][1])),
+        ('month-ends={}'.format(','.join(tuple(str(calendar.monthrange(int(report_year), x)[1]) for x in range(1,13)))))
+    )
 
 def get_fact_by_local_name(modelXbrl, fact_name):
     for fact in modelXbrl.factsInInstance:

@@ -1347,11 +1347,22 @@ def get_dates(modelXbrl):
 
     report_year_fact = get_fact_by_local_name(modelXbrl, 'ReportYear')
     report_period_fact = get_fact_by_local_name(modelXbrl, 'ReportPeriod')
-    if report_period_fact is None:
-        report_period_fact = get_fact_by_local_name(modelXbrl, 'ReportYearPeriod')
+    report_year = report_year_fact.value if report_year_fact is not None else None
+    report_period = report_period_fact.value if report_period_fact is not None else None
+    if not report_year or not report_period:
+        report_year_period_fact = get_fact_by_local_name(modelXbrl, 'ReportYearPeriod')
+        if report_year_period_fact is not None:
+            year_match = re.match(r'.*([1-2][0-9]{3})', report_year_period_fact.value)
+            period_match = re.match(r'.*([qQ][1-4])', report_year_period_fact.value)
+            report_year = year_match[1] if year_match is not None else None
+            report_period = period_match[1].upper() if period_match is not None else None
 
-    if report_year_fact is None or report_period_fact is None:
-        raise FERCRenderException("Cannot obtain the report year or report period from the XBRL document")
+    if not report_year or not report_period:
+        raise FERCRenderException(
+            'Cannot obtain a valid report year({year}) or report period({period}) from the XBRL document'.format(
+                year=report_year, period=report_period
+            )
+        )
 
     month_day = {'Q4': ('01-01', '12-31'),
                  'Q3': ('01-01', '09-30'),

@@ -7,7 +7,7 @@ The XuleProcessor module is the main module for processing a rule set against an
 DOCSKIP
 See https://xbrl.us/dqc-license for license information.  
 See https://xbrl.us/dqc-patent for patent infringement notice.
-Copyright (c) 2017 - 2019 XBRL US, Inc.
+Copyright (c) 2017 - 2021 XBRL US, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-$Change: 23074 $
+$Change: 23202 $
 DOCSKIP
 """
 from .XuleContext import XuleGlobalContext, XuleRuleContext  # XuleContext
@@ -35,6 +35,7 @@ from arelle.ModelInstanceObject import ModelFact
 from arelle.ModelRelationshipSet import ModelRelationshipSet
 from arelle.ModelDtsObject import ModelConcept
 from arelle.ModelObject import ModelObject
+from arelle.XmlValidate import VALID
 import decimal
 import datetime
 import math
@@ -269,6 +270,10 @@ def index_model(xule_context):
     facts_to_index = collections.defaultdict(list)
     if xule_context.model is not None:
         for model_fact in xule_context.model.factsInInstance:
+            if not fact_is_complete(model_fact):
+                # Fact is incomplete. This can be caused by a filing that is still in the process of being built.
+                # Ignore the fact and continue validating the rest of the filing.
+                continue
             all_aspects = list()
             all_aspects.append((('builtin', 'concept'), model_fact.qname))
 
@@ -640,6 +645,12 @@ def evaluate(rule_part, xule_context, trace_dependent=False, override_table_id=N
                             value.tags = new_tags
                 else:
                     trace_source = "T"
+                    # The tags on the value may not apply to this iteration.  The value was pulled from the iteration table. It
+                    # will have tags from the previously calculated value.
+                    if value is not None and value.tags is not None:
+                        new_tags = value.tags.copy()
+                        new_tags.update(xule_context.tags)
+                        value.tags = new_tags
             else:
                 raise XuleProcessingError(
                     _("Internal error: Found iterable (%s) that does not have a dependency flag." % rule_part_name),
@@ -1545,7 +1556,8 @@ def evaluate_for(for_expr, xule_context):
                                                    xule_context)
         finally:
             xule_context.del_arg(for_expr['forVar'], for_expr['forLoopExpr']['node_id'])
-
+            del xule_context.tags[for_expr['forVar']]
+            
         if for_loop_var.alignment is None:
             # add all
             for body_value in body_values.values.values():
@@ -5385,3 +5397,16 @@ def trace_count_next_time(rule_part, traces):
                         total_child_times += child_info[0]
                         total_child_nodes += child_info[1]
     return (total_child_times, total_child_nodes)
+
+def fact_is_complete(model_fact):
+    if model_fact.xValid < VALID:
+        return False
+    if model_fact.context is None or not context_has_period(model_fact.context):
+        return False
+    if model_fact.isNumeric and model_fact.unit is None:
+        return False
+    return True
+
+
+def context_has_period(model_context):
+    return model_context.isStartEndPeriod or model_context.isInstantPeriod or model_context.isForeverPeriod

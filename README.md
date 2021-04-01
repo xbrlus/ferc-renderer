@@ -26,25 +26,22 @@ The FERC publihes different template sets for each form, including different tem
 
 In addition the FERC publishes seperate template sets for individual schedules.  This means a single schedule can be rendered for review rather than rendering the entire form.
 
-All form template sets published by the FERC are downloadable here: https://www.ferc.gov/sites/default/files/2020-09/Renderings.zip - these are also posted in this repository and can be used with the Arelle command below as the ferc-render-template-set parameter:
+The latest templates for rendering are posted in this repository and linked under 'Assets' with each [release](../../releases).  The templates can also be used from this repository with the Arelle command below as the ferc-render-template-set parameter:
 
- - Form 1: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_1.zip
- - Form 1F: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_1F.zip
- - Form 1 3Q Electric: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_1_3Q_Electric.zip
- - Form 2: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_2.zip
- - Form 2A: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_2A.zip
- - Form 2 3Q Gas: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_2_3Q_Gas.zip
- - Form 6: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_6.zip
- - Form 6Q: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_6Q.zip
- - Form 60: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_60.zip
- - Form 714: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_714.zip
+- Form 1: https://github.com/xbrlus/ferc-renderer/blob/master/RenderingTemplates/Form_1.zip?raw=true
+- Form 1F: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_1F.zip?raw=true
+- Form 1 3Q Electric: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_1_3Q_Electric.zip?raw=true
+- Form 2: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_2.zip?raw=true
+- Form 2A: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_2A.zip?raw=true
+- Form 2 3Q Gas: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_2_3Q_Gas.zip?raw=true
+- Form 6: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_6.zip?raw=true
+- Form 6Q: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_6Q.zip?raw=true
+- Form 60: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_60.zip?raw=true
+- Form 714: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_714.zip?raw=true
 
-Instructions for rendering forms are available here: https://www.ferc.gov/sites/default/files/2020-09/RenderForms.pdf
-
-## Arelle Commands to render the filing
-The command to generate a rendered  filing is as follows:
-
-``python3 Arelle-master/arellecmdline.py --plugin FERC/render --ferc-render-render --ferc-render-template-set '{location of zip}/form1Q_combined.zip' -f {location of instance}/AepAppalachianTransmissionCompanyInc-436-2018Q1F1.xbrl' --ferc-render-inline {location of output}/MyCompanyInc-2020Q1-combined.html --noCertificateCheck --ferc-render-debug``
+### Arelle Commands to render the filing
+The command to generate a rendered filing is as follows (exclude the _{location}_ text - this is illustrative of which file is referenced):
+`python3 Arelle-master/arellecmdline.py --plugin FERC/render --ferc-render-render --ferc-render-template-set {location of template}https://github.com/xbrlus/ferc-renderer/blob/master/RenderingTemplates/Form_1.zip?raw=true -f {location of instance}/AepAppalachianTransmissionCompanyInc-436-2018Q1F1.xbrl' --ferc-render-inline {location of output}/MyCompanyInc-2020Q1-combined.html --noCertificateCheck --ferc-render-debug`
 
 This will refer to an external CSS file in the template. To include the css file in the rendered file the following options are used:
 

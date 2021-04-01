@@ -44,7 +44,7 @@ Instructions for rendering forms are available here: https://www.ferc.gov/sites/
 ## Arelle Commands to render the filing
 The command to generate a rendered  filing is as follows:
 
-``python3 Arelle-master/arellecmdline.py --plugin FERC/render --ferc-render-render --ferc-render-template-set '{location of zip}/form1Q_combined.zip' -f {location of instance}/AepAppalachianTransmissionCompanyInc-436-2018Q1F1.xbrl' --ferc-render-inline {location of output}/MyCompanyInc-2020Q1-combined.html --ferc-render-debug``
+``python3 Arelle-master/arellecmdline.py --plugin FERC/render --ferc-render-render --ferc-render-template-set '{location of zip}/form1Q_combined.zip' -f {location of instance}/AepAppalachianTransmissionCompanyInc-436-2018Q1F1.xbrl' --ferc-render-inline {location of output}/MyCompanyInc-2020Q1-combined.html --noCertificateCheck --ferc-render-debug``
 
 This will refer to an external CSS file in the template. To include the css file in the rendered file the following options are used:
 

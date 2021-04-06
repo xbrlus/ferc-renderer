@@ -18,7 +18,7 @@ To render forms using the Arelle processor, the XULE plugin and FERC render plug
 
 The FERC plugin requires **Python 3.5** or later and is **not compatible with earlier versions of Python**.
 
-# Rendering a Filing
+## Rendering a Filing
 
 A file is rendered as a FERC form by providing the FERC renderer with the XBRL Instance document and a template set. The renderer takes the instance and the template set and generates an inline XBRL file formatted as a traditional FERC form. This document is not filed with the FERC but is used as a tool by filers and users to make the filing human readable.  This file can be used for reviewing the actual filing in a familar format.
 
@@ -59,3 +59,12 @@ This will refer to an external CSS file in the template. To include the css file
                         --ferc-render-css-file.
 
 These two options should be used by default.  To include FERC rendering CSS styles from the template in the head your rendered HTML, use ``--ferc-render-css-file = form-template.css`` along with the ``--ferc-render-inline-css`` command.  Excluding the ``--ferc-render-inline-css`` will generate a separate CSS file linked within the HTML. All FERC rendering templates use **form-template.css** as the default name for CSS files.
+
+## Validating a Filing
+FERC forms are validated during the submission process with a series of checks.  These validations can also be downloaded from [the repository's `ValidationRulesets' directory](ValidationRulesets/) and invoked as .zip files using Arelle and the xule processor *version 3.0.23221* or later. The command to validate a filing is as follows (exclude the _{location}_ text - this is illustrative of which file is referenced):
+
+`.\arellecmdline.exe --plugins xule --xule-rule-set {location of form ruleset}/Form1.zip -f {location of instance}/sampleF1.xbrl -v --xule-time .005 --xule-debug --noCertificateCheck --logFile {location of output}/log.xml`
+
+Like the rendering templates, the validation ruleset.zip files can be invoked from the repository by using the `?raw=true` attribute on the URL:
+
+`.\arellecmdline.exe --plugins xule --xule-rule-set https://github.com/xbrlus/ferc-renderer/blob/master/ValidationRulesets/Form1.zip?raw=true -f {location of instance}/sampleF1.xbrl -v --xule-time .005 --xule-debug --noCertificateCheck --logFile {location of output}/log.xml`

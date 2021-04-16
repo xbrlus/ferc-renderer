@@ -60,6 +60,9 @@ This will refer to an external CSS file in the template. To include the css file
 
 These two options should be used by default.  To include FERC rendering CSS styles from the template in the head your rendered HTML, use ``--ferc-render-css-file = form-template.css`` along with the ``--ferc-render-inline-css`` command.  Excluding the ``--ferc-render-inline-css`` will generate a separate CSS file linked within the HTML. All FERC rendering templates use **form-template.css** as the default name for CSS files.
 
+### Arelle Commands to render the HTML without an instance
+`.\arellecmdline.exe --plugin FERC/render --ferc-render-render --ferc-render-template-set https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_1.zip -f https://ecollection.ferc.gov/taxonomy/form1/2020-01-01/form/form1/form-1_2020-01-01.xsd --ferc-render-css-file {Location of CSS - this is in Arelle's FERC plugin folder}form-template.css --ferc-render-inline-css --ferc-render-inline {Location of output}/inline.html --noCertificateCheck --ferc-render-debug`
+
 ## Validating a Filing
 FERC forms are validated during the submission process with a series of checks.  These validations can also be downloaded from [the repository's `ValidationRulesets' directory](ValidationRulesets/) and invoked as .zip files using Arelle and the xule processor *version 3.0.23221* or later. The command to validate a filing is as follows (exclude the _{location}_ text - this is illustrative of which file is referenced):
 

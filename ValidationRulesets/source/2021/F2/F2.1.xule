@@ -1,0 +1,24 @@
+/**
+
+FERC Form2 Rules
+ (c) Copyright 2019, FERC. All rights reserved.
+
+
+**/
+
+RULE-NAME-PREFIX FERC
+
+assert F2.1 satisfied
+
+for $x in $required_form2_items
+	count(list([@concept = $x[1] @period = $currentDuration]))< 1
+
+message
+"The element {$x[1]} is not included in the submitted filing.  The element {$x[1]} in the {$x[2]} schedule needs to be included in the the filing in the currrent reporting period.
+
+Rule Id: F2.1.{$x[3]} "
+
+severity error
+
+
+				

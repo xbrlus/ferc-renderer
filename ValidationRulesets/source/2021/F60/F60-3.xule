@@ -1,0 +1,449 @@
+/**FERC Form 60 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F60.3.1 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@OrganizationAccumulatedProvisionForDepreciationAndAmortization @period=$currentInstant}; 
+ $addend = ({@OrganizationAccumulatedProvisionForDepreciationAndAmortization @period=$priorInstant} 
+ + {@OrganizationAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} 
+ - {@OrganizationAccumulatedProvisionForDepreciationAndAmortizationRetirements @period=$currentDuration} 
+ + {@OrganizationAccumulatedProvisionForDepreciationAndAmortizationAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OrganizationAccumulatedProvisionForDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.2 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@MiscellaneousIntangiblePlantAccumulatedProvisionForDepreciationAndAmortization @period=$currentInstant}; 
+ $addend = ({@MiscellaneousIntangiblePlantAccumulatedProvisionForDepreciationAndAmortization @period=$priorInstant} 
+ + {@MiscellaneousIntangiblePlantAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} 
+ - {@MiscellaneousIntangiblePlantAccumulatedProvisionForDepreciationAndAmortizationRetirements @period=$currentDuration} 
+ + {@MiscellaneousIntangiblePlantAccumulatedProvisionForDepreciationAndAmortizationAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MiscellaneousIntangiblePlantAccumulatedProvisionForDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.3 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@LeaseholdImprovementsAccumulatedProvisionForDepreciationAndAmortization @period=$currentInstant}; 
+ $addend = ({@LeaseholdImprovementsAccumulatedProvisionForDepreciationAndAmortization @period=$priorInstant} 
+ + {@LeaseholdImprovementsAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} 
+ - {@LeaseholdImprovementsAccumulatedProvisionForDepreciationAndAmortizationRetirements @period=$currentDuration} 
+ + {@LeaseholdImprovementsAccumulatedProvisionForDepreciationAndAmortizationAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LeaseholdImprovementsAccumulatedProvisionForDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.4 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@LandAndLandRightsAccumulatedProvisionForDepreciationAndAmortization @period=$currentInstant}; 
+ $addend = ({@LandAndLandRightsAccumulatedProvisionForDepreciationAndAmortization @period=$priorInstant} 
+ + {@LandAndLandRightsAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} 
+ - {@LandAndLandRightsAccumulatedProvisionForDepreciationAndAmortizationRetirements @period=$currentDuration} 
+ + {@LandAndLandRightsAccumulatedProvisionForDepreciationAndAmortizationAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandAndLandRightsAccumulatedProvisionForDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.5 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@StructuresAndImprovementsAccumulatedProvisionForDepreciationAndAmortization @period=$currentInstant}; 
+ $addend = ({@StructuresAndImprovementsAccumulatedProvisionForDepreciationAndAmortization @period=$priorInstant} 
+ + {@StructuresAndImprovementsAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} - {@StructuresAndImprovementsAccumulatedProvisionForDepreciationAndAmortizationRetirements @period=$currentDuration} 
+ + {@StructuresAndImprovementsAccumulatedProvisionForDepreciationAndAmortizationAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StructuresAndImprovementsAccumulatedProvisionForDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.6 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@OfficeFurnitureAndEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$currentInstant}; 
+ $addend = ({@OfficeFurnitureAndEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$priorInstant} 
+ + {@OfficeFurnitureAndEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} 
+ - {@OfficeFurnitureAndEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements @period=$currentDuration} 
+ + {@OfficeFurnitureAndEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OfficeFurnitureAndEquipmentAccumulatedProvisionForDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.7 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@TransportationEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$currentInstant}; 
+ $addend = ({@TransportationEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$priorInstant} 
+ + {@TransportationEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} 
+ - {@TransportationEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements @period=$currentDuration} 
+ + {@TransportationEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TransportationEquipmentAccumulatedProvisionForDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.8 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@StoresEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$currentInstant}; 
+ 
+ $addend = ({@StoresEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$priorInstant} 
+ + {@StoresEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} 
+ - {@StoresEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements @period=$currentDuration} 
+ + {@StoresEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments @period=$currentDuration})
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StoresEquipmentAccumulatedProvisionForDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.9 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@ToolsShopAndGarageEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$currentInstant}; 
+ $addend = ({@ToolsShopAndGarageEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$priorInstant} 
+ + {@ToolsShopAndGarageEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} 
+ - {@ToolsShopAndGarageEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements @period=$currentDuration} 
+ + {@ToolsShopAndGarageEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ToolsShopAndGarageEquipmentAccumulatedProvisionForDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.10 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@LaboratoryEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$currentInstant}; 
+ $addend = ({@LaboratoryEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$priorInstant} 
+ + {@LaboratoryEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} 
+ - {@LaboratoryEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements @period=$currentDuration} 
+ + {@LaboratoryEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LaboratoryEquipmentAccumulatedProvisionForDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.11 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@PowerOperatedEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$currentInstant}; 
+ $addend = ({@PowerOperatedEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$priorInstant} 
+ + {@PowerOperatedEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} 
+ - {@PowerOperatedEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements @period=$currentDuration} 
+ + {@PowerOperatedEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PowerOperatedEquipmentAccumulatedProvisionForDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.12 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@CommunicationsEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$currentInstant}; 
+ $addend = ({@CommunicationsEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$priorInstant} 
+ + {@CommunicationsEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} 
+ - {@CommunicationsEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements @period=$currentDuration} 
+ + {@CommunicationsEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CommunicationsEquipmentAccumulatedProvisionForDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.13 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@MiscellaneousEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$currentInstant}; 
+ $addend = ({@MiscellaneousEquipmentAccumulatedProvisionForDepreciationAndAmortization @period=$priorInstant} 
+ + {@MiscellaneousEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} 
+ - {@MiscellaneousEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements @period=$currentDuration} 
+ + {@MiscellaneousEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MiscellaneousEquipmentAccumulatedProvisionForDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.14 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@OtherTangiblePropertyAccumulatedProvisionForDepreciationAndAmortization @period=$currentInstant}; 
+ $addend = ({@OtherTangiblePropertyAccumulatedProvisionForDepreciationAndAmortization @period=$priorInstant} 
+ + {@OtherTangiblePropertyAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} 
+ - {@OtherTangiblePropertyAccumulatedProvisionForDepreciationAndAmortizationRetirements @period=$currentDuration} 
+ + {@OtherTangiblePropertyAccumulatedProvisionForDepreciationAndAmortizationAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherTangiblePropertyAccumulatedProvisionForDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.15 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@AssetRetirementCostsAccumulatedProvisionForDepreciationAndAmortization @period=$currentInstant}; 
+ $addend = ({@AssetRetirementCostsAccumulatedProvisionForDepreciationAndAmortization @period=$priorInstant} 
+ + {@AssetRetirementCostsAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} 
+ - {@AssetRetirementCostsAccumulatedProvisionForDepreciationAndAmortizationRetirements @period=$currentDuration} 
+ + {@AssetRetirementCostsAccumulatedProvisionForDepreciationAndAmortizationAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsAccumulatedProvisionForDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.16 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@AccumulatedProvisionForDepreciationAndAmortizationServiceCompanyProperty @period=$currentInstant}; 
+ $addend = ({@AccumulatedProvisionForDepreciationAndAmortizationServiceCompanyProperty @period=$priorInstant} 
+ + {@AccumulatedProvisionForDepreciationAndAmortizationServiceCompanyPropertyAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty @period=$currentDuration} 
+ - {@AccumulatedProvisionForDepreciationAndAmortizationServiceCompanyPropertyRetirement @period=$currentDuration} 
+ + {@AccumulatedProvisionForDepreciationAndAmortizationServiceCompanyPropertyAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationAndAmortizationServiceCompanyProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.17 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@AccumulatedProvisionForDepreciationAndAmortizationServiceCompanyProperty}; 
+ $addend = ({@OrganizationAccumulatedProvisionForDepreciationAndAmortization} 
+ + {@MiscellaneousIntangiblePlantAccumulatedProvisionForDepreciationAndAmortization} 
+ + {@LeaseholdImprovementsAccumulatedProvisionForDepreciationAndAmortization} 
+ + {@LandAndLandRightsAccumulatedProvisionForDepreciationAndAmortization} 
+ + {@StructuresAndImprovementsAccumulatedProvisionForDepreciationAndAmortization} 
+ + {@OfficeFurnitureAndEquipmentAccumulatedProvisionForDepreciationAndAmortization} 
+ + {@TransportationEquipmentAccumulatedProvisionForDepreciationAndAmortization} 
+ + {@StoresEquipmentAccumulatedProvisionForDepreciationAndAmortization} 
+ + {@ToolsShopAndGarageEquipmentAccumulatedProvisionForDepreciationAndAmortization} 
+ + {@LaboratoryEquipmentAccumulatedProvisionForDepreciationAndAmortization} 
+ + {@PowerOperatedEquipmentAccumulatedProvisionForDepreciationAndAmortization} 
+ + {@CommunicationsEquipmentAccumulatedProvisionForDepreciationAndAmortization} 
+ + {@MiscellaneousEquipmentAccumulatedProvisionForDepreciationAndAmortization} 
+ + {@OtherTangiblePropertyAccumulatedProvisionForDepreciationAndAmortization} 
+ + {@AssetRetirementCostsAccumulatedProvisionForDepreciationAndAmortization});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationAndAmortizationServiceCompanyProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.18 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@AccumulatedProvisionForDepreciationAndAmortizationServiceCompanyPropertyAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty}; 
+ $addend = ({@OrganizationAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty} 
+ + {@MiscellaneousIntangiblePlantAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty} 
+ + {@LeaseholdImprovementsAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty} 
+ + {@LandAndLandRightsAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty} 
+ + {@StructuresAndImprovementsAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty} 
+ + {@OfficeFurnitureAndEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty} 
+ + {@TransportationEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty} 
+ + {@StoresEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty} 
+ + {@ToolsShopAndGarageEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty} 
+ + {@LaboratoryEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty} 
+ + {@PowerOperatedEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty} 
+ + {@CommunicationsEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty} 
+ + {@MiscellaneousEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty} 
+ + {@OtherTangiblePropertyAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty} 
+ + {@AssetRetirementCostsAccumulatedProvisionForDepreciationAndAmortizationAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationAndAmortizationServiceCompanyPropertyAdditionsChargedToDepreciationExpenseAndAmortizationOfProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.19 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@AccumulatedProvisionForDepreciationAndAmortizationServiceCompanyPropertyRetirement}; 
+ $addend = ({@OrganizationAccumulatedProvisionForDepreciationAndAmortizationRetirements} 
+ + {@MiscellaneousIntangiblePlantAccumulatedProvisionForDepreciationAndAmortizationRetirements} 
+ + {@LeaseholdImprovementsAccumulatedProvisionForDepreciationAndAmortizationRetirements} 
+ + {@LandAndLandRightsAccumulatedProvisionForDepreciationAndAmortizationRetirements} 
+ + {@StructuresAndImprovementsAccumulatedProvisionForDepreciationAndAmortizationRetirements} 
+ + {@OfficeFurnitureAndEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements} 
+ + {@TransportationEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements} 
+ + {@StoresEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements} 
+ + {@ToolsShopAndGarageEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements} 
+ + {@LaboratoryEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements} 
+ + {@PowerOperatedEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements} 
+ + {@CommunicationsEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements} 
+ + {@MiscellaneousEquipmentAccumulatedProvisionForDepreciationAndAmortizationRetirements} 
+ + {@OtherTangiblePropertyAccumulatedProvisionForDepreciationAndAmortizationRetirements} 
+ + {@AssetRetirementCostsAccumulatedProvisionForDepreciationAndAmortizationRetirements});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationAndAmortizationServiceCompanyPropertyRetirement with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.3.20 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@AccumulatedProvisionForDepreciationAndAmortizationServiceCompanyPropertyAdjustments}; 
+ $addend = ({@OrganizationAccumulatedProvisionForDepreciationAndAmortizationAdjustments} 
+ + {@MiscellaneousIntangiblePlantAccumulatedProvisionForDepreciationAndAmortizationAdjustments} 
+ + {@LeaseholdImprovementsAccumulatedProvisionForDepreciationAndAmortizationAdjustments} 
+ + {@LandAndLandRightsAccumulatedProvisionForDepreciationAndAmortizationAdjustments} 
+ + {@StructuresAndImprovementsAccumulatedProvisionForDepreciationAndAmortizationAdjustments} 
+ + {@OfficeFurnitureAndEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments} 
+ + {@TransportationEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments} 
+ + {@StoresEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments} 
+ + {@ToolsShopAndGarageEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments} 
+ + {@LaboratoryEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments} 
+ + {@PowerOperatedEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments} 
+ + {@CommunicationsEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments} 
+ + {@MiscellaneousEquipmentAccumulatedProvisionForDepreciationAndAmortizationAdjustments} 
+ + {@OtherTangiblePropertyAccumulatedProvisionForDepreciationAndAmortizationAdjustments} 
+ + {@AssetRetirementCostsAccumulatedProvisionForDepreciationAndAmortizationAdjustments});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationAndAmortizationServiceCompanyPropertyAdjustments with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

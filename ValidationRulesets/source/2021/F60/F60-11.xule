@@ -1,0 +1,27 @@
+/**FERC Form 60 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F60.11.1 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@UnappropriatedRetainedEarnings @period=$currentInstant}; 
+ $addend = ({@UnappropriatedRetainedEarnings @period=$priorInstant}#f0
+ + {@NetIncomeLossUnappropriatedRetainedEarnings @period=$currentDuration}#f1
+ - {@Dividendpaid @period=$currentDuration}#f2);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UnappropriatedRetainedEarnings with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} which are comprised of the following:
++ UnappropriatedRetainedEarnings 	            = {$f0}
++ NetIncomeLossUnappropriatedRetainedEarnings 	= {$f1}
+- Dividendpaid						            = {$f2}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

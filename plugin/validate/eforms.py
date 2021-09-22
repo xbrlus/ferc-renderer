@@ -1,7 +1,7 @@
 """
 Data Quality Consortium validation (DQC) processor
 
-This validation module runs DQC rules. It uses the Xule rule processor
+This validation module runs FERC rules. It uses the Xule rule processor
 
 DOCSKIP
 See https://xbrl.us/dqc-license for license information.  
@@ -27,14 +27,14 @@ import optparse
 from arelle import PluginManager
 
 """ Xule validator specific variables."""
-_short_name = 'FERC'
-_name = 'FERC Rules Validator'
+_short_name = 'eForms'
+_name = 'FERC eForms Rules Validator'
 _version = 'Check version using Tools->FERC->Version on the GUI or --ferc-version on the command line'
 _version_prefix = '3.0.'
-_description = 'FERC rules validator.'
+_description = 'FERC eForms rules validator.'
 _license = 'Apache-2'
 _author = 'XBRL US Inc.'
-_copyright = '(c) 2017-2018'
+_copyright = '(c) 2017-2021'
 _rule_set_map_name = 'fercRulesetMap.json'
 _latest_map_name = 'https://github.com/xbrlus/ferc-renderer/blob/master/plugin/xule/fercRulesetMap.json?raw=true' 
 

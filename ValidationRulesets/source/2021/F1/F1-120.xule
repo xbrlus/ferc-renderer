@@ -7,9 +7,6 @@ RULE-NAME-PREFIX FERC
 assert F1.120.1 satisfied 
 $rule_id = rule-name();
 
-if set('1-F').contains([covered @concept.local-name ='FormType'])
-        skip
-else
 $NoncashAdjustmentsToCashFlowsFromOperatingActivities = first-value({@NoncashAdjustmentsToCashFlowsFromOperatingActivities}, sum(list({@NoncashAdjustmentsToCashFlowsFromOperatingActivities @NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis=*})));
 
 $OtherAdjustmentsToCashFlowsFromOperatingActivities = first-value({@OtherAdjustmentsToCashFlowsFromOperatingActivities}, sum(list({@OtherAdjustmentsToCashFlowsFromOperatingActivities @OtherAdjustmentsToCashFlowsFromOperatingActivitiesAxis=*})));
@@ -60,9 +57,7 @@ rule-focus $sum1
 assert F1.120.2 satisfied 
 $rule_id = rule-name();
 
-if set('1-F').contains([covered @concept.local-name ='FormType'])
-        skip
-else
+
 $OtherConstructionAndAcquisitionOfPlantInvestmentActivities = first-value({@OtherConstructionAndAcquisitionOfPlantInvestmentActivities}, sum(list({@OtherConstructionAndAcquisitionOfPlantInvestmentActivities @OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesAxis=*})));
 
  $sum1 = {@CashOutflowsForPlant}; 
@@ -94,9 +89,6 @@ rule-focus $sum1
 assert F1.120.3 satisfied 
 $rule_id = rule-name();
 
-if set('1-F').contains([covered @concept.local-name ='FormType'])
-        skip
-else
 $OtherAdjustmentsToCashFlowsFromInvestmentActivities = first-value({@OtherAdjustmentsToCashFlowsFromInvestmentActivities}, sum(list({@OtherAdjustmentsToCashFlowsFromInvestmentActivities @OtherAdjustmentsToCashFlowsFromInvestmentActivitiesAxis=*})));
 
  $sum1 = {@CashFlowsProvidedFromUsedInInvestmentActivities}; 
@@ -146,9 +138,6 @@ rule-focus $sum1
 assert F1.120.4 satisfied 
 $rule_id = rule-name();
 
-if set('1-F').contains([covered @concept.local-name ='FormType'])
-        skip
-else
 $OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities  = first-value({@OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities},sum(list({@OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities @OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesAxis=*})));
 
 $OtherAdjustmentsToCashFlowsFromFinancingActivities = first-value({@OtherAdjustmentsToCashFlowsFromFinancingActivities},sum(list({@OtherAdjustmentsToCashFlowsFromFinancingActivities @OtherAdjustmentsToCashFlowsFromFinancingActivitiesAxis=*})));
@@ -184,9 +173,6 @@ rule-focus $sum1
 assert F1.120.5 satisfied 
 $rule_id = rule-name();
 
-if set('1-F').contains([covered @concept.local-name ='FormType'])
-        skip
-else
 $OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities  = first-value({@OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities},sum(list({@OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities @OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis=*})));
 
  $sum1 = {@CashFlowsProvidedFromUsedInFinancingActivities}; 
@@ -224,9 +210,6 @@ rule-focus $sum1
 assert F1.120.6 satisfied 
 $rule_id = rule-name();
 
-if set('1-F').contains([covered @concept.local-name ='FormType'])
-        skip
-else
  $sum1 = {@NetIncreaseDecreaseInCashAndCashEquivalents}; 
  $addend = ({@NetCashFlowFromOperatingActivities}#f0
  + {@CashFlowsProvidedFromUsedInInvestmentActivities}#f1 
@@ -251,9 +234,6 @@ rule-focus $sum1
 assert F1.120.7 satisfied 
 $rule_id = rule-name();
 
-if set('1-F').contains([covered @concept.local-name ='FormType'])
-        skip
-else
  $sum1 = {@CashAndCashEquivalents @period=$currentInstant}; 
  $addend = ({@CashAndCashEquivalents @period=$priorInstant}#f0
  + {@NetIncreaseDecreaseInCashAndCashEquivalents @period=$currentDuration}#f1

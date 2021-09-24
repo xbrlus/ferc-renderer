@@ -24,7 +24,7 @@ $rule_id = rule-name();
 
  exists([covered @ReportYear @period=$currentDuration])  
 message 
-"The report year must be reported in the current period. 
+"The report year must be reported in the current period.
 
 Rule Id:{$rule_id}
 "
@@ -213,5 +213,15 @@ message
 
 Rule Id:{$rule_id}
 "
+severity error
+
+assert F1.1.19 satisfied 
+$rule_id = rule-name();
+
+$report-year_check != $report-year_pre
+message 
+"The company has reported a report year of {$report-year_pre} which is not a valid year. For purposes of running the rules the default period end of {$report-year-end-default} has been used.
+
+Rule Id:{$rule_id}
+"
 severity error	
-				

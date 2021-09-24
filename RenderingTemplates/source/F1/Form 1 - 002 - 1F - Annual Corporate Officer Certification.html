@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F1F - 002</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+
+</head>
+
+<body class="xbrl">
+        <div id="ScheduleAnnualReportCorporateOfficerCertificationAbstract"></div>
+        <table class="xbrl">
+        <tr class="sch-title">
+                <td colspan="6" class="xbrl">
+                        <xule:replace>
+                                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAnnualReportCorporateOfficerCertificationAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FScheduleTitle").text
+                                </xule:expression>
+                                <xule:template-display>
+                                        PART II: ANNUAL REPORT CORPORATE OFFICER CERTIFICATION
+                                </xule:template-display>
+                        </xule:replace>
+                    </td>
+            </tr>        
+         <tr>
+                <td class="combinedField xbrl" colspan="6">
+                        The undersigned officer certifies that:<p></p>
+I have examined this report and to the best of my knowledge, information, and belief all statements of
+fact contained in this report are correct statements of the business affairs of the respondent and the
+financial statements and other financial information contained in this report, conform in all material
+respects to the Uniform System of Accounts.
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+
+                                  
+                </td>
+        </tr>
+
+        <tr class="col-heading-row">
+            
+                    
+                        
+                <td class="xbrl line-number">Line No. </td>
+                       
+                <td class="combinedField cell-top xbrl decription_items" >
+                        <xule:replace>
+                                <xule:expression class="hide">taxonomy().concept(ferc:NameOfCertifyingOfficial).label("http://ferc.gov/form/2020-01-01/roles/label/F1FIdentification").text
+                                </xule:expression>
+                                <xule:template-display>
+                                        Name of Certifying Official
+                                </xule:template-display>
+                         </xule:replace>
+                           
+                                  
+                </td>
+                <td class="combinedField cell-top xbrl decription_items">
+                        <xule:replace>
+                                <xule:expression class="hide">taxonomy().concept(ferc:CorporateOfficerCertificationSignature).label("http://ferc.gov/form/2020-01-01/roles/label/F1FIdentification").text
+                                </xule:expression>
+                                <xule:template-display>
+                                        Signature
+                                </xule:template-display>
+                         </xule:replace>
+                           
+                                  
+                </td>
+                <td class="combinedField cell-top xbrl decription_items" >
+                        <xule:replace>
+                                <xule:expression class="hide">taxonomy().concept(ferc:TitleOfCertifyingOfficial).label("http://ferc.gov/form/2020-01-01/roles/label/F1FIdentification").text
+                                </xule:expression>
+                                <xule:template-display>
+                                        Title
+                                </xule:template-display>
+                        </xule:replace>
+                          
+                                  
+                </td>
+                <td class="combinedField cell-top xbrl" >
+                        <xule:replace>
+                                <xule:expression class="hide">taxonomy().concept(ferc:CertifyingOfficialDate).label("http://ferc.gov/form/2020-01-01/roles/label/F1FIdentification").text
+                                </xule:expression>
+                                <xule:template-display>
+                                        Date
+                                </xule:template-display>
+                        </xule:replace>
+                        
+                                  
+                </td>
+        </tr>
+        <tr>
+                <td class="xbrl line-number">1</td>
+                <td class="xbrl decription_items">
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true" >first(list([@concept=ferc:NameOfCertifyingOfficial @period=$currentDuration]))
+                                </xule:expression>
+                                <xule:template-display>
+                                        4,600,000 
+                                </xule:template-display>
+                        </xule:replace>  
+                    </td>
+                    <td class="xbrl decription_items">
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true" >first(list([@concept=ferc:CorporateOfficerCertificationSignature @period=$currentDuration]))
+                                </xule:expression>
+                                <xule:template-display>
+                                        4,600,000 
+                                </xule:template-display>
+                        </xule:replace>  
+                    </td>
+                    <td class="xbrl decription_items">
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true" >first(list([@concept=ferc:TitleOfCertifyingOfficial @period=$currentDuration]))
+                                </xule:expression>
+                                <xule:template-display>
+                                        4,600,000 
+                                </xule:template-display>
+                        </xule:replace>  
+                    </td>
+                    <td class="xbrl">
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true" >first(list([@concept=ferc:CertifyingOfficialDate @period=$currentDuration]))
+                                </xule:expression>
+                                <xule:template-display>
+                                        4,600,000 
+                                </xule:template-display>
+                        </xule:replace>  
+                    </td>
+                
+        </tr>      
+   
+        <tr>
+                <td class="combinedField xbrl" colspan="6">
+                        Title 18, U.S.C. 1001 makes it a crime for any person to knowingly and willingly to make to any Agency or Department of the United States any
+                        false, fictitious or fraudulent statements as to any matter within its jurisdiction.
+   
+                        <P></P>
+                        <P></P>
+                        <P></P>
+                                  
+                </td>
+        </tr>  
+              
+    </table>
+    <div class="schedule-footer">
+        <div>FERC FORM No.
+                <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                        <xule:template-display>1-F</xule:template-display>
+                </xule:replace>
+                <span> </span>
+                <xule:replace>
+                        <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleAnnualReportCorporateOfficerCertificationAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FDateRevised").text + ")"
+                        </xule:expression>
+                        <xule:template-display>
+                                REVISED 1-05
+                        </xule:template-display>
+                </xule:replace>       
+        </div>
+        <div class="center-text">Page 
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAnnualReportCorporateOfficerCertificationAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPage").text
+                        </xule:expression>
+                        <xule:template-display>
+                        3a
+                        </xule:template-display>
+                </xule:replace>
+        </div> 
+    </div>
+</body>
+
+</html>

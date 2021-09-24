@@ -1,0 +1,780 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F2 - 258</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl" id="ScheduleUnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAbstract">
+        <table class="schedule-header xbrl" width="100%">
+                <tr>
+                    <td class="xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                            <xule:template-display>Name of Respondent:</xule:template-display>
+                        </xule:replace><br/>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                            <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                        </xule:replace>
+                    </td>
+                    <td class="xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                            <xule:template-display>This report is:</xule:template-display>
+                        </xule:replace>
+                            <br/>
+                            (1) 
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]>
+                                        </xule:expression>  
+                                    <xule:template-display>
+                                            <input type="checkbox"/> An Original
+                                    </xule:template-display>
+                                </xule:replace>
+                                <br/>
+                            (2)
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                            </xule:expression> 
+                                        <xule:template-display>
+                                                <input type="checkbox" checked = "checked"/> A Resubmission
+                                        </xule:template-display>
+                                </xule:replace> 
+                    </td>
+                    <td class="xbrl"><xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                        <xule:template-display>Date of Report:</xule:template-display>
+                        </xule:replace><br/>
+                            <xule:replace>
+                                <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xule:expression>
+                                <xule:template-display>04/26/2019</xule:template-display>
+                        </xule:replace>
+                    </td>
+                    <td class="xbrl"><xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                        <xule:template-display>Year/Period of Report:</xule:template-display>
+                        </xule:replace><br/>
+                        End of: <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                            <xule:template-display>2018</xule:template-display>
+                        </xule:replace>
+                        <span>/</span>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xule:expression>
+                            <xule:template-display>Q4</xule:template-display>
+                        </xule:replace>
+                    </td>
+                </tr>
+            </table>
+    <table class="xbrl" width="100%">
+        <tr class="sch-title">
+            <td colspan="10" class="xbrl">
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleUnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2ScheduleTitle").text
+                        </xule:expression>
+                        <xule:template-display>
+                            Unamortized Debt Expense, Premium And Discount On Long-Term Debt (Accounts 181, 225, 226)
+                        </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="10">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleUnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                        <ol>
+                            <li>Report under separate subheadings for Unamortized Debt Expense, Unamortized Premium on Long-Term Debt and Unamortized Discount on Long-Term Debt, details of expense, premium or discount applicable to each class and series of long-term debt.</li>
+                            <li>Show premium amounts by enclosing the figures in parentheses.</li>
+                            <li>In column (b) show the principal amount of bonds or other long-term debt originally issued.</li>
+                            <li>In column (c) show the expense, premium or discount with respect to the amount of bonds or other long-term debt originally issued.</li>
+                            <li>Furnish in a footnote details regarding the treatment of unamortized debt expense, premium or discount associated with issues redeemed during the year.  Also, give in a footnote the date of the Commission's authorization of treatment other than as specified by the Uniform System of Accounts.</li>
+                            <li>Identify separately undisposed amounts applicable to issues which were redeemed in prior years.</li>
+                            <li>Explain any debits and credits other than amortization debited to Account 428, Amortization of Debt Discount and Expense, or credited to Account 429, Amortization of Premium on Debt-Credit.</li>
+                        </ol>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr class="col-heading-row">     
+            <td class="col-heading xbrl line-number">Line No.</td>
+            <td class="col-heading xbrl" xule:repeat="ColumnHeadings">
+                    <xule:expression class="hide" name="ColumnHeadings">
+                            $headings = filter (taxonomy().concept(ferc:ScheduleUnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "258 - Schedule - Unamortized Debt Expense (Account 181)") 
+    
+                            $heading = list(for $ref in $headings 
+                                list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value, $ref.part-by-name(ferc-part:ElementName).part-value))
+        
+                                $heading_dict = dict(for $row in $heading
+                                        list("("+$row[1]+")",list($row[2],if $row[3] == none $row[3] else taxonomy().concept(to-qname($row[3]))))
+                                );
+                                for $row in $heading_dict.keys.sort
+                    </xule:expression>
+                    <div style="text-align: center">
+                        <div class="tooltip">
+                                <div class="tooltiptext">
+                                        <xule:replace>
+                                                <xule:expression class="hide" name="ColumnHeadings" part="3">if $heading_dict[$row][2] != "" $heading_dict[$row][2].name.local-name else "" </xule:expression>
+                                            </xule:replace>
+                                </div>    
+                            <xule:replace>
+                                <xule:expression class="hide" html="true" name="ColumnHeadings" part="1">$heading_dict[$row][1]</xule:expression>
+                                <xule:template-display>
+                                    Nature of Payment
+                                </xule:template-display>
+                            </xule:replace>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center"><xule:replace>
+                            <xule:expression class="hide" name="ColumnHeadings" part="2">$row</xule:expression>
+                            <xule:template-display>
+                                (a)
+                            </xule:template-display>
+                    </xule:replace></div>
+                </td>
+        </tr>
+         <!-- Heading for Unamortized Debt Expense (Account 181)-->
+         <tr>
+            <td class="xbrl line-number">1</td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:UnamortizedDebtExpense).label("http://ferc.gov/form/2020-01-01/roles/label/F2UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebt").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                                Unamortized Debt Expense (Account 181)
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+                <td class="gray-out xbrl"></td>
+                <td class="gray-out xbrl"></td>
+                <td class="gray-out xbrl"></td>
+                <td class="gray-out xbrl"></td>
+                <td class="gray-out xbrl"></td>
+                <td class="gray-out xbrl"></td>
+                <td class="gray-out xbrl"></td>
+                <td class="gray-out xbrl"></td>
+        </tr>
+        <!-- Table for Unamortized Debt Expense (Account 181) -->
+        <tr class="schedule-row" xule:repeat="DebtExpense2">
+            <xule:expression class="hide" name="DebtExpense2">// adding a comment
+                
+            $data2 =   list(for $i in range(3)
+                            list($i,none,none,none,none,none,none,none,none,none)
+            );
+
+            $data = if count(list({covered @ferc:UnamortizedDebtExpenseAxis=*})) > 0  
+            
+           
+                list({covered @ferc:UnamortizedDebtExpenseAxis=*  {list(
+                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                        {@ferc:OrderNumber @unit=* @period=$currentDuration}
+                    else
+                        0,
+                    if exists({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration})
+                        first(list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}))
+                    else
+                        none,
+                    if exists({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration})
+                        first(list({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration}))
+                    else
+                        none,
+                    if exists({@ferc:LongTermDebtIssuanceExpenses @unit @period=$currentDuration})
+                        first(list({@ferc:LongTermDebtIssuanceExpenses @unit @period=$currentDuration}))
+                    else
+                        none,
+                    if exists({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration})
+                        first(list({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration}))
+                    else none,
+                    if exists({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration})
+                        first(list({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration}))
+                    else none,
+                    if exists({@ferc:UnamortizedDebtExpense @unit @period=$priorInstant})
+                        first(list({@ferc:UnamortizedDebtExpense @unit @period=$priorInstant}))
+                    else none,
+                    if exists({@ferc:DebtIssuanceExpensesLongTermDebtAdditions @unit @period=$currentDuration})
+                        first(list({@ferc:DebtIssuanceExpensesLongTermDebtAdditions @unit @period=$currentDuration}))
+                    else none,
+                    if exists({@ferc:AmortizationOfDebtIssuanceExpensesLongTermDebt @unit @period=$currentDuration})
+                        first(list({@ferc:AmortizationOfDebtIssuanceExpensesLongTermDebt @unit @period=$currentDuration}))
+                    else none,
+                    if exists({@ferc:UnamortizedDebtExpense @unit @period=$currentInstant})
+                        first(list({@ferc:UnamortizedDebtExpense @unit @period=$currentInstant}))
+                    else none
+
+                )}})
+                else $data2;
+            
+                $uniqueData = list(for $x in  $data
+                if $x == list(0,none,none,none,none,none,none,none,none,none)
+                    skip
+                else 
+                    $x
+                );
+
+                for $row in $uniqueData.sort
+  
+            </xule:expression>
+            <td class="xbrl line-number"><xule:lineNumber name="DebtExpense2"><xule:startNumber>2</xule:startNumber></xule:lineNumber>
+                <xule:template-display>1</xule:template-display>
+            </td>
+            <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="DebtExpense2" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                <xule:template-display>
+                        UNSECURED DEBENTURES 6.20% SERIES B DUE IN 2036
+                </xule:template-display>
+            </td>
+            <!-- Principal Amount of Debt Issued -->
+            <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DebtExpense2" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                <xule:template-display>
+                        $653,550
+                </xule:template-display>
+            </td>
+            <!-- Total Expense, Premium, or Discount -->
+            <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DebtExpense2" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                <xule:template-display>
+                        $653,550
+                </xule:template-display>
+            </td>
+            <!-- Amortization Period (From) -->
+            <td class="xbrl date_items"><xule:replace><xule:expression class="hide"  name="DebtExpense2" fact="true" format="ixt4:date-month-day-year" part="5">$row[5]</xule:expression></xule:replace>
+                <xule:template-display>
+                        03/10/2036
+                </xule:template-display>
+            </td>
+            <!-- Amortization Period (To) -->
+            <td class="xbrl date_items"><xule:replace><xule:expression class="hide"  name="DebtExpense2" fact="true" format="ixt4:date-month-day-year" part="6">$row[6]</xule:expression></xule:replace>
+                <xule:template-display>
+                        03/10/2006
+                </xule:template-display>
+            </td>
+            <!-- Balance at Beginning of Year-->
+            <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DebtExpense2" fact="true" format="ixt4:num-dot-decimal" part="7">$row[7]</xule:expression></xule:replace>
+                <xule:template-display>
+                        $653,550
+                </xule:template-display>
+            </td>  
+            <!-- Debits during Year -->
+            <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DebtExpense2" fact="true" format="ixt4:num-dot-decimal" part="8">$row[8]</xule:expression></xule:replace>
+                <xule:template-display>
+                        $396,315
+                </xule:template-display>
+            </td>
+            <!-- Credits during Year -->
+            <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DebtExpense2" fact="true" format="ixt4:num-dot-decimal" part="9">$row[9]</xule:expression></xule:replace>
+                <xule:template-display>
+                        $396,315
+                </xule:template-display>
+            </td>
+            <!-- Balance at End of Year -->
+            <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DebtExpense2" fact="true" format="ixt4:num-dot-decimal" part="10">$row[10]</xule:expression></xule:replace>
+                <xule:template-display>
+                        $396,315
+                </xule:template-display>
+            </td>
+        </tr> 
+    <!-- Heading for Premium on Long-Term Debt (Account 225) -->
+         <tr>
+                <td class="xbrl line-number">
+                        <xule:replace><xule:expression class="hide">
+                                $heading = 1;
+                                $item1 = if count(list([covered @ferc:DesignationOfLongTermDebt @ferc:UnamortizedDebtExpenseAxis=*])) > 0
+                                            count(list([covered @ferc:DesignationOfLongTermDebt @ferc:UnamortizedDebtExpenseAxis=*]))
+                                        else
+                                            3;        
+                   
+                                $heading + $item1 + 1
+                            </xule:expression></xule:replace>
+                                <xule:template-display>
+                                    1
+                                </xule:template-display>
+                </td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:UnamortizedPremiumOnLongTermDebt).label("http://ferc.gov/form/2020-01-01/roles/label/F2UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebt").text
+                        </xule:expression>
+                        <div>
+                            <xule:template-display>
+                                    Premium on Long-Term Debt (Account 225) 
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                 <td class="gray-out xbrl"></td>
+                 <td class="gray-out xbrl"></td>
+                 <td class="gray-out xbrl"></td>
+                 <td class="gray-out xbrl"></td>
+                 <td class="gray-out xbrl"></td>
+                 <td class="gray-out xbrl"></td>
+                 <td class="gray-out xbrl"></td>
+                 <td class="gray-out xbrl"></td>
+            </tr>
+        <!-- Table for Premium on Long-Term Debt (Account 225)  -->
+        <tr class="schedule-row" xule:repeat="PremiumLineItems">
+                <xule:expression class="hide" name="PremiumLineItems">// adding a comment
+                    
+                $data2 =   list(for $i in range(3)
+                                list($i,none,none,none,none,none,none,none,none,none)
+                );
+
+                $data = if count(list({covered @ferc:UnamortizedPremiumOnLongTermDebtAxis=*})) > 0  
+                
+               
+                    list({covered @ferc:UnamortizedPremiumOnLongTermDebtAxis=*  {list(
+                        if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                            {@ferc:OrderNumber @unit=* @period=$currentDuration}
+                        else
+                            0,
+                        if exists({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration})
+                            first(list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}))
+                        else
+                            none,
+                        if exists({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration})
+                            first(list({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration}))
+                        else
+                            none,
+                        if exists({@ferc:LongTermDebtPremium @unit @period=$currentDuration})
+                            first(list({@ferc:LongTermDebtPremium @unit @period=$currentDuration}))
+                        else
+                            none,
+                        if exists({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration})
+                            first(list({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration}))
+                        else none,
+                        if exists({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration})
+                            first(list({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration}))
+                        else none,
+                        if exists({@ferc:UnamortizedPremiumOnLongTermDebt @unit @period=$priorInstant})
+                            first(list({@ferc:UnamortizedPremiumOnLongTermDebt @unit @period=$priorInstant}))
+                        else 
+                            none,
+                        if exists({@ferc:AmortizationOfPremiumOnLongTermDebt @unit @period=$currentDuration})
+                            first(list({@ferc:AmortizationOfPremiumOnLongTermDebt @unit @period=$currentDuration}))
+                        else 
+                            none,
+                        if exists({@ferc:PremiumLongTermDebtAdditions @unit @period=$currentDuration})
+                            first(list({@ferc:PremiumLongTermDebtAdditions @unit @period=$currentDuration}))
+                        else none,
+                       
+                        if exists({@ferc:UnamortizedPremiumOnLongTermDebt @unit @period=$currentInstant})
+                            first(list({@ferc:UnamortizedPremiumOnLongTermDebt @unit @period=$currentInstant}))
+                        else none
+
+                    )}})
+                    else $data2;
+                
+                    $uniqueData = list(for $x in  $data
+                    if $x == list(0,none,none,none,none,none,none,none,none,none)
+                        skip
+                    else 
+                        $x
+                    );
+
+                    for $row in $uniqueData.sort       
+
+                </xule:expression>
+                <td class="xbrl line-number"><xule:lineNumber name="PremiumLineItems"><xule:startNumber>
+                        $heading = 2;
+                        $item1 = if count(list([covered @ferc:DesignationOfLongTermDebt @ferc:UnamortizedDebtExpenseAxis=*])) > 0
+                                    count(list([covered @ferc:DesignationOfLongTermDebt @ferc:UnamortizedDebtExpenseAxis=*]))
+                                else
+                                    3; 
+           
+                        $heading + $item1 + 1
+
+                </xule:startNumber></xule:lineNumber>
+                    <xule:template-display>3</xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="PremiumLineItems" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            UNSECURED DEBENTURES 6.20% SERIES B DUE IN 2036
+                    </xule:template-display>
+                </td>
+                <!-- Principal Amount of Debt Issued -->
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="PremiumLineItems" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $653,550
+                    </xule:template-display>
+                </td>
+                <!-- Total Expense, Premium, or Discount -->
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="PremiumLineItems" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $653,550
+                    </xule:template-display>
+                </td>
+                <!-- Amortization Period (From) -->
+                <td class="xbrl date_items"><xule:replace><xule:expression class="hide"  name="PremiumLineItems" fact="true" format="ixt4:date-month-day-year" part="5">$row[5]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            03/10/2036
+                    </xule:template-display>
+                </td>
+                <!-- Amortization Period (To) -->
+                <td class="xbrl date_items"><xule:replace><xule:expression class="hide"  name="PremiumLineItems" fact="true" format="ixt4:date-month-day-year" part="6">$row[6]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            03/10/2006
+                    </xule:template-display>
+                </td>
+                 <!-- Balance at Beginning of Year-->
+                <td class="xbrl  monetary_items"><xule:replace><xule:expression class="hide"  name="PremiumLineItems" fact="true" format="ixt4:num-dot-decimal" part="7">$row[7]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $653,550
+                    </xule:template-display>
+                </td>  
+                <!-- Debits during Year -->
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="PremiumLineItems" fact="true" format="ixt4:num-dot-decimal" part="8">$row[8]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $396,315
+                    </xule:template-display>
+                </td>
+                 <!-- Credits during Year -->
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="PremiumLineItems" fact="true" format="ixt4:num-dot-decimal" part="9">$row[9]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $396,315
+                    </xule:template-display>
+                </td>
+                <!-- Balance at End of Year -->
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="PremiumLineItems" fact="true" format="ixt4:num-dot-decimal" part="10">$row[10]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $396,315
+                    </xule:template-display>
+                </td>
+            </tr> 
+
+        <!-- Heading for Discount on Long-Term Debt (Account 226) -->
+        <tr>
+                <td class="xbrl line-number">
+                        <xule:replace><xule:expression class="hide">
+                                $heading = 3;
+                                $item1 = if count(list([covered @ferc:DesignationOfLongTermDebt @ferc:UnamortizedDebtExpenseAxis=*])) > 0
+                                            count(list([covered @ferc:DesignationOfLongTermDebt @ferc:UnamortizedDebtExpenseAxis=*]))
+                                        else
+                                            3;
+                                $item2 = if count(list([covered @ferc:DesignationOfLongTermDebt @ferc:UnamortizedPremiumOnLongTermDebtAxis=*])) > 0
+                                            count(list([covered @ferc:DesignationOfLongTermDebt @ferc:UnamortizedPremiumOnLongTermDebtAxis=*]))
+                                        else
+                                            3;            
+                   
+                                $heading + $item1 + $item2
+                            </xule:expression></xule:replace>
+                                <xule:template-display>
+                                    1
+                                </xule:template-display>
+                </td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:UnamortizedDiscountOnLongTermDebtDebit).label("http://ferc.gov/form/2020-01-01/roles/label/F2UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebt").text
+                        </xule:expression>
+                        <div>
+                            <xule:template-display>
+                                    Discount on Long-Term Debt (Account 226)
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                 <td class="gray-out xbrl"></td>
+                 <td class="gray-out xbrl"></td>
+                 <td class="gray-out xbrl"></td>
+                 <td class="gray-out xbrl"></td>
+                 <td class="gray-out xbrl"></td>
+                 <td class="gray-out xbrl"></td>
+                 <td class="gray-out xbrl"></td>
+                 <td class="gray-out xbrl"></td>
+        </tr>
+        <!-- Table for  Discount on Long-Term Debt (Account 226)  -->
+        <tr class="schedule-row" xule:repeat="DiscountLineItems">
+                <xule:expression class="hide" name="DiscountLineItems">// adding a comment
+                    
+                $data2 =   list(for $i in range(3)
+                                list($i,none,none,none,none,none,none,none,none,none)
+                );
+
+                $data = if count(list({covered @ferc:UnamortizedDiscountOnLongTermDebtAxis=*})) > 0  
+                
+               
+                    list({covered @ferc:UnamortizedDiscountOnLongTermDebtAxis=*  {list(
+                        if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                            {@ferc:OrderNumber @unit=* @period=$currentDuration}
+                        else
+                            0,
+                        if exists({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration})
+                            first(list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}))
+                        else
+                            none,
+                        if exists({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration})
+                            first(list({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration}))
+                        else
+                            none,
+                        if exists({@ferc:LongTermDebtDiscount @unit @period=$currentDuration})
+                            first(list({@ferc:LongTermDebtDiscount @unit @period=$currentDuration}))
+                        else
+                            none,
+                        if exists({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration})
+                            first(list({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration}))
+                        else none,
+                        if exists({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration})
+                            first(list({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration}))
+                        else 
+                            none,
+                        if exists({@ferc:UnamortizedDiscountOnLongTermDebtDebit @unit @period=$priorInstant})
+                            first(list({@ferc:UnamortizedDiscountOnLongTermDebtDebit @unit @period=$priorInstant}))
+                        else 
+                            none,
+                        if exists({@ferc:DiscountLongTermDebtAdditions @unit @period=$currentDuration})
+                            first(list({@ferc:DiscountLongTermDebtAdditions @unit @period=$currentDuration}))
+                        else 
+                            none,
+                        if exists({@ferc:AmortizationOfDiscountLongTermDebt @unit @period=$currentDuration})
+                            first(list({@ferc:AmortizationOfDiscountLongTermDebt @unit @period=$currentDuration}))
+                        else 
+                        none,
+                        if exists({@ferc:UnamortizedDiscountOnLongTermDebtDebit @unit @period=$currentInstant})
+                            first(list({@ferc:UnamortizedDiscountOnLongTermDebtDebit @unit @period=$currentInstant}))
+                        else 
+                            none
+                    )}})
+                    else $data2;
+                
+                    $uniqueData = list(for $x in  $data
+                    if $x == list(0,none,none,none,none,none,none,none,none,none)
+                        skip
+                    else 
+                        $x
+                    );
+
+                    for $row in $uniqueData.sort          
+
+                </xule:expression>
+                <td class="xbrl line-number"><xule:lineNumber name="DiscountLineItems"><xule:startNumber>
+                        $heading = 3;
+                        $item1 = if count(list([covered @ferc:DesignationOfLongTermDebt @ferc:UnamortizedDebtExpenseAxis=*])) > 0
+                                    count(list([covered @ferc:DesignationOfLongTermDebt @ferc:UnamortizedDebtExpenseAxis=*]))
+                                else
+                                    3;
+                        $item2 = if count(list([covered @ferc:DesignationOfLongTermDebt @ferc:UnamortizedPremiumOnLongTermDebtAxis=*])) > 0
+                                    count(list([covered @ferc:DesignationOfLongTermDebt @ferc:UnamortizedPremiumOnLongTermDebtAxis=*]))
+                                else
+                                    3;                   
+           
+                        $heading + $item1 + $item2 + 1
+
+                </xule:startNumber></xule:lineNumber>
+                    <xule:template-display>3</xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="DiscountLineItems" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            UNSECURED DEBENTURES 6.20% SERIES B DUE IN 2036
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DiscountLineItems" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $653,550
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DiscountLineItems" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $653,550
+                    </xule:template-display>
+                </td>
+                <td class="xbrl date_items"><xule:replace><xule:expression class="hide"  name="DiscountLineItems" fact="true" format="ixt4:date-month-day-year" part="5">$row[5]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            03/10/2006
+                    </xule:template-display>
+                </td>
+                <td class="xbrl date_items"><xule:replace><xule:expression class="hide"  name="DiscountLineItems" fact="true" format="ixt4:date-month-day-year" part="6">$row[6]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            03/10/2036
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DiscountLineItems" fact="true" format="ixt4:num-dot-decimal" part="7">$row[7]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $396,315
+                    </xule:template-display>
+                </td>  
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DiscountLineItems" fact="true" format="ixt4:num-dot-decimal" part="8">$row[8]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $396,315
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DiscountLineItems" fact="true" format="ixt4:num-dot-decimal" part="9">$row[9]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $396,315
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DiscountLineItems" fact="true" format="ixt4:num-dot-decimal" part="10">$row[10]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $396,315
+                    </xule:template-display>
+                </td>
+            </tr> 
+       
+        <!-- Heading for Histrical Data Section -->
+        <tr class="schedule-row" xule:repeat="DebtExpenseHeader">
+            <xule:expression class="hide" name="DebtExpenseHeader">
+                $Historicalheader = list(if count(list({covered @ferc:UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAxis=*})) > 0 
+                            "Historical Data"
+                        else
+                             skip);
+                for $row in $Historicalheader 
+            </xule:expression>
+            <td class="xbrl" colspan="14">
+                <xule:replace>
+                        <xule:expression class="hide"  name="DebtExpenseHeader" part="1">$row</xule:expression>
+                </xule:replace>
+            </td> 
+        </tr>
+        <!-- Table for Historical Data Conversion  -->
+        <tr class="schedule-row" xule:repeat="DebtExpense">
+                <xule:expression class="hide" name="DebtExpense">// adding a comment
+                    
+                $data = if count(list({covered @ferc:UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAxis=*})) > 0  
+                
+               
+                    list({covered @ferc:UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAxis=*  {list(
+                        if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                            first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                        else
+                            0,
+                        if exists({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration})
+                            first(list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}))
+                        else
+                            none,
+                        if exists({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration})
+                            first(list({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration}))
+                        else
+                            none,
+                        if exists({@ferc:UnamortizedDebtIssuanceExpensesPremiumsOnLongTermDebtOrDiscountsOnLongTermDebt @unit @period=$currentInstant})
+                            first(list({@ferc:UnamortizedDebtIssuanceExpensesPremiumsOnLongTermDebtOrDiscountsOnLongTermDebt @unit @period=$currentInstant}))
+                        else
+                            none,
+                        if exists({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration})
+                            first(list({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration}))
+                        else none,
+                        if exists({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration})
+                            first(list({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration}))
+                        else none,
+                        if exists({@ferc:BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @unit @period=$priorInstant})
+                            first(list({@ferc:BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @unit @period=$priorInstant}))
+                        else none,
+                        if exists({@ferc:UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtDebits @unit @period=$currentDuration})
+                            first(list({@ferc:UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtDebits @unit @period=$currentDuration}))
+                        else none,
+                        if exists({@ferc:UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtCredits @unit @period=$currentDuration})
+                            first(list({@ferc:UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtCredits @unit @period=$currentDuration}))
+                        else none,
+                        if exists({@ferc:BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @unit @period=$currentInstant})
+                            first(list({@ferc:BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @unit @period=$currentInstant}))
+                        else none
+
+                    )}})
+                    else skip;
+                         
+
+                    $uniqueData = list(for $x in  $data
+                    if $x == list(0,none,none,none,none,none,none,none,none,none)
+                        skip
+                    else 
+                        $x
+                    );
+
+                    for $row in $uniqueData.sort     
+
+                </xule:expression>
+                <td class="xbrl line-number"><xule:lineNumber name="DebtExpense"/>
+                    <xule:template-display>1</xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="DebtExpense" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            UNSECURED DEBENTURES 6.20% SERIES B DUE IN 2036
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DebtExpense" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        $653,550
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DebtExpense" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $653,550
+                    </xule:template-display>
+                </td>
+                <td class="xbrl date_items"><xule:replace><xule:expression class="hide"  name="DebtExpense" fact="true" format="ixt4:date-month-day-year" part="5">$row[5]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        03/10/2006
+                    </xule:template-display>
+                </td>
+                <td class="xbrl date_items"><xule:replace><xule:expression class="hide"  name="DebtExpense" fact="true" format="ixt4:date-month-day-year" part="6">$row[6]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        03/10/2006
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DebtExpense" fact="true" format="ixt4:num-dot-decimal" part="7">$row[7]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        $653,550
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DebtExpense" fact="true" format="ixt4:num-dot-decimal" part="8">$row[8]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        $653,550
+                    </xule:template-display>
+                </td>  
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DebtExpense" fact="true" format="ixt4:num-dot-decimal" part="9">$row[9]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $396,315
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DebtExpense" fact="true" format="ixt4:num-dot-decimal" part="10">$row[10]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $396,315
+                    </xule:template-display>
+                </td>
+            </tr> 
+    </table>
+<br/>
+<div class="schedule-footer">
+    <div>FERC FORM No. 
+            <xule:replace>
+                <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                <xule:template-display>2/3-Q</xule:template-display>
+            </xule:replace>
+            <span> </span>
+            <xule:replace>
+                    <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleUnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2DateRevised").text + ")"
+                    </xule:expression>
+                    <xule:template-display>
+                            12-96
+                    </xule:template-display>
+            </xule:replace>
+    </div>
+    <div class="center-text">Page 
+            <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ScheduleUnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Page").text
+                    </xule:expression>
+                    <xule:template-display>
+                            259
+                    </xule:template-display>
+            </xule:replace>
+    </div>  
+
+
+</div>
+</body>
+</html>

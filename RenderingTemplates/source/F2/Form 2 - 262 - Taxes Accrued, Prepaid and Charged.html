@@ -1,0 +1,657 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F2/F2A - 262</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl" id="ScheduleTaxesAccruedPrepaidAndChargedDuringYearDistributionOfTaxesChargedAbstract">
+        <table class="schedule-header xbrl" width="100%">
+                <tr>
+                    <td class="xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                            <xule:template-display>Name of Respondent:</xule:template-display>
+                        </xule:replace><br/>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                            <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                        </xule:replace>
+                    </td>
+                    <td class="xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                            <xule:template-display>This report is:</xule:template-display>
+                        </xule:replace>
+                        <br/>
+                            (1) 
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]>
+                                        </xule:expression>  
+                                    <xule:template-display>
+                                            <input type="checkbox"/> An Original
+                                    </xule:template-display>
+                                </xule:replace>
+                                <br/>
+                            (2)
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                            </xule:expression> 
+                                        <xule:template-display>
+                                                <input type="checkbox" checked = "checked"/> A Resubmission
+                                        </xule:template-display>
+                                </xule:replace> 
+                    </td>
+                    <td class="xbrl"><xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                        <xule:template-display>Date of Report:</xule:template-display>
+                        </xule:replace><br/>
+                            <xule:replace>
+                                <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xule:expression>
+                                <xule:template-display>04/26/2019</xule:template-display>
+                        </xule:replace>
+                    </td>
+                    <td class="xbrl"><xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                        <xule:template-display>Year/Period of Report:</xule:template-display>
+                        </xule:replace><br/>
+                        End of: <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                            <xule:template-display>2018</xule:template-display>
+                        </xule:replace>
+                        <span>/</span>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xule:expression>
+                            <xule:template-display>Q4</xule:template-display>
+                        </xule:replace>
+                    </td>
+                </tr>
+            </table>
+            
+    <table class="xbrl" width="100%">
+        <tr class="sch-title">
+            <td colspan="21" class="xbrl">
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleTaxesAccruedPrepaidAndChargedDuringYearDistributionOfTaxesChargedAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2ScheduleTitle").text
+                        </xule:expression>
+                        <xule:template-display>
+                            Taxes Accrued, Prepaid and Charged During Year, Distribution of Taxes Charged (Show utility dept where applicable and acct charged)
+                        </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="21">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleTaxesAccruedPrepaidAndChargedDuringYearDistributionOfTaxesChargedAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                        <ol>
+                            <li> Give details of the combined prepaid and accrued tax accounts and show the total taxes charged to operations and other accounts during the year.  Do not include gasoline and   other sales taxes which have been charged to the accounts to which the taxed material was charged.  If the actual or estimated amounts of such taxes are known, show the amounts in a footnote and designate whether estimated or actual amounts.</li>
+                            <li>Include on this page, taxes paid during the year and charged direct to final accounts, (not charged to prepaid or accrued taxes). Enter the amounts in both columns (d) and (e).  The balancing of this page is not affected by the inclusion of these taxes.</li>
+                            <li>Include in column (d) taxes charged during the year, taxes charged to operations and other accounts through (a) accruals credited to taxes accrued, (b) amounts credited to the portion of prepaid taxes charged to current year, and (c) taxes paid and charged direct to operations or accounts other than accrued and prepaid tax accounts.</li>
+                            <li>List the aggregate of each kind of tax in such manner that the total tax for each State and subdivision can readily be ascertained.</li>
+                            <li> If any tax (exclude Federal and State income taxes) covers more than one year, show the required information separately for each tax year, identifying the year in column (a).</li>
+                            <li>Enter all adjustments of the accrued and prepaid tax accounts in column (f) and explain each adjustment in a footnote.  Designate debit adjustments by parentheses.</li>
+                            <li>Do not include on this page entries with respect to deferred income taxes or taxes collected through payroll deductions or otherwise pending transmittal of such taxes to the taxing authority.</li>
+                            <li>Show in columns (i) thru (p) how the taxes accounts were distributed.  Show both the utility department and number of account charged.  For taxes charged to utility plant, show the number of the appropriate balance sheet plant account or subaccount.</li>
+                            <li>For any tax apportioned to more than one utility department or account, state in a footnote the basis (necessity) of apportioning such tax.</li>
+                            <li>Items under $250,000 may be grouped.</li>
+                            <li>Report in column (q) the applicable effective state income tax rate.</li>
+                        </ol>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr class="col-heading-row">
+            <td class="col-heading xbrl line-number">Line No.</td>
+           
+                <td class="col-heading xbrl" xule:repeat="TaxesAccruedHead">
+                        <xule:expression class="hide" name="TaxesAccruedHead">
+                                $headings = filter (taxonomy().concept(ferc:ScheduleTaxesAccruedPrepaidAndChargedDuringYearDistributionOfTaxesChargedAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "262 - Schedule - Taxes Accrued, Prepaid and Charged During Year, Distribution of Taxes Charged (Show utility dept where applicable and acct charged)") 
+        
+                                $heading = list(for $ref in $headings 
+                                    list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value, $ref.part-by-name(ferc-part:ElementName).part-value))
+            
+                                    $heading_dict = dict(for $row in $heading
+                                            list("("+$row[1]+")",list($row[2],if $row[3] == none "" else taxonomy().concept(to-qname($row[3]))))
+                                    );
+                                    for $row in $heading_dict.keys.sort
+                        </xule:expression>
+                        <div style="text-align: center">
+                            <div class="tooltip">
+                                    <div class="tooltiptext">
+                                            <xule:replace>
+                                                    <xule:expression class="hide" name="TaxesAccruedHead" part="3">if $heading_dict[$row][2] != "" $heading_dict[$row][2].name.local-name else "" </xule:expression>
+                                                </xule:replace>
+                                    </div>    
+                                <xule:replace>
+                                    <xule:expression class="hide" name="TaxesAccruedHead" part="1">$heading_dict[$row][1]</xule:expression>
+                                    <xule:template-display>
+                                        Nature of Payment
+                                    </xule:template-display>
+                                </xule:replace>
+                            </div>
+                        </div>
+    
+                        <div style="text-align: center"><xule:replace>
+                                <xule:expression class="hide" name="TaxesAccruedHead" part="2">$row</xule:expression>
+                                <xule:template-display>
+                                    (a)
+                                </xule:template-display>
+                        </xule:replace></div>
+                    </td>
+        </tr>
+
+        <tr class="schedule-row" xule:repeat="TaxesAccrued">
+            <xule:expression class="hide" name="TaxesAccrued">// adding a comment
+                $data2 =   list(for $i in range(39)
+                                list($i,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none, none, none, none, "")   
+                                );
+
+                $data = if count(list([covered @ferc:TaxesAccruedPrepaidAndChargedAxis=*])) > 0  
+                
+                    list({covered @ferc:TaxesAccruedPrepaidAndChargedAxis=*  {list(
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
+                            first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                    else
+                        0,
+                    if list({@ferc:DescriptionOfTaxesAccruedPrepaidAndCharged @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:DescriptionOfTaxesAccruedPrepaidAndCharged @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:TypeOfTax @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TypeOfTax @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:TaxJurisdiction @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxJurisdiction @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:TaxYear @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxYear @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:TaxesAccrued @unit  @period=$priorInstant}).length > 0 
+                        first(list({@ferc:TaxesAccrued @unit @period=$priorInstant}))
+                    else 
+                        none,
+                    if list({@ferc:PrepaidTaxes @unit  @period=$priorInstant}).length > 0 
+                        first(list({@ferc:PrepaidTaxes @unit @period=$priorInstant}))
+                    else 
+                        none,
+                    if list({@ferc:TaxesCharged @unit  @period=$currentDuration}).length > 0  
+                        first(list({@ferc:TaxesCharged @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:TaxesPaid @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxesPaid @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:TaxAdjustments @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxAdjustments @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if list({@ferc:TaxesAccrued @unit=*  @period=$currentInstant}).length > 0 
+                        first(list({@ferc:TaxesAccrued @unit=* @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:PrepaidTaxes @unit  @period=$currentInstant}).length > 0 
+                        first(list({@ferc:PrepaidTaxes @unit @period=$currentInstant}))
+                    else 
+                        none,    
+                    if list({@ferc:TaxesAccruedPrepaidAndCharged @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxesAccruedPrepaidAndCharged @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:TaxesAccruedPrepaidAndCharged @ferc:UtilityTypeAxis=ferc:GasUtilityMember @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxesAccruedPrepaidAndCharged @ferc:UtilityTypeAxis=ferc:GasUtilityMember @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if list({@ferc:TaxesAccruedPrepaidAndCharged @ferc:UtilityTypeAxis=ferc:OtherUtilityMember @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxesAccruedPrepaidAndCharged @ferc:UtilityTypeAxis=ferc:OtherUtilityMember @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:OtherIncomeAndDeductions @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:OtherIncomeAndDeductions @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:IncomeTaxesExtraordinaryItems @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:IncomeTaxesExtraordinaryItems @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if list({@ferc:OtherUtilityOperatingIncomeAssociatedWithTaxesOtherThanIncomeTaxes @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:OtherUtilityOperatingIncomeAssociatedWithTaxesOtherThanIncomeTaxes @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if list({@ferc:AdjustmentsToRetainedEarnings @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:AdjustmentsToRetainedEarnings @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if list({@ferc:TaxesIncurredOther @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxesIncurredOther @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if list({@ferc:StateLocalIncomeTaxRate @unit @period=$currentDuration}).length > 0 
+                        first(list({@ferc:StateLocalIncomeTaxRate @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    "Detail"
+                    )}})
+                    else $data2;
+                
+                $cleanedDimData = list(for $z in $data
+                                    if $z == list(0,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none, none, none, none, "Detail")
+                                        skip
+                                    else
+                                        $z
+                                    ).sort;
+                $dataTaxTotals = if count(list([covered @ferc:KindOfTaxAxis=*])) > 0  
+
+                    list({covered @ferc:KindOfTaxAxis=*  {list(
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
+                            first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                    else
+                        0,
+                    if list({@ferc:DescriptionOfTaxesAccruedPrepaidAndCharged @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:DescriptionOfTaxesAccruedPrepaidAndCharged @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:TypeOfTax @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TypeOfTax @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:TaxJurisdiction @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxJurisdiction @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:TaxYear @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxYear @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:TaxesAccrued @unit  @period=$priorInstant}).length > 0 
+                        first(list({@ferc:TaxesAccrued @unit @period=$priorInstant}))
+                    else 
+                        none,
+                    if list({@ferc:PrepaidTaxes @unit  @period=$priorInstant}).length > 0 
+                        first(list({@ferc:PrepaidTaxes @unit @period=$priorInstant}))
+                    else 
+                        none,
+                    if list({@ferc:TaxesCharged @unit  @period=$currentDuration}).length > 0  
+                        first(list({@ferc:TaxesCharged @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:TaxesPaid @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxesPaid @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:TaxAdjustments @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxAdjustments @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if list({@ferc:TaxesAccrued @unit=*  @period=$currentInstant}).length > 0 
+                        first(list({@ferc:TaxesAccrued @unit=* @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:PrepaidTaxes @unit  @period=$currentInstant}).length > 0 
+                        first(list({@ferc:PrepaidTaxes @unit @period=$currentInstant}))
+                    else 
+                        none,    
+                    if list({@ferc:TaxesAccruedPrepaidAndCharged @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxesAccruedPrepaidAndCharged @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:TaxesAccruedPrepaidAndCharged @ferc:UtilityTypeAxis=ferc:GasUtilityMember @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxesAccruedPrepaidAndCharged @ferc:UtilityTypeAxis=ferc:GasUtilityMember @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if list({@ferc:TaxesAccruedPrepaidAndCharged @ferc:UtilityTypeAxis=ferc:OtherUtilityMember @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxesAccruedPrepaidAndCharged @ferc:UtilityTypeAxis=ferc:OtherUtilityMember @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:OtherIncomeAndDeductions @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:OtherIncomeAndDeductions @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if list({@ferc:IncomeTaxesExtraordinaryItems @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:IncomeTaxesExtraordinaryItems @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if list({@ferc:OtherUtilityOperatingIncomeAssociatedWithTaxesOtherThanIncomeTaxes @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:OtherUtilityOperatingIncomeAssociatedWithTaxesOtherThanIncomeTaxes @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if list({@ferc:AdjustmentsToRetainedEarnings @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:AdjustmentsToRetainedEarnings @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if list({@ferc:TaxesIncurredOther @unit  @period=$currentDuration}).length > 0 
+                        first(list({@ferc:TaxesIncurredOther @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if list({@ferc:StateLocalIncomeTaxRate @unit @period=$currentDuration}).length > 0 
+                        first(list({@ferc:StateLocalIncomeTaxRate @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    "Subtotal"
+                    )}})
+                    else skip;
+                
+                $cleanedDataSubTotal = list(for $z in $dataTaxTotals
+                                    if $z == list(0,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,"Subtotal")
+                                        skip
+                                    else
+                                        $z
+                                    );
+                
+                $cleanedData = $cleanedDimData + $cleanedDataSubTotal
+                
+                for $row in $cleanedData.sort
+           
+            </xule:expression>
+
+                <td class="xbrl line-number"><xule:lineNumber name="TaxesAccrued"/>
+                    <xule:template-display>1</xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="TaxesAccrued" part="2">if ($row[22] =="Detail") $row[2] else if ($row[22]=="Subtotal" and $row[2] == none) "Subtotal " + taxonomy().concept($row[6].dimension(ferc:KindOfTaxAxis).name).label("http://ferc.gov/form/2020-01-01/roles/label/F2TaxesAccrued").text else $row[2] </xule:expression>  
+                <xule:class class="hide" location="parent">if ($row[22]=="Subtotal") "total_items" else ""</xule:class>
+                <xule:fact>not($row[22]=="Subtotal" and $row[2] == none)</xule:fact>
+                </xule:replace>
+                    <xule:template-display>
+                            Property Tax - California 2018 
+                    </xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="TaxesAccrued" fact="true" part="2">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                           Income Tax
+                    </xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="TaxesAccrued" fact="true" part="2">$row[4]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            Federal
+                    </xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="TaxesAccrued" fact="true" part="2">$row[5]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            2018
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="3">$row[6]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $0
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="4">$row[7]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $0
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="5">$row[8]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $1,028,494
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="6">$row[9]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $514,247
+                    </xule:template-display>
+                </td>  
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="7">$row[10]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $0
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="8">$row[11]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $0
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="9">$row[12]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $0
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="10">$row[13]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $0
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="11">$row[14]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $0
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="12">$row[15]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $0
+                    </xule:template-display>
+                </td>
+               <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="13">$row[16]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $0
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="14">$row[17]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $0
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="15">$row[18]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $0
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="16">$row[19]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $0
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="17">$row[20]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $0
+                    </xule:template-display>
+                </td>
+                <td class="xbrl percent_items"><xule:replace><xule:expression class="hide"  scale="-2" name="TaxesAccrued" fact="true" format="ixt4:num-dot-decimal" part="18">$row[21]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $0
+                    </xule:template-display>
+                </td>
+            </tr> 
+
+            <tr>
+                <td class="xbrl line-number">40</td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:TaxesAccrued).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                        </xule:expression>
+                        <div>
+                            <xule:template-display>
+                             Total
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:TaxesAccrued @period = $priorInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $1,464,112 
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @ferc:PrepaidTaxes @period = $priorInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $0
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @ferc:TaxesCharged @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $2,907,175 
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @ferc:TaxesPaid @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $2,911,545
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @ferc:TaxAdjustments @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $0
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @ferc:TaxesAccrued @period = $currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $1,459,742 
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @ferc:PrepaidTaxes @period = $currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $0
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @ferc:TaxesAccruedPrepaidAndCharged @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $0 
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @ferc:TaxesAccruedPrepaidAndCharged @ferc:UtilityTypeAxis=ferc:GasUtilityMember @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $2,904,286 
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @ferc:TaxesAccruedPrepaidAndCharged @ferc:UtilityTypeAxis=ferc:OtherUtilityMember @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $0 
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @ferc:OtherIncomeAndDeductions @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $0 
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:IncomeTaxesExtraordinaryItems @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $0 
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:OtherUtilityOperatingIncomeAssociatedWithTaxesOtherThanIncomeTaxes @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $0
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AdjustmentsToRetainedEarnings @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $0
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:TaxesIncurredOther @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $2,889 
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <td class="xbrl gray-out"></td> <!-- State/Local Income Tax Rate -->
+            </tr> 
+    </table>
+<br/>
+<div class="schedule-footer">
+         <div>FERC FORM No. 
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                    <xule:template-display>2/3-Q</xule:template-display>
+                </xule:replace>
+                <span> </span>
+                <xule:replace>
+                        <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleTaxesAccruedPrepaidAndChargedDuringYearDistributionOfTaxesChargedAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2DateRevised").text + ")"
+                        </xule:expression>
+                        <xule:template-display>
+                                12-96
+                        </xule:template-display>
+                </xule:replace>
+        </div>
+        <div class="center-text">Page 
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleTaxesAccruedPrepaidAndChargedDuringYearDistributionOfTaxesChargedAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Page").text
+                        </xule:expression>
+                        <xule:template-display>
+                        262
+                        </xule:template-display>
+                </xule:replace>
+        </div> 
+</div>
+</body>
+</html>

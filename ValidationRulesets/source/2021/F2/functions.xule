@@ -59,3 +59,21 @@ function pad($padee, $len, $pad_char)
 		$padded_num = $padding + $padee;
 
 		substring($padded_num, length($padded_num)-$len+1)
+
+/** 
+ * most_frequent
+ * 
+ * This function will return the most frequent item in a list.
+ * 
+ * @param list - $listOfItems - Passes the list of items to determine the most common.
+ **/
+function most_frequent($list_of_items)
+            $unique_items = $list_of_items.to-set;
+            $index = dict(for $x in $unique_items
+                        list((filter $list_of_items where $item == $x).length, $x)
+            );
+            $max_occurence = max(list(for $x in $unique_items
+                                    (filter $list_of_items where $item == $x).length
+                              )
+                              )
+            $index[$max_occurence]

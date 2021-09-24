@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F2 - 522.1</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl" id="ScheduleSystemMapsAbstract">
+        <table class="schedule-header xbrl" width="100%">
+                <tr>
+                    <td class="xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                            <xule:template-display>Name of Respondent:</xule:template-display>
+                        </xule:replace><br/>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                            <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                        </xule:replace>
+                    </td>
+                    <td class="xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                            <xule:template-display>This report is:</xule:template-display>
+                        </xule:replace>
+                            <br/>
+                            (1) 
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]>
+                                        </xule:expression>  
+                                    <xule:template-display>
+                                            <input type="checkbox"/> An Original
+                                    </xule:template-display>
+                                </xule:replace>
+                                <br/>
+                            (2)
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                            </xule:expression> 
+                                        <xule:template-display>
+                                                <input type="checkbox" checked = "checked"/> A Resubmission
+                                        </xule:template-display>
+                                </xule:replace> 
+                    </td>
+                    <td class="xbrl"><xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                        <xule:template-display>Date of Report:</xule:template-display>
+                        </xule:replace><br/>
+                            <xule:replace>
+                                <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xule:expression>
+                                <xule:template-display>04/26/2019</xule:template-display>
+                        </xule:replace>
+                    </td>
+                    <td class="xbrl"><xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                        <xule:template-display>Year/Period of Report:</xule:template-display>
+                        </xule:replace><br/>
+                        End of: <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                            <xule:template-display>2018</xule:template-display>
+                        </xule:replace>
+                        <span>/</span>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xule:expression>
+                            <xule:template-display>Q4</xule:template-display>
+                        </xule:replace>
+                    </td>
+                </tr>
+            </table>
+    <table class="xbrl">
+        <tr class="sch-title">
+            <td colspan="1" class="xbrl">
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleSystemMapsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2ScheduleTitle").text
+                        </xule:expression>
+                        <xule:template-display>
+                            System Maps
+                        </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+         <tr>
+            <td class="instruction xbrl" colspan="1">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleSystemMapsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                    <ol>
+                        <li>Furnish five copies of a system map (one with each filed copy of this report) of the facilities operated by the respondent for the production, gathering, transportation, and sale of natural gas.  New maps need not be furnished if no important change has occurred in the facilities operated by the respondent since the date of the maps furnished with a previous year's annual report.  If, however, maps are not furnished for this reason, reference should be made in the space below to the year's annual report with which the maps were furnished.</li>
+                        <li>Indicate the following information on the maps:
+                            (a)  Transmission lines.
+                            (b)  Incremental facilities.
+                            (c)  Location of gathering areas.
+                            (d)  Location of zones and rate areas.
+                            (e)  Location of storage fields.
+                            (f)  Location of natural gas fields.
+                            (g)  Location of compressor stations.
+                            (h)  Normal direction of gas flow (indicated by arrows).
+                            (i)  Size of pipe.
+                            (j)  Location of products extraction plants, stabilization plants, purification plants, recycling areas, etc.
+                            (k)  Principal communities receiving service through the respondent's pipeline.</li>
+                        <li>In addition, show on each map: graphic scale of the map; date of the facts the map purports to show; a legend giving all symbols and abbreviations used; designations of facilities leased to or from another company, giving name of such other company.</li>
+                        <li>Maps not larger than 24 inches square are desired.  If necessary, however, submit larger maps to show essential information.  Fold the maps to a size not larger then this report.  Bind the maps to the report.</li>
+                    </ol>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <div class="schedule-footer">
+        <div>FERC FORM No. 
+            <xule:replace>
+                    <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                    <xule:template-display>2/3-Q</xule:template-display>
+            </xule:replace>
+            <span> </span>
+            <xule:replace>
+                    <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleSystemMapsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2DateRevised").text + ")"
+                    </xule:expression>
+                    <xule:template-display>
+                        REV 12-96
+                    </xule:template-display>
+            </xule:replace>            
+        </div>
+        <div class="center-text">Page 
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleSystemMapsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Page").text
+                        </xule:expression>
+                        <xule:template-display>
+                            522.1
+                        </xule:template-display>
+                </xule:replace>
+        </div> 
+    </div>
+</body>
+
+</html>

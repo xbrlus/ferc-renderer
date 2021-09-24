@@ -1,0 +1,1575 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F2 - 518</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl" id="ScheduleTransmissionSystemPeakDeliveriesAbstract">
+    <table class="schedule-header xbrl" width="100%">
+        <tr>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
+                </xule:replace><br/>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                    <xule:template-display>This report is:</xule:template-display>
+                </xule:replace>
+                    <br/>
+                    (1) 
+                        <xule:replace>
+                                <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                                '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                                '<span class="checkbox">&#9744;</span> An Original']]>
+                                </xule:expression>  
+                            <xule:template-display>
+                                    <input type="checkbox"/> An Original
+                            </xule:template-display>
+                        </xule:replace>
+                        <br/>
+                    (2)
+                        <xule:replace>
+                                <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                                '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                                '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                                '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                    </xule:expression> 
+                                <xule:template-display>
+                                        <input type="checkbox" checked = "checked"/> A Resubmission
+                                </xule:template-display>
+                        </xule:replace> 
+            </td>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                <xule:template-display>Date of Report:</xule:template-display>
+                </xule:replace><br/>
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xule:expression>
+                        <xule:template-display>04/26/2019</xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                <xule:template-display>Year/Period of Report:</xule:template-display>
+                </xule:replace><br/>
+                End of: <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                    <xule:template-display>2018</xule:template-display>
+                </xule:replace>
+                <span>/</span>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xule:expression>
+                    <xule:template-display>Q4</xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+    </table>
+    <table class="xbrl">
+        <tr class="sch-title">
+            <td colspan="5" class="xbrl">
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleTransmissionSystemPeakDeliveriesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2ScheduleTitle").text
+                        </xule:expression>
+                        <xule:template-display>
+                            Transmission System Peak Deliveries
+                        </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="5">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleTransmissionSystemPeakDeliveriesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                            <ol>
+                                <li>Report below the total transmission system deliveries of gas (in Dth), excluding deliveries to storage, for the period of system peak deliveries indicated below, during the 12 months embracing the heating season overlapping the year's end for which this report is submitted.  The season's peak normally will be reached before the due date of this report, April 30, which permits inclusion of the peak information required on this page.  Add rows as necessary to report all data.  Number additional rows 6.01, 6.02, etc.</li>
+                            </ol>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr class="col-heading-row">
+            <td class="col-heading xbrl line-number">Line No.</td>
+            <td class="col-heading xbrl" xule:repeat="Headings">
+                    <xule:expression class="hide" name="Headings">
+                            $headings = filter (taxonomy().concept(ferc:ScheduleTransmissionSystemPeakDeliveriesAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "518 - Schedule - Transmission System Peak Deliveries - Single Day Peak Deliveries") 
+
+                            $headings = list(for $ref in $headings 
+                            list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value))
+
+                            $heading_dict = dict(for $row in $headings
+                                    list("("+$row[1]+")",$row[2])
+                            );
+                            for $row in $heading_dict.keys.sort
+                    </xule:expression>
+                    <div style="text-align: center"><xule:replace>
+                    <xule:expression class="hide" name="Headings" part="1">$heading_dict[$row]</xule:expression>
+                    <xule:template-display>
+                            Description
+                    </xule:template-display>
+                </xule:replace>
+            </div>
+                <div style="text-align: center"><xule:replace>
+                        <xule:expression class="hide" name="Headings" part="2">$row</xule:expression>
+                        <xule:template-display>
+                            (a)
+                        </xule:template-display>
+                    </xule:replace></div>
+            </td>
+        </tr>
+
+        <tr class="schedule-row">
+                <td class="xbrl line-number"></td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:SingleDayPeakDeliveriesMember).label("http://ferc.gov/form/2020-01-01/roles/label/F2PeakDeliveries").text
+                        </xule:expression>
+                        <div>
+                            <xule:template-display>
+                                    SECTION A: SINGLE DAY PEAK DELIVERIES
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+        </tr>
+        <tr class="schedule-row">
+                <td class="xbrl line-number">1</td>
+                <td class="xbrl description_items">
+                        <xule:replace>
+                                <xule:expression class="hide">
+                                        taxonomy().concept(ferc:StartDatePeakDeliveries).label("http://ferc.gov/form/2020-01-01/roles/label/F2PeakDeliveries").text
+                                </xule:expression>
+                                <div>
+                                        <xule:template-display>
+                                                Dates:
+                                        </xule:template-display>
+                                </div>
+                            </xule:replace>
+                            <xule:replace>
+                                <xule:expression class="hide" fact="true">max(list([covered @concept=ferc:DescriptiveStartDateForPeakDeliveries @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period=$currentDuration]))</xule:expression>
+                                <xule:template-display>
+                                    Date: 5/25/2018  
+                                </xule:template-display>
+                        </xule:replace>  
+                </td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+        </tr>
+        <tr class="schedule-row">
+                <td class="xbrl line-number">2</td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:VolumesOfGasTransportedAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2PeakDeliveries").text
+                        </xule:expression>
+                        <div>
+                            <xule:template-display>
+                                    Volumes of Gas Transported
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+        </tr>
+
+        <tr class="schedule-row" xule:repeat="TransmissionLineItems">
+                <xule:expression class="hide" name="TransmissionLineItems">
+                    $data = navigate parent-child descendants from ferc:VolumesOfGasTransportedAbstract role "http://ferc.gov/form/2020-01-01/roles/Schedule/F2/TransmissionSystemPeakDeliveriesSingleDay" returns list (target-name, preferred-label, result-order);
+                    $data-labels = list(for $row in $data
+                            $concept = taxonomy().concept($row[1]);
+                            $row_num = (filter $concept.references("http://ferc.gov/form/2020-01-01/roles/reference/formLocation") where ($item.part-by-name(ferc-part:Schedule).part-value == "518 - Schedule - Transmission System Peak Deliveries - Single Day Peak Deliveries" and $item.part-by-name(ferc-part:ValueType).part-value.string == "Label")).to-list;
+                            $total = if list([covered @concept = $row[1] @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                            first(list([covered @concept = $row[1] @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]))
+                                      else
+                                            none
+                            $interstate = if list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                                         first(list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]))
+                                        else
+                                                         none
+                            $others = if list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                                        first(list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]))
+                                        else
+                                                        none
+
+                
+                            list($concept,
+                            $concept.label($row[2].role.uri).text,
+                            if ($row_num.part-by-name(ferc-part:Row)).length > 0 
+                                ($row_num.part-by-name(ferc-part:Row))[1].part-value
+                            else
+                                "",
+                            $interstate,
+                            $others,
+                            $total
+                
+                                ));
+                    for $rowl in $data-labels
+                
+                </xule:expression>
+
+                <td class="xbrl line-number">
+                    <xule:replace><xule:expression class="hide" name="TransmissionLineItems" part="1">$rowl[3]</xule:expression></xule:replace>
+                    <xule:template-display>1</xule:template-display>
+                </td> 
+                <td class="xbrl description_items">
+                        <div class="tooltip">
+                                <div class="tooltiptext">
+                                        <xule:replace>
+                                                <xule:expression class="hide" name="TransmissionLineItems" part="6">$rowl[1].name.local-name</xule:expression>
+                                            </xule:replace>
+                                </div>
+                        <xule:replace>
+                            <xule:expression class="hide" name="TransmissionLineItems"  part="2">$rowl[2]</xule:expression>
+                            <xule:class location="parent">if $rowl[1].is-abstract "title" else ""</xule:class>
+                            <xule:fact class="hide">if $rowl[2].is-fact "true" else "false"</xule:fact>
+                        </xule:replace>
+                        <xule:template-display>Section A: SINGLE DAY PEAK DELIVERIES</xule:template-display>
+                        </div>
+                </td> 
+
+                <td class="numeric_items xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="TransmissionLineItems" part="4">$rowl[4]</xule:expression>
+                            <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                        </xule:replace>        
+                </td> 
+
+                <td class="numeric_items xbrl">
+                        <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="TransmissionLineItems" part="5">$rowl[5]</xule:expression>
+                        <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                    </xule:replace>        
+                </td> 
+              
+                <td class="numeric_items xbrl">
+                        <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="TransmissionLineItems" part="6">$rowl[6]</xule:expression>
+                        <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                    </xule:replace>                
+                </td> 
+        </tr>
+        <tr class="schedule-row">
+                <td class="xbrl line-number">6</td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:OtherTransportationVolumesOfGasTransported).label("http://ferc.gov/form/2020-01-01/roles/label/F2PeakDeliveries").text
+                        </xule:expression>
+                        <div>
+                            <xule:template-display>
+                                    Other (describe)
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+        </tr>
+        <tr class="schedule-row" xule:repeat="TransportedLineItems">
+                <xule:expression class="hide" name="TransportedLineItems">// adding a comment
+                    
+                $data2 =   list(for $i in range(1)
+                                list($i,none,none,none,none)
+                );
+                
+                $data = if count(list({covered @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=*})) > 0  
+                    
+                   
+                    list({covered @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=*  {list(
+                        
+                    if exists({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration})
+                        first(list({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}))
+                    else
+                        0,
+                    if exists({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}) 
+                        first(list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}))
+                    else 
+                        none,
+                    if exists({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration})
+                        first(list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration} ))
+                    else 
+                        none,
+                    if exists({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration})
+                        first(list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=*  @unit @period=$currentDuration} ))
+                    else 
+                        none,
+                    if exists({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration})
+                        first(list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=*  @unit @period=$currentDuration} ))
+                    else 
+                        none,
+                    )}})
+                    else $data2;
+            
+                    $uniqueData = list(for $x in  $data
+                                    if $x == list(0,none,none,none,none)
+                                        skip
+                                    else 
+                                        $x
+                                );
+
+                        for $row in $uniqueData.sort         
+    
+                </xule:expression>
+                <td class="xbrl line-number"><xule:lineNumber subNumber="true" name="TransportedLineItems"><xule:startNumber>6</xule:startNumber></xule:lineNumber>
+                    <xule:template-display>1</xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="TransportedLineItems" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        Minor Project  
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="TransportedLineItems" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        10 dth
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="TransportedLineItems" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            10 dth                            
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="TransportedLineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            10 dth                           
+                    </xule:template-display>
+                </td>
+            </tr>
+            <tr class="schedule-row">
+                    <td class="xbrl line-number">7</td>
+                    <td class="xbrl description_items">
+                            <xule:replace>
+                                <xule:expression class="hide">
+                                    taxonomy().concept(ferc:VolumesOfGasTransported).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                                </xule:expression>
+                                <div>
+                                    <xule:template-display>
+                                           TOTAL
+                                    </xule:template-display>
+                                </div>
+                            </xule:replace>
+                        </td>
+                    <td class="xbrl numeric_items">
+                            <xule:replace>
+                                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:VolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period=$currentDuration]))
+                                    </xule:expression>
+                                    <xule:template-display>
+                                            100 Dth
+                                    </xule:template-display>
+                            </xule:replace>  
+                    </td>
+                    <td class="xbrl numeric_items">
+                            <xule:replace>
+                                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:VolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period=$currentDuration]))
+                                    </xule:expression>
+                                    <xule:template-display>
+                                        100 Dth
+                                    </xule:template-display>
+                            </xule:replace>  
+                    </td>
+                    <td class="xbrl numeric_items">
+                            <xule:replace>
+                                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:VolumesOfGasTransported @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period=$currentDuration]))
+                                    </xule:expression>
+                                    <xule:template-display>
+                                        100 Dth
+                                    </xule:template-display>
+                            </xule:replace>  
+                    </td>
+            </tr>
+   
+    <!-- Single Day Peak Deliveries - Line 8 through 13: Volumes of gas Withdrawn from Storage under Storage Contract -->
+    <tr class="schedule-row">
+            <td class="xbrl line-number">8</td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:VolumesOfGasWithdrawnFromStorageUnderStorageContractAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2PeakDeliveries").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                                Volumes of gas Withdrawn from Storage under Storage Contract
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+    </tr>
+    <tr class="schedule-row" xule:repeat="StorageContractLineItems">
+            <xule:expression class="hide" name="StorageContractLineItems">
+                $data = navigate parent-child descendants from ferc:VolumesOfGasWithdrawnFromStorageUnderStorageContractAbstract role "http://ferc.gov/form/2020-01-01/roles/Schedule/F2/TransmissionSystemPeakDeliveriesSingleDay" returns list (target-name, preferred-label, result-order);
+                $data-labels = list(for $row in $data
+                        $concept = taxonomy().concept($row[1]);
+                        $row_num = (filter $concept.references("http://ferc.gov/form/2020-01-01/roles/reference/formLocation") where ($item.part-by-name(ferc-part:Schedule).part-value == "518 - Schedule - Transmission System Peak Deliveries - Single Day Peak Deliveries" and $item.part-by-name(ferc-part:ValueType).part-value.string == "Label")).to-list;
+                        $total = if list([covered @concept = $row[1] @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                        first(list([covered @concept = $row[1] @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]))
+                                  else
+                                        none
+                        $interstate = if list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                                     first(list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]))
+                                    else
+                                                     none
+                        $others = if list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                                    first(list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]))
+                                    else
+                                                    none
+
+            
+                        list($concept,
+                        $concept.label($row[2].role.uri).text,
+                        if ($row_num.part-by-name(ferc-part:Row)).length > 0 
+                            ($row_num.part-by-name(ferc-part:Row))[1].part-value
+                        else
+                            "",
+                        $interstate,
+                        $others,
+                        $total
+            
+                            ));
+                for $rowl in $data-labels
+            
+            </xule:expression>
+
+            <td class="xbrl line-number">
+                <xule:replace><xule:expression class="hide" name="StorageContractLineItems" part="1">$rowl[3]</xule:expression></xule:replace>
+                <xule:template-display>1</xule:template-display>
+            </td> 
+            <td class="xbrl description_items">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <xule:replace>
+                                            <xule:expression class="hide" name="StorageContractLineItems" part="6">$rowl[1].name.local-name</xule:expression>
+                                        </xule:replace>
+                            </div>
+                    <xule:replace>
+                        <xule:expression class="hide" name="StorageContractLineItems"  part="2">$rowl[2]</xule:expression>
+                        <xule:class location="parent">if $rowl[1].is-abstract "title" else ""</xule:class>
+                        <xule:fact class="hide">if $rowl[2].is-fact "true" else "false"</xule:fact>
+                    </xule:replace>
+                    <xule:template-display>Section A: SINGLE DAY PEAK DELIVERIES</xule:template-display>
+                    </div>
+            </td> 
+
+            <td class="numeric_items xbrl">
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="StorageContractLineItems" part="4">$rowl[4]</xule:expression>
+                        <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                    </xule:replace>        
+            </td> 
+
+            <td class="numeric_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="StorageContractLineItems" part="5">$rowl[5]</xule:expression>
+                    <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                </xule:replace>        
+            </td> 
+          
+            <td class="numeric_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="StorageContractLineItems" part="6">$rowl[6]</xule:expression>
+                    <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                </xule:replace>                
+            </td> 
+        </tr>
+
+        <tr class="schedule-row">
+                <td class="xbrl line-number">12</td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:OtherTransportationVolumesOfGasTransported).label("http://ferc.gov/form/2020-01-01/roles/label/F2PeakDeliveries").text
+                        </xule:expression>
+                        <div>
+                            <xule:template-display>
+                                    Other (describe)
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+        </tr>
+        <tr class="schedule-row" xule:repeat="WithdrawnLineItems">
+                <xule:expression class="hide" name="WithdrawnLineItems">// adding a comment
+                    
+                $data2 =   list(for $i in range(1)
+                                list($i,none,none,none,none)
+                );
+                
+                $data = if count(list({covered @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*})) > 0  
+                    
+                   
+                    list({covered @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*  {list(
+                        
+                    if exists({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @period=$currentDuration})
+                        first(list({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @period=$currentDuration}))
+                    else
+                        0,
+                    if exists({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @period=$currentDuration}) 
+                        first(list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @period=$currentDuration} ))
+                    else 
+                        none,
+                    if exists({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @unit @period=$currentDuration})
+                        first(list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @unit @period=$currentDuration} ))
+                    else 
+                        none,
+                    if exists({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @unit @period=$currentDuration})
+                        first(list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*  @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if exists({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @unit @period=$currentDuration})
+                        first(list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*  @unit @period=$currentDuration} ))
+                    else 
+                        none,
+                    )}})
+                    else $data2;
+            
+                    $uniqueData = list(for $x in  $data
+                                    if $x == list(0,none,none,none,none)
+                                        skip
+                                    else 
+                                        $x
+                                );
+
+                        for $row in $uniqueData.sort        
+    
+                </xule:expression>
+                <td class="xbrl line-number"><xule:lineNumber subNumber="true" name="WithdrawnLineItems"><xule:startNumber>12</xule:startNumber></xule:lineNumber>
+                    <xule:template-display>1</xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="WithdrawnLineItems" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        Minor Project  
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="WithdrawnLineItems" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        10 dth
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="WithdrawnLineItems" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            10 dth                            
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="WithdrawnLineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            10 dth                           
+                    </xule:template-display>
+                </td>
+            </tr>
+            <tr class="schedule-row">
+                    <td class="xbrl line-number">13</td>
+                    <td class="xbrl description_items">
+                            <xule:replace>
+                                <xule:expression class="hide">
+                                    taxonomy().concept(ferc:VolumesOfGasWithdrawnFromStorageUnderStorageContract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                                </xule:expression>
+                                <div>
+                                    <xule:template-display>
+                                           TOTAL
+                                    </xule:template-display>
+                                </div>
+                            </xule:replace>
+                        </td>
+                    <td class="xbrl numeric_items">
+                            <xule:replace>
+                                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:VolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period=$currentDuration]))
+                                    </xule:expression>
+                                    <xule:template-display>
+                                            $4,080,200 
+                                    </xule:template-display>
+                            </xule:replace>  
+                    </td>
+                    <td class="xbrl numeric_items">
+                            <xule:replace>
+                                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:VolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period=$currentDuration]))
+                                    </xule:expression>
+                                    <xule:template-display>
+                                            $4,080,200 
+                                    </xule:template-display>
+                            </xule:replace>  
+                    </td>
+                    <td class="xbrl numeric_items">
+                            <xule:replace>
+                                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:VolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period=$currentDuration]))
+                                    </xule:expression>
+                                    <xule:template-display>
+                                            $4,080,200 
+                                    </xule:template-display>
+                            </xule:replace>  
+                    </td>
+            </tr>
+
+    <!-- Single Day Peak Deliveries - Line 14 through 18: Other Operational Activities -->
+
+    <tr class="schedule-row">
+            <td class="xbrl line-number">14</td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:OtherOperationalActivitiesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2PeakDeliveries").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                                Other Operational Activities
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+    </tr>
+    <tr class="schedule-row" xule:repeat="OperationalLineItems">
+            <xule:expression class="hide" name="OperationalLineItems">
+                $data = navigate parent-child descendants from ferc:OtherOperationalActivitiesAbstract role "http://ferc.gov/form/2020-01-01/roles/Schedule/F2/TransmissionSystemPeakDeliveriesSingleDay" returns list (target-name, preferred-label, result-order);
+                $data-labels = list(for $row in $data
+                        $concept = taxonomy().concept($row[1]);
+                        $row_num = (filter $concept.references("http://ferc.gov/form/2020-01-01/roles/reference/formLocation") where ($item.part-by-name(ferc-part:Schedule).part-value == "518 - Schedule - Transmission System Peak Deliveries - Single Day Peak Deliveries" and $item.part-by-name(ferc-part:ValueType).part-value.string == "Label")).to-list;
+                        $total = if list([covered @concept = $row[1] @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                        first(list([covered @concept = $row[1] @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]))
+                                  else
+                                        none
+                        $interstate = if list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                                     first(list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]))
+                                    else
+                                                     none
+                        $others = if list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                                    first(list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period = $currentDuration]))
+                                    else
+                                                    none
+
+            
+                        list($concept,
+                        $concept.label($row[2].role.uri).text,
+                        if ($row_num.part-by-name(ferc-part:Row)).length > 0 
+                            ($row_num.part-by-name(ferc-part:Row))[1].part-value
+                        else
+                            "",
+                        $interstate,
+                        $others,
+                        $total
+            
+                            ));
+                for $rowl in $data-labels
+            
+            </xule:expression>
+
+            <td class="xbrl line-number">
+                <xule:replace><xule:expression class="hide" name="OperationalLineItems" part="1">$rowl[3]</xule:expression></xule:replace>
+                <xule:template-display>1</xule:template-display>
+            </td> 
+            <td class="xbrl description_items">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <xule:replace>
+                                            <xule:expression class="hide" name="OperationalLineItems" part="6">$rowl[1].name.local-name</xule:expression>
+                                        </xule:replace>
+                            </div>
+                    <xule:replace>
+                        <xule:expression class="hide" name="OperationalLineItems"  part="2">$rowl[2]</xule:expression>
+                        <xule:class location="parent">if $rowl[1].is-abstract "title" else ""</xule:class>
+                        <xule:fact class="hide">if $rowl[4].is-fact "true" else "false"</xule:fact>
+                    </xule:replace>
+                    <xule:template-display>Section A: SINGLE DAY PEAK DELIVERIES</xule:template-display>
+                    </div>
+            </td> 
+
+            <td class="numeric_items xbrl">
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="OperationalLineItems" part="4">$rowl[4]</xule:expression>
+                        <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                    </xule:replace>        
+            </td> 
+
+            <td class="numeric_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="OperationalLineItems" part="5">$rowl[5]</xule:expression>
+                    <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                </xule:replace>        
+            </td> 
+          
+            <td class="numeric_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="OperationalLineItems" part="6">$rowl[6]</xule:expression>
+                    <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                </xule:replace>                
+            </td> 
+        </tr>
+        <tr class="schedule-row">
+                <td class="xbrl line-number">17</td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:OtherOtherOperationalActivities).label("http://ferc.gov/form/2020-01-01/roles/label/F2PeakDeliveries").text
+                        </xule:expression>
+                        <div>
+                            <xule:template-display>
+                                    Other (describe)
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+        </tr>
+        <tr class="schedule-row" xule:repeat="OtherOperationalLineItems">
+                <xule:expression class="hide" name="OtherOperationalLineItems">// adding a comment
+                    
+                $data2 =   list(for $i in range(1)
+                                list($i,none,none,none,none)
+                );
+                
+                $data = if count(list({covered @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember 
+                                                @ferc:TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*})) > 0  
+                    
+                   
+                    list({covered @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*  {list(
+                        
+                    if exists({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @period=$currentDuration})
+                        first(list({@ferc:OrderNumber @unit=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @period=$currentDuration}))
+                    else
+                        0,
+                    if exists({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit  @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @period=$currentDuration}) 
+                        first(list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember   @period=$currentDuration}))
+                    else 
+                        none,
+                    if exists({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                        first(list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if exists({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                        first(list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember   @unit @period=$currentDuration} ))
+                    else 
+                        none,
+                    if exists({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=none @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                        first(list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=none @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    )}})
+                    else $data2;
+            
+                    $uniqueData = list(for $x in  $data
+                                    if $x == list(0,none,none,none,none)
+                                        skip
+                                    else 
+                                        $x
+                                );
+
+                    for $row in $uniqueData.sort            
+    
+                </xule:expression>
+                <td class="xbrl line-number"><xule:lineNumber subNumber="true" name="OtherOperationalLineItems"><xule:startNumber>17</xule:startNumber></xule:lineNumber>
+                    <xule:template-display>1</xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="OtherOperationalLineItems" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        Minor Project  
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="OtherOperationalLineItems" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        10 dth
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="OtherOperationalLineItems" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            10 dth                            
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="OtherOperationalLineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            10 dth                           
+                    </xule:template-display>
+                </td>
+            </tr>
+            <tr class="schedule-row">
+                    <td class="xbrl line-number">18</td>
+                    <td class="xbrl description_items">
+                            <xule:replace>
+                                <xule:expression class="hide">
+                                    taxonomy().concept(ferc:OtherOperationalActivities).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                                </xule:expression>
+                                <div>
+                                    <xule:template-display>
+                                           TOTAL
+                                    </xule:template-display>
+                                </div>
+                            </xule:replace>
+                        </td>
+                    <td class="xbrl numeric_items">
+                            <xule:replace>
+                                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:OtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period=$currentDuration]))
+                                    </xule:expression>
+                                    <xule:template-display>
+                                            $4,080,200 
+                                    </xule:template-display>
+                            </xule:replace>  
+                    </td>
+                    <td class="xbrl numeric_items">
+                            <xule:replace>
+                                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:OtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period=$currentDuration]))
+                                    </xule:expression>
+                                    <xule:template-display>
+                                            $4,080,200 
+                                    </xule:template-display>
+                            </xule:replace>  
+                    </td>
+                    <td class="xbrl numeric_items">
+                            <xule:replace>
+                                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:OtherOperationalActivities @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period=$currentDuration]))
+                                    </xule:expression>
+                                    <xule:template-display>
+                                            $4,080,200 
+                                    </xule:template-display>
+                            </xule:replace>  
+                    </td>
+            </tr>
+
+  <!-- Three-Day Peak Deliveries - Line 19 through 37 -->
+  <!-- Three-Day Peak Deliveries - Volumes of Gas Transported: Line 21 through 26 -->
+    <tr class="schedule-row">
+        <td class="xbrl line-number">19</td>
+        <td class="xbrl description_items">
+            <xule:replace>
+                <xule:expression class="hide">
+                    taxonomy().concept(ferc:ThreeDayPeakDeliveriesMember).label("http://ferc.gov/form/2020-01-01/roles/label/F2PeakDeliveries").text
+                </xule:expression>
+                <div>
+                    <xule:template-display>
+                            SECTION B: CONSECUTIVE THREE_DAY PEAK DELIVERIES
+                    </xule:template-display>
+                </div>
+            </xule:replace>
+        </td>
+        <td class="xbrl gray-out"></td>
+        <td class="xbrl gray-out"></td>
+        <td class="xbrl gray-out"></td>
+    </tr>
+    <tr class="schedule-row">
+            <td class="xbrl line-number">20</td>
+            <td class="xbrl description_items">
+                    <xule:replace>
+                            <xule:expression class="hide">
+                                    taxonomy().concept(ferc:StartDatePeakDeliveries).label("http://ferc.gov/form/2020-01-01/roles/label/F2PeakDeliveries").text
+                            </xule:expression>
+                            <div>
+                                    <xule:template-display>
+                                            Dates:
+                                    </xule:template-display>
+                            </div>
+                        </xule:replace>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">max(list([covered @concept=ferc:DescriptiveStartDateForPeakDeliveries @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration]))</xule:expression>
+                            <xule:template-display>
+                                Dates: 5/26/2018-5/28/2018   
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+    </tr>
+    <tr class="schedule-row" xule:repeat="ThreeTransmissionLineItems">
+            <xule:expression class="hide" name="ThreeTransmissionLineItems">
+                $data = navigate parent-child descendants from ferc:VolumesOfGasTransportedAbstract role "http://ferc.gov/form/2020-01-01/roles/Schedule/F2/TransmissionSystemPeakDeliveriesThreeDay" returns list (target-name, preferred-label, result-order);
+                $data-labels = list(for $row in $data
+                        $concept = taxonomy().concept($row[1]);
+                        $row_num = (filter $concept.references("http://ferc.gov/form/2020-01-01/roles/reference/formLocation") where ($item.part-by-name(ferc-part:Schedule).part-value == "518 - Schedule - Transmission System Peak Deliveries - Three-Day Peak Deliveries" and $item.part-by-name(ferc-part:ValueType).part-value.string == "Label")).to-list;
+                        $total = if list([covered @concept = $row[1] @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                        first(list([covered @concept = $row[1] @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]))
+                                  else
+                                        none
+                        $interstate = if list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                                     first(list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]))
+                                    else
+                                                     none
+                        $others = if list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                                    first(list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]))
+                                    else
+                                                    none
+
+            
+                        list($concept,
+                        $concept.label($row[2].role.uri).text,
+                        if ($row_num.part-by-name(ferc-part:Row)).length > 0 
+                            ($row_num.part-by-name(ferc-part:Row))[1].part-value
+                        else
+                            "",
+                        $interstate,
+                        $others,
+                        $total
+            
+                            ));
+                for $rowl in $data-labels
+            
+            </xule:expression>
+
+            <td class="xbrl line-number">
+                <xule:replace><xule:expression class="hide" name="ThreeTransmissionLineItems" part="1">$rowl[3]</xule:expression></xule:replace>
+                <xule:template-display>1</xule:template-display>
+            </td> 
+            <td class="xbrl description_items">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <xule:replace>
+                                            <xule:expression class="hide" name="ThreeTransmissionLineItems" part="6">$rowl[1].name.local-name</xule:expression>
+                                        </xule:replace>
+                            </div>
+                    <xule:replace>
+                        <xule:expression class="hide" name="ThreeTransmissionLineItems"  part="2">$rowl[2]</xule:expression>
+                        <xule:class location="parent">if $rowl[1].is-abstract "title" else ""</xule:class>
+                        <xule:fact class="hide">if $rowl[2].is-fact "true" else "false"</xule:fact>
+                    </xule:replace>
+                    <xule:template-display>Section B: THREE DAY PEAK DELIVERIES</xule:template-display>
+                    </div>
+            </td> 
+
+            <td class="numeric_items xbrl">
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="ThreeTransmissionLineItems" part="4">$rowl[4]</xule:expression>
+                        <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                    </xule:replace>        
+            </td> 
+
+            <td class="numeric_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="ThreeTransmissionLineItems" part="5">$rowl[5]</xule:expression>
+                    <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                </xule:replace>        
+            </td> 
+          
+            <td class="numeric_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="ThreeTransmissionLineItems" part="6">$rowl[6]</xule:expression>
+                    <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                </xule:replace>                
+            </td> 
+        </tr>
+ 
+        <tr class="schedule-row">
+            <td class="xbrl line-number">25</td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:OtherTransportationVolumesOfGasTransported).label("http://ferc.gov/form/2020-01-01/roles/label/F2PeakDeliveries").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                                Other (describe)
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+        </tr>
+        <tr class="schedule-row" xule:repeat="TransportedLineItems3">
+                <xule:expression class="hide" name="TransportedLineItems3">// adding a comment
+                    
+                $data2 =   list(for $i in range(1)
+                                list($i,none,none,none,none)
+                );
+                
+                $data = if count(list({covered @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=*})) > 0  
+                    
+                   
+                    list({covered @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=*  {list(
+                        
+                    if exists({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration})
+                        first(list({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}))
+                    else
+                        0,
+                    if exists({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}) 
+                        first(list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}))
+                    else 
+                        none,
+                    if exists({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration})
+                        first(list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if exists({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration})
+                        first(list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=*  @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if exists({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration})
+                        first(list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=*  @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    )}})
+                    else $data2;
+            
+                    $uniqueData = list(for $x in  $data
+                                    if $x == list(0,none,none,none,none)
+                                        skip
+                                    else 
+                                        $x
+                                );
+
+                    for $row in $uniqueData.sort     
+    
+                </xule:expression>
+                <td class="xbrl line-number"><xule:lineNumber subNumber="true" name="TransportedLineItems3"><xule:startNumber>25</xule:startNumber></xule:lineNumber>
+                    <xule:template-display>1</xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="TransportedLineItems3" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        Minor Project  
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="TransportedLineItems3" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        10 dth
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="TransportedLineItems3" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            10 dth                            
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="TransportedLineItems3" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            10 dth                           
+                    </xule:template-display>
+                </td>
+            </tr>
+        <tr class="schedule-row">
+                <td class="xbrl line-number">26</td>
+                <td class="xbrl description_items">
+                        <xule:replace>
+                            <xule:expression class="hide">
+                                taxonomy().concept(ferc:VolumesOfGasTransported).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                            </xule:expression>
+                            <div>
+                                <xule:template-display>
+                                        TOTAL
+                                </xule:template-display>
+                            </div>
+                        </xule:replace>
+                    </td>
+                <td class="xbrl numeric_items">
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:VolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration]))
+                                </xule:expression>
+                                <xule:template-display>
+                                        $4,080,200 
+                                </xule:template-display>
+                        </xule:replace>  
+                </td>
+                <td class="xbrl numeric_items">
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:VolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration]))
+                                </xule:expression>
+                                <xule:template-display>
+                                        $4,080,200 
+                                </xule:template-display>
+                        </xule:replace>  
+                </td>
+                <td class="xbrl numeric_items">
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:VolumesOfGasTransported @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration]))
+                                </xule:expression>
+                                <xule:template-display>
+                                        $4,080,200 
+                                </xule:template-display>
+                        </xule:replace>  
+                </td>
+        </tr>
+    
+    <!-- Three Day Peak Deliveries - Line 27 through 32: Volumes of gas Withdrawn from Storage under Storage Contract-->
+        <tr class="schedule-row">
+                <td class="xbrl line-number">27</td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:VolumesOfGasWithdrawnFromStorageUnderStorageContractAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2PeakDeliveries").text
+                        </xule:expression>
+                        <div>
+                            <xule:template-display>
+                                    Volumes of gas Withdrawn from Storage under Storage Contract
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+        </tr>
+        <tr class="schedule-row" xule:repeat="StorageContractLineItems3">
+            <xule:expression class="hide" name="StorageContractLineItems3">
+                $data = navigate parent-child descendants from ferc:VolumesOfGasWithdrawnFromStorageUnderStorageContractAbstract role "http://ferc.gov/form/2020-01-01/roles/Schedule/F2/TransmissionSystemPeakDeliveriesThreeDay" returns list (target-name, preferred-label, result-order);
+                $data-labels = list(for $row in $data
+                        $concept = taxonomy().concept($row[1]);
+                        $row_num = (filter $concept.references("http://ferc.gov/form/2020-01-01/roles/reference/formLocation") where ($item.part-by-name(ferc-part:Schedule).part-value == "518 - Schedule - Transmission System Peak Deliveries - Three-Day Peak Deliveries" and $item.part-by-name(ferc-part:ValueType).part-value.string == "Label")).to-list;
+                        $total = if list([covered @concept = $row[1] @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                        first(list([covered @concept = $row[1] @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]))
+                                else
+                                        none
+                        $interstate = if list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                                    first(list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]))
+                                    else
+                                                    none
+                        $others = if list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                                    first(list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]))
+                                    else
+                                                    none
+
+            
+                        list($concept,
+                        $concept.label($row[2].role.uri).text,
+                        if ($row_num.part-by-name(ferc-part:Row)).length > 0 
+                            ($row_num.part-by-name(ferc-part:Row))[1].part-value
+                        else
+                            "",
+                        $interstate,
+                        $others,
+                        $total
+            
+                            ));
+                for $rowl in $data-labels
+            
+            </xule:expression>
+
+        <td class="xbrl line-number">
+            <xule:replace><xule:expression class="hide" name="StorageContractLineItems3" part="1">$rowl[3]</xule:expression></xule:replace>
+            <xule:template-display>1</xule:template-display>
+        </td> 
+        <td class="xbrl description_items">
+                <div class="tooltip">
+                        <div class="tooltiptext">
+                                <xule:replace>
+                                        <xule:expression class="hide" name="StorageContractLineItems3" part="6">$rowl[1].name.local-name</xule:expression>
+                                    </xule:replace>
+                        </div>
+                <xule:replace>
+                    <xule:expression class="hide" name="StorageContractLineItems3"  part="2">$rowl[2]</xule:expression>
+                    <xule:class location="parent">if $rowl[1].is-abstract "title" else ""</xule:class>
+                    <xule:fact class="hide">if $rowl[2].is-fact "true" else "false"</xule:fact>
+                </xule:replace>
+                <xule:template-display>Section A: SINGLE DAY PEAK DELIVERIES</xule:template-display>
+                </div>
+        </td> 
+
+        <td class="numeric_items xbrl">
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="StorageContractLineItems3" part="4">$rowl[4]</xule:expression>
+                    <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                </xule:replace>        
+        </td> 
+
+        <td class="numeric_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="StorageContractLineItems3" part="5">$rowl[5]</xule:expression>
+                <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+            </xule:replace>        
+        </td> 
+      
+        <td class="numeric_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="StorageContractLineItems3" part="6">$rowl[6]</xule:expression>
+                <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+            </xule:replace>                
+        </td> 
+    </tr>
+    <tr class="schedule-row">
+            <td class="xbrl line-number">31</td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:OtherTransportationVolumesOfGasTransported).label("http://ferc.gov/form/2020-01-01/roles/label/F2PeakDeliveries").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                                Other (describe)
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+    </tr>
+    <tr class="schedule-row" xule:repeat="WithdrawnLineItems3">
+            <xule:expression class="hide" name="WithdrawnLineItems3">// adding a comment
+                
+            $data2 =   list(for $i in range(1)
+                            list($i,none,none,none,none)
+            );
+            
+            $data = if count(list({covered @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*})) > 0  
+                
+               
+                list({covered @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*  {list(
+                    
+                if exists({@ferc:OrderNumber @unit=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration})
+                    first(list({@ferc:OrderNumber @unit=*  @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration}))
+                else
+                    0,
+                if exists({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit  @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration}) 
+                    first(list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit  @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration}))
+                else 
+                    none,
+                if exists({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                    first(list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration}))
+                else 
+                    none,
+                if exists({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                    first(list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember   @unit @period=$currentDuration}))
+                else 
+                    none,
+                if exists({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=none @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                    first(list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=none @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration}))
+                else 
+                    none,
+                )}})
+                else $data2;
+        
+                $uniqueData = list(for $x in  $data
+                                    if $x == list(0,none,none,none,none)
+                                        skip
+                                    else 
+                                        $x
+                                );
+
+                for $row in $uniqueData.sort            
+
+            </xule:expression>
+            <td class="xbrl line-number"><xule:lineNumber subNumber="true" name="WithdrawnLineItems3"><xule:startNumber>31</xule:startNumber></xule:lineNumber>
+                <xule:template-display>1</xule:template-display>
+            </td>
+            <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="WithdrawnLineItems3" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                <xule:template-display>
+                    Minor Project  
+                </xule:template-display>
+            </td>
+            <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="WithdrawnLineItems3" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                <xule:template-display>
+                    10 dth
+                </xule:template-display>
+            </td>
+            <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="WithdrawnLineItems3" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                <xule:template-display>
+                        10 dth                            
+                </xule:template-display>
+            </td>
+            <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="WithdrawnLineItems3" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
+                <xule:template-display>
+                        10 dth                           
+                </xule:template-display>
+            </td>
+        </tr>
+        <tr class="schedule-row">
+                <td class="xbrl line-number">32</td>
+                <td class="xbrl description_items">
+                        <xule:replace>
+                            <xule:expression class="hide">
+                                taxonomy().concept(ferc:VolumesOfGasWithdrawnFromStorageUnderStorageContract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                            </xule:expression>
+                            <div>
+                                <xule:template-display>
+                                       TOTAL
+                                </xule:template-display>
+                            </div>
+                        </xule:replace>
+                    </td>
+                <td class="xbrl numeric_items">
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:VolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration]))
+                                </xule:expression>
+                                <xule:template-display>
+                                       4,080,200 Dth
+                                </xule:template-display>
+                        </xule:replace>  
+                </td>
+                <td class="xbrl numeric_items">
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:VolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration]))
+                                </xule:expression>
+                                <xule:template-display>
+                                       4,080,200 Dth
+                                </xule:template-display>
+                        </xule:replace>  
+                </td>
+                <td class="xbrl numeric_items">
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:VolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration]))
+                                </xule:expression>
+                                <xule:template-display>
+                                        4,080,200 Dth
+                                </xule:template-display>
+                        </xule:replace>  
+                </td>
+        </tr>
+<!-- Three Day Peak Deliveries - Line 33 through 37: Other Operational Activities -->
+        <tr class="schedule-row">
+                <td class="xbrl line-number">33</td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:OtherOperationalActivitiesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2PeakDeliveries").text
+                        </xule:expression>
+                        <div>
+                            <xule:template-display>
+                                    Other Operational Activities
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+        </tr>
+        <tr class="schedule-row" xule:repeat="OperationalLineItems3">
+                <xule:expression class="hide" name="OperationalLineItems3">
+                    $data = navigate parent-child descendants from ferc:OtherOperationalActivitiesAbstract role "http://ferc.gov/form/2020-01-01/roles/Schedule/F2/TransmissionSystemPeakDeliveriesThreeDay" returns list (target-name, preferred-label, result-order);
+                    $data-labels = list(for $row in $data
+                            $concept = taxonomy().concept($row[1]);
+                            $row_num = (filter $concept.references("http://ferc.gov/form/2020-01-01/roles/reference/formLocation") where ($item.part-by-name(ferc-part:Schedule).part-value == "518 - Schedule - Transmission System Peak Deliveries - Three-Day Peak Deliveries" and $item.part-by-name(ferc-part:ValueType).part-value.string == "Label")).to-list;
+                            $total = if list([covered @concept = $row[1] @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                            first(list([covered @concept = $row[1] @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]))
+                                      else
+                                            none
+                            $interstate = if list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                                         first(list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]))
+                                        else
+                                                         none
+                            $others = if list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]).length > 0
+                                                        first(list([covered @concept = $row[1] @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period = $currentDuration]))
+                                        else
+                                                        none
+    
+                
+                            list($concept,
+                            $concept.label($row[2].role.uri).text,
+                            if ($row_num.part-by-name(ferc-part:Row)).length > 0 
+                                ($row_num.part-by-name(ferc-part:Row))[1].part-value
+                            else
+                                "",
+                            $interstate,
+                            $others,
+                            $total
+                
+                                ));
+                    for $rowl in $data-labels
+                
+                </xule:expression>
+    
+                <td class="xbrl line-number">
+                    <xule:replace><xule:expression class="hide" name="OperationalLineItems3" part="1">$rowl[3]</xule:expression></xule:replace>
+                    <xule:template-display>1</xule:template-display>
+                </td> 
+                <td class="xbrl description_items">
+                        <div class="tooltip">
+                                <div class="tooltiptext">
+                                        <xule:replace>
+                                                <xule:expression class="hide" name="OperationalLineItems3" part="6">$rowl[1].name.local-name</xule:expression>
+                                            </xule:replace>
+                                </div>
+                        <xule:replace>
+                            <xule:expression class="hide" name="OperationalLineItems3"  part="2">$rowl[2]</xule:expression>
+                            <xule:class location="parent">if $rowl[1].is-abstract "title" else ""</xule:class>
+                            <xule:fact class="hide">if $rowl[2].is-fact "true" else "false"</xule:fact>
+                        </xule:replace>
+                        <xule:template-display>Section B: Three DAY PEAK DELIVERIES</xule:template-display>
+                        </div>
+                </td> 
+                <td class="numeric_items xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal"  name="OperationalLineItems3" part="4">$rowl[4]</xule:expression>
+                            <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                        </xule:replace>        
+                </td> 
+    
+                <td class="numeric_items xbrl">
+                        <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal"  name="OperationalLineItems3" part="5">$rowl[5]</xule:expression>
+                        <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                    </xule:replace>        
+                </td> 
+              
+                <td class="numeric_items xbrl">
+                        <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal"  name="OperationalLineItems3" part="6">$rowl[6]</xule:expression>
+                        <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                    </xule:replace>                
+                </td> 
+            </tr>
+            <tr class="schedule-row">
+                    <td class="xbrl line-number">36</td>
+                    <td class="xbrl description_items">
+                        <xule:replace>
+                            <xule:expression class="hide">
+                                taxonomy().concept(ferc:OtherOtherOperationalActivities).label("http://ferc.gov/form/2020-01-01/roles/label/F2PeakDeliveries").text
+                            </xule:expression>
+                            <div>
+                                <xule:template-display>
+                                        Other (describe)
+                                </xule:template-display>
+                            </div>
+                        </xule:replace>
+                    </td>
+                    <td class="xbrl gray-out"></td>
+                    <td class="xbrl gray-out"></td>
+                    <td class="xbrl gray-out"></td>
+            </tr>
+            <tr class="schedule-row" xule:repeat="OtherOperationalLineItems3">
+                    <xule:expression class="hide" name="OtherOperationalLineItems3">// adding a comment
+                        
+                    $data2 =   list(for $i in range(1)
+                                    list($i,none,none,none,none)
+                    );
+                    
+                    $data = if count(list({covered @ferc:TransmissionSystemDeliveriesToAxis
+                                                    @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember 
+                                                    @ferc:TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*})) > 0  
+                        
+                       
+                        list({covered @ferc:TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*  {list(
+                            
+                        if exists({@ferc:OrderNumber @unit=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @period=$currentDuration})
+                            first(list({@ferc:OrderNumber @unit=*  @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @period=$currentDuration}))
+                        else
+                            0,
+                        if exists({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @period=$currentDuration}) 
+                            first(list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember   @period=$currentDuration}))
+                        else 
+                            none,
+                        if exists({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                            first(list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration}))
+                        else 
+                            none,
+                        if exists({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                            first(list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember   @unit @period=$currentDuration}))
+                        else 
+                            none,
+                        if exists({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=none @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                            first(list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=none @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember   @unit @period=$currentDuration}))
+                        else 
+                            none,
+                        )}})
+                        else $data2;
+                
+                        $uniqueData = list(for $x in  $data
+                                    if $x == list(0,none,none,none,none)
+                                        skip
+                                    else 
+                                        $x
+                                );
+
+                    for $row in $uniqueData.sort            
+        
+                    </xule:expression>
+                    <td class="xbrl line-number"><xule:lineNumber subNumber="true" name="OtherOperationalLineItems3"><xule:startNumber>36</xule:startNumber></xule:lineNumber>
+                        <xule:template-display>1</xule:template-display>
+                    </td>
+                    <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="OtherOperationalLineItems3" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                        <xule:template-display>
+                            Minor Project  
+                        </xule:template-display>
+                    </td>
+                    <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="OtherOperationalLineItems3" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                        <xule:template-display>
+                            10 dth
+                        </xule:template-display>
+                    </td>
+                    <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="OtherOperationalLineItems3" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                        <xule:template-display>
+                                10 dth                            
+                        </xule:template-display>
+                    </td>
+                    <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="OtherOperationalLineItems3" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
+                        <xule:template-display>
+                                10 dth                           
+                        </xule:template-display>
+                    </td>
+                </tr>
+                <tr class="schedule-row">
+                        <td class="xbrl line-number">37</td>
+                        <td class="xbrl description_items">
+                                <xule:replace>
+                                    <xule:expression class="hide">
+                                        taxonomy().concept(ferc:OtherOperationalActivities).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                                    </xule:expression>
+                                    <div>
+                                        <xule:template-display>
+                                               TOTAL
+                                        </xule:template-display>
+                                    </div>
+                                </xule:replace>
+                            </td>
+                        <td class="xbrl numeric_items">
+                                <xule:replace>
+                                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:OtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration]))
+                                        </xule:expression>
+                                        <xule:template-display>
+                                               4,080,200 Dth
+                                        </xule:template-display>
+                                </xule:replace>  
+                        </td>
+                        <td class="xbrl numeric_items">
+                                <xule:replace>
+                                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:OtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration]))
+                                        </xule:expression>
+                                        <xule:template-display>
+                                                4,080,200 Dth
+                                        </xule:template-display>
+                                </xule:replace>  
+                        </td>
+                        <td class="xbrl numeric_items">
+                                <xule:replace>
+                                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:OtherOperationalActivities @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration]))
+                                        </xule:expression>
+                                        <xule:template-display>
+                                                4,080,200 dth
+                                        </xule:template-display>
+                                </xule:replace>  
+                        </td>
+                </tr>
+   </table>
+<br/>
+    <div class="schedule-footer">
+        <div>FERC FORM No. 
+            <xule:replace>
+                <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                <xule:template-display>2/3-Q</xule:template-display>
+            </xule:replace>
+            <span> </span>
+            <xule:replace>
+                    <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleTransmissionSystemPeakDeliveriesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2DateRevised").text + ")"
+                    </xule:expression>
+                    <xule:template-display>
+                        12-96
+                    </xule:template-display>
+            </xule:replace>
+        </div>
+        <div class="center-text">Page 
+            <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ScheduleTransmissionSystemPeakDeliveriesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Page").text
+                    </xule:expression>
+                    <xule:template-display>
+                    518
+                    </xule:template-display>
+            </xule:replace>
+        </div>
+    </div>
+</body>
+</html>

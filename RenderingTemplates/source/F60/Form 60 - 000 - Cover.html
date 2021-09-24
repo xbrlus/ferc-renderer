@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+    <head>
+
+     <title>Template - F60 - Cover</title>
+     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+     <link rel="stylesheet" type="text/css" href="form-template.css"/>
+    </head>
+
+
+    <body class="xbrl">
+        <table  width="100%">
+            <tr>
+                <td class="cell-top">
+                    <table class="xbrl"  width="70%">
+                        <tr>
+                            <td class="xbrl center-text">
+                                THIS FILING IS
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left-id-col xbrl" >
+                                <span>Item 1:</span>
+                                    
+                                    <xule:replace>
+                                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                            '<span class="checkbox">&#9744;</span> An Initial (Original) Submission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                                            '<span class="checkbox">&#9745;</span> An Initial (Original) Submission']]> else <![CDATA[
+                                            '<span class="checkbox">&#9744;</span> An Initial (Original) Submission']]>
+                                            </xule:expression>  
+                                        <xule:template-display>
+                                                <input type="checkbox"/> An Initial (Original) Submission
+                                        </xule:template-display>
+                                    </xule:replace>
+                                    
+                                    <span> OR </span>
+                                    <xule:replace>
+                                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                            '<span class="checkbox">&#9744;</span> Resubmission No.']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                                            '<span class="checkbox">&#9745;</span> Resubmission No.']]> else <![CDATA[
+                                            '<span class="checkbox">&#9744;</span> Resubmission No.']]>
+                                                </xule:expression> 
+                                            <xule:template-display>
+                                                    <input type="checkbox" checked="checked"/> Resubmission No.
+                                            </xule:template-display>
+                                    </xule:replace>     
+                                              
+                            </td>
+                        </tr>
+                    </table>
+                
+                </td>
+                <td class="form-id-code-top"></td>
+            </tr>
+        </table>
+        <table width="100%">
+            <tr> 
+                <td class="center-text" colspan="3" style="padding-bottom: 30px"></td>
+            </tr>
+            <tr>
+                <td colspan="3"> <div class="ferc-seal-large center-image"></div></td>
+            </tr>
+            <tr> 
+                <td class="center-text" colspan="3" style="padding-bottom: 100px"></td>
+            </tr>
+            <tr>
+                <td class="center-text" colspan="3">
+                    <H1>FERC FINANCIAL REPORT<br/> FERC FORM No. 60: Annual Report<br/>
+of Centralized Service Companies</H1>
+                </td>
+            </tr>
+            <tr>
+            <td class="center-text" colspan="3" style="padding-bottom: 100px">      
+            </td>
+             </tr>
+            <tr>
+                
+                <td>
+                    <div class="box center-blocktext">
+                        This report is mandatory under the Public Utility Holding Company Act of 2005, Section 1270, 
+                        Section 309 of the Federal Power Act and 18 C.F.R. § 366.23. Failure to report may result in 
+                        criminal fines, civil penalties, and other sanctions as provided by law. The Federal Energy 
+                        Regulatory Commission does not consider this report to be of a confidential nature.
+                    </div>
+                </td>
+             
+            </tr>
+            <tr>
+            <td class="center-text" colspan="3" style="padding-bottom: 350px">
+                    
+            </td>
+        </tr>
+    </table>
+        <table class="xbrl" width="100%">
+                  <tr>
+            <td class="xbrl">
+                <div class="abstract">Exact Legal Name of Respondent (Company)</div><br/>
+                
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]
+                    </xule:expression>
+                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                </xule:replace>
+            </td>
+            
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F60Header").text
+                    </xule:expression>
+                    <xule:template-display>Year/Period of Report:</xule:template-display>
+                </xule:replace><br/>
+               
+                End of: <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]
+                    </xule:expression>
+                    <xule:template-display>2018</xule:template-display>
+                </xule:replace>
+                <span>/</span>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]
+                    </xule:expression>
+                    <xule:template-display>Q4</xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        </table>
+        <br></br>
+        <div class="schedule-footer">
+
+            <div>FERC FORM NO. 
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))
+                                                                    
+                                                            </xule:expression>
+                            <xule:template-display>1</xule:template-display>
+                    </xule:replace>
+                    <span> </span>
+                    <xule:replace>
+                            <xule:expression class="hide">" (" + taxonomy().concept(ferc:Form60Abstract).label("http://ferc.gov/form/2020-01-01/roles/label/F60DateRevised").text + ")"
+                            </xule:expression>
+                            <xule:template-display>
+                                    (12-06)
+                            </xule:template-display>
+                    </xule:replace>
+                                
+            </div>
+           
+        </div>
+        </body>
+        </html>

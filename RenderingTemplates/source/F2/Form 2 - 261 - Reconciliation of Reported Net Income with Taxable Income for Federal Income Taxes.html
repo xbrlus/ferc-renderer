@@ -1,0 +1,714 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F2 - 261</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl" id="ScheduleReconciliationOfReportedNetIncomeWithTaxableIncomeForFederalIncomeTaxesAbstract">
+        <table class="schedule-header xbrl" width="100%">
+                <tr>
+                    <td class="xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                            <xule:template-display>Name of Respondent:</xule:template-display>
+                        </xule:replace><br/>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                            <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                        </xule:replace>
+                    </td>
+                    <td class="xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                            <xule:template-display>This report is:</xule:template-display>
+                        </xule:replace>
+                            <br/>
+                            (1) 
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]>
+                                        </xule:expression>  
+                                    <xule:template-display>
+                                            <input type="checkbox"/> An Original
+                                    </xule:template-display>
+                                </xule:replace>
+                                <br/>
+                            (2)
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                            </xule:expression> 
+                                        <xule:template-display>
+                                                <input type="checkbox" checked = "checked"/> A Resubmission
+                                        </xule:template-display>
+                                </xule:replace> 
+                    </td>
+                    <td class="xbrl"><xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                        <xule:template-display>Date of Report:</xule:template-display>
+                        </xule:replace><br/>
+                            <xule:replace>
+                                <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xule:expression>
+                                <xule:template-display>04/26/2019</xule:template-display>
+                        </xule:replace>
+                    </td>
+                    <td class="xbrl"><xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                        <xule:template-display>Year/Period of Report:</xule:template-display>
+                        </xule:replace><br/>
+                        End of: <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                            <xule:template-display>2018</xule:template-display>
+                        </xule:replace>
+                        <span>/</span>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xule:expression>
+                            <xule:template-display>Q4</xule:template-display>
+                        </xule:replace>
+                    </td>
+                </tr>
+            </table>
+    <table class="xbrl" width="100%">
+        <tr class="sch-title">
+            <td colspan="3" class="xbrl">
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleReconciliationOfReportedNetIncomeWithTaxableIncomeForFederalIncomeTaxesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2ScheduleTitle").text
+                        </xule:expression>
+                        <xule:template-display>
+                            Reconciliation of Reported Net Income with Taxable Income for Federal Income Taxes
+                        </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="3">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleReconciliationOfReportedNetIncomeWithTaxableIncomeForFederalIncomeTaxesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                            <ol>
+                                    <li>Report the reconciliation of reported net income for the year with taxable income used in computing Federal Income Tax accruals and show computation of such tax accruals.  Include in the reconciliation, as far as practicable, the same detail as furnished on Schedule M-1 of the tax return for the year.  Submit a reconciliation even though there is no taxable income for the year.  Indicate clearly the nature of each reconciling amount.</li>
+                                    <li>If the utility is a member of a group that files consolidated Federal tax return, reconcile reported net income with taxable net income as if a separate return were to be filed, indicating, however, intercompany amounts to be eliminated in such a consolidated return. State names of group members, tax assigned to each group member, and basis of allocation, assignments, or sharing of the consolidated tax among the group members.</li>
+                            </ol>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr class="col-heading-row">     
+                <td class="col-heading xbrl line-number">Line No.</td>
+                <td class="col-heading xbrl" xule:repeat="Headings">
+                        <xule:expression class="hide" name="Headings">
+                                $headings = filter (taxonomy().concept(ferc:ScheduleReconciliationOfReportedNetIncomeWithTaxableIncomeForFederalIncomeTaxesAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "261 - Schedule - Reconciliation of Reported Net Income with Taxable Income for Federal Income Taxes") 
+    
+                                $headings = list(for $ref in $headings 
+                                list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value))
+    
+                                $heading_dict = dict(for $row in $headings
+                                        list("("+$row[1]+")",$row[2])
+                                );
+                                for $row in $heading_dict.keys.sort
+                        </xule:expression>
+                        <div style="text-align: center"><xule:replace>
+                        <xule:expression class="hide" name="Headings" part="1">$heading_dict[$row]</xule:expression>
+                        <xule:template-display>
+                           Details
+                        </xule:template-display>
+                    </xule:replace>
+                </div>
+                    <div style="text-align: center"><xule:replace>
+                            <xule:expression class="hide" name="Headings" part="2">$row</xule:expression>
+                            <xule:template-display>
+                                (a)
+                            </xule:template-display>
+                        </xule:replace></div>
+                </td>
+            </tr>
+       <!-- Line: Net Income for the Year -->
+       <tr class="schedule-row" >
+            <td class="xbrl line-number">1</td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:NetIncomeLoss).label("http://ferc.gov/form/2020-01-01/roles/label/F2Reconciliation").text
+                    </xule:expression>
+                    <div>   
+                        <xule:template-display>
+                            Net Income for the Year
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:NetIncomeLoss @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                                $104,207
+                        </xule:template-display>
+                </xule:replace> 
+            </td>
+        </tr>
+        <!-- Line: Reconciling Items for the Year -->
+        <tr class="schedule-row" >
+            <td class="xbrl line-number">2</td>
+            <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:ReconcilingItemsForThePeriodAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Reconciliation").text
+                        </xule:expression>
+                        <div>   
+                            <xule:template-display>
+                                Reconciling Items for the Year
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+            <td class="xbrl gray-out"></td>  
+        </tr>
+         <!-- Line: Reconciling Items for the Year -->
+         <tr class="schedule-row" >
+                <td class="xbrl line-number">3</td>
+                <td class="xbrl description_items"></td>
+                <td class="xbrl gray-out"></td>  
+        </tr>
+
+
+    <!-- Line: Taxable Income Not Reported on Books -->
+
+        <!-- Line 4:  Taxable Income Not Reported on Books -->
+        <tr class="schedule-row" >
+            <td class="xbrl line-number">4</td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:TaxableIncomeNotReportedOnBooks).label("http://ferc.gov/form/2020-01-01/roles/label/F2Reconciliation").text
+                    </xule:expression>
+                    <div>   
+                        <xule:template-display>
+                                Taxable Income Not Reported on Books
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl gray-out"></td>  
+        </tr>
+        <!-- Line 5-7:  Taxable Income Not Reported on Books -->
+        <tr class="schedule-row" xule:repeat="TaxableIncomeLineItems">
+                <xule:expression class="hide" name="TaxableIncomeLineItems">// adding a comment
+                 
+                $data2 =   list(for $i in range(3)
+                                list($i,none,none)
+                );
+
+                $data = if count(list([covered @ferc:TaxableIncomeNotReportedOnBooksAxis=*])) > 0  
+                
+                    list({covered @ferc:TaxableIncomeNotReportedOnBooksAxis=*  {list(
+                        if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                        first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                    else
+                        0,
+                    if exists({@ferc:TaxableIncomeNotReportedOnBooksDescription @unit  @period=$currentDuration}) 
+                        first(list({@ferc:TaxableIncomeNotReportedOnBooksDescription @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if exists({@ferc:TaxableIncomeNotReportedOnBooks @unit @period=$currentDuration})
+                        first(list({@ferc:TaxableIncomeNotReportedOnBooks @unit @period=$currentDuration}))
+                    else 
+                        none
+                    )}})
+                    else $data2;
+                
+                    $uniqueData = list(for $x in  $data
+                    if $x == list(0,none,none)
+                        skip
+                    else 
+                        $x
+                    );
+
+                    for $row in $uniqueData.sort           
+
+                </xule:expression>
+                <td class="xbrl line-number"><xule:lineNumber name="TaxableIncomeLineItems"><xule:startNumber>5</xule:startNumber></xule:lineNumber>
+                    <xule:template-display>5</xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="TaxableIncomeLineItems" fact="true" part="2">$row[2]</xule:expression>
+                    <xule:class>
+                        if $row[2].is-fact ""
+                            else "sch-title"
+                    </xule:class>
+                </xule:replace>
+
+                    <xule:template-display>
+                        Taxable Income Not Reported on Books                   
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide" name="TaxableIncomeLineItems" fact="true" format="ixt4:num-dot-decimal" part="4">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        $100,000 
+                    </xule:template-display>
+                </td>
+            </tr> 
+        <!-- Line 8: TOTAL for Taxable Income Not Reported on Books -->
+        <tr>
+            <td class="xbrl line-number">8</td>
+            <td class="xbrl description_items">
+                    <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:TaxableIncomeNotReportedOnBooks).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                            TOTAL
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:TaxableIncomeNotReportedOnBooks @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                                $144,154,078
+                        </xule:template-display>
+                </xule:replace> 
+            </td>
+        </tr>
+
+    <!-- Line 9: Deductions Recorded on Books Not Deducted for Return -->
+        <tr class="schedule-row" >
+            <td class="xbrl line-number">9</td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:DeductionsRecordedOnBooksNotDeductedForReturnAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Reconciliation").text
+                    </xule:expression>
+                    <div>   
+                        <xule:template-display>
+                                Deductions Recorded on Books Not Deducted for Return
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl gray-out"></td>  
+        </tr>
+    <!-- Line 10-12: Details of Deductions Recorded on Books Not Deducted for Return -->
+    <tr class="schedule-row" xule:repeat="TaxableIncomeLineItems2">
+            <xule:expression class="hide" name="TaxableIncomeLineItems2">// adding a comment
+             
+            $data2 =   list(for $i in range(3)
+                            list($i,none,none)
+            );
+
+            $data = if count(list([covered @ferc:DeductionsRecordedOnBooksNotDeductedForReturnAxis=*])) > 0  
+            
+                list({covered @ferc:DeductionsRecordedOnBooksNotDeductedForReturnAxis=*  {list(
+                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                    {@ferc:OrderNumber @unit=* @period=$currentDuration}
+                else
+                    0,
+                if exists({@ferc:DeductionsRecordedOnBooksNotDeductedForReturnDescription @unit  @period=$currentDuration}) 
+                    first(list({@ferc:DeductionsRecordedOnBooksNotDeductedForReturnDescription @unit @period=$currentDuration})) 
+                else 
+                    none,
+                if exists({@ferc:DeductionsRecordedOnBooksNotDeductedForReturn @unit @period=$currentDuration})
+                    first(list({@ferc:DeductionsRecordedOnBooksNotDeductedForReturn @unit @period=$currentDuration})) 
+                else none
+                )}})
+                else $data2;
+            
+                $uniqueData = list(for $x in  $data
+                if $x == list(0,none,none)
+                    skip
+                else 
+                    $x
+                );
+
+                for $row in $uniqueData.sort         
+
+            </xule:expression>
+            <td class="xbrl line-number"><xule:lineNumber name="TaxableIncomeLineItems2"><xule:startNumber>10</xule:startNumber></xule:lineNumber>
+                <xule:template-display>10</xule:template-display>
+            </td>
+            <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="TaxableIncomeLineItems2" fact="true" part="2">$row[2]</xule:expression>
+                <xule:class>
+                    if $row[2].is-fact ""
+                        else "sch-title"
+                </xule:class>
+            </xule:replace>
+
+                <xule:template-display>
+                        Deductions Recorded on Books Not Deducted for Return                  
+                </xule:template-display>
+            </td>
+            <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide" name="TaxableIncomeLineItems2" fact="true" format="ixt4:num-dot-decimal" part="4">$row[3]</xule:expression></xule:replace>
+                <xule:template-display>
+                    $100,000 
+                </xule:template-display>
+            </td>
+        </tr> 
+    <!-- Line 13: TOTAL  -->
+    <tr>
+        <td class="xbrl line-number">13</td>
+        <td class="xbrl description_items">
+                <xule:replace>
+                <xule:expression class="hide">
+                    taxonomy().concept(ferc:DeductionsRecordedOnBooksNotDeductedForReturn).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                </xule:expression>
+                <div>
+                    <xule:template-display>
+                        TOTAL
+                    </xule:template-display>
+                </div>
+            </xule:replace>
+        </td>
+        <td class="xbrl monetary_items">
+            <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        max(list([covered @concept=ferc:DeductionsRecordedOnBooksNotDeductedForReturn @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                            $144,154,078
+                    </xule:template-display>
+            </xule:replace> 
+        </td>
+    </tr>
+
+    <!-- Income Recorded on Books Not Included in Return -->
+    <!-- Line 14 -->
+    <tr class="schedule-row" >
+        <td class="xbrl line-number">14</td>
+        <td class="xbrl description_items">
+            <xule:replace>
+                <xule:expression class="hide">
+                    taxonomy().concept(ferc:IncomeRecordedOnBooksNotIncludedInReturnAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Reconciliation").text
+                </xule:expression>
+                <div>   
+                    <xule:template-display>
+                        Income Recorded on Books Not Included in Return
+                    </xule:template-display>
+                </div>
+            </xule:replace>
+        </td>
+        <td class="xbrl gray-out"></td>  
+    </tr>
+    <!-- Line 15-17:  Income Recorded on Books Not Included in Return -->
+    <tr class="schedule-row" xule:repeat="TaxableIncomeLineItems3">
+        <xule:expression class="hide" name="TaxableIncomeLineItems3">// adding a comment
+            
+        $data2 =   list(for $i in range(3)
+                        list($i,none,none)
+        );
+
+        $data = if count(list([covered @ferc:IncomeRecordedOnBooksNotIncludedInReturnAxis=*])) > 0  
+        
+            list({covered @ferc:IncomeRecordedOnBooksNotIncludedInReturnAxis=*  {list(
+            if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                {@ferc:OrderNumber @unit=* @period=$currentDuration}
+            else
+                0,
+            if list({@ferc:IncomeRecordedOnBooksNotIncludedInReturnDescription @unit  @period=$currentDuration}).length > 0 
+                first(list({@ferc:IncomeRecordedOnBooksNotIncludedInReturnDescription @unit @period=$currentDuration}))
+            else 
+                none,
+            if list({@ferc:IncomeRecordedOnBooksNotIncludedInReturn @unit @period=$currentDuration}).length > 0
+                first(list({@ferc:IncomeRecordedOnBooksNotIncludedInReturn @unit @period=$currentDuration}))
+            else none
+            )}})
+            else $data2;
+        
+            $uniqueData = list(for $x in  $data
+            if $x == list(0,none,none)
+                skip
+            else 
+                $x
+            );
+
+            for $row in $uniqueData.sort          
+
+        </xule:expression>
+        <td class="xbrl line-number"><xule:lineNumber name="TaxableIncomeLineItems3"><xule:startNumber>15</xule:startNumber></xule:lineNumber>
+            <xule:template-display>15</xule:template-display>
+        </td>
+        <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="TaxableIncomeLineItems3" fact="true" part="2">$row[2]</xule:expression>
+            <xule:class>
+                if $row[2].is-fact ""
+                    else "sch-title"
+            </xule:class>
+        </xule:replace>
+
+            <xule:template-display>
+                    Income Recorded on Books Not Included in Return                 
+            </xule:template-display>
+        </td>
+        <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide" name="TaxableIncomeLineItems3" fact="true" format="ixt4:num-dot-decimal" part="4">$row[3]</xule:expression></xule:replace>
+            <xule:template-display>
+                $100,000 
+            </xule:template-display>
+        </td>
+    </tr> 
+        <!-- Line 18: TOTAL for Income Recorded on Books Not Included in Return  -->
+        <tr class="schedule-row">
+            <td class="xbrl line-number">18</td>
+            <td class="xbrl description_items">
+                    <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:IncomeRecordedOnBooksNotIncludedInReturn).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                            TOTAL
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                            max(list([covered @concept=ferc:IncomeRecordedOnBooksNotIncludedInReturn @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                                $144,154,078
+                        </xule:template-display>
+                </xule:replace> 
+            </td>
+        </tr>
+
+    <!-- Line 19-26: Deductions on Return Not Charged Against Book Income -->
+    <!-- Line 19 -->
+    <tr class="schedule-row">
+        <td class="xbrl line-number">19</td>
+        <td class="xbrl description_items">
+            <xule:replace>
+                <xule:expression class="hide">
+                    taxonomy().concept(ferc:DeductionsOnReturnNotChargedAgainstBookIncomeAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Reconciliation").text
+                </xule:expression>
+                <div>   
+                    <xule:template-display>
+                            Deductions on Return Not Charged Against Book Income
+                    </xule:template-display>
+                </div>
+            </xule:replace>
+        </td>
+        <td class="xbrl gray-out"></td>  
+    </tr>
+    <!-- Line 20-25  -->
+    <tr class="schedule-row" xule:repeat="TaxableIncomeLineItems4">
+            <xule:expression class="hide" name="TaxableIncomeLineItems4">// adding a comment
+                
+            $data2 =   list(for $i in range(6)
+                            list($i,none,none)
+            );
+
+            $data = if count(list([covered @ferc:DeductionsOnReturnNotChargedAgainstBookIncomeAxis=*])) > 0  
+            
+                list({covered @ferc:DeductionsOnReturnNotChargedAgainstBookIncomeAxis=*  {list(
+                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                    {@ferc:OrderNumber @unit=* @period=$currentDuration}
+                else
+                    0,
+                if list({@ferc:DeductionsOnReturnNotChargedAgainstBookIncomeDescription @unit  @period=$currentDuration}).length > 0
+                    first(list({@ferc:DeductionsOnReturnNotChargedAgainstBookIncomeDescription @unit @period=$currentDuration}))
+                else 
+                    none,
+                if list({@ferc:DeductionsOnReturnNotChargedAgainstBookIncome @unit @period=$currentDuration}).length > 0
+                    first(list({@ferc:DeductionsOnReturnNotChargedAgainstBookIncome @unit @period=$currentDuration}))
+                else none
+                )}})
+                else $data2;
+            
+                $uniqueData = list(for $x in  $data
+                if $x == list(0,none,none)
+                    skip
+                else 
+                    $x
+                );
+
+                for $row in $uniqueData.sort      
+
+            </xule:expression>
+            <td class="xbrl line-number"><xule:lineNumber name="TaxableIncomeLineItems4"><xule:startNumber>20</xule:startNumber></xule:lineNumber>
+                <xule:template-display>20</xule:template-display>
+            </td>
+            <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="TaxableIncomeLineItems4" fact="true" part="2">$row[2]</xule:expression>
+                <xule:class>
+                    if $row[2].is-fact ""
+                        else "sch-title"
+                </xule:class>
+            </xule:replace>
+
+                <xule:template-display>
+                        Deductions on Return Not Charged Against Book Income                  
+                </xule:template-display>
+            </td>
+            <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide" name="TaxableIncomeLineItems4" fact="true" format="ixt4:num-dot-decimal" part="4">$row[3]</xule:expression></xule:replace>
+                <xule:template-display>
+                    $100,000 
+                </xule:template-display>
+            </td>
+        </tr> 
+    <!-- Line 26: TOTAL for Deductions on Return Not Charged Against Book Income  -->
+        <tr class="schedule-row">
+            <td class="xbrl line-number">26</td>
+            <td class="xbrl description_items">
+                    <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:DeductionsOnReturnNotChargedAgainstBookIncome).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                            TOTAL
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                            max(list([covered @concept=ferc:DeductionsOnReturnNotChargedAgainstBookIncome @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                                $144,154,078
+                        </xule:template-display>
+                </xule:replace> 
+            </td>
+        </tr>
+    <!-- Line 27: Federal Tax Net Income  -->
+        <tr class="schedule-row">
+                <td class="xbrl line-number">27</td>
+                <td class="xbrl description_items">
+                        <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:FederalTaxNetIncome).label("http://ferc.gov/form/2020-01-01/roles/label/F2Reconciliation").text
+                        </xule:expression>
+                        <div>
+                            <xule:template-display>
+                                TOTAL
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                                max(list([covered @concept=ferc:FederalTaxNetIncome @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $144,154,078
+                            </xule:template-display>
+                    </xule:replace> 
+                </td>
+            </tr>
+    <!-- Line 28: Computation of Tax -->
+        <tr class="schedule-row" >
+                <td class="xbrl line-number">28</td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:ShowComputationOfTaxAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Reconciliation").text
+                        </xule:expression>
+                        <div>   
+                            <xule:template-display>
+                                    Show Computation of Tax:
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                <td class="xbrl gray-out"></td>  
+            </tr>
+    <!-- Line 29-35: Details of Computation of Tax -->
+        <tr class="schedule-row" xule:repeat="TaxableIncomeLineItems5">
+                <xule:expression class="hide" name="TaxableIncomeLineItems5">// adding a comment
+                    
+                $data2 =   list(for $i in range(7)
+                                list($i,none,none)
+                );
+    
+                $data = if count(list([covered @ferc:ReconciliationOfNetIncomeWithTaxableIncomeForFederalIncomeTaxesAxis=*])) > 0  
+                
+                    list({covered @ferc:ReconciliationOfNetIncomeWithTaxableIncomeForFederalIncomeTaxesAxis=*  {list(
+                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                        first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                    else
+                        0,
+                    if exists({@ferc:ComputationOfTaxDescription @unit  @period=$currentDuration}) 
+                        first(list({@ferc:ComputationOfTaxDescription @unit @period=$currentDuration}))
+                    else 
+                        none,
+                    if exists({@ferc:ComputationOfTax @unit @period=$currentDuration})
+                        first(list({@ferc:ComputationOfTax @unit @period=$currentDuration}))
+                    else none
+                    )}})
+                    else $data2;
+                
+                    $uniqueData = list(for $x in  $data
+                    if $x == list(0,none,none)
+                        skip
+                    else 
+                        $x
+                    );
+
+                    for $row in $uniqueData.sort          
+    
+                </xule:expression>
+                <td class="xbrl line-number"><xule:lineNumber name="TaxableIncomeLineItems5"><xule:startNumber>29</xule:startNumber></xule:lineNumber>
+                    <xule:template-display>29</xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression fact="true"  class="hide"  name="TaxableIncomeLineItems5" part="2">$row[2]</xule:expression>
+                    <xule:class>
+                        if $row[2].is-fact ""
+                            else "sch-title"
+                    </xule:class>
+                </xule:replace>
+    
+                    <xule:template-display>
+                            Computation of Tax                  
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide" name="TaxableIncomeLineItems5" fact="true" format="ixt4:num-dot-decimal" part="4">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        $100,000 
+                    </xule:template-display>
+                </td>
+            </tr> 
+    </table>
+<br/>
+<div class="schedule-footer">
+    <div>FERC FORM No. 
+            <xule:replace>
+                <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                <xule:template-display>2/3-Q</xule:template-display>
+            </xule:replace>
+            <span> </span>
+            <xule:replace>
+                    <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleReconciliationOfReportedNetIncomeWithTaxableIncomeForFederalIncomeTaxesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2DateRevised").text + ")"
+                    </xule:expression>
+                    <xule:template-display>
+                            12-96
+                    </xule:template-display>
+            </xule:replace> 
+    </div>
+    <div class="center-text">Page 
+            <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ScheduleReconciliationOfReportedNetIncomeWithTaxableIncomeForFederalIncomeTaxesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Page").text
+                    </xule:expression>
+                    <xule:template-display>
+                            261
+                    </xule:template-display>
+            </xule:replace>
+    </div>  
+</div>
+</body>
+</html>

@@ -207,7 +207,7 @@ $rule_id = rule-name();
 
  exists([covered @FormType @period=$currentDuration])  
 message 
-"The attestation date must be reported in the current period. 
+"The Form Type must be reported in the current period. 
 
 Rule Id:{$rule_id}
 "
@@ -218,7 +218,18 @@ $rule_id = rule-name();
 
  exists([covered @CompanyIdentifier @period=$currentDuration])  
 message 
-"The attestation date must be reported in the current period. 
+"The Company Identifier must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error	
+
+assert F714.1.1.21 satisfied 
+$rule_id = rule-name();
+
+$report-year_check != $report-year_pre
+message 
+"The company has reported a report year of {$report-year_pre} which is not a valid year. For purposes of running the rules the default period end of {$report-year-end-default} has been used.
 
 Rule Id:{$rule_id}
 "

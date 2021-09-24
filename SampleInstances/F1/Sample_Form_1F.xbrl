@@ -55,23 +55,7 @@
       <instant>2018-12-31</instant>
     </period>
   </context>
-  <context id="c-07">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <instant>2016-12-31</instant>
-    </period>
-  </context>
-  <context id="c-08">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
+  
   <context id="c-09">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -97,282 +81,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-11">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:AccumulatedProvisionForDepreciationAxis">
-                    <ferc:AccumulatedProvisionForDepreciationDomain>a1</ferc:AccumulatedProvisionForDepreciationDomain>
-                </xbrldi:typedMember>
-        <xbrldi:explicitMember dimension="ferc:ElectricPlantClassificationAxis">ferc:ElectricPlantInServiceMember</xbrldi:explicitMember>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-12">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:AccumulatedProvisionForDepreciationAxis">
-                    <ferc:AccumulatedProvisionForDepreciationDomain>b2</ferc:AccumulatedProvisionForDepreciationDomain>
-                </xbrldi:typedMember>
-        <xbrldi:explicitMember dimension="ferc:ElectricPlantClassificationAxis">ferc:ElectricPlantInServiceMember</xbrldi:explicitMember>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-15">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:ElectricPlantClassificationAxis">ferc:ElectricPlantInServiceMember</xbrldi:explicitMember>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-16">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-                    <ferc:OtherRegulatoryLiabilityDomain>a1</ferc:OtherRegulatoryLiabilityDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-17">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-                    <ferc:OtherRegulatoryLiabilityDomain>a1</ferc:OtherRegulatoryLiabilityDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-18">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-                    <ferc:OtherRegulatoryLiabilityDomain>b2</ferc:OtherRegulatoryLiabilityDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-19">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-                    <ferc:OtherRegulatoryLiabilityDomain>b2</ferc:OtherRegulatoryLiabilityDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-06-30</instant>
-    </period>
-  </context>
-  <context id="c-20">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-21">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherMiscellaneousOperatingRevenuesAxis">
-                    <ferc:OtherMiscellaneousOperatingRevenuesDomain>a1</ferc:OtherMiscellaneousOperatingRevenuesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-22">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherMiscellaneousOperatingRevenuesAxis">
-                    <ferc:OtherMiscellaneousOperatingRevenuesDomain>b2</ferc:OtherMiscellaneousOperatingRevenuesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-23">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:SalesForResaleAxis">
-                    <ferc:SalesForResaleDomain>a1</ferc:SalesForResaleDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-24">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:SalesForResaleAxis">
-                    <ferc:SalesForResaleDomain>b2</ferc:SalesForResaleDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-25">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-26">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:PurchasedPowerAxis">
-                    <ferc:PurchasedPowerDomain>a1</ferc:PurchasedPowerDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-27">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:PurchasedPowerAxis">
-                    <ferc:PurchasedPowerDomain>b2</ferc:PurchasedPowerDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-28">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AncillaryServicesPurchasesAndSalesAxis">ferc:SchedulingSystemControlAndDispatchMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-29">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:MonthAxis">ferc:Quarter1Member</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:NameOfTransmissionSystemAxis">
-                    <ferc:NameOfTransmissionSystemDomain>a1</ferc:NameOfTransmissionSystemDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-30">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:MonthAxis">ferc:Quarter1Member</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:NameOfTransmissionSystemAxis">
-                    <ferc:NameOfTransmissionSystemDomain>b2</ferc:NameOfTransmissionSystemDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-31">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-32">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-33">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-34">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
+  
   <context id="c-35">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -385,579 +94,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-36">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-37">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-38">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
-                    <ferc:RetainedEarningsDomain>a1</ferc:RetainedEarningsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-39">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
-                    <ferc:RetainedEarningsDomain>a1</ferc:RetainedEarningsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-40">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
-                    <ferc:RetainedEarningsDomain>b2</ferc:RetainedEarningsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-41">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
-                    <ferc:RetainedEarningsDomain>b2</ferc:RetainedEarningsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-06-30</instant>
-    </period>
-  </context>
-  <context id="c-42">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:AppropriatedRetainedEarningsAxis">
-                    <ferc:AppropriatedRetainedEarningsDomain>a1</ferc:AppropriatedRetainedEarningsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-43">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:AppropriatedRetainedEarningsAxis">
-                    <ferc:AppropriatedRetainedEarningsDomain>b2</ferc:AppropriatedRetainedEarningsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-44">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsCommonStockAxis">
-                    <ferc:RetainedEarningsCommonStockDomain>a1</ferc:RetainedEarningsCommonStockDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-45">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsCommonStockAxis">
-                    <ferc:RetainedEarningsCommonStockDomain>b2</ferc:RetainedEarningsCommonStockDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-46">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsAdjustmentsAxis">
-                    <ferc:RetainedEarningsAdjustmentDomain>a1</ferc:RetainedEarningsAdjustmentDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-47">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsAdjustmentsAxis">
-                    <ferc:RetainedEarningsAdjustmentDomain>b2</ferc:RetainedEarningsAdjustmentDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-48">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsAdjustmentsAxis">
-                    <ferc:RetainedEarningsAdjustmentDomain>a1</ferc:RetainedEarningsAdjustmentDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-49">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsAdjustmentsAxis">
-                    <ferc:RetainedEarningsAdjustmentDomain>b2</ferc:RetainedEarningsAdjustmentDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-50">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsPreferredStockAxis">
-                    <ferc:RetainedEarningsPreferredStockDomain>a1</ferc:RetainedEarningsPreferredStockDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-51">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsPreferredStockAxis">
-                    <ferc:RetainedEarningsPreferredStockDomain>b2</ferc:RetainedEarningsPreferredStockDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-52">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-53">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-54">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesAxis">
-                    <ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesDomain>a1</ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-55">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesAxis">
-                    <ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesDomain>b2</ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-56">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromFinancingActivitiesAxis">
-                    <ferc:OtherAdjustmentsToCashFlowsFromFinancingActivitiesDomain>a1</ferc:OtherAdjustmentsToCashFlowsFromFinancingActivitiesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-57">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromFinancingActivitiesAxis">
-                    <ferc:OtherAdjustmentsToCashFlowsFromFinancingActivitiesDomain>b2</ferc:OtherAdjustmentsToCashFlowsFromFinancingActivitiesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-58">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesAxis">
-                    <ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesDomain>a1</ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-59">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesAxis">
-                    <ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesDomain>b2</ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-60">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
-                    <ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain>a1</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-61">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
-                    <ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain>b2</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-62">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesAxis">
-                    <ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDomain>a1</ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-63">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesAxis">
-                    <ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDomain>b2</ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-64">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
-                    <ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain>a1</ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-65">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
-                    <ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain>b2</ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-66">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis">
-                    <ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>a1</ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-67">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis">
-                    <ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>b2</ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-68">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-69">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:CurrentYearMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:AllowancesCostOfSalesAxis">
-                    <ferc:AllowancesCostOfSalesDomain>a1</ferc:AllowancesCostOfSalesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-70">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:CurrentYearMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:AllowancesCostOfSalesAxis">
-                    <ferc:AllowancesCostOfSalesDomain>b2</ferc:AllowancesCostOfSalesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-71">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:CurrentYearMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:AllowancesRelinquishedAxis">
-                    <ferc:AllowancesRelinquishedDomain>a1</ferc:AllowancesRelinquishedDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-72">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:CurrentYearMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:AllowancesRelinquishedAxis">
-                    <ferc:AllowancesRelinquishedDomain>b2</ferc:AllowancesRelinquishedDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-73">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:CurrentYearMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-74">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:CurrentYearMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-75">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:CurrentYearMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:AllowancesInventoryAxis">
-                    <ferc:AllowancesInventoryDomain>a1</ferc:AllowancesInventoryDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-76">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:CurrentYearMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:AllowancesInventoryAxis">
-                    <ferc:AllowancesInventoryDomain>b2</ferc:AllowancesInventoryDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-77">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-                    <ferc:OtherRegulatoryAssetsDomain>a1</ferc:OtherRegulatoryAssetsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-78">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-                    <ferc:OtherRegulatoryAssetsDomain>a1</ferc:OtherRegulatoryAssetsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
+  
   <context id="c-79">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -972,91 +109,6 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-80">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-                    <ferc:OtherRegulatoryAssetsDomain>b2</ferc:OtherRegulatoryAssetsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-06-30</instant>
-    </period>
-  </context>
-  <context id="c-81">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OfficersAndDirectorsAxis">
-                    <ferc:OfficersAndDirectorsDomain>a1</ferc:OfficersAndDirectorsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-82">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OfficersAndDirectorsAxis">
-                    <ferc:OfficersAndDirectorsDomain>b2</ferc:OfficersAndDirectorsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-83">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:AccumulatedProvisionForDepreciationAxis">
-                    <ferc:AccumulatedProvisionForDepreciationDomain>a1</ferc:AccumulatedProvisionForDepreciationDomain>
-                </xbrldi:typedMember>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-84">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:AccumulatedProvisionForDepreciationAxis">
-                    <ferc:AccumulatedProvisionForDepreciationDomain>a1</ferc:AccumulatedProvisionForDepreciationDomain>
-                </xbrldi:typedMember>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-85">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:AccumulatedProvisionForDepreciationAxis">
-                    <ferc:AccumulatedProvisionForDepreciationDomain>b2</ferc:AccumulatedProvisionForDepreciationDomain>
-                </xbrldi:typedMember>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
   <context id="c-86">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -1066,641 +118,6 @@
     </entity>
     <period>
       <instant>2017-12-31</instant>
-    </period>
-  </context>
-  <context id="c-87">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:CommonStockAxis">
-                    <ferc:CommonStockDomain>a1</ferc:CommonStockDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-88">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:CommonStockAxis">
-                    <ferc:CommonStockDomain>a1</ferc:CommonStockDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-89">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:CommonStockAxis">
-                    <ferc:CommonStockDomain>b2</ferc:CommonStockDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-90">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:CommonStockAxis">
-                    <ferc:CommonStockDomain>b2</ferc:CommonStockDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-06-30</instant>
-    </period>
-  </context>
-  <context id="c-91">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:PreferredStockAxis">
-                    <ferc:PreferredStockDomain>a1</ferc:PreferredStockDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-92">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:PreferredStockAxis">
-                    <ferc:PreferredStockDomain>a1</ferc:PreferredStockDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-93">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:PreferredStockAxis">
-                    <ferc:PreferredStockDomain>b2</ferc:PreferredStockDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-94">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:PreferredStockAxis">
-                    <ferc:PreferredStockDomain>b2</ferc:PreferredStockDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-06-30</instant>
-    </period>
-  </context>
-  <context id="c-95">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:AdvancesFromAssociatedCompaniesAxis">
-                    <ferc:AdvancesFromAssociatedCompaniesDomain>a1</ferc:AdvancesFromAssociatedCompaniesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-96">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:AdvancesFromAssociatedCompaniesAxis">
-                    <ferc:AdvancesFromAssociatedCompaniesDomain>a1</ferc:AdvancesFromAssociatedCompaniesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-97">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:AdvancesFromAssociatedCompaniesAxis">
-                    <ferc:AdvancesFromAssociatedCompaniesDomain>b2</ferc:AdvancesFromAssociatedCompaniesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-98">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:AdvancesFromAssociatedCompaniesAxis">
-                    <ferc:AdvancesFromAssociatedCompaniesDomain>b2</ferc:AdvancesFromAssociatedCompaniesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-06-30</instant>
-    </period>
-  </context>
-  <context id="c-99">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:BondObligationsAxis">
-                    <ferc:BondObligationsDomain>a1</ferc:BondObligationsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-100">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:BondObligationsAxis">
-                    <ferc:BondObligationsDomain>a1</ferc:BondObligationsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-101">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:BondObligationsAxis">
-                    <ferc:BondObligationsDomain>b2</ferc:BondObligationsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-102">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:BondObligationsAxis">
-                    <ferc:BondObligationsDomain>b2</ferc:BondObligationsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-06-30</instant>
-    </period>
-  </context>
-  <context id="c-103">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherLongTermDebtAxis">
-                    <ferc:OtherLongTermDebtDomain>a1</ferc:OtherLongTermDebtDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-104">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherLongTermDebtAxis">
-                    <ferc:OtherLongTermDebtDomain>a1</ferc:OtherLongTermDebtDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-105">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherLongTermDebtAxis">
-                    <ferc:OtherLongTermDebtDomain>b2</ferc:OtherLongTermDebtDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-106">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherLongTermDebtAxis">
-                    <ferc:OtherLongTermDebtDomain>b2</ferc:OtherLongTermDebtDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-06-30</instant>
-    </period>
-  </context>
-  <context id="c-107">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:ReAcquiredBondObligationsAxis">
-                    <ferc:ReAcquiredBondObligationsDomain>a1</ferc:ReAcquiredBondObligationsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-108">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:ReAcquiredBondObligationsAxis">
-                    <ferc:ReAcquiredBondObligationsDomain>a1</ferc:ReAcquiredBondObligationsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-109">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:ReAcquiredBondObligationsAxis">
-                    <ferc:ReAcquiredBondObligationsDomain>b2</ferc:ReAcquiredBondObligationsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-110">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:ReAcquiredBondObligationsAxis">
-                    <ferc:ReAcquiredBondObligationsDomain>b2</ferc:ReAcquiredBondObligationsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-06-30</instant>
-    </period>
-  </context>
-  <context id="c-111">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-112">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-113">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-114">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherOperatingRevenuesAxis">
-                    <ferc:OtherOperatingRevenuesDomain>a1</ferc:OtherOperatingRevenuesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-115">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherOperatingRevenuesAxis">
-                    <ferc:OtherOperatingRevenuesDomain>b2</ferc:OtherOperatingRevenuesDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-116">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-117">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:SalesForResaleAxis">
-                    <ferc:SalesForResaleDomain>a1</ferc:SalesForResaleDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-118">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:SalesForResaleAxis">
-                    <ferc:SalesForResaleDomain>b2</ferc:SalesForResaleDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-119">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:PurchasedPowerAxis">
-                    <ferc:PurchasedPowerDomain>a1</ferc:PurchasedPowerDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-120">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:PurchasedPowerAxis">
-                    <ferc:PurchasedPowerDomain>b2</ferc:PurchasedPowerDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-121">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-122">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-123">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherElectricPlantAdjustmentsAxis">
-                    <ferc:OtherElectricPlantAdjustmentsDomain>a1</ferc:OtherElectricPlantAdjustmentsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-124">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherElectricPlantAdjustmentsAxis">
-                    <ferc:OtherElectricPlantAdjustmentsDomain>a1</ferc:OtherElectricPlantAdjustmentsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-125">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherElectricPlantAdjustmentsAxis">
-                    <ferc:OtherElectricPlantAdjustmentsDomain>b2</ferc:OtherElectricPlantAdjustmentsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-126">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherElectricPlantAdjustmentsAxis">
-                    <ferc:OtherElectricPlantAdjustmentsDomain>b2</ferc:OtherElectricPlantAdjustmentsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-06-30</instant>
-    </period>
-  </context>
-  <context id="c-127">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherUtilityPlantAxis">
-                    <ferc:OtherUtilityPlantDomain>a1</ferc:OtherUtilityPlantDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-128">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherUtilityPlantAxis">
-                    <ferc:OtherUtilityPlantDomain>a1</ferc:OtherUtilityPlantDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-03-31</instant>
-    </period>
-  </context>
-  <context id="c-129">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherUtilityPlantAxis">
-                    <ferc:OtherUtilityPlantDomain>b2</ferc:OtherUtilityPlantDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-130">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherUtilityPlantAxis">
-                    <ferc:OtherUtilityPlantDomain>b2</ferc:OtherUtilityPlantDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2016-06-30</instant>
-    </period>
-  </context>
-  <context id="c-131">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:FootnoteDataAxis">
-                    <ferc:FootnoteDataDomain>a1</ferc:FootnoteDataDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-132">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:FootnoteDataAxis">
-                    <ferc:FootnoteDataDomain>b2</ferc:FootnoteDataDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-133">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:TransmissionStudiesMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis">
-                    <ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain>a1</ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-134">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:TransmissionStudiesMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis">
-                    <ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain>b2</ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
-  <context id="c-135">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
     </period>
   </context>
   <context id="c-136">
@@ -1717,20 +134,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-137">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:AmountsIncludedInIsoOrRtoSettlementStatementsAxis">
-                    <ferc:AmountsIncludedInIsoOrRtoSettlementStatementsDomain>b2</ferc:AmountsIncludedInIsoOrRtoSettlementStatementsDomain>
-                </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-04-01</startDate>
-      <endDate>2016-06-30</endDate>
-    </period>
-  </context>
+
   <context id="c-138">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -1946,20 +350,7 @@
       <instant>2018-12-31</instant>
     </period>
   </context>
-  <context id="c-155">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-          <ferc:OtherRegulatoryAssetsDomain>AssetRetirementOblibation</ferc:OtherRegulatoryAssetsDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2017-01-01</startDate>
-      <endDate>2017-12-31</endDate>
-    </period>
-  </context>
+  
   <context id="c-154">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -2135,21 +526,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-168">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:AccumulatedProvisionForDepreciationAxis">
-          <ferc:AccumulatedProvisionForDepreciationDomain>a1</ferc:AccumulatedProvisionForDepreciationDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
+ 
   <context id="c-169">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -2250,73 +627,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-176">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:CommonStockAxis">
-          <ferc:CommonStockDomain>SeriesA</ferc:CommonStockDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2018-12-31</instant>
-    </period>
-  </context>
-  <context id="c-177">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:CommonStockAxis">
-          <ferc:CommonStockDomain>SeriesB</ferc:CommonStockDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2018-12-31</instant>
-    </period>
-  </context>
-  <context id="c-178">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:CommonStockAxis">
-          <ferc:CommonStockDomain>SeriesB</ferc:CommonStockDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-179">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:CommonStockAxis">
-          <ferc:CommonStockDomain>SeriesC</ferc:CommonStockDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-180">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:CommonStockAxis">
-          <ferc:CommonStockDomain>SeriesC</ferc:CommonStockDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2018-12-31</instant>
-    </period>
-  </context>
+  
   <context id="c-182">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -2677,19 +988,7 @@
       <instant>2017-12-31</instant>
     </period>
   </context>
-  <context id="c-209">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-          <ferc:OtherRegulatoryLiabilityDomain>a1</ferc:OtherRegulatoryLiabilityDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2017-12-31</instant>
-    </period>
-  </context>
+ 
   <context id="c-211">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -2704,20 +1003,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-212">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:SalesForResaleAxis">
-          <ferc:SalesForResaleDomain>a1</ferc:SalesForResaleDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
+  
   <context id="c-213">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -3143,30 +1429,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-244">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:TransmissionStudiesMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-245">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:GenerationStudiesMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
+ 
   <context id="c-246">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -3181,20 +1444,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-247">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
-          <ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain>Amortization of Loss on Reacquired Debt</ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
+ 
   <context id="c-248">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -3209,20 +1459,7 @@
       <endDate>2017-12-31</endDate>
     </period>
   </context>
-  <context id="c-249">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
-          <ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain>Amortization of Loss on Reacquired Debt</ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2017-01-01</startDate>
-      <endDate>2017-12-31</endDate>
-    </period>
-  </context>
+
   <context id="c-250">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -3237,20 +1474,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-251">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
-          <ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain>Cost of Removal</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
+
   <context id="c-252">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -3333,6 +1557,34 @@
     <period>
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
+    </period>
+  </context>
+  <context id="c-257.1">
+    <entity>
+      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
+      <segment>
+        <xbrldi:typedMember dimension="ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis">
+          <ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>Other Retirements</ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>
+        </xbrldi:typedMember>
+      </segment>
+    </entity>
+    <period>
+      <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+    </period>
+  </context>
+  <context id="c-257.2">
+    <entity>
+      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
+      <segment>
+        <xbrldi:typedMember dimension="ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis">
+          <ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>Other Retirements</ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>
+        </xbrldi:typedMember>
+      </segment>
+    </entity>
+    <period>
+      <startDate>2017-01-01</startDate>
+      <endDate>2017-12-31</endDate>
     </period>
   </context>
   <context id="c-258">
@@ -3776,18 +2028,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-294">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:CurrentYearMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2017-01-01</startDate>
-      <endDate>2017-12-31</endDate>
-    </period>
-  </context>
+  
   <context id="c-296">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -3803,111 +2044,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-297">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:CurrentYearMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:AllowancesInventoryAxis">
-          <ferc:AllowancesInventoryDomain>b2</ferc:AllowancesInventoryDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-298">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:NextTwelveMonthsMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:AllowancesInventoryAxis">
-          <ferc:AllowancesInventoryDomain>a1</ferc:AllowancesInventoryDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-299">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:NextTwelveMonthsMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:AllowancesInventoryAxis">
-          <ferc:AllowancesInventoryDomain>b2</ferc:AllowancesInventoryDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-300">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:TwoYearsMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:AllowancesInventoryAxis">
-          <ferc:AllowancesInventoryDomain>a1</ferc:AllowancesInventoryDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-301">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:TwoYearsMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:AllowancesInventoryAxis">
-          <ferc:AllowancesInventoryDomain>b2</ferc:AllowancesInventoryDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-302">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:ThreeYearsMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:AllowancesInventoryAxis">
-          <ferc:AllowancesInventoryDomain>a1</ferc:AllowancesInventoryDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-303">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:ThreeYearsMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:AllowancesInventoryAxis">
-          <ferc:AllowancesInventoryDomain>b2</ferc:AllowancesInventoryDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
+  
   <context id="c-304">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -4414,33 +2551,8 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-343">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:TransmissionStudiesMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-344">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:AllowanceInventoryTimePeriodAxis">ferc:CurrentYearMember</xbrldi:explicitMember>
-        <xbrldi:typedMember dimension="ferc:AllowancesRelinquishedAxis">
-          <ferc:AllowancesRelinquishedDomain>IMPA</ferc:AllowancesRelinquishedDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
+
+  
   <context id="c-346">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -4563,76 +2675,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-355">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
-          <ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain>b2</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-356">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis">
-          <ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>a1</ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-357">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis">
-          <ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>b2</ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-358">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis">
-          <ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>a1</ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2017-01-01</startDate>
-      <endDate>2017-12-31</endDate>
-    </period>
-  </context>
-  <context id="c-359">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis">
-          <ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>b2</ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2017-01-01</startDate>
-      <endDate>2017-12-31</endDate>
-    </period>
-  </context>
+  
   <context id="c-360">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -4741,20 +2784,7 @@
       <instant>2018-12-31</instant>
     </period>
   </context>
-  <context id="c-369">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:typedMember dimension="ferc:OtherUtilityPlantAxis">
-          <ferc:OtherUtilityPlantDomain>a1</ferc:OtherUtilityPlantDomain>
-        </xbrldi:typedMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2017-01-01</startDate>
-      <endDate>2017-12-31</endDate>
-    </period>
-  </context>
+
   <context id="c-370">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -4928,42 +2958,7 @@
       <endDate>2017-12-31</endDate>
     </period>
   </context>
-  <context id="c-386">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-387">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:GasUtilityMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
-  <context id="c-388">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:OtherUtilityMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
+  
   <context id="c-389">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -4988,18 +2983,7 @@
       <endDate>2017-12-31</endDate>
     </period>
   </context>
-  <context id="c-388_2">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:OtherUtilityMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2016-01-01</startDate>
-      <endDate>2016-03-31</endDate>
-    </period>
-  </context>
+ 
   <unit id="u-01">
     <measure>iso4217:USD</measure>
   </unit>
@@ -5016,7 +3000,7 @@
     <measure>utr:MWh</measure>
   </unit>
   <unit id="u-06">
-    <measure>utr:KWh</measure>
+    <measure>utr:kWh</measure>
   </unit>
   <unit id="u-07">
     <divide>
@@ -5566,16 +3550,20 @@
   <ferc:CashFlowsProvidedFromUsedInInvestmentActivities decimals="0" contextRef="c-05" unitRef="u-01">6251345</ferc:CashFlowsProvidedFromUsedInInvestmentActivities>
   <ferc:CashFlowsProvidedFromUsedInInvestmentActivities decimals="0" contextRef="c-03" unitRef="u-01">-8827179</ferc:CashFlowsProvidedFromUsedInInvestmentActivities>
   <ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivities decimals="0" contextRef="c-259" unitRef="u-01">10</ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivities>
-  <ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivities decimals="0" contextRef="c-258" unitRef="u-01">20</ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivities>
+  <ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivities decimals="0" contextRef="c-258" unitRef="u-01">10</ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivities>
   <ferc:OrderNumber decimals="0" contextRef="c-256" unitRef="u-02">1</ferc:OrderNumber>
   <ferc:OrderNumber decimals="0" contextRef="c-257" unitRef="u-02">2</ferc:OrderNumber>
-  <ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivities decimals="0" contextRef="c-256" unitRef="u-01">10</ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivities>
+  <ferc:OrderNumber decimals="0" contextRef="c-257.1" unitRef="u-02">1</ferc:OrderNumber>
+  <ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivities decimals="0" contextRef="c-256" unitRef="u-01">0</ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivities>
   <ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivities decimals="0" contextRef="c-257" unitRef="u-01">20</ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivities>
+  <ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities decimals="0" contextRef="c-257.1" unitRef="u-01">140414176</ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities>
+  <ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities decimals="0" contextRef="c-257.2" unitRef="u-01">135</ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities>
   <ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDescription contextRef="c-256">Net Increase (Decrease) in Additional Paid in Capital</ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDescription>
   <ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDescription contextRef="c-257">Net (Increase) Decrease in Temporary Investments</ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDescription>
+  <ferc:DescriptionOfOtherRetirementsImpactingCashFlowsFromFinancingActivities contextRef="c-257.1">Reversal of retirement</ferc:DescriptionOfOtherRetirementsImpactingCashFlowsFromFinancingActivities>
   <ferc:DividendsOnCommonStock decimals="0" contextRef="c-05" unitRef="u-01">-70</ferc:DividendsOnCommonStock>
   <ferc:DividendsOnCommonStock decimals="0" contextRef="c-03" unitRef="u-01">10</ferc:DividendsOnCommonStock>
-  <ferc:NetIncreaseDecreaseInCashAndCashEquivalents decimals="0" contextRef="c-03" unitRef="u-01">140333435</ferc:NetIncreaseDecreaseInCashAndCashEquivalents>
+  <ferc:NetIncreaseDecreaseInCashAndCashEquivalents decimals="0" contextRef="c-03" unitRef="u-01">-80786</ferc:NetIncreaseDecreaseInCashAndCashEquivalents>
   <ferc:NetIncreaseDecreaseInCashAndCashEquivalents decimals="0" contextRef="c-05" unitRef="u-01">10606325</ferc:NetIncreaseDecreaseInCashAndCashEquivalents>
   <ferc:CashAndCashEquivalents decimals="0" contextRef="c-01" unitRef="u-01">30798</ferc:CashAndCashEquivalents>
   <ferc:CashAndCashEquivalents decimals="0" contextRef="c-02" unitRef="u-01">111584</ferc:CashAndCashEquivalents>
@@ -6447,11 +4435,11 @@
   <ferc:CapitalStockStatedValuePerShareOfNonparStock decimals="5" contextRef="c-360" unitRef="u-07">4.32</ferc:CapitalStockStatedValuePerShareOfNonparStock>
   <ferc:CapitalStockSharesOutstanding decimals="0" contextRef="c-360" unitRef="u-03">5000</ferc:CapitalStockSharesOutstanding>
   <ferc:CapitalStockValueOutstanding decimals="0" contextRef="c-360" unitRef="u-01">100000000</ferc:CapitalStockValueOutstanding>
-  <ferc:PublicStreetAndHighwayLightingKilowattHours decimals="0" contextRef="c-03" unitRef="u-04">10</ferc:PublicStreetAndHighwayLightingKilowattHours>
+  <ferc:PublicStreetAndHighwayLightingKilowattHours decimals="0" contextRef="c-03" unitRef="u-06">10</ferc:PublicStreetAndHighwayLightingKilowattHours>
   <ferc:AverageNumberOfCustomersPerMonthPublicStreetAndHighwayLighting decimals="0" contextRef="c-03" unitRef="u-04">10</ferc:AverageNumberOfCustomersPerMonthPublicStreetAndHighwayLighting>
   <ferc:SalesToUltimateConsumers decimals="0" contextRef="c-03" unitRef="u-01">1298003</ferc:SalesToUltimateConsumers>
   <ferc:SalesForResale decimals="0" contextRef="c-03" unitRef="u-01">7</ferc:SalesForResale>
-  <ferc:SalesForResaleKilowattHours decimals="0" contextRef="c-03" unitRef="u-04">6</ferc:SalesForResaleKilowattHours>
+  <ferc:SalesForResaleKilowattHours decimals="0" contextRef="c-03" unitRef="u-06">6</ferc:SalesForResaleKilowattHours>
   <ferc:AverageNumberOfCustomersPerMonthSalesForResale decimals="0" contextRef="c-03" unitRef="u-04">5</ferc:AverageNumberOfCustomersPerMonthSalesForResale>
   <ferc:PurchasedPowerAnnualMaximumDemand decimals="0" contextRef="c-217" unitRef="u-04">45</ferc:PurchasedPowerAnnualMaximumDemand>
   <ferc:MegawattHoursPurchased decimals="0" contextRef="c-217" unitRef="u-05">10</ferc:MegawattHoursPurchased>
@@ -6604,12 +4592,12 @@
   <ferc:GrossAdditionsToNonutilityPlantInvestingActivities decimals="0" contextRef="c-05" unitRef="u-01">55</ferc:GrossAdditionsToNonutilityPlantInvestingActivities>
   <ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivities decimals="0" contextRef="c-248" unitRef="u-01">47178</ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivities>
   <ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDescription contextRef="c-250">Net (Increase) Decrease in Deferred Charges</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDescription>
-  <ferc:OtherAdjustmentsToCashFlowsFromOperatingActivities decimals="0" contextRef="c-250" unitRef="u-01">10</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivities>
+  <ferc:OtherAdjustmentsToCashFlowsFromOperatingActivities decimals="0" contextRef="c-250" unitRef="u-01">171203453</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivities>
   <ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDescription contextRef="c-352">Net Increase (Decrease) in Other Noncurrent Liabilities</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDescription>
   <ferc:OtherAdjustmentsToCashFlowsFromOperatingActivities decimals="0" contextRef="c-352" unitRef="u-01">981270</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivities>
   <ferc:OrderNumber decimals="0" contextRef="c-250" unitRef="u-02">1</ferc:OrderNumber>
   <ferc:OrderNumber decimals="0" contextRef="c-352" unitRef="u-02">2</ferc:OrderNumber>
-  <ferc:OtherAdjustmentsToCashFlowsFromOperatingActivities decimals="0" contextRef="c-383" unitRef="u-01">-10</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivities>
+  <ferc:OtherAdjustmentsToCashFlowsFromOperatingActivities decimals="0" contextRef="c-383" unitRef="u-01">24915904</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivities>
   <ferc:OtherAdjustmentsToCashFlowsFromOperatingActivities decimals="0" contextRef="c-384" unitRef="u-01">-776273</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivities>
   <ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivities decimals="0" contextRef="c-253" unitRef="u-01">10</ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivities>
   <ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivities decimals="0" contextRef="c-252" unitRef="u-01">-633100</ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivities>
@@ -6661,7 +4649,7 @@
   <ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities decimals="0" contextRef="c-349" unitRef="u-01">10</ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities>
   <ferc:DescriptionForOtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities contextRef="c-348">Short-term Debt from Affiliate - Proceeds</ferc:DescriptionForOtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities>
   <ferc:DescriptionForOtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities contextRef="c-349">Short-term Debt from Affiliate - Payments</ferc:DescriptionForOtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities>
-  <ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities decimals="0" contextRef="c-385" unitRef="u-01">10</ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities>
+  <ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities decimals="0" contextRef="c-385" unitRef="u-01">0</ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities>
   <ferc:CashProvidedByOutsideSources decimals="0" contextRef="c-03" unitRef="u-01">80</ferc:CashProvidedByOutsideSources>
   <ferc:CashProvidedByOutsideSources decimals="0" contextRef="c-05" unitRef="u-01">60</ferc:CashProvidedByOutsideSources>
   <ferc:PaymentsForRetirementOfLongTermDebtFinancingActivities decimals="0" contextRef="c-03" unitRef="u-01">25</ferc:PaymentsForRetirementOfLongTermDebtFinancingActivities>
@@ -6674,7 +4662,7 @@
   <ferc:NetDecreaseInShortTermDebt decimals="0" contextRef="c-05" unitRef="u-01">-5</ferc:NetDecreaseInShortTermDebt>
   <ferc:DividendsOnPreferredStock decimals="0" contextRef="c-03" unitRef="u-01">50</ferc:DividendsOnPreferredStock>
   <ferc:DividendsOnPreferredStock decimals="0" contextRef="c-05" unitRef="u-01">60</ferc:DividendsOnPreferredStock>
-  <ferc:CashFlowsProvidedFromUsedInFinancingActivities decimals="0" contextRef="c-03" unitRef="u-01">5</ferc:CashFlowsProvidedFromUsedInFinancingActivities>
+  <ferc:CashFlowsProvidedFromUsedInFinancingActivities decimals="0" contextRef="c-03" unitRef="u-01">-140414216</ferc:CashFlowsProvidedFromUsedInFinancingActivities>
   <ferc:CashFlowsProvidedFromUsedInFinancingActivities decimals="0" contextRef="c-05" unitRef="u-01">-126</ferc:CashFlowsProvidedFromUsedInFinancingActivities>
   <ferc:OtherAdjustmentsToCashFlowsFromFinancingActivities decimals="0" contextRef="c-354" unitRef="u-01">10</ferc:OtherAdjustmentsToCashFlowsFromFinancingActivities>
   <ferc:AmortizationOfPremiumOnDebtCredit decimals="0" contextRef="c-03" unitRef="u-01">10</ferc:AmortizationOfPremiumOnDebtCredit>

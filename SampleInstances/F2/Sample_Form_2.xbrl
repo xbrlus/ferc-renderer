@@ -13748,7 +13748,7 @@
     </divide>
   </unit>
   <unit id="u-09">
-    <measure>utr:KWh</measure>
+    <measure>utr:kWh</measure>
   </unit>
 
   <ferc:OrderNumber decimals="INF" contextRef="c-776" unitRef="u-01">1</ferc:OrderNumber>

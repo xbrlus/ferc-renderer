@@ -2955,6 +2955,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
+  <!--
   <context id="c-214">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -3270,6 +3271,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
+  -->
   <context id="c-235">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -3600,7 +3602,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-259">
+  <!--<context id="c-259">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -3613,8 +3615,8 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
-  <context id="c-260">
+  </context>-->
+  <!--<context id="c-260">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -3627,7 +3629,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-261">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -3642,7 +3644,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-262">
+  <!--<context id="c-262">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -3655,7 +3657,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-263">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -3670,7 +3672,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-264">
+  <!--<context id="c-264">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -3683,8 +3685,8 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
-  <context id="c-265">
+  </context>-->
+ <!-- <context id="c-265">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -3697,7 +3699,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-266">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -3740,7 +3742,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-269">
+  <!--<context id="c-269">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -3753,7 +3755,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-270">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -3796,7 +3798,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-273">
+  <!--<context id="c-273">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -3809,7 +3811,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-274">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -3838,7 +3840,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-276">
+  <!--<context id="c-276">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -3851,7 +3853,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-277">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -4006,7 +4008,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-288">
+  <!--<context id="c-288">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -4019,7 +4021,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-289">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -4062,7 +4064,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-292">
+  <!--<context id="c-292">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -4075,7 +4077,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-293">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -4090,7 +4092,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-294">
+ <!-- <context id="c-294">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -4103,7 +4105,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-295">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -4160,7 +4162,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-299">
+  <!--<context id="c-299">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -4173,7 +4175,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-300">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -4202,7 +4204,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-302">
+  <!--<context id="c-302">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -4215,7 +4217,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-303">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -4272,7 +4274,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-307">
+  <!--<context id="c-307">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -4285,7 +4287,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-308">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -4314,7 +4316,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-310">
+ <!--<context id="c-310">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -4327,8 +4329,8 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
-  <context id="c-311">
+  </context>-->
+  <!--<context id="c-311">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -4341,7 +4343,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-312">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -4384,7 +4386,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-315">
+  <!--<context id="c-315">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -4397,7 +4399,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-316">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -4454,7 +4456,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-320">
+  <!--<context id="c-320">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -4495,7 +4497,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-323">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -4566,7 +4568,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-328">
+  <!--<context id="c-328">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
       <segment>
@@ -4579,7 +4581,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-329">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -6210,6 +6212,7 @@
       <endDate>2017-12-31</endDate>
     </period>
   </context>
+  <!--
   <context id="c-464">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -6225,6 +6228,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
+
   <context id="c-465">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -6240,6 +6244,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
+    -->
   <context id="c-466">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
@@ -9560,9 +9565,13 @@
   <ferc:DescriptionOfAssetsOrOfTransaction id="f-860" contextRef="c-207"> Affiliated receivable</ferc:DescriptionOfAssetsOrOfTransaction>
   <ferc:DescriptionOfAssetsOrOfTransaction id="f-863" contextRef="c-209">Affiliated Receivable</ferc:DescriptionOfAssetsOrOfTransaction>
   <ferc:DescriptionOfAssetsOrOfTransaction id="f-866" contextRef="c-211">Affiliated Receivable</ferc:DescriptionOfAssetsOrOfTransaction>
-  <ferc:NumberOfBarrelMilesOnTrunkLinesOfOilProducts id="f-869" decimals="0" contextRef="c-04" unitRef="u-01">9268389019</ferc:NumberOfBarrelMilesOnTrunkLinesOfOilProducts>
+
+  
+  <ferc:NumberOfBarrelMilesOnTrunkLinesOfOilProducts id="f-869-1" decimals="0" contextRef="c-04" unitRef="u-01">9268389019</ferc:NumberOfBarrelMilesOnTrunkLinesOfOilProducts>
+  <ferc:NumberOfBarrelMilesOnTrunkLinesOfCrudeOil id="f-869" decimals="0" contextRef="c-04" unitRef="u-01">9268389</ferc:NumberOfBarrelMilesOnTrunkLinesOfCrudeOil>
+ 
   <ferc:NumberOfBarrelsOfOilHavingTrunkLineMovementForOilProducts id="f-870" decimals="0" contextRef="c-04" unitRef="u-06">77228948</ferc:NumberOfBarrelsOfOilHavingTrunkLineMovementForOilProducts>
-  <ferc:StateOfOrigin id="f-871" contextRef="c-214">IA, Gasoline - 29111</ferc:StateOfOrigin>
+  <!--<ferc:StateOfOrigin id="f-871" contextRef="c-214">IA, Gasoline - 29111</ferc:StateOfOrigin>
   <ferc:StateOfOrigin id="f-877" contextRef="c-215">ME, Others - 29119</ferc:StateOfOrigin>
   <ferc:StateOfOrigin id="f-880" contextRef="c-216">ME, Gasoline - 29111</ferc:StateOfOrigin>
   <ferc:StateOfOrigin id="f-885" contextRef="c-217">MI, Others - 29119</ferc:StateOfOrigin>
@@ -9597,10 +9606,10 @@
   <ferc:NumberOfBarrelsReceivedOnTrunkLines id="f-960" decimals="0" contextRef="c-231" unitRef="u-06">7591208</ferc:NumberOfBarrelsReceivedOnTrunkLines>
   <ferc:NumberOfBarrelsReceivedOnTrunkLines id="f-967" decimals="0" contextRef="c-232" unitRef="u-06">2202335</ferc:NumberOfBarrelsReceivedOnTrunkLines>
   <ferc:NumberOfBarrelsReceivedOnTrunkLines id="f-974" decimals="0" contextRef="c-233" unitRef="u-06">134586</ferc:NumberOfBarrelsReceivedOnTrunkLines>
-  <ferc:NumberOfBarrelsReceivedOnTrunkLines id="f-979" decimals="0" contextRef="c-234" unitRef="u-06">135061</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+  <ferc:NumberOfBarrelsReceivedOnTrunkLines id="f-979" decimals="0" contextRef="c-234" unitRef="u-06">135061</ferc:NumberOfBarrelsReceivedOnTrunkLines>-->
   <ferc:NumberOfBarrelsReceivedOnTrunkLines id="f-984" decimals="0" contextRef="c-105" unitRef="u-06">65768891</ferc:NumberOfBarrelsReceivedOnTrunkLines>
   <ferc:NumberOfBarrelsReceivedOnTrunkLines id="f-996" decimals="0" contextRef="c-04" unitRef="u-06">65770891</ferc:NumberOfBarrelsReceivedOnTrunkLines>
-  <ferc:NumberOfBarrelsReceived id="f-873" decimals="0" contextRef="c-214" unitRef="u-06">6563300</ferc:NumberOfBarrelsReceived>
+  <!--<ferc:NumberOfBarrelsReceived id="f-873" decimals="0" contextRef="c-214" unitRef="u-06">6563300</ferc:NumberOfBarrelsReceived>
   <ferc:NumberOfBarrelsReceived id="f-882" decimals="0" contextRef="c-216" unitRef="u-06">2780208</ferc:NumberOfBarrelsReceived>
   <ferc:NumberOfBarrelsReceived id="f-890" decimals="0" contextRef="c-218" unitRef="u-06">6601991</ferc:NumberOfBarrelsReceived>
   <ferc:NumberOfBarrelsReceived id="f-902" decimals="0" contextRef="c-220" unitRef="u-06">3014278</ferc:NumberOfBarrelsReceived>
@@ -9614,17 +9623,17 @@
   <ferc:NumberOfBarrelsReceived id="f-961" decimals="0" contextRef="c-231" unitRef="u-06">7591208</ferc:NumberOfBarrelsReceived>
   <ferc:NumberOfBarrelsReceived id="f-968" decimals="0" contextRef="c-232" unitRef="u-06">4790370</ferc:NumberOfBarrelsReceived>
   <ferc:NumberOfBarrelsReceived id="f-975" decimals="0" contextRef="c-233" unitRef="u-06">164588</ferc:NumberOfBarrelsReceived>
-  <ferc:NumberOfBarrelsReceived id="f-980" decimals="0" contextRef="c-234" unitRef="u-06">135061</ferc:NumberOfBarrelsReceived>
+  <ferc:NumberOfBarrelsReceived id="f-980" decimals="0" contextRef="c-234" unitRef="u-06">135061</ferc:NumberOfBarrelsReceived>-->
   <ferc:NumberOfBarrelsReceived id="f-985" decimals="0" contextRef="c-105" unitRef="u-06">77459467</ferc:NumberOfBarrelsReceived>
-  <ferc:NumberOfBarrelsReceived id="f-997" decimals="0" contextRef="c-04" unitRef="u-06">77463467</ferc:NumberOfBarrelsReceived>
-  <ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers id="f-874" decimals="0" contextRef="c-214" unitRef="u-06">122447</ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers>
+  <ferc:NumberOfBarrelsReceived id="f-997" decimals="0" contextRef="c-04" unitRef="u-06">77465467</ferc:NumberOfBarrelsReceived>
+  <!--<ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers id="f-874" decimals="0" contextRef="c-214" unitRef="u-06">122447</ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers>
   <ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers id="f-912" decimals="0" contextRef="c-222" unitRef="u-06">11501655</ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers>
   <ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers id="f-924" decimals="0" contextRef="c-224" unitRef="u-06">2535807</ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers>
   <ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers id="f-962" decimals="0" contextRef="c-231" unitRef="u-06">4606330</ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers>
-  <ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers id="f-969" decimals="0" contextRef="c-232" unitRef="u-06">1311084</ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers>
+  <ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers id="f-969" decimals="0" contextRef="c-232" unitRef="u-06">1311084</ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers>-->
   <ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers id="f-986" decimals="0" contextRef="c-105" unitRef="u-06">20077323</ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers>
   <ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers id="f-998" decimals="0" contextRef="c-04" unitRef="u-06">20079323</ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers>
-  <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines id="f-875" decimals="0" contextRef="c-214" unitRef="u-06">6480544</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
+  <!--<ferc:NumberOfBarrelsDeliveredOutOnTrunkLines id="f-875" decimals="0" contextRef="c-214" unitRef="u-06">6480544</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
   <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines id="f-883" decimals="0" contextRef="c-216" unitRef="u-06">2780981</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
   <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines id="f-891" decimals="0" contextRef="c-218" unitRef="u-06">6637521</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
   <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines id="f-903" decimals="0" contextRef="c-220" unitRef="u-06">3040806</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
@@ -9638,10 +9647,10 @@
   <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines id="f-963" decimals="0" contextRef="c-231" unitRef="u-06">2955262</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
   <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines id="f-970" decimals="0" contextRef="c-232" unitRef="u-06">3450054</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
   <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines id="f-976" decimals="0" contextRef="c-233" unitRef="u-06">151924</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
-  <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines id="f-981" decimals="0" contextRef="c-234" unitRef="u-06">220537</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
+  <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines id="f-981" decimals="0" contextRef="c-234" unitRef="u-06">220537</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>-->
   <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines id="f-987" decimals="0" contextRef="c-105" unitRef="u-06">56973413</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
   <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines id="f-999" decimals="0" contextRef="c-04" unitRef="u-06">56975413</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
-  <ferc:NumberOfBarrelsDeliveredOut id="f-876" decimals="0" contextRef="c-214" unitRef="u-06">6602991</ferc:NumberOfBarrelsDeliveredOut>
+  <!--<ferc:NumberOfBarrelsDeliveredOut id="f-876" decimals="0" contextRef="c-214" unitRef="u-06">6602991</ferc:NumberOfBarrelsDeliveredOut>
   <ferc:NumberOfBarrelsDeliveredOut id="f-884" decimals="0" contextRef="c-216" unitRef="u-06">2780981</ferc:NumberOfBarrelsDeliveredOut>
   <ferc:NumberOfBarrelsDeliveredOut id="f-892" decimals="0" contextRef="c-218" unitRef="u-06">6637521</ferc:NumberOfBarrelsDeliveredOut>
   <ferc:NumberOfBarrelsDeliveredOut id="f-904" decimals="0" contextRef="c-220" unitRef="u-06">3040806</ferc:NumberOfBarrelsDeliveredOut>
@@ -9655,16 +9664,1318 @@
   <ferc:NumberOfBarrelsDeliveredOut id="f-964" decimals="0" contextRef="c-231" unitRef="u-06">7561592</ferc:NumberOfBarrelsDeliveredOut>
   <ferc:NumberOfBarrelsDeliveredOut id="f-971" decimals="0" contextRef="c-232" unitRef="u-06">4761138</ferc:NumberOfBarrelsDeliveredOut>
   <ferc:NumberOfBarrelsDeliveredOut id="f-977" decimals="0" contextRef="c-233" unitRef="u-06">151924</ferc:NumberOfBarrelsDeliveredOut>
-  <ferc:NumberOfBarrelsDeliveredOut id="f-982" decimals="0" contextRef="c-234" unitRef="u-06">220537</ferc:NumberOfBarrelsDeliveredOut>
+  <ferc:NumberOfBarrelsDeliveredOut id="f-982" decimals="0" contextRef="c-234" unitRef="u-06">220537</ferc:NumberOfBarrelsDeliveredOut>-->
   <ferc:NumberOfBarrelsDeliveredOut id="f-988" decimals="0" contextRef="c-105" unitRef="u-06">77050736</ferc:NumberOfBarrelsDeliveredOut>
-  <ferc:NumberOfBarrelsDeliveredOut id="f-1000" decimals="0" contextRef="c-04" unitRef="u-06">77054736</ferc:NumberOfBarrelsDeliveredOut>
-  <ferc:NumberOfBarrelsReceivedFromConnectingCarriers id="f-900" decimals="0" contextRef="c-220" unitRef="u-06">120394</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
+  <ferc:NumberOfBarrelsDeliveredOut id="f-1000" decimals="0" contextRef="c-04" unitRef="u-06">77056736</ferc:NumberOfBarrelsDeliveredOut>
+  <!--<ferc:NumberOfBarrelsReceivedFromConnectingCarriers id="f-900" decimals="0" contextRef="c-220" unitRef="u-06">120394</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
   <ferc:NumberOfBarrelsReceivedFromConnectingCarriers id="f-921" decimals="0" contextRef="c-224" unitRef="u-06">8685134</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
   <ferc:NumberOfBarrelsReceivedFromConnectingCarriers id="f-934" decimals="0" contextRef="c-226" unitRef="u-06">267011</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
   <ferc:NumberOfBarrelsReceivedFromConnectingCarriers id="f-966" decimals="0" contextRef="c-232" unitRef="u-06">2588035</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
-  <ferc:NumberOfBarrelsReceivedFromConnectingCarriers id="f-973" decimals="0" contextRef="c-233" unitRef="u-06">30002</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
+  <ferc:NumberOfBarrelsReceivedFromConnectingCarriers id="f-973" decimals="0" contextRef="c-233" unitRef="u-06">30002</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>-->
   <ferc:NumberOfBarrelsReceivedFromConnectingCarriers id="f-983" decimals="0" contextRef="c-105" unitRef="u-06">11690576</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
   <ferc:NumberOfBarrelsReceivedFromConnectingCarriers id="f-995" decimals="0" contextRef="c-04" unitRef="u-06">11692576</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
+  
+  
+
+
+
+  <!-- UPDATED SCH 600 -->
+
+<context id="c600-26">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>OILIAORIG</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-26"
+      decimals="0"
+      id="Sch600Details.r_1.Order"
+      unitRef="u-01">1</ferc:OrderNumber>
+    <context id="c600-27">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:CrudeOilMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>OILIAORIG</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-27" id="Sch600Details.r_1.StateOfOrigin">IA</ferc:StateOfOrigin>
+    <ferc:NumberOfBarrelsReceivedFromConnectingCarriers
+      contextRef="c600-27"
+      decimals="0"
+      id="Sch600Details.r_1.NumberOfBarrelsReceivedFromConnectingCarriers"
+      unitRef="u-06">1000</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
+    <ferc:NumberOfBarrelsReceivedOnGatheringLines
+      contextRef="c600-27"
+      decimals="0"
+      id="Sch600Details.r_1.NumberOfBarrelsReceivedOnGatheringLines"
+      unitRef="u-06">1000</ferc:NumberOfBarrelsReceivedOnGatheringLines>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-27"
+      decimals="0"
+      id="Sch600Details.r_1.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">1000</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-27"
+      decimals="0"
+      id="Sch600Details.r_1.NumberOfBarrelsReceived"
+      unitRef="u-06">3000</ferc:NumberOfBarrelsReceived>
+    <ferc:NumberOfBarrelsDeliveredOutOnGatheringLines
+      contextRef="c600-27"
+      decimals="0"
+      id="Sch600Details.r_1.NumberOfBarrelsDeliveredOutOnGatheringLines"
+      unitRef="u-06">0</ferc:NumberOfBarrelsDeliveredOutOnGatheringLines>
+    <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines
+      contextRef="c600-27"
+      decimals="0"
+      id="Sch600Details.r_1.NumberOfBarrelsDeliveredOutOnTrunkLines"
+      unitRef="u-06">0</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
+    <ferc:NumberOfBarrelsDeliveredOut
+      contextRef="c600-27"
+      decimals="0"
+      id="Sch600Details.r_1.NumberOfBarrelsDeliveredOut"
+      unitRef="u-06">0</ferc:NumberOfBarrelsDeliveredOut>
+    <context id="c600-28">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>OILMEORIG</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-28"
+      decimals="0"
+      id="Sch600Details.r_2.Order"
+      unitRef="u-01">2</ferc:OrderNumber>
+    <context id="c600-29">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:CrudeOilMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>OILMEORIG</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-29" id="Sch600Details.r_2.StateOfOrigin">ME</ferc:StateOfOrigin>
+    <ferc:NumberOfBarrelsReceivedFromConnectingCarriers
+      contextRef="c600-29"
+      decimals="0"
+      id="Sch600Details.r_2.NumberOfBarrelsReceivedFromConnectingCarriers"
+      unitRef="u-06">1000</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
+    <ferc:NumberOfBarrelsReceivedOnGatheringLines
+      contextRef="c600-29"
+      decimals="0"
+      id="Sch600Details.r_2.NumberOfBarrelsReceivedOnGatheringLines"
+      unitRef="u-06">1000</ferc:NumberOfBarrelsReceivedOnGatheringLines>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-29"
+      decimals="0"
+      id="Sch600Details.r_2.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">1000</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-29"
+      decimals="0"
+      id="Sch600Details.r_2.NumberOfBarrelsReceived"
+      unitRef="u-06">3000</ferc:NumberOfBarrelsReceived>
+    <context id="c600-30">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>OILDEL</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-30"
+      decimals="0"
+      id="Sch600Details.r_3.Order"
+      unitRef="u-01">3</ferc:OrderNumber>
+    <context id="c600-31">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:CrudeOilMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>OILDEL</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers
+      contextRef="c600-31"
+      decimals="0"
+      id="Sch600Details.r_3.NumberOfBarrelsDeliveredOutToConnectingCarriers"
+      unitRef="u-06">2000</ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers>
+    <ferc:NumberOfBarrelsDeliveredOutOnGatheringLines
+      contextRef="c600-31"
+      decimals="0"
+      id="Sch600Details.r_3.NumberOfBarrelsDeliveredOutOnGatheringLines"
+      unitRef="u-06">2000</ferc:NumberOfBarrelsDeliveredOutOnGatheringLines>
+    <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines
+      contextRef="c600-31"
+      decimals="0"
+      id="Sch600Details.r_3.NumberOfBarrelsDeliveredOutOnTrunkLines"
+      unitRef="u-06">2000</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
+    <ferc:NumberOfBarrelsDeliveredOut
+      contextRef="c600-31"
+      decimals="0"
+      id="Sch600Details.r_3.NumberOfBarrelsDeliveredOut"
+      unitRef="u-06">6000</ferc:NumberOfBarrelsDeliveredOut>
+    <context id="c600-32">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODIAGasoline-29111</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-32"
+      decimals="0"
+      id="Sch600Details.r_4.Order"
+      unitRef="u-01">4</ferc:OrderNumber>
+    <context id="c600-33">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODIAGasoline-29111</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-33" id="Sch600Details.r_4.StateOfOrigin">IA</ferc:StateOfOrigin>
+    <ferc:RefinedProductType contextRef="c600-33" id="Sch600Details.r_4.RefinedProductType">Gasoline - 29111</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-33"
+      decimals="0"
+      id="Sch600Details.r_4.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">6563300</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-33"
+      decimals="0"
+      id="Sch600Details.r_4.NumberOfBarrelsReceived"
+      unitRef="u-06">6563300</ferc:NumberOfBarrelsReceived>
+    <context id="c600-34">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODIAOthers-29119</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-34"
+      decimals="0"
+      id="Sch600Details.r_5.Order"
+      unitRef="u-01">5</ferc:OrderNumber>
+    <context id="c600-35">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODIAOthers-29119</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-35" id="Sch600Details.r_5.StateOfOrigin">IA</ferc:StateOfOrigin>
+    <ferc:RefinedProductType contextRef="c600-35" id="Sch600Details.r_5.RefinedProductType">Others - 29119</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-35"
+      decimals="0"
+      id="Sch600Details.r_5.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">135061</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-35"
+      decimals="0"
+      id="Sch600Details.r_5.NumberOfBarrelsReceived"
+      unitRef="u-06">135061</ferc:NumberOfBarrelsReceived>
+    <context id="c600-36">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMEGasoline-29111</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-36"
+      decimals="0"
+      id="Sch600Details.r_6.Order"
+      unitRef="u-01">6</ferc:OrderNumber>
+    <context id="c600-37">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMEGasoline-29111</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-37" id="Sch600Details.r_6.StateOfOrigin">ME</ferc:StateOfOrigin>
+    <ferc:RefinedProductType contextRef="c600-37" id="Sch600Details.r_6.RefinedProductType">Gasoline - 29111</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-37"
+      decimals="0"
+      id="Sch600Details.r_6.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">2780208</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-37"
+      decimals="0"
+      id="Sch600Details.r_6.NumberOfBarrelsReceived"
+      unitRef="u-06">2780208</ferc:NumberOfBarrelsReceived>
+    <context id="c600-38">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMEOthers-29119</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-38"
+      decimals="0"
+      id="Sch600Details.r_7.Order"
+      unitRef="u-01">7</ferc:OrderNumber>
+    <context id="c600-39">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMEOthers-29119</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-39" id="Sch600Details.r_7.StateOfOrigin">ME</ferc:StateOfOrigin>
+    <ferc:RefinedProductType contextRef="c600-39" id="Sch600Details.r_7.RefinedProductType">Others - 29119</ferc:RefinedProductType>
+    <context id="c600-40">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMIOthers-29119</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-40"
+      decimals="0"
+      id="Sch600Details.r_8.Order"
+      unitRef="u-01">8</ferc:OrderNumber>
+    <context id="c600-41">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMIOthers-29119</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-41" id="Sch600Details.r_8.StateOfOrigin">MI</ferc:StateOfOrigin>
+    <ferc:RefinedProductType contextRef="c600-41" id="Sch600Details.r_8.RefinedProductType">Others - 29119</ferc:RefinedProductType>
+    <context id="c600-42">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMOOthers-29119</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-42"
+      decimals="0"
+      id="Sch600Details.r_9.Order"
+      unitRef="u-01">9</ferc:OrderNumber>
+    <context id="c600-43">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMOOthers-29119</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-43" id="Sch600Details.r_9.StateOfOrigin">MO</ferc:StateOfOrigin>
+    <ferc:RefinedProductType contextRef="c600-43" id="Sch600Details.r_9.RefinedProductType">Others - 29119</ferc:RefinedProductType>
+    <context id="c600-44">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODNJOthers-29119</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-44"
+      decimals="0"
+      id="Sch600Details.r_10.Order"
+      unitRef="u-01">10</ferc:OrderNumber>
+    <context id="c600-45">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODNJOthers-29119</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-45" id="Sch600Details.r_10.StateOfOrigin">NJ</ferc:StateOfOrigin>
+    <ferc:RefinedProductType
+      contextRef="c600-45"
+      id="Sch600Details.r_10.RefinedProductType">Others - 29119</ferc:RefinedProductType>
+    <context id="c600-46">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODOHFuelOil-29113</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-46"
+      decimals="0"
+      id="Sch600Details.r_11.Order"
+      unitRef="u-01">11</ferc:OrderNumber>
+    <context id="c600-47">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODOHFuelOil-29113</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-47" id="Sch600Details.r_11.StateOfOrigin">OH</ferc:StateOfOrigin>
+    <ferc:RefinedProductType
+      contextRef="c600-47"
+      id="Sch600Details.r_11.RefinedProductType">Distillate fuel oil - 29113</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsReceivedFromConnectingCarriers
+      contextRef="c600-47"
+      decimals="0"
+      id="Sch600Details.r_11.NumberOfBarrelsReceivedFromConnectingCarriers"
+      unitRef="u-06">2588035</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-47"
+      decimals="0"
+      id="Sch600Details.r_11.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">2202335</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-47"
+      decimals="0"
+      id="Sch600Details.r_11.NumberOfBarrelsReceived"
+      unitRef="u-06">4790370</ferc:NumberOfBarrelsReceived>
+    <context id="c600-48">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODOHOthers-29119</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-48"
+      decimals="0"
+      id="Sch600Details.r_12.Order"
+      unitRef="u-01">12</ferc:OrderNumber>
+    <context id="c600-49">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODOHOthers-29119</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-49" id="Sch600Details.r_12.StateOfOrigin">OH</ferc:StateOfOrigin>
+    <ferc:RefinedProductType
+      contextRef="c600-49"
+      id="Sch600Details.r_12.RefinedProductType">Others - 29119</ferc:RefinedProductType>
+    <context id="c600-50">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODPAFuelOil-29113</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-50"
+      decimals="0"
+      id="Sch600Details.r_13.Order"
+      unitRef="u-01">13</ferc:OrderNumber>
+    <context id="c600-51">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODPAFuelOil-29113</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-51" id="Sch600Details.r_13.StateOfOrigin">PA</ferc:StateOfOrigin>
+    <ferc:RefinedProductType
+      contextRef="c600-51"
+      id="Sch600Details.r_13.RefinedProductType">Distillate fuel oil - 29113</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsReceivedFromConnectingCarriers
+      contextRef="c600-51"
+      decimals="0"
+      id="Sch600Details.r_13.NumberOfBarrelsReceivedFromConnectingCarriers"
+      unitRef="u-06">30002</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-51"
+      decimals="0"
+      id="Sch600Details.r_13.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">134586</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-51"
+      decimals="0"
+      id="Sch600Details.r_13.NumberOfBarrelsReceived"
+      unitRef="u-06">164588</ferc:NumberOfBarrelsReceived>
+    <context id="c600-52">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODPAOthers-29119</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-52"
+      decimals="0"
+      id="Sch600Details.r_14.Order"
+      unitRef="u-01">14</ferc:OrderNumber>
+    <context id="c600-53">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODPAOthers-29119</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-53" id="Sch600Details.r_14.StateOfOrigin">PA</ferc:StateOfOrigin>
+    <ferc:RefinedProductType
+      contextRef="c600-53"
+      id="Sch600Details.r_14.RefinedProductType">Others - 29119</ferc:RefinedProductType>
+    <context id="c600-54">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMIGasoline-29111</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-54"
+      decimals="0"
+      id="Sch600Details.r_15.Order"
+      unitRef="u-01">15</ferc:OrderNumber>
+    <context id="c600-55">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMIGasoline-29111</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-55" id="Sch600Details.r_15.StateOfOrigin">MI</ferc:StateOfOrigin>
+    <ferc:RefinedProductType
+      contextRef="c600-55"
+      id="Sch600Details.r_15.RefinedProductType">Gasoline - 29111</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-55"
+      decimals="0"
+      id="Sch600Details.r_15.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">6601991</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-55"
+      decimals="0"
+      id="Sch600Details.r_15.NumberOfBarrelsReceived"
+      unitRef="u-06">6601991</ferc:NumberOfBarrelsReceived>
+    <context id="c600-56">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMOGasoline-29111</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-56"
+      decimals="0"
+      id="Sch600Details.r_16.Order"
+      unitRef="u-01">16</ferc:OrderNumber>
+    <context id="c600-57">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMOGasoline-29111</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-57" id="Sch600Details.r_16.StateOfOrigin">MO</ferc:StateOfOrigin>
+    <ferc:RefinedProductType
+      contextRef="c600-57"
+      id="Sch600Details.r_16.RefinedProductType">Gasoline - 29111</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsReceivedFromConnectingCarriers
+      contextRef="c600-57"
+      decimals="0"
+      id="Sch600Details.r_16.NumberOfBarrelsReceivedFromConnectingCarriers"
+      unitRef="u-06">120394</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-57"
+      decimals="0"
+      id="Sch600Details.r_16.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">2893884</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-57"
+      decimals="0"
+      id="Sch600Details.r_16.NumberOfBarrelsReceived"
+      unitRef="u-06">3014278</ferc:NumberOfBarrelsReceived>
+    <context id="c600-58">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODNJGasoline-29111</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-58"
+      decimals="0"
+      id="Sch600Details.r_17.Order"
+      unitRef="u-01">17</ferc:OrderNumber>
+    <context id="c600-59">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODNJGasoline-29111</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-59" id="Sch600Details.r_17.StateOfOrigin">NJ</ferc:StateOfOrigin>
+    <ferc:RefinedProductType
+      contextRef="c600-59"
+      id="Sch600Details.r_17.RefinedProductType">Gasoline - 29111</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-59"
+      decimals="0"
+      id="Sch600Details.r_17.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">17646841</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-59"
+      decimals="0"
+      id="Sch600Details.r_17.NumberOfBarrelsReceived"
+      unitRef="u-06">17646841</ferc:NumberOfBarrelsReceived>
+    <context id="c600-60">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODOHGasoline-29111</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-60"
+      decimals="0"
+      id="Sch600Details.r_18.Order"
+      unitRef="u-01">18</ferc:OrderNumber>
+    <context id="c600-61">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODOHGasoline-29111</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-61" id="Sch600Details.r_18.StateOfOrigin">OH</ferc:StateOfOrigin>
+    <ferc:RefinedProductType
+      contextRef="c600-61"
+      id="Sch600Details.r_18.RefinedProductType">Gasoline - 29111</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsReceivedFromConnectingCarriers
+      contextRef="c600-61"
+      decimals="0"
+      id="Sch600Details.r_18.NumberOfBarrelsReceivedFromConnectingCarriers"
+      unitRef="u-06">8685134</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-61"
+      decimals="0"
+      id="Sch600Details.r_18.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">6344543</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-61"
+      decimals="0"
+      id="Sch600Details.r_18.NumberOfBarrelsReceived"
+      unitRef="u-06">15029677</ferc:NumberOfBarrelsReceived>
+    <context id="c600-62">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODPAGasoline-29111</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-62"
+      decimals="0"
+      id="Sch600Details.r_19.Order"
+      unitRef="u-01">19</ferc:OrderNumber>
+    <context id="c600-63">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODPAGasoline-29111</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-63" id="Sch600Details.r_19.StateOfOrigin">PA</ferc:StateOfOrigin>
+    <ferc:RefinedProductType
+      contextRef="c600-63"
+      id="Sch600Details.r_19.RefinedProductType">Gasoline - 29111</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsReceivedFromConnectingCarriers
+      contextRef="c600-63"
+      decimals="0"
+      id="Sch600Details.r_19.NumberOfBarrelsReceivedFromConnectingCarriers"
+      unitRef="u-06">267011</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-63"
+      decimals="0"
+      id="Sch600Details.r_19.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">39734</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-63"
+      decimals="0"
+      id="Sch600Details.r_19.NumberOfBarrelsReceived"
+      unitRef="u-06">306745</ferc:NumberOfBarrelsReceived>
+    <context id="c600-64">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODIAFuelOil-29113</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-64"
+      decimals="0"
+      id="Sch600Details.r_20.Order"
+      unitRef="u-01">20</ferc:OrderNumber>
+    <context id="c600-65">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODIAFuelOil-29113</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-65" id="Sch600Details.r_20.StateOfOrigin">IA</ferc:StateOfOrigin>
+    <ferc:RefinedProductType
+      contextRef="c600-65"
+      id="Sch600Details.r_20.RefinedProductType">Distillate fuel oil - 29113</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-65"
+      decimals="0"
+      id="Sch600Details.r_20.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">2970615</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-65"
+      decimals="0"
+      id="Sch600Details.r_20.NumberOfBarrelsReceived"
+      unitRef="u-06">2970615</ferc:NumberOfBarrelsReceived>
+    <context id="c600-66">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMEFuelOil-29113</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-66"
+      decimals="0"
+      id="Sch600Details.r_21.Order"
+      unitRef="u-01">21</ferc:OrderNumber>
+    <context id="c600-67">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMEFuelOil-29113</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-67" id="Sch600Details.r_21.StateOfOrigin">ME</ferc:StateOfOrigin>
+    <ferc:RefinedProductType
+      contextRef="c600-67"
+      id="Sch600Details.r_21.RefinedProductType">Distillate fuel oil - 29113</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-67"
+      decimals="0"
+      id="Sch600Details.r_21.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">1382730</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-67"
+      decimals="0"
+      id="Sch600Details.r_21.NumberOfBarrelsReceived"
+      unitRef="u-06">1382730</ferc:NumberOfBarrelsReceived>
+    <context id="c600-68">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMIFuelOil-29113</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-68"
+      decimals="0"
+      id="Sch600Details.r_22.Order"
+      unitRef="u-01">22</ferc:OrderNumber>
+    <context id="c600-69">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMIFuelOil-29113</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-69" id="Sch600Details.r_22.StateOfOrigin">MI</ferc:StateOfOrigin>
+    <ferc:RefinedProductType
+      contextRef="c600-69"
+      id="Sch600Details.r_22.RefinedProductType">Distillate fuel oil - 29113</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-69"
+      decimals="0"
+      id="Sch600Details.r_22.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">5216996</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-69"
+      decimals="0"
+      id="Sch600Details.r_22.NumberOfBarrelsReceived"
+      unitRef="u-06">5216996</ferc:NumberOfBarrelsReceived>
+    <context id="c600-70">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMOFuelOil-29113</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-70"
+      decimals="0"
+      id="Sch600Details.r_23.Order"
+      unitRef="u-01">23</ferc:OrderNumber>
+    <context id="c600-71">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODMOFuelOil-29113</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-71" id="Sch600Details.r_23.StateOfOrigin">MO</ferc:StateOfOrigin>
+    <ferc:RefinedProductType
+      contextRef="c600-71"
+      id="Sch600Details.r_23.RefinedProductType">Distillate fuel oil - 29113</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-71"
+      decimals="0"
+      id="Sch600Details.r_23.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">3264859</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-71"
+      decimals="0"
+      id="Sch600Details.r_23.NumberOfBarrelsReceived"
+      unitRef="u-06">3264859</ferc:NumberOfBarrelsReceived>
+    <context id="c600-72">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODNJFuelOil-29113</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-72"
+      decimals="0"
+      id="Sch600Details.r_24.Order"
+      unitRef="u-01">24</ferc:OrderNumber>
+    <context id="c600-73">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODNJFuelOil-29113</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:StateOfOrigin contextRef="c600-73" id="Sch600Details.r_24.StateOfOrigin">NJ</ferc:StateOfOrigin>
+    <ferc:RefinedProductType
+      contextRef="c600-73"
+      id="Sch600Details.r_24.RefinedProductType">Distillate fuel oil - 29113</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsReceivedOnTrunkLines
+      contextRef="c600-73"
+      decimals="0"
+      id="Sch600Details.r_24.NumberOfBarrelsReceivedOnTrunkLines"
+      unitRef="u-06">7591208</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+    <ferc:NumberOfBarrelsReceived
+      contextRef="c600-73"
+      decimals="0"
+      id="Sch600Details.r_24.NumberOfBarrelsReceived"
+      unitRef="u-06">7591208</ferc:NumberOfBarrelsReceived>
+    <context id="c600-74">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODFuelOil-29113DEL</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-74"
+      decimals="0"
+      id="Sch600Details.r_25.Order"
+      unitRef="u-01">25</ferc:OrderNumber>
+    <context id="c600-75">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODFuelOil-29113DEL</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:RefinedProductType
+      contextRef="c600-75"
+      id="Sch600Details.r_25.RefinedProductType">Distillate fuel oil - 29113</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers
+      contextRef="c600-75"
+      decimals="0"
+      id="Sch600Details.r_25.NumberOfBarrelsDeliveredOutToConnectingCarriers"
+      unitRef="u-06">5917414</ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers>
+    <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines
+      contextRef="c600-75"
+      decimals="0"
+      id="Sch600Details.r_25.NumberOfBarrelsDeliveredOutOnTrunkLines"
+      unitRef="u-06">18952635</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
+    <ferc:NumberOfBarrelsDeliveredOut
+      contextRef="c600-75"
+      decimals="0"
+      id="Sch600Details.r_25.NumberOfBarrelsDeliveredOut"
+      unitRef="u-06">24870049</ferc:NumberOfBarrelsDeliveredOut>
+    <context id="c600-76">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODGasoline-29111DEL</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-76"
+      decimals="0"
+      id="Sch600Details.r_26.Order"
+      unitRef="u-01">26</ferc:OrderNumber>
+    <context id="c600-77">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODGasoline-29111DEL</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:RefinedProductType
+      contextRef="c600-77"
+      id="Sch600Details.r_26.RefinedProductType">Gasoline - 29111</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers
+      contextRef="c600-77"
+      decimals="0"
+      id="Sch600Details.r_26.NumberOfBarrelsDeliveredOutToConnectingCarriers"
+      unitRef="u-06">14159909</ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers>
+    <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines
+      contextRef="c600-77"
+      decimals="0"
+      id="Sch600Details.r_26.NumberOfBarrelsDeliveredOutOnTrunkLines"
+      unitRef="u-06">37800241</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
+    <ferc:NumberOfBarrelsDeliveredOut
+      contextRef="c600-77"
+      decimals="0"
+      id="Sch600Details.r_26.NumberOfBarrelsDeliveredOut"
+      unitRef="u-06">51960150</ferc:NumberOfBarrelsDeliveredOut>
+    <context id="c600-78">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODOthers-29119DEL</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:OrderNumber
+      contextRef="c600-78"
+      decimals="0"
+      id="Sch600Details.r_27.Order"
+      unitRef="u-01">27</ferc:OrderNumber>
+    <context id="c600-79">
+        <entity>
+            <identifier scheme="http://www.ferc.gov/CID">C000129</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ferc:ProductsAndServicesAxis">ferc:OilProductsMember</xbrldi:explicitMember>
+                <xbrldi:typedMember dimension="ferc:StateOfOriginAndProductTypeAxis">
+                    <ferc:StateOfOriginAndProductTypeDomain>PRODOthers-29119DEL</ferc:StateOfOriginAndProductTypeDomain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <ferc:RefinedProductType
+      contextRef="c600-79"
+      id="Sch600Details.r_27.RefinedProductType">Others - 29119</ferc:RefinedProductType>
+    <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines
+      contextRef="c600-79"
+      decimals="0"
+      id="Sch600Details.r_27.NumberOfBarrelsDeliveredOutOnTrunkLines"
+      unitRef="u-06">220537</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
+    <ferc:NumberOfBarrelsDeliveredOut
+      contextRef="c600-79"
+      decimals="0"
+      id="Sch600Details.r_27.NumberOfBarrelsDeliveredOut"
+      unitRef="u-06">220537</ferc:NumberOfBarrelsDeliveredOut>
+    
+    
+
+  <!-- END OF SCHEDULE 600-->
   <ferc:DepreciationAndDepletion id="f-1001" decimals="0" contextRef="c-04" unitRef="u-02">7076182</ferc:DepreciationAndDepletion>
   <ferc:DepreciationAndDepletion id="f-1002" decimals="0" contextRef="c-13" unitRef="u-02">6975406</ferc:DepreciationAndDepletion>
   <ferc:Amortization id="f-1003" decimals="0" contextRef="c-04" unitRef="u-02">19986</ferc:Amortization>
@@ -9815,20 +11126,20 @@
   <ferc:OrderNumber id="f-1194" decimals="0" contextRef="c-256" unitRef="u-01">111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111114</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1195" decimals="0" contextRef="c-257" unitRef="u-01">00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1196" decimals="0" contextRef="c-258" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012</ferc:OrderNumber>
-  <ferc:OrderNumber id="f-1198" decimals="0" contextRef="c-260" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000027</ferc:OrderNumber>
+  <!--<ferc:OrderNumber id="f-1198" decimals="0" contextRef="c-260" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000027</ferc:OrderNumber>-->
   <ferc:OrderNumber id="f-1199" decimals="0" contextRef="c-261" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000019</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1201" decimals="0" contextRef="c-263" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000027</ferc:OrderNumber>
-  <ferc:OrderNumber id="f-1202" decimals="0" contextRef="c-264" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000019</ferc:OrderNumber>
+  <!--<ferc:OrderNumber id="f-1202" decimals="0" contextRef="c-264" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000019</ferc:OrderNumber>-->
   <ferc:OrderNumber id="f-1204" decimals="0" contextRef="c-266" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000035</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1205" decimals="0" contextRef="c-267" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000022</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1206" decimals="0" contextRef="c-268" unitRef="u-01">111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111110</ferc:OrderNumber>
-  <ferc:OrderNumber id="f-1207" decimals="0" contextRef="c-269" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000022</ferc:OrderNumber>
+  <!--<ferc:OrderNumber id="f-1207" decimals="0" contextRef="c-269" unitRef="u-01">22</ferc:OrderNumber>-->
   <ferc:OrderNumber id="f-1208" decimals="0" contextRef="c-270" unitRef="u-01">11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111115</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1209" decimals="0" contextRef="c-271" unitRef="u-01">00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1210" decimals="0" contextRef="c-272" unitRef="u-01">00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000009</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1212" decimals="0" contextRef="c-274" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000037</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1213" decimals="0" contextRef="c-275" unitRef="u-01">00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002</ferc:OrderNumber>
-  <ferc:OrderNumber id="f-1214" decimals="0" contextRef="c-276" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000018</ferc:OrderNumber>
+  <!--<ferc:OrderNumber id="f-1214" decimals="0" contextRef="c-276" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000018</ferc:OrderNumber>-->
   <ferc:OrderNumber id="f-1215" decimals="0" contextRef="c-277" unitRef="u-01">11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111118</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1216" decimals="0" contextRef="c-278" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1217" decimals="0" contextRef="c-279" unitRef="u-01">11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111116</ferc:OrderNumber>
@@ -9840,27 +11151,27 @@
   <ferc:OrderNumber id="f-1223" decimals="0" contextRef="c-285" unitRef="u-01">00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1224" decimals="0" contextRef="c-286" unitRef="u-01">111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111112</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1225" decimals="0" contextRef="c-287" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000013</ferc:OrderNumber>
-  <ferc:OrderNumber id="f-1226" decimals="0" contextRef="c-288" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020</ferc:OrderNumber>
+  <!--<ferc:OrderNumber id="f-1226" decimals="0" contextRef="c-288" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020</ferc:OrderNumber>-->
   <ferc:OrderNumber id="f-1227" decimals="0" contextRef="c-289" unitRef="u-01">111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1228" decimals="0" contextRef="c-290" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1229" decimals="0" contextRef="c-291" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000036</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1231" decimals="0" contextRef="c-293" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000014</ferc:OrderNumber>
-  <ferc:OrderNumber id="f-1232" decimals="0" contextRef="c-294" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000024</ferc:OrderNumber>
+  <!--<ferc:OrderNumber id="f-1232" decimals="0" contextRef="c-294" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000024</ferc:OrderNumber>-->
   <ferc:OrderNumber id="f-1233" decimals="0" contextRef="c-295" unitRef="u-01">111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111116</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1234" decimals="0" contextRef="c-296" unitRef="u-01">11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111119</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1235" decimals="0" contextRef="c-297" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000024</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1236" decimals="0" contextRef="c-298" unitRef="u-01">11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111117</ferc:OrderNumber>
-  <ferc:OrderNumber id="f-1237" decimals="0" contextRef="c-299" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000023</ferc:OrderNumber>
+  <!--<ferc:OrderNumber id="f-1237" decimals="0" contextRef="c-299" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000023</ferc:OrderNumber>-->
   <ferc:OrderNumber id="f-1238" decimals="0" contextRef="c-300" unitRef="u-01">00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1239" decimals="0" contextRef="c-301" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025</ferc:OrderNumber>
-  <ferc:OrderNumber id="f-1240" decimals="0" contextRef="c-302" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000021</ferc:OrderNumber>
+  <!--<ferc:OrderNumber id="f-1240" decimals="0" contextRef="c-302" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000021</ferc:OrderNumber>-->
   <ferc:OrderNumber id="f-1241" decimals="0" contextRef="c-303" unitRef="u-01">11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111114</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1242" decimals="0" contextRef="c-304" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000023</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1243" decimals="0" contextRef="c-305" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000033</ferc:OrderNumber>
-  <ferc:OrderNumber id="f-1245" decimals="0" contextRef="c-307" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025</ferc:OrderNumber>
+  <!--<ferc:OrderNumber id="f-1245" decimals="0" contextRef="c-307" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025</ferc:OrderNumber>-->
   <ferc:OrderNumber id="f-1246" decimals="0" contextRef="c-308" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000021</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1247" decimals="0" contextRef="c-309" unitRef="u-01">11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111113</ferc:OrderNumber>
-  <ferc:OrderNumber id="f-1249" decimals="0" contextRef="c-311" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000026</ferc:OrderNumber>
+  <!--<ferc:OrderNumber id="f-1249" decimals="0" contextRef="c-311" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000026</ferc:OrderNumber>-->
   <ferc:OrderNumber id="f-1250" decimals="0" contextRef="c-312" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000017</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1251" decimals="0" contextRef="c-313" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000031</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1252" decimals="0" contextRef="c-314" unitRef="u-01">000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000026</ferc:OrderNumber>
@@ -12255,6 +13566,14 @@ Buckeye Linden Pipe Line Company LLC was formed as a Delaware limited liability 
 2013 and commenced operations in June 2014. Buckeye Linden Pipe Line Company LLC provides
 b-directional pipeline transportation service between Perth Amboy, New Jersey and Linden, New Jersey, thereby
 offering shippers enhanced connectivity and service optionality in the New York Harbor.</ferc:NotesToFinancialStatementsTextBlock>
+<ferc:DisclosureOfEventsThatHaveAMaterialEffectToRespondentsTextBlock contextRef="c-04">The Company experienced the following events that had a material effect on the financial statements: Example</ferc:DisclosureOfEventsThatHaveAMaterialEffectToRespondentsTextBlock>
+<ferc:DisclosureOfRespondentAppearingInAnnualReportToTheStockholdersTextBlock contextRef="c-04">The Company has the following applicable notes to furnish: Example</ferc:DisclosureOfRespondentAppearingInAnnualReportToTheStockholdersTextBlock>
+<ferc:DisclosureOfImportantNotesRegardingFinancialStatementsTextBlock contextRef="c-04">The Company has the following important notes regarding the financial statements: Example</ferc:DisclosureOfImportantNotesRegardingFinancialStatementsTextBlock>
+<ferc:DisclosureOfSignificantCommitmentsOrContingentAssetsOrLiabilitiesTextBlock contextRef="c-04">The Company has the following significant commitments: Example</ferc:DisclosureOfSignificantCommitmentsOrContingentAssetsOrLiabilitiesTextBlock>
+<ferc:DisclosureOfAccountingForTheRespondentSPensionsAndPostretirementBenefitsTextBlock contextRef="c-04">Example of accounting disclosures for pensions and postretirement benefits</ferc:DisclosureOfAccountingForTheRespondentSPensionsAndPostretirementBenefitsTextBlock>
+<ferc:DisclosureOfSignificantChangesInOperationsDuringTheYearTextBlock contextRef="c-04">The Company experienced the following significant changes in operations during the year: Example</ferc:DisclosureOfSignificantChangesInOperationsDuringTheYearTextBlock>
+<ferc:DisclosureOfDetailsOnAccountingForIncomeTaxesTextBlock contextRef="c-04">Details of the accounting for income taxes are as follows: Example</ferc:DisclosureOfDetailsOnAccountingForIncomeTaxesTextBlock>
+<ferc:DisclosureOfSignificantRateOrOtherRegulatoryMattersTextBlock contextRef="c-04">Details of the accounting for income taxes are as follows: Example</ferc:DisclosureOfSignificantRateOrOtherRegulatoryMattersTextBlock>
   <ferc:AccountNumberInvestmentClassification contextRef="c-430">23</ferc:AccountNumberInvestmentClassification>
   <ferc:AccountNumberInvestmentClassification contextRef="c-431">25</ferc:AccountNumberInvestmentClassification>
   <ferc:InvestmentClassificationCode contextRef="c-430">C</ferc:InvestmentClassificationCode>
@@ -12426,14 +13745,14 @@ offering shippers enhanced connectivity and service optionality in the New York 
   <ferc:RentalRevenue decimals="0" contextRef="c-463" unitRef="u-02">10000000</ferc:RentalRevenue>
   <ferc:IncidentalRevenue decimals="0" contextRef="c-463" unitRef="u-02">10000000</ferc:IncidentalRevenue>
   <ferc:OperatingRevenues decimals="0" contextRef="c-463" unitRef="u-02">70000000</ferc:OperatingRevenues>
-  <ferc:StateOfOrigin contextRef="c-464">IA, Gasoline - 29111</ferc:StateOfOrigin>
+  <!--<ferc:StateOfOrigin contextRef="c-464">IA, Gasoline - 29111</ferc:StateOfOrigin>
   <ferc:RefinedProductType contextRef="c-464">Crude</ferc:RefinedProductType>
   <ferc:RefinedProductType contextRef="c-214">Products</ferc:RefinedProductType>
   <ferc:RefinedProductType contextRef="c-465">Crude</ferc:RefinedProductType>
   <ferc:RefinedProductType contextRef="c-216">Products</ferc:RefinedProductType>
-  <ferc:NumberOfBarrelsReceivedFromConnectingCarriers decimals="0" contextRef="c-464" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
-  <ferc:NumberOfBarrelsReceivedFromConnectingCarriers decimals="0" contextRef="c-396" unitRef="u-03">2000</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
-  <ferc:NumberOfBarrelsReceivedFromConnectingCarriers decimals="0" contextRef="c-465" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
+  <ferc:NumberOfBarrelsReceivedFromConnectingCarriers decimals="0" contextRef="c-464" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>-->
+  <ferc:NumberOfBarrelsReceivedFromConnectingCarriers decimals="0" contextRef="c-396" unitRef="u-06">2000</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
+  <!--<ferc:NumberOfBarrelsReceivedFromConnectingCarriers decimals="0" contextRef="c-465" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedFromConnectingCarriers>
   <ferc:NumberOfBarrelsReceivedOnGatheringLines decimals="0" contextRef="c-464" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedOnGatheringLines>
   <ferc:NumberOfBarrelsReceivedOnTrunkLines decimals="0" contextRef="c-464" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedOnTrunkLines>
   <ferc:NumberOfBarrelsReceived decimals="0" contextRef="c-464" unitRef="u-03">3000</ferc:NumberOfBarrelsReceived>
@@ -12447,16 +13766,16 @@ offering shippers enhanced connectivity and service optionality in the New York 
   <ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers decimals="0" contextRef="c-465" unitRef="u-03">1000</ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers>
   <ferc:NumberOfBarrelsDeliveredOutOnGatheringLines decimals="0" contextRef="c-465" unitRef="u-03">1000</ferc:NumberOfBarrelsDeliveredOutOnGatheringLines>
   <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines decimals="0" contextRef="c-465" unitRef="u-03">1000</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
-  <ferc:NumberOfBarrelsDeliveredOut decimals="0" contextRef="c-465" unitRef="u-03">3000</ferc:NumberOfBarrelsDeliveredOut>
-  <ferc:NumberOfBarrelsReceivedOnGatheringLines decimals="0" contextRef="c-396" unitRef="u-03">2000</ferc:NumberOfBarrelsReceivedOnGatheringLines>
-  <ferc:NumberOfBarrelsReceivedOnTrunkLines decimals="0" contextRef="c-396" unitRef="u-03">2000</ferc:NumberOfBarrelsReceivedOnTrunkLines>
-  <ferc:NumberOfBarrelsReceived decimals="0" contextRef="c-396" unitRef="u-03">6000</ferc:NumberOfBarrelsReceived>
-  <ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers decimals="0" contextRef="c-396" unitRef="u-03">2000</ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers>
-  <ferc:NumberOfBarrelsDeliveredOutOnGatheringLines decimals="0" contextRef="c-396" unitRef="u-03">2000</ferc:NumberOfBarrelsDeliveredOutOnGatheringLines>
-  <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines decimals="0" contextRef="c-396" unitRef="u-03">2000</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
-  <ferc:NumberOfBarrelsDeliveredOut decimals="0" contextRef="c-396" unitRef="u-03">6000</ferc:NumberOfBarrelsDeliveredOut>
-  <ferc:NumberOfBarrelsReceivedOnGatheringLines decimals="0" contextRef="c-04" unitRef="u-03">2000</ferc:NumberOfBarrelsReceivedOnGatheringLines>
-  <ferc:NumberOfBarrelsDeliveredOutOnGatheringLines decimals="0" contextRef="c-04" unitRef="u-03">2000</ferc:NumberOfBarrelsDeliveredOutOnGatheringLines>
+  <ferc:NumberOfBarrelsDeliveredOut decimals="0" contextRef="c-465" unitRef="u-03">3000</ferc:NumberOfBarrelsDeliveredOut>-->
+  <ferc:NumberOfBarrelsReceivedOnGatheringLines decimals="0" contextRef="c-396" unitRef="u-06">2000</ferc:NumberOfBarrelsReceivedOnGatheringLines>
+  <ferc:NumberOfBarrelsReceivedOnTrunkLines decimals="0" contextRef="c-396" unitRef="u-06">2000</ferc:NumberOfBarrelsReceivedOnTrunkLines>
+  <ferc:NumberOfBarrelsReceived decimals="0" contextRef="c-396" unitRef="u-06">6000</ferc:NumberOfBarrelsReceived>
+  <ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers decimals="0" contextRef="c-396" unitRef="u-06">2000</ferc:NumberOfBarrelsDeliveredOutToConnectingCarriers>
+  <ferc:NumberOfBarrelsDeliveredOutOnGatheringLines decimals="0" contextRef="c-396" unitRef="u-06">2000</ferc:NumberOfBarrelsDeliveredOutOnGatheringLines>
+  <ferc:NumberOfBarrelsDeliveredOutOnTrunkLines decimals="0" contextRef="c-396" unitRef="u-06">2000</ferc:NumberOfBarrelsDeliveredOutOnTrunkLines>
+  <ferc:NumberOfBarrelsDeliveredOut decimals="0" contextRef="c-396" unitRef="u-06">6000</ferc:NumberOfBarrelsDeliveredOut>
+  <ferc:NumberOfBarrelsReceivedOnGatheringLines decimals="0" contextRef="c-04" unitRef="u-06">2000</ferc:NumberOfBarrelsReceivedOnGatheringLines>
+  <ferc:NumberOfBarrelsDeliveredOutOnGatheringLines decimals="0" contextRef="c-04" unitRef="u-06">2000</ferc:NumberOfBarrelsDeliveredOutOnGatheringLines>
   <ferc:MilesOfGatheringLinesOperated decimals="0" contextRef="c-35" unitRef="u-03">10</ferc:MilesOfGatheringLinesOperated>
   <ferc:SizeOfGatheringLinesOperated decimals="0" contextRef="c-35" unitRef="u-04">10</ferc:SizeOfGatheringLinesOperated>
   <ferc:MilesOfTrunkLinesForCrudeOilOperated decimals="0" contextRef="c-35" unitRef="u-03">10</ferc:MilesOfTrunkLinesForCrudeOilOperated>
@@ -14615,7 +15934,7 @@ offering shippers enhanced connectivity and service optionality in the New York 
   <ferc:AccruedDepreciationCarrierPropertyExcludingUndividedJointInterestPropertyIncreaseToDepreciationAndAmortizationOfTransportationProperty decimals="0" contextRef="c-04" unitRef="u-02">33086183</ferc:AccruedDepreciationCarrierPropertyExcludingUndividedJointInterestPropertyIncreaseToDepreciationAndAmortizationOfTransportationProperty>
   <ferc:AccruedDepreciationCarrierPropertyExcludingUndividedJointInterestPropertyRetirement decimals="0" contextRef="c-04" unitRef="u-02">60906361</ferc:AccruedDepreciationCarrierPropertyExcludingUndividedJointInterestPropertyRetirement>
   <ferc:AccruedDepreciationCarrierPropertyExcludingUndividedJointInterestPropertyOtherAdjustments decimals="0" contextRef="c-04" unitRef="u-02">34646075</ferc:AccruedDepreciationCarrierPropertyExcludingUndividedJointInterestPropertyOtherAdjustments>
-  <ferc:StateOfOrigin contextRef="c-465">ME, Gasoline - 29111</ferc:StateOfOrigin>
+  <!--<ferc:StateOfOrigin contextRef="c-465">ME, Gasoline - 29111</ferc:StateOfOrigin>-->
   <ferc:SizeOfGatheringLinesOperated decimals="0" contextRef="c-47" unitRef="u-04">10</ferc:SizeOfGatheringLinesOperated>
   <ferc:SizeOfTrunkLinesForCrudeOilOperated decimals="0" contextRef="c-82" unitRef="u-04">10</ferc:SizeOfTrunkLinesForCrudeOilOperated>
   <ferc:SizeOfTrunkLinesForCrudeOilOperated decimals="0" contextRef="c-84" unitRef="u-04">10</ferc:SizeOfTrunkLinesForCrudeOilOperated>
@@ -14739,16 +16058,16 @@ on February 28, 2018. CPTAI has recorded liabilities for refunds arising from th
   <ferc:CompositeTaxRate decimals="2" contextRef="c-03" unitRef="u-01">0.375</ferc:CompositeTaxRate>
   <ferc:StateOfOriginOwnedByRespondentButOperatedByOthers contextRef="c-472">NY</ferc:StateOfOriginOwnedByRespondentButOperatedByOthers>
   <ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers contextRef="c-472">Petroleum</ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers>
-  <ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers contextRef="c-473">Distillate Fuel Oil-29113</ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers>
+  <ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers contextRef="c-473">Distillate fuel oil-29113</ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers>
   <ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers contextRef="c-470">Petroleum</ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers>
-  <ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers contextRef="c-471">Distillate Fuel Oil-29113</ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers>
+  <ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers contextRef="c-471">Distillate Fuel oil-29113</ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers>
   <ferc:StateOfOriginOwnedByRespondentButOperatedByOthers contextRef="c-473">NY</ferc:StateOfOriginOwnedByRespondentButOperatedByOthers>
   <ferc:NameOfOperator contextRef="c-472">Buckeye </ferc:NameOfOperator>
   <ferc:NameOfOperator contextRef="c-473">Buckeye</ferc:NameOfOperator>
   <ferc:NameOfOperator contextRef="c-470">Buckeye 1</ferc:NameOfOperator>
   <ferc:NameOfOperator contextRef="c-471">Buckeye 1</ferc:NameOfOperator>
-  <ferc:StateOfOriginOwnedByRespondentButOperatedByOthers contextRef="c-470">New York</ferc:StateOfOriginOwnedByRespondentButOperatedByOthers>
-  <ferc:StateOfOriginOwnedByRespondentButOperatedByOthers contextRef="c-471">New York</ferc:StateOfOriginOwnedByRespondentButOperatedByOthers>
+  <ferc:StateOfOriginOwnedByRespondentButOperatedByOthers contextRef="c-470">NY</ferc:StateOfOriginOwnedByRespondentButOperatedByOthers>
+  <ferc:StateOfOriginOwnedByRespondentButOperatedByOthers contextRef="c-471">NY</ferc:StateOfOriginOwnedByRespondentButOperatedByOthers>
   <ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers decimals="0" contextRef="c-470" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers>
   <ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers decimals="0" contextRef="c-470" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers>
   <ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers decimals="0" contextRef="c-470" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers>
@@ -14789,10 +16108,10 @@ on February 28, 2018. CPTAI has recorded liabilities for refunds arising from th
   <ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers decimals="0" contextRef="c-467" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers>
   <ferc:NameOfOperator contextRef="c-467">Buckeye </ferc:NameOfOperator>
   <ferc:NameOfOperator contextRef="c-466">Buckeye</ferc:NameOfOperator>
-  <ferc:StateOfOriginOwnedByRespondentButOperatedByOthers contextRef="c-467">Nevada</ferc:StateOfOriginOwnedByRespondentButOperatedByOthers>
-  <ferc:StateOfOriginOwnedByRespondentButOperatedByOthers contextRef="c-466">Nevada</ferc:StateOfOriginOwnedByRespondentButOperatedByOthers>
+  <ferc:StateOfOriginOwnedByRespondentButOperatedByOthers contextRef="c-467">NV</ferc:StateOfOriginOwnedByRespondentButOperatedByOthers>
+  <ferc:StateOfOriginOwnedByRespondentButOperatedByOthers contextRef="c-466">NV</ferc:StateOfOriginOwnedByRespondentButOperatedByOthers>
   <ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers contextRef="c-467">Petroleum</ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers>
-  <ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers contextRef="c-466">Distillate Fuel Oil-29113</ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers>
+  <ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers contextRef="c-466">Distillate fuel oil - 29113</ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers>
   <ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers decimals="0" contextRef="c-466" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers>
   <ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers decimals="0" contextRef="c-467" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers>
   <ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers decimals="0" contextRef="c-466" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers>
@@ -14837,7 +16156,7 @@ on February 28, 2018. CPTAI has recorded liabilities for refunds arising from th
   <ferc:StateOfOriginOwnedByRespondentButOperatedByOthers contextRef="c-616">New York</ferc:StateOfOriginOwnedByRespondentButOperatedByOthers>
   <ferc:StateOfOriginOwnedByRespondentButOperatedByOthers contextRef="c-617">New York</ferc:StateOfOriginOwnedByRespondentButOperatedByOthers>
   <ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers contextRef="c-616">Petroleum</ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers>
-  <ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers contextRef="c-617">Distillate Fuel Oil-29113</ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers>
+  <ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers contextRef="c-617">Distillate fuel oil - 29113</ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers>
   <ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers decimals="0" contextRef="c-616" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers>
   <ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers decimals="0" contextRef="c-617" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers>
   <ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers decimals="0" contextRef="c-616" unitRef="u-03">1000</ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers>

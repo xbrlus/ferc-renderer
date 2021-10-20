@@ -8,7 +8,7 @@ assert F60.18.1 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@DirectCostsChargedToNonAssociateCompanies]; 
- $addend = sum(list([@DirectCostsChargedToNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
+ $addend = sum(list([nonils @DirectCostsChargedToNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -28,7 +28,7 @@ assert F60.18.2 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@IndirectCostsChargedToNonAssociateCompanies]; 
- $addend = sum(list([@IndirectCostsChargedToNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
+ $addend = sum(list([nonils @IndirectCostsChargedToNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -48,7 +48,7 @@ assert F60.18.3 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@CompensationForUseOfCapitalNonAssociateCompanies]; 
- $addend = sum(list([@CompensationForUseOfCapitalNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
+ $addend = sum(list([nonils @CompensationForUseOfCapitalNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -68,7 +68,7 @@ assert F60.18.4 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@ExcessOrDeficiencyOnServicingNonAssociateUtilityCompanies]; 
- $addend = sum(list([@ExcessOrDeficiencyOnServicingNonAssociateUtilityCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
+ $addend = sum(list([nonils @ExcessOrDeficiencyOnServicingNonAssociateUtilityCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -88,7 +88,7 @@ assert F60.18.5 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@ServicesRenderedToNonAssociateCompanies]; 
- $addend = sum(list([@ServicesRenderedToNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
+ $addend = sum(list([nonils @ServicesRenderedToNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
  if $addend == none
  	skip
  else

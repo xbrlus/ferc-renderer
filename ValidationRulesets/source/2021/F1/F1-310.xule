@@ -33,7 +33,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
         skip
 else
  $sum1 = [@DemandChargesRevenueSalesForResale]; 
- $addend = sum(list([@DemandChargesRevenueSalesForResale @SalesForResaleAxis=*])#breakdown);
+ $addend = sum(list([nonils @DemandChargesRevenueSalesForResale @SalesForResaleAxis=*])#breakdown);
 if $addend == none
 	false
 else
@@ -56,7 +56,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
         skip
 else
  $sum1 = [@EnergyChargesRevenueSalesForResale]; 
- $addend = sum(list([@EnergyChargesRevenueSalesForResale @SalesForResaleAxis=*])#breakdown);
+ $addend = sum(list([nonils @EnergyChargesRevenueSalesForResale @SalesForResaleAxis=*])#breakdown);
  if $addend == none
 	false
 else
@@ -79,7 +79,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
         skip
 else
  $sum1 = [@OtherChargesRevenueSalesForResale]; 
- $addend = sum(list([@OtherChargesRevenueSalesForResale @SalesForResaleAxis=*])#breakdown);
+ $addend = sum(list([nonils @OtherChargesRevenueSalesForResale @SalesForResaleAxis=*])#breakdown);
 if $addend == none
 	false
 else
@@ -102,7 +102,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
         skip
 else
  $sum1 = [@RevenueFromSalesOfElectricityForResale]; 
- $addend = sum(list([@RevenueFromSalesOfElectricityForResale @SalesForResaleAxis=*])#breakdown);
+ $addend = sum(list([nonils @RevenueFromSalesOfElectricityForResale @SalesForResaleAxis=*])#breakdown);
 
  if $addend == none
 	false
@@ -371,7 +371,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
         skip
 else
  $sum1 = [@MegawattHoursSoldSalesForResale @period=$currentDuration]; 
- $addend = sum(list([@MegawattHoursSoldSalesForResale @SalesForResaleAxis=* @period=$currentDuration])#breakdown);
+ $addend = sum(list([nonils @MegawattHoursSoldSalesForResale @SalesForResaleAxis=* @period=$currentDuration])#breakdown);
 if $addend == none
  	skip
  else

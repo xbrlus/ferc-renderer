@@ -8,7 +8,7 @@ assert F60.9.1 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@MiscellaneousDeferredDebits]; 
- $addend = sum(list([@MiscellaneousDeferredDebits @MiscellaneousDeferredDebitsAxis=*])#breakdown);
+ $addend = sum(list([nonils @MiscellaneousDeferredDebits @MiscellaneousDeferredDebitsAxis=*])#breakdown);
  if $addend == none
  	skip
  else

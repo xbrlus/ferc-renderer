@@ -12,7 +12,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 	$sum1 = [@CommonStockLiabilityForConversion]; 
-	$addend = sum(list([@CommonStockLiabilityForConversion @LiabilityToCommonStockConversionAxis=*])#breakdown);
+	$addend = sum(list([nonils @CommonStockLiabilityForConversion @LiabilityToCommonStockConversionAxis=*])#breakdown);
 	if $addend == none
 		skip
 	else
@@ -36,7 +36,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 	$sum1 = [@CommonStockLiabilityForConversionShares]; 
-	$addend = sum(list([@CommonStockLiabilityForConversionShares @LiabilityToCommonStockConversionAxis=*])#breakdown);
+	$addend = sum(list([nonils @CommonStockLiabilityForConversionShares @LiabilityToCommonStockConversionAxis=*])#breakdown);
 	if $addend == none
 		skip
 	else
@@ -60,7 +60,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 	$sum1 = [@CommonStockSubscribed]; 
-	$addend = sum(list([@CommonStockSubscribed @CommonStockSubscribedAxis=*])#breakdown);
+	$addend = sum(list([nonils @CommonStockSubscribed @CommonStockSubscribedAxis=*])#breakdown);
 	if $addend == none
 		skip
 	else
@@ -84,7 +84,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 	$sum1 = [@CommonStockSubscribedShares]; 
-	$addend = sum(list([@CommonStockSubscribedShares @CommonStockSubscribedAxis=*])#breakdown);
+	$addend = sum(list([nonils @CommonStockSubscribedShares @CommonStockSubscribedAxis=*])#breakdown);
 	if $addend == none
 		skip
 	else
@@ -108,7 +108,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 	$sum1 = [@CapitalStock]; 
-	$addend = sum(list([@CapitalStock @CapitalStockAxis=*])#breakdown);
+	$addend = sum(list([nonils @CapitalStock @CapitalStockAxis=*])#breakdown);
 	if $addend == none
 		skip
 	else
@@ -132,7 +132,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 	$sum1 = [@NumberOfCapitalStockShares]; 
-	$addend = sum(list([@NumberOfCapitalStockShares @CapitalStockAxis=*])#breakdown);
+	$addend = sum(list([nonils @NumberOfCapitalStockShares @CapitalStockAxis=*])#breakdown);
 	if $addend == none
 		skip
 	else
@@ -156,7 +156,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 	$sum1 = [@InstallmentsReceivedOnCapitalStock]; 
-	$addend = sum(list([@InstallmentsReceivedOnCapitalStock @InstallmentCapitalStockAxis=*])#breakdown);
+	$addend = sum(list([nonils @InstallmentsReceivedOnCapitalStock @InstallmentCapitalStockAxis=*])#breakdown);
 	if $addend == none
 		skip
 	else
@@ -180,7 +180,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 	$sum1 = [@InstallmentsReceivedOnCapitalStockShares]; 
-	$addend = sum(list([@InstallmentsReceivedOnCapitalStockShares @InstallmentCapitalStockAxis=*])#breakdown);
+	$addend = sum(list([nonils @InstallmentsReceivedOnCapitalStockShares @InstallmentCapitalStockAxis=*])#breakdown);
 	if $addend == none
 		skip
 	else
@@ -204,7 +204,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 	$sum1 = [@PreferredStockLiabilityForConversion]; 
-	$addend = sum(list([@PreferredStockLiabilityForConversion @PreferredStockLiabilityForConversionAxis=*])#breakdown);
+	$addend = sum(list([nonils @PreferredStockLiabilityForConversion @PreferredStockLiabilityForConversionAxis=*])#breakdown);
 	if $addend == none
 		skip
 	else
@@ -228,7 +228,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 	$sum1 = [@PreferredStockLiabilityForConversionShares]; 
-	$addend = sum(list([@PreferredStockLiabilityForConversionShares @PreferredStockLiabilityForConversionAxis=*])#breakdown);
+	$addend = sum(list([nonils @PreferredStockLiabilityForConversionShares @PreferredStockLiabilityForConversionAxis=*])#breakdown);
 	if $addend == none
 		skip
 	else
@@ -252,7 +252,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 	$sum1 = [@PreferredStockSubscribed]; 
-	$addend = sum(list([@PreferredStockSubscribed @PreferredStockSubscribedAxis=*])#breakdown);
+	$addend = sum(list([nonils @PreferredStockSubscribed @PreferredStockSubscribedAxis=*])#breakdown);
 	if $addend == none
 		skip
 	else
@@ -276,7 +276,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 	$sum1 = [@PreferredStockSubscribedShares]; 
-	$addend = sum(list([@PreferredStockSubscribedShares @PreferredStockSubscribedAxis=*])#breakdown);
+	$addend = sum(list([nonils @PreferredStockSubscribedShares @PreferredStockSubscribedAxis=*])#breakdown);
 	if $addend == none
 		skip
 	else
@@ -300,7 +300,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 	$sum1 = [@PremiumOnCapitalStock]; 
-	$addend = sum(list([@PremiumOnCapitalStock @PremiumCapitalStockAxis=*])#breakdown);
+	$addend = sum(list([nonils @PremiumOnCapitalStock @PremiumCapitalStockAxis=*])#breakdown);
 	if $addend == none
 		skip
 	else
@@ -324,7 +324,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 	$sum1 = [@PremiumOnCapitalStockShares]; 
-	$addend = sum(list([@PremiumOnCapitalStockShares @PremiumCapitalStockAxis=*])#breakdown);
+	$addend = sum(list([nonils @PremiumOnCapitalStockShares @PremiumCapitalStockAxis=*])#breakdown);
 	if $addend == none
 		skip
 	else

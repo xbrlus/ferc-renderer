@@ -11,7 +11,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=none @period=$currentCumQ4]; 
- $addend = sum(list([@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentCumQ4])#breakdown);
+ $addend = sum(list([nonils @RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentCumQ4])#breakdown);
 if $addend == none
  	skip
  else
@@ -33,7 +33,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=none @period=$currentQ1Duration]; 
- $addend = sum(list([@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentQ1Duration])#breakdown);
+ $addend = sum(list([nonils @RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentQ1Duration])#breakdown);
 if $addend == none
  	skip
  else
@@ -55,7 +55,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=none @period=$currentCumQ2]; 
- $addend = sum(list([@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentCumQ2])#breakdown);
+ $addend = sum(list([nonils @RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentCumQ2])#breakdown);
 if $addend == none
  	skip
  else
@@ -77,7 +77,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=none @period=$currentCumQ3]; 
- $addend = sum(list([@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentCumQ3])#breakdown);
+ $addend = sum(list([nonils @RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentCumQ3])#breakdown);
 if $addend == none
  	skip
  else

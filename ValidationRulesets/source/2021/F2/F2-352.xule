@@ -15,7 +15,7 @@ else
  + [@EmployeePensionsAndBenefitsPensionsOther]
  + [@EmployeePensionsAndBenefitsPostRetirementBenefitsOtherThanPensions]
  + [@EmployeePensionsAndBenefitsPostEmploymentBenefitPlans]
- + sum(list([@EmployeePensionsAndBenefits @OtherEmployeePensionsAndBenefitsAxis=*])));
+ + sum(list([nonils @EmployeePensionsAndBenefits @OtherEmployeePensionsAndBenefitsAxis=*])));
 
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 

@@ -1,0 +1,329 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+<head>
+    <title>Template - F2/F2A/F2Q - 122</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl" id="ScheduleNotesToFinancialStatementsAbstract">
+    <table class="schedule-header xbrl" width="100%">
+        <tr>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
+                </xule:replace><br/>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                    <xule:template-display>This report is:</xule:template-display>
+                </xule:replace>
+                    <br/>
+                    (1) 
+                    <xule:replace>
+                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                            '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                            '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                            '<span class="checkbox">&#9744;</span> An Original']]>
+                            </xule:expression>  
+                        <xule:template-display>
+                                <input type="checkbox"/> An Original
+                        </xule:template-display>
+                    </xule:replace>
+                    <br/>
+                    (2)
+                    <xule:replace>
+                            <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                            '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                            '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                            '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                </xule:expression> 
+                            <xule:template-display>
+                                    <input type="checkbox" checked = "checked"/> A Resubmission
+                            </xule:template-display>
+                    </xule:replace> 
+                </td>
+                <td class="xbrl"><xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                    <xule:template-display>Date of Report:</xule:template-display>
+                    </xule:replace><br/>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xule:expression>
+                            <xule:template-display>04/26/2019</xule:template-display>
+                    </xule:replace>
+                </td>
+                <td class="xbrl"><xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                    <xule:template-display>Year/Period of Report:</xule:template-display>
+                    </xule:replace><br/>
+                    End of: <xule:replace>
+                        <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                        <xule:template-display>2018</xule:template-display>
+                    </xule:replace>
+                    <span>/</span>
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xule:expression>
+                        <xule:template-display>Q4</xule:template-display>
+                    </xule:replace>
+                </td>
+            </tr>
+        </table>
+    <table class="xbrl">
+        <tr class="sch-title">
+            <td colspan="1" class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleNotesToFinancialStatementsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2ScheduleTitle").text
+                            </xule:expression>
+                            <xule:template-display>
+                                    Notes to Financial Statements
+                            </xule:template-display>
+                    </xule:replace>
+                </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="1">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleNotesToFinancialStatementsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                            <ol>
+                                <li>Provide important disclosures regarding the Balance Sheet, Statement of Income for the Year, Statement of Retained Earnings for the Year, and Statement of Cash Flow, or any account thereof. Classify the disclosures according to each financial statement, providing a subheading for each statement except where a disclosure is applicable to more than one statement. The disclosures must be on the same subject matters and in the same level of detail that would be required if the respondent issued general purpose financial statements to the public or shareholders.</li>
+                                <li>Furnish details as to any significant contingent assets or liabilities existing at year end, and briefly explain any action initiated by the Internal Revenue Service involving possible assessment of additional income taxes of material amount, or a claim for refund of income taxes of a material amount initiated by the utility. Also, briefly explain any dividends in arrears on cumulative preferred stock.</li>
+                                <li>Furnish details on the respondent's pension plans, post-retirement benefits other than pensions (PBOP) plans, and post-employment benefit plans as required by instruction no. 1 and, in addition, disclose for each individual plan the current year's cash contributions. Furnish details on the accounting for the plans and any changes in the method of accounting for them. Include details on the accounting for transition obligations or assets, gains or losses, the amounts deferred and the expected recovery periods. Also, disclose any current year's plan or trust curtailments, terminations, transfers, or reversions of assets. Entities that participate in multiemployer postretirement benefit plans (e.g. parent company sponsored pension plans) disclose in addition to the required disclosures for the consolidated plan, (1) the amount of cost recognized in the respondent’s financial statements for each plan for the period presented, and (2) the basis for determining the respondent’s share of the total plan costs.</li>
+                                <li>Furnish details on the respondent’s asset retirement obligations (ARO) as required by instruction no. 1 and, in addition, disclose the amounts recovered through rates to settle such obligations. Identify any mechanism or account in which recovered funds are being placed (i.e. trust funds, insurance policies, surety bonds). Furnish details on the accounting for the asset retirement obligations and any changes in the measurement or method of accounting for the obligations. Include details on the accounting for settlement of the obligations and any gains or losses expected or incurred on the settlement.</li>
+                                <li>Provide a list of all environmental credits received during the reporting period.</li>
+                                <li>Provide a summary of revenues and expenses for each tracked cost and special surcharge.</li>
+                                <li>Where Account 189, Unamortized Loss on Reacquired Debt, and 257, Unamortized Gain on Reacquired Debt, are not used, give an explanation, providing the rate treatment given these item. See General Instruction 17 of the Uniform System of Accounts.</li>
+                                <li>Explain concisely any retained earnings restrictions and state the amount of retained earnings affected by such restrictions.</li>
+                                <li>Disclose details on any significant financial changes during the reporting year to the respondent or the respondent's consolidated group that directly affect the respondent's gas pipeline operations, including: sales, transfers or mergers of affiliates, investments in new partnerships, sales of gas pipeline facilities or the sale of ownership interests in the gas pipeline to limited partnerships, investments in related industries (i.e., production, gathering), major pipeline investments, acquisitions by the parent corporation(s), and distributions of capital.</li>
+                                <li>Explain concisely unsettled rate proceedings where a contingency exists such that the company may need to refund a material amount to the utility's customers or that the utility may receive a material refund with respect to power or gas purchases. State for each year affected the gross revenues or costs to which the contingency relates and the tax effects and explain the major factors that affect the rights of the utility to retain such revenues or to recover amounts paid with respect to power and gas purchases.</li>
+                                <li>Explain concisely significant amounts of any refunds made or received during the year resulting from settlement of any rate proceeding affecting revenues received or costs incurred for power or gas purchases, and summarize the adjustments made to balance sheet, income, and expense accounts.</li>
+                                <li>Explain concisely only those significant changes in accounting methods made during the year which had an effect on net income, including the basis of allocations and apportionments from those used in the preceding year. Also give the approximate dollar effect of such changes.</li>
+                                <li>For the 3Q disclosures, respondent must provide in the notes sufficient disclosures so as to make the interim information not misleading. Disclosures which would substantially duplicate the disclosures contained in the most recent FERC Annual Report may be omitted.</li>
+                                <li>For the 3Q disclosures, the disclosures shall be provided where events subsequent to the end of the most recent year have occurred which have a material effect on the respondent. Respondent must include in the notes significant changes since the most recently completed year in such items as: accounting principles and practices; estimates inherent in the preparation of the financial statements; status of long-term contracts; capitalization including significant new borrowings or modifications of existing financing agreements; and changes resulting from business combinations or dispositions. However were material contingencies exist, the disclosure of such matters shall be provided even though a significant change since year end may not have occurred.</li>
+                                <li>Finally, if the notes to the financial statements relating to the respondent appearing in the annual report to the stockholders are applicable and furnish the data required by the above instructions, such notes may be included herein.</li>
+                            </ol>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:NotesToFinancialStatementsTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:DisclosureOfImportantDisclosuresRegardingTheFinancialStatementsTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:DisclosureOfSignificantContingentAssetsOrLiabilitiesTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:DisclosureOfPensionPostRetirementBenefitOtherThanPensionsPBOPAndOrPostEmploymentBenefitPlansTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:DisclosureOfAssetsRetirementObligationsAROTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:DisclosureOfReceivedEnvironmentalCreditsTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:DisclosureOfRevenuesAndExpensesForTrackedCostAndSpecialSurchargeTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:DisclosureOfRateTreatmentForUnamortizedLossOnReacquiredDebtAndUnamortizedGainOnReacquiredDebtTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:DisclosureOfRetainedEarningsRestrictionsTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:DisclosureOfSignificantFinancialChangesTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:DisclosureOfUnsettledRateProceedingsTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:DisclosureOfSignificantAmountsOfRefundsMadeOrReceivedTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:DisclosureOfSignificantChangesInAccountingMethodsTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:DisclosureOfSubsequentEventsTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:DisclosureOfInterimDisclosureTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" html="true" fact="true">[@concept=ferc:DisclosureOfApplicableNotesTextBlock @period=$currentDuration]
+                            </xule:expression>
+                            <xule:template-display>
+                                    See Notes to Financial Statements, Note 2, "Regulatory Matters"
+                            </xule:template-display>
+                    </xule:replace>                   
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <div class="schedule-footer">
+        
+        <div>FERC FORM No. 
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                    <xule:template-display>2/3-Q</xule:template-display>
+                </xule:replace>
+                <span> </span>
+                <xule:replace>
+                    <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleNotesToFinancialStatementsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2DateRevised").text + ")"
+                    </xule:expression>
+                    <xule:template-display>
+                    02-04
+                    </xule:template-display>
+                </xule:replace>
+        </div>
+        <div class="center-text">Page 
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleNotesToFinancialStatementsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Page").text
+                        </xule:expression>
+                        <xule:template-display>
+                        1
+                        </xule:template-display>
+                </xule:replace>
+        </div> 
+
+</div>
+</body>
+
+</html>

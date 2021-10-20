@@ -11,7 +11,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@concept = ConstructionWorkInProgress @UtilityTypeAxis=GasUtilityMember @period = $currentInstant]; 
-        $addend = sum(list([@ConstructionWorkInProgress @ConstructionWorkInProgressAxis=* @UtilityTypeAxis=GasUtilityMember @period=$currentInstant])#breakdown)
+        $addend = sum(list([nonils @ConstructionWorkInProgress @ConstructionWorkInProgressAxis=* @UtilityTypeAxis=GasUtilityMember @period=$currentInstant])#breakdown)
         if $addend == none
                 skip
         else
@@ -36,7 +36,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@ConstructionWorkInProgressEstimatedAdditionalCost @UtilityTypeAxis=GasUtilityMember @period=$currentInstant]; 
- $addend = sum(list([@ConstructionWorkInProgressEstimatedAdditionalCost @ConstructionWorkInProgressAxis=* @UtilityTypeAxis=GasUtilityMember @period=$currentInstant])#breakdown);
+ $addend = sum(list([nonils @ConstructionWorkInProgressEstimatedAdditionalCost @ConstructionWorkInProgressAxis=* @UtilityTypeAxis=GasUtilityMember @period=$currentInstant])#breakdown);
  if $addend == none
  	skip
  else

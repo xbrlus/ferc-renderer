@@ -34,7 +34,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $agg1 = [@CommonStockSharesAuthorized]; 
- $addend = sum(list([@CommonStockSharesAuthorized @CommonStockAxis=*])#breakdown);
+ $addend = sum(list([nonils @CommonStockSharesAuthorized @CommonStockAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -58,7 +58,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $agg1 = [@CommonStockSharesOutstanding]; 
- $addend = sum(list([@CommonStockSharesOutstanding @CommonStockAxis=*])#breakdown);
+ $addend = sum(list([nonils @CommonStockSharesOutstanding @CommonStockAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -81,7 +81,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $agg1 = [@CommonStockIssued]; 
- $addend = sum(list([@CommonStockIssued @CommonStockAxis=*])#breakdown);
+ $addend = sum(list([nonils @CommonStockIssued @CommonStockAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -104,7 +104,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $agg1 = [@PreferredStockSharesAuthorized]; 
- $addend = sum(list([@PreferredStockSharesAuthorized @PreferredStockAxis=*])#breakdown);
+ $addend = sum(list([nonils @PreferredStockSharesAuthorized @PreferredStockAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -127,7 +127,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $agg1 = [@PreferredStockSharesOutstanding]; 
- $addend = sum(list([@PreferredStockSharesOutstanding @PreferredStockAxis=*])#breakdown);
+ $addend = sum(list([nonils @PreferredStockSharesOutstanding @PreferredStockAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -150,7 +150,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $agg1 = [@PreferredStockIssued]; 
- $addend = sum(list([@PreferredStockIssued @PreferredStockAxis=*])#breakdown);
+ $addend = sum(list([nonils @PreferredStockIssued @PreferredStockAxis=*])#breakdown);
  if $addend == none
  	skip
  else

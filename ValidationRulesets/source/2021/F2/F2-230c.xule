@@ -33,7 +33,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@UnrecoveredPlantAndRegulatoryStudyCosts]; 
- $addend = sum(list([@UnrecoveredPlantAndRegulatoryStudyCosts @UnrecoveredPlantAndRegulatoryStudyCostsAxis=*])#breakdown);
+ $addend = sum(list([nonils @UnrecoveredPlantAndRegulatoryStudyCosts @UnrecoveredPlantAndRegulatoryStudyCostsAxis=*])#breakdown);
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of the element {$sum1.concept.name} using the axis UnrecoveredPlantAndRegulatoryStudyCostsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
@@ -53,7 +53,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@UnrecoveredPlantAndRegulatoryStudyCostsNotYetRecognized]; 
- $addend = sum(list([@UnrecoveredPlantAndRegulatoryStudyCostsNotYetRecognized @UnrecoveredPlantAndRegulatoryStudyCostsAxis=*])#breakdown);
+ $addend = sum(list([nonils @UnrecoveredPlantAndRegulatoryStudyCostsNotYetRecognized @UnrecoveredPlantAndRegulatoryStudyCostsAxis=*])#breakdown);
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of the element {$sum1.concept.name} using the axis UnrecoveredPlantAndRegulatoryStudyCostsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
@@ -73,7 +73,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@UnrecoveredPlantAndRegulatoryStudyCostsRecognized]; 
- $addend = sum(list([@UnrecoveredPlantAndRegulatoryStudyCostsRecognized @UnrecoveredPlantAndRegulatoryStudyCostsAxis=*])#breakdown);
+ $addend = sum(list([nonils @UnrecoveredPlantAndRegulatoryStudyCostsRecognized @UnrecoveredPlantAndRegulatoryStudyCostsAxis=*])#breakdown);
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of the element {$sum1.concept.name} using the axis UnrecoveredPlantAndRegulatoryStudyCostsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
@@ -93,7 +93,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@UnrecoveredPlantAndRegulatoryStudyCostsWrittenOff]; 
- $addend = sum(list([@UnrecoveredPlantAndRegulatoryStudyCostsWrittenOff @UnrecoveredPlantAndRegulatoryStudyCostsAxis=*])#breakdown);
+ $addend = sum(list([nonils @UnrecoveredPlantAndRegulatoryStudyCostsWrittenOff @UnrecoveredPlantAndRegulatoryStudyCostsAxis=*])#breakdown);
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of the element {$sum1.concept.name} using the axis UnrecoveredPlantAndRegulatoryStudyCostsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}

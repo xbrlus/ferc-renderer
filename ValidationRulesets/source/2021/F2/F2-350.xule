@@ -11,7 +11,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RegulatoryExpensesAssessedByRegulatoryCommission]; 
- $addend = sum(list([@RegulatoryExpensesAssessedByRegulatoryCommission @RegulatoryCommissionExpensesAxis=*])#breakdown);
+ $addend = sum(list([nonils @RegulatoryExpensesAssessedByRegulatoryCommission @RegulatoryCommissionExpensesAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -34,7 +34,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RegulatoryExpensesOfUtility]; 
- $addend = sum(list([@RegulatoryExpensesOfUtility @RegulatoryCommissionExpensesAxis=*])#breakdown);
+ $addend = sum(list([nonils @RegulatoryExpensesOfUtility @RegulatoryCommissionExpensesAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -57,7 +57,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RegulatoryCommissionExpensesAmount]; 
- $addend = sum(list([@RegulatoryCommissionExpensesAmount @RegulatoryCommissionExpensesAxis=*])#breakdown);
+ $addend = sum(list([nonils @RegulatoryCommissionExpensesAmount @RegulatoryCommissionExpensesAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -80,7 +80,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RegulatoryComissionExpensesIncurredAndCharged]; 
- $addend = sum(list([@RegulatoryComissionExpensesIncurredAndCharged @RegulatoryCommissionExpensesAxis=*])#breakdown);
+ $addend = sum(list([nonils @RegulatoryComissionExpensesIncurredAndCharged @RegulatoryCommissionExpensesAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -103,7 +103,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RegulatoryCommissionExpensesDeferredToOtherRegulatoryAssets]; 
- $addend = sum(list([@RegulatoryCommissionExpensesDeferredToOtherRegulatoryAssets @RegulatoryCommissionExpensesAxis=*])#breakdown);
+ $addend = sum(list([nonils @RegulatoryCommissionExpensesDeferredToOtherRegulatoryAssets @RegulatoryCommissionExpensesAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -126,7 +126,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@DeferredRegulatoryCommissionExpensesAmortized]; 
- $addend = sum(list([@DeferredRegulatoryCommissionExpensesAmortized @RegulatoryCommissionExpensesAxis=*])#breakdown);
+ $addend = sum(list([nonils @DeferredRegulatoryCommissionExpensesAmortized @RegulatoryCommissionExpensesAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -149,7 +149,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OtherRegulatoryAssetsRegulatoryCommissionExpenses]; 
- $addend = sum(list([@OtherRegulatoryAssetsRegulatoryCommissionExpenses @RegulatoryCommissionExpensesAxis=*])#breakdown);
+ $addend = sum(list([nonils @OtherRegulatoryAssetsRegulatoryCommissionExpenses @RegulatoryCommissionExpensesAxis=*])#breakdown);
  if $addend == none
  	skip
  else

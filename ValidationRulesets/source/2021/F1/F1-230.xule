@@ -11,7 +11,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@ExtraordinaryPropertyLossesNotYetRecognized]; 
- $addend = sum(list([@ExtraordinaryPropertyLossesNotYetRecognized @ExtraordinaryPropertyLossesAxis=*]));
+ $addend = sum(list([nonils @ExtraordinaryPropertyLossesNotYetRecognized @ExtraordinaryPropertyLossesAxis=*]));
  if $addend == none
  	skip
  else
@@ -30,7 +30,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@ExtraordinaryPropertyLossesRecognized]; 
- $addend = sum(list([@ExtraordinaryPropertyLossesRecognized @ExtraordinaryPropertyLossesAxis=*])#breakdown);
+ $addend = sum(list([nonils @ExtraordinaryPropertyLossesRecognized @ExtraordinaryPropertyLossesAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -53,7 +53,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@ExtraordinaryPropertyLossesWrittenOff]; 
- $addend = sum(list([@ExtraordinaryPropertyLossesWrittenOff @ExtraordinaryPropertyLossesAxis=*])#breakdown);
+ $addend = sum(list([nonils @ExtraordinaryPropertyLossesWrittenOff @ExtraordinaryPropertyLossesAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -77,7 +77,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@ExtraordinaryPropertyLosses]; 
- $addend = sum(list([@ExtraordinaryPropertyLosses @ExtraordinaryPropertyLossesAxis=*])#breakdown);
+ $addend = sum(list([nonils @ExtraordinaryPropertyLosses @ExtraordinaryPropertyLossesAxis=*])#breakdown);
  if $addend == none
  	skip
  else

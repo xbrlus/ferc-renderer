@@ -11,7 +11,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RevenuesForTransitionCostsAndTakeOrPay]; 
- $addend = sum(list([@RevenuesForTransitionCostsAndTakeOrPay @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+ $addend = sum(list([nonils @RevenuesForTransitionCostsAndTakeOrPay @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -34,7 +34,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RevenuesFromGRIAndACA]; 
- $addend = sum(list([@RevenuesFromGRIAndACA @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+ $addend = sum(list([nonils @RevenuesFromGRIAndACA @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -57,7 +57,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OtherRevenues]; 
- $addend = sum(list([@OtherRevenues @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+ $addend = sum(list([nonils @OtherRevenues @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -80,7 +80,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities]; 
- $addend = sum(list([@RevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+ $addend = sum(list([nonils @RevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -103,7 +103,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@DekathermOfNaturalGas]; 
- $addend = sum(list([@DekathermOfNaturalGas @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+ $addend = sum(list([nonils @DekathermOfNaturalGas @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
  if $addend == none
  	skip
  else

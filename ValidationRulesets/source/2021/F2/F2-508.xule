@@ -34,7 +34,7 @@ else
                 for $CompressorItem in $CompressorItems
                         $CompressorMembers = list([covered @TypeOfCompressor @NameAndLocationOfCompressorStationAxis=* where $fact == $CompressorType].dimension(NameAndLocationOfCompressorStationAxis));
                         $sum2 = [@concept = $CompressorItem @CompressorTypesAxis=$CompressorTypeLookup[$CompressorType] @unit=*]; 
-                        $addend = sum(list([@concept = $CompressorItem @unit=* @NameAndLocationOfCompressorStationAxis in $CompressorMembers])#breakdown);
+                        $addend = sum(list([nonils @concept = $CompressorItem @unit=* @NameAndLocationOfCompressorStationAxis in $CompressorMembers])#breakdown);
                         if $addend == none
                                 skip
                         else
@@ -76,7 +76,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         for $CompressorItem in $CompressorItems
-                $compressor_addends = sum(list([@concept = $CompressorItem @CompressorTypesAxis=*])#breakdown);
+                $compressor_addends = sum(list([nonils @concept = $CompressorItem @CompressorTypesAxis=*])#breakdown);
                 $compressor_sum = [@concept = $CompressorItem];
                 if $compressor_addends == none
  	                skip

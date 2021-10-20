@@ -8,7 +8,7 @@ assert F1.231.1 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@StudyCostsIncurred @StudyTypeAxis=TransmissionStudiesMember]; 
- $addend = sum(list([@StudyCostsIncurred @StudyTypeAxis=TransmissionStudiesMember @TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=*])#breakdown);
+ $addend = sum(list([nonils @StudyCostsIncurred @StudyTypeAxis=TransmissionStudiesMember @TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -28,7 +28,7 @@ assert F1.231.2 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@StudyCostsReimbursements @StudyTypeAxis=TransmissionStudiesMember]; 
- $addend = sum(list([@StudyCostsReimbursements @StudyTypeAxis=TransmissionStudiesMember @TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=*])#breakdown);
+ $addend = sum(list([nonils @StudyCostsReimbursements @StudyTypeAxis=TransmissionStudiesMember @TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -48,7 +48,7 @@ assert F1.231.3 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@StudyCostsIncurred @StudyTypeAxis=GenerationStudiesMember]; 
- $addend = sum(list([@StudyCostsIncurred @StudyTypeAxis=GenerationStudiesMember @TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=*])#breakdown);
+ $addend = sum(list([nonils @StudyCostsIncurred @StudyTypeAxis=GenerationStudiesMember @TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -68,7 +68,7 @@ assert F1.231.4 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@StudyCostsReimbursements @StudyTypeAxis=GenerationStudiesMember]; 
- $addend = sum(list([@StudyCostsReimbursements @StudyTypeAxis=GenerationStudiesMember @TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=*])#breakdown);
+ $addend = sum(list([nonils @StudyCostsReimbursements @StudyTypeAxis=GenerationStudiesMember @TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=*])#breakdown);
 if $addend == none
  	skip
  else

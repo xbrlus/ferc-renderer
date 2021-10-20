@@ -55,7 +55,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@CostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges]; 
-        $addend = sum(list([@CostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @AmortizationBaseAndReserveAxis=*])#breakdown);
+        $addend = sum(list([nonils @CostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @AmortizationBaseAndReserveAxis=*])#breakdown);
         if $addend == none
                 skip
         else
@@ -78,7 +78,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@IncreaseInCostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges]; 
-        $addend = sum(list([@IncreaseInCostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges@AmortizationBaseAndReserveAxis=*])#breakdown);
+        $addend = sum(list([nonils @IncreaseInCostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges@AmortizationBaseAndReserveAxis=*])#breakdown);
         if $addend == none
                 skip
         else
@@ -101,7 +101,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@DecreaseInCostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges]; 
-        $addend = sum(list([@DecreaseInCostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @AmortizationBaseAndReserveAxis=*])#breakdown);
+        $addend = sum(list([nonils @DecreaseInCostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @AmortizationBaseAndReserveAxis=*])#breakdown);
         if $addend == none
                 skip
         else
@@ -124,7 +124,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@IncreaseInAccruedAmortizationCarrierProperty]; 
-        $addend = sum(list([@IncreaseInAccruedAmortizationCarrierProperty @AmortizationBaseAndReserveAxis=*])#breakdown);
+        $addend = sum(list([nonils @IncreaseInAccruedAmortizationCarrierProperty @AmortizationBaseAndReserveAxis=*])#breakdown);
         if $addend == none
                 skip
         else
@@ -147,7 +147,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@DecreaseInAccruedAmortizationCarrierProperty]; 
-        $addend = sum(list([@DecreaseInAccruedAmortizationCarrierProperty @AmortizationBaseAndReserveAxis=*])#breakdown);
+        $addend = sum(list([nonils @DecreaseInAccruedAmortizationCarrierProperty @AmortizationBaseAndReserveAxis=*])#breakdown);
         if $addend == none
                 skip
         else
@@ -170,7 +170,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@AccruedAmortizationCarrierProperty]; 
-        $addend = sum(list([@AccruedAmortizationCarrierProperty @AmortizationBaseAndReserveAxis=*])#breakdown);
+        $addend = sum(list([nonils @AccruedAmortizationCarrierProperty @AmortizationBaseAndReserveAxis=*])#breakdown);
         if $addend == none
                 skip
         else

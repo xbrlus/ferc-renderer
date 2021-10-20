@@ -39,7 +39,7 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first
         skip
 else
  $sum1 = [@AdjustmentsToRetainedEarningsCredit]; 
- $addend = sum(list([@AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
+ $addend = sum(list([nonils @AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -62,7 +62,7 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first
         skip
 else
  $sum1 = [@AdjustmentsToRetainedEarningsDebit]; 
- $addend = sum(list([@AdjustmentsToRetainedEarningsDebit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
+ $addend = sum(list([nonils @AdjustmentsToRetainedEarningsDebit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -85,7 +85,7 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first
         skip
 else
  $sum1 = [@AppropriationsOfRetainedEarnings]; 
- $addend = sum(list([@AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=*])#breakdown);
+ $addend = sum(list([nonils @AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -108,7 +108,7 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first
         skip
 else
  $sum1 = [@DividendsDeclaredPreferredStock]; 
- $addend = sum(list([@DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=*])#breakdown);
+ $addend = sum(list([nonils @DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -131,7 +131,7 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first
         skip
 else
  $sum1 = [@DividendsDeclaredCommonStock]; 
- $addend = sum(list([@DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=*])#breakdown);
+ $addend = sum(list([nonils @DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -154,7 +154,7 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first
         skip
 else
  $sum1 = [@AppropriatedRetainedEarnings]; 
- $addend = sum(list([@AppropriatedRetainedEarnings @RetainedEarningsAxis=*])#breakdown);
+ $addend = sum(list([nonils @AppropriatedRetainedEarnings @RetainedEarningsAxis=*])#breakdown);
 if $addend == none
  	skip
  else

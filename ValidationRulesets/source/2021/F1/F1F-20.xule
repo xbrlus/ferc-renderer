@@ -565,7 +565,7 @@ else
  + {@ElectricPlantHeldForFutureUseAdditions} 
  + {@ConstructionWorkInProgressElectricAdditions} 
  + {@ElectricPlantAcquisitionAdjustmentsAdditions}
- + sum(list([@concept = OtherElectricPlantAdjustmentsAdditions @OtherElectricPlantAdjustmentsAxis=*]))
+ + sum(list([nonils @concept = OtherElectricPlantAdjustmentsAdditions @OtherElectricPlantAdjustmentsAxis=*]))
  );
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
@@ -594,7 +594,7 @@ else
  + {@ElectricPlantHeldForFutureUseRetirements} 
  + {@ConstructionWorkInProgressElectricRetirements} 
  + {@ElectricPlantAcquisitionAdjustmentsRetirements}
- + sum(list([@concept = OtherElectricPlantAdjustmentsRetirements @OtherElectricPlantAdjustmentsAxis=*]))
+ + sum(list([nonils @concept = OtherElectricPlantAdjustmentsRetirements @OtherElectricPlantAdjustmentsAxis=*]))
  );
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
@@ -623,7 +623,7 @@ else
  + {@ElectricPlantHeldForFutureUseTransfersAndAdjustments} 
  + {@ConstructionWorkInProgressElectricTransfersAndAdjustments} 
  + {@ElectricPlantAcquisitionAdjustmentsTransfersAndAdjustments}
- + sum(list([@concept = OtherElectricPlantAdjustmentsTransfersAndAdjustments @OtherElectricPlantAdjustmentsAxis=*]))
+ + sum(list([nonils @concept = OtherElectricPlantAdjustmentsTransfersAndAdjustments @OtherElectricPlantAdjustmentsAxis=*]))
  );
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
@@ -652,7 +652,7 @@ else
  + {@ElectricPlantHeldForFutureUse}
  + {@ConstructionWorkInProgressElectric}
  + {@ElectricPlantAcquisitionAdjustments}
- + sum(list([@concept = OtherElectricPlantAdjustments @OtherElectricPlantAdjustmentsAxis=*]))
+ + sum(list([nonils @concept = OtherElectricPlantAdjustments @OtherElectricPlantAdjustmentsAxis=*]))
  );
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
@@ -672,7 +672,7 @@ $rule_id = rule-name();
 if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
         skip
 else
- $OtherAdditions = first-value({@OtherUtilityPlantAdditions @OtherUtilityPlantAxis=none}, sum(list({@OtherUtilityPlantAdditions @OtherUtilityPlantAxis=*})));
+ $OtherAdditions = first-value({@OtherUtilityPlantAdditions @OtherUtilityPlantAxis=none}, sum(list({nonils @OtherUtilityPlantAdditions @OtherUtilityPlantAxis=*})));
  $sum1 = {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsAdditions @OtherUtilityPlantAxis=none}; 
  $addend = ({@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantAdditions @OtherUtilityPlantAxis=none} 
  + $OtherAdditions);
@@ -695,7 +695,7 @@ $rule_id = rule-name();
 if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
         skip
 else
- $OtherRetirements = first-value({@OtherUtilityPlantRetirements @OtherUtilityPlantAxis=none}, sum(list({@OtherUtilityPlantRetirements @OtherUtilityPlantAxis=*})));
+ $OtherRetirements = first-value({@OtherUtilityPlantRetirements @OtherUtilityPlantAxis=none}, sum(list({nonils @OtherUtilityPlantRetirements @OtherUtilityPlantAxis=*})));
  $sum1 = {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsRetirements @OtherUtilityPlantAxis=none}; 
  $addend = ({@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantRetirements @OtherUtilityPlantAxis=none} 
  + $OtherRetirements);
@@ -718,7 +718,7 @@ $rule_id = rule-name();
 if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
         skip
 else
- $OtherTransfers = first-value({@OtherUtilityPlantTransfersAndAdjustments @OtherUtilityPlantAxis=none}, sum(list({@OtherUtilityPlantTransfersAndAdjustments @OtherUtilityPlantAxis=*})));
+ $OtherTransfers = first-value({@OtherUtilityPlantTransfersAndAdjustments @OtherUtilityPlantAxis=none}, sum(list({nonils @OtherUtilityPlantTransfersAndAdjustments @OtherUtilityPlantAxis=*})));
  $sum1 = {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsTransfersAndAdjustments @OtherUtilityPlantAxis=none}; 
  $addend = ({@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantTransfersAndAdjustments @OtherUtilityPlantAxis=none} 
  +  $OtherTransfers); 
@@ -741,7 +741,7 @@ $rule_id = rule-name();
 if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
         skip
 else
-$Other = first-value({@OtherUtilityPlant @OtherUtilityPlantAxis=none}, sum(list({@OtherUtilityPlant @OtherUtilityPlantAxis=*})));
+$Other = first-value({@OtherUtilityPlant @OtherUtilityPlantAxis=none}, sum(list({nonils @OtherUtilityPlant @OtherUtilityPlantAxis=*})));
  $sum1 = {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustments @OtherUtilityPlantAxis=none}; 
  $addend = ({@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlant @OtherUtilityPlantAxis=none} 
  + $Other );

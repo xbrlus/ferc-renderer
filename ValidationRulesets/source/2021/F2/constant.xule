@@ -1,14 +1,42 @@
 /** Constants File **/
 
 
-constant $report-year = max(list([covered @ferc:ReportYear]))
+constant $valid_year = (max(list([covered @ferc:ReportYear])) >= 1990) and (max(list([covered @ferc:ReportYear])) <= 2100)
+
+constant $report-year-guess = most_frequent(list({covered @concept}.period.end))
+
+constant $report-year-default = if max(list([covered @ferc:ReportYear])) == none
+								$report-year-guess.year
+							else
+								if $valid_year 
+									max(list([covered @ferc:ReportYear]))
+								else
+									$report-year-guess.year
+								
+constant $report-year-end-default = if max(list([covered @ferc:ReportYear])) == none
+								$report-year-guess.string
+							else
+								max(list([covered @ferc:ReportYear])).period.end.string
+
+constant $report-year_pre = first-value(max(list([covered @ferc:ReportYear])),$report-year-default.number)
+
+constant $report-year_check = if $report-year_pre < 1990
+							$report-year-default.number
+						else
+							if $report-year_pre > 2100
+								$report-year-default.number
+							else
+								$report-year_pre
+
+constant $report-year = $report-year_check
+
 constant $report-period = max(list([covered @ferc:ReportPeriod]))
 
 constant $prior-year = $report-year - 1
 constant $prior-year2 = $report-year - 2
 
 constant $current-start = $report-year + '-01-01'
-constant $current-end = [covered @ferc:ReportYear].period.end.string
+constant $current-end = first-value(max(list([covered @ferc:ReportYear])).period.end.string,$report-year-end-default)
 constant $prior-start = $prior-year + '-01-01'
 constant $prior-end = $prior-year + '-' + pad(month(date($current-end)).string,2,'0') + '-' + day(date($current-end)).string
 constant $prior2-start = $prior-year2 + '-01-01'

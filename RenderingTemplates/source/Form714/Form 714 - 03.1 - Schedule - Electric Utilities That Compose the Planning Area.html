@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - 03.1 - Schedule - Electric Utilities That Compose the Planning Area</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+   
+</head>
+
+<body class="xbrl">
+        <table class="schedule-header xbrl" width="100%">
+                <tr>
+                    <td class="form-name-top">Federal Energy Regulatory Commission<br/>
+                        FERC Form No. 714
+                    </td>
+                    <td>
+                        <div class="sch-header-title">
+                                Annual Electric Balancing Authority Area and Planning <br></br>Area Report
+                        </div>
+                        <br/>
+                        <div class="sch-as-of-date-title">For the Year Ending December 31,
+                            <xule:replace>
+                                <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                                <xule:template-display>2018</xule:template-display>
+                            </xule:replace>
+                    </div>
+                    </td>
+                    <td class="xbrl form-id-code-top">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:RespondentIdentificationCode).label("http://ferc.gov/form/2020-01-01/roles/label/F714IdentificationHeader").text</xule:expression>
+                            <xule:template-display>Utility Code:</xule:template-display>
+                        </xule:replace>
+                    
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:RespondentIdentificationCode @period=$currentDuration]</xule:expression>
+                            <xule:template-display>1234567890</xule:template-display>
+                        </xule:replace>
+                        <br></br>
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F714IdentificationHeader").text</xule:expression>
+                            <xule:template-display>Utility Name:</xule:template-display>
+                        </xule:replace>
+                    
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                            <xule:template-display>XYZ Utility</xule:template-display>
+                        </xule:replace>
+                    </td>
+                </tr>
+            </table>
+    <table class="xbrl">
+        <tr class="sch-title">
+            <td class="xbrl" colspan="6">
+                    <xule:replace>
+                                <xule:expression class="hide">if (taxonomy().concept(ferc:ScheduleElectricUtilitiesThatComposeThePlanningAreaAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F714BalancingAuthorityAreaScheduledandActualInterchange").text) != none taxonomy().concept(ferc:ScheduleElectricUtilitiesThatComposeThePlanningAreaAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F714BalancingAuthorityAreaScheduledandActualInterchange").text else "Part III - Schedule 1. Electric Utilities That Compose the Planning Area"
+                                </xule:expression>
+                                <xule:template-display>
+                                        Part III - Schedule 1. Electric Utilities That Compose the Planning Area
+                                </xule:template-display>
+                        </xule:replace>
+                </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="6">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleElectricUtilitiesThatComposeThePlanningAreaAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F714Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                        <p>Under the name of its operating electric utility, list all generating plants (1) within the respondent's balancing authority area which are controlled, metered or for which the required information is otherwise available to balancing authority area operators and (2) dynamically scheduled plants or units outside the balancing authority area. Specifically identify dynamically scheduled plants. Report only plant totals with generators in an operating or standby status. Provide totals for columns (d) and (e) as a last line. The total in column (d) should equal the value in column (c) on Schedule 2 for the month of the annual peak demand. The total in column (e) should equal the value in column (f) on Schedule 3 for the month of the annual peak demand. Any differences must be explained in a footnote. Refer to the Form 714 instructions for specific guidelines.</p>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+            <td class="xbrl col-heading" colspan="2">Electric Utility Coincident Peak Demand
+                    (MW)
+                (MWh)</td>
+        </tr>
+        <tr class="col-heading-row">
+            <td class="col-heading xbrl line-number"><div>Line No.</div><div>(a)</div></td>
+            <td class="col-heading xbrl" xule:repeat="GenPlantsHead">
+                <xule:expression class="hide" name="GenPlantsHead">
+                        $headings = filter (taxonomy().concept(ferc:ScheduleElectricUtilitiesThatComposeThePlanningAreaAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "03.1 - Schedule - Electric Utilities That Compose the Planning Area") 
+
+                        $heading = list(for $ref in $headings 
+                        list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value, $ref.part-by-name(ferc-part:ElementName).part-value))
+
+                        $heading_dict = dict(for $row in $heading
+                                list("("+$row[1]+")",list($row[2],if $row[3] == none "" else taxonomy().concept(to-qname($row[3]))))
+                        );
+                        for $row in $heading_dict.keys.sort
+                </xule:expression>
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <xule:replace>
+                                            <xule:expression class="hide" name="GenPlantsHead" part="3">if $heading_dict[$row][2] != "" $heading_dict[$row][2].name.local-name else ""</xule:expression>
+                                        </xule:replace>
+                            </div>    
+                        <xule:replace>
+                            <xule:expression class="hide" name="GenPlantsHead" part="1">$heading_dict[$row][1]</xule:expression>
+                            <xule:template-display>
+                                Nature of Payment
+                            </xule:template-display>
+                        </xule:replace>
+                    </div>
+                </div>
+
+                <div style="text-align: center"><xule:replace>
+                        <xule:expression class="hide" name="GenPlantsHead" part="2">$row</xule:expression>
+                        <xule:template-display>
+                            (a)
+                        </xule:template-display>
+                </xule:replace></div>
+            </td>
+        </tr>
+            <tr class="schedule-row" xule:repeat="GenPlants">
+                <xule:expression class="hide" name="GenPlants">// adding a comment
+                    
+                $data2 =   list(for $i in range(30)
+                                list($i,none,none,none)
+                );
+                
+                $data = if count(list({covered @ferc:ElectricUtilitiesThatComposeThePlanningAreaAxis = * })) > 0 
+                
+                    list({covered @ferc:ElectricUtilitiesThatComposeThePlanningAreaAxis = *   {list(
+                        if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                            first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                        else
+                            0,
+                        if exists({@ferc:ElectricUtilityName @unit @period=$currentDuration}) 
+                            first(list({@ferc:ElectricUtilityName @unit @period=$currentDuration}))
+                        else 
+                            none,
+                        if exists({@ferc:ElectricUtilityCoincidentPeakDemandSummer @unit=* @period=$currentDuration})
+                            first(list({@ferc:ElectricUtilityCoincidentPeakDemandSummer @unit=* @period=$currentDuration}))
+                        else 
+                            none,
+                        if exists({@ferc:ElectricUtilityCoincidentPeakDemandWinter @unit=* @period=$currentDuration})
+                            first(list({@ferc:ElectricUtilityCoincidentPeakDemandWinter @unit=* @period=$currentDuration}))
+                        else 
+                            none
+                        )}})
+                        else $data2;
+
+                        $uniqueData = list(for $x in  $data
+                        if $x == list(0,none,none,none)
+                            skip
+                        else 
+                            $x
+                        );
+
+                        for $row in $uniqueData.sort
+                                       
+                
+                </xule:expression>
+                <td class="xbrl line-number"><xule:lineNumber name="GenPlants"/>
+                    <xule:template-display>1</xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="GenPlants" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            Human Resources Co
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="3" format="ixt4:num-dot-decimal">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            M
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="4" format="ixt4:num-dot-decimal">$row[4]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            NY
+                    </xule:template-display>
+                </td>
+                
+            </tr> 
+    </table>
+<p></p>
+<div class="schedule-footer">
+        <div class="center-text">Page 
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleElectricUtilitiesThatComposeThePlanningAreaAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F714Page").text
+                        </xule:expression>
+                        <xule:template-display>
+                        1
+                        </xule:template-display>
+                </xule:replace>
+        </div> 
+</div>
+</body>
+</html>

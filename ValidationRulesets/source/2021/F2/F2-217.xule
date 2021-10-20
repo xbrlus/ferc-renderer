@@ -11,7 +11,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@GasPlantInServiceNonTraditionalRateTreatmentAffordedNewProjects]; 
- $addend = sum(list([@GasPlantInServiceNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
+ $addend = sum(list([nonils @GasPlantInServiceNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -34,7 +34,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@AccumulatedProvisionForDepreciationOfGasUtilityPlantNonTraditionalRateTreatmentAffordedNewProjects]; 
- $addend = sum(list([@AccumulatedProvisionForDepreciationOfGasUtilityPlantNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
+ $addend = sum(list([nonils @AccumulatedProvisionForDepreciationOfGasUtilityPlantNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -57,7 +57,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@AccumulatedDeferredIncomeTaxesNonTraditionalRateTreatmentAffordedNewProjects]; 
- $addend = sum(list([@AccumulatedDeferredIncomeTaxesNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
+ $addend = sum(list([nonils @AccumulatedDeferredIncomeTaxesNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -80,7 +80,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OperationExpenseNonTraditionalRateTreatmentAffordedNewProjects]; 
- $addend = sum(list([@OperationExpenseNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
+ $addend = sum(list([nonils @OperationExpenseNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -103,7 +103,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@MaintenanceExpenseNonTraditionalRateTreatmentAffordedNewProjects]; 
- $addend = sum(list([@MaintenanceExpenseNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
+ $addend = sum(list([nonils @MaintenanceExpenseNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -126,7 +126,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@DepreciationExpenseNonTraditionalRateTreatmentAffordedNewProjects]; 
- $addend = sum(list([@DepreciationExpenseNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
+ $addend = sum(list([nonils @DepreciationExpenseNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -149,7 +149,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OtherExpensesIncludingTaxesNonTraditionalRateTreatmentAffordedNewProjects]; 
- $addend = sum(list([@OtherExpensesIncludingTaxesNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
+ $addend = sum(list([nonils @OtherExpensesIncludingTaxesNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -172,7 +172,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@IncrementalRevenuesNonTraditionalRateTreatmentAffordedNewProjects]; 
- $addend = sum(list([@IncrementalRevenuesNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
+ $addend = sum(list([nonils @IncrementalRevenuesNonTraditionalRateTreatmentAffordedNewProjects @NonTraditionalRateTreatmentAffordedNewProjectsAxis=*])#breakdown);
  if $addend == none
  	skip
  else

@@ -7,7 +7,7 @@ RULE-NAME-PREFIX FERC
 assert F1.397.1 satisfied 
 $rule_id = rule-name();
 
- $OtherItems = first-value({@IsoOrRtoSettlementsOtherItems @AmountsIncludedInIsoOrRtoSettlementStatementsAxis=none}, sum(list({@IsoOrRtoSettlementsOtherItems @AmountsIncludedInIsoOrRtoSettlementStatementsAxis=*})));
+ $OtherItems = first-value({@IsoOrRtoSettlementsOtherItems @AmountsIncludedInIsoOrRtoSettlementStatementsAxis=none}, sum(list({nonils @IsoOrRtoSettlementsOtherItems @AmountsIncludedInIsoOrRtoSettlementStatementsAxis=*})));
 
  $sum397-1 = {@IsoOrRtoSettlements @AmountsIncludedInIsoOrRtoSettlementStatementsAxis=none}; 
  $addend = {@IsoOrRtoSettlementsEnergyNetPurchasesPurchasedPower @AmountsIncludedInIsoOrRtoSettlementStatementsAxis=none}#f397-1-1

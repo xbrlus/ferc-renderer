@@ -55,7 +55,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $MisDefDbts = [@MiscellaneousDeferredDebits]; 
- $MisDefDbtsAddend = (sum(list([@MiscellaneousDeferredDebitsExcludingMiscellaneousWorkInProgress @MiscellaneousDeferredDebitsAxis=*])#breakdown) 
+ $MisDefDbtsAddend = (sum(list([nonils @MiscellaneousDeferredDebitsExcludingMiscellaneousWorkInProgress @MiscellaneousDeferredDebitsAxis=*])#breakdown) 
  + [@MiscellaneousWorkInProgress]
  + [@DeferredRegulatoryCommissionExpense]);
 tolerance_for_decimals($MisDefDbts,$MisDefDbtsAddend,$tolerance_factor)  

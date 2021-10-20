@@ -35,7 +35,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list
         skip
 else
  $sum1 = [@AdjustmentsToRetainedEarningsCredit]; 
- $addend = sum(list([@AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
+ $addend = sum(list([nonils @AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -58,7 +58,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list
         skip
 else
  $sum1 = [@AdjustmentsToRetainedEarningsDebit]; 
- $addend = sum(list([@AdjustmentsToRetainedEarningsDebit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
+ $addend = sum(list([nonils @AdjustmentsToRetainedEarningsDebit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -81,7 +81,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list
         skip
 else
  $sum1 = [@AppropriationsOfRetainedEarnings]; 
- $addend = sum(list([@AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=*])#breakdown);
+ $addend = sum(list([nonils @AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=*])#breakdown);
  
 if $addend == none
  	skip
@@ -105,7 +105,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list
         skip
 else
  $sum1 = [@DividendsDeclaredPreferredStock]; 
- $addend = sum(list([@DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=*]))#breakdown;
+ $addend = sum(list([nonils @DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -128,7 +128,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list
         skip
 else
  $sum1 = [@DividendsDeclaredCommonStock]; 
- $addend = sum(list([@DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=*]))#breakdown;
+ $addend = sum(list([nonils @DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -151,7 +151,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list
         skip
 else
  $sum1 = [@AppropriatedRetainedEarnings]; 
- $addend = sum(list([@AppropriatedRetainedEarnings @RetainedEarningsAxis=*])#breakdown);
+ $addend = sum(list([nonils @AppropriatedRetainedEarnings @RetainedEarningsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -281,13 +281,16 @@ $rule_id = rule-name();
 if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:StatementOfRetainedEarningsMajorNonmajor]))  != "Major"
         skip
 else
- $sum1 = [@UnappropriatedUndistributedSubsidiaryEarnings @period=$currentInstant]; 
- $addend = ([@UnappropriatedUndistributedSubsidiaryEarnings @period=$priorInstant]#f0 
- + [@EquityInEarningsOfSubsidiaryCompanies @period=$currentDuration]#f1 
- - [@DividendsReceived @period=$currentDuration]#f2
- + (sum(list([@ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=* @period=$currentDuration]#f3
-))));
-tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+        if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+                skip
+        else
+                $sum1 = [@UnappropriatedUndistributedSubsidiaryEarnings @period=$currentInstant]; 
+                $addend = ([@UnappropriatedUndistributedSubsidiaryEarnings @period=$priorInstant]#f0 
+                + [@EquityInEarningsOfSubsidiaryCompanies @period=$currentDuration]#f1 
+                - [@DividendsReceived @period=$currentDuration]#f2
+                + (sum(list([nonils @ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=* @period=$currentDuration]#f3
+                ))));
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The company has reported a value for UnappropriatedUndistributedSubsidiaryEarnings with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
 = \t {$f0.concept.name.local-name} \t = \t {$f0}
@@ -313,7 +316,7 @@ else
  $addend = ([@UnappropriatedUndistributedSubsidiaryEarnings @period=$prior2Instant]#f0 
  + [@EquityInEarningsOfSubsidiaryCompanies @period=$priorDuration]#f1
  - [@DividendsReceived @period=$priorDuration]#f2
- + (sum(list([@ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=* @period=$priorDuration]#f3
+ + (sum(list([nonils @ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=* @period=$priorDuration]#f3
 ))));
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 

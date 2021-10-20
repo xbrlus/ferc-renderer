@@ -11,7 +11,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = {@UtilityTypeAxis=ElectricUtilityMember @AccumulatedDeferredInvestmentTaxCreditsAccountSubdivisionsAxis=none where $fact.concept.data-type== xbrli:monetaryItemType}; 
- $addend = sum(list({@UtilityTypeAxis=ElectricUtilityMember @AccumulatedDeferredInvestmentTaxCreditsAccountSubdivisionsAxis=* where $fact.concept.data-type == xbrli:monetaryItemType})#breakdown);
+ $addend = sum(list({nonils @UtilityTypeAxis=ElectricUtilityMember @AccumulatedDeferredInvestmentTaxCreditsAccountSubdivisionsAxis=* where $fact.concept.data-type == xbrli:monetaryItemType})#breakdown);
 if $addend == none
  	skip
  else
@@ -38,7 +38,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = {@UtilityTypeAxis=GasUtilityMember @AccumulatedDeferredInvestmentTaxCreditsAccountSubdivisionsAxis=none where $fact.concept.data-type == xbrli:monetaryItemType}; 
- $addend = sum(list({@UtilityTypeAxis=GasUtilityMember @AccumulatedDeferredInvestmentTaxCreditsAccountSubdivisionsAxis=* where $fact.concept.data-type == xbrli:monetaryItemType})#breakdown);
+ $addend = sum(list({nonils @UtilityTypeAxis=GasUtilityMember @AccumulatedDeferredInvestmentTaxCreditsAccountSubdivisionsAxis=* where $fact.concept.data-type == xbrli:monetaryItemType})#breakdown);
 if $addend == none
  	skip
  else
@@ -66,7 +66,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = {@UtilityTypeAxis=NonUtilityMember @AccumulatedDeferredInvestmentTaxCreditsAccountSubdivisionsAxis=none where $fact.concept.data-type == xbrli:monetaryItemType}; 
- $addend = sum(list({@UtilityTypeAxis=NonUtilityMember @AccumulatedDeferredInvestmentTaxCreditsAccountSubdivisionsAxis=* where $fact.concept.data-type == xbrli:monetaryItemType})#breakdown);
+ $addend = sum(list({nonils @UtilityTypeAxis=NonUtilityMember @AccumulatedDeferredInvestmentTaxCreditsAccountSubdivisionsAxis=* where $fact.concept.data-type == xbrli:monetaryItemType})#breakdown);
 if $addend == none
  	skip
  else
@@ -92,7 +92,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = {@UtilityTypeAxis=OtherUtilityMember @AccumulatedDeferredInvestmentTaxCreditsAccountSubdivisionsAxis=none where $fact.concept.data-type == xbrli:monetaryItemType}; 
- $addend = sum(list({@UtilityTypeAxis=OtherUtilityMember @AccumulatedDeferredInvestmentTaxCreditsAccountSubdivisionsAxis=* where $fact.concept.data-type == xbrli:monetaryItemType})#breakdown);
+ $addend = sum(list({nonils @UtilityTypeAxis=OtherUtilityMember @AccumulatedDeferredInvestmentTaxCreditsAccountSubdivisionsAxis=* where $fact.concept.data-type == xbrli:monetaryItemType})#breakdown);
 if $addend == none
  	skip
  else
@@ -116,7 +116,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = {@UtilityTypeAxis=OtherUtilityOrNonutilityMember @AccumulatedDeferredInvestmentTaxCreditsAccountSubdivisionsAxis=none where $fact.concept.data-type == xbrli:monetaryItemType}; 
- $addend = sum(list({@UtilityTypeAxis=OtherUtilityOrNonutilityMember @AccumulatedDeferredInvestmentTaxCreditsAccountSubdivisionsAxis=* where $fact.concept.data-type == xbrli:monetaryItemType})#breakdown);
+ $addend = sum(list({nonils @UtilityTypeAxis=OtherUtilityOrNonutilityMember @AccumulatedDeferredInvestmentTaxCreditsAccountSubdivisionsAxis=* where $fact.concept.data-type == xbrli:monetaryItemType})#breakdown);
 if $addend == none
  	skip
  else

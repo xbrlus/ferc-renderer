@@ -11,7 +11,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@CostOfInvestmentsInSubsidiaryCompanies]; 
- $addend = sum(list([@CostOfInvestmentsInSubsidiaryCompanies @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
+ $addend = sum(list([nonils @CostOfInvestmentsInSubsidiaryCompanies @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -34,7 +34,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentInSubsidiaryCompanies]; 
- $addend = sum(list([@InvestmentInSubsidiaryCompanies @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
+ $addend = sum(list([nonils @InvestmentInSubsidiaryCompanies @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -57,7 +57,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@EquityInEarningsOfSubsidiaryCompanies]; 
- $addend = sum(list([@EquityInEarningsOfSubsidiaryCompanies @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
+ $addend = sum(list([nonils @EquityInEarningsOfSubsidiaryCompanies @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -80,7 +80,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InterestAndDividendRevenueFromInvestments]; 
- $addend = sum(list([@InterestAndDividendRevenueFromInvestments @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
+ $addend = sum(list([nonils @InterestAndDividendRevenueFromInvestments @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -103,7 +103,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentGainLossOnDisplosal]; 
- $addend = sum(list([@InvestmentGainLossOnDisplosal @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
+ $addend = sum(list([nonils @InvestmentGainLossOnDisplosal @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
  if $addend == none
  	skip
  else

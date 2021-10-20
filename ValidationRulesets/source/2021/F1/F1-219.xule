@@ -68,7 +68,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
         skip
 else
 
-$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantInServiceMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @OtherDebitOrCreditItemsAxis=* @ElectricPlantClassificationAxis=ElectricPlantInServiceMember @period=$currentDuration})));
+$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantInServiceMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @OtherDebitOrCreditItemsAxis=* @ElectricPlantClassificationAxis=ElectricPlantInServiceMember @period=$currentDuration})));
 
 
  $sum219-3 = {@AccumulatedProvisionForDepreciationOfElectricUtilityPlant @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantInServiceMember @OtherDebitOrCreditItemsAxis=none @period=$currentInstant}; 
@@ -133,7 +133,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
         skip
 else
 
-$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantLeasedToOthersMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @OtherDebitOrCreditItemsAxis=* @ElectricPlantClassificationAxis=ElectricPlantLeasedToOthersMember @period=$currentDuration})));
+$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantLeasedToOthersMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @OtherDebitOrCreditItemsAxis=* @ElectricPlantClassificationAxis=ElectricPlantLeasedToOthersMember @period=$currentDuration})));
 
 
  $sum219-5 = {@AccumulatedProvisionForDepreciationOfElectricUtilityPlant @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantLeasedToOthersMember @OtherDebitOrCreditItemsAxis=none @period=$currentInstant}; 
@@ -168,7 +168,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
         skip
 else
 
-$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantHeldForFutureUseMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @OtherDebitOrCreditItemsAxis=* @ElectricPlantClassificationAxis=ElectricPlantHeldForFutureUseMember @period=$currentDuration})));
+$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantHeldForFutureUseMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @OtherDebitOrCreditItemsAxis=* @ElectricPlantClassificationAxis=ElectricPlantHeldForFutureUseMember @period=$currentDuration})));
 
 
  $sum219-6 = {@AccumulatedProvisionForDepreciationOfElectricUtilityPlant @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantHeldForFutureUseMember @OtherDebitOrCreditItemsAxis=none @period=$currentInstant}; 

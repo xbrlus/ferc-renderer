@@ -63,7 +63,9 @@ if set('2','2-A').contains([covered @concept.local-name ='FormType'])
         skip
 else
    $sum1 = {@OperatingRevenueBeforeProvisionForRateRefunds}; 
- $addend = ({@IntracompanyTransfers}
+ $addend = (
+   {@SalesOfGasNotInlcudingIntracompanyTransfers}
+ + {@IntracompanyTransfers}
  + {@ForfeitedDiscounts}
  + {@MiscellaneousServiceRevenues}
  + {@RevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities}

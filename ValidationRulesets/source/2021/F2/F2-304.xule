@@ -11,7 +11,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@RevenuesForTransitionCostsAndTakeOrPay]; 
-        $addend = sum(list([@RevenuesForTransitionCostsAndTakeOrPay @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
+        $addend = sum(list([nonils @RevenuesForTransitionCostsAndTakeOrPay @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
         if $addend == none
                 skip
         else
@@ -34,7 +34,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@RevenuesFromGRIAndACA]; 
-        $addend = sum(list([@RevenuesFromGRIAndACA @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
+        $addend = sum(list([nonils @RevenuesFromGRIAndACA @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
         if $addend == none
                 skip
         else
@@ -57,7 +57,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@OtherRevenues]; 
-        $addend = sum(list([@OtherRevenues @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
+        $addend = sum(list([nonils @OtherRevenues @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
         if $addend == none
                 skip
         else
@@ -80,7 +80,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities]; 
-        $addend = sum(list([@RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
+        $addend = sum(list([nonils @RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
         if $addend == none
                 skip
         else
@@ -103,7 +103,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@DekathermOfNaturalGas]; 
-        $addend = sum(list([@DekathermOfNaturalGas @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
+        $addend = sum(list([nonils @DekathermOfNaturalGas @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
         if $addend == none
                 skip
         else

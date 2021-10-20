@@ -11,7 +11,7 @@ $elementsToSum = list(ImportsIntoIsoOrRto, ExportsFromIsoOrRto, ThroughAndOutSer
 
 for $concept in $elementsToSum
  $sum1 = [@concept = $concept]; 
- $addend = sum(list([@concept = $concept @MonthAxis in $monthMembers @NameOfTransmissionSystemAxis=* ])#breakdown);
+ $addend = sum(list([nonils @concept = $concept @MonthAxis in $monthMembers @NameOfTransmissionSystemAxis=* ])#breakdown);
 if $addend == none
  	skip
  else
@@ -36,7 +36,7 @@ $elementsToSum = list(ImportsIntoIsoOrRto, ExportsFromIsoOrRto, ThroughAndOutSer
 
 for $concept in $elementsToSum
  $sum1 = [@concept = $concept]; 
- $addend = sum(list([@concept = $concept @MonthAxis in $QuarterMembers @NameOfTransmissionSystemAxis=* ])#breakdown);
+ $addend = sum(list([nonils @concept = $concept @MonthAxis in $QuarterMembers @NameOfTransmissionSystemAxis=* ])#breakdown);
 if $addend == none
  	skip
  else

@@ -11,7 +11,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@RevenueFromDiscountedRateServices]; 
-        $addend = sum(list([@RevenueFromDiscountedRateServices @DiscountedRateServicesAndNegotiatedRateServicesAxis=*]));
+        $addend = sum(list([nonils @RevenueFromDiscountedRateServices @DiscountedRateServicesAndNegotiatedRateServicesAxis=*]));
         if $addend == none
                 skip
         else
@@ -34,7 +34,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@VolumesOfDiscountedRateServices]; 
- $addend = sum(list([@VolumesOfDiscountedRateServices @DiscountedRateServicesAndNegotiatedRateServicesAxis=*]));
+ $addend = sum(list([nonils @VolumesOfDiscountedRateServices @DiscountedRateServicesAndNegotiatedRateServicesAxis=*]));
  if $addend == none
  	skip
  else
@@ -57,7 +57,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RevenuesFromNegotiatedRateServices]; 
- $addend = sum(list([@RevenuesFromNegotiatedRateServices @DiscountedRateServicesAndNegotiatedRateServicesAxis=*]));
+ $addend = sum(list([nonils @RevenuesFromNegotiatedRateServices @DiscountedRateServicesAndNegotiatedRateServicesAxis=*]));
  if $addend == none
  	skip
  else
@@ -80,7 +80,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@VolumesOfNegotiatedRateServices]; 
- $addend = sum(list([@VolumesOfNegotiatedRateServices @DiscountedRateServicesAndNegotiatedRateServicesAxis=*]));
+ $addend = sum(list([nonils @VolumesOfNegotiatedRateServices @DiscountedRateServicesAndNegotiatedRateServicesAxis=*]));
  if $addend == none
  	skip
  else

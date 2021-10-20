@@ -11,7 +11,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RevenuesByRateOrTariff]; 
- $addend = sum(list([@RevenuesByRateOrTariff @TransmissionOfElectricityByIsosOrRtosAxis=*])#breakdown);
+ $addend = sum(list([nonils @RevenuesByRateOrTariff @TransmissionOfElectricityByIsosOrRtosAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -34,7 +34,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@TransmissionOfElectricityByIsosOrRtosRevenue]; 
- $addend = sum(list([@TransmissionOfElectricityByIsosOrRtosRevenue @TransmissionOfElectricityByIsosOrRtosAxis=*])#breakdown);
+ $addend = sum(list([nonils @TransmissionOfElectricityByIsosOrRtosRevenue @TransmissionOfElectricityByIsosOrRtosAxis=*])#breakdown);
 if $addend == none
  	skip
  else

@@ -30,22 +30,22 @@ assert F2.118.3 satisfied
 $rule_id = rule-name();
 
 $AdjustmentsToRetainedEarningsCredit-Default = [@AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=none @period=$currentDuration]
-$AdjustmentsToRetainedEarningsCredit-Default-sum = sum(list([@AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=* @period=$currentDuration]))
+$AdjustmentsToRetainedEarningsCredit-Default-sum = sum(list([nonils @AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=* @period=$currentDuration]))
 
 $AdjustmentsToRetainedEarningsCredit = first-value($AdjustmentsToRetainedEarningsCredit-Default, $AdjustmentsToRetainedEarningsCredit-Default-sum);
 
 $AppropriationsOfRetainedEarnings-Default = [@AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=none @period=$currentDuration]
-$AppropriationsOfRetainedEarnings-sum = sum(list([@AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=* @period=$currentDuration]))
+$AppropriationsOfRetainedEarnings-sum = sum(list([nonils @AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=* @period=$currentDuration]))
 
 $AppropriationsOfRetainedEarnings = first-value($AppropriationsOfRetainedEarnings-Default, $AppropriationsOfRetainedEarnings-sum);
 
 $DividendsDeclaredPreferredStock-Default = [@DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=none @period=$currentDuration]
-$DividendsDeclaredPreferredStock-sum = sum(list([@DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=* @period=$currentDuration]))
+$DividendsDeclaredPreferredStock-sum = sum(list([nonils @DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=* @period=$currentDuration]))
 
 $DividendsDeclaredPreferredStock = first-value($DividendsDeclaredPreferredStock-Default,$DividendsDeclaredPreferredStock-sum  );
 
 $DividendsDeclaredCommonStock-Default = [@DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=none @period=$currentDuration]
-$DividendsDeclaredCommonStock-sum = sum(list([@DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=* @period=$currentDuration]))
+$DividendsDeclaredCommonStock-sum = sum(list([nonils @DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=* @period=$currentDuration]))
 
 $DividendsDeclaredCommonStock = first-value($DividendsDeclaredCommonStock-Default,$DividendsDeclaredCommonStock-sum);
 
@@ -123,14 +123,16 @@ rule-focus $sum1
 
 assert F2.118.6 satisfied 
 $rule_id = rule-name();
-
- $sum1 = {@UnappropriatedUndistributedSubsidiaryEarnings @period=$currentInstant}; 
- $addend = ({@UnappropriatedUndistributedSubsidiaryEarnings @period=$priorInstant}#f0
- + {@EquityInEarningsOfSubsidiaryCompanies @period=$currentDuration}#f1
- - {@DividendsReceived @period=$currentDuration}#f2
- + {@ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @period=$currentDuration}#f3
-);
-tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+    $sum1 = {@UnappropriatedUndistributedSubsidiaryEarnings @period=$currentInstant}; 
+    $addend = ({@UnappropriatedUndistributedSubsidiaryEarnings @period=$priorInstant}#f0
+    + {@EquityInEarningsOfSubsidiaryCompanies @period=$currentDuration}#f1
+    - {@DividendsReceived @period=$currentDuration}#f2
+    + {@ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @period=$currentDuration}#f3
+    );
+    tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The company has reported a value for UnappropriatedUndistributedSubsidiaryEarnings  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
 = \t {$f0.concept.name.local-name} \t = \t {$f0}
@@ -150,7 +152,7 @@ assert F2.118.7 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@AdjustmentsToRetainedEarningsCredit]; 
- $addend = sum(list([@AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=*]));
+ $addend = sum(list([nonils @AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=*]));
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of AdjustmentsToRetainedEarningsCredit sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for Adjustments To Retained Earnings Credit. 
@@ -163,7 +165,7 @@ assert F2.118.8 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@AppropriationsOfRetainedEarnings]; 
- $addend = sum(list([@AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=*]));
+ $addend = sum(list([nonils @AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=*]));
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of {$sum1.concept.name} sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for the Appropriations of RetainedEarnings. 
@@ -176,7 +178,7 @@ assert F2.118.9 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@DividendsDeclaredPreferredStock]; 
- $addend = sum(list([@DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=*]));
+ $addend = sum(list([nonils @DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=*]));
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of DividendsDeclaredPreferredStock sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for Dividends Declared for Preferred Stock. 
@@ -189,7 +191,7 @@ assert F2.118.10 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@DividendsDeclaredCommonStock]; 
- $addend = sum(list([@DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=*]));
+ $addend = sum(list([nonils @DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=*]));
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of DividendsDeclaredCommonStock sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for Dividends Declared for Common Stock. 
@@ -202,7 +204,7 @@ assert F2.118.11 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits]; 
- $addend = sum(list([@ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=*]));
+ $addend = sum(list([nonils @ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=*]));
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for Changes Unappropriated and Undistributed Subsidiary Earnings Credits. 

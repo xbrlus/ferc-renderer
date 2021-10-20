@@ -1,0 +1,293 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F714 - 02.6</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl">
+        <table class="schedule-header xbrl" width="100%">
+                <tr>
+                    <td class="form-name-top">Federal Energy Regulatory Commission<br/>
+                        FERC Form No. 714
+                    </td>
+                    <td>
+                        <div class="sch-header-title">
+                                Annual Electric Balancing Authority Area and Planning <br></br>Area Report
+                        </div>
+                        <br/>
+                        <div class="sch-as-of-date-title">For the Year Ending December 31,
+                            <xule:replace>
+                                <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                                <xule:template-display>2018</xule:template-display>
+                            </xule:replace>
+                    </div>
+                    </td>
+                    <td class="xbrl form-id-code-top">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:RespondentIdentificationCode).label("http://ferc.gov/form/2020-01-01/roles/label/F714IdentificationHeader").text</xule:expression>
+                            <xule:template-display>Utility Code:</xule:template-display>
+                        </xule:replace>
+                    
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:RespondentIdentificationCode @period=$currentDuration]</xule:expression>
+                            <xule:template-display>1234567890</xule:template-display>
+                        </xule:replace>
+                        <br></br>
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F714IdentificationHeader").text</xule:expression>
+                            <xule:template-display>Utility Name:</xule:template-display>
+                        </xule:replace>
+                    
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                            <xule:template-display>XYZ Utility</xule:template-display>
+                        </xule:replace>
+                    </td>
+                </tr>
+            </table>
+    <table class="xbrl">
+        <tr class="sch-title">
+            <td class="xbrl" colspan="26">
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ScheduleBalancingAuthorityAreaSystemLambdaDataAndDescriptionOfEconomicDispatchAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F714Schedule").text
+                    </xule:expression>
+                    <xule:template-display>
+                            Part II - Schedule 6. Balancing Authority Area System Lambda Data and Description of Economic Dispatch
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="26">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleBalancingAuthorityAreaSystemLambdaDataAndDescriptionOfEconomicDispatchAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F714Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                            "<p>For balancing authority areas where demand following is primarily performed by thermal generating units, the system lambda is derived from the economic dispatch function associated with automatic generation control performed at the controlling utility or pool control center. Excluding transmission losses, the fuel cost ($/hr) for a set of on-line and loaded thermal generating units (steam and gas turbines) is minimum 1/ when each unit is loaded and operating at the same incremental fuel cost ($/MWh) 2/ with the sum of the unit loadings (MW) equal to the system demand plus the net of interchange with other Balancing Authority Areas. This single incremental cost of energy is the system lambda. System lambdas are likely recalculated many times in one clock hour. However, the indicated system lambda  occurring on each clock hour would be sufficient for reporting purposes. Respondents must provide the following data: the system lambda, in dollars, for each hour of the year starting with 1 a.m. January 1 as more fully described in the Form 714 instructions. In column (b) indicate the time zone and the days for which daylight savings time was observed. This schedule will have 365 rows for the report year (366 rows for a leap year).</p>
+                            <p>Provide, as a footnote, an explanation describing the reason for the unavailability of system lambda information. The Commission expects that all Energy Management Systems, with proper instructions, can record the system lambda being used for economic dispatch of the balancing authority area's thermal units.</p>
+                            <p>Respondents should be able to report system lambda, along with the other information reported on a Balancing Authority Area basis, that describe the operation of such areas from information that should be readily available. The Commission is not requesting Respondents to develop incremental or marginal cost (either short or long term) according to any formula. Nor is the Commission requesting ""avoided cost rates"" that electric utilities file with state commissions or otherwise make available for prospective qualified facilities.</p>"
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        
+        <tr class="col-heading-row">
+            <td class="col-heading xbrl line-number"><div>Date</div><div>(a)</div></td>
+            <td class="col-heading xbrl line-number"><div>Time Zone</div><div>(b)</div></td>
+            <td class="col-heading xbrl" xule:repeat="GenPlantsHead">
+                <xule:expression class="hide" name="GenPlantsHead">
+
+
+                        $hours = list("0100", "0200", "0300", "0400", "0500", "0600", "0700", "0800", "0900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400");
+                        $ref = list("(c)",	"(d)",	"(e)",	"(f)",	"(g)",	"(h)",	"(i)",	"(j)",	"(k)",	"(l)",	"(m)",	"(n)",	"(o)",	"(p)",	"(q)",	"(r)",	"(s)",	"(t)",	"(u)",	"(v)",	"(w)",	"(x)",	"(y)",	"(z)");
+                        
+                      
+                        $header = list(for $i in range($hours.length)
+                                        list($hours[$i], $ref[$i])
+                        );
+                        for $row in $header
+                </xule:expression>
+                <div style="text-align: center">
+                     <xule:replace>
+                        <xule:expression class="hide" name="GenPlantsHead" part="2">$row[1]</xule:expression>
+                        <xule:template-display>
+                            0100
+                        </xule:template-display>
+                </xule:replace></div>
+                <div style="text-align: center">
+                        <xule:replace>
+                           <xule:expression class="hide" name="GenPlantsHead" part="2">$row[2]</xule:expression>
+                           <xule:template-display>
+                               c
+                           </xule:template-display>
+                   </xule:replace></div>
+            </td>
+        </tr>
+            <tr class="schedule-row" xule:repeat="GenPlants">
+                <xule:expression class="hide" name="GenPlants">// adding a comment
+                    
+                $hours = list("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24");
+                $days = list( for $d in range(0, $currentDuration.days)
+                                    $day-span = "P" + $d.string + "D";
+                                    $currentDuration.start + (time-span($day-span))
+                );
+
+                $data = list(for $day in $days 
+                                $timeZone = if list({covered @ferc:TimeZone @period = duration($day ,$day)}).length > 0
+                                                {covered @ferc:TimeZone @period = duration($day ,$day)}
+                                            else
+                                                none
+                                $day_data = list(for $hour in $hours
+                                $hour-span = "P0D" + "T" + $hour + "H"; 
+                                if list({covered @ferc:SystemLambda @period = $day - time-span("P1D") + time-span($hour-span)}).length > 0
+                                    {covered @ferc:SystemLambda @period = $day - time-span("P1D") + time-span($hour-span)}
+                                else
+                                    none
+                                );
+
+                                list($day) + list($timeZone) + $day_data                
+                );
+
+                for $row in $data
+                
+                     
+                
+                </xule:expression>
+               
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="GenPlants"  part="2">$row[1]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            2
+                    </xule:template-display>
+                </td>
+                <td class="description_items xbrl"><xule:replace><xule:expression class="hide"  fact="true" name="GenPlants"  part="3" >$row[2]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            2
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="4" format="ixt4:num-dot-decimal">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                           2
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[4]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            22
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[5]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            2
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="4" format="ixt4:num-dot-decimal">$row[6]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        2
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[7]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            22
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[8]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            2
+                    </xule:template-display>
+                </td>        
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="4" format="ixt4:num-dot-decimal">$row[9]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        2
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[10]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            22
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[11]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            2
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="3" format="ixt4:num-dot-decimal">$row[12]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            2
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="4" format="ixt4:num-dot-decimal">$row[13]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        2
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[14]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            22
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[15]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            2
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="4" format="ixt4:num-dot-decimal">$row[16]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        2
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[17]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            22
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[18]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            2
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="4" format="ixt4:num-dot-decimal">$row[19]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        2
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[20]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            22
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[21]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            2
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[22]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            2
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[23]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            2
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[24]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            2
+                    </xule:template-display>
+                 </td>
+                 <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[25]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            2
+                    </xule:template-display>
+                 </td>
+                 <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GenPlants" fact="true" part="5" format="ixt4:num-dot-decimal">$row[26]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            2
+                    </xule:template-display>
+                 </td>
+                
+            </tr> 
+          
+    </table>
+<p></p>
+<div class="schedule-footer">
+        <div class="center-text">Page 
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleBalancingAuthorityAreaSystemLambdaDataAndDescriptionOfEconomicDispatchAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F714Page").text
+                        </xule:expression>
+                        <xule:template-display>
+                        1
+                        </xule:template-display>
+                </xule:replace>
+        </div> 
+</div>
+</body>
+</html>

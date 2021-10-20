@@ -11,7 +11,7 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@ProjectPlantCost]; 
- $addend = sum(list([@ProjectPlantCost @EnergyStorageOperationsAxis=*])#breakdown);
+ $addend = sum(list([nonils @ProjectPlantCost @EnergyStorageOperationsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -34,7 +34,7 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OperationExpenseExcludingFuel]; 
- $addend = sum(list([@OperationExpenseExcludingFuel @EnergyStorageOperationsAxis=*])#breakdown);
+ $addend = sum(list([nonils @OperationExpenseExcludingFuel @EnergyStorageOperationsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -57,7 +57,7 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@MaintenanceExpense]; 
- $addend = sum(list([@MaintenanceExpense @EnergyStorageOperationsAxis=*])#breakdown);
+ $addend = sum(list([nonils @MaintenanceExpense @EnergyStorageOperationsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -80,7 +80,7 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@FuelUsedInStorageOperations]; 
- $addend = sum(list([@FuelUsedInStorageOperations @EnergyStorageOperationsAxis=*])#breakdown);
+ $addend = sum(list([nonils @FuelUsedInStorageOperations @EnergyStorageOperationsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -103,7 +103,7 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@PowerPurchasedForStorageOperations]; 
- $addend = sum(list([@PowerPurchasedForStorageOperations @EnergyStorageOperationsAxis=*])#breakdown);
+ $addend = sum(list([nonils @PowerPurchasedForStorageOperations @EnergyStorageOperationsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -126,7 +126,7 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OtherExpenses]; 
- $addend = sum(list([@OtherExpenses @EnergyStorageOperationsAxis=*])#breakdown);
+ $addend = sum(list([nonils @OtherExpenses @EnergyStorageOperationsAxis=*])#breakdown);
 if $addend == none
  	skip
  else

@@ -29,7 +29,7 @@ assert F60.4.2 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@TemporaryCashInvestments]; 
- $addend = sum(list([@TemporaryCashInvestments @TemporaryCashInvestmentsAxis=*])#breakdown);
+ $addend = sum(list([nonils @TemporaryCashInvestments @TemporaryCashInvestmentsAxis=*])#breakdown);
  if $addend == none
     skip
  else

@@ -11,7 +11,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@DiscountOnCapitalStock]; 
-        $addend = sum(list([@DiscountOnCapitalStock @CapitalStockAxis=*])#breakdown);
+        $addend = sum(list([nonils @DiscountOnCapitalStock @CapitalStockAxis=*])#breakdown);
         if $addend == none
                 skip
         else
@@ -35,7 +35,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@CapitalStockExpense]; 
-        $addend = sum(list([@CapitalStockExpense @CapitalStockAxis=*])#breakdown);
+        $addend = sum(list([nonils @CapitalStockExpense @CapitalStockAxis=*])#breakdown);
         if $addend == none
                 skip
         else

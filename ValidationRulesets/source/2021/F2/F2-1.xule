@@ -186,7 +186,7 @@ $rule_id = rule-name();
 
  exists([covered @FormType @period=$currentDuration])  
 message 
-"The attestation date must be reported in the current period. 
+"The Form Type must be reported in the current period. 
 
 Rule Id:{$rule_id}
 "
@@ -197,7 +197,7 @@ $rule_id = rule-name();
 
  exists([covered @CompanyIdentifier @period=$currentDuration])  
 message 
-"The attestation date must be reported in the current period. 
+"The Company Identifier must be reported in the current period. 
 
 Rule Id:{$rule_id}
 "

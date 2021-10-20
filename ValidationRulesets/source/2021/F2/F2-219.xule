@@ -10,7 +10,7 @@ $rule_id = rule-name();
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
-$OtherAccounts = first-value({@OtherAccounts @OtherClearingAccountsAxis=none}, sum(list({@OtherAccounts @OtherClearingAccountsAxis=*})));
+$OtherAccounts = first-value({@OtherAccounts @OtherClearingAccountsAxis=none}, sum(list({nonils @OtherAccounts @OtherClearingAccountsAxis=*})));
 
 $sum219-1 = {@DepreciationProvision}; 
  $addend = ({@DepreciationExpenseExcludingAdjustments}
@@ -60,7 +60,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 
-$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantInServiceMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=* @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantInServiceMember @period=$currentDuration})));
+$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantInServiceMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=* @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantInServiceMember @period=$currentDuration})));
 
 
 $sum219-3 = {@AccumulatedProvisionForDepreciationOfGasUtilityPlant @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantInServiceMember @OtherDebitOrCreditItemsAxis=none @period=$currentInstant}; 
@@ -124,7 +124,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 
-$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantLeasedToOthersMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=* @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantLeasedToOthersMember @period=$currentDuration})));
+$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantLeasedToOthersMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=* @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantLeasedToOthersMember @period=$currentDuration})));
 
 
  $sum219-5 = {@AccumulatedProvisionForDepreciationOfGasUtilityPlant @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantLeasedToOthersMember @OtherDebitOrCreditItemsAxis=none @period=$currentInstant}; 
@@ -161,7 +161,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 
-$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantHeldForFutureUseMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=* @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantHeldForFutureUseMember @period=$currentDuration})));
+$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantHeldForFutureUseMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=* @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantHeldForFutureUseMember @period=$currentDuration})));
 
 
 $sum219-6 = {@AccumulatedProvisionForDepreciationOfGasUtilityPlant @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantHeldForFutureUseMember @OtherDebitOrCreditItemsAxis=none @period=$currentInstant}; 
@@ -197,7 +197,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 
-$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=none @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=* @AccumulatedProvisionForDepreciationOfGasUtilityAxis=none @period=$currentDuration})));
+$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=none @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=* @AccumulatedProvisionForDepreciationOfGasUtilityAxis=none @period=$currentDuration})));
 
 
  $sum219-7 = {@AccumulatedProvisionForDepreciationOfGasUtilityPlant @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=none @OtherDebitOrCreditItemsAxis=none @period=$currentInstant}; 
@@ -235,7 +235,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum219-8 = {@OtherAdjustmentsToAccumulatedDepreciation}; 
- $addend = sum(list({@OtherAdjustmentsToAccumulatedDepreciation @OtherDebitOrCreditItemsAxis=*})#breakdown);
+ $addend = sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @OtherDebitOrCreditItemsAxis=*})#breakdown);
  if $addend == none
  	skip
  else

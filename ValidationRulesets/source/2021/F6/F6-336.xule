@@ -14,7 +14,7 @@ else
         $addend = [@DividendIncomeSecuritiesInvestedInAffiliatedCompanies]#f1
         + [@DividendIncomeFromOtherSecuritiesInvestments]#f2
         + [@DividendIncomeFromTemporaryCashInvestments]#f3
-        + sum(list([@DividendIncome @InterestAndDividendIncomeAxis=*])#breakdown);
+        + sum(list([nonils @DividendIncome @InterestAndDividendIncomeAxis=*])#breakdown);
         if $addend == none
                 skip
         else
@@ -46,7 +46,7 @@ else
         $addend = [@InterestIncomeSecuritiesInvestedInAffiliatedCompanies]#f1
         + [@InterestIncomeFromOtherSecuritiesInvestments]#f2
         + [@InterestIncomeFromTemporaryCashInvestments]#f3
-        + sum(list([@InterestIncome @InterestAndDividendIncomeAxis=*])#breakdown);
+        + sum(list([nonils @InterestIncome @InterestAndDividendIncomeAxis=*])#breakdown);
         if $addend == none
                 skip
         else

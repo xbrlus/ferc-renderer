@@ -126,7 +126,7 @@ rule-focus $sum1
 assert F2.521.6 satisfied 
 $rule_id = rule-name();
 
-$DispositionOfExcessGasOther = first-value({@DispositionOfExcessGasOther}, sum(list({@DispositionOfExcessGasOther @OtherDispositionOfExcessGasAxis=*})));
+$DispositionOfExcessGasOther = first-value({@DispositionOfExcessGasOther}, sum(list({nonils @DispositionOfExcessGasOther @OtherDispositionOfExcessGasAxis=*})));
 
  $sum1 = {@DispositionOfExcessGas}; 
  $addend = ({@DispositionOfExcessGasGasSoldToOthers}
@@ -151,7 +151,7 @@ rule-focus $sum1
 assert F2.521.7 satisfied 
 $rule_id = rule-name();
 
-$GasAcquiredToMeetDeficiencyOther = first-value({@GasAcquiredToMeetDeficiencyOther}, sum(list({@GasAcquiredToMeetDeficiencyOther @OtherGasAcquiredToMeetDeficiencyAxis=*})));
+$GasAcquiredToMeetDeficiencyOther = first-value({@GasAcquiredToMeetDeficiencyOther}, sum(list({nonils @GasAcquiredToMeetDeficiencyOther @OtherGasAcquiredToMeetDeficiencyAxis=*})));
 
  $sum1 = {@AcquiredToMeetDeficiency}; 
  $addend = ({@AcquiredToMeetDeficiencySystemGas}
@@ -313,7 +313,7 @@ rule-focus $sum1
 assert F2.521.14 satisfied 
 $rule_id = rule-name();
 
-$AmountCollectedDispositionOfExcessGasOther = first-value({@AmountCollectedDispositionOfExcessGasOther}, sum(list({@AmountCollectedDispositionOfExcessGasOther @OtherDispositionOfExcessGasAxis=*})));
+$AmountCollectedDispositionOfExcessGasOther = first-value({@AmountCollectedDispositionOfExcessGasOther}, sum(list({nonils @AmountCollectedDispositionOfExcessGasOther @OtherDispositionOfExcessGasAxis=*})));
 
  $sum1 = {@AmountCollectedFromDispositionOfExcessGas}; 
  $addend = ({@AmountCollectedDispositionOfExcessGasGasSoldToOthers}
@@ -337,7 +337,7 @@ rule-focus $sum1
 assert F2.521.15 satisfied 
 $rule_id = rule-name();
 
-$AmountCollectedGasAcquiredToMeetDeficiencyOther = first-value({@AmountCollectedGasAcquiredToMeetDeficiencyOther}, sum(list({@AmountCollectedGasAcquiredToMeetDeficiencyOther @OtherGasAcquiredToMeetDeficiencyAxis=*})));
+$AmountCollectedGasAcquiredToMeetDeficiencyOther = first-value({@AmountCollectedGasAcquiredToMeetDeficiencyOther}, sum(list({nonils @AmountCollectedGasAcquiredToMeetDeficiencyOther @OtherGasAcquiredToMeetDeficiencyAxis=*})));
 
  $sum1 = {@AmountCollectedAcquiredToMeetDeficiency}; 
  $addend = ({@AmountCollectedFromAcquiredToMeetDeficiencySystemGas}

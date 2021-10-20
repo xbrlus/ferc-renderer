@@ -10,7 +10,7 @@ $rule_id = rule-name();
 if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:StatementOfIncomeMajorNonmajor]))  == "Major"
         skip
 else
-$AmortizationExpense = first-value({@AmortizationExpense}, sum(list({@AmortizationExpense @AmortizationExpenseAxis=*})));
+$AmortizationExpense = first-value({@AmortizationExpense}, sum(list({nonils @AmortizationExpense @AmortizationExpenseAxis=*})));
 
  $sum1 = {@UtilityOperatingExpenses}; 
  $addend = ({@OperationExpense}#f0

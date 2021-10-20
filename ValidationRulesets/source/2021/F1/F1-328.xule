@@ -33,7 +33,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RevenuesFromTransmissionOfElectricityForOthers]; 
- $addend = sum(list([@RevenuesFromTransmissionOfElectricityForOthers @TransmissionOfElectricityForOthersAxis=*])#breakdown);
+ $addend = sum(list([nonils @RevenuesFromTransmissionOfElectricityForOthers @TransmissionOfElectricityForOthersAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -56,7 +56,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@BillingDemand]; 
- $addend = sum(list([@BillingDemand @TransmissionOfElectricityForOthersAxis=*])#breakdown);
+ $addend = sum(list([nonils @BillingDemand @TransmissionOfElectricityForOthersAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -79,7 +79,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@TransmissionOfElectricityForOthersEnergyReceived]; 
- $addend = sum(list([@TransmissionOfElectricityForOthersEnergyReceived @TransmissionOfElectricityForOthersAxis=*])#breakdown);
+ $addend = sum(list([nonils @TransmissionOfElectricityForOthersEnergyReceived @TransmissionOfElectricityForOthersAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -102,7 +102,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@TransmissionOfElectricityForOthersEnergyDelivered]; 
- $addend = sum(list([@TransmissionOfElectricityForOthersEnergyDelivered @TransmissionOfElectricityForOthersAxis=*])#breakdown);
+ $addend = sum(list([nonils @TransmissionOfElectricityForOthersEnergyDelivered @TransmissionOfElectricityForOthersAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -125,7 +125,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@DemandChargesRevenueTransmissionOfElectricityForOthers]; 
- $addend = sum(list([@DemandChargesRevenueTransmissionOfElectricityForOthers @TransmissionOfElectricityForOthersAxis=*])#breakdown);
+ $addend = sum(list([nonils @DemandChargesRevenueTransmissionOfElectricityForOthers @TransmissionOfElectricityForOthersAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -148,7 +148,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@EnergyChargesRevenueTransmissionOfElectricityForOthers]; 
- $addend = sum(list([@EnergyChargesRevenueTransmissionOfElectricityForOthers @TransmissionOfElectricityForOthersAxis=*])#breakdown);
+ $addend = sum(list([nonils @EnergyChargesRevenueTransmissionOfElectricityForOthers @TransmissionOfElectricityForOthersAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -171,7 +171,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OtherChargesRevenueTransmissionOfElectricityForOthers]; 
- $addend = sum(list([@OtherChargesRevenueTransmissionOfElectricityForOthers @TransmissionOfElectricityForOthersAxis=*])#breakdown);
+ $addend = sum(list([nonils @OtherChargesRevenueTransmissionOfElectricityForOthers @TransmissionOfElectricityForOthersAxis=*])#breakdown);
 if $addend == none
  	skip
  else

@@ -11,7 +11,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@GasPropertyAndCapacityLeasePayment]; 
- $addend = sum(list([@GasPropertyAndCapacityLeasePayment @GasPropertyAndCapacityLeasedFromOthersAxis=*])#breakdown);
+ $addend = sum(list([nonils @GasPropertyAndCapacityLeasePayment @GasPropertyAndCapacityLeasedFromOthersAxis=*])#breakdown);
  if $addend == none
  	skip
  else

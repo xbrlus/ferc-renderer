@@ -11,7 +11,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@LengthOfTransmissionLinesOfTransmissionSystems]; 
- $addend = sum(list([@LengthOfTransmissionLinesOfTransmissionSystems @DesignationOfTransmissionLinesAxis=*]));
+ $addend = sum(list([nonils @LengthOfTransmissionLinesOfTransmissionSystems @DesignationOfTransmissionLinesAxis=*]));
  if $addend == none
  	skip
  else
@@ -46,7 +46,7 @@ else
                 for $LineItem in $LineItems
                         $AllLineMembers = list([covered @TypeOfOperationAndOwnership @DesignationOfTransmissionLinesAxis=* where $fact == $OperationType].dimension(DesignationOfTransmissionLinesAxis));
                         $sum2 = [@concept = $LineItem @OperationTypeAxis=$OperationTypeLookup[$OperationType] @unit=*]; 
-                        $addend = sum(list([@concept = $LineItem @unit=* @DesignationOfTransmissionLinesAxis in $AllLineMembers])#breakdown);
+                        $addend = sum(list([nonils @concept = $LineItem @unit=* @DesignationOfTransmissionLinesAxis in $AllLineMembers])#breakdown);
                         if $addend == none
                                 skip
                         else

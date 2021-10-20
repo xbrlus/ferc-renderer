@@ -9,7 +9,7 @@ $rule_id = rule-name();
 
 for $concept in $elementsToSum
  $sum1 = [@concept = $concept]; 
- $addend = sum(list([@concept = $concept @MonthAxis in $monthMembers @NameOfTransmissionSystemAxis=* ])#breakdown);
+ $addend = sum(list([nonils @concept = $concept @MonthAxis in $monthMembers @NameOfTransmissionSystemAxis=* ])#breakdown);
 if $addend == none
  	skip
  else
@@ -34,7 +34,7 @@ $QuarterMembers = list(Quarter1Member,Quarter2Member,Quarter3Member,Quarter4Memb
 
 for $concept in $elementsToSum
  $sum1 = [@concept = $concept]; 
- $addend = sum(list([@concept = $concept @MonthAxis in $QuarterMembers @NameOfTransmissionSystemAxis=* ])#breakdown);
+ $addend = sum(list([nonils @concept = $concept @MonthAxis in $QuarterMembers @NameOfTransmissionSystemAxis=* ])#breakdown);
 if $addend == none
  	skip
  else
@@ -71,10 +71,15 @@ rule-focus $dayMonth
 assert F1.400.4 satisfied 
 $rule_id = rule-name();
 
-{@concept = HourOfMonthlyPeakExcludingIsoAndRto}#HourDay > 24
+$HourDay = {@concept = HourOfMonthlyPeakExcludingIsoAndRto};
+$ValidHours = list(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24);
+if $HourDay not in $ValidHours 
+        true
+else
+        false
 
 message 
-"The element {$HourDay.concept.name} with a value of {$HourDay} is an hour of the day. The value should not exceed 24.
+"The element {$HourDay.concept.name} with a value of {$HourDay} is an hour of the day. The value should be a valid hour between 1 and 24.
 
 Total Element : {$HourDay.concept.name}
 Total Period : {$HourDay.period}

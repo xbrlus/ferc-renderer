@@ -7,9 +7,9 @@ RULE-NAME-PREFIX FERC
 assert F2.120.1 satisfied 
 $rule_id = rule-name();
 
-$NoncashAdjustmentsToCashFlowsFromOperatingActivities = first-value([@NoncashAdjustmentsToCashFlowsFromOperatingActivities @NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis=none], sum(list([@NoncashAdjustmentsToCashFlowsFromOperatingActivities @NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis=*])));
+$NoncashAdjustmentsToCashFlowsFromOperatingActivities = first-value([@NoncashAdjustmentsToCashFlowsFromOperatingActivities @NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis=none], sum(list([nonils @NoncashAdjustmentsToCashFlowsFromOperatingActivities @NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis=*])));
 
-$OtherAdjustmentsToCashFlowsFromOperatingActivities = first-value([@OtherAdjustmentsToCashFlowsFromOperatingActivities @OtherAdjustmentsToCashFlowsFromOperatingActivitiesAxis=none], sum(list([@OtherAdjustmentsToCashFlowsFromOperatingActivities @OtherAdjustmentsToCashFlowsFromOperatingActivitiesAxis=*])));
+$OtherAdjustmentsToCashFlowsFromOperatingActivities = first-value([@OtherAdjustmentsToCashFlowsFromOperatingActivities @OtherAdjustmentsToCashFlowsFromOperatingActivitiesAxis=none], sum(list([nonils @OtherAdjustmentsToCashFlowsFromOperatingActivities @OtherAdjustmentsToCashFlowsFromOperatingActivitiesAxis=*])));
 
  $sum1 = [@NetCashProvidedByUsedInOperatingActivities]; 
  $addend = ([@NetIncomeLoss]#f0
@@ -58,7 +58,7 @@ rule-focus $sum1
 assert F2.120.2 satisfied 
 $rule_id = rule-name();
 
-$OtherConstructionAndAcquisitionOfPlantInvestmentActivities = first-value({@OtherConstructionAndAcquisitionOfPlantInvestmentActivities @OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesAxis=none}, sum(list({@OtherConstructionAndAcquisitionOfPlantInvestmentActivities @OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesAxis=*})));
+$OtherConstructionAndAcquisitionOfPlantInvestmentActivities = first-value({@OtherConstructionAndAcquisitionOfPlantInvestmentActivities @OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesAxis=none}, sum(list({nonils @OtherConstructionAndAcquisitionOfPlantInvestmentActivities @OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesAxis=*})));
 
  $sum1 = {@CashOutflowsForPlant}; 
  $addend = ({@GrossAdditionsToUtilityPlantLessNuclearFuelInvestingActivities}#f0
@@ -91,7 +91,7 @@ rule-focus $sum1
 assert F2.120.3 satisfied 
 $rule_id = rule-name();
 
-$OtherAdjustmentsToCashFlowsFromInvestmentActivities = first-value({@OtherAdjustmentsToCashFlowsFromInvestmentActivities @OtherAdjustmentsToCashFlowsFromInvestmentActivitiesAxis=none}, sum(list({@OtherAdjustmentsToCashFlowsFromInvestmentActivities @OtherAdjustmentsToCashFlowsFromInvestmentActivitiesAxis=*})));
+$OtherAdjustmentsToCashFlowsFromInvestmentActivities = first-value({@OtherAdjustmentsToCashFlowsFromInvestmentActivities @OtherAdjustmentsToCashFlowsFromInvestmentActivitiesAxis=none}, sum(list({nonils @OtherAdjustmentsToCashFlowsFromInvestmentActivities @OtherAdjustmentsToCashFlowsFromInvestmentActivitiesAxis=*})));
 
  $sum1 = {@CashFlowsProvidedFromUsedInInvestmentActivities}; 
  $addend = ({@ProceedsFromDisposalOfNoncurrentAssets}#f0
@@ -142,7 +142,7 @@ rule-focus $sum1
 assert F2.120.4 satisfied 
 $rule_id = rule-name();
 
-$OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities  = first-value({@OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities @OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesAxis=none},sum(list({@OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities @OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesAxis=*})));
+$OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities  = first-value({@OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities @OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesAxis=none},sum(list({nonils @OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities @OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesAxis=*})));
 
  $sum1 = {@CashProvidedByOutsideSources}; 
  $addend = ({@ProceedsFromIssuanceOfLongTermDebtFinancingActivities @OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesAxis=none}#f0
@@ -173,9 +173,9 @@ rule-focus $sum1
 assert F2.120.5 satisfied 
 $rule_id = rule-name();
 
-$OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities  = first-value({@OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities @OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis=none},sum(list({@OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities @OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis=*})));
+$OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities  = first-value({@OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities @OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis=none},sum(list({nonils @OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities @OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis=*})));
 
-$OtherAdjustmentsToCashFlowsFromFinancingActivities = first-value({@OtherAdjustmentsToCashFlowsFromFinancingActivities @OtherAdjustmentsToCashFlowsFromFinancingActivitiesAxis=none},sum(list({@OtherAdjustmentsToCashFlowsFromFinancingActivities @OtherAdjustmentsToCashFlowsFromFinancingActivitiesAxis=*})));
+$OtherAdjustmentsToCashFlowsFromFinancingActivities = first-value({@OtherAdjustmentsToCashFlowsFromFinancingActivities @OtherAdjustmentsToCashFlowsFromFinancingActivitiesAxis=none},sum(list({nonils @OtherAdjustmentsToCashFlowsFromFinancingActivities @OtherAdjustmentsToCashFlowsFromFinancingActivitiesAxis=*})));
 
  $sum1 = {@CashFlowsProvidedFromUsedInFinancingActivities}; 
  $addend = ({@CashProvidedByOutsideSources}#f0
@@ -184,7 +184,7 @@ $OtherAdjustmentsToCashFlowsFromFinancingActivities = first-value({@OtherAdjustm
  - {@PaymentsForRetirementOfCommonStockFinancingActivities}#f3
  - $OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities
  - {@NetDecreaseInShortTermDebt}#f5
- - $OtherAdjustmentsToCashFlowsFromFinancingActivities
+ + $OtherAdjustmentsToCashFlowsFromFinancingActivities
  - {@DividendsOnPreferredStock}#f7
  - {@DividendsOnCommonStock}#f8
  );
@@ -198,7 +198,7 @@ message
 - \t {$f3.concept.name.local-name} \t = \t {$f3}
 - \t OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities \t = \t {$OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities}
 - \t {$f5.concept.name.local-name} \t = \t {$f5}
-- \t OtherAdjustmentsToCashFlowsFromFinancingActivities \t = \t {$OtherAdjustmentsToCashFlowsFromFinancingActivities}
++ \t OtherAdjustmentsToCashFlowsFromFinancingActivities \t = \t {$OtherAdjustmentsToCashFlowsFromFinancingActivities}
 - \t {$f7.concept.name.local-name} \t = \t {$f7}
 - \t {$f8.concept.name.local-name} \t = \t {$f8}
 

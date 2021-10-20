@@ -1,0 +1,311 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F2 - 328</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl" id="ScheduleExchangeAndImbalanceTransactionsAbstract">
+        <table class="schedule-header xbrl" width="100%">
+                <tr>
+                    <td class="xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                            <xule:template-display>Name of Respondent:</xule:template-display>
+                        </xule:replace><br/>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                            <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                        </xule:replace>
+                    </td>
+                    <td class="xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                            <xule:template-display>This report is:</xule:template-display>
+                        </xule:replace>
+                            <br/>
+                            (1) 
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]>
+                                        </xule:expression>  
+                                    <xule:template-display>
+                                            <input type="checkbox"/> An Original
+                                    </xule:template-display>
+                                </xule:replace>
+                                <br/>
+                            (2)
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                            </xule:expression> 
+                                        <xule:template-display>
+                                                <input type="checkbox" checked = "checked"/> A Resubmission
+                                        </xule:template-display>
+                                </xule:replace> 
+                    </td>
+                    <td class="xbrl"><xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                        <xule:template-display>Date of Report:</xule:template-display>
+                        </xule:replace><br/>
+                            <xule:replace>
+                                <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xule:expression>
+                                <xule:template-display>04/26/2019</xule:template-display>
+                        </xule:replace>
+                    </td>
+                    <td class="xbrl"><xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                        <xule:template-display>Year/Period of Report:</xule:template-display>
+                        </xule:replace><br/>
+                        End of: <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                            <xule:template-display>2018</xule:template-display>
+                        </xule:replace>
+                        <span>/</span>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xule:expression>
+                            <xule:template-display>Q4</xule:template-display>
+                        </xule:replace>
+                    </td>
+                </tr>
+            </table>
+    <table class="xbrl">
+        <tr class="sch-title">
+            <td colspan="6" class="xbrl">
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleExchangeAndImbalanceTransactionsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2ScheduleTitle").text
+                        </xule:expression>
+                        <xule:template-display>
+                            Exchange and Imbalance Transactions
+                        </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="6">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleExchangeAndImbalanceTransactionsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                        <ol>
+                            <li>Report below details by zone and rate schedule concerning the gas quantities and related dollar amount of imbalances associated with system balancing and no-notice service.  Also, report certificated natural gas exchange transactions during the year.  Provide subtotals for imbalance and no-notice quantities for exchanges. If respondent does not have separate zones, provide totals by rate schedule.  Minor exchange transactions (less than 100,000 Dth) may be grouped.</li>
+                        </ol>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr class="col-heading-row">
+            <td class="col-heading xbrl line-number">Line No.</td>
+            <td class="col-heading xbrl" xule:repeat="InvHeadings">
+                    <xule:expression class="hide" name="InvHeadings">
+                            $headings = filter (taxonomy().concept(ferc:ScheduleExchangeAndImbalanceTransactionsAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "328 - Schedule - Exchange and Imbalance Transactions") 
+    
+                            $heading = list(for $ref in $headings 
+                            list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value, $ref.part-by-name(ferc-part:ElementName).part-value))
+    
+                            $heading_dict = dict(for $row in $heading
+                                    list("("+$row[1]+")",list($row[2],if $row[3] == none "" else taxonomy().concept(to-qname($row[3]))))
+                            );
+                            for $row in $heading_dict.keys.sort
+                    </xule:expression>
+                    <div style="text-align: center">
+                        <div class="tooltip">
+                                <div class="tooltiptext">
+                                        <xule:replace>
+                                                <xule:expression class="hide" name="InvHeadings" part="3">if $heading_dict[$row][2] != "" $heading_dict[$row][2].name.local-name else ""</xule:expression>
+                                            </xule:replace>
+                                </div>    
+                            <xule:replace>
+                                <xule:expression class="hide" name="InvHeadings" part="1">$heading_dict[$row][1]</xule:expression>
+                                <xule:template-display>
+                                    Nature of Payment
+                                </xule:template-display>
+                            </xule:replace>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center"><xule:replace>
+                            <xule:expression class="hide" name="InvHeadings" part="2">$row</xule:expression>
+                            <xule:template-display>
+                                (a)
+                            </xule:template-display>
+                    </xule:replace></div>
+                </td>
+            </tr>
+            <tr class="schedule-row" xule:repeat="ExchangeAndImbalanceTransactions">
+                <xule:expression class="hide" name="ExchangeAndImbalanceTransactions">// adding a comment
+                    
+                $data2 =   list(for $i in range(24)
+                                 list($i,none,none,none,none,none)
+                );
+
+                $data = if count(list({covered @ferc:ExchangeAndImbalanceTransactionsAxis=*})) > 0  
+                
+               
+                    list({covered @ferc:ExchangeAndImbalanceTransactionsAxis=*  {list(
+                        if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
+                        first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                        else
+                            0,
+                        if list({@ferc:DescriptionOfZoneAndRateSchedule @unit @period=$currentDuration}).length > 0
+                            first(list({@ferc:DescriptionOfZoneAndRateSchedule @unit @period=$currentDuration}))
+                        else
+                            none,
+                        if list({@ferc:NaturalGasReceivedByRespondentExchangedGasReceivedFromOthers @unit @period=$currentDuration}).length > 0
+                            first(list({@ferc:NaturalGasReceivedByRespondentExchangedGasReceivedFromOthers @unit @period=$currentDuration}))
+                        else
+                            none,
+                        if list({@ferc:QuantityOfNaturalGasReceivedByUtilityExchangedGasReceivedFromOthers @unit @period=$currentDuration}).length > 0
+                            first(list({@ferc:QuantityOfNaturalGasReceivedByUtilityExchangedGasReceivedFromOthers @unit @period=$currentDuration}))
+                        else
+                            none,
+                        if list({@ferc:NaturalGasDeliveredByRespondentExchangeGasDeliveredToOthers @unit @period=$currentDuration}).length > 0
+                            first(list({@ferc:NaturalGasDeliveredByRespondentExchangeGasDeliveredToOthers @unit @period=$currentDuration}))
+                        else none,
+                        if list({@ferc:QuantityOfNaturalGasDeliveredByUtilityExchangeGasDeliveredToOthers @unit @period=$currentDuration}).length > 0
+                            first(list({@ferc:QuantityOfNaturalGasDeliveredByUtilityExchangeGasDeliveredToOthers @unit @period=$currentDuration}))
+                        else none
+                    )}})
+                    else $data2;
+                
+                    $uniqueData = list(for $x in  $data
+                    if $x == list(0,none,none,none,none,none)
+                        skip
+                    else 
+                        $x
+                    );
+
+                for $row in $uniqueData.sort                 
+
+                </xule:expression>
+                <td class="xbrl line-number"><xule:lineNumber name="ExchangeAndImbalanceTransactions"/>
+                    <xule:template-display>1</xule:template-display>
+                </td>
+                <!-- Zone/Rate Schedule -->
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="ExchangeAndImbalanceTransactions" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        Zone 1 - Before Cheyenne, CO  
+                    </xule:template-display>
+                </td>
+                <!-- Gas Received from Others (Amount) -->
+                <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="ExchangeAndImbalanceTransactions" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        $30,697,181
+                    </xule:template-display>
+                </td>
+                <!-- Gas Received from Others (Dth) -->
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="ExchangeAndImbalanceTransactions" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        11,909,571 Dth
+                    </xule:template-display>
+                </td>
+                <!-- Gas Delivered to Others (Amount) -->
+                <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="ExchangeAndImbalanceTransactions" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        $30,175,085
+                    </xule:template-display>
+                </td>
+                <!-- Gas Delivered to Others (Dth) -->
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="ExchangeAndImbalanceTransactions" fact="true" format="ixt4:num-dot-decimal" part="6">$row[6]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        12,558,092 Dth
+                    </xule:template-display>
+                </td>  
+            </tr> 
+            <tr> <!-- Line 25: Total -->
+                <td class="xbrl line-number">25</td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:NaturalGasReceivedByRespondentExchangedGasReceivedFromOthers).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                        </xule:expression>
+                        <div>   
+                            <xule:template-display>
+                                Total
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                <!-- Gas Received from Others (Amount) -->
+                <td class="monetary_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:NaturalGasReceivedByRespondentExchangedGasReceivedFromOthers @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                $131,399,597
+                            </xule:template-display>
+                    </xule:replace> 
+                </td>
+                <!-- Gas Received from Others (Dth) -->
+                <td class="numeric_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:QuantityOfNaturalGasReceivedByUtilityExchangedGasReceivedFromOthers @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                46,964,968 Dth 
+                            </xule:template-display>
+                    </xule:replace> 
+                </td>
+                <!-- Gas Delivered to Others (Amount) -->
+                <td class="monetary_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:NaturalGasDeliveredByRespondentExchangeGasDeliveredToOthers @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                $127,805,176
+                            </xule:template-display>
+                    </xule:replace> 
+                </td>
+                <!-- Gas Delivered to Others (Dth) -->
+                <td class="numeric_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:QuantityOfNaturalGasDeliveredByUtilityExchangeGasDeliveredToOthers @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                47,330,490 Dth
+                            </xule:template-display>
+                    </xule:replace> 
+                </td>
+            </tr>
+    </table>
+<br/>
+<div class="schedule-footer">
+    <div>FERC FORM No. 
+        <xule:replace>
+            <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+            <xule:template-display>2/3-Q</xule:template-display>
+        </xule:replace>
+        <span> </span>
+        <xule:replace>
+                <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleExchangeAndImbalanceTransactionsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2DateRevised").text + ")"
+                </xule:expression>
+                <xule:template-display>
+                        12-96
+                </xule:template-display>
+        </xule:replace>    
+    </div>
+    <div class="center-text">Page 
+        <xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleExchangeAndImbalanceTransactionsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Page").text
+                </xule:expression>
+                <xule:template-display>
+                328
+                </xule:template-display>
+        </xule:replace>
+    </div> 
+
+</div>
+</body>
+</html>

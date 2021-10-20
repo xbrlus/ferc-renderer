@@ -11,7 +11,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@CapacityOfConversionApparatusAndSpecialEquipment]; 
- $addend = sum(list([@CapacityOfConversionApparatusAndSpecialEquipment @SubstationsAxis=*])#breakdown);
+ $addend = sum(list([nonils @CapacityOfConversionApparatusAndSpecialEquipment @SubstationsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -34,7 +34,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@PrimaryVoltageLevel]; 
- $addend = sum(list([@PrimaryVoltageLevel @SubstationsAxis=*])#breakdown);
+ $addend = sum(list([nonils @PrimaryVoltageLevel @SubstationsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -57,7 +57,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@SecondaryVoltageLevel]; 
- $addend = sum(list([@SecondaryVoltageLevel @SubstationsAxis=*])#breakdown);
+ $addend = sum(list([nonils @SecondaryVoltageLevel @SubstationsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -80,7 +80,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@TertiaryVoltageLevel]; 
- $addend = sum(list([@TertiaryVoltageLevel @SubstationsAxis=*])#breakdown);
+ $addend = sum(list([nonils @TertiaryVoltageLevel @SubstationsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -103,7 +103,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@SubstationInServiceCapacity]; 
- $addend = sum(list([@SubstationInServiceCapacity @SubstationsAxis=*])#breakdown);
+ $addend = sum(list([nonils @SubstationInServiceCapacity @SubstationsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -126,7 +126,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@NumberOfTransformersInService]; 
- $addend = sum(list([@NumberOfTransformersInService @SubstationsAxis=*])#breakdown);
+ $addend = sum(list([nonils @NumberOfTransformersInService @SubstationsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -149,7 +149,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@NumberOfSpareTransformers]; 
- $addend = sum(list([@NumberOfSpareTransformers @SubstationsAxis=*])#breakdown);
+ $addend = sum(list([nonils @NumberOfSpareTransformers @SubstationsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -172,7 +172,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@NumberOfConversionApparatusAndSpecialEquipmentUnits]; 
- $addend = sum(list([@NumberOfConversionApparatusAndSpecialEquipmentUnits @SubstationsAxis=*])#breakdown);
+ $addend = sum(list([nonils @NumberOfConversionApparatusAndSpecialEquipmentUnits @SubstationsAxis=*])#breakdown);
 if $addend == none
  	skip
  else
@@ -195,7 +195,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@CapacityOfConversionApparatusAndSpecialEquipment]; 
- $addend = sum(list([@CapacityOfConversionApparatusAndSpecialEquipment @SubstationsAxis=*])#breakdown);
+ $addend = sum(list([nonils @CapacityOfConversionApparatusAndSpecialEquipment @SubstationsAxis=*])#breakdown);
 if $addend == none
  	skip
  else

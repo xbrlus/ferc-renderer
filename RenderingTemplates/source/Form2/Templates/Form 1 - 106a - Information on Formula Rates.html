@@ -1,0 +1,315 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - Information on Formula Rates A</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+    
+</head>
+
+<body class="xbrl" id="ScheduleInformationOnFormulaRatesAAbstract">
+        <table class="schedule-header xbrl" width="100%">
+            <tr>
+                <td class="xbrl">
+                    <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xule:expression>
+                        <xule:template-display>Name of Respondent:</xule:template-display>
+                    </xule:replace><br/>
+                    <p></p>
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                        <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                    </xule:replace>
+                </td>
+                <td class="xbrl">
+                    <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xule:expression>
+                        <xule:template-display>This report is:</xule:template-display>
+                    </xule:replace>
+                        <br></br>
+                        (1) 
+                            <xule:replace>
+                                    <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                    '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                                    '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                                    '<span class="checkbox">&#9744;</span> An Original']]>
+                                    </xule:expression>  
+                                <xule:template-display>
+                                        <input type="checkbox"/> An Original
+                                </xule:template-display>
+                            </xule:replace>
+                            <br></br>
+                        (2)
+                            <xule:replace>
+                                    <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                                    '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                                    '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                                    '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                        </xule:expression> 
+                                    <xule:template-display>
+                                            <input type="checkbox" checked = "checked"/> A Resubmission
+                                    </xule:template-display>
+                            </xule:replace> 
+                </td>
+                <td class="xbrl"><xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xule:expression>
+                    <xule:template-display>Date of Report:</xule:template-display>
+                    </xule:replace><br/>
+                    <p></p>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xule:expression>
+                            <xule:template-display>04/26/2019</xule:template-display>
+                    </xule:replace>
+                </td>
+                <td class="xbrl"><xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xule:expression>
+                    <xule:template-display>Year/Period of Report:</xule:template-display>
+                    </xule:replace><br/>
+                    <p></p>
+                    End of: <xule:replace>
+                        <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                        <xule:template-display>2018</xule:template-display>
+                    </xule:replace>
+                    <span>/</span>
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xule:expression>
+                        <xule:template-display>Q4</xule:template-display>
+                    </xule:replace>
+                     </td>
+                 </tr>
+            </table>
+    <table class="xbrl">
+        <tr class="sch-title">
+            <td class="xbrl" colspan="6"><xule:replace>
+                <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleInformationOnFormulaRatesAAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1ScheduleTitle").text
+                </xule:expression>
+                <xule:template-display>
+                    INFORMATION ON FORMULA RATES <p></p>FERC Rate Schedule/Tariff Number FERC Proceeding
+                </xule:template-display>
+            </xule:replace>
+            </td>
+        </tr>
+
+        <tr class="instruction xbrl">
+                <td class="xbrl" colspan="3">
+                        <xule:replace>
+                                <xule:expression class="hide">
+                                    taxonomy().concept(ferc:AnnualFilingsContainingInputsToFormulaRates).label("http://ferc.gov/form/2020-01-01/roles/label/F1FormulaRates").text
+                                </xule:expression>
+                                <xule:template-display>
+                                    Does the respondent file with the Commission annual (or more frequent) filings containing the inputs to the formula rate(s)?
+                                </xule:template-display>
+                            </xule:replace>
+                    
+                </td>
+                <td class="xbrl" colspan="3">
+                        <xule:replace>
+                                <xule:expression html="true" class="hide">if missing({covered @concept=ferc:AnnualFilingsContainingInputsToFormulaRates}) <![CDATA[
+                                '<span class="checkbox">&#9744;</span> Yes']]> else if [@concept=ferc:AnnualFilingsContainingInputsToFormulaRates] == true<![CDATA[
+                                '<span class="checkbox">&#9745;</span> Yes']]> else <![CDATA[
+                                '<span class="checkbox">&#9744;</span> Yes']]>
+                                </xule:expression>  
+                                
+                                <xule:template-display>
+                                        <input type="checkbox"/> Yes
+                                </xule:template-display>
+                            </xule:replace>
+                            <p></p>
+                            <xule:replace>
+                                <!-- If data is missing automatically check No.-->
+                                <xule:expression html="true" class="hide">if missing({covered @concept=ferc:AnnualFilingsContainingInputsToFormulaRates}) <![CDATA[
+                                '<span class="checkbox">&#9745;</span> No (Checked by default - Not explicitly defined)']]> else if [@concept=ferc:AnnualFilingsContainingInputsToFormulaRates] == false<![CDATA[
+                                '<span class="checkbox">&#9745;</span> No']]> else <![CDATA[
+                                '<span class="checkbox">&#9744;</span> No']]>
+                                    </xule:expression> 
+                                    <xule:template-display>
+                                            <input type="checkbox" checked = "checked"/> No
+                                    </xule:template-display>
+                            </xule:replace> 
+                </td>
+            </tr>
+         <tr>
+                <td class="instruction xbrl" colspan="6">
+                   <xule:replace>
+                        <xule:expression html="true" class="hide">taxonomy().concept(ferc:ScheduleInformationOnFormulaRatesAAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Instructions").text
+                        </xule:expression>
+                        <xule:template-display>
+                        <ol>
+                                <li>If yes, provide a listing of such filings as contained on the Commission's eLibrary website.</li>
+                                </ol>
+                            </xule:template-display>
+                    </xule:replace>
+                </td>
+            </tr> 
+            <tr class="col-heading-row">     
+                <td class="col-heading xbrl line-number">Line No.</td>
+                <td class="col-heading xbrl" xule:repeat="ColumnHeadings">
+                        <xule:expression class="hide" name="ColumnHeadings">
+                                $headings = filter (taxonomy().concept(ferc:ScheduleInformationOnFormulaRatesAAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "106a - Schedule - Information on Formula Rates") 
+    
+                                $heading = list(for $ref in $headings 
+                                list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value, $ref.part-by-name(ferc-part:ElementName).part-value))
+        
+                                $heading_dict = dict(for $row in $heading
+                                        list("("+$row[1]+")",list($row[2],
+                                            if $row[3] == none
+                                                $row[3]
+                                            else
+                                                taxonomy().concept(to-qname($row[3]))))
+                                );
+                                for $row in $heading_dict.keys.sort
+                        </xule:expression>
+        
+                        <div style="text-align: center">
+                            <div class="tooltip">
+                                    <div class="tooltiptext">
+                                            <xule:replace>
+                                                    <xule:expression class="hide" name="ColumnHeadings" part="3">$heading_dict[$row][2].name.local-name</xule:expression>
+                                                </xule:replace>
+                                    </div>    
+                                <xule:replace>
+                                    <xule:expression class="hide" name="ColumnHeadings" part="1">$heading_dict[$row][1]</xule:expression>
+                                    <xule:template-display>
+                                        FERC Rate Schedule or Tariff Number
+                                    </xule:template-display>
+                                </xule:replace>
+                            </div>
+                        </div>
+                    <div style="text-align: center"><xule:replace>
+                            <xule:expression class="hide" name="ColumnHeadings" part="2">$row</xule:expression>
+                            <xule:template-display>
+                                (a)
+                            </xule:template-display>
+                        </xule:replace></div>
+                </td>
+            </tr> 
+
+        <tr class="schedule-row" xule:repeat="formula">
+                        <xule:expression class="hide" name="formula">// adding a comment
+                            
+                        $data2 =   list(for $i in range(46)
+
+                        list($i,none,none,none,none,none));
+        
+                                    $data = if count(list({covered @ferc:RateScheduleAxis=*}))  > 0
+                                    
+                                    list( {covered @ferc:RateScheduleAxis=*  {list(
+                                        if list({@ferc:OrderNumber @unit=* @period = $currentDuration}).length > 0
+                                            first(list({@ferc:OrderNumber @unit=* @period = $currentDuration}))
+                                        else
+                                            0,
+                                          
+                                        if exists({@ferc:AccessionNumber @unit @period = $currentDuration}) 
+                                            first(list({@ferc:AccessionNumber @unit @period = $currentDuration})) 
+                                        else 
+                                            none,
+                                        if exists({@ferc:DocumentDate @unit @period = $currentDuration}) 
+                                            first(list({@ferc:DocumentDate @unit @period = $currentDuration})) 
+                                        else 
+                                            none,
+                                        if exists({@ferc:DocketNumber @unit @period = $currentDuration}) 
+                                            first(list({@ferc:DocketNumber @unit @period = $currentDuration})) 
+                                        else 
+                                            none,
+                                        if exists({@ferc:DescriptionOfFiling @unit @period = $currentDuration}) 
+                                            first(list({@ferc:DescriptionOfFiling @unit @period = $currentDuration})) 
+                                        else 
+                                            none,
+                                        if exists({@ferc:RateScheduleTariffNumber @unit @period = $currentDuration}) 
+                                            first(list({@ferc:RateScheduleTariffNumber @unit @period = $currentDuration})) 
+                                        else 
+                                            none
+
+                                        )}})
+
+                            else $data2;
+                                                  
+                       
+                            $uniqueData = list(for $x in  $data
+                    if $x == list(0, none,none,none,none,none)
+                        skip
+                    else 
+                        $x
+                    );
+
+                    for $row in $uniqueData.sort          
+                        
+                        
+
+        
+                        </xule:expression>
+                        <td class="xbrl line-number">
+                                <xule:lineNumber name="formula"/>
+                                <xule:template-display>1</xule:template-display>
+                        </td>
+                        <td class="xbrl account-number"><xule:replace><xule:expression  class="hide"  name="formula" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                            <xule:template-display>
+                                    20120515-5244
+                            </xule:template-display>
+                        </td>
+                        <td class="xbrl date_items"><xule:replace><xule:expression class="hide"  name="formula" fact="true" part="3" format="ixt4:date-month-day-year">$row[3]</xule:expression></xule:replace>
+                            <xule:template-display>
+                                    05/15/2012
+                            </xule:template-display>
+                        </td>
+                        <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="formula" fact="true" part="4">$row[4]</xule:expression></xule:replace>
+                            <xule:template-display>
+                                    ER12-91-000
+                            </xule:template-display>
+                        </td>
+                        <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="formula" fact="true" part="5">$row[5]</xule:expression></xule:replace>
+                            <xule:template-display>
+                                    Formula Rate Annual Update
+                            </xule:template-display>
+                        </td>
+                        <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="formula" fact="true" part="6">$row[6]</xule:expression></xule:replace>
+                            <xule:template-display>
+                                    PJM OATT, Attachment H-22A
+                            </xule:template-display>
+                        </td>
+                        
+                          
+        </tr> 
+    </table> 
+<p></p>
+
+<div class="schedule-footer">
+
+    <div>FERC FORM NO. 
+            <xule:replace>
+                    <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))
+                                                            
+                                                    </xule:expression>
+                    <xule:template-display>1</xule:template-display>
+            </xule:replace>
+            <span> </span>
+            <xule:replace>
+                    <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleInformationOnFormulaRatesAAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1DateRevised").text + ")"
+                    </xule:expression>
+                    <xule:template-display>
+                            (NEW. 12-12)
+                    </xule:template-display>
+            </xule:replace>
+                        
+    </div>
+    <div class="center-text">Page 
+            <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ScheduleInformationOnFormulaRatesAAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Page").text
+                    </xule:expression>
+                    <xule:template-display>
+                    106a
+                    </xule:template-display>
+            </xule:replace>
+    </div> 
+    </div>
+</body>
+
+</html>

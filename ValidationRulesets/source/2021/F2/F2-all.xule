@@ -161,11 +161,16 @@ $EnergyUnits = $associatedUnits[$energy_facts.concept];
 if $EnergyUnits.contains(none)
 	false
 else
-	$energy_facts.unit.numerator.string not in  $EnergyUnits
+	if $energy_facts.concept.name == ElectricityForCompressorStation
+		$EnergyUnitString = 'utr:kWh';
+		not ($energy_facts.unit.numerator == utr:kWh)
+	else
+		$EnergyUnitString = $EnergyUnits.join(',');
+		$energy_facts.unit.numerator.string not in $EnergyUnits
 
 message
 
-"The value for {$energy_facts.concept.name.local-name} with a value of {$energy_facts} has a unit of {$energy_facts.unit.numerator}. This concept allows units of {$EnergyUnits.join(',')}.
+"The value for {$energy_facts.concept.name.local-name} with a value of {$energy_facts} has a unit of {$energy_facts.unit.numerator}. This concept allows units of {$EnergyUnitString}.
 
 Element : {$energy_facts.concept.name}
 Period : {$energy_facts.period}
@@ -251,11 +256,16 @@ $fact1 = {covered @concept not in list(OrderNumber)};
 
 $PeriodRefs = $associatedRefs[$fact1.concept]
 											
+$valueToReport = if $fact1.concept.data-type.name == nonnum:textBlockItemType
+					"a text block string"
+				else
+					$fact1
+											
 $fact1.period.string not in $PeriodRefs
 			
 message
 
-"The value for {$fact1.concept.name.local-name} with a value of {$fact1} is reported for an invalid period. 
+"The value for {$fact1.concept.name.local-name} with a datatype of {$fact1.concept.data-type.name.local-name} with a value of {$valueToReport} is reported for an invalid period. 
 
 Element : {$fact1.concept.name}
 Period : {$fact1.period}

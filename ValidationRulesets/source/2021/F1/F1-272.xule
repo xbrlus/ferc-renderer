@@ -11,7 +11,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 
-$ElectricOtherFacilities = first-value({@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricOtherFacilitiesMember}, sum(list({@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @AcceleratedAmortizationPropertyElectricOtherAxis=* @UtilityTypeAxis=ElectricOtherFacilitiesMember})));
+$ElectricOtherFacilities = first-value({@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricOtherFacilitiesMember}, sum(list({nonils @AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @AcceleratedAmortizationPropertyElectricOtherAxis=* @UtilityTypeAxis=ElectricOtherFacilitiesMember})));
 
  $sum1 = {@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricUtilityMember}; 
  $addend = ({@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricDefenseFacilitiesMember}#f0 
@@ -41,7 +41,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 
-$GasOtherFacilities = first-value({@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasOtherFacilitiesMember}, sum(list({@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @AcceleratedAmortizationPropertyElectricOtherAxis=* @UtilityTypeAxis=GasOtherFacilitiesMember})));
+$GasOtherFacilities = first-value({@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasOtherFacilitiesMember}, sum(list({nonils @AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @AcceleratedAmortizationPropertyElectricOtherAxis=* @UtilityTypeAxis=GasOtherFacilitiesMember})));
 
  $sum1 = {@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasUtilityMember}; 
  $addend = ({@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasDefenseFacilitiesMember}#f0

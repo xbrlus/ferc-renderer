@@ -13,7 +13,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
 else
  $sum1 = [@OtherPaidInCapitalDetail @OtherPaidInCapitalAxis=none @period=$currentInstant]; 
  $addend = ([@OtherPaidInCapitalDetail @OtherPaidInCapitalAxis=none @period=$priorInstant]
- + (sum(list([@IncreasesDecreasesInOtherPaidInCapital @OtherPaidInCapitalAxis=* @period=$currentDuration]))));
+ + (sum(list([nonils @IncreasesDecreasesInOtherPaidInCapital @OtherPaidInCapitalAxis=* @period=$currentDuration]))));
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of OtherPaidInCapitalDetail sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for OtherPaidInCapitalDetail. 
@@ -34,7 +34,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
 else
  $sum1 = [@DonationsReceivedFromStockholders @DonationsReceivedFromStockholdersAxis=none @period=$currentInstant]; 
  $addend = ([@DonationsReceivedFromStockholders @DonationsReceivedFromStockholdersAxis=none @period=$priorInstant]
- + (sum(list([@IncreasesDecreasesFromSalesOfDonationsReceivedFromStockholders @DonationsReceivedFromStockholdersAxis=* @period=$currentDuration]))));
+ + (sum(list([nonils @IncreasesDecreasesFromSalesOfDonationsReceivedFromStockholders @DonationsReceivedFromStockholdersAxis=* @period=$currentDuration]))));
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of DonationsReceivedFromStockholders sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for DonationsReceivedFromStockholders. 
@@ -55,7 +55,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
 else
  $sum1 = [@ReductionInParOrStatedValueOfCapitalStock @ReductionInParOrStatedValueOfCapitalStockAxis=none @period=$currentInstant]; 
  $addend = ([@ReductionInParOrStatedValueOfCapitalStock @ReductionInParOrStatedValueOfCapitalStockAxis=none @period=$priorInstant]
- + (sum(list([@IncreasesDecreasesDueToReductionsInParOrStatedValueOfCapitalStock @ReductionInParOrStatedValueOfCapitalStockAxis=* @period=$currentDuration]))));
+ + (sum(list([nonils @IncreasesDecreasesDueToReductionsInParOrStatedValueOfCapitalStock @ReductionInParOrStatedValueOfCapitalStockAxis=* @period=$currentDuration]))));
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of ReductionInParOrStatedValueOfCapitalStock sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for ReductionInParOrStatedValueOfCapitalStock. 
@@ -76,7 +76,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
 else
  $sum1 = [@GainOnResaleOrCancellationOfReacquiredCapitalStock @GainOnResaleOrCancellationOfReacquiredCapitalStockAxis=none @period=$currentInstant]; 
  $addend = ([@GainOnResaleOrCancellationOfReacquiredCapitalStock @ReductionInParOrStatedValueOfCapitalStockAxis=none @period=$priorInstant]
- + (sum(list([@IncreasesDecreasesFromGainOrResaleOrCancellationOfReacquiredCapitalStock @GainOnResaleOrCancellationOfReacquiredCapitalStockAxis=* @period=$currentDuration]))));
+ + (sum(list([nonils @IncreasesDecreasesFromGainOrResaleOrCancellationOfReacquiredCapitalStock @GainOnResaleOrCancellationOfReacquiredCapitalStockAxis=* @period=$currentDuration]))));
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of GainOnResaleOrCancellationOfReacquiredCapitalStock sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for GainOnResaleOrCancellationOfReacquiredCapitalStock. 
@@ -97,7 +97,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
 else
  $sum1 = [@MiscellaneousPaidInCapital @MiscellaneousPaidInCapitalAxis=none @period=$currentInstant]; 
  $addend = ([@MiscellaneousPaidInCapital @ReductionInParOrStatedValueOfCapitalStockAxis=none @period=$priorInstant]
- + (sum(list([@IncreasesDecreasesDueToMiscellaneousPaidInCapital @MiscellaneousPaidInCapitalAxis=* @period=$currentDuration]))));
+ + (sum(list([nonils @IncreasesDecreasesDueToMiscellaneousPaidInCapital @MiscellaneousPaidInCapitalAxis=* @period=$currentDuration]))));
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of MiscellaneousPaidInCapital sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for MiscellaneousPaidInCapital. 

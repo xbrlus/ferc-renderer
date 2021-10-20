@@ -339,7 +339,7 @@ assert F60.2.17 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@ConstructionWorkInProgress]; 
- $addend = sum(list([@ConstructionWorkInProgress @ConstructionWorkInProgressAxis=*])#breakdown);
+ $addend = sum(list([nonils @ConstructionWorkInProgress @ConstructionWorkInProgressAxis=*])#breakdown);
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of the element {$sum1.concept.name} using the axis ConstructionWorkInProgressAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}

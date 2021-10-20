@@ -29,7 +29,7 @@ assert F2.232.2 satisfied
 $rule_id = rule-name();
 
 $sum1 = [@OtherRegulatoryAssets]; 
-$addend = sum(list([@OtherRegulatoryAssets @OtherRegulatoryAssetsAxis=*])#breakdown);
+$addend = sum(list([nonils @OtherRegulatoryAssets @OtherRegulatoryAssetsAxis=*])#breakdown);
 if $addend == none
  	skip
 else
@@ -49,7 +49,7 @@ assert F2.232.3 satisfied
 $rule_id = rule-name();
 
 $sum1 = [@IncreaseDecreaseInOtherRegulatoryAssets]; 
-$addend = sum(list([@IncreaseDecreaseInOtherRegulatoryAssets @OtherRegulatoryAssetsAxis=*])#breakdown);
+$addend = sum(list([nonils @IncreaseDecreaseInOtherRegulatoryAssets @OtherRegulatoryAssetsAxis=*])#breakdown);
 if $addend == none
  	skip
 else
@@ -69,7 +69,7 @@ assert F2.232.4 satisfied
 $rule_id = rule-name();
 
 $sum1 = [@OtherRegulatoryAssetsWrittenOffRecovered]; 
-$addend = sum(list([@OtherRegulatoryAssetsWrittenOffRecovered @OtherRegulatoryAssetsAxis=*])#breakdown);
+$addend = sum(list([nonils @OtherRegulatoryAssetsWrittenOffRecovered @OtherRegulatoryAssetsAxis=*])#breakdown);
 if $addend == none
  	skip
 else
@@ -89,7 +89,7 @@ assert F2.232.5 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@OtherRegulatoryAssetsWrittenOffDeemedUnrecoverable]; 
- $addend = sum(list([@OtherRegulatoryAssetsWrittenOffDeemedUnrecoverable @OtherRegulatoryAssetsAxis=*])#breakdown);
+ $addend = sum(list([nonils @OtherRegulatoryAssetsWrittenOffDeemedUnrecoverable @OtherRegulatoryAssetsAxis=*])#breakdown);
  if $addend == none
  	skip
  else

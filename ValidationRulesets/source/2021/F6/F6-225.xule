@@ -11,7 +11,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@PayablesToAffiliatedCompanies @period=$currentInstant]; 
-        $addend = sum(list([@PayablesToAffiliatedCompanies @PayablesToAffiliatedCompaniesAxis=* @period=$currentInstant])#breakdown);
+        $addend = sum(list([nonils @PayablesToAffiliatedCompanies @PayablesToAffiliatedCompaniesAxis=* @period=$currentInstant])#breakdown);
         if $addend == none
                 skip
         else

@@ -33,7 +33,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@NoncarrierPropertyRevenue]; 
-        $addend = sum(list([@NoncarrierPropertyRevenue @IncomeFromNoncarrierPropertyAxis=*])#breakdown);
+        $addend = sum(list([nonils @NoncarrierPropertyRevenue @IncomeFromNoncarrierPropertyAxis=*])#breakdown);
         if $addend == none
                 skip
         else
@@ -57,7 +57,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@NoncarrierPropertyExpense]; 
-        $addend = sum(list([@NoncarrierPropertyExpense @IncomeFromNoncarrierPropertyAxis=*])#breakdown);
+        $addend = sum(list([nonils @NoncarrierPropertyExpense @IncomeFromNoncarrierPropertyAxis=*])#breakdown);
         if $addend == none
                 skip
         else

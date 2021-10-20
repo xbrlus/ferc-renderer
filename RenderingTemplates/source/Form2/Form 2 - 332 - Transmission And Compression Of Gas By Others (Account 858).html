@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F2 - 332</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl" id="ScheduleTransmissionAndCompressionOfGasByOthersAbstract">
+        <table class="schedule-header xbrl" width="100%">
+                <tr>
+                    <td class="xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                            <xule:template-display>Name of Respondent:</xule:template-display>
+                        </xule:replace><br/>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                            <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                        </xule:replace>
+                    </td>
+                    <td class="xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                            <xule:template-display>This report is:</xule:template-display>
+                        </xule:replace>
+                            <br/>
+                            (1) 
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]>
+                                        </xule:expression>  
+                                    <xule:template-display>
+                                            <input type="checkbox"/> An Original
+                                    </xule:template-display>
+                                </xule:replace>
+                                <br/>
+                            (2)
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                            </xule:expression> 
+                                        <xule:template-display>
+                                                <input type="checkbox" checked = "checked"/> A Resubmission
+                                        </xule:template-display>
+                                </xule:replace> 
+                    </td>
+                    <td class="xbrl"><xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                        <xule:template-display>Date of Report:</xule:template-display>
+                        </xule:replace><br/>
+                            <xule:replace>
+                                <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xule:expression>
+                                <xule:template-display>04/26/2019</xule:template-display>
+                        </xule:replace>
+                    </td>
+                    <td class="xbrl"><xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                        <xule:template-display>Year/Period of Report:</xule:template-display>
+                        </xule:replace><br/>
+                        End of: <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                            <xule:template-display>2018</xule:template-display>
+                        </xule:replace>
+                        <span>/</span>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xule:expression>
+                            <xule:template-display>Q4</xule:template-display>
+                        </xule:replace>
+                    </td>
+                </tr>
+            </table>
+    <table class="xbrl">
+        <tr class="sch-title">
+            <td colspan="5" class="xbrl">
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleTransmissionAndCompressionOfGasByOthersAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2ScheduleTitle").text
+                        </xule:expression>
+                        <xule:template-display>
+                            Transmission And Compression Of Gas By Others (Account 858)
+                        </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="6">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleTransmissionAndCompressionOfGasByOthersAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                        <ol>
+                            <li>Report below details concerning gas transported or compressed for respondent by others equalling more than 1,000,000 Dth and amounts of payments for such services during the year.  Minor items (less than 1,000,000) Dth may be grouped.  Also, include in column (c) amounts paid as transition costs to an upstream pipeline.</li>
+                            <li>In column (a) give name of companies, points of delivery and receipt of gas.  Designate points of delivery and receipt so that they can be identified readily on a map of respondent's pipeline system.</li>
+                            <li>Designate associated companies with an asterisk in column (b).</li>
+                        </ol>                   
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr class="col-heading-row">
+            <td class="col-heading xbrl line-number">Line No.</td>
+            <td class="col-heading xbrl" xule:repeat="InvHeadings">
+                    <xule:expression class="hide" name="InvHeadings">
+                            $headings = filter (taxonomy().concept(ferc:ScheduleTransmissionAndCompressionOfGasByOthersAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "332 - Schedule - Transmission and Compression of Gas by Others (Account 858)") 
+    
+                            $heading = list(for $ref in $headings 
+                            list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value, $ref.part-by-name(ferc-part:ElementName).part-value))
+    
+                            $heading_dict = dict(for $row in $heading
+                                    list("("+$row[1]+")",list($row[2],if $row[3] == none "" else taxonomy().concept(to-qname($row[3]))))
+                            );
+                            for $row in $heading_dict.keys.sort
+                    </xule:expression>
+                    <div style="text-align: center">
+                        <div class="tooltip">
+                                <div class="tooltiptext">
+                                        <xule:replace>
+                                                <xule:expression class="hide" name="InvHeadings" part="3">if $heading_dict[$row][2] != "" $heading_dict[$row][2].name.local-name else ""</xule:expression>
+                                            </xule:replace>
+                                </div>    
+                            <xule:replace>
+                                <xule:expression class="hide" name="InvHeadings" part="1">$heading_dict[$row][1]</xule:expression>
+                                <xule:template-display>
+                                    Nature of Payment
+                                </xule:template-display>
+                            </xule:replace>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center"><xule:replace>
+                            <xule:expression class="hide" name="InvHeadings" part="2">$row</xule:expression>
+                            <xule:template-display>
+                                (a)
+                            </xule:template-display>
+                    </xule:replace></div>
+                </td>
+        </tr>
+        <tr class="schedule-row" xule:repeat="TransmissionAndCompressionOfGasByOthers">
+                <xule:expression class="hide" name="TransmissionAndCompressionOfGasByOthers">// adding a comment
+                    
+                $data2 =   list(for $i in range(24)
+                                 list($i,none,none,none,none)
+                );
+
+                $data = if count(list({covered @ferc:TransmissionAndCompressionOfGasByOthersAxis=*})) > 0  
+                
+               
+                    list({covered @ferc:TransmissionAndCompressionOfGasByOthersAxis=*  {list(
+                        if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                            first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                        else
+                            0,
+                        if exists({@ferc:DescriptionOfNameOfCompanyAndServicePerformed @unit @period=$currentDuration})
+                            first(list({@ferc:DescriptionOfNameOfCompanyAndServicePerformed @unit @period=$currentDuration}))
+                        else
+                            none,
+                        if exists({@ferc:IndicationOfAssociatedCompany @unit @period=$currentDuration})
+                            if first(list({@ferc:IndicationOfAssociatedCompany @unit @period=$currentDuration}))
+                                "*"
+                            else ""
+                        else "",
+
+                        if exists({@ferc:TransmissionAndCompressionOfGasByOthers @unit @period=$currentDuration})
+                            first(list({@ferc:TransmissionAndCompressionOfGasByOthers @unit @period=$currentDuration}))
+                        else
+                            none,
+                        if exists({@ferc:QuantityOfNaturalGasDeliveredByUtilityDeliveriesOfGasToOthersForTransportation @unit @period=$currentDuration})
+                            first(list({@ferc:QuantityOfNaturalGasDeliveredByUtilityDeliveriesOfGasToOthersForTransportation @unit @period=$currentDuration}))
+                        else none
+                    )}})
+                    else $data2;
+                
+                    $uniqueData = list(for $x in  $data
+                    if $x == list(0,"","",none,none) or $x == list(0,none,"",none,none)
+                        skip
+                    else 
+                        $x
+                    );
+
+                for $row in $uniqueData.sort       
+
+                </xule:expression>
+                <td class="xbrl line-number"><xule:lineNumber name="TransmissionAndCompressionOfGasByOthers"/>
+                    <xule:template-display>1</xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="TransmissionAndCompressionOfGasByOthers" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        Colorado Interstate Gas Company, Wamsutter Wy, Syracuse Compressor, KS  
+                    </xule:template-display>
+                </td>
+                <td class="xbrl boolean-flag"><xule:replace><xule:expression class="hide"  name="TransmissionAndCompressionOfGasByOthers" fact="false" part="3">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        *
+                    </xule:template-display>
+                </td>
+                <!-- Amount of Payment -->
+                <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="TransmissionAndCompressionOfGasByOthers" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        $11,343
+                    </xule:template-display>
+                </td>
+                <!-- Dth of Gas Delivered -->
+                <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="TransmissionAndCompressionOfGasByOthers" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
+                    <xule:template-display>
+                        5,528 Dth
+                    </xule:template-display>
+                </td>   
+            </tr> 
+            <tr> <!-- Line 25: Total -->
+                <td class="xbrl line-number">25</td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:TransmissionAndCompressionOfGasByOthers).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                        </xule:expression>
+                        <div>   
+                            <xule:template-display>
+                                Total
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                <td class="gray-out"></td> <!-- Indicator -->
+                <!-- Amount of Payment (in dolloars) -->
+                <td class="monetary_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:TransmissionAndCompressionOfGasByOthers @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                $46,964,968 
+                            </xule:template-display>
+                    </xule:replace> 
+                </td>
+                <!-- Dth of Gas Delivered -->
+                <td class="numeric_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:QuantityOfNaturalGasDeliveredByUtilityDeliveriesOfGasToOthersForTransportation @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                127,805,176 Dth
+                            </xule:template-display>
+                    </xule:replace> 
+                </td>
+            </tr>
+    </table>
+<br/>
+<div class="schedule-footer">
+    <div>FERC FORM No. 
+            <xule:replace>
+                <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                <xule:template-display>2/3-Q</xule:template-display>
+            </xule:replace>
+            <span> </span>
+            <xule:replace>
+                    <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleTransmissionAndCompressionOfGasByOthersAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2DateRevised").text + ")"
+                    </xule:expression>
+                    <xule:template-display>
+                            12-96
+                    </xule:template-display>
+            </xule:replace>   
+        </div>
+        <div class="center-text">Page 
+            <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ScheduleTransmissionAndCompressionOfGasByOthersAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Page").text
+                    </xule:expression>
+                    <xule:template-display>
+                    332
+                    </xule:template-display>
+            </xule:replace>
+        </div> 
+
+</div>
+</body>
+</html>

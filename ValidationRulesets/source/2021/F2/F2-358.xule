@@ -11,7 +11,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@DueToOrChargedByTheTransactionsWithAssociatedAffiliatedCompanies]; 
- $addend = sum(list([@DueToOrChargedByTheTransactionsWithAssociatedAffiliatedCompanies @GoodOrServicesProvidedByForAffiliatedCompanyAxis=*])#breakdown);
+ $addend = sum(list([nonils @DueToOrChargedByTheTransactionsWithAssociatedAffiliatedCompanies @GoodOrServicesProvidedByForAffiliatedCompanyAxis=*])#breakdown);
  if $addend == none
  	skip
  else
@@ -34,7 +34,7 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@DueToOrChargedByTheTransactionsWithAssociatedAffiliatedCompanies]; 
- $addend = sum(list([@DueToOrChargedByTheTransactionsWithAssociatedAffiliatedCompanies @GoodOrServicesProvidedByForAffiliatedCompanyAxis=*])#breakdown);
+ $addend = sum(list([nonils @DueToOrChargedByTheTransactionsWithAssociatedAffiliatedCompanies @GoodOrServicesProvidedByForAffiliatedCompanyAxis=*])#breakdown);
  if $addend == none
  	skip
  else

@@ -46,7 +46,7 @@ else
  + {@ProductsExtractionNaturalGasAccumulatedDepreciationAndAmortization}
  + {@UndergroundGasStorageAccumulatedDepreciationAndAmortization}
  + {@OtherStoragePlantAccumulatedDepreciationAndAmortization}
- + {@BaseLoadLiquefiedNaturalGasTerminalingAndProcessingPlantCost} 
+ + {@BaseLoadLiquefiedNaturalGasTerminalingAndProcessingPlantAccumulatedDepreciationAndAmortization} 
  + {@TransmissionPlantAccumulatedDepreciationAndAmortization}
  + {@DistributionPlantAccumulatedDepreciationAndAmortization}
  + {@GeneralPlantAccumulatedDepreciationAndAmortization}

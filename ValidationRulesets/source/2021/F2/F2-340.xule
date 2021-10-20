@@ -12,7 +12,7 @@ $rule_id = rule-name();
         skip
 else
  $sum1 = [@MiscellaneousAmortization @period=$currentDuration]; 
- $addend = sum(list([@MiscellaneousAmortization @MiscellaneousAmortizationAxis=* @period=$currentDuration])#breakdown);
+ $addend = sum(list([nonils @MiscellaneousAmortization @MiscellaneousAmortizationAxis=* @period=$currentDuration])#breakdown);
  if $addend == none             
         skip
  else
@@ -38,7 +38,7 @@ $rule_id = rule-name();
         skip
 else
  $sum1 = [@Donations @period=$currentDuration]; 
- $addend = sum(list([@Donations @DonationsAxis=* @period=$currentDuration])#breakdown);
+ $addend = sum(list([nonils @Donations @DonationsAxis=* @period=$currentDuration])#breakdown);
  if $addend == none
         skip
  else
@@ -65,7 +65,7 @@ $rule_id = rule-name();
         skip
 else
  $sum1 = [@LifeInsurance @period=$currentDuration]; 
- $addend = sum(list([@LifeInsurance @LifeInsuranceAxis=* @period=$currentDuration])#breakdown);
+ $addend = sum(list([nonils @LifeInsurance @LifeInsuranceAxis=* @period=$currentDuration])#breakdown);
  if $addend == none
         skip
  else
@@ -90,7 +90,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@Penalties @period=$currentDuration]; 
- $addend = sum(list([@Penalties @PenaltiesAxis=* @period=$currentDuration])#breakdown);
+ $addend = sum(list([nonils @Penalties @PenaltiesAxis=* @period=$currentDuration])#breakdown);
  if $addend == none
         skip
  else
@@ -118,7 +118,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
 else
  $sum1 = [@ExpendituresForCertainCivicPoliticalAndRelatedActivities @period=$currentDuration]; 
 
- $addend = sum(list([@ExpendituresForCertainCivicPoliticalAndRelatedActivities @ExpendituresForCertainCivicPoliticalAndRelatedActivitiesAxis=* @period=$currentDuration])#breakdown);
+ $addend = sum(list([nonils @ExpendituresForCertainCivicPoliticalAndRelatedActivities @ExpendituresForCertainCivicPoliticalAndRelatedActivitiesAxis=* @period=$currentDuration])#breakdown);
 
  if $addend == none
         skip
@@ -148,7 +148,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
 else
  $sum1 = [@OtherDeductions @period=$currentDuration]; 
 
- $addend = sum(list([@OtherDeductions @OtherDeductionsAxis=* @period=$currentDuration])#breakdown);
+ $addend = sum(list([nonils @OtherDeductions @OtherDeductionsAxis=* @period=$currentDuration])#breakdown);
  if $addend == none
         skip
  else
@@ -176,7 +176,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
 else
  $sum1 = [@InterestOnDebtToAssociatedCompanies @period=$currentDuration]; 
 
- $addend = sum(list([@InterestOnDebtToAssociatedCompanies @InterestOnDebtToAssociatedCompaniesAxis=* @period=$currentDuration])#breakdown);
+ $addend = sum(list([nonils @InterestOnDebtToAssociatedCompanies @InterestOnDebtToAssociatedCompaniesAxis=* @period=$currentDuration])#breakdown);
  if $addend == none
         skip
  else
@@ -202,7 +202,7 @@ $rule_id = rule-name();
         skip
 else
  $sum1 = [@OtherInterestExpense @period=$currentDuration]; 
- $addend = sum(list([@OtherInterestExpense @OtherInterestExpenseAxis=* @period=$currentDuration])#breakdown);
+ $addend = sum(list([nonils @OtherInterestExpense @OtherInterestExpenseAxis=* @period=$currentDuration])#breakdown);
  if $addend == none
         skip
  else

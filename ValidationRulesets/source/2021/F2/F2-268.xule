@@ -11,7 +11,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@MiscellaneousCurrentAndAccruedLiabilities]; 
+<<<<<<< HEAD
         $addend = sum(list([@MiscellaneousCurrentAndAccruedLiabilities @MiscellaneousCurrentAndAccruedLiabilitiesAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @MiscellaneousCurrentAndAccruedLiabilities @MiscellaneousCurrentAndAccruedLiabilitiesAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else

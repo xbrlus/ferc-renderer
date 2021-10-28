@@ -8,7 +8,11 @@ assert F60.7.1 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@StoresExpenseUndistributedLabor]; 
+<<<<<<< HEAD
  $addend = sum(list([@StoresExpenseUndistributedLabor @StoresExpenseUndistributedAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @StoresExpenseUndistributedLabor @StoresExpenseUndistributedAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -28,7 +32,11 @@ assert F60.7.2 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@StoresExpenseUndistributedExpenses]; 
+<<<<<<< HEAD
  $addend = sum(list([@StoresExpenseUndistributedExpenses @StoresExpenseUndistributedAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @StoresExpenseUndistributedExpenses @StoresExpenseUndistributedAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -48,7 +56,11 @@ assert F60.7.3 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@StoresExpenseUndistributed]; 
+<<<<<<< HEAD
  $addend = sum(list([@StoresExpenseUndistributed @StoresExpenseUndistributedAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @StoresExpenseUndistributed @StoresExpenseUndistributedAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

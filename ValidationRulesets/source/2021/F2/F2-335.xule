@@ -15,7 +15,11 @@ else
  + [@GasResearchInstituteExpense]
  + [@OtherExperimentalAndGeneralResearchExpenses]
  + [@PublicationAndDistributionExpensesForSecuritiesToStockholders] 
+<<<<<<< HEAD
  + sum(list([@OtherMiscellaneousGeneralExpenses @MiscellaneousGeneralExpensesAxis=*])));
+=======
+ + sum(list([nonils @OtherMiscellaneousGeneralExpenses @MiscellaneousGeneralExpensesAxis=*])));
+>>>>>>> origin/2021-01-01
 
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 

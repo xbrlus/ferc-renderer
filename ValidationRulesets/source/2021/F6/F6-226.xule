@@ -156,7 +156,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@MortgageBondsPayableWithinOneYear]; 
+<<<<<<< HEAD
         $addend = sum(list([@MortgageBondsPayableWithinOneYear @MortgageBondsLongTermDebtAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @MortgageBondsPayableWithinOneYear @MortgageBondsLongTermDebtAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -180,7 +184,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@MortgageBondsPayableAfterOneYear]; 
+<<<<<<< HEAD
         $addend = sum(list([@MortgageBondsPayableAfterOneYear @MortgageBondsLongTermDebtAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @MortgageBondsPayableAfterOneYear @MortgageBondsLongTermDebtAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -203,7 +211,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@AccruedInterestMortgageBonds]; 
+<<<<<<< HEAD
         $addend = sum(list([@AccruedInterestMortgageBonds @MortgageBondsLongTermDebtAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @AccruedInterestMortgageBonds @MortgageBondsLongTermDebtAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -227,7 +239,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InterestChargedToConstructionOrOtherInvestmentAccountMortgageBonds]; 
+<<<<<<< HEAD
         $addend = sum(list([@InterestChargedToConstructionOrOtherInvestmentAccountMortgageBonds @MortgageBondsLongTermDebtAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @InterestChargedToConstructionOrOtherInvestmentAccountMortgageBonds @MortgageBondsLongTermDebtAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -251,7 +267,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InterestPaidMortgageBonds]; 
+<<<<<<< HEAD
         $addend = sum(list([@InterestPaidMortgageBonds @MortgageBondsLongTermDebtAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @InterestPaidMortgageBonds @MortgageBondsLongTermDebtAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -278,7 +298,11 @@ else
         $elementsList = list(CollateralTrustBondsPayableWithinOneYear, CollateralTrustBondsPayableAfterOneYear, AccruedInterestCollateralTrustBonds, InterestChargedToConstructionOrOtherInvestmentAccountCollateralTrustBonds, InterestPaidCollateralTrustBonds)
 
         $sum1 = [@@concept in $elementsList]; 
+<<<<<<< HEAD
         $addend = sum(list([@@concept in $elementsList @CollateralTrustBondsLongTermDebtAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @@concept in $elementsList @CollateralTrustBondsLongTermDebtAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -305,7 +329,11 @@ else
         $elementsList = list(IncomeBondsPayableWithinOneYear, IncomeBondsPayableAfterOneYear, AccruedInterestIncomeBonds, InterestChargedToConstructionOrOtherInvestmentAccountIncomeBonds, InterestPaidIncomeBonds)
 
         $sum1 = [@@concept in $elementsList]; 
+<<<<<<< HEAD
         $addend = sum(list([@@concept in $elementsList @IncomeBondsLongTermDebtAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @@concept in $elementsList @IncomeBondsLongTermDebtAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -331,7 +359,11 @@ else
         $elementsList = list(MiscellaneousObligationsPayableWithinOneYear, MiscellaneousObligationsPayableAfterOneYear, AccruedInterestMiscellaneousObligations, InterestChargedToConstructionOrOtherInvestmentAccountMiscellaneousObligations, InterestPaidMiscellaneousObligations)
 
         $sum1 = [@@concept in $elementsList]; 
+<<<<<<< HEAD
         $addend = sum(list([@@concept in $elementsList @MiscellaneousObligationsLongTermDebtAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @@concept in $elementsList @MiscellaneousObligationsLongTermDebtAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -357,7 +389,11 @@ else
         $elementsList = list(DebtToAffiliatedCompaniesPayableWithinOneYear, DebtToAffiliatedCompaniesPayableAfterOneYear, AccruedInterestDebtToAffiliatedCompanies, InterestChargedToConstructionOrOtherInvestmentAccountDebtToAffiliatedCompanies, InterestPaidDebtToAffiliatedCompanies)
 
         $sum1 = [@@concept in $elementsList]; 
+<<<<<<< HEAD
         $addend = sum(list([@@concept in $elementsList @DebtToAffiliatedCompaniesLongTermDebtAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @@concept in $elementsList @DebtToAffiliatedCompaniesLongTermDebtAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else

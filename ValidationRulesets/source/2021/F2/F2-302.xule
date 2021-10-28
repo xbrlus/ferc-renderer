@@ -11,7 +11,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RevenuesForTransitionCostsAndTakeOrPay]; 
+<<<<<<< HEAD
  $addend = sum(list([@RevenuesForTransitionCostsAndTakeOrPay @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @RevenuesForTransitionCostsAndTakeOrPay @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -34,7 +38,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RevenuesFromGRIAndACA]; 
+<<<<<<< HEAD
  $addend = sum(list([@RevenuesFromGRIAndACA @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @RevenuesFromGRIAndACA @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -57,7 +65,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OtherRevenues]; 
+<<<<<<< HEAD
  $addend = sum(list([@OtherRevenues @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @OtherRevenues @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -80,7 +92,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities]; 
+<<<<<<< HEAD
  $addend = sum(list([@RevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @RevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -103,7 +119,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@DekathermOfNaturalGas]; 
+<<<<<<< HEAD
  $addend = sum(list([@DekathermOfNaturalGas @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @DekathermOfNaturalGas @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

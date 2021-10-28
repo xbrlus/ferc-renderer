@@ -8,7 +8,11 @@ assert F60.9.1 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@MiscellaneousDeferredDebits]; 
+<<<<<<< HEAD
  $addend = sum(list([@MiscellaneousDeferredDebits @MiscellaneousDeferredDebitsAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @MiscellaneousDeferredDebits @MiscellaneousDeferredDebitsAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

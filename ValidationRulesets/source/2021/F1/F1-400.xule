@@ -9,7 +9,11 @@ $rule_id = rule-name();
 
 for $concept in $elementsToSum
  $sum1 = [@concept = $concept]; 
+<<<<<<< HEAD
  $addend = sum(list([@concept = $concept @MonthAxis in $monthMembers @NameOfTransmissionSystemAxis=* ])#breakdown);
+=======
+ $addend = sum(list([nonils @concept = $concept @MonthAxis in $monthMembers @NameOfTransmissionSystemAxis=* ])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -34,7 +38,11 @@ $QuarterMembers = list(Quarter1Member,Quarter2Member,Quarter3Member,Quarter4Memb
 
 for $concept in $elementsToSum
  $sum1 = [@concept = $concept]; 
+<<<<<<< HEAD
  $addend = sum(list([@concept = $concept @MonthAxis in $QuarterMembers @NameOfTransmissionSystemAxis=* ])#breakdown);
+=======
+ $addend = sum(list([nonils @concept = $concept @MonthAxis in $QuarterMembers @NameOfTransmissionSystemAxis=* ])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else

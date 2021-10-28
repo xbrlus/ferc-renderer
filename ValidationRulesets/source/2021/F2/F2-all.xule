@@ -161,11 +161,24 @@ $EnergyUnits = $associatedUnits[$energy_facts.concept];
 if $EnergyUnits.contains(none)
 	false
 else
+<<<<<<< HEAD
 	$energy_facts.unit.numerator.string not in  $EnergyUnits
 
 message
 
 "The value for {$energy_facts.concept.name.local-name} with a value of {$energy_facts} has a unit of {$energy_facts.unit.numerator}. This concept allows units of {$EnergyUnits.join(',')}.
+=======
+	if $energy_facts.concept.name == ElectricityForCompressorStation
+		$EnergyUnitString = 'utr:kWh';
+		not ($energy_facts.unit.numerator == utr:kWh)
+	else
+		$EnergyUnitString = $EnergyUnits.join(',');
+		$energy_facts.unit.numerator.string not in $EnergyUnits
+
+message
+
+"The value for {$energy_facts.concept.name.local-name} with a value of {$energy_facts} has a unit of {$energy_facts.unit.numerator}. This concept allows units of {$EnergyUnitString}.
+>>>>>>> origin/2021-01-01
 
 Element : {$energy_facts.concept.name}
 Period : {$energy_facts.period}

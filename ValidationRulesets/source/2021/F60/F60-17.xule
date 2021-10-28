@@ -8,7 +8,11 @@ assert F60.17.1 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@DirectCostsChargedToAssociateCompanies]; 
+<<<<<<< HEAD
  $addend = sum(list([@DirectCostsChargedToAssociateCompanies @AnalysisOfBillingAssociateCompaniesAxis=*])#breakdown)
+=======
+ $addend = sum(list([nonils @DirectCostsChargedToAssociateCompanies @AnalysisOfBillingAssociateCompaniesAxis=*])#breakdown)
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -28,7 +32,11 @@ assert F60.17.2 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@IndirectCostsChargedToAssociateCompanies]; 
+<<<<<<< HEAD
  $addend = sum(list([@IndirectCostsChargedToAssociateCompanies @AnalysisOfBillingAssociateCompaniesAxis=*])#breakdown)
+=======
+ $addend = sum(list([nonils @IndirectCostsChargedToAssociateCompanies @AnalysisOfBillingAssociateCompaniesAxis=*])#breakdown)
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -48,7 +56,11 @@ assert F60.17.3 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@CompensationForUseOfCapitalAssociateCompanies]; 
+<<<<<<< HEAD
  $addend = sum(list([@CompensationForUseOfCapitalAssociateCompanies @AnalysisOfBillingAssociateCompaniesAxis=*])#breakdown)
+=======
+ $addend = sum(list([nonils @CompensationForUseOfCapitalAssociateCompanies @AnalysisOfBillingAssociateCompaniesAxis=*])#breakdown)
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -68,7 +80,11 @@ assert F60.17.4 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@ServicesRenderedToAssociateCompanies]; 
+<<<<<<< HEAD
  $addend = sum(list([@ServicesRenderedToAssociateCompanies @AnalysisOfBillingAssociateCompaniesAxis=*])#breakdown)
+=======
+ $addend = sum(list([nonils @ServicesRenderedToAssociateCompanies @AnalysisOfBillingAssociateCompaniesAxis=*])#breakdown)
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

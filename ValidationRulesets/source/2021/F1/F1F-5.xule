@@ -39,7 +39,11 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first
         skip
 else
  $sum1 = [@AdjustmentsToRetainedEarningsCredit]; 
+<<<<<<< HEAD
  $addend = sum(list([@AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -62,7 +66,11 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first
         skip
 else
  $sum1 = [@AdjustmentsToRetainedEarningsDebit]; 
+<<<<<<< HEAD
  $addend = sum(list([@AdjustmentsToRetainedEarningsDebit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @AdjustmentsToRetainedEarningsDebit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -85,7 +93,11 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first
         skip
 else
  $sum1 = [@AppropriationsOfRetainedEarnings]; 
+<<<<<<< HEAD
  $addend = sum(list([@AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -108,7 +120,11 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first
         skip
 else
  $sum1 = [@DividendsDeclaredPreferredStock]; 
+<<<<<<< HEAD
  $addend = sum(list([@DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -131,7 +147,11 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first
         skip
 else
  $sum1 = [@DividendsDeclaredCommonStock]; 
+<<<<<<< HEAD
  $addend = sum(list([@DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -154,7 +174,11 @@ if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first
         skip
 else
  $sum1 = [@AppropriatedRetainedEarnings]; 
+<<<<<<< HEAD
  $addend = sum(list([@AppropriatedRetainedEarnings @RetainedEarningsAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @AppropriatedRetainedEarnings @RetainedEarningsAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else

@@ -9,7 +9,11 @@ $rule_id = rule-name();
 
  $sum1 = [@FuelStockExpensesUndistributedLabor];
  
+<<<<<<< HEAD
  $addend = sum(list([@FuelStockExpensesUndistributedLabor @FuelStockExpensesUndistributedAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @FuelStockExpensesUndistributedLabor @FuelStockExpensesUndistributedAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -29,7 +33,11 @@ assert F60.6.2 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@FuelStockExpensesUndistributedExpenses];
+<<<<<<< HEAD
   $addend = sum(list([@FuelStockExpensesUndistributedExpenses @FuelStockExpensesUndistributedAxis=*])#breakdown);
+=======
+  $addend = sum(list([nonils @FuelStockExpensesUndistributedExpenses @FuelStockExpensesUndistributedAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -49,7 +57,11 @@ assert F60.6.3 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@FuelStockExpensesUndistributed];
+<<<<<<< HEAD
   $addend = sum(list([@FuelStockExpensesUndistributed @FuelStockExpensesUndistributedAxis=*])#breakdown);
+=======
+  $addend = sum(list([nonils @FuelStockExpensesUndistributed @FuelStockExpensesUndistributedAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

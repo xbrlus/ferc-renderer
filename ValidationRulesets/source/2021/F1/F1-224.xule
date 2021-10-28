@@ -11,7 +11,11 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentInSubsidiaryCompanies]; 
+<<<<<<< HEAD
  $addend = sum(list([@InvestmentInSubsidiaryCompanies @SubsidiaryCompanyAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @InvestmentInSubsidiaryCompanies @SubsidiaryCompanyAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -34,7 +38,11 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@EquityInEarningsOfSubsidiaryCompanies @period=$currentDuration]; 
+<<<<<<< HEAD
  $addend = sum(list([@EquityInEarningsOfSubsidiaryCompanies @SubsidiaryCompanyAxis=* @period=$currentDuration])#breakdown);
+=======
+ $addend = sum(list([nonils @EquityInEarningsOfSubsidiaryCompanies @SubsidiaryCompanyAxis=* @period=$currentDuration])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -57,7 +65,11 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InterestAndDividendRevenueFromInvestments @period=$currentDuration]; 
+<<<<<<< HEAD
         $addend = sum(list([@InterestAndDividendRevenueFromInvestments @SubsidiaryCompanyAxis=* @period=$currentDuration])#breakdown);
+=======
+        $addend = sum(list([nonils @InterestAndDividendRevenueFromInvestments @SubsidiaryCompanyAxis=* @period=$currentDuration])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
         skip
 else
@@ -76,7 +88,11 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentGainLossOnDisplosal @period=$currentDuration]; 
+<<<<<<< HEAD
  $addend = sum(list([@InvestmentGainLossOnDisplosal @SubsidiaryCompanyAxis=* @period=$currentDuration])#breakdown);
+=======
+ $addend = sum(list([nonils @InvestmentGainLossOnDisplosal @SubsidiaryCompanyAxis=* @period=$currentDuration])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -99,7 +115,11 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = {@InvestmentsInSubsidiaryCompaniesAxis=none @SubsidiaryCompanyAxis=*}; 
+<<<<<<< HEAD
  $addend = sum(list({@InvestmentsInSubsidiaryCompaniesAxis=* @SubsidiaryCompanyAxis=*}));
+=======
+ $addend = sum(list({nonils @InvestmentsInSubsidiaryCompaniesAxis=* @SubsidiaryCompanyAxis=*}));
+>>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of {$sum1.concept.name} sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for the subtotal by SubsidiaryCompanyAxis. 

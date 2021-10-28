@@ -33,7 +33,11 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
         skip
 else
  $sum1 = [@MegawattHoursPurchased]; 
+<<<<<<< HEAD
  $addend = sum(list([@MegawattHoursPurchased @PurchasedPowerAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @MegawattHoursPurchased @PurchasedPowerAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -56,7 +60,11 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
         skip
 else
  $sum1 = [@EnergyReceivedThroughPowerExchanges]; 
+<<<<<<< HEAD
  $addend = sum(list([@EnergyReceivedThroughPowerExchanges @PurchasedPowerAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @EnergyReceivedThroughPowerExchanges @PurchasedPowerAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -79,7 +87,11 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
         skip
 else
  $sum1 = [@EnergyDeliveredThroughPowerExchanges]; 
+<<<<<<< HEAD
  $addend = sum(list([@EnergyDeliveredThroughPowerExchanges @PurchasedPowerAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @EnergyDeliveredThroughPowerExchanges @PurchasedPowerAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -102,7 +114,11 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
         skip
 else
  $sum1 = [@DemandChargesOfPurchasedPower]; 
+<<<<<<< HEAD
  $addend = sum(list([@DemandChargesOfPurchasedPower @PurchasedPowerAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @DemandChargesOfPurchasedPower @PurchasedPowerAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -125,7 +141,11 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
         skip
 else
  $sum1 = [@EnergyChargesOfPurchasedPower]; 
+<<<<<<< HEAD
  $addend = sum(list([@EnergyChargesOfPurchasedPower @PurchasedPowerAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @EnergyChargesOfPurchasedPower @PurchasedPowerAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -148,7 +168,11 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
         skip
 else
  $sum1 = [@OtherChargesOfPurchasedPower]; 
+<<<<<<< HEAD
  $addend = sum(list([@OtherChargesOfPurchasedPower @PurchasedPowerAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @OtherChargesOfPurchasedPower @PurchasedPowerAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -171,7 +195,11 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
         skip
 else
  $sum1 = [@SettlementOfPower]; 
+<<<<<<< HEAD
  $addend = sum(list([@SettlementOfPower @PurchasedPowerAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @SettlementOfPower @PurchasedPowerAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else

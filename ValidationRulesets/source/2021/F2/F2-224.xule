@@ -11,7 +11,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@CostOfInvestmentsInSubsidiaryCompanies]; 
+<<<<<<< HEAD
  $addend = sum(list([@CostOfInvestmentsInSubsidiaryCompanies @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @CostOfInvestmentsInSubsidiaryCompanies @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -34,7 +38,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentInSubsidiaryCompanies]; 
+<<<<<<< HEAD
  $addend = sum(list([@InvestmentInSubsidiaryCompanies @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @InvestmentInSubsidiaryCompanies @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -57,7 +65,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@EquityInEarningsOfSubsidiaryCompanies]; 
+<<<<<<< HEAD
  $addend = sum(list([@EquityInEarningsOfSubsidiaryCompanies @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @EquityInEarningsOfSubsidiaryCompanies @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -80,7 +92,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InterestAndDividendRevenueFromInvestments]; 
+<<<<<<< HEAD
  $addend = sum(list([@InterestAndDividendRevenueFromInvestments @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @InterestAndDividendRevenueFromInvestments @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -103,7 +119,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentGainLossOnDisplosal]; 
+<<<<<<< HEAD
  $addend = sum(list([@InvestmentGainLossOnDisplosal @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @InvestmentGainLossOnDisplosal @SubsidiaryCompaniesInvestmentsInAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

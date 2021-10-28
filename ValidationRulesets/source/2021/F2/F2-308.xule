@@ -21,7 +21,11 @@ else
  + [@GainsOnSettlementsOfImbalanceReceivablesAndPayables]
  + [@RevenuesFromPenaltiesEarnedPursuantToTariffProvisionsIncludingPenaltiesAssociatedWithCashOutSettlements]
  + [@RevenuesFromShipperSuppliedGas]
+<<<<<<< HEAD
  + sum(list([@OtherMiscellanousGasRevenues @OtherGasRevenuesAxis=*])));
+=======
+ + sum(list([nonils @OtherMiscellanousGasRevenues @OtherGasRevenuesAxis=*])));
+>>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The company has reported a value for OtherGasRevenues with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}

@@ -8,7 +8,11 @@ assert F60.18.1 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@DirectCostsChargedToNonAssociateCompanies]; 
+<<<<<<< HEAD
  $addend = sum(list([@DirectCostsChargedToNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @DirectCostsChargedToNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -28,7 +32,11 @@ assert F60.18.2 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@IndirectCostsChargedToNonAssociateCompanies]; 
+<<<<<<< HEAD
  $addend = sum(list([@IndirectCostsChargedToNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @IndirectCostsChargedToNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -48,7 +56,11 @@ assert F60.18.3 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@CompensationForUseOfCapitalNonAssociateCompanies]; 
+<<<<<<< HEAD
  $addend = sum(list([@CompensationForUseOfCapitalNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @CompensationForUseOfCapitalNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -68,7 +80,11 @@ assert F60.18.4 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@ExcessOrDeficiencyOnServicingNonAssociateUtilityCompanies]; 
+<<<<<<< HEAD
  $addend = sum(list([@ExcessOrDeficiencyOnServicingNonAssociateUtilityCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @ExcessOrDeficiencyOnServicingNonAssociateUtilityCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -88,7 +104,11 @@ assert F60.18.5 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@ServicesRenderedToNonAssociateCompanies]; 
+<<<<<<< HEAD
  $addend = sum(list([@ServicesRenderedToNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @ServicesRenderedToNonAssociateCompanies @AnalysisOfBillingNonAssociateCompaniesAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

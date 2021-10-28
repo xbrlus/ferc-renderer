@@ -11,7 +11,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+=======
+$OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([nonils @OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@VolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]; 
  $addend = ([@NoNoticeTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
@@ -37,7 +41,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+=======
+$OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([nonils @OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@VolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]; 
  $addend = ([@NoNoticeTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
@@ -63,7 +71,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+=======
+$OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([nonils @OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@VolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]; 
  $addend = ([@NoNoticeTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
@@ -118,7 +130,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+=======
+$OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([nonils @OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@VolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]; 
  $addend = ([@NoNoticeStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
@@ -145,7 +161,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+=======
+$OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([nonils @OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@VolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]; 
  $addend = ([@NoNoticeStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
@@ -171,7 +191,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+=======
+$OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([nonils @OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@VolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]; 
  $addend = ([@NoNoticeStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
@@ -198,7 +222,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+=======
+$OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([nonils @OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@OtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]; 
  $addend = ([@GasWithdrawnFromStorageForSystemOperationsOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]
@@ -224,7 +252,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+=======
+$OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([nonils @OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@OtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]; 
  $addend = ([@GasWithdrawnFromStorageForSystemOperationsOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]
@@ -250,7 +282,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+=======
+$OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([nonils @OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@OtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]; 
  $addend = ([@GasWithdrawnFromStorageForSystemOperationsOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]#f1
@@ -280,7 +316,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+=======
+$OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([nonils @OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@VolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]; 
  $addend = ([@NoNoticeTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
@@ -306,7 +346,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+=======
+$OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([nonils @OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@VolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]; 
  $addend = ([@NoNoticeTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
@@ -332,7 +376,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+=======
+$OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([nonils @OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@VolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]; 
  $addend = ([@NoNoticeTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
@@ -358,7 +406,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+=======
+$OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([nonils @OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@VolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]; 
  $addend = ([@NoNoticeStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
@@ -385,7 +437,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+=======
+$OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([nonils @OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@VolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]; 
  $addend = ([@NoNoticeStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
@@ -411,7 +467,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+=======
+$OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([nonils @OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@VolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]; 
  $addend = ([@NoNoticeStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
@@ -438,7 +498,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+=======
+$OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([nonils @OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@OtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]; 
  $addend = ([@GasWithdrawnFromStorageForSystemOperationsOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]
@@ -464,7 +528,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+=======
+$OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([nonils @OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@OtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]; 
  $addend = ([@GasWithdrawnFromStorageForSystemOperationsOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]
@@ -490,7 +558,11 @@ $rule_id = rule-name();
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
+<<<<<<< HEAD
 $OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+=======
+$OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([nonils @OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+>>>>>>> origin/2021-01-01
 
  $sum1 = [@OtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]; 
  $addend = ([@GasWithdrawnFromStorageForSystemOperationsOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]#f1

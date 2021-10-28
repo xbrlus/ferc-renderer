@@ -11,7 +11,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = {@MilesOfGatheringLinesOperated @MilesOfPipelineOperatedAxis = none}; 
+<<<<<<< HEAD
         $addend = sum(list({@MilesOfGatheringLinesOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+=======
+        $addend = sum(list({nonils @MilesOfGatheringLinesOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -35,7 +39,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = {@MilesOfTrunkLinesForCrudeOilOperated @MilesOfPipelineOperatedAxis = none}; 
+<<<<<<< HEAD
         $addend = sum(list({@MilesOfTrunkLinesForCrudeOilOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+=======
+        $addend = sum(list({nonils @MilesOfTrunkLinesForCrudeOilOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -59,7 +67,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = {@MilesOfTrunkLinesForProductsOperated @MilesOfPipelineOperatedAxis = none}; 
+<<<<<<< HEAD
         $addend = sum(list({@MilesOfTrunkLinesForProductsOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+=======
+        $addend = sum(list({nonils @MilesOfTrunkLinesForProductsOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -83,7 +95,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = {@IncreaseMilesOfGatheringLinesOperated @MilesOfPipelineOperatedAxis = none}; 
+<<<<<<< HEAD
         $addend = sum(list({@IncreaseMilesOfGatheringLinesOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+=======
+        $addend = sum(list({nonils @IncreaseMilesOfGatheringLinesOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+>>>>>>> origin/2021-01-01
          if $addend == none
                 skip
         else
@@ -107,7 +123,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = {@IncreaseMilesOfTrunkLinesForCrudeOilOperated @MilesOfPipelineOperatedAxis = none};
+<<<<<<< HEAD
         $addend = sum(list({@IncreaseMilesOfTrunkLinesForCrudeOilOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+=======
+        $addend = sum(list({nonils @IncreaseMilesOfTrunkLinesForCrudeOilOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -131,7 +151,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = {@IncreaseMilesOfTrunkLinesForProductsOperated @MilesOfPipelineOperatedAxis = none};
+<<<<<<< HEAD
         $addend = sum(list({@IncreaseMilesOfTrunkLinesForProductsOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+=======
+        $addend = sum(list({nonils @IncreaseMilesOfTrunkLinesForProductsOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+>>>>>>> origin/2021-01-01
          if $addend == none
                 skip
         else
@@ -155,7 +179,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = {@DecreaseMilesOfGatheringLinesOperated @MilesOfPipelineOperatedAxis = none};
+<<<<<<< HEAD
         $addend = sum(list({@DecreaseMilesOfGatheringLinesOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+=======
+        $addend = sum(list({nonils @DecreaseMilesOfGatheringLinesOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -179,7 +207,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = {@DecreaseMilesOfTrunkLinesForCrudeOilOperated @MilesOfPipelineOperatedAxis = none};
+<<<<<<< HEAD
         $addend = sum(list({@DecreaseMilesOfTrunkLinesForCrudeOilOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+=======
+        $addend = sum(list({nonils @DecreaseMilesOfTrunkLinesForCrudeOilOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -203,7 +235,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = {@DecreaseMilesOfTrunkLinesForProductsOperated @MilesOfPipelineOperatedAxis = none}; 
+<<<<<<< HEAD
         $addend = sum(list({@DecreaseMilesOfTrunkLinesForProductsOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+=======
+        $addend = sum(list({nonils @DecreaseMilesOfTrunkLinesForProductsOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+>>>>>>> origin/2021-01-01
          if $addend == none
                 skip
         else
@@ -227,7 +263,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@MilesOfGatheringLinesOperated]; 
+<<<<<<< HEAD
         $addend = sum(list([@MilesOfGatheringLinesOperated @OwnershipAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @MilesOfGatheringLinesOperated @OwnershipAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -250,7 +290,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@MilesOfTrunkLinesForCrudeOilOperated]; 
+<<<<<<< HEAD
         $addend = sum(list([@MilesOfTrunkLinesForCrudeOilOperated @OwnershipAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @MilesOfTrunkLinesForCrudeOilOperated @OwnershipAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
          if $addend == none
                 skip
         else
@@ -273,7 +317,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@MilesOfTrunkLinesForProductsOperated]; 
+<<<<<<< HEAD
         $addend = sum(list([@MilesOfTrunkLinesForProductsOperated @OwnershipAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @MilesOfTrunkLinesForProductsOperated @OwnershipAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
          if $addend == none
                 skip
         else
@@ -296,7 +344,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@IncreaseMilesOfGatheringLinesOperated]; 
+<<<<<<< HEAD
         $addend = sum(list([@IncreaseMilesOfGatheringLinesOperated @OwnershipAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @IncreaseMilesOfGatheringLinesOperated @OwnershipAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
          if $addend == none
                 skip
         else
@@ -319,7 +371,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@IncreaseMilesOfTrunkLinesForCrudeOilOperated]; 
+<<<<<<< HEAD
         $addend = sum(list([@IncreaseMilesOfTrunkLinesForCrudeOilOperated @OwnershipAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @IncreaseMilesOfTrunkLinesForCrudeOilOperated @OwnershipAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -342,7 +398,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@IncreaseMilesOfTrunkLinesForProductsOperated]; 
+<<<<<<< HEAD
         $addend = sum(list([@IncreaseMilesOfTrunkLinesForProductsOperated @OwnershipAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @IncreaseMilesOfTrunkLinesForProductsOperated @OwnershipAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -365,7 +425,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@DecreaseMilesOfGatheringLinesOperated]; 
+<<<<<<< HEAD
         $addend = sum(list([@DecreaseMilesOfGatheringLinesOperated @OwnershipAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @DecreaseMilesOfGatheringLinesOperated @OwnershipAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
          if $addend == none
                 skip
         else
@@ -388,7 +452,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@DecreaseMilesOfTrunkLinesForCrudeOilOperated]; 
+<<<<<<< HEAD
         $addend = sum(list([@DecreaseMilesOfTrunkLinesForCrudeOilOperated @OwnershipAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @DecreaseMilesOfTrunkLinesForCrudeOilOperated @OwnershipAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -411,7 +479,11 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@DecreaseMilesOfTrunkLinesForProductsOperated]; 
+<<<<<<< HEAD
         $addend = sum(list([@DecreaseMilesOfTrunkLinesForProductsOperated @OwnershipAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @DecreaseMilesOfTrunkLinesForProductsOperated @OwnershipAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
          if $addend == none
                 skip
         else

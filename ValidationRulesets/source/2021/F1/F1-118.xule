@@ -35,7 +35,11 @@ if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list
         skip
 else
  $sum1 = [@AdjustmentsToRetainedEarningsCredit]; 
+<<<<<<< HEAD
  $addend = sum(list([@AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -58,7 +62,11 @@ if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list
         skip
 else
  $sum1 = [@AdjustmentsToRetainedEarningsDebit]; 
+<<<<<<< HEAD
  $addend = sum(list([@AdjustmentsToRetainedEarningsDebit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @AdjustmentsToRetainedEarningsDebit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -81,7 +89,11 @@ if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list
         skip
 else
  $sum1 = [@AppropriationsOfRetainedEarnings]; 
+<<<<<<< HEAD
  $addend = sum(list([@AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  
 if $addend == none
  	skip
@@ -105,7 +117,11 @@ if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list
         skip
 else
  $sum1 = [@DividendsDeclaredPreferredStock]; 
+<<<<<<< HEAD
  $addend = sum(list([@DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=*]))#breakdown;
+=======
+ $addend = sum(list([nonils @DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -128,7 +144,11 @@ if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list
         skip
 else
  $sum1 = [@DividendsDeclaredCommonStock]; 
+<<<<<<< HEAD
  $addend = sum(list([@DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=*]))#breakdown;
+=======
+ $addend = sum(list([nonils @DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -151,7 +171,11 @@ if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list
         skip
 else
  $sum1 = [@AppropriatedRetainedEarnings]; 
+<<<<<<< HEAD
  $addend = sum(list([@AppropriatedRetainedEarnings @RetainedEarningsAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @AppropriatedRetainedEarnings @RetainedEarningsAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -288,7 +312,11 @@ else
                 $addend = ([@UnappropriatedUndistributedSubsidiaryEarnings @period=$priorInstant]#f0 
                 + [@EquityInEarningsOfSubsidiaryCompanies @period=$currentDuration]#f1 
                 - [@DividendsReceived @period=$currentDuration]#f2
+<<<<<<< HEAD
                 + (sum(list([@ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=* @period=$currentDuration]#f3
+=======
+                + (sum(list([nonils @ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=* @period=$currentDuration]#f3
+>>>>>>> origin/2021-01-01
                 ))));
                 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
@@ -316,7 +344,11 @@ else
  $addend = ([@UnappropriatedUndistributedSubsidiaryEarnings @period=$prior2Instant]#f0 
  + [@EquityInEarningsOfSubsidiaryCompanies @period=$priorDuration]#f1
  - [@DividendsReceived @period=$priorDuration]#f2
+<<<<<<< HEAD
  + (sum(list([@ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=* @period=$priorDuration]#f3
+=======
+ + (sum(list([nonils @ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=* @period=$priorDuration]#f3
+>>>>>>> origin/2021-01-01
 ))));
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 

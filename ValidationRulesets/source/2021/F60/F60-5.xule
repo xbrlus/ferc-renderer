@@ -8,7 +8,11 @@ assert F60.5.1 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@AccountsReceivableFromAssociateCompanies]; 
+<<<<<<< HEAD
  $addend = sum(list([@AccountsReceivableFromAssociateCompanies @AccountsReceivableFromAssociateCompaniesAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @AccountsReceivableFromAssociateCompanies @AccountsReceivableFromAssociateCompaniesAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

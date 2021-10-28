@@ -26,7 +26,11 @@ assert F60.12.2 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@AdvancesFromAssociateCompaniesAdjustments]; 
+<<<<<<< HEAD
  $addend = sum(list([@AdvancesFromAssociateCompaniesAdjustments @AdvancesFromAssociateCompaniesAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @AdvancesFromAssociateCompaniesAdjustments @AdvancesFromAssociateCompaniesAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -46,7 +50,11 @@ assert F60.12.3 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@AdvancesFromAssociateCompanies]; 
+<<<<<<< HEAD
  $addend = sum(list([@AdvancesFromAssociateCompanies @AdvancesFromAssociateCompaniesAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @AdvancesFromAssociateCompanies @AdvancesFromAssociateCompaniesAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -86,7 +94,11 @@ assert F60.12.5 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@OtherLongTermDebtAdjustments]; 
+<<<<<<< HEAD
  $addend = sum(list([@OtherLongTermDebtAdjustments @OtherLongTermDebtAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @OtherLongTermDebtAdjustments @OtherLongTermDebtAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -106,7 +118,11 @@ assert F60.12.6 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@OtherLongTermDebt]; 
+<<<<<<< HEAD
  $addend = sum(list([@OtherLongTermDebt @OtherLongTermDebtAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @OtherLongTermDebt @OtherLongTermDebtAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

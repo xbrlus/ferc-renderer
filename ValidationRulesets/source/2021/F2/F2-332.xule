@@ -11,7 +11,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@TransmissionAndCompressionOfGasByOthers]; 
+<<<<<<< HEAD
  $addend = sum(list([@TransmissionAndCompressionOfGasByOthers @TransmissionAndCompressionOfGasByOthersAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @TransmissionAndCompressionOfGasByOthers @TransmissionAndCompressionOfGasByOthersAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -34,7 +38,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@QuantityOfNaturalGasDeliveredByUtilityDeliveriesOfGasToOthersForTransportation]; 
+<<<<<<< HEAD
  $addend = sum(list([@QuantityOfNaturalGasDeliveredByUtilityDeliveriesOfGasToOthersForTransportation @TransmissionAndCompressionOfGasByOthersAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @QuantityOfNaturalGasDeliveredByUtilityDeliveriesOfGasToOthersForTransportation @TransmissionAndCompressionOfGasByOthersAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

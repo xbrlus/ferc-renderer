@@ -171,7 +171,11 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@@concept in $TotalsFor276 @AccumulatedDeferredIncomeTaxByElectricTypeAxis=none @UtilityTypeAxis=ElectricUtilityMember where $fact.is-monetary]; 
+<<<<<<< HEAD
  $addend = sum(list([@@concept in $TotalsFor276 @AccumulatedDeferredIncomeTaxByElectricTypeAxis=* @UtilityTypeAxis=ElectricUtilityMember where $fact.is-monetary])#breakdown);
+=======
+ $addend = sum(list([nonils @@concept in $TotalsFor276 @AccumulatedDeferredIncomeTaxByElectricTypeAxis=* @UtilityTypeAxis=ElectricUtilityMember where $fact.is-monetary])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -194,7 +198,11 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@@concept in $TotalsFor276 @AccumulatedDeferredIncomeTaxByGasTypeAxis=none @UtilityTypeAxis=GasUtilityMember where $fact.is-monetary]; 
+<<<<<<< HEAD
  $addend = sum(list([@@concept in $TotalsFor276 @AccumulatedDeferredIncomeTaxByGasTypeAxis = * @UtilityTypeAxis=GasUtilityMember where $fact.is-monetary])#breakdown);
+=======
+ $addend = sum(list([nonils @@concept in $TotalsFor276 @AccumulatedDeferredIncomeTaxByGasTypeAxis = * @UtilityTypeAxis=GasUtilityMember where $fact.is-monetary])#breakdown);
+>>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -220,7 +228,11 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@@concept in $TotalsFor276 @AccumulatedDeferredIncomeTaxByOtherAxis=none @UtilityTypeAxis=OtherUtilityMember where $fact.is-monetary]; 
+<<<<<<< HEAD
  $addend = sum(list([@@concept in $TotalsFor276 @AccumulatedDeferredIncomeTaxByOtherAxis = * @UtilityTypeAxis=OtherUtilityMember where $fact.is-monetary]));
+=======
+ $addend = sum(list([nonils @@concept in $TotalsFor276 @AccumulatedDeferredIncomeTaxByOtherAxis = * @UtilityTypeAxis=OtherUtilityMember where $fact.is-monetary]));
+>>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of OtherUtilityMember sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregted by the axis AccumulatedDeferredIncomeTaxByOtherAxis. 

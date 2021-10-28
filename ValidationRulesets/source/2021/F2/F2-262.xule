@@ -45,7 +45,11 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@TaxesAccrued]; 
+<<<<<<< HEAD
         $addend = sum(list([@TaxesAccrued @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @TaxesAccrued @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -69,7 +73,11 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@PrepaidTaxes]; 
+<<<<<<< HEAD
  $addend = sum(list([@PrepaidTaxes @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @PrepaidTaxes @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -92,7 +100,11 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@TaxesCharged]; 
+<<<<<<< HEAD
  $addend = sum(list([@TaxesCharged @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @TaxesCharged @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -115,7 +127,11 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@TaxesPaid]; 
+<<<<<<< HEAD
  $addend = sum(list([@TaxesPaid @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @TaxesPaid @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -138,7 +154,11 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@TaxAdjustments]; 
+<<<<<<< HEAD
  $addend = sum(list([@TaxAdjustments @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @TaxAdjustments @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -161,7 +181,11 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OtherIncomeAndDeductions]; 
+<<<<<<< HEAD
  $addend = sum(list([@OtherIncomeAndDeductions @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @OtherIncomeAndDeductions @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -184,7 +208,11 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@IncomeTaxesExtraordinaryItems]; 
+<<<<<<< HEAD
  $addend = sum(list([@IncomeTaxesExtraordinaryItems @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @IncomeTaxesExtraordinaryItems @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -207,7 +235,11 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@AdjustmentsToRetainedEarnings]; 
+<<<<<<< HEAD
  $addend = sum(list([@AdjustmentsToRetainedEarnings @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @AdjustmentsToRetainedEarnings @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -230,7 +262,11 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@TaxesIncurredOther]; 
+<<<<<<< HEAD
  $addend = sum(list([@TaxesIncurredOther @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @TaxesIncurredOther @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -320,7 +356,11 @@ else
                 for $TaxItem in $TaxItems
                         $IncomeTaxMembers = list([covered @TypeOfTax @TaxesAccruedPrepaidAndChargedAxis=* where $fact == $TaxType].dimension(TaxesAccruedPrepaidAndChargedAxis));
                         $sum2 = [@concept = $TaxItem @KindOfTaxAxis=$TaxTypeLookup[$TaxType] @unit=*]; 
+<<<<<<< HEAD
                         $addend = sum(list([@concept = $TaxItem @unit=* @TaxesAccruedPrepaidAndChargedAxis in $IncomeTaxMembers])#breakdown);
+=======
+                        $addend = sum(list([nonils @concept = $TaxItem @unit=* @TaxesAccruedPrepaidAndChargedAxis in $IncomeTaxMembers])#breakdown);
+>>>>>>> origin/2021-01-01
                         if $addend == none
                                 skip
                         else
@@ -348,7 +388,11 @@ else
         for $TaxType in $TaxTypeLookup.keys
                 $IncomeTaxMembers = list([covered @TypeOfTax @TaxesAccruedPrepaidAndChargedAxis=*  where $fact == $TaxType].dimension(TaxesAccruedPrepaidAndChargedAxis));
                 $sum1 = {@concept = TaxesAccruedPrepaidAndCharged @KindOfTaxAxis=$TaxTypeLookup[$TaxType] @@UtilityTypeAxis=* @unit=*}; 
+<<<<<<< HEAD
                 $addend = sum(list({@concept = TaxesAccruedPrepaidAndCharged @unit=* @@UtilityTypeAxis=* @TaxesAccruedPrepaidAndChargedAxis in $IncomeTaxMembers})#breakdown);
+=======
+                $addend = sum(list({nonils @concept = TaxesAccruedPrepaidAndCharged @unit=* @@UtilityTypeAxis=* @TaxesAccruedPrepaidAndChargedAxis in $IncomeTaxMembers})#breakdown);
+>>>>>>> origin/2021-01-01
                 if $addend == none
                         skip
                 else

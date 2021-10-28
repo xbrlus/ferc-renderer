@@ -11,7 +11,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@OutstandingHeldByRespondentReacquiredBonds]; 
+<<<<<<< HEAD
         $addend = sum(list([@OutstandingHeldByRespondentReacquiredBonds @ReAcquiredBondObligationsAxis=*])#breakdown);
+=======
+        $addend = sum(list([nonils @OutstandingHeldByRespondentReacquiredBonds @ReAcquiredBondObligationsAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -38,7 +42,11 @@ else
         $lineItems = list(Bonds, InterestExpenseBonds, OutstandingHeldByRespondentSinkingAndOtherFundsBonds);
 
         $sum1 = [@@concept in $lineItems @BondObligationsAxis = none where $fact.is-monetary]; 
+<<<<<<< HEAD
         $addend = sum(list([@@concept in $lineItems @BondObligationsAxis = * where $fact.is-monetary])#breakdown);
+=======
+        $addend = sum(list([nonils @@concept in $lineItems @BondObligationsAxis = * where $fact.is-monetary])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -65,7 +73,11 @@ else
         $lineItems = list(ReacquiredBonds, InterestExpenseReacquiredBonds, OutstandingHeldByRespondentReacquiredBonds, OutstandingHeldByRespondentSinkingAndOtherFundsReacquiredBonds);
 
         $sum1 = [@@concept in $lineItems @ReAcquiredBondObligationsAxis = none where $fact.is-monetary]; 
+<<<<<<< HEAD
         $addend = sum(list([@@concept in $lineItems @ReAcquiredBondObligationsAxis = * where $fact.is-monetary])#breakdown);
+=======
+        $addend = sum(list([nonils @@concept in $lineItems @ReAcquiredBondObligationsAxis = * where $fact.is-monetary])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -92,7 +104,11 @@ else
         $lineItems = list(AdvancesFromAssociatedCompanies, InterestExpenseDebtAdvancesFromAssociatedCompanies, OutstandingHeldByRespondentSinkingAndOtherFundsDebtAdvancesFromAssociatedCompanies);
 
         $sum1 = [@@concept in $lineItems @AdvancesFromAssociatedCompaniesAxis = none where $fact.is-monetary]; 
+<<<<<<< HEAD
         $addend = sum(list([@@concept in $lineItems @AdvancesFromAssociatedCompaniesAxis = * where $fact.is-monetary])#breakdown);
+=======
+        $addend = sum(list([nonils @@concept in $lineItems @AdvancesFromAssociatedCompaniesAxis = * where $fact.is-monetary])#breakdown);
+>>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -119,7 +135,11 @@ else
         $lineItems = list(OtherLongTermDebt, InterestExpenseOtherLongTermDebt, OutstandingHeldByRespondentSinkingAndOtherFundsOtherLongTermDebt);
 
         $sum1 = [@@concept in $lineItems @OtherLongTermDebtAxis = none where $fact.is-monetary]; 
+<<<<<<< HEAD
         $addend = sum(list([@@concept in $lineItems @OtherLongTermDebtAxis = * where $fact.is-monetary])#breakdown);
+=======
+        $addend = sum(list([nonils @@concept in $lineItems @OtherLongTermDebtAxis = * where $fact.is-monetary])#breakdown);
+>>>>>>> origin/2021-01-01
          if $addend == none
                 skip
         else

@@ -12,7 +12,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
 else
 	$sum811 = first-value([@GasUsedForProductsExtractionCredit @period=$currentDuration], ([@NaturalGasShrinkageAndOtherUsageInRespondentOwnProcessingCredit @period=$currentDuration] + [@NaturalGasShrinkageAndOtherUsageInRespondentGasProcessedByOthersCredit @period=$currentDuration]));
 
+<<<<<<< HEAD
 	$sum812 = first-value([@GasUsedForOtherUtilityOperationsCredit @period=$currentDuration],(sum(list([@GasUsedForOtherUtilityOperationsCredit @GasUsedInUtilityOperationsAxis=* @period=$currentDuration]))));
+=======
+	$sum812 = first-value([@GasUsedForOtherUtilityOperationsCredit @period=$currentDuration],(sum(list([nonils @GasUsedForOtherUtilityOperationsCredit @GasUsedInUtilityOperationsAxis=* @period=$currentDuration]))));
+>>>>>>> origin/2021-01-01
 
 	 $sum1 = [@GasUsedInUtilityOperationCredit @period=$currentDuration]; 
 	 $addend = ([@GasUsedForCompressorStationFuelCredit @period=$currentDuration]
@@ -38,7 +42,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
 else
 	$sum811-1 = first-value([@QuantityOfNaturalGasDeliveredByRespondentGasUsedForProductsExtraction @period=$currentDuration], ([@QuantityOfNaturalGasShrinkageAndOtherUsageInRespondentOwnProcessing @period=$currentDuration] + [@QuantityOfNaturalGasShrinkageAndOtherUsageInRespondentGasProcessedByOthers @period=$currentDuration]));
 
+<<<<<<< HEAD
 	$sum812-1 = first-value([@QuantityOfNaturalGasDeliveredByRespondentGasUsedForOtherUtilityOperations @period=$currentDuration],(sum(list([@QuantityOfNaturalGasDeliveredByRespondentGasUsedForOtherUtilityOperations @GasUsedInUtilityOperationsAxis=* @period=$currentDuration]))));
+=======
+	$sum812-1 = first-value([@QuantityOfNaturalGasDeliveredByRespondentGasUsedForOtherUtilityOperations @period=$currentDuration],(sum(list([nonils @QuantityOfNaturalGasDeliveredByRespondentGasUsedForOtherUtilityOperations @GasUsedInUtilityOperationsAxis=* @period=$currentDuration]))));
+>>>>>>> origin/2021-01-01
 
 	$sum1 = [@QuantityOfNaturalGasDeliveredByRespondentGasUsedInUtilityOperations @period=$currentDuration]; 
 	$addend = ([@QuantityOfNaturalGasDeliveredByUtilityGasUsedForCompressorStationFuel @period=$currentDuration]
@@ -62,7 +70,11 @@ if set('2-A').contains([covered @concept.local-name ='FormType'])
 	skip
 else
 	$sum1 = [@QuantityOfNaturalGasDeliveredByRespondentGasUsedInUtilityOperations]; 
+<<<<<<< HEAD
 	$addend = sum(list([@QuantityOfNaturalGasDeliveredByRespondentGasUsedInUtilityOperations @GasUsedInUtilityOperationsAxis=*])#breakdown);
+=======
+	$addend = sum(list([nonils @QuantityOfNaturalGasDeliveredByRespondentGasUsedInUtilityOperations @GasUsedInUtilityOperationsAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
 	if $addend == none
 		skip
 	else
@@ -86,7 +98,11 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
 else
 
  $sum1 = [@GasUsedInUtilityOperationCredit]; 
+<<<<<<< HEAD
  $addend = sum(list([@GasUsedInUtilityOperationCredit @GasUsedInUtilityOperationsAxis=*])#breakdown);
+=======
+ $addend = sum(list([nonils @GasUsedInUtilityOperationCredit @GasUsedInUtilityOperationsAxis=*])#breakdown);
+>>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

@@ -66,28 +66,28 @@
 
             "label": "Render Form 2 Schedule",
             "type": "shell",
-            "command": "Python3.9 ~/arelle/Arelle-master/arellecmdline.py --plugins 'xule | FERC/render' --ferc-render-render --ferc-render-template-set RenderingTemplates/TemplateSets/Form2/Form2/\"${input:F2ScheduleName}.zip\" -f ../SampleInstances/Sample_Form_2.xbrl  --ferc-render-inline ./OutputExample/\"${input:F2ScheduleName}.html\" --ferc-render-debug --packages ../Packages/Form_2-2021-01-01-${input:package_num}_package.zip"
+            "command": "Python3.9 ~/arelle/Arelle-master/arellecmdline.py --plugins 'xule | FERC/render' --ferc-render-render --ferc-render-template-set RenderingTemplates/TemplateSets/Form2/Form2/\"${input:F2ScheduleName}.zip\" -f SampleInstances/F2/Sample_Form_2.xbrl  --ferc-render-inline RenderedInstance/F2/Schedule/\"${input:F2ScheduleName}.html\" --ferc-render-debug --noCertificateCheck"
 
         },
         {
 
             "label": "Render Form 2Q Schedule",
             "type": "shell",
-            "command": "Python3.9 ~/arelle/Arelle-master/arellecmdline.py --plugins 'xule | FERC/render' --ferc-render-render --ferc-render-template-set RenderingTemplates/TemplateSets/Form2/Form2Q/\"${input:F2QScheduleName}.zip\" -f ../SampleInstances/Sample_Form_3Q_Gas.xbrl  --ferc-render-inline ./OutputExample/\"${input:F2QScheduleName}.html\" --ferc-render-debug --packages ../Packages/Form_2-2021-01-01-${input:package_num}_package.zip"
+            "command": "Python3.9 ~/arelle/Arelle-master/arellecmdline.py --plugins 'xule | FERC/render' --ferc-render-render --ferc-render-template-set RenderingTemplates/TemplateSets/Form2/Form2Q/\"${input:F2QScheduleName}.zip\" -f SampleInstances/F2/Sample_Form_3Q_Gas.xbrl  --ferc-render-inline RenderedInstance/F2/Schedule/\"${input:F2QScheduleName}.html\" --ferc-render-debug --noCertificateCheck"
 
         },
         {
 
             "label": "Render Form 2Q Error Schedule",
             "type": "shell",
-            "command": "Python3.9 ~/arelle/Arelle-master/arellecmdline.py --plugins 'xule | FERC/render' --ferc-render-render --ferc-render-template-set RenderingTemplates/TemplateSets/Form2/Form2Q/\"${input:F2QScheduleName}.zip\" -f ../SampleInstances/Sample_Form2_3Q_Gas.xbrl  --ferc-render-inline ./OutputExample/\"${input:F2QScheduleName}.html\" --ferc-render-debug --packages ../Packages/Form_2-2021-01-01-${input:package_num}_package.zip"
+            "command": "Python3.9 ~/arelle/Arelle-master/arellecmdline.py --plugins 'xule | FERC/render' --ferc-render-render --ferc-render-template-set RenderingTemplates/TemplateSets/Form2/Form2Q/\"${input:F2QScheduleName}.zip\" -f SampleInstances/F2/Sample_Form2_3Q_Gas.xbrl  --ferc-render-inline RenderedInstance/F2/Schedule/\"${input:F2QScheduleName}.html\" --ferc-render-debug --noCertificateCheck"
 
         },
         {
 
             "label": "Render Form 2A Schedule",
             "type": "shell",
-            "command": "Python3.9 ~/arelle/Arelle-master/arellecmdline.py --plugins 'xule | FERC/render' --ferc-render-render --ferc-render-template-set RenderingTemplates/TemplateSets/Form2/Form2A/\"${input:F2AScheduleName}.zip\" -f ../SampleInstances/Sample_Form_2A.xbrl  --ferc-render-inline ./OutputExample/\"${input:F2AScheduleName}.html\" --ferc-render-debug --packages ../Packages/Form_2-2021-01-01-${input:package_num}_package.zip"
+            "command": "Python3.9 ~/arelle/Arelle-master/arellecmdline.py --plugins 'xule | FERC/render' --ferc-render-render --ferc-render-template-set RenderingTemplates/TemplateSets/Form2/Form2A/\"${input:F2AScheduleName}.zip\" -f SampleInstances/F2/Sample_Form_2A.xbrl  --ferc-render-inline RenderedInstance/F2/Schedule/\"${input:F2AScheduleName}.html\" --ferc-render-debug --packages ../Packages/Form_2-2021-01-01-${input:package_num}_package.zip"
 
         },
         {
@@ -101,7 +101,7 @@
 
             "label": "Render & Open Form 2 Schedule",
             "type": "shell",
-            "command": "start chrome ./OutputExample/\"${input:F2ScheduleName}.html\"",
+            "command": "start chrome RenderedInstance/F2/Schedule/\"${input:F2ScheduleName}.html\"",
             "dependsOn": ["Render Form 2 Schedule"]
 
         },
@@ -109,7 +109,7 @@
 
             "label": "Render & Open Form 2Q Schedule",
             "type": "shell",
-            "command": "start chrome ./OutputExample/\"${input:F2QScheduleName}.html\"",
+            "command": "start chrome RenderedInstance/F2/Schedule/\"${input:F2QScheduleName}.html\"",
             "dependsOn": ["Render Form 2Q Schedule"]
 
         },
@@ -117,39 +117,11 @@
 
             "label": "Render & Open Form 2A Schedule",
             "type": "shell",
-            "command": "start chrome ./OutputExample/\"${input:F2AScheduleName}.html\"",
+            "command": "start chrome RenderedInstance/F2/Schedule/\"${input:F2AScheduleName}.html\"",
             "dependsOn": ["Render Form 2A Schedule"]
 
         },
-        {
-
-            "label": "Remove Artifact step 1",
-            "type": "shell",
-            "command": "del /f \"../Artefacts/additionalArtefacts.zip\"",
-            
-
-        },
-        {
-
-            "label": "Create Artifact step 2",
-            
-
-            "type": "shell",
-            "command": "Get-ChildItem -Path ../Validations/compile/ValidationRuleset_Form2.zip, ./Combined/RenderingTemplates_Form_2.zip, ./Combined/RenderingTemplates_Form_2A.zip, ./Combined/RenderingTemplates_Form_3Q_Gas.zip, ../SampleInstances/Sample_Form_2.xbrl, ../SampleInstances/Sample_Form_2A.xbrl, ../SampleInstances/Sample_Form_3Q_Gas.xbrl,../Artefacts/META-INF.zip | Compress-Archive -DestinationPath ../Artefacts/additionalArtefacts.zip",
-            "options": {
-
-                "shell": {"executable": "powershell.exe"}
-
-            }
-
-        },
-            {
-
-            "label": "Create Artifact",
-            "dependsOrder": "sequence",
-            "dependsOn": ["Remove Artifact step 1","Create Artifact step 2"]  
-
-        },
+        
     ],
     "inputs":[
 

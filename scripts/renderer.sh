@@ -1,0 +1,1 @@
+python3.9 ~/arelle/Arelle-master/arellecmdline.py --plugins 'xule | FERC/render' --ferc-render-compile --ferc-render-template ../RenderingTemplates/source/Form2/'Form 2 - 278 - Other Regulatory Liabilities (Account 254).html' --ferc-render-template-set ../RenderingTemplates/TemplateSets/Form2/Form2Q/'Form 2 - 278 - Other Regulatory Liabilities (Account 254).zip'

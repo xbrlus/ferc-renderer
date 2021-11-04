@@ -170,8 +170,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             first(list({@ferc:OtherRegulatoryLiabilities @unit @period=$prior3MYInstant}))
                         else
                             none,
-                        if exists({@ferc:OtherRegulatoryLiabilityAccountOffsettingCredits @unit @period=$current3MYDuration})
-                            first(list({@ferc:OtherRegulatoryLiabilityAccountOffsettingCredits @unit @period=$current3MYDuration}))
+                        if exists({@ferc:OtherRegulatoryLiabilityAccountOffsettingCredits @unit @period=$currentDuration})
+                            first(list({@ferc:OtherRegulatoryLiabilityAccountOffsettingCredits @unit @period=$currentDuration}))
                         else
                             none,
                         if exists({@ferc:OtherRegulatoryLiabilityWrittenOffRefunded @unit @period=$current3MYDuration})

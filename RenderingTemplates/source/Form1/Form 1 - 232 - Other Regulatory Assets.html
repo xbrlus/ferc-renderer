@@ -192,8 +192,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:IncreaseDecreaseInOtherRegulatoryAssets @unit=* @period=$current3MYDuration}))
                     else
                         none,
-                    if exists({@ferc:OtherRegulatoryAssetsWrittenOffAccountCharged @unit @period=$current3MYDuration})
-                        first(list({@ferc:OtherRegulatoryAssetsWrittenOffAccountCharged @unit @period=$current3MYDuration}))
+                    if exists({@ferc:OtherRegulatoryAssetsWrittenOffAccountCharged @unit @period=$currentDuration})
+                        first(list({@ferc:OtherRegulatoryAssetsWrittenOffAccountCharged @unit @period=$currentDuration}))
                     else 
                         none,
                     if exists({@ferc:OtherRegulatoryAssetsWrittenOffRecovered @unit=*  @period=$current3MYDuration})

@@ -197,8 +197,8 @@
                     first(list({@ferc:OtherRegulatoryLiabilities @unit @period=$prior3MYInstant}))
                 else
                     none,
-                if list({@ferc:OtherRegulatoryLiabilitiesDescriptionOfCreditedAccountNumberForDebitAdjustment @unit @period=$current3MYDuration}).length > 0
-                    first(list({@ferc:OtherRegulatoryLiabilitiesDescriptionOfCreditedAccountNumberForDebitAdjustment @unit @period=$current3MYDuration}))
+                if list({@ferc:OtherRegulatoryLiabilitiesDescriptionOfCreditedAccountNumberForDebitAdjustment @unit @period=$currentDuration}).length > 0
+                    first(list({@ferc:OtherRegulatoryLiabilitiesDescriptionOfCreditedAccountNumberForDebitAdjustment @unit @period=$currentDuration}))
                 else
                     none,
                 if list({@ferc:DecreaseInOtherRegulatoryLiabilities @unit @period=$current3MYDuration}).length > 0

@@ -11,11 +11,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@CommonStockSharesAuthorized]; 
-<<<<<<< HEAD
- $addend = sum(list([@CommonStockSharesAuthorized @CommonStockAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @CommonStockSharesAuthorized @CommonStockAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -38,11 +34,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@CommonStockSharesOutstanding]; 
-<<<<<<< HEAD
- $addend = sum(list([@CommonStockSharesOutstanding @CommonStockAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @CommonStockSharesOutstanding @CommonStockAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -65,11 +57,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@CommonStockIssued]; 
-<<<<<<< HEAD
- $addend = sum(list([@CommonStockIssued @CommonStockAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @CommonStockIssued @CommonStockAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -94,11 +82,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@PreferredStockSharesAuthorized ]; 
-<<<<<<< HEAD
- $addend = sum(list([@PreferredStockSharesAuthorized @PreferredStockAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @PreferredStockSharesAuthorized @PreferredStockAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -121,11 +105,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@PreferredStockSharesOutstanding]; 
-<<<<<<< HEAD
- $addend = sum(list([@PreferredStockSharesOutstanding @PreferredStockAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @PreferredStockSharesOutstanding @PreferredStockAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -148,11 +128,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@PreferredStockIssued]; 
-<<<<<<< HEAD
- $addend = sum(list([@PreferredStockIssued @PreferredStockAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @PreferredStockIssued @PreferredStockAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

@@ -16,11 +16,7 @@ else
  + [@concept=AppropriatedRetainedIncome @ClassOfAppropriationAxis=SinkingFundsMember]#f2 
  + [@concept=AppropriatedRetainedIncome @ClassOfAppropriationAxis=OtherFundsMember]#f3 
  + [@concept=AppropriatedRetainedIncome @ClassOfAppropriationAxis=AppropriatedRetainedIncomeNotSpecificallyInvestedMember]#f4 
-<<<<<<< HEAD
- + sum(list([@concept=AppropriatedRetainedIncome @ClassOfAppropriationAxis=OtherAppropriationsMember @ClassOfOtherAppropriationAxis=*]))#f5
-=======
  + sum(list([nonils @concept=AppropriatedRetainedIncome @ClassOfAppropriationAxis=OtherAppropriationsMember @ClassOfOtherAppropriationAxis=*]))#f5
->>>>>>> origin/2021-01-01
 );
 
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  

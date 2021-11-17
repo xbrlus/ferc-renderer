@@ -30,38 +30,22 @@ assert F2.118.3 satisfied
 $rule_id = rule-name();
 
 $AdjustmentsToRetainedEarningsCredit-Default = [@AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=none @period=$currentDuration]
-<<<<<<< HEAD
-$AdjustmentsToRetainedEarningsCredit-Default-sum = sum(list([@AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=* @period=$currentDuration]))
-=======
 $AdjustmentsToRetainedEarningsCredit-Default-sum = sum(list([nonils @AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=* @period=$currentDuration]))
->>>>>>> origin/2021-01-01
 
 $AdjustmentsToRetainedEarningsCredit = first-value($AdjustmentsToRetainedEarningsCredit-Default, $AdjustmentsToRetainedEarningsCredit-Default-sum);
 
 $AppropriationsOfRetainedEarnings-Default = [@AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=none @period=$currentDuration]
-<<<<<<< HEAD
-$AppropriationsOfRetainedEarnings-sum = sum(list([@AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=* @period=$currentDuration]))
-=======
 $AppropriationsOfRetainedEarnings-sum = sum(list([nonils @AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=* @period=$currentDuration]))
->>>>>>> origin/2021-01-01
 
 $AppropriationsOfRetainedEarnings = first-value($AppropriationsOfRetainedEarnings-Default, $AppropriationsOfRetainedEarnings-sum);
 
 $DividendsDeclaredPreferredStock-Default = [@DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=none @period=$currentDuration]
-<<<<<<< HEAD
-$DividendsDeclaredPreferredStock-sum = sum(list([@DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=* @period=$currentDuration]))
-=======
 $DividendsDeclaredPreferredStock-sum = sum(list([nonils @DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=* @period=$currentDuration]))
->>>>>>> origin/2021-01-01
 
 $DividendsDeclaredPreferredStock = first-value($DividendsDeclaredPreferredStock-Default,$DividendsDeclaredPreferredStock-sum  );
 
 $DividendsDeclaredCommonStock-Default = [@DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=none @period=$currentDuration]
-<<<<<<< HEAD
-$DividendsDeclaredCommonStock-sum = sum(list([@DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=* @period=$currentDuration]))
-=======
 $DividendsDeclaredCommonStock-sum = sum(list([nonils @DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=* @period=$currentDuration]))
->>>>>>> origin/2021-01-01
 
 $DividendsDeclaredCommonStock = first-value($DividendsDeclaredCommonStock-Default,$DividendsDeclaredCommonStock-sum);
 
@@ -168,11 +152,7 @@ assert F2.118.7 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@AdjustmentsToRetainedEarningsCredit]; 
-<<<<<<< HEAD
- $addend = sum(list([@AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=*]));
-=======
  $addend = sum(list([nonils @AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=*]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of AdjustmentsToRetainedEarningsCredit sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for Adjustments To Retained Earnings Credit. 
@@ -185,11 +165,7 @@ assert F2.118.8 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@AppropriationsOfRetainedEarnings]; 
-<<<<<<< HEAD
- $addend = sum(list([@AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=*]));
-=======
  $addend = sum(list([nonils @AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=*]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of {$sum1.concept.name} sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for the Appropriations of RetainedEarnings. 
@@ -202,11 +178,7 @@ assert F2.118.9 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@DividendsDeclaredPreferredStock]; 
-<<<<<<< HEAD
- $addend = sum(list([@DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=*]));
-=======
  $addend = sum(list([nonils @DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=*]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of DividendsDeclaredPreferredStock sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for Dividends Declared for Preferred Stock. 
@@ -219,11 +191,7 @@ assert F2.118.10 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@DividendsDeclaredCommonStock]; 
-<<<<<<< HEAD
- $addend = sum(list([@DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=*]));
-=======
  $addend = sum(list([nonils @DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=*]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of DividendsDeclaredCommonStock sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for Dividends Declared for Common Stock. 
@@ -236,11 +204,7 @@ assert F2.118.11 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits]; 
-<<<<<<< HEAD
- $addend = sum(list([@ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=*]));
-=======
  $addend = sum(list([nonils @ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=*]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for Changes Unappropriated and Undistributed Subsidiary Earnings Credits. 

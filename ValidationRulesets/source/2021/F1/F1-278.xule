@@ -28,11 +28,7 @@ assert F1.278.2 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@OtherRegulatoryLiabilities @period=$currentInstant]; 
-<<<<<<< HEAD
- $addend = sum(list([@OtherRegulatoryLiabilities @OtherRegulatoryLiabilityAxis=* @period=$currentInstant])#breakdown);
-=======
  $addend = sum(list([nonils @OtherRegulatoryLiabilities @OtherRegulatoryLiabilityAxis=* @period=$currentInstant])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -52,11 +48,7 @@ assert F1.278.3 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@DecreaseInOtherRegulatoryLiabilities]; 
-<<<<<<< HEAD
- $addend = sum(list([@DecreaseInOtherRegulatoryLiabilities @OtherRegulatoryLiabilityAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @DecreaseInOtherRegulatoryLiabilities @OtherRegulatoryLiabilityAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -77,11 +69,7 @@ assert F1.278.4 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@IncreaseInOtherRegulatoryLiabilities]; 
-<<<<<<< HEAD
- $addend = sum(list([@IncreaseInOtherRegulatoryLiabilities @OtherRegulatoryLiabilityAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @IncreaseInOtherRegulatoryLiabilities @OtherRegulatoryLiabilityAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -101,11 +89,7 @@ assert F1.278.5 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@OtherRegulatoryLiabilities @period=$prior3MYInstant]; 
-<<<<<<< HEAD
- $addend = sum(list([@OtherRegulatoryLiabilities @OtherRegulatoryLiabilityAxis=* @period=$prior3MYInstant])#breakdown);
-=======
  $addend = sum(list([nonils @OtherRegulatoryLiabilities @OtherRegulatoryLiabilityAxis=* @period=$prior3MYInstant])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else

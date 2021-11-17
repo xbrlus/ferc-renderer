@@ -11,11 +11,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InterestExpenseOnLongTermDebtIssued]; 
-<<<<<<< HEAD
- $addend = sum(list([@InterestExpenseOnLongTermDebtIssued @ClassOrSeriesOfObligationAndNameOfStockExchangeAxis=*]));
-=======
  $addend = sum(list([nonils @InterestExpenseOnLongTermDebtIssued @ClassOrSeriesOfObligationAndNameOfStockExchangeAxis=*]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of InterestExpenseOnLongTermDebtIssued sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for InterestExpenseOnLongTermDebtIssued. 
@@ -31,11 +27,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@LongTermDebtPrincipalAmountIssued]; 
-<<<<<<< HEAD
- $addend = sum(list([@LongTermDebtPrincipalAmountIssued @ClassOrSeriesOfObligationAndNameOfStockExchangeAxis=*]));
-=======
  $addend = sum(list([nonils @LongTermDebtPrincipalAmountIssued @ClassOrSeriesOfObligationAndNameOfStockExchangeAxis=*]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of LongTermDebtPrincipalAmountIssued sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for LongTermDebtPrincipalAmountIssued. 
@@ -51,11 +43,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@LongTermDebtIssuanceExpensePremiumOrDiscount]; 
-<<<<<<< HEAD
- $addend = sum(list([@LongTermDebtIssuanceExpensePremiumOrDiscount @ClassOrSeriesOfObligationAndNameOfStockExchangeAxis=*]));
-=======
  $addend = sum(list([nonils @LongTermDebtIssuanceExpensePremiumOrDiscount @ClassOrSeriesOfObligationAndNameOfStockExchangeAxis=*]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of LongTermDebtIssuanceExpensePremiumOrDiscount sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for LongTermDebtIssuanceExpensePremiumOrDiscount. 
@@ -71,11 +59,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@LongTermDebtOutstanding]; 
-<<<<<<< HEAD
- $addend = sum(list([@LongTermDebtOutstanding @ClassOrSeriesOfObligationAndNameOfStockExchangeAxis=*]));
-=======
  $addend = sum(list([nonils @LongTermDebtOutstanding @ClassOrSeriesOfObligationAndNameOfStockExchangeAxis=*]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of LongTermDebtOutstanding sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for LongTermDebtOutstanding. 
@@ -94,11 +78,7 @@ else
 $lineItems = list(BondsPrincipalAmountIssued, BondIssuanceExpense, BondsPremium, BondsDiscount, InterestExpenseBonds);
 
  $sum1 = [@@concept in $lineItems @BondObligationsAxis = none  where $fact.is-monetary]; 
-<<<<<<< HEAD
- $addend = sum(list([@@concept in $lineItems @BondObligationsAxis = *  where $fact.is-monetary])#breakdown);
-=======
  $addend = sum(list([nonils @@concept in $lineItems @BondObligationsAxis = *  where $fact.is-monetary])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -124,11 +104,7 @@ else
 $lineItems = list(ReacquiredBondsPrincipalAmount, ReacquiredBondsIssuanceExpense, ReaquiredBondsPremium, ReaquiredBondsDiscount, ReacquiredBonds, InterestExpenseReacquiredBonds);
 
  $sum1 = [@@concept in $lineItems @ReAcquiredBondObligationsAxis = none where $fact.is-monetary]; 
-<<<<<<< HEAD
- $addend = sum(list([@@concept in $lineItems @ReAcquiredBondObligationsAxis = * where $fact.is-monetary])#breakdown);
-=======
  $addend = sum(list([nonils @@concept in $lineItems @ReAcquiredBondObligationsAxis = * where $fact.is-monetary])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -154,11 +130,7 @@ else
 $lineItems = list(AdvancesFromAssociatedCompaniesPrincipalAmountIssued, AdvancesFromAssociatedCompaniesIssuanceExpense, AdvancesFromAssociatedCompaniesPremium, AdvancesFromAssociatedCompaniesDiscount, AdvancesFromAssociatedCompanies, InterestExpenseDebtAdvancesFromAssociatedCompanies);
 
  $sum1 = [@@concept in $lineItems @AdvancesFromAssociatedCompaniesAxis = none where $fact.is-monetary]; 
-<<<<<<< HEAD
- $addend = sum(list([@@concept in $lineItems @AdvancesFromAssociatedCompaniesAxis = * where $fact.is-monetary])#breakdown);
-=======
  $addend = sum(list([nonils @@concept in $lineItems @AdvancesFromAssociatedCompaniesAxis = * where $fact.is-monetary])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -183,11 +155,7 @@ else
 $lineItems = list(OtherLongTermDebtPrincipalAmountIssued, OtherLongTermDebtIssuanceExpense, OtherLongTermDebtPremium, OtherLongTermDebtDiscount, OtherLongTermDebt, InterestExpenseOtherLongTermDebt);
 
  $sum1 = [@@concept in $lineItems @OtherLongTermDebtAxis = none where $fact.is-monetary]; 
-<<<<<<< HEAD
- $addend = sum(list([@@concept in $lineItems @OtherLongTermDebtAxis = * where $fact.is-monetary])#breakdown);
-=======
  $addend = sum(list([nonils @@concept in $lineItems @OtherLongTermDebtAxis = * where $fact.is-monetary])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -352,11 +320,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@Bonds @BondObligationsAxis = none @period=$currentInstant]; 
-<<<<<<< HEAD
- $addend = sum(list([@Bonds @BondObligationsAxis = * @period=$currentInstant]));
-=======
  $addend = sum(list([nonils @Bonds @BondObligationsAxis = * @period=$currentInstant]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of Bonds sums to a value of Bonds that is not equal to the total value reported of {$sum1} when disaggregated by the axis BondObligationsAxis. 
@@ -376,11 +340,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@BondsPrincipalAmountIssued @BondObligationsAxis = none @period=$currentDuration]; 
-<<<<<<< HEAD
- $addend = sum(list([@BondsPrincipalAmountIssued @BondObligationsAxis = * @period=$currentDuration]));
-=======
  $addend = sum(list([nonils @BondsPrincipalAmountIssued @BondObligationsAxis = * @period=$currentDuration]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of BondsPrincipalAmountIssued sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis BondObligationsAxis. 
@@ -400,11 +360,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@BondIssuanceExpense @BondObligationsAxis = none @period=$currentDuration]; 
-<<<<<<< HEAD
- $addend = sum(list([@BondIssuanceExpense @BondObligationsAxis = * @period=$currentDuration]));
-=======
  $addend = sum(list([nonils @BondIssuanceExpense @BondObligationsAxis = * @period=$currentDuration]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of BondIssuanceExpense sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis BondObligationsAxis. 
@@ -424,11 +380,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@BondsPremium @BondObligationsAxis = none @period=$currentDuration]; 
-<<<<<<< HEAD
- $addend = sum(list([@BondsPremium @BondObligationsAxis = * @period=$currentDuration]));
-=======
  $addend = sum(list([nonils @BondsPremium @BondObligationsAxis = * @period=$currentDuration]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of BondsPremium sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis BondObligationsAxis. 
@@ -448,11 +400,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@BondsDiscount @BondObligationsAxis = none @period=$currentDuration]; 
-<<<<<<< HEAD
- $addend = sum(list([@BondsDiscount @BondObligationsAxis = * @period=$currentDuration]));
-=======
  $addend = sum(list([nonils @BondsDiscount @BondObligationsAxis = * @period=$currentDuration]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of BondsDiscount sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis BondObligationsAxis. 
@@ -472,11 +420,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InterestExpenseBonds @BondObligationsAxis = none @period=$currentDuration]; 
-<<<<<<< HEAD
- $addend = sum(list([@InterestExpenseBonds @BondObligationsAxis = * @period=$currentDuration]));
-=======
  $addend = sum(list([nonils @InterestExpenseBonds @BondObligationsAxis = * @period=$currentDuration]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of InterestExpenseBonds sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis BondObligationsAxis. 
@@ -496,11 +440,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OtherLongTermDebt @OtherLongTermDebtAxis = none @period=$currentInstant]; 
-<<<<<<< HEAD
- $addend = sum(list([@OtherLongTermDebt @OtherLongTermDebtAxis = * @period=$currentInstant]));
-=======
  $addend = sum(list([nonils @OtherLongTermDebt @OtherLongTermDebtAxis = * @period=$currentInstant]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of OtherLongTermDebt sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis OtherLongTermDebtAxis. 
@@ -520,11 +460,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OtherLongTermDebtPrincipalAmountIssued @OtherLongTermDebtAxis = none @period=$currentDuration]; 
-<<<<<<< HEAD
- $addend = sum(list([@OtherLongTermDebtPrincipalAmountIssued @OtherLongTermDebtAxis = * @period=$currentDuration]));
-=======
  $addend = sum(list([nonils @OtherLongTermDebtPrincipalAmountIssued @OtherLongTermDebtAxis = * @period=$currentDuration]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of OtherLongTermDebtPrincipalAmountIssued sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis OtherLongTermDebtAxis. 
@@ -544,11 +480,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OtherLongTermDebtIssuanceExpense @OtherLongTermDebtAxis = none @period=$currentDuration]; 
-<<<<<<< HEAD
- $addend = sum(list([@OtherLongTermDebtIssuanceExpense @OtherLongTermDebtAxis = * @period=$currentDuration]));
-=======
  $addend = sum(list([nonils @OtherLongTermDebtIssuanceExpense @OtherLongTermDebtAxis = * @period=$currentDuration]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of OtherLongTermDebtIssuanceExpense sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis OtherLongTermDebtAxis. 
@@ -568,11 +500,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OtherLongTermDebtPremium @OtherLongTermDebtAxis = none @period=$currentDuration]; 
-<<<<<<< HEAD
- $addend = sum(list([@OtherLongTermDebtPremium @OtherLongTermDebtAxis = * @period=$currentDuration]));
-=======
  $addend = sum(list([nonils @OtherLongTermDebtPremium @OtherLongTermDebtAxis = * @period=$currentDuration]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of OtherLongTermDebtPremium sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis OtherLongTermDebtAxis. 
@@ -592,11 +520,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OtherLongTermDebtDiscount @OtherLongTermDebtAxis = none @period=$currentDuration]; 
-<<<<<<< HEAD
- $addend = sum(list([@OtherLongTermDebtDiscount @OtherLongTermDebtAxis = * @period=$currentDuration]));
-=======
  $addend = sum(list([nonils @OtherLongTermDebtDiscount @OtherLongTermDebtAxis = * @period=$currentDuration]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of OtherLongTermDebtDiscount sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis OtherLongTermDebtAxis. 
@@ -616,11 +540,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InterestExpenseOtherLongTermDebt @OtherLongTermDebtAxis = none @period=$currentDuration]; 
-<<<<<<< HEAD
- $addend = sum(list([@InterestExpenseOtherLongTermDebt @OtherLongTermDebtAxis = * @period=$currentDuration]));
-=======
  $addend = sum(list([nonils @InterestExpenseOtherLongTermDebt @OtherLongTermDebtAxis = * @period=$currentDuration]));
->>>>>>> origin/2021-01-01
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The breakdown of InterestExpenseOtherLongTermDebt sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis OtherLongTermDebtAxis. 

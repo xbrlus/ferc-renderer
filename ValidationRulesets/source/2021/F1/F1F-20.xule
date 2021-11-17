@@ -565,11 +565,7 @@ else
  + {@ElectricPlantHeldForFutureUseAdditions} 
  + {@ConstructionWorkInProgressElectricAdditions} 
  + {@ElectricPlantAcquisitionAdjustmentsAdditions}
-<<<<<<< HEAD
- + sum(list([@concept = OtherElectricPlantAdjustmentsAdditions @OtherElectricPlantAdjustmentsAxis=*]))
-=======
  + sum(list([nonils @concept = OtherElectricPlantAdjustmentsAdditions @OtherElectricPlantAdjustmentsAxis=*]))
->>>>>>> origin/2021-01-01
  );
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
@@ -598,11 +594,7 @@ else
  + {@ElectricPlantHeldForFutureUseRetirements} 
  + {@ConstructionWorkInProgressElectricRetirements} 
  + {@ElectricPlantAcquisitionAdjustmentsRetirements}
-<<<<<<< HEAD
- + sum(list([@concept = OtherElectricPlantAdjustmentsRetirements @OtherElectricPlantAdjustmentsAxis=*]))
-=======
  + sum(list([nonils @concept = OtherElectricPlantAdjustmentsRetirements @OtherElectricPlantAdjustmentsAxis=*]))
->>>>>>> origin/2021-01-01
  );
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
@@ -631,11 +623,7 @@ else
  + {@ElectricPlantHeldForFutureUseTransfersAndAdjustments} 
  + {@ConstructionWorkInProgressElectricTransfersAndAdjustments} 
  + {@ElectricPlantAcquisitionAdjustmentsTransfersAndAdjustments}
-<<<<<<< HEAD
- + sum(list([@concept = OtherElectricPlantAdjustmentsTransfersAndAdjustments @OtherElectricPlantAdjustmentsAxis=*]))
-=======
  + sum(list([nonils @concept = OtherElectricPlantAdjustmentsTransfersAndAdjustments @OtherElectricPlantAdjustmentsAxis=*]))
->>>>>>> origin/2021-01-01
  );
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
@@ -664,11 +652,7 @@ else
  + {@ElectricPlantHeldForFutureUse}
  + {@ConstructionWorkInProgressElectric}
  + {@ElectricPlantAcquisitionAdjustments}
-<<<<<<< HEAD
- + sum(list([@concept = OtherElectricPlantAdjustments @OtherElectricPlantAdjustmentsAxis=*]))
-=======
  + sum(list([nonils @concept = OtherElectricPlantAdjustments @OtherElectricPlantAdjustmentsAxis=*]))
->>>>>>> origin/2021-01-01
  );
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
@@ -688,11 +672,7 @@ $rule_id = rule-name();
 if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
         skip
 else
-<<<<<<< HEAD
- $OtherAdditions = first-value({@OtherUtilityPlantAdditions @OtherUtilityPlantAxis=none}, sum(list({@OtherUtilityPlantAdditions @OtherUtilityPlantAxis=*})));
-=======
  $OtherAdditions = first-value({@OtherUtilityPlantAdditions @OtherUtilityPlantAxis=none}, sum(list({nonils @OtherUtilityPlantAdditions @OtherUtilityPlantAxis=*})));
->>>>>>> origin/2021-01-01
  $sum1 = {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsAdditions @OtherUtilityPlantAxis=none}; 
  $addend = ({@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantAdditions @OtherUtilityPlantAxis=none} 
  + $OtherAdditions);
@@ -715,11 +695,7 @@ $rule_id = rule-name();
 if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
         skip
 else
-<<<<<<< HEAD
- $OtherRetirements = first-value({@OtherUtilityPlantRetirements @OtherUtilityPlantAxis=none}, sum(list({@OtherUtilityPlantRetirements @OtherUtilityPlantAxis=*})));
-=======
  $OtherRetirements = first-value({@OtherUtilityPlantRetirements @OtherUtilityPlantAxis=none}, sum(list({nonils @OtherUtilityPlantRetirements @OtherUtilityPlantAxis=*})));
->>>>>>> origin/2021-01-01
  $sum1 = {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsRetirements @OtherUtilityPlantAxis=none}; 
  $addend = ({@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantRetirements @OtherUtilityPlantAxis=none} 
  + $OtherRetirements);
@@ -742,11 +718,7 @@ $rule_id = rule-name();
 if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
         skip
 else
-<<<<<<< HEAD
- $OtherTransfers = first-value({@OtherUtilityPlantTransfersAndAdjustments @OtherUtilityPlantAxis=none}, sum(list({@OtherUtilityPlantTransfersAndAdjustments @OtherUtilityPlantAxis=*})));
-=======
  $OtherTransfers = first-value({@OtherUtilityPlantTransfersAndAdjustments @OtherUtilityPlantAxis=none}, sum(list({nonils @OtherUtilityPlantTransfersAndAdjustments @OtherUtilityPlantAxis=*})));
->>>>>>> origin/2021-01-01
  $sum1 = {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsTransfersAndAdjustments @OtherUtilityPlantAxis=none}; 
  $addend = ({@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantTransfersAndAdjustments @OtherUtilityPlantAxis=none} 
  +  $OtherTransfers); 
@@ -769,11 +741,7 @@ $rule_id = rule-name();
 if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
         skip
 else
-<<<<<<< HEAD
-$Other = first-value({@OtherUtilityPlant @OtherUtilityPlantAxis=none}, sum(list({@OtherUtilityPlant @OtherUtilityPlantAxis=*})));
-=======
 $Other = first-value({@OtherUtilityPlant @OtherUtilityPlantAxis=none}, sum(list({nonils @OtherUtilityPlant @OtherUtilityPlantAxis=*})));
->>>>>>> origin/2021-01-01
  $sum1 = {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustments @OtherUtilityPlantAxis=none}; 
  $addend = ({@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlant @OtherUtilityPlantAxis=none} 
  + $Other );

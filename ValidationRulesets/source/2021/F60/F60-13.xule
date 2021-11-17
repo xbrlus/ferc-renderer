@@ -8,11 +8,7 @@ assert F60.13.1 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@NotesPayableToAssociateCompanies]; 
-<<<<<<< HEAD
- $addend = sum(list([@NotesPayableToAssociateCompanies @NotesPayableToAssociateCompaniesAxis=*])#breakdown)
-=======
  $addend = sum(list([nonils @NotesPayableToAssociateCompanies @NotesPayableToAssociateCompaniesAxis=*])#breakdown)
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -32,11 +28,7 @@ assert F60.13.2 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@AccountsPayableToAssociateCompanies]; 
-<<<<<<< HEAD
- $addend = sum(list([@AccountsPayableToAssociateCompanies @AccountsPayableToAssociateCompaniesAxis=*])#breakdown)
-=======
  $addend = sum(list([nonils @AccountsPayableToAssociateCompanies @AccountsPayableToAssociateCompaniesAxis=*])#breakdown)
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -56,11 +48,7 @@ assert F60.13.3 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@MiscellaneousCurrentAndAccruedLiabilities]; 
-<<<<<<< HEAD
- $addend = sum(list([@MiscellaneousCurrentAndAccruedLiabilities @MiscellaneousCurrentAndAccruedLiabilitiesAxis=*])#breakdown)
-=======
  $addend = sum(list([nonils @MiscellaneousCurrentAndAccruedLiabilities @MiscellaneousCurrentAndAccruedLiabilitiesAxis=*])#breakdown)
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

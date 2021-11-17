@@ -35,11 +35,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@TaxableIncomeNotReportedOnBooks]; 
-<<<<<<< HEAD
-        $addend = sum(list([@TaxableIncomeNotReportedOnBooks @ReconciliationOfNetIncomeWithTaxableIncomeForFederalIncomeTaxesAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @TaxableIncomeNotReportedOnBooks @ReconciliationOfNetIncomeWithTaxableIncomeForFederalIncomeTaxesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -63,11 +59,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@DeductionsRecordedOnBooksNotDeductedForReturn]; 
-<<<<<<< HEAD
-        $addend = sum(list([@DeductionsRecordedOnBooksNotDeductedForReturn @ReconciliationOfNetIncomeWithTaxableIncomeForFederalIncomeTaxesAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @DeductionsRecordedOnBooksNotDeductedForReturn @ReconciliationOfNetIncomeWithTaxableIncomeForFederalIncomeTaxesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -91,11 +83,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@IncomeRecordedOnBooksNotIncludedInReturn]; 
-<<<<<<< HEAD
-        $addend = sum(list([@IncomeRecordedOnBooksNotIncludedInReturn @ReconciliationOfNetIncomeWithTaxableIncomeForFederalIncomeTaxesAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @IncomeRecordedOnBooksNotIncludedInReturn @ReconciliationOfNetIncomeWithTaxableIncomeForFederalIncomeTaxesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -119,11 +107,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@DeductionsOnReturnNotChargedAgainstBookIncome]; 
-<<<<<<< HEAD
-        $addend = sum(list([@DeductionsOnReturnNotChargedAgainstBookIncome @ReconciliationOfNetIncomeWithTaxableIncomeForFederalIncomeTaxesAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @DeductionsOnReturnNotChargedAgainstBookIncome @ReconciliationOfNetIncomeWithTaxableIncomeForFederalIncomeTaxesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else

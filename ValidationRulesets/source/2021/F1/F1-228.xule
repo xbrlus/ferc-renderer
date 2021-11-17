@@ -69,11 +69,7 @@ if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
 else
 
  $sum1 = {@AllowancesInventoryPurchasesTransfersNumber @AllowancesInventoryAxis=none}; 
-<<<<<<< HEAD
- $addend = sum(list({@AllowancesInventoryPurchasesTransfersNumber @AllowancesInventoryAxis=*})#breakdown);
-=======
  $addend = sum(list({nonils @AllowancesInventoryPurchasesTransfersNumber @AllowancesInventoryAxis=*})#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -96,11 +92,7 @@ if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
   $sum1 = {@AllowancesInventoryPurchasesTransfers @AllowancesInventoryAxis=none}; 
-<<<<<<< HEAD
- $addend = sum(list({@AllowancesInventoryPurchasesTransfers @AllowancesInventoryAxis=*})#breakdown);
-=======
  $addend = sum(list({nonils @AllowancesInventoryPurchasesTransfers @AllowancesInventoryAxis=*})#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -125,11 +117,7 @@ if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
 else
 
  $sum1 = {@AllowancesInventorySalesTransfersNumber @AllowancesCostOfSalesAxis=none}; 
-<<<<<<< HEAD
- $addend = sum(list({@AllowancesInventorySalesTransfersNumber @AllowancesCostOfSalesAxis=*})#breakdown);
-=======
  $addend = sum(list({nonils @AllowancesInventorySalesTransfersNumber @AllowancesCostOfSalesAxis=*})#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -152,11 +140,7 @@ if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
   $sum1 = {@AllowancesInventorySalesTransfers @AllowancesCostOfSalesAxis=none}; 
-<<<<<<< HEAD
- $addend = sum(list({@AllowancesInventorySalesTransfers @AllowancesCostOfSalesAxis=*})#breakdown);
-=======
  $addend = sum(list({nonils @AllowancesInventorySalesTransfers @AllowancesCostOfSalesAxis=*})#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

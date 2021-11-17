@@ -8,11 +8,7 @@ assert F60.10.1 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@ResearchDevelopmentOrDemonstrationExpenditures]; 
-<<<<<<< HEAD
- $addend = sum(list([@ResearchDevelopmentOrDemonstrationExpenditures @ResearchDevelopmentOrDemonstrationExpendituresAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @ResearchDevelopmentOrDemonstrationExpenditures @ResearchDevelopmentOrDemonstrationExpendituresAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

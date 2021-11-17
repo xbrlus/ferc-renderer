@@ -11,11 +11,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@PaymentsForServicesRenderedByOtherThanEmployees]; 
-<<<<<<< HEAD
-        $addend = sum(list([@PaymentsForServicesRenderedByOtherThanEmployees @PaymentsForServicesRenderedByOtherThanEmployeesAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @PaymentsForServicesRenderedByOtherThanEmployees @PaymentsForServicesRenderedByOtherThanEmployeesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else

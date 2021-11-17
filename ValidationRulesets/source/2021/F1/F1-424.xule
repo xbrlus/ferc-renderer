@@ -34,11 +34,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@CostOfTransmissionLinesAdded]; 
-<<<<<<< HEAD
- $addend = sum(list([@CostOfTransmissionLinesAdded @TransmissionLinesAddedAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @CostOfTransmissionLinesAdded @TransmissionLinesAddedAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -61,11 +57,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@LengthOfTransmissionLineAdded]; 
-<<<<<<< HEAD
- $addend = sum(list([@LengthOfTransmissionLineAdded @TransmissionLinesAddedAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @LengthOfTransmissionLineAdded @TransmissionLinesAddedAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -88,11 +80,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@AverageNumberOfSupportingStructuresOfTransmissionLinePerMiles]; 
-<<<<<<< HEAD
- $addend = sum(list([@AverageNumberOfSupportingStructuresOfTransmissionLinePerMiles @TransmissionLinesAddedAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @AverageNumberOfSupportingStructuresOfTransmissionLinePerMiles @TransmissionLinesAddedAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -115,11 +103,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@NumberOfTransmissionCircuitsPerStructurePresent]; 
-<<<<<<< HEAD
- $addend = sum(list([@NumberOfTransmissionCircuitsPerStructurePresent @TransmissionLinesAddedAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @NumberOfTransmissionCircuitsPerStructurePresent @TransmissionLinesAddedAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -142,11 +126,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@NumberOfTransmissionCircuitsPerStructureUltimate]; 
-<<<<<<< HEAD
- $addend = sum(list([@NumberOfTransmissionCircuitsPerStructureUltimate @TransmissionLinesAddedAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @NumberOfTransmissionCircuitsPerStructureUltimate @TransmissionLinesAddedAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -169,11 +149,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OperatingVoltageOfTransmissionLine]; 
-<<<<<<< HEAD
- $addend = sum(list([@OperatingVoltageOfTransmissionLine @TransmissionLinesAddedAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @OperatingVoltageOfTransmissionLine @TransmissionLinesAddedAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -196,11 +172,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@CostOfLandAndLandRightsTransmissionLinesAdded]; 
-<<<<<<< HEAD
- $addend = sum(list([@CostOfLandAndLandRightsTransmissionLinesAdded @TransmissionLinesAddedAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @CostOfLandAndLandRightsTransmissionLinesAdded @TransmissionLinesAddedAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -223,11 +195,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@CostOfPolesTowersAndFixturesTransmissionLinesAdded]; 
-<<<<<<< HEAD
- $addend = sum(list([@CostOfPolesTowersAndFixturesTransmissionLinesAdded @TransmissionLinesAddedAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @CostOfPolesTowersAndFixturesTransmissionLinesAdded @TransmissionLinesAddedAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -250,11 +218,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@CostOfConductorsAndDevicesTransmissionLinesAdded]; 
-<<<<<<< HEAD
- $addend = sum(list([@CostOfConductorsAndDevicesTransmissionLinesAdded @TransmissionLinesAddedAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @CostOfConductorsAndDevicesTransmissionLinesAdded @TransmissionLinesAddedAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -277,11 +241,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@AssetRetirementCostsTransmissionLinesAdded]; 
-<<<<<<< HEAD
- $addend = sum(list([@AssetRetirementCostsTransmissionLinesAdded @TransmissionLinesAddedAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @AssetRetirementCostsTransmissionLinesAdded @TransmissionLinesAddedAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else

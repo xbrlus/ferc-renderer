@@ -34,11 +34,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsAtBookCost]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsAtBookCost @InvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsAtBookCost @InvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -62,11 +58,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsPurchasesOrAdditions]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsPurchasesOrAdditions @InvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsPurchasesOrAdditions @InvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -89,11 +81,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsSalesOrOtherDispositions]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsSalesOrOtherDispositions @InvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsSalesOrOtherDispositions @InvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -119,11 +107,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInBondsPrincipal]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInBondsPrincipal @InvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInBondsPrincipal @InvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -146,11 +130,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInCapitalStockNumberOfSharesForInvestments]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInCapitalStockNumberOfSharesForInvestments @InvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInCapitalStockNumberOfSharesForInvestments @InvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -173,11 +153,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsRevenues]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsRevenues @InvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsRevenues @InvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -200,11 +176,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsGainOrLossFromInvestmentDisposedOf]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsGainOrLossFromInvestmentDisposedOf @InvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsGainOrLossFromInvestmentDisposedOf @InvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -229,11 +201,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInAssociatedCompaniesGainOrLossFromInvestmentDisposed]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInAssociatedCompaniesGainOrLossFromInvestmentDisposed @InvestmentsInAssociatedCompaniesAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInAssociatedCompaniesGainOrLossFromInvestmentDisposed @InvestmentsInAssociatedCompaniesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -256,11 +224,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentInAssociatedCompanies]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentInAssociatedCompanies @InvestmentsInAssociatedCompaniesAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentInAssociatedCompanies @InvestmentsInAssociatedCompaniesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -283,11 +247,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInAssociatedCompaniesPurchasesOrAdditions]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInAssociatedCompaniesPurchasesOrAdditions @InvestmentsInAssociatedCompaniesAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInAssociatedCompaniesPurchasesOrAdditions @InvestmentsInAssociatedCompaniesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -310,11 +270,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInAssociatedCompaniesSalesOrOtherDispositions]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInAssociatedCompaniesSalesOrOtherDispositions @InvestmentsInAssociatedCompaniesAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInAssociatedCompaniesSalesOrOtherDispositions @InvestmentsInAssociatedCompaniesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -337,11 +293,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInAssociatedCompaniesRevenues]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInAssociatedCompaniesRevenues @InvestmentsInAssociatedCompaniesAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInAssociatedCompaniesRevenues @InvestmentsInAssociatedCompaniesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -390,11 +342,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInOtherInvestmentsGainOrLossFromInvestmentDisposed]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInOtherInvestmentsGainOrLossFromInvestmentDisposed @OtherInvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInOtherInvestmentsGainOrLossFromInvestmentDisposed @OtherInvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -417,11 +365,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@OtherInvestments]; 
-<<<<<<< HEAD
-        $addend = sum(list([@OtherInvestments @OtherInvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @OtherInvestments @OtherInvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -444,11 +388,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInOtherInvestmentsPurchasesOrAdditions]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInOtherInvestmentsPurchasesOrAdditions @OtherInvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInOtherInvestmentsPurchasesOrAdditions @OtherInvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -471,11 +411,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInOtherInvestmentsSalesOrOtherDispositions]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInOtherInvestmentsSalesOrOtherDispositions @OtherInvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInOtherInvestmentsSalesOrOtherDispositions @OtherInvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -498,11 +434,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInOtherInvestmentsRevenues]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInOtherInvestmentsRevenues @OtherInvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInOtherInvestmentsRevenues @OtherInvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -551,11 +483,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsToInvestTemporaryCashInvestmentsGainOrLossFromInvestmentDisposed]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsToInvestTemporaryCashInvestmentsGainOrLossFromInvestmentDisposed @TemporaryCashInvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsToInvestTemporaryCashInvestmentsGainOrLossFromInvestmentDisposed @TemporaryCashInvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -578,11 +506,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@TemporaryCashInvestments]; 
-<<<<<<< HEAD
-        $addend = sum(list([@TemporaryCashInvestments @TemporaryCashInvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @TemporaryCashInvestments @TemporaryCashInvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -605,11 +529,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsToInvestTemporaryCashPurchasesOrAdditions]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsToInvestTemporaryCashPurchasesOrAdditions @TemporaryCashInvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsToInvestTemporaryCashPurchasesOrAdditions @TemporaryCashInvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -632,11 +552,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsToInvestTemporaryCashSalesOrOtherDispositions]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsToInvestTemporaryCashSalesOrOtherDispositions @TemporaryCashInvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsToInvestTemporaryCashSalesOrOtherDispositions @TemporaryCashInvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -659,11 +575,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsToInvestTemporaryCashRevenues]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsToInvestTemporaryCashRevenues @TemporaryCashInvestmentsAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsToInvestTemporaryCashRevenues @TemporaryCashInvestmentsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else

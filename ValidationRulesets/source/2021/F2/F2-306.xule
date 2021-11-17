@@ -11,11 +11,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RevenuesForTransitionCostsAndTakeOrPay]; 
-<<<<<<< HEAD
- $addend = sum(list([@RevenuesForTransitionCostsAndTakeOrPay @RateScheduleAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @RevenuesForTransitionCostsAndTakeOrPay @RateScheduleAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -38,11 +34,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RevenuesFromGRIAndACA]; 
-<<<<<<< HEAD
- $addend = sum(list([@RevenuesFromGRIAndACA @RateScheduleAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @RevenuesFromGRIAndACA @RateScheduleAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -65,11 +57,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@OtherRevenues]; 
-<<<<<<< HEAD
- $addend = sum(list([@OtherRevenues @RateScheduleAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @OtherRevenues @RateScheduleAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -92,11 +80,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RevenuesFromStoringGasOfOthers]; 
-<<<<<<< HEAD
- $addend = sum(list([@RevenuesFromStoringGasOfOthers @RateScheduleAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @RevenuesFromStoringGasOfOthers @RateScheduleAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -119,11 +103,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@DekathermOfNaturalGas]; 
-<<<<<<< HEAD
- $addend = sum(list([@DekathermOfNaturalGas @RateScheduleAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @DekathermOfNaturalGas @RateScheduleAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

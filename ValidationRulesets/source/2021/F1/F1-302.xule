@@ -11,11 +11,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=none @period=$currentCumQ4]; 
-<<<<<<< HEAD
- $addend = sum(list([@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentCumQ4])#breakdown);
-=======
  $addend = sum(list([nonils @RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentCumQ4])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -37,11 +33,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=none @period=$currentQ1Duration]; 
-<<<<<<< HEAD
- $addend = sum(list([@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentQ1Duration])#breakdown);
-=======
  $addend = sum(list([nonils @RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentQ1Duration])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -63,11 +55,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=none @period=$currentCumQ2]; 
-<<<<<<< HEAD
- $addend = sum(list([@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentCumQ2])#breakdown);
-=======
  $addend = sum(list([nonils @RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentCumQ2])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -89,11 +77,7 @@ if set('1-F').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=none @period=$currentCumQ3]; 
-<<<<<<< HEAD
- $addend = sum(list([@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentCumQ3])#breakdown);
-=======
  $addend = sum(list([nonils @RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentCumQ3])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else

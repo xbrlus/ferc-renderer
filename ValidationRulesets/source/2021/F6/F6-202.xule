@@ -10,11 +10,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInAffiliatedCompaniesStocks @period=$currentInstant]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInAffiliatedCompaniesStocks @InvestmentsInAffiliatedCompaniesStockAxis=* @period=$currentInstant])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesStocks @InvestmentsInAffiliatedCompaniesStockAxis=* @period=$currentInstant])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -37,11 +33,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentInAffiliatedCompaniesBonds @period = $currentInstant]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentInAffiliatedCompaniesBonds @InvestmentsInAffiliatedCompaniesBondAxis=* @period=$currentInstant])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentInAffiliatedCompaniesBonds @InvestmentsInAffiliatedCompaniesBondAxis=* @period=$currentInstant])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -64,11 +56,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@InvestmentsInAffiliatedCompaniesOtherSecuredObligations @period=$currentInstant]; 
-<<<<<<< HEAD
-        $addend = sum(list([@InvestmentsInAffiliatedCompaniesOtherSecuredObligations @InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis=* @period=$currentInstant])#breakdown);
-=======
         $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesOtherSecuredObligations @InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis=* @period=$currentInstant])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -91,11 +79,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsInAffiliatedCompaniesUnsecuredNotes @period=$currentInstant]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsInAffiliatedCompaniesUnsecuredNotes @InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis=* @period=$currentInstant])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesUnsecuredNotes @InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis=* @period=$currentInstant])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -118,11 +102,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsInAffiliatedCompaniesInvestmentAdvances @period=$currentInstant]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsInAffiliatedCompaniesInvestmentAdvances @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis=* @period=$currentInstant])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesInvestmentAdvances @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis=* @period=$currentInstant])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -170,11 +150,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@SinkingAndOtherFunds @period=$currentInstant]; 
-<<<<<<< HEAD
- $addend = sum(list([@SinkingAndOtherFunds @InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis=* @period=$currentInstant])#breakdown);
-=======
  $addend = sum(list([nonils @SinkingAndOtherFunds @InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis=* @period=$currentInstant])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -197,11 +173,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentInAffiliatedCompaniesStockAdditions]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentInAffiliatedCompaniesStockAdditions @InvestmentsInAffiliatedCompaniesStockAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentInAffiliatedCompaniesStockAdditions @InvestmentsInAffiliatedCompaniesStockAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -224,11 +196,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsDisposedOfOrWrittenDownStockBookValue]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsDisposedOfOrWrittenDownStockBookValue @InvestmentsInAffiliatedCompaniesStockAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownStockBookValue @InvestmentsInAffiliatedCompaniesStockAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -251,11 +219,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsDisposedOfOrWrittenDownStockSellingPrice]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsDisposedOfOrWrittenDownStockSellingPrice @InvestmentsInAffiliatedCompaniesStockAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownStockSellingPrice @InvestmentsInAffiliatedCompaniesStockAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -378,11 +342,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InterestAndDividendIncomeStock]; 
-<<<<<<< HEAD
- $addend = sum(list([@InterestAndDividendIncomeStock @InvestmentsInAffiliatedCompaniesStockAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InterestAndDividendIncomeStock @InvestmentsInAffiliatedCompaniesStockAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -405,11 +365,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentInAffiliatedCompaniesBondsAdditions]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentInAffiliatedCompaniesBondsAdditions @InvestmentsInAffiliatedCompaniesBondAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentInAffiliatedCompaniesBondsAdditions @InvestmentsInAffiliatedCompaniesBondAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -432,11 +388,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsDisposedOfOrWrittenDownBondsBookValue]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsDisposedOfOrWrittenDownBondsBookValue @InvestmentsInAffiliatedCompaniesBondAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownBondsBookValue @InvestmentsInAffiliatedCompaniesBondAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -459,11 +411,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsDisposedOfOrWrittenDownBondsSellingPrice]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsDisposedOfOrWrittenDownBondsSellingPrice @InvestmentsInAffiliatedCompaniesBondAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownBondsSellingPrice @InvestmentsInAffiliatedCompaniesBondAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -486,11 +434,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InterestAndDividendIncomeBonds]; 
-<<<<<<< HEAD
- $addend = sum(list([@InterestAndDividendIncomeBonds @InvestmentsInAffiliatedCompaniesBondAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InterestAndDividendIncomeBonds @InvestmentsInAffiliatedCompaniesBondAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -513,11 +457,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsInAffiliatedCompaniesOtherSecuredObligationsAdditions]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsInAffiliatedCompaniesOtherSecuredObligationsAdditions @InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesOtherSecuredObligationsAdditions @InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -540,11 +480,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsBookValue]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsBookValue @InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsBookValue @InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -567,11 +503,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsSellingPrice]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsSellingPrice @InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsSellingPrice @InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -594,11 +526,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InterestAndDividendIncomeOtherSecuredObligations]; 
-<<<<<<< HEAD
- $addend = sum(list([@InterestAndDividendIncomeOtherSecuredObligations @InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InterestAndDividendIncomeOtherSecuredObligations @InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -621,11 +549,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsInAffiliatedCompaniesUnsecuredNotesAdditions]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsInAffiliatedCompaniesUnsecuredNotesAdditions @InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesUnsecuredNotesAdditions @InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -648,11 +572,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsDisposedOfOrWrittenDownUnsecuredNotesBookValue]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsDisposedOfOrWrittenDownUnsecuredNotesBookValue @InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownUnsecuredNotesBookValue @InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -675,11 +595,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsDisposedOfOrWrittenDownUnsecuredNotesSellingPrice]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsDisposedOfOrWrittenDownUnsecuredNotesSellingPrice @InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownUnsecuredNotesSellingPrice @InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -702,11 +618,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InterestAndDividendIncomeUnsecuredNotes]; 
-<<<<<<< HEAD
- $addend = sum(list([@InterestAndDividendIncomeUnsecuredNotes @InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InterestAndDividendIncomeUnsecuredNotes @InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -729,11 +641,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsInAffiliatedCompaniesInvestmentAdvancesAdditions]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsInAffiliatedCompaniesInvestmentAdvancesAdditions @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAdditions @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -756,11 +664,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesBookValue]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesBookValue @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesBookValue @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -783,11 +687,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesSellingPrice]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesSellingPrice @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesSellingPrice @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -810,11 +710,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InterestAndDividendIncomeInvestmentAdvances]; 
-<<<<<<< HEAD
- $addend = sum(list([@InterestAndDividendIncomeInvestmentAdvances @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InterestAndDividendIncomeInvestmentAdvances @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -837,11 +733,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@SinkingAndOtherFundsAdditions]; 
-<<<<<<< HEAD
- $addend = sum(list([@SinkingAndOtherFundsAdditions @InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @SinkingAndOtherFundsAdditions @InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -864,11 +756,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownBookValue]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownBookValue @InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownBookValue @InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -891,11 +779,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownSellingPrice]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownSellingPrice @InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownSellingPrice @InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -918,11 +802,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@InterestAndDividendIncomeInvestmentsInSinkingAndOtherFunds]; 
-<<<<<<< HEAD
- $addend = sum(list([@InterestAndDividendIncomeInvestmentsInSinkingAndOtherFunds @InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InterestAndDividendIncomeInvestmentsInSinkingAndOtherFunds @InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else

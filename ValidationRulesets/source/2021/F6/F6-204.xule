@@ -41,11 +41,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 =  [@InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @CarrierTypeAxis=CarrierMember]; 
-<<<<<<< HEAD
- $addend = sum(list([@InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @CarrierTypeAxis=CarrierMember @InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @CarrierTypeAxis=CarrierMember @InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -68,11 +64,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 =  [@AdjustmentForInvestmentsQualifyingForEquityMethod @CarrierTypeAxis=CarrierMember]; 
-<<<<<<< HEAD
- $addend = sum(list([@AdjustmentForInvestmentsQualifyingForEquityMethod @CarrierTypeAxis=CarrierMember @InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @AdjustmentForInvestmentsQualifyingForEquityMethod @CarrierTypeAxis=CarrierMember @InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -95,11 +87,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 =  [@EquityInUndistributedEarningsLosses @CarrierTypeAxis=CarrierMember]; 
-<<<<<<< HEAD
- $addend = sum(list([@EquityInUndistributedEarningsLosses @CarrierTypeAxis=CarrierMember @InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @EquityInUndistributedEarningsLosses @CarrierTypeAxis=CarrierMember @InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -122,11 +110,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 =  [@AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies @CarrierTypeAxis=CarrierMember]; 
-<<<<<<< HEAD
- $addend = sum(list([@AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies @CarrierTypeAxis=CarrierMember @InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies @CarrierTypeAxis=CarrierMember @InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else
@@ -150,11 +134,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 =  [@AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown @CarrierTypeAxis=CarrierMember]; 
-<<<<<<< HEAD
- $addend = sum(list([@AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown @CarrierTypeAxis=CarrierMember @InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown @CarrierTypeAxis=CarrierMember @InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
 if $addend == none
  	skip
  else

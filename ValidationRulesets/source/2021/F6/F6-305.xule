@@ -10,11 +10,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@StateLocalAndOtherPipelineTaxExpense];
-<<<<<<< HEAD
-        $addend = sum(list([@StateLocalAndOtherPipelineTaxExpense @PipelineTaxesAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @StateLocalAndOtherPipelineTaxExpense @PipelineTaxesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
         if $addend == none
                 skip
         else
@@ -37,11 +33,7 @@ if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
         $sum1 = [@OtherPipelineTaxExpense];
-<<<<<<< HEAD
-        $addend = sum(list([@OtherPipelineTaxExpense @FederalPipelineTaxesAxis=*])#breakdown);
-=======
         $addend = sum(list([nonils @OtherPipelineTaxExpense @FederalPipelineTaxesAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
          if $addend == none
                 skip
         else
@@ -66,11 +58,7 @@ else
         $sum1 = [@FederalPipelineTaxExpenseIncludingOldAgeRetirementsAndUnemploymentInsuranceTaxes]; 
         $addend = ([@OldAgeRetirementTaxExpense] 
         + [@UnemploymentInsuranceTaxExpense]
-<<<<<<< HEAD
-        + sum(list([@OtherPipelineTaxExpense @FederalPipelineTaxesAxis=*]))
-=======
         + sum(list([nonils @OtherPipelineTaxExpense @FederalPipelineTaxesAxis=*]))
->>>>>>> origin/2021-01-01
         );
         tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 

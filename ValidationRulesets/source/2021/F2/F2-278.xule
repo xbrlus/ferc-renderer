@@ -28,11 +28,7 @@ assert F2.278.2 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@OtherRegulatoryLiabilities]; 
-<<<<<<< HEAD
- $addend = sum(list([@OtherRegulatoryLiabilities @OtherRegulatoryLiabilityAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @OtherRegulatoryLiabilities @OtherRegulatoryLiabilityAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -52,11 +48,7 @@ assert F2.278.3 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@OtherRegulatoryLiabilityWrittenOffRefunded]; 
-<<<<<<< HEAD
- $addend = sum(list([@OtherRegulatoryLiabilityWrittenOffRefunded @OtherRegulatoryLiabilityAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @OtherRegulatoryLiabilityWrittenOffRefunded @OtherRegulatoryLiabilityAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -76,11 +68,7 @@ assert F2.278.4 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@OtherRegulatoryLiabilityWrittenOffDeemedNonRefundable]; 
-<<<<<<< HEAD
- $addend = sum(list([@OtherRegulatoryLiabilityWrittenOffDeemedNonRefundable @OtherRegulatoryLiabilityAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @OtherRegulatoryLiabilityWrittenOffDeemedNonRefundable @OtherRegulatoryLiabilityAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else
@@ -100,11 +88,7 @@ assert F2.278.5 satisfied
 $rule_id = rule-name();
 
  $sum1 = [@OtherRegulatoryLiabilityAdditions]; 
-<<<<<<< HEAD
- $addend = sum(list([@OtherRegulatoryLiabilityAdditions @OtherRegulatoryLiabilityAxis=*])#breakdown);
-=======
  $addend = sum(list([nonils @OtherRegulatoryLiabilityAdditions @OtherRegulatoryLiabilityAxis=*])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
  	skip
  else

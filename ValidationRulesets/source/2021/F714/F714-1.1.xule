@@ -134,12 +134,8 @@ message
 
 Element : {$f1.concept.name}
 Period : {$f1.period}
-<<<<<<< HEAD
-Value : {$f1} 
-=======
 Value : {$f1}
 Dimensions : {$f1.dimensions.join(', ','=')}
->>>>>>> origin/2021-01-01
  
 Rule Id:{$rule_id}
 "
@@ -154,12 +150,8 @@ message
 
 Element : {$f1.concept.name}
 Period : {$f1.period}
-<<<<<<< HEAD
-Value : {$f1} 
-=======
 Value : {$f1}
 Dimensions : {$f1.dimensions.join(', ','=')}
->>>>>>> origin/2021-01-01
 
 Rule Id:{$rule_id}
 "

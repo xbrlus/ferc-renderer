@@ -10,11 +10,7 @@ $rule_id = rule-name();
 if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
-<<<<<<< HEAD
-$OtherMiscellaneousGeneralExpenses = first-value({@OtherMiscellaneousGeneralExpenses}, sum(list({@OtherMiscellaneousGeneralExpenses @MiscellaneousGeneralExpensesAxis=*})));
-=======
 $OtherMiscellaneousGeneralExpenses = first-value({@OtherMiscellaneousGeneralExpenses}, sum(list({nonils @OtherMiscellaneousGeneralExpenses @MiscellaneousGeneralExpensesAxis=*})));
->>>>>>> origin/2021-01-01
 
  $sum1 = {@MiscellaneousGeneralExpenses}; 
  $addend = ({@IndustryAssociationDues} 

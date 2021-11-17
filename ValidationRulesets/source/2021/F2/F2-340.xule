@@ -12,11 +12,7 @@ $rule_id = rule-name();
         skip
 else
  $sum1 = [@MiscellaneousAmortization @period=$currentDuration]; 
-<<<<<<< HEAD
- $addend = sum(list([@MiscellaneousAmortization @MiscellaneousAmortizationAxis=* @period=$currentDuration])#breakdown);
-=======
  $addend = sum(list([nonils @MiscellaneousAmortization @MiscellaneousAmortizationAxis=* @period=$currentDuration])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none             
         skip
  else
@@ -42,11 +38,7 @@ $rule_id = rule-name();
         skip
 else
  $sum1 = [@Donations @period=$currentDuration]; 
-<<<<<<< HEAD
- $addend = sum(list([@Donations @DonationsAxis=* @period=$currentDuration])#breakdown);
-=======
  $addend = sum(list([nonils @Donations @DonationsAxis=* @period=$currentDuration])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
         skip
  else
@@ -73,11 +65,7 @@ $rule_id = rule-name();
         skip
 else
  $sum1 = [@LifeInsurance @period=$currentDuration]; 
-<<<<<<< HEAD
- $addend = sum(list([@LifeInsurance @LifeInsuranceAxis=* @period=$currentDuration])#breakdown);
-=======
  $addend = sum(list([nonils @LifeInsurance @LifeInsuranceAxis=* @period=$currentDuration])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
         skip
  else
@@ -102,11 +90,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = [@Penalties @period=$currentDuration]; 
-<<<<<<< HEAD
- $addend = sum(list([@Penalties @PenaltiesAxis=* @period=$currentDuration])#breakdown);
-=======
  $addend = sum(list([nonils @Penalties @PenaltiesAxis=* @period=$currentDuration])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
         skip
  else
@@ -134,11 +118,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
 else
  $sum1 = [@ExpendituresForCertainCivicPoliticalAndRelatedActivities @period=$currentDuration]; 
 
-<<<<<<< HEAD
- $addend = sum(list([@ExpendituresForCertainCivicPoliticalAndRelatedActivities @ExpendituresForCertainCivicPoliticalAndRelatedActivitiesAxis=* @period=$currentDuration])#breakdown);
-=======
  $addend = sum(list([nonils @ExpendituresForCertainCivicPoliticalAndRelatedActivities @ExpendituresForCertainCivicPoliticalAndRelatedActivitiesAxis=* @period=$currentDuration])#breakdown);
->>>>>>> origin/2021-01-01
 
  if $addend == none
         skip
@@ -168,11 +148,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
 else
  $sum1 = [@OtherDeductions @period=$currentDuration]; 
 
-<<<<<<< HEAD
- $addend = sum(list([@OtherDeductions @OtherDeductionsAxis=* @period=$currentDuration])#breakdown);
-=======
  $addend = sum(list([nonils @OtherDeductions @OtherDeductionsAxis=* @period=$currentDuration])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
         skip
  else
@@ -200,11 +176,7 @@ if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
 else
  $sum1 = [@InterestOnDebtToAssociatedCompanies @period=$currentDuration]; 
 
-<<<<<<< HEAD
- $addend = sum(list([@InterestOnDebtToAssociatedCompanies @InterestOnDebtToAssociatedCompaniesAxis=* @period=$currentDuration])#breakdown);
-=======
  $addend = sum(list([nonils @InterestOnDebtToAssociatedCompanies @InterestOnDebtToAssociatedCompaniesAxis=* @period=$currentDuration])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
         skip
  else
@@ -230,11 +202,7 @@ $rule_id = rule-name();
         skip
 else
  $sum1 = [@OtherInterestExpense @period=$currentDuration]; 
-<<<<<<< HEAD
- $addend = sum(list([@OtherInterestExpense @OtherInterestExpenseAxis=* @period=$currentDuration])#breakdown);
-=======
  $addend = sum(list([nonils @OtherInterestExpense @OtherInterestExpenseAxis=* @period=$currentDuration])#breakdown);
->>>>>>> origin/2021-01-01
  if $addend == none
         skip
  else

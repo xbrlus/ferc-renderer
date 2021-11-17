@@ -6191,7 +6191,7 @@
   <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-674" decimals="0" contextRef="c-01" unitRef="u-02">1000000</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
   <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-675" decimals="0" contextRef="c-01" unitRef="u-03">1000000</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
   <ferc:RentFromGasProperty id="f-676" decimals="0" contextRef="c-01" unitRef="u-02">1000000</ferc:RentFromGasProperty>
-  <ferc:OperatingRevenueBeforeProvisionForRateRefunds id="f-678" decimals="0" contextRef="c-01" unitRef="u-02">17000000</ferc:OperatingRevenueBeforeProvisionForRateRefunds>
+  <ferc:OperatingRevenueBeforeProvisionForRateRefunds id="f-678" decimals="0" contextRef="c-01" unitRef="u-02">12000000</ferc:OperatingRevenueBeforeProvisionForRateRefunds>
   <ferc:ExchangeGas id="f-679" decimals="0" contextRef="c-01" unitRef="u-02">1000000</ferc:ExchangeGas>
   <ferc:GasDeliveredToStorageCredit id="f-680" decimals="0" contextRef="c-01" unitRef="u-02">1000000</ferc:GasDeliveredToStorageCredit>
   <ferc:GasUsedForCompressorStationFuelCredit id="f-681" decimals="0" contextRef="c-01" unitRef="u-02">1000000</ferc:GasUsedForCompressorStationFuelCredit>
@@ -6973,7 +6973,7 @@ adjustments to future period fuel retention rates</ferc:CitationAuthorizationFor
   <ferc:ProvisionForRateRefunds decimals="0" contextRef="c-73" unitRef="u-02">600</ferc:ProvisionForRateRefunds>
   <ferc:ProvisionForRateRefunds decimals="0" contextRef="c-72" unitRef="u-02">0</ferc:ProvisionForRateRefunds>
   <ferc:ProvisionForRateRefunds decimals="0" contextRef="c-71" unitRef="u-02">0</ferc:ProvisionForRateRefunds>
-  <ferc:ProvisionForRateRefunds decimals="0" contextRef="c-01" unitRef="u-02">6000000</ferc:ProvisionForRateRefunds>
+  <ferc:ProvisionForRateRefunds decimals="0" contextRef="c-01" unitRef="u-02">1000000</ferc:ProvisionForRateRefunds>
   <ferc:QuantityOfGasAdditionalOperatingRevenue decimals="0" contextRef="c-73" unitRef="u-03">100</ferc:QuantityOfGasAdditionalOperatingRevenue>
   <ferc:QuantityOfGasAdditionalOperatingRevenue decimals="0" contextRef="c-72" unitRef="u-03">100</ferc:QuantityOfGasAdditionalOperatingRevenue>
   <ferc:QuantityOfGasAdditionalOperatingRevenue decimals="0" contextRef="c-71" unitRef="u-03">100</ferc:QuantityOfGasAdditionalOperatingRevenue>

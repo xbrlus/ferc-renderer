@@ -322,7 +322,7 @@
       <instant>2018-03-31</instant>
     </period>
   </context>
-  <context id="c-27">
+  <!--<context id="c-27">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
       <segment>
@@ -335,7 +335,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-03-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-28">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
@@ -376,7 +376,7 @@
       <instant>2017-12-31</instant>
     </period>
   </context>
-  <context id="c-31">
+  <!--<context id="c-31">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
       <segment>
@@ -389,7 +389,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-03-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-32">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
@@ -818,7 +818,7 @@
       <instant>2017-12-31</instant>
     </period>
   </context>
-  <context id="c-64">
+  <!--<context id="c-64">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
       <segment>
@@ -859,7 +859,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-03-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-67">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
@@ -1505,7 +1505,7 @@
       <endDate>2018-03-31</endDate>
     </period>
   </context>
-  <context id="c-114">
+  <!--<context id="c-114">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
       <segment>
@@ -1518,7 +1518,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-03-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-115">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
@@ -1533,7 +1533,7 @@
       <endDate>2018-03-31</endDate>
     </period>
   </context>
-  <context id="c-116">
+  <!--<context id="c-116">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
       <segment>
@@ -1756,7 +1756,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-03-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-132">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
@@ -1976,7 +1976,7 @@
       <endDate>2018-03-31</endDate>
     </period>
   </context>
-  <context id="c-148">
+  <!--<context id="c-143">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
       <segment>
@@ -1991,7 +1991,7 @@
       <endDate>2018-03-31</endDate>
     </period>
   </context>
-  <context id="c-149">
+  <context id="c-144">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
       <segment>
@@ -2006,7 +2006,7 @@
       <endDate>2018-03-31</endDate>
     </period>
   </context>
-  <context id="c-150">
+  <context id="c-145">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
       <segment>
@@ -2021,7 +2021,7 @@
       <endDate>2018-03-31</endDate>
     </period>
   </context>
-  <context id="c-151">
+  <context id="c-146">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
       <segment>
@@ -2035,7 +2035,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-03-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-302_1">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
@@ -2921,13 +2921,13 @@
   <ferc:PaymentByCompanyOrPublicAuthority id="f-872" contextRef="c-111">VARIOUS Non Firm Customers</ferc:PaymentByCompanyOrPublicAuthority>
   <ferc:PaymentByCompanyOrPublicAuthority id="f-884" contextRef="c-112">VARIOUS Tariff Customers</ferc:PaymentByCompanyOrPublicAuthority>
   <ferc:NotesToFinancialStatementsTextBlock contextRef="c-01">1. ORGANIZATION
-Buckeye Partners, L.P. (“Buckeye”) is a master limited partnership organized in 1986 under the laws
-of the state of Delaware. Buckeye’s principal line of business is the transportation, terminalling, storage and
+Buckeye Partners, L.P. ("Buckeye") is a master limited partnership organized in 1986 under the laws
+of the state of Delaware. Buckeye's principal line of business is the transportation, terminalling, storage and
 handling of refined petroleum products in the United States and the Caribbean, for integrated oil companies,
 refined product marketing companies and end users of petroleum products, on a fee basis through facilities
 owned and jointly owned by Buckeye.
 Buckeye conducts all of its operations through subsidiary entities, which include Buckeye Pipe Line
-Transportation Company, LLC (the “Company”), as well as joint ventures. Buckeye owns a 100% ownership
+Transportation Company, LLC (the "Company"), as well as joint ventures. Buckeye owns a 100% ownership
 interest in the Company.
 The Company is the sole member (100% owner) of Buckeye Linden Pipe Line Company LLC.
 Buckeye Linden Pipe Line Company LLC was formed as a Delaware limited liability company on October 16,
@@ -2935,13 +2935,13 @@ Buckeye Linden Pipe Line Company LLC was formed as a Delaware limited liability 
 b-directional pipeline transportation service between Perth Amboy, New Jersey and Linden, New Jersey, thereby
 offering shippers enhanced connectivity and service optionality in the New York Harbor.</ferc:NotesToFinancialStatementsTextBlock>
   <ferc:DisclosureOfApplicableNotesTextBlock contextRef="c-01">1. ORGANIZATION
-Buckeye Partners, L.P. (“Buckeye”) is a master limited partnership organized in 1986 under the laws
-of the state of Delaware. Buckeye’s principal line of business is the transportation, terminalling, storage and
+Buckeye Partners, L.P. ("Buckeye") is a master limited partnership organized in 1986 under the laws
+of the state of Delaware. Buckeye's principal line of business is the transportation, terminalling, storage and
 handling of refined petroleum products in the United States and the Caribbean, for integrated oil companies,
 refined product marketing companies and end users of petroleum products, on a fee basis through facilities
 owned and jointly owned by Buckeye.
 Buckeye conducts all of its operations through subsidiary entities, which include Buckeye Pipe Line
-Transportation Company, LLC (the “Company”), as well as joint ventures. Buckeye owns a 100% ownership
+Transportation Company, LLC (the "Company"), as well as joint ventures. Buckeye owns a 100% ownership
 interest in the Company.
 The Company is the sole member (100% owner) of Buckeye Linden Pipe Line Company LLC.
 Buckeye Linden Pipe Line Company LLC was formed as a Delaware limited liability company on October 16,
@@ -2949,13 +2949,13 @@ Buckeye Linden Pipe Line Company LLC was formed as a Delaware limited liability 
 b-directional pipeline transportation service between Perth Amboy, New Jersey and Linden, New Jersey, thereby
 offering shippers enhanced connectivity and service optionality in the New York Harbor.</ferc:DisclosureOfApplicableNotesTextBlock>
   <ferc:DisclosureOfPurchaseOrSaleOfAnOperatingUnitOrSystemTextBlock contextRef="c-01">1. ORGANIZATION
-Buckeye Partners, L.P. (“Buckeye”) is a master limited partnership organized in 1986 under the laws
-of the state of Delaware. Buckeye’s principal line of business is the transportation, terminalling, storage and
+Buckeye Partners, L.P. ("Buckeye") is a master limited partnership organized in 1986 under the laws
+of the state of Delaware. Buckeye's principal line of business is the transportation, terminalling, storage and
 handling of refined petroleum products in the United States and the Caribbean, for integrated oil companies,
 refined product marketing companies and end users of petroleum products, on a fee basis through facilities
 owned and jointly owned by Buckeye.
 Buckeye conducts all of its operations through subsidiary entities, which include Buckeye Pipe Line
-Transportation Company, LLC (the “Company”), as well as joint ventures. Buckeye owns a 100% ownership
+Transportation Company, LLC (the "Company"), as well as joint ventures. Buckeye owns a 100% ownership
 interest in the Company.
 The Company is the sole member (100% owner) of Buckeye Linden Pipe Line Company LLC.
 Buckeye Linden Pipe Line Company LLC was formed as a Delaware limited liability company on October 16,
@@ -2963,13 +2963,13 @@ Buckeye Linden Pipe Line Company LLC was formed as a Delaware limited liability 
 b-directional pipeline transportation service between Perth Amboy, New Jersey and Linden, New Jersey, thereby
 offering shippers enhanced connectivity and service optionality in the New York Harbor.</ferc:DisclosureOfPurchaseOrSaleOfAnOperatingUnitOrSystemTextBlock>
   <ferc:DisclosureOfEstimatedAnnualEffectAndNatureOfAnyImportantWageScaleChangesTextBlock contextRef="c-01">1. ORGANIZATION
-Buckeye Partners, L.P. (“Buckeye”) is a master limited partnership organized in 1986 under the laws
-of the state of Delaware. Buckeye’s principal line of business is the transportation, terminalling, storage and
+Buckeye Partners, L.P. ("Buckeye") is a master limited partnership organized in 1986 under the laws
+of the state of Delaware. Buckeye's principal line of business is the transportation, terminalling, storage and
 handling of refined petroleum products in the United States and the Caribbean, for integrated oil companies,
 refined product marketing companies and end users of petroleum products, on a fee basis through facilities
 owned and jointly owned by Buckeye.
 Buckeye conducts all of its operations through subsidiary entities, which include Buckeye Pipe Line
-Transportation Company, LLC (the “Company”), as well as joint ventures. Buckeye owns a 100% ownership
+Transportation Company, LLC (the "Company"), as well as joint ventures. Buckeye owns a 100% ownership
 interest in the Company.
 The Company is the sole member (100% owner) of Buckeye Linden Pipe Line Company LLC.
 Buckeye Linden Pipe Line Company LLC was formed as a Delaware limited liability company on October 16,
@@ -3344,23 +3344,23 @@ offering shippers enhanced connectivity and service optionality in the New York 
   <ferc:NetworkAndPointToPointServiceUsage decimals="INF" contextRef="c-145" unitRef="u-04">23505</ferc:NetworkAndPointToPointServiceUsage>
   <ferc:NetworkAndPointToPointServiceUsage decimals="INF" contextRef="c-146" unitRef="u-04">76787</ferc:NetworkAndPointToPointServiceUsage>
   <ferc:NetworkAndPointToPointServiceUsage decimals="INF" contextRef="c-147" unitRef="u-04">76787</ferc:NetworkAndPointToPointServiceUsage>
-  <ferc:EnergyActivity id="f-1049" decimals="INF" contextRef="c-148" unitRef="u-03">6596464</ferc:EnergyActivity>
-  <ferc:EnergyActivity id="f-1054" decimals="INF" contextRef="c-149" unitRef="u-03">5378251</ferc:EnergyActivity>
-  <ferc:EnergyActivity id="f-1059" decimals="INF" contextRef="c-150" unitRef="u-03">5400890</ferc:EnergyActivity>
-  <ferc:EnergyActivity id="f-1064" decimals="INF" contextRef="c-151" unitRef="u-03">17375605</ferc:EnergyActivity>
-  <ferc:NonRequiredSalesForResaleEnergy id="f-1050" decimals="INF" contextRef="c-148" unitRef="u-03">565307</ferc:NonRequiredSalesForResaleEnergy>
-  <ferc:NonRequiredSalesForResaleEnergy id="f-1055" decimals="INF" contextRef="c-149" unitRef="u-03">1107327</ferc:NonRequiredSalesForResaleEnergy>
-  <ferc:NonRequiredSalesForResaleEnergy id="f-1060" decimals="INF" contextRef="c-150" unitRef="u-03">741782</ferc:NonRequiredSalesForResaleEnergy>
-  <ferc:NonRequiredSalesForResaleEnergy id="f-1065" decimals="INF" contextRef="c-151" unitRef="u-03">2414416</ferc:NonRequiredSalesForResaleEnergy>
-  <ferc:MonthlyPeakLoad id="f-1051" decimals="INF" contextRef="c-148" unitRef="u-04">11989</ferc:MonthlyPeakLoad>
-  <ferc:MonthlyPeakLoad id="f-1056" decimals="INF" contextRef="c-149" unitRef="u-04">8838</ferc:MonthlyPeakLoad>
-  <ferc:MonthlyPeakLoad id="f-1061" decimals="INF" contextRef="c-150" unitRef="u-04">9078</ferc:MonthlyPeakLoad>
-  <ferc:DayOfMonthlyPeak id="f-1052" decimals="INF" contextRef="c-148" unitRef="u-01">18</ferc:DayOfMonthlyPeak>
-  <ferc:DayOfMonthlyPeak id="f-1057" decimals="INF" contextRef="c-149" unitRef="u-01">8</ferc:DayOfMonthlyPeak>
-  <ferc:DayOfMonthlyPeak id="f-1062" decimals="INF" contextRef="c-150" unitRef="u-01">15</ferc:DayOfMonthlyPeak>
-  <ferc:HourOfMonthlyPeak id="f-1053" decimals="INF" contextRef="c-148" unitRef="u-01">8</ferc:HourOfMonthlyPeak>
-  <ferc:HourOfMonthlyPeak id="f-1058" decimals="INF" contextRef="c-149" unitRef="u-01">8</ferc:HourOfMonthlyPeak>
-  <ferc:HourOfMonthlyPeak id="f-1063" decimals="INF" contextRef="c-150" unitRef="u-01">8</ferc:HourOfMonthlyPeak>
+  <ferc:EnergyActivity id="f-1049" decimals="INF" contextRef="c-143" unitRef="u-03">6596464</ferc:EnergyActivity>
+  <ferc:EnergyActivity id="f-1054" decimals="INF" contextRef="c-144" unitRef="u-03">5378251</ferc:EnergyActivity>
+  <ferc:EnergyActivity id="f-1059" decimals="INF" contextRef="c-145" unitRef="u-03">5400890</ferc:EnergyActivity>
+  <ferc:EnergyActivity id="f-1064" decimals="INF" contextRef="c-146" unitRef="u-03">17375605</ferc:EnergyActivity>
+  <ferc:NonRequiredSalesForResaleEnergy id="f-1050" decimals="INF" contextRef="c-143" unitRef="u-03">565307</ferc:NonRequiredSalesForResaleEnergy>
+  <ferc:NonRequiredSalesForResaleEnergy id="f-1055" decimals="INF" contextRef="c-144" unitRef="u-03">1107327</ferc:NonRequiredSalesForResaleEnergy>
+  <ferc:NonRequiredSalesForResaleEnergy id="f-1060" decimals="INF" contextRef="c-145" unitRef="u-03">741782</ferc:NonRequiredSalesForResaleEnergy>
+  <ferc:NonRequiredSalesForResaleEnergy id="f-1065" decimals="INF" contextRef="c-146" unitRef="u-03">2414416</ferc:NonRequiredSalesForResaleEnergy>
+  <ferc:MonthlyPeakLoad id="f-1051" decimals="INF" contextRef="c-143" unitRef="u-04">11989</ferc:MonthlyPeakLoad>
+  <ferc:MonthlyPeakLoad id="f-1056" decimals="INF" contextRef="c-144" unitRef="u-04">8838</ferc:MonthlyPeakLoad>
+  <ferc:MonthlyPeakLoad id="f-1061" decimals="INF" contextRef="c-145" unitRef="u-04">9078</ferc:MonthlyPeakLoad>
+  <ferc:DayOfMonthlyPeak id="f-1052" decimals="INF" contextRef="c-143" unitRef="u-01">18</ferc:DayOfMonthlyPeak>
+  <ferc:DayOfMonthlyPeak id="f-1057" decimals="INF" contextRef="c-144" unitRef="u-01">8</ferc:DayOfMonthlyPeak>
+  <ferc:DayOfMonthlyPeak id="f-1062" decimals="INF" contextRef="c-145" unitRef="u-01">15</ferc:DayOfMonthlyPeak>
+  <ferc:HourOfMonthlyPeak id="f-1053" decimals="INF" contextRef="c-143" unitRef="u-01">8</ferc:HourOfMonthlyPeak>
+  <ferc:HourOfMonthlyPeak id="f-1058" decimals="INF" contextRef="c-144" unitRef="u-01">8</ferc:HourOfMonthlyPeak>
+  <ferc:HourOfMonthlyPeak id="f-1063" decimals="INF" contextRef="c-145" unitRef="u-01">8</ferc:HourOfMonthlyPeak>
   <ferc:IntangiblePlant id="f-1066" decimals="INF" contextRef="c-02" unitRef="u-02">310623598</ferc:IntangiblePlant>
   <ferc:IntangiblePlantAccumulatedDepreciationAndAmortization id="f-1067" decimals="INF" contextRef="c-02" unitRef="u-02">186426473</ferc:IntangiblePlantAccumulatedDepreciationAndAmortization>
   <ferc:SteamProductionPlant id="f-1068" decimals="INF" contextRef="c-02" unitRef="u-02">9210074112</ferc:SteamProductionPlant>
@@ -3847,7 +3847,7 @@ offering shippers enhanced connectivity and service optionality in the New York 
   </link:footnoteLink>
   <context id="s-108">
       <entity>
-          <identifier scheme="http://www.ferc.gov/CID">513</identifier>
+          <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
           <segment>
               <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
                   <ferc:ScheduleRemarksDomain>ScheduleImportantChangesDuringTheQuarterYearAbstract</ferc:ScheduleRemarksDomain>
@@ -3862,7 +3862,7 @@ offering shippers enhanced connectivity and service optionality in the New York 
     <ferc:Remarks contextRef="s-108">This is a remark for the Important Changes During the Year Schedule</ferc:Remarks>
 <context id="s-110">
       <entity>
-          <identifier scheme="http://www.ferc.gov/CID">513</identifier>
+          <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
           <segment>
               <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
                   <ferc:ScheduleRemarksDomain>ScheduleComparativeBalanceSheetAbstract</ferc:ScheduleRemarksDomain>
@@ -3878,7 +3878,7 @@ offering shippers enhanced connectivity and service optionality in the New York 
 
     <context id="s-114">
         <entity>
-            <identifier scheme="http://www.ferc.gov/CID">513</identifier>
+            <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
             <segment>
                 <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
                     <ferc:ScheduleRemarksDomain>ScheduleStatementOfIncomeAbstract</ferc:ScheduleRemarksDomain>
@@ -3894,7 +3894,7 @@ offering shippers enhanced connectivity and service optionality in the New York 
 
     <context id="s-117">
         <entity>
-            <identifier scheme="http://www.ferc.gov/CID">513</identifier>
+            <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
             <segment>
                 <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
                     <ferc:ScheduleRemarksDomain>ScheduleStatementOfAccumulatedOtherComprehensiveIncomeAndHedgingActivitiesAbstract</ferc:ScheduleRemarksDomain>
@@ -3910,7 +3910,7 @@ offering shippers enhanced connectivity and service optionality in the New York 
 
     <context id="s-118">
         <entity>
-            <identifier scheme="http://www.ferc.gov/CID">513</identifier>
+            <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
             <segment>
                 <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
                     <ferc:ScheduleRemarksDomain>ScheduleRetainedEarningsAbstract</ferc:ScheduleRemarksDomain>
@@ -3926,7 +3926,7 @@ offering shippers enhanced connectivity and service optionality in the New York 
 
     <context id="s-120">
         <entity>
-            <identifier scheme="http://www.ferc.gov/CID">513</identifier>
+            <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
             <segment>
                 <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
                     <ferc:ScheduleRemarksDomain>ScheduleStatementOfCashFlowsAbstract</ferc:ScheduleRemarksDomain>
@@ -3941,7 +3941,7 @@ offering shippers enhanced connectivity and service optionality in the New York 
     <ferc:Remarks contextRef="s-120">This is a remark for the Statement of Cash Flows Schedule</ferc:Remarks>
     <context id="s-122">
         <entity>
-            <identifier scheme="http://www.ferc.gov/CID">513</identifier>
+            <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
             <segment>
                 <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
                     <ferc:ScheduleRemarksDomain>ScheduleNotesToFinancialStatementsAbstract</ferc:ScheduleRemarksDomain>

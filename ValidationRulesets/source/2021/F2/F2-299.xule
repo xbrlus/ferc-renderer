@@ -7,7 +7,7 @@ RULE-NAME-PREFIX FERC
 assert F2.299.1 satisfied 
 $rule_id = rule-name();
 
-if set('2-A').contains([covered @concept.local-name ='FormType'])
+if set('2-A').contains([covered @concept.local-name ='FormType']) or (set('2/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis = "ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor")
         skip
 else
  $sum1 = {@OperatingRevenuesSalesOfGasForfeitedDiscountsAndMiscellaneousServiceRevenues}; 
@@ -29,7 +29,7 @@ rule-focus $sum1
 assert F2.299.2 satisfied 
 $rule_id = rule-name();
 
-if set('2-A').contains([covered @concept.local-name ='FormType'])
+if set('2-A').contains([covered @concept.local-name ='FormType']) or (set('2/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis = "ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor")
         skip
 else
  $sum1 = {@OperatingRevenuesTransportationOfGasForOthers}; 
@@ -51,7 +51,7 @@ rule-focus $sum1
 assert F2.299.3 satisfied 
 $rule_id = rule-name();
 
-if set('2-A').contains([covered @concept.local-name ='FormType'])
+if set('2-A').contains([covered @concept.local-name ='FormType']) or (set('2/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis = "ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor")
         skip
 else
  $sum1 = {@RevenuesFromStoringGasOfOthers}; 
@@ -73,7 +73,7 @@ rule-focus $sum1
 assert F2.299.4 satisfied 
 $rule_id = rule-name();
 
-if set('2-A').contains([covered @concept.local-name ='FormType'])
+if set('2-A').contains([covered @concept.local-name ='FormType']) or (set('2/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis = "ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor")
         skip
 else
  $sum1 = {@OperatingRevenuesGatheringFirmFacilities}; 
@@ -95,7 +95,7 @@ rule-focus $sum1
 assert F2.299.5 satisfied 
 $rule_id = rule-name();
 
-if set('2-A').contains([covered @concept.local-name ='FormType'])
+if set('2-A').contains([covered @concept.local-name ='FormType']) or (set('2/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis = "ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor")
         skip
 else
  $sum1 = {@OperatingRevenuesGatheringInterruptibleFacility}; 
@@ -117,7 +117,7 @@ rule-focus $sum1
 assert F2.299.6 satisfied 
 $rule_id = rule-name();
 
-if set('2-A').contains([covered @concept.local-name ='FormType'])
+if set('2-A').contains([covered @concept.local-name ='FormType']) or (set('2/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis = "ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor")
         skip
 else
  $sum1 = {@RevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities}; 
@@ -138,7 +138,7 @@ rule-focus $sum1
 assert F2.299.7 satisfied 
 $rule_id = rule-name();
 
-if set('2-A').contains([covered @concept.local-name ='FormType'])
+if set('2-A').contains([covered @concept.local-name ='FormType']) or (set('2/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis = "ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor")
         skip
 else
  $sum1 = {@OperatingRevenuesProductsSalesAndExtraction}; 
@@ -160,7 +160,7 @@ rule-focus $sum1
 assert F2.299.8 satisfied 
 $rule_id = rule-name();
 
-if set('2-A').contains([covered @concept.local-name ='FormType'])
+if set('2-A').contains([covered @concept.local-name ='FormType']) or (set('2/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis = "ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor")
         skip
 else
  $sum1 = {@OperatingRevenuesRentFromGasPropertyAndInterdepartmentalRents}; 
@@ -182,7 +182,7 @@ rule-focus $sum1
 assert F2.299.9 satisfied 
 $rule_id = rule-name();
 
-if set('2-A').contains([covered @concept.local-name ='FormType'])
+if set('2-A').contains([covered @concept.local-name ='FormType']) or (set('2/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis = "ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor")
         skip
 else
  $sum1 = {@OtherGasRevenues}; 
@@ -204,7 +204,7 @@ rule-focus $sum1
 assert F2.299.10 satisfied 
 $rule_id = rule-name();
 
-if set('2-A').contains([covered @concept.local-name ='FormType'])
+if set('2-A').contains([covered @concept.local-name ='FormType']) or (set('2/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis = "ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor")
         skip
 else
  $sum1 = {@ProvisionForRateRefunds}; 
@@ -226,7 +226,7 @@ rule-focus $sum1
 assert F2.299.11 satisfied 
 $rule_id = rule-name();
 
-if set('2-A').contains([covered @concept.local-name ='FormType'])
+if set('2-A').contains([covered @concept.local-name ='FormType']) or (set('2/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis = "ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor")
         skip
 else
  $sum1 = {@OperatingRevenuesAdditionalOperatingRevenue}; 
@@ -249,7 +249,7 @@ rule-focus $sum1
 assert F2.299.12 satisfied 
 $rule_id = rule-name();
 
-if set('2-A').contains([covered @concept.local-name ='FormType'])
+if set('2-A').contains([covered @concept.local-name ='FormType']) or (set('2/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis = "ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor")
         skip
 else
  $sum1 = {@OperatingRevenues @period = $currentQM1}; 
@@ -273,7 +273,7 @@ rule-focus $sum1
 assert F2.299.13 satisfied 
 $rule_id = rule-name();
 
-if set('2-A').contains([covered @concept.local-name ='FormType'])
+if set('2-A').contains([covered @concept.local-name ='FormType']) or (set('2/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis = "ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor")
         skip
 else
  $sum1 = {@OperatingRevenues @period = $currentQM2}; 
@@ -297,7 +297,7 @@ rule-focus $sum1
 assert F2.299.14 satisfied 
 $rule_id = rule-name();
 
-if set('2-A').contains([covered @concept.local-name ='FormType'])
+if set('2-A').contains([covered @concept.local-name ='FormType']) or (set('2/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis = "ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor")
         skip
 else
  $sum1 = {@OperatingRevenues @period = $currentQM3}; 

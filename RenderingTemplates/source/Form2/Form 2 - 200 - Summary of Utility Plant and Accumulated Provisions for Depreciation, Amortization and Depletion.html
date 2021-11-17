@@ -14,6 +14,13 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl" id="ScheduleSummaryOfUtilityPlantAndAccumulatedProvisionsForDepreciationAmortizationAndDepletionAbstract">
+    <xule:showif>if set('2/3-Q').contains([covered @concept.local-name ='FormType']) 
+        if first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis="ScheduleSummaryOfUtilityPlantAndAccumulatedProvisionsForDepreciationAmortizationAndDepletionAbstract"])) == "NonMajor"
+            false
+        else
+            true
+     else
+        true</xule:showif>
     <table class="schedule-header xbrl" width="100%">
         <tr>
             <td class="xbrl">

@@ -1020,17 +1020,6 @@
       <endDate>2017-12-31</endDate>
     </period>
   </context>
-  <context id="c-46">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:GasUtilityMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <instant>2018-12-31</instant>
-    </period>
-  </context>
   <context id="c-46.1">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -1103,7 +1092,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-50">
+  <!--<context id="c-50">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -1156,8 +1145,8 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
-  <context id="c-51">
+  </context>-->
+  <!--<context id="c-51">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -1272,7 +1261,7 @@
     <period>
       <instant>2018-12-31</instant>
     </period>
-  </context>
+  </context>-->
   <context id="c-59">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -1701,7 +1690,7 @@
       <instant>2018-12-31</instant>
     </period>
   </context>
-  <context id="c-79">
+  <!--<context id="c-79">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -1754,8 +1743,8 @@
     <period>
       <instant>2018-12-31</instant>
     </period>
-  </context>
-  <context id="c-80.1">
+  </context>-->
+  <!--<context id="c-80.1">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -2052,7 +2041,7 @@
     <period>
       <instant>2017-12-31</instant>
     </period>
-  </context>
+  </context>-->
   <context id="c-92">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -2070,7 +2059,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-93">
+  <!--<context id="c-93">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -2085,7 +2074,7 @@
     <period>
       <instant>2018-12-31</instant>
     </period>
-  </context>
+  </context>-->
   <context id="c-94">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -2103,7 +2092,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-95">
+  <!--<context id="c-95">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -2134,7 +2123,7 @@
     <period>
       <instant>2018-12-31</instant>
     </period>
-  </context>
+  </context>-->
   <context id="c-97">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -2152,7 +2141,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-98">
+  <!--<context id="c-98">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -2216,7 +2205,7 @@
     <period>
       <instant>2017-12-31</instant>
     </period>
-  </context>
+  </context>-->
   <context id="c-102">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -2234,7 +2223,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-103">
+  <!--<context id="c-103">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -2310,8 +2299,8 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
-  <context id="c-230b.1">
+  </context>-->
+  <!--<context id="c-230b.1">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -2362,8 +2351,8 @@
     <period>
       <instant>2018-12-31</instant>
     </period>
-  </context>
-  <context id="c-107">
+  </context>-->
+  <!--<context id="c-107">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -2442,7 +2431,7 @@
     <period>
       <instant>2018-12-31</instant>
     </period>
-  </context>
+  </context>-->
   <context id="c-110">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -2603,7 +2592,7 @@
       <instant>2018-12-31</instant>
     </period>
   </context>
-  <context id="c-122">
+  <!--<context id="c-122">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -2722,19 +2711,7 @@
     <period>
       <instant>2017-12-31</instant>
     </period>
-  </context>
-  <context id="c-130">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:OtherUtilityMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
-    </period>
-  </context>
+  </context>-->
   <context id="c-131">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -2779,18 +2756,6 @@
     </entity>
     <period>
       <instant>2018-12-31</instant>
-    </period>
-  </context>
-  <context id="c-134">
-    <entity>
-      <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
-      <segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:NonUtilityMember</xbrldi:explicitMember>
-      </segment>
-    </entity>
-    <period>
-      <startDate>2018-01-01</startDate>
-      <endDate>2018-12-31</endDate>
     </period>
   </context>
   <context id="c-135">
@@ -2847,7 +2812,7 @@
       <instant>2018-12-31</instant>
     </period>
   </context>
-  <context id="c-135.4">
+  <!--<context id="c-135.4">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -2900,8 +2865,8 @@
     <period>
       <instant>2018-12-31</instant>
     </period>
-  </context>
-  <context id="c-136">
+  </context>-->
+  <!--<context id="c-136">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -2927,8 +2892,8 @@
     <period>
       <instant>2018-12-31</instant>
     </period>
-  </context>
-  <context id="c-136.2">
+  </context>-->
+  <!--<context id="c-136.2">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -3237,8 +3202,8 @@
     <period>
       <instant>2017-12-31</instant>
     </period>
-  </context>
-  <context id="c-137.2">
+  </context>-->
+  <!--<context id="c-137.2">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -3616,7 +3581,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-146">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -3631,7 +3596,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-146.1">
+  <!--<context id="c-146.1">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -3672,7 +3637,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-147">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -3686,7 +3651,7 @@
       <instant>2018-12-31</instant>
     </period>
   </context>
-  <context id="c-147.1">
+  <!--<context id="c-147.1">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -3724,7 +3689,7 @@
     <period>
       <instant>2018-12-31</instant>
     </period>
-  </context>
+  </context>-->
   <context id="c-148">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -3739,7 +3704,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-148.1">
+  <!--<context id="c-148.1">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -3780,7 +3745,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-149">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -3794,7 +3759,7 @@
       <instant>2018-12-31</instant>
     </period>
   </context>
-  <context id="c-149.1">
+  <!--<context id="c-149.1">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -4400,7 +4365,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-181">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -5309,7 +5274,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-266">
+  <!--<context id="c-266">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -5549,7 +5514,7 @@
     <period>
       <instant>2018-12-31</instant>
     </period>
-  </context>
+  </context>-->
   <context id="c-284">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -5777,7 +5742,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-302">
+  <!--<context id="c-302">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -7358,7 +7323,7 @@
       <startDate>2017-01-01</startDate>
       <endDate>2017-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-416">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -7415,7 +7380,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-420">
+  <!--<context id="c-420">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -8402,7 +8367,7 @@
     <period>
       <instant>2018-12-31</instant>
     </period>
-  </context>
+  </context>-->
   <context id="c-476">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -8459,7 +8424,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-480">
+  <!--<context id="c-480">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -8494,7 +8459,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-481">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -8943,7 +8908,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-516">
+  <!--<context id="c-516">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -9038,7 +9003,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-521-b">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -9048,7 +9013,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-522">
+  <!--<context id="c-522">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -10153,7 +10118,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-600">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -10480,7 +10445,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-632">
+  <!--<context id="c-632">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -10563,7 +10528,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-213.1">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -10592,7 +10557,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-738">
+  <!--<context id="c-738">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -10773,7 +10738,7 @@
       <startDate>2017-01-01</startDate>
       <endDate>2017-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-20.2">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -10798,7 +10763,7 @@
       <endDate>2017-12-31</endDate>
     </period>
   </context>
-  <context id="c-751">
+  <!--<context id="c-751">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -11542,7 +11507,7 @@
       <startDate>2018-01-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-764.0">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -12088,7 +12053,7 @@
       <endDate>2018-11-30</endDate>
     </period>
   </context>
-  <context id="c-768.7">
+  <!--<context id="c-768.7">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -12102,7 +12067,7 @@
       <startDate>2018-11-01</startDate>
       <endDate>2018-11-30</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-769">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -12326,7 +12291,7 @@
       <endDate>2018-11-30</endDate>
     </period>
   </context>
-  <context id="c-770.7">
+  <!--<context id="c-770.7">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -12340,7 +12305,7 @@
       <startDate>2018-11-01</startDate>
       <endDate>2018-11-30</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-771">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -12562,7 +12527,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-772.7">
+  <!--<context id="c-772.7">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -12576,7 +12541,7 @@
       <startDate>2018-12-01</startDate>
       <endDate>2018-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   <context id="c-773">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -12931,7 +12896,7 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
-  <context id="c-26.1">
+  <!--<context id="c-26.1">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
       <segment>
@@ -12944,7 +12909,7 @@
       <startDate>2017-01-01</startDate>
       <endDate>2017-12-31</endDate>
     </period>
-  </context>
+  </context>-->
   
   <unit id="u-01">
     <measure>pure</measure>
@@ -13041,6 +13006,21 @@
   <ferc:NotesToFinancialStatementsTextBlock contextRef="c-01">Note 1: ABC
   Note 2: DEF
   Note 3: GHI</ferc:NotesToFinancialStatementsTextBlock>
+  <ferc:DisclosureOfImportantDisclosuresRegardingTheFinancialStatementsTextBlock contextRef="c-01">Important Disclosures 123</ferc:DisclosureOfImportantDisclosuresRegardingTheFinancialStatementsTextBlock>
+  <ferc:DisclosureOfSignificantContingentAssetsOrLiabilitiesTextBlock contextRef="c-01">Significant Assets 123</ferc:DisclosureOfSignificantContingentAssetsOrLiabilitiesTextBlock>
+  <ferc:DisclosureOfPensionPostRetirementBenefitOtherThanPensionsPBOPAndOrPostEmploymentBenefitPlansTextBlock contextRef="c-01">Pension 123</ferc:DisclosureOfPensionPostRetirementBenefitOtherThanPensionsPBOPAndOrPostEmploymentBenefitPlansTextBlock>
+  <ferc:DisclosureOfAssetsRetirementObligationsAROTextBlock contextRef="c-01">AROs 123</ferc:DisclosureOfAssetsRetirementObligationsAROTextBlock>
+  <ferc:DisclosureOfReceivedEnvironmentalCreditsTextBlock contextRef="c-01">Environmental Credits Received 123</ferc:DisclosureOfReceivedEnvironmentalCreditsTextBlock>
+  <ferc:DisclosureOfRevenuesAndExpensesForTrackedCostAndSpecialSurchargeTextBlock contextRef="c-01">Revenues for tracked cost 123</ferc:DisclosureOfRevenuesAndExpensesForTrackedCostAndSpecialSurchargeTextBlock>
+  <ferc:DisclosureOfRateTreatmentForUnamortizedLossOnReacquiredDebtAndUnamortizedGainOnReacquiredDebtTextBlock contextRef="c-01">Rate treatment for unamortized cost 123</ferc:DisclosureOfRateTreatmentForUnamortizedLossOnReacquiredDebtAndUnamortizedGainOnReacquiredDebtTextBlock>
+  <ferc:DisclosureOfRetainedEarningsRestrictionsTextBlock contextRef="c-01">Retained Earnings Restrictions 123</ferc:DisclosureOfRetainedEarningsRestrictionsTextBlock>
+  <ferc:DisclosureOfSignificantFinancialChangesTextBlock contextRef="c-01">Significant changes 123</ferc:DisclosureOfSignificantFinancialChangesTextBlock>
+  <ferc:DisclosureOfUnsettledRateProceedingsTextBlock contextRef="c-01">Unsettled rate proceedings 123</ferc:DisclosureOfUnsettledRateProceedingsTextBlock>
+  <ferc:DisclosureOfSignificantAmountsOfRefundsMadeOrReceivedTextBlock contextRef="c-01">Significant refunds received 123</ferc:DisclosureOfSignificantAmountsOfRefundsMadeOrReceivedTextBlock>
+  <ferc:DisclosureOfSignificantChangesInAccountingMethodsTextBlock contextRef="c-01">Significant changes in accounting methods ABC</ferc:DisclosureOfSignificantChangesInAccountingMethodsTextBlock>
+  <ferc:DisclosureOfSubsequentEventsTextBlock contextRef="c-01">Subsequent events ABC</ferc:DisclosureOfSubsequentEventsTextBlock>
+  <ferc:DisclosureOfInterimDisclosureTextBlock contextRef="c-01">Interim disclosure ABC</ferc:DisclosureOfInterimDisclosureTextBlock>
+  <ferc:DisclosureOfApplicableNotesTextBlock contextRef="c-01">Applicable notes ABC</ferc:DisclosureOfApplicableNotesTextBlock>
   <ferc:DisclosureOfChangesInAndImportantAdditionsToFranchiseRightsTextBlock contextRef="c-01">None</ferc:DisclosureOfChangesInAndImportantAdditionsToFranchiseRightsTextBlock>
   <ferc:DisclosureOfAcquisitionOfOwnershipInOtherCompaniesByReorganizationMergerOrConsolidationWithOtherCompaniesTextBlock contextRef="c-01">None</ferc:DisclosureOfAcquisitionOfOwnershipInOtherCompaniesByReorganizationMergerOrConsolidationWithOtherCompaniesTextBlock>
   <ferc:DisclosureOfPurchaseOrSaleOfAnOperatingUnitOrSystemTextBlock contextRef="c-01">See page 122, Notes to Financial Statements, Note 7 Rate and Regulatory Matters</ferc:DisclosureOfPurchaseOrSaleOfAnOperatingUnitOrSystemTextBlock>
@@ -13066,30 +13046,30 @@
   10. None 
   12. Changes made during the year ended December 31, 2018:
 Appointments:
- Tom Dender – Vice President
- Denise R. Mathews – Vice President
- Mosby G. Perrow – Vice President and Assistant Secretary
- C. Todd Piczak – Vice President and Chief Compliance Officer
+ Tom Dender - Vice President
+ Denise R. Mathews - Vice President
+ Mosby G. Perrow - Vice President and Assistant Secretary
+ C. Todd Piczak - Vice President and Chief Compliance Officer
 Resignations:
- Kimberly A. Dang – Vice President
- James C. Moffatt – Vice President and Assistant Secretary
- Charles Schwager – Vice President and Chief Compliance Officer 
+ Kimberly A. Dang - Vice President
+ James C. Moffatt - Vice President and Assistant Secretary
+ Charles Schwager - Vice President and Chief Compliance Officer 
   13. None   
   </ferc:StatementAboutImportantChangesDuringTheQuarterYearTextBlock>
   <ferc:DisclosureOfChangesInOfficersDirectorsMajorSecurityHoldersAndVotingPowersOfTheRespondentTextBlock contextRef="c-01"> Changes made during the year ended December 31, 2018:
 Appointments:
- Tom Dender – Vice President
- Denise R. Mathews – Vice President
- Mosby G. Perrow – Vice President and Assistant Secretary
- C. Todd Piczak – Vice President and Chief Compliance Officer
+ Tom Dender - Vice President
+ Denise R. Mathews - Vice President
+ Mosby G. Perrow - Vice President and Assistant Secretary
+ C. Todd Piczak - Vice President and Chief Compliance Officer
 Resignations:
- Kimberly A. Dang – Vice President
- James C. Moffatt – Vice President and Assistant Secretary
- Charles Schwager – Vice President and Chief Compliance Officer
- Lisa M. Shorb – Vice President</ferc:DisclosureOfChangesInOfficersDirectorsMajorSecurityHoldersAndVotingPowersOfTheRespondentTextBlock>
+ Kimberly A. Dang - Vice President
+ James C. Moffatt - Vice President and Assistant Secretary
+ Charles Schwager - Vice President and Chief Compliance Officer
+ Lisa M. Shorb - Vice President</ferc:DisclosureOfChangesInOfficersDirectorsMajorSecurityHoldersAndVotingPowersOfTheRespondentTextBlock>
   <ferc:UtilityPlant id="f-46" decimals="INF" contextRef="c-16" unitRef="u-02">1787882020</ferc:UtilityPlant>
   <ferc:UtilityPlant id="f-47" decimals="INF" contextRef="c-17" unitRef="u-02">1792364616</ferc:UtilityPlant>
-  <ferc:UtilityPlantInServiceClassifiedAndUnclassified id="f-380" decimals="INF" contextRef="c-46" unitRef="u-02">1481724557</ferc:UtilityPlantInServiceClassifiedAndUnclassified>
+  <ferc:UtilityPlantInServiceClassifiedAndUnclassified id="f-380" decimals="INF" contextRef="c-71" unitRef="u-02">1481724557</ferc:UtilityPlantInServiceClassifiedAndUnclassified>
   <ferc:UtilityPlantInServiceClassifiedAndUnclassified decimals="INF" contextRef="c-16" unitRef="u-02">1481724557</ferc:UtilityPlantInServiceClassifiedAndUnclassified>
   <ferc:UtilityPlantInServiceClassifiedAndUnclassified decimals="INF" contextRef="c-46.1" unitRef="u-02">1000000</ferc:UtilityPlantInServiceClassifiedAndUnclassified>
   <ferc:UtilityPlantInServiceClassifiedAndUnclassified decimals="INF" contextRef="c-46.2" unitRef="u-02">1000000</ferc:UtilityPlantInServiceClassifiedAndUnclassified>
@@ -13101,19 +13081,19 @@ Resignations:
   <ferc:ConstructionWorkInProgress decimals="INF" contextRef="c-46.3" unitRef="u-02">1000000</ferc:ConstructionWorkInProgress> -->
   <ferc:UtilityPlantAndConstructionWorkInProgress id="f-50" decimals="INF" contextRef="c-16" unitRef="u-02">1789641574</ferc:UtilityPlantAndConstructionWorkInProgress>
   <ferc:UtilityPlantAndConstructionWorkInProgress id="f-51" decimals="INF" contextRef="c-17" unitRef="u-02">1793785571</ferc:UtilityPlantAndConstructionWorkInProgress>
- <!--<ferc:UtilityPlantAndConstructionWorkInProgress id="f-382" decimals="INF" contextRef="c-46" unitRef="u-02">1484484111</ferc:UtilityPlantAndConstructionWorkInProgress>-->
+ <!--<ferc:UtilityPlantAndConstructionWorkInProgress id="f-382" decimals="INF" contextRef="c-71" unitRef="u-02">1484484111</ferc:UtilityPlantAndConstructionWorkInProgress>-->
  <!-- <ferc:UtilityPlantAndConstructionWorkInProgress decimals="INF" contextRef="c-46.1" unitRef="u-02">1000000</ferc:UtilityPlantAndConstructionWorkInProgress>
   <ferc:UtilityPlantAndConstructionWorkInProgress decimals="INF" contextRef="c-46.2" unitRef="u-02">1000000</ferc:UtilityPlantAndConstructionWorkInProgress>
   <ferc:UtilityPlantAndConstructionWorkInProgress decimals="INF" contextRef="c-46.3" unitRef="u-02">1000000</ferc:UtilityPlantAndConstructionWorkInProgress> -->
   <ferc:AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility id="f-52" decimals="INF" contextRef="c-16" unitRef="u-02">670943961</ferc:AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility>
   <ferc:AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility id="f-53" decimals="INF" contextRef="c-17" unitRef="u-02">653011423</ferc:AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility>
-  <!--<ferc:AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility id="f-383" decimals="INF" contextRef="c-46" unitRef="u-02">670943961</ferc:AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility>-->
+  <!--<ferc:AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility id="f-383" decimals="INF" contextRef="c-71" unitRef="u-02">670943961</ferc:AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility>-->
  <!--- <ferc:AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility decimals="INF" contextRef="c-46.1" unitRef="u-02">0</ferc:AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility>
   <ferc:AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility decimals="INF" contextRef="c-46.2" unitRef="u-02">0</ferc:AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility>
   <ferc:AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility decimals="INF" contextRef="c-46.3" unitRef="u-02">0</ferc:AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility> -->
   <ferc:UtilityPlantNet id="f-54" decimals="INF" contextRef="c-16" unitRef="u-02">1118697613</ferc:UtilityPlantNet>
   <ferc:UtilityPlantNet id="f-55" decimals="INF" contextRef="c-17" unitRef="u-02">1140774148</ferc:UtilityPlantNet>
-  <!--<ferc:UtilityPlantNet id="f-384" decimals="INF" contextRef="c-46" unitRef="u-02">813540150</ferc:UtilityPlantNet>-->
+  <!--<ferc:UtilityPlantNet id="f-384" decimals="INF" contextRef="c-71" unitRef="u-02">813540150</ferc:UtilityPlantNet>-->
   <!--<ferc:UtilityPlantNet decimals="INF" contextRef="c-46.1" unitRef="u-02">1000000</ferc:UtilityPlantNet>
   <ferc:UtilityPlantNet decimals="INF" contextRef="c-46.2" unitRef="u-02">1000000</ferc:UtilityPlantNet>
   <ferc:UtilityPlantNet decimals="INF" contextRef="c-46.3" unitRef="u-02">1000000</ferc:UtilityPlantNet>-->
@@ -13182,7 +13162,7 @@ Resignations:
   <ferc:AccumulatedDeferredIncomeTaxes decimals="INF" contextRef="c-67.1" unitRef="u-02">1000000</ferc:AccumulatedDeferredIncomeTaxes>
   <ferc:AccumulatedDeferredIncomeTaxes decimals="INF" contextRef="c-67.2" unitRef="u-02">1000000</ferc:AccumulatedDeferredIncomeTaxes>
   <ferc:AccumulatedDeferredIncomeTaxes decimals="INF" contextRef="c-67.3" unitRef="u-02">1000000</ferc:AccumulatedDeferredIncomeTaxes>
-  <ferc:AccumulatedDeferredIncomeTaxes id="f-756" decimals="INF" contextRef="c-46" unitRef="u-02">9203900</ferc:AccumulatedDeferredIncomeTaxes>
+  <ferc:AccumulatedDeferredIncomeTaxes id="f-756" decimals="INF" contextRef="c-71" unitRef="u-02">9203900</ferc:AccumulatedDeferredIncomeTaxes>
   <ferc:AccumulatedDeferredIncomeTaxes decimals="INF" contextRef="c-46.1" unitRef="u-02">1000000</ferc:AccumulatedDeferredIncomeTaxes>
   <ferc:AccumulatedDeferredIncomeTaxes decimals="INF" contextRef="c-46.2" unitRef="u-02">1000000</ferc:AccumulatedDeferredIncomeTaxes>
   <ferc:AccumulatedDeferredIncomeTaxes decimals="INF" contextRef="c-46.4" unitRef="u-02">1000000</ferc:AccumulatedDeferredIncomeTaxes>
@@ -13299,7 +13279,7 @@ Resignations:
   <ferc:AccumulatedDeferredIncomeTaxesOtherProperty id="f-151" decimals="INF" contextRef="c-16" unitRef="u-02">53142867</ferc:AccumulatedDeferredIncomeTaxesOtherProperty>
   <ferc:AccumulatedDeferredIncomeTaxesOtherProperty id="f-152" decimals="INF" contextRef="c-17" unitRef="u-02">42961201</ferc:AccumulatedDeferredIncomeTaxesOtherProperty>
   <ferc:AccumulatedDeferredIncomeTaxesOtherProperty id="f-1065" decimals="INF" contextRef="c-67" unitRef="u-02">39961201</ferc:AccumulatedDeferredIncomeTaxesOtherProperty>
-  <ferc:AccumulatedDeferredIncomeTaxesOtherProperty id="f-1072" decimals="INF" contextRef="c-46" unitRef="u-02">47442867</ferc:AccumulatedDeferredIncomeTaxesOtherProperty>
+  <ferc:AccumulatedDeferredIncomeTaxesOtherProperty id="f-1072" decimals="INF" contextRef="c-71" unitRef="u-02">47442867</ferc:AccumulatedDeferredIncomeTaxesOtherProperty>
   <ferc:AccumulatedDeferredIncomeTaxesOtherProperty id="f-1074" decimals="INF" contextRef="c-131" unitRef="u-02">41961201</ferc:AccumulatedDeferredIncomeTaxesOtherProperty>
   <ferc:AccumulatedDeferredIncomeTaxesOtherProperty id="f-1079" decimals="INF" contextRef="c-133" unitRef="u-02">51242867</ferc:AccumulatedDeferredIncomeTaxesOtherProperty>
   <ferc:AccumulatedDeferredIncomeTaxesOtherProperty decimals="INF" contextRef="c-67.1" unitRef="u-02">1000000</ferc:AccumulatedDeferredIncomeTaxesOtherProperty>
@@ -13317,7 +13297,7 @@ Resignations:
   <ferc:AccumulatedDeferredIncomeTaxesOther id="f-153" decimals="INF" contextRef="c-16" unitRef="u-02">50791469</ferc:AccumulatedDeferredIncomeTaxesOther>
   <ferc:AccumulatedDeferredIncomeTaxesOther id="f-154" decimals="INF" contextRef="c-17" unitRef="u-02">49354542</ferc:AccumulatedDeferredIncomeTaxesOther>
   <ferc:AccumulatedDeferredIncomeTaxesOther id="f-1095" decimals="INF" contextRef="c-67" unitRef="u-02">46354542</ferc:AccumulatedDeferredIncomeTaxesOther>
-  <ferc:AccumulatedDeferredIncomeTaxesOther id="f-1100" decimals="INF" contextRef="c-46" unitRef="u-02">47791469</ferc:AccumulatedDeferredIncomeTaxesOther>
+  <ferc:AccumulatedDeferredIncomeTaxesOther id="f-1100" decimals="INF" contextRef="c-71" unitRef="u-02">47791469</ferc:AccumulatedDeferredIncomeTaxesOther>
   <ferc:AccumulatedDeferredIncomeTaxesOther id="f-1102" decimals="INF" contextRef="c-131" unitRef="u-02">48354542</ferc:AccumulatedDeferredIncomeTaxesOther>
   <ferc:AccumulatedDeferredIncomeTaxesOther id="f-1106" decimals="INF" contextRef="c-133" unitRef="u-02">49791469</ferc:AccumulatedDeferredIncomeTaxesOther>
   <ferc:DeferredCredits id="f-155" decimals="INF" contextRef="c-16" unitRef="u-02">151166876</ferc:DeferredCredits>
@@ -14521,7 +14501,7 @@ Resignations:
   <ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant id="f-614" decimals="INF" contextRef="c-68" unitRef="u-02">647086255</ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant>
   <ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant decimals="INF" contextRef="c-68.1" unitRef="u-02">1000000</ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant>
   <ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant decimals="INF" contextRef="c-68.2" unitRef="u-02">-1000000</ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant>
-  <ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant id="f-629" decimals="INF" contextRef="c-46" unitRef="u-02">676246113</ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant>
+  <ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant id="f-629" decimals="INF" contextRef="c-71" unitRef="u-02">676246113</ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant>
   <ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant id="f-630" decimals="INF" contextRef="c-70" unitRef="u-02">669852301</ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant>
   <ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant decimals="INF" contextRef="c-70.1" unitRef="u-02">4445000</ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant>
   <ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant decimals="INF" contextRef="c-70.2" unitRef="u-02">1948812</ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlant>
@@ -14721,8 +14701,8 @@ adjustments to future period fuel retention rates</ferc:CitationAuthorizationFor
   <ferc:AdjustmentsDebitedToAccount decimals="INF" contextRef="c-132" unitRef="u-02">3000</ferc:AdjustmentsDebitedToAccount>
   <ferc:AdjustmentsDebitedToAccount decimals="INF" contextRef="c-132.1" unitRef="u-02">1000</ferc:AdjustmentsDebitedToAccount>
   <ferc:AdjustmentsDebitedToAccount decimals="INF" contextRef="c-01" unitRef="u-02">4000</ferc:AdjustmentsDebitedToAccount>
-  <ferc:DescriptionOfAccumulatedDeferredIncomeTax id="f-757" contextRef="c-130">Other (Define) (footnote details)</ferc:DescriptionOfAccumulatedDeferredIncomeTax>
-  <ferc:DescriptionOfAccumulatedDeferredIncomeTax id="f-763" contextRef="c-134">Other (Specify) (footnote details)</ferc:DescriptionOfAccumulatedDeferredIncomeTax>
+  <ferc:DescriptionOfAccumulatedDeferredIncomeTax id="f-757" contextRef="c-19.1">Other (Define) (footnote details)</ferc:DescriptionOfAccumulatedDeferredIncomeTax>
+  <ferc:DescriptionOfAccumulatedDeferredIncomeTax id="f-763" contextRef="c-132.1">Other (Specify) (footnote details)</ferc:DescriptionOfAccumulatedDeferredIncomeTax>
   <ferc:AccumulatedDeferredIncomeTaxesFederalIncomeTax id="f-767" decimals="INF" contextRef="c-17" unitRef="u-02">8015329</ferc:AccumulatedDeferredIncomeTaxesFederalIncomeTax>
   <ferc:AccumulatedDeferredIncomeTaxesFederalIncomeTax id="f-771" decimals="INF" contextRef="c-16" unitRef="u-02">7737481</ferc:AccumulatedDeferredIncomeTaxesFederalIncomeTax>
   <ferc:FederalIncomeTaxChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome id="f-768" decimals="INF" contextRef="c-01" unitRef="u-02">330348</ferc:FederalIncomeTaxChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome>
@@ -14967,8 +14947,8 @@ adjustments to future period fuel retention rates</ferc:CitationAuthorizationFor
   <ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount decimals="INF" contextRef="c-19" unitRef="u-02">1000000</ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount>
   <ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount decimals="INF" contextRef="c-132" unitRef="u-02">3000000</ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount>
   <ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount decimals="INF" contextRef="c-01" unitRef="u-02">4000000</ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount>
-  <ferc:DescriptionOfAccumulatedDeferredIncomeTaxOtherProperty id="f-1073" contextRef="c-130">Other (Define)  (footnote details)</ferc:DescriptionOfAccumulatedDeferredIncomeTaxOtherProperty>
-  <ferc:DescriptionOfAccumulatedDeferredIncomeTaxOtherProperty id="f-1080" contextRef="c-134">Other (Specify)  (footnote details)</ferc:DescriptionOfAccumulatedDeferredIncomeTaxOtherProperty>
+  <ferc:DescriptionOfAccumulatedDeferredIncomeTaxOtherProperty id="f-1073" contextRef="c-19.1">Other (Define)  (footnote details)</ferc:DescriptionOfAccumulatedDeferredIncomeTaxOtherProperty>
+  <ferc:DescriptionOfAccumulatedDeferredIncomeTaxOtherProperty id="f-1080" contextRef="c-132.1">Other (Specify)  (footnote details)</ferc:DescriptionOfAccumulatedDeferredIncomeTaxOtherProperty>
   <ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyFederalIncomeTax id="f-1085" decimals="INF" contextRef="c-17" unitRef="u-02">34060967</ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyFederalIncomeTax>
   <ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyFederalIncomeTax id="f-1089" decimals="INF" contextRef="c-16" unitRef="u-02">41478834</ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyFederalIncomeTax>
   <ferc:FederalIncomeTaxForOtherPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome id="f-1086" decimals="INF" contextRef="c-01" unitRef="u-02">7654830</ferc:FederalIncomeTaxForOtherPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome>
@@ -15037,8 +15017,8 @@ adjustments to future period fuel retention rates</ferc:CitationAuthorizationFor
   <ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions decimals="INF" contextRef="c-19.1" unitRef="u-02">1000000</ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions>
   <ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions decimals="INF" contextRef="c-132.1" unitRef="u-02">1000000</ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions>
   <ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherDescriptionOfCreditedAccountNumber id="f-1098" contextRef="c-19">219</ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherDescriptionOfCreditedAccountNumber>
-  <ferc:DescriptionOfAccumulatedDeferredIncomeTaxOther id="f-1101" contextRef="c-130">Other (Define) (footnote details)</ferc:DescriptionOfAccumulatedDeferredIncomeTaxOther>
-  <ferc:DescriptionOfAccumulatedDeferredIncomeTaxOther id="f-1107" contextRef="c-134">Other (Specify) (footnote details)</ferc:DescriptionOfAccumulatedDeferredIncomeTaxOther>
+  <ferc:DescriptionOfAccumulatedDeferredIncomeTaxOther id="f-1101" contextRef="c-19.1">Other (Define) (footnote details)</ferc:DescriptionOfAccumulatedDeferredIncomeTaxOther>
+  <ferc:DescriptionOfAccumulatedDeferredIncomeTaxOther id="f-1107" contextRef="c-132.1">Other (Specify) (footnote details)</ferc:DescriptionOfAccumulatedDeferredIncomeTaxOther>
   <ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherFederalIncomeTax id="f-1111" decimals="INF" contextRef="c-17" unitRef="u-02">39510317</ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherFederalIncomeTax>
   <ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherFederalIncomeTax id="f-1115" decimals="INF" contextRef="c-16" unitRef="u-02">39649615</ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherFederalIncomeTax>
   <ferc:FederalIncomeTaxForOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome id="f-1112" decimals="INF" contextRef="c-01" unitRef="u-02">960989</ferc:FederalIncomeTaxForOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome>
@@ -15326,14 +15306,14 @@ adjustments to future period fuel retention rates</ferc:CitationAuthorizationFor
   <ferc:RevenueFromDiscountedRateServices id="f-1612" decimals="INF" contextRef="c-417" unitRef="u-02">84751959</ferc:RevenueFromDiscountedRateServices>
   <ferc:RevenueFromDiscountedRateServices decimals="INF" contextRef="c-416" unitRef="u-02">1000000</ferc:RevenueFromDiscountedRateServices>
   <ferc:RevenueFromDiscountedRateServices id="f-1618" decimals="INF" contextRef="c-01" unitRef="u-02">85751959</ferc:RevenueFromDiscountedRateServices>
-  <ferc:VolumesOfDiscountedRateServices id="f-1613" decimals="INF" contextRef="c-417" unitRef="u-01">285318264</ferc:VolumesOfDiscountedRateServices>
-  <ferc:VolumesOfDiscountedRateServices decimals="INF" contextRef="c-416" unitRef="u-01">1000000</ferc:VolumesOfDiscountedRateServices>
+  <ferc:VolumesOfDiscountedRateServices id="f-1613" decimals="INF" contextRef="c-417" unitRef="u-03">285318264</ferc:VolumesOfDiscountedRateServices>
+  <ferc:VolumesOfDiscountedRateServices decimals="INF" contextRef="c-416" unitRef="u-03">1000000</ferc:VolumesOfDiscountedRateServices>
   <ferc:VolumesOfDiscountedRateServices id="f-1619" decimals="INF" contextRef="c-01" unitRef="u-01">286318264</ferc:VolumesOfDiscountedRateServices>
   <ferc:RevenuesFromNegotiatedRateServices id="f-1614" decimals="INF" contextRef="c-417" unitRef="u-02">22615841</ferc:RevenuesFromNegotiatedRateServices>
   <ferc:RevenuesFromNegotiatedRateServices decimals="INF" contextRef="c-416" unitRef="u-02">1000000</ferc:RevenuesFromNegotiatedRateServices>
   <ferc:RevenuesFromNegotiatedRateServices id="f-1620" decimals="INF" contextRef="c-01" unitRef="u-02">23615841</ferc:RevenuesFromNegotiatedRateServices>
-  <ferc:VolumesOfNegotiatedRateServices id="f-1615" decimals="INF" contextRef="c-417" unitRef="u-01">147884746</ferc:VolumesOfNegotiatedRateServices>
-  <ferc:VolumesOfNegotiatedRateServices decimals="INF" contextRef="c-416" unitRef="u-01">1000000</ferc:VolumesOfNegotiatedRateServices>
+  <ferc:VolumesOfNegotiatedRateServices id="f-1615" decimals="INF" contextRef="c-417" unitRef="u-03">147884746</ferc:VolumesOfNegotiatedRateServices>
+  <ferc:VolumesOfNegotiatedRateServices decimals="INF" contextRef="c-416" unitRef="u-03">1000000</ferc:VolumesOfNegotiatedRateServices>
   <ferc:VolumesOfNegotiatedRateServices id="f-1621" decimals="INF" contextRef="c-01" unitRef="u-01">148884746</ferc:VolumesOfNegotiatedRateServices>
   <ferc:OperationSupervisionAndEngineeringProductsExtraction id="f-1622" decimals="INF" contextRef="c-01" unitRef="u-02">31163</ferc:OperationSupervisionAndEngineeringProductsExtraction>
   <ferc:OperationSupervisionAndEngineeringProductsExtraction id="f-1623" decimals="INF" contextRef="c-18" unitRef="u-02">28579</ferc:OperationSupervisionAndEngineeringProductsExtraction>

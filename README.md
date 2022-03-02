@@ -16,7 +16,7 @@ To render forms using the Arelle processor, the XULE plugin and FERC render plug
   * numpy
 * Follow steps 2 and 3 from the **Windows/Mac/Linux Application Install** section above to add the xule and FERC plugin folders and files to the plugin directory of Arelle. The Arelle location is where the Arelle source code from GitHub was extracted on the local machine or server. The Arelle plugin foler is at ```arelle/plugin``` in the source distribution. For *step 2*, add the xule and FERC folders and files to the ```arelle/plugin``` folder.
 
-The FERC plugin requires **Python 3.5** or later and is **not compatible with earlier versions of Python**.
+The FERC plugin requires **Python 3.9** or later and is **not compatible with earlier versions of Python**.
 
 ## Rendering a Filing
 
@@ -28,20 +28,20 @@ In addition the FERC publishes seperate template sets for individual schedules. 
 
 The latest templates for rendering are posted in this repository and linked under 'Assets' with each [release](../../releases).  The templates can also be used from this repository with the Arelle command below as the ferc-render-template-set parameter:
 
-- Form 1: https://github.com/xbrlus/ferc-renderer/blob/master/RenderingTemplates/Form_1.zip?raw=true
-- Form 1F: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_1F.zip?raw=true
-- Form 1 3Q Electric: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_1_3Q_Electric.zip?raw=true
-- Form 2: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_2.zip?raw=true
-- Form 2A: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_2A.zip?raw=true
-- Form 2 3Q Gas: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_2_3Q_Gas.zip?raw=true
-- Form 6: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_6.zip?raw=true
-- Form 6Q: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_6Q.zip?raw=true
-- Form 60: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_60.zip?raw=true
-- Form 714: https://github.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form_714.zip?raw=true
+- Form 1: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_1.zip
+- Form 1F: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_1F.zip
+- Form 1 3Q Electric: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_3Q_Electric.zip
+- Form 2: https://github.com/xbrlus/ferc-renderer/master/raw/RenderingTemplates/Form_2.zip
+- Form 2A: https://github.com/xbrlus/ferc-renderer/master/raw/RenderingTemplates/Form_2A.zip
+- Form 2 3Q Gas: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_3Q_Gas.zip
+- Form 6: https://github.com/xbrlus/ferc-renderer/master/raw/RenderingTemplates/Form_6.zip
+- Form 6Q: https://github.com/xbrlus/ferc-renderer/master/raw/RenderingTemplates/Form_6Q.zip
+- Form 60: https://github.com/xbrlus/ferc-renderer/master/raw/RenderingTemplates/Form_60.zip
+- Form 714: https://github.com/xbrlus/ferc-renderer/master/raw/RenderingTemplates/Form_714.zip
 
 ### Arelle Commands to render the filing
 The command to generate a rendered filing is as follows (exclude the _{location}_ text - this is illustrative of which file is referenced):
-`python3 Arelle-master/arellecmdline.py --plugin FERC/render --ferc-render-render --ferc-render-template-set {location of template}https://github.com/xbrlus/ferc-renderer/blob/master/RenderingTemplates/Form_1.zip?raw=true -f {location of instance}/AepAppalachianTransmissionCompanyInc-436-2018Q1F1.xbrl' --ferc-render-inline {location of output}/MyCompanyInc-2020Q1-combined.html --noCertificateCheck --ferc-render-debug`
+`python3 Arelle-master/arellecmdline.py --plugin FERC/render --ferc-render-render --ferc-render-template-set {location of template}https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_1.zip -f {location of instance}/AepAppalachianTransmissionCompanyInc-436-2018Q1F1.xbrl' --ferc-render-inline {location of output}/MyCompanyInc-2020Q1-combined.html --noCertificateCheck --ferc-render-debug`
 
 This will refer to an external CSS file in the template. To include the css file in the rendered file the following options are used:
 
@@ -68,6 +68,6 @@ FERC forms are validated during the submission process with a series of checks. 
 
 `.\arellecmdline.exe --plugins xule --xule-rule-set {location of form ruleset}/Form1.zip -f {location of instance}/sampleF1.xbrl -v --xule-time .005 --xule-debug --noCertificateCheck --logFile {location of output}/log.xml`
 
-Like the rendering templates, the validation ruleset.zip files can be invoked from the repository by using the `?raw=true` attribute on the URL:
+Like the rendering templates, the validation ruleset.zip files can be invoked from the repository by using the `/raw/` attribute in the URL:
 
-`.\arellecmdline.exe --plugins xule --xule-rule-set https://github.com/xbrlus/ferc-renderer/blob/master/ValidationRulesets/Form1.zip?raw=true -f {location of instance}/sampleF1.xbrl -v --xule-time .005 --xule-debug --noCertificateCheck --logFile {location of output}/log.xml`
+`.\arellecmdline.exe --plugins xule --xule-rule-set https://github.com/xbrlus/ferc-renderer/**raw/** master/ValidationRulesets/Form1.zip -f {location of instance}/sampleF1.xbrl -v --xule-time .005 --xule-debug --noCertificateCheck --logFile {location of output}/log.xml`

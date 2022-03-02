@@ -31,13 +31,13 @@ The latest templates for rendering are posted in this repository and linked unde
 - Form 1: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_1.zip
 - Form 1F: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_1F.zip
 - Form 1 3Q Electric: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_3Q_Electric.zip
-- Form 2: https://github.com/xbrlus/ferc-renderer/master/raw/RenderingTemplates/Form_2.zip
-- Form 2A: https://github.com/xbrlus/ferc-renderer/master/raw/RenderingTemplates/Form_2A.zip
+- Form 2: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_2.zip
+- Form 2A: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_2A.zip
 - Form 2 3Q Gas: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_3Q_Gas.zip
-- Form 6: https://github.com/xbrlus/ferc-renderer/master/raw/RenderingTemplates/Form_6.zip
-- Form 6Q: https://github.com/xbrlus/ferc-renderer/master/raw/RenderingTemplates/Form_6Q.zip
-- Form 60: https://github.com/xbrlus/ferc-renderer/master/raw/RenderingTemplates/Form_60.zip
-- Form 714: https://github.com/xbrlus/ferc-renderer/master/raw/RenderingTemplates/Form_714.zip
+- Form 6: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_6.zip
+- Form 6Q: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_6Q.zip
+- Form 60: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_60.zip
+- Form 714: https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_714.zip
 
 ### Arelle Commands to render the filing
 The command to generate a rendered filing is as follows (exclude the _{location}_ text - this is illustrative of which file is referenced):

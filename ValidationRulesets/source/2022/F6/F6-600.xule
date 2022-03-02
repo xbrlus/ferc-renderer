@@ -6,6 +6,9 @@ RULE-NAME-PREFIX FERC
 
 assert F6.600.1 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@NumberOfBarrelsReceived}; 
  $addend = ({@NumberOfBarrelsReceivedFromConnectingCarriers}#f1 
@@ -29,6 +32,9 @@ rule-focus $sum1
 
 assert F6.600.2 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@NumberOfBarrelsDeliveredOut}; 
  $addend = ({@NumberOfBarrelsDeliveredOutToConnectingCarriers}#f1 
@@ -53,6 +59,9 @@ rule-focus $sum1
 
 assert F6.600.3 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@NumberOfBarrelsReceivedFromConnectingCarriers]; 
  $addend = ([@NumberOfBarrelsReceivedFromConnectingCarriers @ProductsAndServicesAxis=CrudeOilMember]#f1 
@@ -76,6 +85,9 @@ rule-focus $sum1
 
 assert F6.600.4 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@NumberOfBarrelsReceivedOnGatheringLines]; 
  $addend = ([@NumberOfBarrelsReceivedOnGatheringLines @ProductsAndServicesAxis=CrudeOilMember]#f1 
@@ -98,6 +110,9 @@ rule-focus $sum1
 
 assert F6.600.5 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@NumberOfBarrelsReceivedOnTrunkLines]; 
  $addend = ([@NumberOfBarrelsReceivedOnTrunkLines @ProductsAndServicesAxis=CrudeOilMember]#f1 
@@ -121,6 +136,9 @@ rule-focus $sum1
 
 assert F6.600.6 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@NumberOfBarrelsReceived]; 
  $addend = ([@NumberOfBarrelsReceived @ProductsAndServicesAxis=CrudeOilMember]#f1 
@@ -143,6 +161,9 @@ rule-focus $sum1
 
 assert F6.600.7 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@NumberOfBarrelsDeliveredOutToConnectingCarriers]; 
  $addend = ([@NumberOfBarrelsDeliveredOutToConnectingCarriers @ProductsAndServicesAxis=CrudeOilMember]#f1 
@@ -165,6 +186,9 @@ rule-focus $sum1
 
 assert F6.600.8 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@NumberOfBarrelsDeliveredOutOnGatheringLines]; 
  $addend = ([@NumberOfBarrelsDeliveredOutOnGatheringLines @ProductsAndServicesAxis=CrudeOilMember]#f1 
@@ -187,6 +211,9 @@ rule-focus $sum1
 
 assert F6.600.9 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@NumberOfBarrelsDeliveredOutOnTrunkLines]; 
  $addend = ([@NumberOfBarrelsDeliveredOutOnTrunkLines @ProductsAndServicesAxis=CrudeOilMember]#f1 
@@ -209,6 +236,9 @@ rule-focus $sum1
 
 assert F6.600.10 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@NumberOfBarrelsDeliveredOut]; 
  $addend = ([@NumberOfBarrelsDeliveredOut @ProductsAndServicesAxis=CrudeOilMember]#f1 

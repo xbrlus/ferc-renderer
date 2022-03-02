@@ -6,8 +6,10 @@ RULE-NAME-PREFIX FERC
 
 assert F2.118.1 unsatisfied 
 $rule_id = rule-name();
-
- exists({covered @UnappropriatedRetainedEarnings @period=$priorInstant})  
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+    exists({covered @UnappropriatedRetainedEarnings @period=$priorInstant})  
 message 
 "Prior period Unappropriated Retained Earnings must be reported. 
 
@@ -17,8 +19,10 @@ severity error
 
 assert F2.118.2 unsatisfied 
 $rule_id = rule-name();
-
- exists({covered @UnappropriatedRetainedEarnings @period=$currentInstant})  
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+    exists({covered @UnappropriatedRetainedEarnings @period=$currentInstant})  
 message 
 "Unappropriated Retained Earnings must be reported in the current period. 
 
@@ -52,6 +56,7 @@ $DividendsDeclaredCommonStock = first-value($DividendsDeclaredCommonStock-Defaul
  $sum118-3 = [@UnappropriatedRetainedEarnings @period=$currentInstant]; 
  $addend118-3 = ([@UnappropriatedRetainedEarnings @period=$priorInstant]#f118-3-1
  + $AdjustmentsToRetainedEarningsCredit
+ + [@BalanceTransferredFromIncome @period=$currentDuration]#f118-3-6
  - $AppropriationsOfRetainedEarnings
  - $DividendsDeclaredPreferredStock
  - $DividendsDeclaredCommonStock
@@ -69,6 +74,7 @@ Total Value : {$sum118-3}
 Value of Components:
 = \t UnappropriatedRetainedEarnings (Prior) \t = \t {$f118-3-1}
 + \t AdjustmentsToRetainedEarningsCredit \t = \t {$AdjustmentsToRetainedEarningsCredit}
++ \t BalanceTransferredFromIncome \t = \t {$f118-3-6}
 - \t AppropriationsOfRetainedEarnings \t = \t {$AppropriationsOfRetainedEarnings}
 - \t DividendsDeclaredPreferredStock \t = \t {$DividendsDeclaredPreferredStock}
 - \t DividendsDeclaredCommonStock \t = \t {$DividendsDeclaredCommonStock}
@@ -81,6 +87,9 @@ rule-focus  $sum118-3
 
 assert F2.118.4 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@concept = AppropriatedRetainedEarningsIncludingReserveAmortization}; 
  $addend = ({@AppropriatedRetainedEarnings}#f0
@@ -102,6 +111,9 @@ rule-focus $sum1
 
 assert F2.118.5 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@RetainedEarnings @period=$currentInstant}; 
  $addend = ({@UnappropriatedRetainedEarnings @period=$currentInstant}#f0
@@ -123,6 +135,9 @@ rule-focus $sum1
 
 assert F2.118.6 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
@@ -150,6 +165,9 @@ rule-focus $sum1
 
 assert F2.118.7 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@AdjustmentsToRetainedEarningsCredit]; 
  $addend = sum(list([nonils @AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=*]));
@@ -163,6 +181,9 @@ rule-focus $sum1
 
 assert F2.118.8 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@AppropriationsOfRetainedEarnings]; 
  $addend = sum(list([nonils @AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=*]));
@@ -176,6 +197,9 @@ rule-focus $sum1
 
 assert F2.118.9 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@DividendsDeclaredPreferredStock]; 
  $addend = sum(list([nonils @DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=*]));
@@ -189,6 +213,9 @@ rule-focus $sum1
 
 assert F2.118.10 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@DividendsDeclaredCommonStock]; 
  $addend = sum(list([nonils @DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=*]));
@@ -202,6 +229,9 @@ rule-focus $sum1
 
 assert F2.118.11 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits]; 
  $addend = sum(list([nonils @ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=*]));
@@ -215,6 +245,9 @@ rule-focus $sum1
 
 assert F2.118.12 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@RetainedEarnings @period=$prior12MonthsInstant}; 
  $addend = ({@UnappropriatedRetainedEarnings @period=$prior12MonthsInstant}#f0
@@ -236,6 +269,9 @@ rule-focus $sum1
 
 assert F2.118.13 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else

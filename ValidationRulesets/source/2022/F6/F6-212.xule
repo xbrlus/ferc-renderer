@@ -8,6 +8,9 @@ RULE-NAME-PREFIX FERC
 /** Roll - forward **/
 assert F6.212.1 satisfied
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -74,6 +77,9 @@ rule-focus $dataRow1[8]
 /** Cross Calc **/
 assert F6.212.2 satisfied
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -143,6 +149,9 @@ rule-focus $dataRow1[7]
 /** Cross Calc **/
 assert F6.212.3 satisfied
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -213,6 +222,9 @@ rule-focus $dataRow1[5]
 /** Recalculates calculation relationships  **/
 assert F6.212.4 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip

@@ -296,3 +296,29 @@ Rule Id:{$rule_id}"
 
 severity error
 rule-focus $invalid_unit
+
+
+/** Checks that all power amounts are measured in correct units **/
+
+assert F714.all.13 satisfied 
+$rule_id = rule-name();
+
+$voltage_facts = {nonils @concept.data-type = dtr-types:voltageItemType};
+$VoltageUnits = $associatedUnits[$voltage_facts.concept];
+if $VoltageUnits.contains(none)
+	false
+else
+	$voltage_facts.unit.numerator.string not in  $VoltageUnits
+
+message
+
+"The value for {$voltage_facts.concept.name.local-name} with a value of {$voltage_facts} has a unit of {$voltage_facts.unit.numerator}. This concept allows units of {$VoltageUnits.join(',')}.
+
+Element : {$voltage_facts.concept.name}
+Period : {$voltage_facts.period}
+Unit : {$voltage_facts.unit.numerator}
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $voltage_facts

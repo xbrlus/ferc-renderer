@@ -262,3 +262,26 @@ Rule Id:{$rule_id}"
 severity error	
 rule-focus $fact1
 
+assert F6.all.12 satisfied 
+$rule_id = rule-name();
+
+$volume_facts = {nonils @concept.data-type = num:volumeItemType};
+$VolumeUnits = $associatedUnits[$volume_facts.concept];
+if $VolumeUnits.contains(none)
+	false
+else
+	$volume_facts.unit.numerator.string not in  $VolumeUnits
+
+message
+
+"The value for {$volume_facts.concept.name.local-name} with a value of {$volume_facts} has a unit of {$volume_facts.unit.numerator}. This concept allows units of {$VolumeUnits.join(',')}.
+
+Element : {$volume_facts.concept.name}
+Period : {$volume_facts.period}
+Unit : {$volume_facts.unit.numerator}
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $volume_facts
+

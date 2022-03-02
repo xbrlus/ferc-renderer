@@ -189,3 +189,43 @@ constant $associatedUnits = dict(for $concept in $ConceptsInTaxonomy
 										list($concept, set($concept.label("http://ferc.gov/form/2020-01-01/roles/label/Units").text))
 									else
 										skip)
+
+constant $waivedSchedules = set(for $schedule in (list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis=*]))
+												$schedule.dimension(ferc:ScheduleRemarksAxis)
+								)
+
+constant $scheduleLookup = dict(list('101', set("ScheduleGeneralInformationAbstract")),
+								list('102', set("ScheduleControlOverRespondentAbstract")),
+								list('104', set("ScheduleOfficersAbstract")),
+								list('105', set("ScheduleDirectorsAbstract")),
+								list('110', set("ScheduleComparativeBalanceSheetAbstract")),
+								list('114', set("ScheduleStatementOfIncomeAbstract")),
+								list('116', set("ScheduleStatementOfAccumulatedOtherComprehensiveIncomeAndHedgingActivitiesAbstract")),
+								list('118', set("ScheduleAppropriatedRetainedIncomeAbstract")),
+								list('119', set("ScheduleUnappropriatedRetainedIncomeStatementAbstract")),
+								list('120', set("ScheduleStatementOfCashFlowsAbstract")),
+								list('200', set("ScheduleReceivableFromAffiliatedCompaniesAbstract")),
+								list('202', set("ScheduleInvestmentsInAffiliatedCompaniesAbstract")),
+								list('204', set("ScheduleInvestInComStocksOfAffiliatedCoCoControlledDirectlyByRespOtherThanThroughTitleToSecuritiesAbstract")),
+								list('212', set("ScheduleCarrierPropertyAbstract")),
+								list('214', set("ScheduleUndividedJointInterestPropertyAbstract")),
+								list('216', set("ScheduleAccruedDepreciationCarrierPropertyAbstract")),
+								list('217', set("ScheduleAccruedDepreciationUndividedJointInterestPropertyAbstract")),
+								list('218', set("ScheduleAmortizationBaseAndReserveAbstract")),
+								list('220', set("ScheduleNoncarrierPropertyAbstract")),
+								list('221', set("ScheduleOtherDeferredChargesAbstract")),
+								list('225', set("SchedulePayablesToAffiliatedCompaniesAbstract")),
+								list('226', set("ScheduleLongTermDebtAbstract")),
+								list('230', set("ScheduleAnalysisOfFederalIncomeAndOtherTaxesDeferredAbstract")),
+								list('250', set("ScheduleCapitalStockAbstract")),
+								list('300', set("ScheduleOilOperatingRevenuesAbstract")),
+								list('301', set("ScheduleOperatingRevenueAccountsAbstract")),
+								list('302', set("ScheduleOperatingExpenseAccountsAbstract")),
+								list('305', set("SchedulePipelineTaxesAbstract")),
+								list('335', set("ScheduleIncomeFromNoncarrierPropertyAbstract")),
+								list('336', set("ScheduleInterestAndDividendIncomeAbstract")),
+								list('351', set("SchedulePaymentsForServicesRenderedByOtherThanEmployeesAbstract")),
+								list('600', set("ScheduleStatisticsOfOperationsAbstract")),
+								list('602', set("ScheduleMilesOfPipelineOperatedAtEndOfYearAbstract")),
+								list('700', set("ScheduleAnnualCostOfServiceBasedAnalysisScheduleAbstract"))
+								)

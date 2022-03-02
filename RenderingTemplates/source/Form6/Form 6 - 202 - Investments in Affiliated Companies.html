@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -15,6 +15,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 
 <body class="xbrl">
     <div id="ScheduleInvestmentsInAffiliatedCompaniesAbstract"></div>
+    <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleInvestmentsInAffiliatedCompaniesAbstract"]).length > 0
+                false
+        else
+                true
+    </xule:showif>
         <table class="schedule-header xbrl" width="100%">
                 <tr>
                     <td class="xbrl">
@@ -228,8 +234,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:InvestmentsDisposedOfOrWrittenDownStockSellingPrice  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:DividendOrInvestmentInterestRatePercentage @unit @period=$currentDuration})
-                        first(list({@ferc:DividendOrInvestmentInterestRatePercentage  @unit @period=$currentDuration})) 
+                    if exists({@ferc:DividendRate @unit @period=$currentDuration})
+                        first(list({@ferc:DividendRate  @unit @period=$currentDuration})) 
                     else 
                         none,
                     if exists({@ferc:InterestAndDividendIncomeStock @unit @period=$currentDuration})
@@ -434,8 +440,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:InvestmentsDisposedOfOrWrittenDownBondsSellingPrice  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:DividendRate @unit @period=$currentInstant})
-                        first(list({@ferc:DividendRate  @unit @period=$currentInstant})) 
+                    if exists({@ferc:InvestmentInterestRate @unit @period=$currentDuration})
+                        first(list({@ferc:InvestmentInterestRate  @unit @period=$currentDuration})) 
                     else 
                         none,
                     if exists({@ferc:InterestAndDividendIncomeBonds @unit @period=$currentDuration})
@@ -555,7 +561,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             <td class="gray-out"></td>
             <td class="xbrl monetary_items">
                     <xule:replace>
-                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:InvestmentsInAffiliatedCompaniesBonds @period=$currentInstant]))
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:InvestmentInAffiliatedCompaniesBonds @period=$currentInstant]))
                             </xule:expression>
                             <xule:template-display>
                                     $4,080,200 

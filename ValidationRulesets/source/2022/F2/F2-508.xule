@@ -10,7 +10,7 @@ constant $CompressorTypeLookup = dict(list("Field Compressor Stations",FieldComp
                                 list("Undergroud Storage Compressor Stations", UndergroundStorageCompressorStationsMember),
                                 list("Transmission Compressor Stations", TransmissionCompressorStationsMember ),
                                 list("Distribution Compressor Stations", DistributionCompressorStationsMember),
-                                list("Other Compressor Stations", DistributionCompressorStationsMember)
+                                list("Other Compressor Stations", OtherCompressorStationsMember)
                                 )
 
 constant $CompressorItems = list(NumberOfUnitsAtCompressorStation,
@@ -26,6 +26,9 @@ constant $CompressorItems = list(NumberOfUnitsAtCompressorStation,
 
 assert F2.508.1 satisfied
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -54,6 +57,9 @@ rule-focus $sum2
 
 assert F2.508.2 satisfied
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -71,6 +77,9 @@ severity error
 
 assert F2.508.3 satisfied
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip

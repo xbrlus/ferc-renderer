@@ -5,6 +5,9 @@ RULE-NAME-PREFIX FERC
 
 assert F2.234.1 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -28,6 +31,9 @@ rule-focus $sum1
 
 assert F2.234.2 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -50,6 +56,9 @@ rule-focus $sum1
 
 assert F2.234.3 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -77,6 +86,9 @@ rule-focus $sum1
 
 assert F2.234.4 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -104,6 +116,9 @@ rule-focus $sum1
 
 assert F2.234.5 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -131,6 +146,9 @@ rule-focus $sum1
 
 assert F2.234.6 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -159,6 +177,9 @@ rule-focus $sum1
 
 assert F2.234.7 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -182,6 +203,9 @@ rule-focus $sum1
 
 assert F2.234.8 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -204,6 +228,9 @@ rule-focus $sum1
 
 assert F2.234.9 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -227,6 +254,9 @@ rule-focus $sum1
 
 assert F2.234.10 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -249,6 +279,9 @@ rule-focus $sum1
 
 assert F2.234.11 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -272,6 +305,9 @@ rule-focus $sum1
 
 assert F2.234.12 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -294,6 +330,9 @@ rule-focus $sum1
 
 assert F2.234.13 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -317,6 +356,9 @@ rule-focus $sum1
 
 assert F2.234.14 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -340,6 +382,9 @@ rule-focus $sum1
 
 assert F2.234.15 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -363,6 +408,9 @@ rule-focus $sum1
 
 assert F2.234.16 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -386,6 +434,9 @@ rule-focus $sum1
 
 assert F2.234.17 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -409,6 +460,9 @@ rule-focus $sum1
 
 assert F2.234.18 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -432,6 +486,9 @@ rule-focus $sum1
 
 assert F2.234.19 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip

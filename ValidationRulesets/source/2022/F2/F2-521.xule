@@ -6,6 +6,9 @@ RULE-NAME-PREFIX FERC
 
 assert F2.521.1 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@ShipperSuppliedGas}; 
  $addend = ({@ShipperSuppliedGasGathering}
@@ -28,6 +31,9 @@ rule-focus $sum1
 
 assert F2.521.2 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@QuantityOfNaturalGasDeliveredByUtilityGasUsedForCompressorStationFuel}; 
  $addend = ({@GasUsedForCompressorStationFuelGathering}
@@ -50,6 +56,9 @@ rule-focus $sum1
 
 assert F2.521.3 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@GasUsedForOtherDeliveriesAndGasUsedForOtherOperations}; 
  $addend = ({@GasUsedForOtherDeliveriesAndGasUsedForOtherOperationsGathering}
@@ -73,6 +82,9 @@ rule-focus $sum1
 
 assert F2.521.4 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@GasAccountGasLossesAndGasUnaccountedForGasAccount}; 
  $addend = ({@GasLostAndUnaccountedForGathering}
@@ -96,6 +108,9 @@ rule-focus $sum1
 
 assert F2.521.5 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@ShipperSuppliedGasNetExcessOrDeficiency}; 
  $addend = ({@ShipperSuppliedGasNetExcessOrDeficiencyOtherLosses}#f1
@@ -125,6 +140,9 @@ rule-focus $sum1
 
 assert F2.521.6 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 $DispositionOfExcessGasOther = first-value({@DispositionOfExcessGasOther}, sum(list({nonils @DispositionOfExcessGasOther @OtherDispositionOfExcessGasAxis=*})));
 
@@ -150,6 +168,9 @@ rule-focus $sum1
 
 assert F2.521.7 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 $GasAcquiredToMeetDeficiencyOther = first-value({@GasAcquiredToMeetDeficiencyOther}, sum(list({nonils @GasAcquiredToMeetDeficiencyOther @OtherGasAcquiredToMeetDeficiencyAxis=*})));
 
@@ -173,6 +194,9 @@ rule-focus $sum1
 
 assert F2.521.8 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@TotalVolumeOfThroughput}; 
  $addend = ({@ForwardhaulVolumeOfThroughput}
@@ -192,6 +216,9 @@ rule-focus $sum1
 
 assert F2.521.9 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AmountCollectedShipperSuppliedGas}; 
  $addend = ({@AmountCollectedShipperSuppliedGasGathering}
@@ -214,6 +241,9 @@ rule-focus $sum1
 
 assert F2.521.10 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AmountCollectedGasUsedInCompressorStations}; 
  $addend = ({@AmountCollectedGasUsedForCompressorStationFuelGathering}
@@ -236,6 +266,9 @@ rule-focus $sum1
 
 assert F2.521.11 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AmountCollectedGasUsedForOtherDeliveriesAndGasUsedForOtherOperations}; 
  $addend = ({@AmountCollectedGasUsedForOtherDeliveriesAndGasUsedForOtherOperationsGathering}
@@ -259,6 +292,9 @@ rule-focus $sum1
 
 assert F2.521.12 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AmountCollectedGasLostAndUnaccountedFor}; 
  $addend = ({@AmountCollectedGasLostAndUnaccountedForGathering}
@@ -282,6 +318,9 @@ rule-focus $sum1
 
 assert F2.521.13 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AmountCollectedNetExcessOrDeficiency}; 
  $addend = ({@AmountCollectedNetExcessOrDeficiencyOtherLosses}#f1
@@ -312,6 +351,9 @@ rule-focus $sum1
 
 assert F2.521.14 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 $AmountCollectedDispositionOfExcessGasOther = first-value({@AmountCollectedDispositionOfExcessGasOther}, sum(list({nonils @AmountCollectedDispositionOfExcessGasOther @OtherDispositionOfExcessGasAxis=*})));
 
@@ -336,6 +378,9 @@ rule-focus $sum1
 
 assert F2.521.15 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 $AmountCollectedGasAcquiredToMeetDeficiencyOther = first-value({@AmountCollectedGasAcquiredToMeetDeficiencyOther}, sum(list({nonils @AmountCollectedGasAcquiredToMeetDeficiencyOther @OtherGasAcquiredToMeetDeficiencyAxis=*})));
 
@@ -358,6 +403,9 @@ rule-focus $sum1
 
 assert F2.521.16 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@VolumeNotCollectedShipperSuppliedGas}; 
  $addend = ({@VolumeNotCollectedShipperSuppliedGasGathering}
@@ -380,6 +428,9 @@ rule-focus $sum1
 
 assert F2.521.17 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@QuantityOfNaturalGasDeliveredByUtilityGasUsedForCompressorStationFuel}; 
  $addend = ({@GasUsedForCompressorStationFuelGathering}
@@ -402,6 +453,9 @@ rule-focus $sum1
 
 assert F2.521.18 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@GasUsedForOtherDeliveriesAndGasUsedForOtherOperations}; 
  $addend = ({@GasUsedForOtherDeliveriesAndGasUsedForOtherOperationsGathering}
@@ -425,6 +479,9 @@ rule-focus $sum1
 
 assert F2.521.19 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@GasAccountGasLossesAndGasUnaccountedForGasAccount}; 
  $addend = ({@GasLostAndUnaccountedForGathering}
@@ -448,6 +505,9 @@ rule-focus $sum1
 
 assert F2.521.20 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@ShipperSuppliedGasNetExcessOrDeficiency}; 
  $addend = ({@ShipperSuppliedGasNetExcessOrDeficiencyOtherLosses}#f1

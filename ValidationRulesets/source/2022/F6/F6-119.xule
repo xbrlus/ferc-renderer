@@ -6,6 +6,9 @@ RULE-NAME-PREFIX FERC
 
 assert F6.119.1 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AdditionsToUnappropriatedRetainedIncome}; 
  $addend = ({@UnappropriatedRetainedIncomeCreditTransferredFromIncome} 
@@ -25,6 +28,9 @@ rule-focus $sum1
 
 assert F6.119.2 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@DeductionsFromUnappropriatedRetainedIncome}; 
  $addend = ({@UnappropriatedRetainedIncomeDebitTransferredFromIncome} 
@@ -45,6 +51,9 @@ rule-focus $sum1
 
 assert F6.119.3 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@NetIncreaseDecreaseInUnappropriatedRetainedIncome}; 
  $addend = ({@AdditionsToUnappropriatedRetainedIncome} 
@@ -63,6 +72,9 @@ rule-focus $sum1
 
 assert F6.119.4 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@UnappropriatedRetainedIncome @period=$currentInstant}; 
  $addend = ({@UnappropriatedRetainedIncome @period=$priorInstant} 
@@ -81,6 +93,9 @@ rule-focus $sum1
 
 assert F6.119.5 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@UnappropriatedRetainedIncomeAndEquityInUndistributedEarningsLossesOfAffiliatedCompany}; 
  $addend = ({@UnappropriatedRetainedIncome}#f0
@@ -101,6 +116,9 @@ rule-focus $sum1
 
 assert F6.119.6 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@EquityInEarningsLossesOfAffiliatedCompanies @period=$currentInstant}; 
  $addend = ({@EquityInEarningsLossesOfAffiliatedCompanies @period=$priorInstant} 

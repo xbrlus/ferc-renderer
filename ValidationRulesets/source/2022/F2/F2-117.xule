@@ -6,6 +6,9 @@ RULE-NAME-PREFIX FERC
 
 assert F2.117.1 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AccumulatedOtherComprehensiveIncomeLossChangesInUnrealizedGainsAndLossesOnAvailableForSaleSecurities}; 
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossUnrealizedGainsAndLossesOnAvailableForSaleSecuritiesReclassificationsToNetIncomeLoss}#f0
@@ -26,6 +29,9 @@ rule-focus $sum1
 
 assert F2.117.2 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AccumulatedOtherComprehensiveIncomeLossChangesInMinimumPensionLiabilityAdjustment}; 
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossMinimumPensionLiabilityAdjustmentReclassificationsToNetIncomeLoss}#f0
@@ -46,6 +52,9 @@ rule-focus $sum1
 
 assert F2.117.3 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AccumulatedOtherComprehensiveIncomeLossChangesInForeignCurrencyHedges}; 
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossForeignCurrencyHedgesReclassificationsToNetIncomeLoss}#f0
@@ -66,6 +75,9 @@ rule-focus $sum1
 
 assert F2.117.4 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AccumulatedOtherComprehensiveIncomeLossChangesInOtherAdjustmentsToComprehensiveIncomeLoss}; 
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherAdjustmentsToComprehensiveIncomeLossReclassificationsToNetIncomeLoss}#f0
@@ -86,6 +98,9 @@ rule-focus $sum1
 
 assert F2.117.5 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AccumulatedOtherComprehensiveIncomeLossChangesInOtherCashFlowHedgesInterestRateSwaps}; 
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesInterestRateSwapsReclassificationsToNetIncomeLoss}#f0
@@ -106,6 +121,9 @@ rule-focus $sum1
 
 assert F2.117.6 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AccumulatedOtherComprehensiveIncomeLossChangesInOtherCashFlowHedges}; 
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesReclassificationsToNetIncomeLoss}#f0
@@ -126,6 +144,9 @@ rule-focus $sum1
 
 assert F2.117.7 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AccumulatedOtherComprehensiveIncome};
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossUnrealizedGainsAndLossesOnAvailableForSaleSecuritiesBalance}#f0
@@ -154,6 +175,9 @@ rule-focus $sum1
 
 assert F2.117.8 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@ComprehensiveIncomeLoss}; 
  $addend = ({@ChangesInAccumulatedOtherComprehensiveIncomeLoss}#f0
@@ -174,6 +198,9 @@ rule-focus $sum1
 
 assert F2.117.9 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 $sum1= {@AccumulatedOtherComprehensiveIncomeLossUnrealizedGainsAndLossesOnAvailableForSaleSecuritiesBalance @period=$prior12MonthsInstant};
 $addend = ({@AccumulatedOtherComprehensiveIncomeLossUnrealizedGainsAndLossesOnAvailableForSaleSecuritiesBalance @period=$prior2Instant}#f0
@@ -194,6 +221,9 @@ rule-focus $sum1
 
 assert F2.117.10 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AccumulatedOtherComprehensiveIncomeLossUnrealizedGainsAndLossesOnAvailableForSaleSecuritiesBalance @period=$currentInstant};
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossUnrealizedGainsAndLossesOnAvailableForSaleSecuritiesBalance @period=$priorInstant}#f0
@@ -214,6 +244,9 @@ rule-focus $sum1
 
 assert F2.117.11 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1= {@AccumulatedOtherComprehensiveIncomeLossMinimumPensionLiabilityAdjustmentBalance @period=$prior12MonthsInstant};
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossMinimumPensionLiabilityAdjustmentBalance @period=$prior2Instant}#f0
@@ -234,6 +267,9 @@ rule-focus $sum1
 
 assert F2.117.12 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AccumulatedOtherComprehensiveIncomeLossMinimumPensionLiabilityAdjustmentBalance @period=$currentInstant};
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossMinimumPensionLiabilityAdjustmentBalance @period=$priorInstant}#f0
@@ -254,6 +290,9 @@ rule-focus $sum1
 
 assert F2.117.13 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1= {@AccumulatedOtherComprehensiveIncomeLossForeignCurrencyHedgesBalance @period=$prior12MonthsInstant};
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossForeignCurrencyHedgesBalance @period=$prior2Instant}#f0
@@ -274,6 +313,9 @@ rule-focus $sum1
 
 assert F2.117.14 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AccumulatedOtherComprehensiveIncomeLossForeignCurrencyHedgesBalance @period=$currentInstant};
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossForeignCurrencyHedgesBalance @period=$priorInstant}#f0
@@ -294,6 +336,9 @@ rule-focus $sum1
 
 assert F2.117.15 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1= {@AccumulatedOtherComprehensiveIncomeLossOtherAdjustmentsToComprehensiveIncomeLossBalance @period=$prior12MonthsInstant};
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherAdjustmentsToComprehensiveIncomeLossBalance @period=$prior2Instant}#f0
@@ -314,6 +359,9 @@ rule-focus $sum1
 
 assert F2.117.16 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AccumulatedOtherComprehensiveIncomeLossOtherAdjustmentsToComprehensiveIncomeLossBalance @period=$currentInstant};
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherAdjustmentsToComprehensiveIncomeLossBalance @period=$priorInstant}#f0
@@ -334,6 +382,9 @@ rule-focus $sum1
 
 assert F2.117.17 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1= {@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesInterestRateSwapsBalance @period=$prior12MonthsInstant};
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesInterestRateSwapsBalance @period=$prior2Instant}#f0
@@ -354,6 +405,9 @@ rule-focus $sum1
 
 assert F2.117.18 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesInterestRateSwapsBalance @period=$currentInstant};
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesInterestRateSwapsBalance @period=$priorInstant}#f0
@@ -374,6 +428,9 @@ rule-focus $sum1
 
 assert F2.117.19 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1= {@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesBalance @period=$prior12MonthsInstant};
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesBalance @period=$prior2Instant}#f0
@@ -394,6 +451,9 @@ rule-focus $sum1
 
 assert F2.117.20 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesBalance @period=$currentInstant};
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesBalance @period=$priorInstant}#f0
@@ -414,6 +474,9 @@ rule-focus $sum1
 
 assert F2.117.21 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1= {@AccumulatedOtherComprehensiveIncome @period=$prior12MonthsInstant};
  $addend = ({@AccumulatedOtherComprehensiveIncome @period=$prior2Instant}#f0
@@ -434,6 +497,9 @@ rule-focus $sum1
 
 assert F2.117.22 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AccumulatedOtherComprehensiveIncome @period=$currentInstant};
  $addend = ({@AccumulatedOtherComprehensiveIncome @period=$priorInstant}#f0
@@ -454,6 +520,9 @@ rule-focus $sum1
 
 assert F2.117.23 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@ChangesInAccumulatedOtherComprehensiveIncomeLoss};
  $addend =  {@AccumulatedOtherComprehensiveIncomeLossChangesInUnrealizedGainsAndLossesOnAvailableForSaleSecurities}#f0
@@ -482,6 +551,9 @@ rule-focus $sum1
 
 assert F2.117.24 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@ChangesInAccumulatedOtherComprehensiveIncomeLoss};
  $addend = ({@AccumulatedOtherComprehensiveIncomeLossReclassificationsToNetIncomeLoss}#f0

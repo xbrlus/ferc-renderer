@@ -7,6 +7,9 @@ RULE-NAME-PREFIX FERC
 /** F2.253.1 USED FOR HISTORICAL DATA CONVERSION ONLY **/
 assert F2.253.1 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -28,6 +31,9 @@ rule-focus $sum1
 
 assert F2.253.2 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -49,6 +55,9 @@ rule-focus $sum1
 
 assert F2.253.3 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -70,6 +79,9 @@ rule-focus $sum1
 
 assert F2.253.4 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -91,6 +103,9 @@ rule-focus $sum1
 
 assert F2.253.5 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -112,6 +127,9 @@ rule-focus $sum1
 
 assert F2.253.6 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip

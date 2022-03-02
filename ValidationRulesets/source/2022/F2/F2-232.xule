@@ -5,6 +5,9 @@ RULE-NAME-PREFIX FERC
 
 assert F2.232.1 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 $sum1 = {@OtherRegulatoryAssets @period=$currentInstant};
 
@@ -27,6 +30,9 @@ rule-focus $sum1
 
 assert F2.232.2 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 $sum1 = [@OtherRegulatoryAssets]; 
 $addend = sum(list([nonils @OtherRegulatoryAssets @OtherRegulatoryAssetsAxis=*])#breakdown);
@@ -47,6 +53,9 @@ rule-focus $sum1
 
 assert F2.232.3 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 $sum1 = [@IncreaseDecreaseInOtherRegulatoryAssets]; 
 $addend = sum(list([nonils @IncreaseDecreaseInOtherRegulatoryAssets @OtherRegulatoryAssetsAxis=*])#breakdown);
@@ -67,6 +76,9 @@ rule-focus $sum1
 
 assert F2.232.4 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 $sum1 = [@OtherRegulatoryAssetsWrittenOffRecovered]; 
 $addend = sum(list([nonils @OtherRegulatoryAssetsWrittenOffRecovered @OtherRegulatoryAssetsAxis=*])#breakdown);
@@ -87,6 +99,9 @@ rule-focus $sum1
 
 assert F2.232.5 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@OtherRegulatoryAssetsWrittenOffDeemedUnrecoverable]; 
  $addend = sum(list([nonils @OtherRegulatoryAssetsWrittenOffDeemedUnrecoverable @OtherRegulatoryAssetsAxis=*])#breakdown);

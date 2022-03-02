@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -12,15 +12,19 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
     <link rel="stylesheet" type="text/css" href="form-template.css"/>
 </head>
-
 <body class="xbrl" id="ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract">
-        <xule:showif>if set('2/3-Q').contains([covered @concept.local-name ='FormType']) 
-        if first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis="ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor"
-            false
+<xule:showif>
+if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"]).length > 0
+        false
+else
+        if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+                if first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis="ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor"
+                        false
+                else
+                        true
         else
-            true
-     else
-        true</xule:showif>
+                true
+</xule:showif>
     <table class="schedule-header xbrl" width="100%">
             <tr>
                 <td class="xbrl">

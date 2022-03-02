@@ -6,6 +6,9 @@ RULE-NAME-PREFIX FERC
 
 assert F2.302.1 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -29,6 +32,9 @@ rule-focus $sum1
 
 assert F2.302.2 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -52,6 +58,9 @@ rule-focus $sum1
 
 assert F2.302.3 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -75,6 +84,9 @@ rule-focus $sum1
 
 assert F2.302.4 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -98,12 +110,15 @@ rule-focus $sum1
 
 assert F2.302.5 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
- $sum1 = [@DekathermOfNaturalGas]; 
- $addend = sum(list([nonils @DekathermOfNaturalGas @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
+ $sum1 = [@QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities]; 
+ $addend = sum(list([nonils @QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities @RateScheduleAndZoneOfReceiptAxis=*])#breakdown);
  if $addend == none
  	skip
  else

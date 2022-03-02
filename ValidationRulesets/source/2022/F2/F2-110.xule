@@ -6,7 +6,9 @@ RULE-NAME-PREFIX FERC
 
 assert F2.110.1 satisfied 
 $rule_id = rule-name();
-
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
  $sum1 = [@UtilityPlantAndConstructionWorkInProgress]; 
  $addend = ([@UtilityPlant]#f0
  + [@ConstructionWorkInProgress]#f1
@@ -27,6 +29,9 @@ rule-focus $sum1
 
 assert F2.110.2 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@UtilityPlantNet}; 
  $addend = ({@UtilityPlantAndConstructionWorkInProgress}#f0
@@ -48,6 +53,9 @@ rule-focus $sum1
 
 assert F2.110.3 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@NuclearFuelNet}; 
  $addend = ({@NuclearFuel}#f0
@@ -69,6 +77,9 @@ rule-focus $sum1
 
 assert F2.110.4 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@UtilityPlantAndNuclearFuelNet}; 
  $addend = ({@UtilityPlantNet}#f0
@@ -90,6 +101,9 @@ rule-focus $sum1
 
 assert F2.110.5 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@OtherPropertyAndInvestments}; 
  $addend = ({@NonutilityProperty}#f0
@@ -131,6 +145,9 @@ rule-focus $sum1
 
 assert F2.110.6 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@CurrentAndAccruedAssets}; 
  $addend = ({@Cash}#f1
@@ -212,6 +229,9 @@ rule-focus $sum1
 
 assert F2.110.7 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@DeferredDebits}; 
  $addend = ({@UnamortizedDebtExpense}#f0
@@ -256,6 +276,9 @@ rule-focus $sum1
 
 assert F2.110.8 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@AssetsAndOtherDebits}; 
  $addend = ({@UtilityPlantAndNuclearFuelNet}#f0
@@ -291,6 +314,9 @@ rule-focus $sum1
 
 assert F2.110.9 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@ProprietaryCapital}; 
  $addend = ({@CommonStockIssued}#f0
@@ -334,6 +360,9 @@ rule-focus $sum1
 
 assert F2.110.10 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@LongTermDebt}; 
  $addend = ({@Bonds}#f0
@@ -365,6 +394,9 @@ rule-focus $sum1
 
 assert F2.110.11 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@OtherNoncurrentLiabilities}; 
  $addend = ({@ObligationsUnderCapitalLeaseNoncurrent}#f0
@@ -400,6 +432,9 @@ rule-focus $sum1
 
 assert F2.110.12 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@CurrentAndAccruedLiabilities}; 
  $addend = ({@CurrentPortionOfLongTermDebt}#f0
@@ -453,6 +488,9 @@ rule-focus $sum1
 
 assert F2.110.13 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@DeferredCredits}; 
  $addend = ({@CustomerAdvancesForConstruction}#f0
@@ -488,6 +526,9 @@ rule-focus $sum1
 
 assert F2.110.14 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@LiabilitiesAndOtherCredits}; 
  $addend = ({@ProprietaryCapital}#f0

@@ -5,6 +5,9 @@ RULE-NAME-PREFIX FERC
 
 assert F6.102.1 unsatisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -19,6 +22,9 @@ severity error
 
 assert F6.102.2 unsatisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip

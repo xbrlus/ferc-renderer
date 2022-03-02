@@ -6,16 +6,19 @@ RULE-NAME-PREFIX FERC
 
 assert F6.335.1 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
-        $sum1 = {@NetIncomeLossFromNoncarrierProperty}; 
+        $sum1 = {@IncomeNetFromNoncarrierProperty}; 
         $addend = ({@NoncarrierPropertyRevenue} 
         - {@NoncarrierPropertyExpense});
         tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
-"The company has reported a value for NetIncomeLossFromNoncarrierProperty with a value of {$sum1} that is not equal to the value of its components of {$addend}
+"The company has reported a value for IncomeNetFromNoncarrierProperty with a value of {$sum1} that is not equal to the value of its components of {$addend}
 
 Total Element : {$sum1.concept.name}
 Total Period : {$sum1.period}
@@ -28,6 +31,9 @@ rule-focus $sum1
 
 assert F6.335.2 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip
@@ -52,6 +58,9 @@ rule-focus $sum1
 
 assert F6.335.3 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 if set('6-Q').contains([covered @concept.local-name ='FormType'])
         skip

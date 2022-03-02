@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 <head>
@@ -13,6 +13,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl" id="ScheduleGeneralDescriptionOfConstructionOverheadProcedureAbstract">
+        <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleGeneralDescriptionOfConstructionOverheadProcedureAbstract"]).length > 0
+                false
+        else
+                true
+        </xule:showif>
     <table class="schedule-header xbrl" width="100%">
         <tr>
             <td class="xbrl">
@@ -237,7 +243,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 <td class="xbrl gray-out"></td>
                 <td class="xbrl percent_items"><div class="field-ref">s</div>
                         <xule:replace>
-                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:CapitalizationOfConstructionOverheadCostRateShortTermInterest @period = $currentInstant]))
+                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" scale="-2">max(list([covered @concept=ferc:CapitalizationOfConstructionOverheadCostRateShortTermInterest @period = $currentInstant]))
                                 </xule:expression>
                                 <xule:template-display>
                                        2.54 %

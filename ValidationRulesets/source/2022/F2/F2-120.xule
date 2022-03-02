@@ -6,6 +6,9 @@ RULE-NAME-PREFIX FERC
 
 assert F2.120.1 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 $NoncashAdjustmentsToCashFlowsFromOperatingActivities = first-value([@NoncashAdjustmentsToCashFlowsFromOperatingActivities @NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis=none], sum(list([nonils @NoncashAdjustmentsToCashFlowsFromOperatingActivities @NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis=*])));
 
@@ -57,6 +60,9 @@ rule-focus $sum1
 
 assert F2.120.2 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 $OtherConstructionAndAcquisitionOfPlantInvestmentActivities = first-value({@OtherConstructionAndAcquisitionOfPlantInvestmentActivities @OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesAxis=none}, sum(list({nonils @OtherConstructionAndAcquisitionOfPlantInvestmentActivities @OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesAxis=*})));
 
@@ -90,6 +96,9 @@ rule-focus $sum1
 
 assert F2.120.3 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 $OtherAdjustmentsToCashFlowsFromInvestmentActivities = first-value({@OtherAdjustmentsToCashFlowsFromInvestmentActivities @OtherAdjustmentsToCashFlowsFromInvestmentActivitiesAxis=none}, sum(list({nonils @OtherAdjustmentsToCashFlowsFromInvestmentActivities @OtherAdjustmentsToCashFlowsFromInvestmentActivitiesAxis=*})));
 
@@ -141,6 +150,9 @@ rule-focus $sum1
 
 assert F2.120.4 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 $OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities  = first-value({@OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities @OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesAxis=none},sum(list({nonils @OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities @OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesAxis=*})));
 
@@ -172,6 +184,9 @@ rule-focus $sum1
 
 assert F2.120.5 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
 $OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities  = first-value({@OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities @OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis=none},sum(list({nonils @OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities @OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis=*})));
 
@@ -212,6 +227,9 @@ rule-focus $sum1
 
 assert F2.120.6 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@NetIncreaseDecreaseInCashAndCashEquivalents}; 
  $addend = ({@NetCashProvidedByUsedInOperatingActivities}#f0
@@ -235,6 +253,9 @@ rule-focus $sum1
 
 assert F2.120.7 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@CashAndCashEquivalents @period=$currentInstant}; 
  $addend = ({@CashAndCashEquivalents @period=$priorInstant}#f0
@@ -256,6 +277,9 @@ rule-focus $sum1
 
 assert F2.120.8 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@CashAndCashEquivalents @period=$prior12MonthsInstant}; 
  $addend = ({@CashAndCashEquivalents @period=$prior2Instant}#f0

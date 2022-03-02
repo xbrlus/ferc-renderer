@@ -6,6 +6,9 @@ RULE-NAME-PREFIX FERC
 
 assert F2.278.1 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = {@OtherRegulatoryLiabilities @period=$currentInstant}; 
  $addend = ({@OtherRegulatoryLiabilities @period=$prior3MYInstant}
@@ -26,6 +29,9 @@ rule-focus $sum1
 
 assert F2.278.2 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@OtherRegulatoryLiabilities]; 
  $addend = sum(list([nonils @OtherRegulatoryLiabilities @OtherRegulatoryLiabilityAxis=*])#breakdown);
@@ -46,6 +52,9 @@ rule-focus $sum1
 
 assert F2.278.3 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@OtherRegulatoryLiabilityWrittenOffRefunded]; 
  $addend = sum(list([nonils @OtherRegulatoryLiabilityWrittenOffRefunded @OtherRegulatoryLiabilityAxis=*])#breakdown);
@@ -66,6 +75,9 @@ rule-focus $sum1
 
 assert F2.278.4 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@OtherRegulatoryLiabilityWrittenOffDeemedNonRefundable]; 
  $addend = sum(list([nonils @OtherRegulatoryLiabilityWrittenOffDeemedNonRefundable @OtherRegulatoryLiabilityAxis=*])#breakdown);
@@ -86,6 +98,9 @@ rule-focus $sum1
 
 assert F2.278.5 satisfied 
 $rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
 
  $sum1 = [@OtherRegulatoryLiabilityAdditions]; 
  $addend = sum(list([nonils @OtherRegulatoryLiabilityAdditions @OtherRegulatoryLiabilityAxis=*])#breakdown);

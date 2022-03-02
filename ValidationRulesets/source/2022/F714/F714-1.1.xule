@@ -236,3 +236,17 @@ message
 Rule Id:{$rule_id}
 "
 severity error	
+
+assert F714.1.1.22 satisfied
+$rule_id = rule-name()
+
+$ReportedCID =  [covered @concept=ferc:CompanyIdentifier];
+$BadFactContextId = {covered @entity.id != $ReportedCID };
+exists($BadFactContextId)
+message
+"The company has reported a CID of {$ReportedCID}. This does not match the CID reported in the context using the element {$BadFactContextId.concept.name}, the period {$BadFactContextId.period} and the dimensions {$BadFactContextId.dimensions.join(',','=')}. This context has a CID of {$BadFactContextId.entity.id}.
+The filer should report a constant CID in the filing.
+
+Rule Id: {$rule_id}"
+
+SEVERITY error

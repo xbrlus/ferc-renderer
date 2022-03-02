@@ -7,7 +7,7 @@ RULE-NAME-PREFIX FERC
 assert F2.101.1 unsatisfied 
 $rule_id = rule-name();
 
-if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType']) or ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
         skip
 else
  exists([@NameOfOfficerWithCustodyOfCorporateBooks @period=$currentDuration])  
@@ -21,7 +21,7 @@ severity error
 assert F2.101.2 unsatisfied 
 $rule_id = rule-name();
 
-if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType']) or ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
         skip
 else
  exists([@TitleOfOfficerWithCustodyOfCorporateBooks @period=$currentDuration])  
@@ -35,7 +35,7 @@ severity error
 assert F2.101.3 unsatisfied 
 $rule_id = rule-name();
 
-if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType']) or ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
         skip
 else
  exists([@AddressWhereCorporateBooksAreKept @period=$currentDuration])  
@@ -49,7 +49,7 @@ severity error
 assert F2.101.4 unsatisfied 
 $rule_id = rule-name();
 
-if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType']) or ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
         skip
 else
  if exists([@StateOfIncorporation @period=$currentDuration]) 
@@ -93,7 +93,7 @@ severity error
 assert F2.101.7 unsatisfied 
 $rule_id = rule-name();
 
-if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType']) or ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
         skip
 else
  exists([@GeneralInformationAboutStatesInWhichRespondentServicesWereRendered @period=$currentDuration])  

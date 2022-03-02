@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 >
 <head>
     <title>Template - F1 - 102</title>
@@ -116,7 +116,7 @@ xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
                 <tr>
                         <td class="xbrl">
                                 <xule:replace>
-                                        <xule:expression class="hide" fact="true">first(list([@concept=ferc:ControlOverRespondentTextBlock @period=$currentDuration]))             
+                                        <xule:expression class="hide" html="true" fact="true">first(list([@concept=ferc:ControlOverRespondentTextBlock @period=$currentDuration]))             
                                         </xule:expression>
                                         <xule:template-display>
                                                 Kentucky - Gas and Electric
@@ -144,7 +144,7 @@ xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
                 </div>
                 <div class="center-text">Page 
                         <xule:replace>
-                                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleControlOverRespondentAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Page").text
+                                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleControlOverRespondentAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1PageRange").text
                                 </xule:expression>
                                 <xule:template-display>
                                 212

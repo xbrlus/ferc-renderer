@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -15,7 +15,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl">
-    <div id="ScheduleStatementOfCashFlowsAbstract"></div>
+    <div id="ScheduleStatementOfCashFlowsF1FAbstract"></div>
     <table class="schedule-header xbrl" width="100%">
         <tr>
             <td class="xbrl">
@@ -90,7 +90,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         <tr class="sch-title">
             <td colspan="4" class="xbrl">
                     <xule:replace>
-                            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleStatementOfCashFlowsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FScheduleTitle").text
+                            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleStatementOfCashFlowsF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FScheduleTitle").text
                             </xule:expression>
                             <xule:template-display>
                                 PART VI: STATEMENT OF CASH FLOWS
@@ -101,7 +101,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         <tr>
             <td class="instruction xbrl" colspan="4">
                 <xule:replace>
-                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleStatementOfCashFlowsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FInstructions").text
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleStatementOfCashFlowsF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FInstructions").text
                     </xule:expression>
                     <xule:template-display>
                             <ol>
@@ -118,7 +118,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             <td class="col-heading xbrl line-number">Line No.</td>
             <td class="col-heading xbrl" xule:repeat="ISHeadings">
                     <xule:expression class="hide" name="ISHeadings">
-                            $headings = filter (taxonomy().concept(ferc:ScheduleStatementOfCashFlowsAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "F1F - 006 - Schedule - Statement of Cash Flows") 
+                            $headings = filter (taxonomy().concept(ferc:ScheduleStatementOfCashFlowsF1FAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "F1F - 006 - Schedule - Statement of Cash Flows") 
 
                             $headings = list(for $ref in $headings 
                             list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value))
@@ -353,7 +353,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             </xule:replace>
             <span> </span>
             <xule:replace>
-                    <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleStatementOfCashFlowsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FDateRevised").text + ")"
+                    <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleStatementOfCashFlowsF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FDateRevised").text + ")"
                     </xule:expression>
                     <xule:template-display>
                         REV 06-04
@@ -363,7 +363,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
     </div>
     <div class="center-text">Page 
             <xule:replace>
-                    <xule:expression class="hide">taxonomy().concept(ferc:ScheduleStatementOfCashFlowsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPage").text
+                    <xule:expression class="hide">taxonomy().concept(ferc:ScheduleStatementOfCashFlowsF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPageRange").text
                     </xule:expression>
                     <xule:template-display>
                     114

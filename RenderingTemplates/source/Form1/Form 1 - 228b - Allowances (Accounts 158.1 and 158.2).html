@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -244,8 +244,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             
             $number_of_Rows_with_facts = count(set({covered @ferc:AllowancesInventoryAxis=*}.dimension(ferc:AllowancesInventoryAxis)));
 
-            $data2 =   list(for $i in range(7 - $number_of_Rows_with_facts )
-                            list($i,false,none,none,none,none,none,none,none,none,none,none,none,none,none)
+            $data2 =   list(for $i in range(7 - min(list(7,$number_of_Rows_with_facts)) )
+                            list($i + 100000,false,none,none,none,none,none,none,none,none,none,none,none,none,none)
             );
            
             
@@ -254,8 +254,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
    
                         list(for $x in $allowances
                             sum(list(list(
-                                if list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=none @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}).length > 0
-                                    first(list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=none @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}))
+                                if list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis = $Emmission @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}).length > 0
+                                    first(list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis = $Emmission @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}))
                                 else
                                     0,
                                     false,
@@ -346,8 +346,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             /** Row20 ** Sub **/
             $number_of_Rows_with_Other_facts = count(set({covered @ferc:AllowancesRelinquishedAxis=*}.dimension(ferc:AllowancesRelinquishedAxis)));
 
-            $Otherdata2 =   list(for $i in range(1 - $number_of_Rows_with_Other_facts)
-                            list($i,false,none,none,none,none,none,none,none,none,none,none,none,none,none)
+            $Otherdata2 =   list(for $i in range(1 - min(list(1,$number_of_Rows_with_Other_facts)))
+                            list($i + 100000,false,none,none,none,none,none,none,none,none,none,none,none,none,none)
             );
                             
             $otherSubValue = if count(list({covered @ferc:AllowancesRelinquishedAxis=*})) > 0           
@@ -355,8 +355,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 
                                     list(for $x in $allowances3
                                         sum(list(list(
-                                            if list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=none @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}).length > 0
-                                                first(list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=none @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}))
+                                            if list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=$Emmission @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}).length > 0
+                                                first(list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=$Emmission @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}))
                                             else
                                                 0,
                                                 false,
@@ -401,8 +401,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 
             $number_of_Rows_with_COS_facts = count(set({covered @ferc:AllowancesCostOfSalesAxis=*}.dimension(ferc:AllowancesCostOfSalesAxis)));
 
-            $COSdata2 =   list(for $i in range(6 - $number_of_Rows_with_COS_facts )
-                            list($i,false,none,none,none,none,none,none,none,none,none,none,none,none,none)
+            $COSdata2 =   list(for $i in range(6 - min(list(6,$number_of_Rows_with_COS_facts)))
+                            list($i + 100000,false,none,none,none,none,none,none,none,none,none,none,none,none,none)
             );
 
             $COSdata = if count(list({covered @ferc:AllowancesCostOfSalesAxis=*})) > 0           
@@ -410,8 +410,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
    
                         list(for $x in $allowances2
                             sum(list(list(
-                                if list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=none @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}).length > 0
-                                    first(list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=none @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}))
+                                if list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis = $Emmission @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}).length > 0
+                                    first(list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis = $Emmission @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}))
                                 else
                                     0,
                                     false,
@@ -884,7 +884,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
     </div>
     <div class="center-text">Page 
             <xule:replace>
-                    <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAllowanceInventoryAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Page").text
+                    <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAllowanceInventoryAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1PageRange").text
                     </xule:expression>
                     <xule:template-display>
                     1

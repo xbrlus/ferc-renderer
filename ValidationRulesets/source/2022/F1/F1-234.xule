@@ -1,0 +1,103 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.234.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $OtherBreakDown = first-value([@AccumulatedDeferredIncomeTaxes @UtilityTypeAxis=OtherUtilityMember], sum(list([@AccumulatedDeferredIncomeTaxes @UtilityTypeAxis=OtherUtilityMember @AccumulatedDeferredIncomeTaxByOtherUtilityTypeAxis=* ])));
+ 
+        $sum1 = [@AccumulatedDeferredIncomeTaxes]; 
+        $addend = ([@AccumulatedDeferredIncomeTaxes @UtilityTypeAxis=ElectricUtilityMember]#A1
+        + [@AccumulatedDeferredIncomeTaxes @UtilityTypeAxis=GasUtilityMember]#A2
+        + $OtherBreakDown
+        );
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxes with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}. The total is comprised of the following:
+
+ElectricUtility                 {$A1}
+GasUtilityMember                {$A2}
+OtherUtilityMember              {$OtherBreakDown}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.234.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@AccumulatedDeferredIncomeTaxes @UtilityTypeAxis=ElectricUtilityMember]; 
+ $addend = sum(list([nonils @AccumulatedDeferredIncomeTaxes @UtilityTypeAxis=ElectricUtilityMember @AccumulatedDeferredIncomeTaxByElectricTypeAxis=*])#breakdown) + [@AccumulatedDeferredIncomeTaxes @UtilityTypeAxis= OtherElectricUtilityMember @AccumulatedDeferredIncomeTaxByElectricTypeAxis=none]#other;
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis AccumulatedDeferredIncomeTaxByElectricTypeAxis and UtilityTypeAxis=ElectricUtilityMember has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')} and Other Electric Utility of {$other}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.234.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@AccumulatedDeferredIncomeTaxes @UtilityTypeAxis=GasUtilityMember]; 
+ $addend = sum(list([nonils @AccumulatedDeferredIncomeTaxes @UtilityTypeAxis=GasUtilityMember @AccumulatedDeferredIncomeTaxByGasTypeAxis=*])#breakdown) + [@AccumulatedDeferredIncomeTaxes @UtilityTypeAxis= OtherGasUtilityMember @AccumulatedDeferredIncomeTaxByElectricTypeAxis=none]#other;
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis AccumulatedDeferredIncomeTaxByGasTypeAxis and UtilityTypeAxis=GasUtilityMember has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')} and Other Gas Utility of {$other}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.234.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@AccumulatedDeferredIncomeTaxes @UtilityTypeAxis=OtherUtilityMember]; 
+ $addend = sum(list([nonils @AccumulatedDeferredIncomeTaxes @UtilityTypeAxis=OtherUtilityMember @AccumulatedDeferredIncomeTaxByOtherUtilityTypeAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis AccumulatedDeferredIncomeTaxByOtherUtilityTypeAxis and UtilityTypeAxis=OtherUtilityMember has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

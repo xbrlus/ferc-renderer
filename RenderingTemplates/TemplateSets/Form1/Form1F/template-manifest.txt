@@ -32,6 +32,7 @@ Form 1 - 019 - 1F - Purchased Power.zip
 Form 1 - 326 - Purchased Power.zip
 Form 1 - 020 - 1F - Utility Plant Data.zip
 Form 1 - 200 - Summary of Utility Plant and Accumulated Provisions for Depreciation, Amortization and Depletion.zip
+Form 1 - 204 - Electric Plant in Service.zip
 Form 1 - 021 - 1F - Footnote Data.zip
 Form 1 - 022 - 1F - Purchases and Sales of Ancillary Services.zip
 Form 1 - 023 - 1F - Monthly Trans Peak Load.zip

@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -15,7 +15,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl">
-    <div id="ScheduleAllowanceInventoryAbstract"></div>
+    <div id="ScheduleAllowanceInventoryF1FAbstract"></div>
     <table class="schedule-header xbrl" width="100%">
             <tr>
                 <td class="xbrl">
@@ -90,7 +90,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         <tr class="sch-title">
             <td colspan="14" class="xbrl">
                     <xule:replace>
-                            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAllowanceInventoryAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FScheduleTitle").text
+                            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAllowanceInventoryF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FScheduleTitle").text
                             </xule:expression>
                             <xule:template-display>
                                 PART IX: ALLOWANCES (Accounts 158.1 and 158.2)
@@ -102,7 +102,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         <tr>
             <td class="instruction xbrl" colspan="14">
                 <xule:replace>
-                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleAllowanceInventoryAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FInstructions").text
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleAllowanceInventoryF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FInstructions").text
                     </xule:expression>
                     <xule:template-display>
                         <ol>
@@ -135,7 +135,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             <td class="col-heading xbrl-no-top-line line-number" width="2%">Line No.</td>
             <td class="col-heading xbrl-no-top-line" xule:repeat="ColumnHeadings">
                     <xule:expression class="hide" name="ColumnHeadings">
-                            $headings = filter (taxonomy().concept(ferc:ScheduleAllowanceInventoryAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "F1F - 009 - Schedule - Allowances (Accounts 158.1 and 158.2)") 
+                            $headings = filter (taxonomy().concept(ferc:ScheduleAllowanceInventoryF1FAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "F1F - 009 - Schedule - Allowances (Accounts 158.1 and 158.2)") 
     
                             $heading = list(for $ref in $headings 
                             list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value, $ref.part-by-name(ferc-part:ElementName).part-value))
@@ -874,7 +874,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 </xule:replace>
                 <span> </span> 
                     <xule:replace>
-                            <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleAllowanceInventoryAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FDateRevised").text + ")"
+                            <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleAllowanceInventoryF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FDateRevised").text + ")"
                             </xule:expression>
                             <xule:template-display>
                                 NEW 1-05
@@ -883,7 +883,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             </div>
             <div class="center-text">Page 
                     <xule:replace>
-                            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAllowanceInventoryAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPage").text
+                            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAllowanceInventoryF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPageRange").text
                             </xule:expression>
                             <xule:template-display>
                             17

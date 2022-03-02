@@ -1,0 +1,80 @@
+/**FERC Form 2 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.312.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2','2-A').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@AdministrativeAndGeneralOperationExpense}; 
+        $addend = ({@AdministrativeAndGeneralSalaries}#f312-1-1
+        + {@OfficeSuppliesAndExpenses}#f312-1-2
+        - {@AdministrativeExpensesTransferredCredit}#f312-1-3
+        + {@OutsideServicesEmployed}#f312-1-4
+        + {@PropertyInsurance}#f312-1-5
+        + {@InjuriesAndDamages}#f312-1-6
+        + {@EmployeePensionsAndBenefits}#f312-1-7
+        + {@FranchiseRequirements}#f312-1-8
+        + {@RegulatoryCommissionExpenses}#f312-1-9
+        - {@DuplicateChargesCredit}#f312-1-10
+        + {@GeneralAdvertisingExpenses}#f312-1-11
+        + {@MiscellaneousGeneralExpenses}#f312-1-12
+        + {@RentsAdministrativeAndGeneralExpense}#f312-1-13
+        );
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AdministrativeAndGeneralOperationExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}.  The components are as follows:
++ AdministrativeAndGeneralSalaries	        {$f312-1-1}  {$f312-1-1.dimensions.join(',','=')}
++ OfficeSuppliesAndExpenses	                {$f312-1-2}  {$f312-1-2.dimensions.join(',','=')}
+- AdministrativeExpensesTransferredCredit	{$f312-1-3}  {$f312-1-3.dimensions.join(',','=')} 
++ OutsideServicesEmployed	                {$f312-1-4}  {$f312-1-4.dimensions.join(',','=')}
++ PropertyInsurance	 	                {$f312-1-5}  {$f312-1-5.dimensions.join(',','=')}
++ InjuriesAndDamages                            {$f312-1-6}  {$f312-1-6.dimensions.join(',','=')}
++ EmployeePensionsAndBenefits                   {$f312-1-7}  {$f312-1-7.dimensions.join(',','=')}
++ FranchiseRequirements                         {$f312-1-8}  {$f312-1-8.dimensions.join(',','=')}
++ RegulatoryCommissionExpenses                  {$f312-1-9}  {$f312-1-9.dimensions.join(',','=')}
+- DuplicateChargesCredit                        {$f312-1-10}  {$f312-1-10.dimensions.join(',','=')}
++ GeneralAdvertisingExpenses                    {$f312-1-11}  {$f312-1-11.dimensions.join(',','=')}
++ MiscellaneousGeneralExpenses                  {$f312-1-12}  {$f312-1-12.dimensions.join(',','=')}
++ RentsAdministrativeAndGeneralExpense          {$f312-1-13}  {$f312-1-13.dimensions.join(',','=')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.312.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2','2-A').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@AdministrativeAndGeneralExpenses}; 
+        $addend = ({@AdministrativeAndGeneralOperationExpense}
+        + {@MaintenanceOfGeneralPlant}
+        );
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AdministrativeAndGeneralExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+

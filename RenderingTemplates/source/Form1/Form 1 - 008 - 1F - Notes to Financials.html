@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -15,7 +15,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl">
-    <div id="ScheduleNotesToFinancialStatementsAbstract"></div>    
+    <div id="ScheduleNotesToFinancialStatementsF1FAbstract"></div>    
     <table class="ident-table xbrl" width="100%">
             <tr>
                 <td class="xbrl">
@@ -90,7 +90,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             <tr class="sch-title">
                 <td colspan="5" class="xbrl">
                         <xule:replace>
-                                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleNotesToFinancialStatementsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FScheduleTitle").text
+                                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleNotesToFinancialStatementsF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FScheduleTitle").text
                                 </xule:expression>
                                 <xule:template-display>
                                     PART VIII: NOTES TO FINANCIAL STATEMENTS
@@ -102,7 +102,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 <td class="instruction xbrl" colspan="5">
                     
                     <xule:replace>
-                        <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleNotesToFinancialStatementsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FInstructions").text
+                        <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleNotesToFinancialStatementsF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FInstructions").text
                         </xule:expression>
                         <xule:template-display>
                             <p>Give particulars (details) concerning the matters indicated below. Make the statements explicit and precise, and number them in accordance with the inquiries. Each inquiry should be answered. Enter "none," "not applicable," or "NA" where applicable. If information which answers an inquiry is given elsewhere in the report, make a reference to the schedule in which it appears.</p>
@@ -208,7 +208,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 </xule:replace>
                 <span> </span> 
                     <xule:replace>
-                            <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleNotesToFinancialStatementsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FDateRevised").text + ")"
+                            <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleNotesToFinancialStatementsF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FDateRevised").text + ")"
                             </xule:expression>
                             <xule:template-display>
                                 REV 06-04
@@ -218,7 +218,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             </div>
             <div class="center-text">Page 
                     <xule:replace>
-                            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleNotesToFinancialStatementsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPage").text
+                            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleNotesToFinancialStatementsF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPageRange").text
                             </xule:expression>
                             <xule:template-display>
                             222a

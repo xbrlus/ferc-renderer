@@ -1,0 +1,293 @@
+/**FERC Form 6 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F6.204.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @period=$currentInstant}; 
+ $addend = ({@InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @period=$priorInstant}#f1
+ + {@AdjustmentForInvestmentsQualifyingForEquityMethod @period=$currentDuration}#f2
+ + {@EquityInUndistributedEarningsLosses @period=$currentDuration}#f3
+ - {@AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies @period=$currentDuration}#f4
+ - {@AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown @period=$currentDuration}#f5);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}.
+
+= \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.204.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 =  [@InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @CarrierTypeAxis=CarrierMember]; 
+ $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @CarrierTypeAxis=CarrierMember @InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.204.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 =  [@AdjustmentForInvestmentsQualifyingForEquityMethod @CarrierTypeAxis=CarrierMember]; 
+ $addend = sum(list([nonils @AdjustmentForInvestmentsQualifyingForEquityMethod @CarrierTypeAxis=CarrierMember @InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.204.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 =  [@EquityInUndistributedEarningsLosses @CarrierTypeAxis=CarrierMember]; 
+ $addend = sum(list([nonils @EquityInUndistributedEarningsLosses @CarrierTypeAxis=CarrierMember @InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.204.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 =  [@AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies @CarrierTypeAxis=CarrierMember]; 
+ $addend = sum(list([nonils @AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies @CarrierTypeAxis=CarrierMember @InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.204.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 =  [@AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown @CarrierTypeAxis=CarrierMember]; 
+ $addend = sum(list([nonils @AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown @CarrierTypeAxis=CarrierMember @InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.204.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 =  [@InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments]; 
+ $addend = ([@InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @CarrierTypeAxis=CarrierMember]#f1 
+ + [@InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @CarrierTypeAxis=NoncarrierMember]#f2);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}.
+
+= \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
+
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.204.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 =  [@AdjustmentForInvestmentsQualifyingForEquityMethod]; 
+ $addend = ([@AdjustmentForInvestmentsQualifyingForEquityMethod @CarrierTypeAxis=CarrierMember] 
+ + [@AdjustmentForInvestmentsQualifyingForEquityMethod @CarrierTypeAxis=NoncarrierMember]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AdjustmentForInvestmentsQualifyingForEquityMethod with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.204.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 =  [@EquityInUndistributedEarningsLosses]; 
+ $addend = ([@EquityInUndistributedEarningsLosses @CarrierTypeAxis=CarrierMember] 
+ + [@EquityInUndistributedEarningsLosses @CarrierTypeAxis=NoncarrierMember]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for EquityInUndistributedEarningsLosses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.204.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 =  [@AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies]; 
+ $addend = ([@AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies @CarrierTypeAxis=CarrierMember] 
+ + [@AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies @CarrierTypeAxis=NoncarrierMember]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.204.11 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 =  [@AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown @CarrierTypeAxis=none]; 
+ $addend = ([@AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown @CarrierTypeAxis=CarrierMember] 
+ + [@AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown @CarrierTypeAxis=NoncarrierMember]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown with a value of {$sum1} that is not equal to the value of the Carrier Member plus the Noncarrier Member of {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1

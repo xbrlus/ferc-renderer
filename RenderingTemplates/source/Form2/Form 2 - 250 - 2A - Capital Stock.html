@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -14,6 +14,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl" id="ScheduleCapitalStockAndLongTermDebtDataAbstract">
+    <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleCapitalStockAndLongTermDebtDataAbstract"]).length > 0
+                false
+        else
+                true
+    </xule:showif>
         <table class="schedule-header xbrl" width="100%">
                 <tr>
                     <td class="xbrl">
@@ -257,7 +263,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             <td class="col-heading xbrl line-number">Line No.</td>
             <td class="col-heading xbrl" xule:repeat="LongTermDebtHeadings">
                     <xule:expression class="hide" name="LongTermDebtHeadings">
-                            $headings = filter (taxonomy().concept(ferc:ScheduleLongTermDebtAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "F2A - 250 - Schedule - Long-Term Debt") 
+                            $headings = filter (taxonomy().concept(ferc:ScheduleLongTermDebtF2AAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "F2A - 250 - Schedule - Long-Term Debt") 
 
                             $headings = list(for $ref in $headings 
                             list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value))

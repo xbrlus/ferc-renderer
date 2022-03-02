@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -15,7 +15,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl">
-    <div id="ScheduleStatementOfIncomeAbstract"></div>
+    <div id="ScheduleStatementOfIncomeF1FAbstract"></div>
     <xule:showif>
             if first(list([covered @ferc:StatementOfIncomeMajorNonmajor])) == "Major"
                 false
@@ -96,7 +96,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         <tr class="sch-title">
                 <td colspan="11" class="xbrl">
                         <xule:replace>
-                                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleStatementOfIncomeAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FScheduleTitle").text
+                                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleStatementOfIncomeF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FScheduleTitle").text
                                 </xule:expression>
                                 <xule:template-display>
                                     PART IV: STATEMENT OF INCOME FOR THE YEAR
@@ -107,7 +107,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         <tr>
             <td class="instruction xbrl" colspan="11">
                 <xule:replace>
-                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleStatementOfIncomeAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FInstructions").text
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleStatementOfIncomeF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FInstructions").text
                     </xule:expression>
                     <xule:template-display>
                         <ol>
@@ -136,7 +136,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             <td class="col-heading xbrl-no-top-line" xule:repeat="ISHeadings">
                     <xule:expression class="hide" name="ISHeadings">
                             /** THIS CODE EXCLUDES ELEMENT NAMES AS THERE ARE NO ELEMENT SPECIFIC COLUMNS  **/
-                            $headings = filter (taxonomy().concept(ferc:ScheduleStatementOfIncomeAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "F1F - 004 - Schedule - Statement of Income For The Year") 
+                            $headings = filter (taxonomy().concept(ferc:ScheduleStatementOfIncomeF1FAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "F1F - 004 - Schedule - Statement of Income For The Year") 
 
                             $headings = list(for $ref in $headings 
                             list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value))
@@ -274,6 +274,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <td class="numeric_items xbrl">
                                 <xule:replace><xule:expression class="hide" format="ixt4:num-dot-decimal" fact="true" name="ISLineItems" part="6">$rowl[6]</xule:expression>
                                 <xule:class class="hide" location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[3].number > 26 "gray-out" else ""</xule:class>
                                 <xule:template-display>
                                         300
                                 </xule:template-display>                          
@@ -283,6 +284,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <td class="numeric_items xbrl">
                                 <xule:replace><xule:expression class="hide" format="ixt4:num-dot-decimal" fact="true" name="ISLineItems" part="7">$rowl[7]</xule:expression>
                                 <xule:class class="hide" location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[3].number > 26 "gray-out" else ""</xule:class>
                                 <xule:template-display>
                                         300
                                 </xule:template-display>                           
@@ -293,6 +295,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                          <td class="numeric_items xbrl">
                                 <xule:replace><xule:expression class="hide" format="ixt4:num-dot-decimal" fact="true" name="ISLineItems" part="8">$rowl[8]</xule:expression>
                                 <xule:class class="hide" location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[3].number > 26 "gray-out" else ""</xule:class>
                                 <xule:template-display>
                                         300
                                 </xule:template-display>                            
@@ -302,6 +305,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <td class="numeric_items xbrl">
                                 <xule:replace><xule:expression class="hide" format="ixt4:num-dot-decimal" fact="true" name="ISLineItems" part="9">$rowl[9]</xule:expression>
                                 <xule:class  class="hide" location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[3].number > 26 "gray-out" else ""</xule:class>
                                 <xule:template-display>
                                         300
                                 </xule:template-display>
@@ -311,6 +315,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <td class="numeric_items xbrl">
                                 <xule:replace><xule:expression class="hide" format="ixt4:num-dot-decimal" fact="true" name="ISLineItems" part="10">$rowl[10]</xule:expression>
                                 <xule:class class="hide" location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[3].number > 26 "gray-out" else ""</xule:class>
                                 <xule:template-display>
                                         300
                                 </xule:template-display>
@@ -320,6 +325,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <td class="numeric_items xbrl">
                                 <xule:replace><xule:expression class="hide" format="ixt4:num-dot-decimal" fact="true" name="ISLineItems" part="11">$rowl[11]</xule:expression>
                                 <xule:class class="hide" location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[3].number > 26 "gray-out" else ""</xule:class>
                                 <xule:template-display>
                                         300
                                 </xule:template-display>
@@ -345,7 +351,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     </xule:replace>
                     <span> </span>     
                     <xule:replace>
-                            <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleStatementOfIncomeAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FDateRevised").text + ")"
+                            <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleStatementOfIncomeF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FDateRevised").text + ")"
                             </xule:expression>
                             <xule:template-display>
                             02-04
@@ -355,7 +361,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             </div>
             <div class="center-text">Page 
                     <xule:replace>
-                            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleStatementOfIncomeAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPage").text
+                            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleStatementOfIncomeF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPageRange").text
                             </xule:expression>
                             <xule:template-display>
                             101

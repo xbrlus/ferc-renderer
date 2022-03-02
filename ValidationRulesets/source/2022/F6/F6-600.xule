@@ -1,0 +1,261 @@
+/**FERC Form 6 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F6.600.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@NumberOfBarrelsReceived}; 
+ $addend = ({@NumberOfBarrelsReceivedFromConnectingCarriers}#f1 
+ + {@NumberOfBarrelsReceivedOnGatheringLines}#f2 
+ + {@NumberOfBarrelsReceivedOnTrunkLines}#f3);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NumberOfBarrelsReceived with a value of {$sum1} that is not equal to the value of the sum of its components with a value of {$addend} comprised of the following:
+
++ NumberOfBarrelsReceivedFromConnectingCarriers		{$f1}
++ NumberOfBarrelsReceivedOnGatheringLines 			{$f2}
++ NumberOfBarrelsReceivedOnTrunkLines				{$f3}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.600.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@NumberOfBarrelsDeliveredOut}; 
+ $addend = ({@NumberOfBarrelsDeliveredOutToConnectingCarriers}#f1 
+ + {@NumberOfBarrelsDeliveredOutOnGatheringLines}#f2 
+ + {@NumberOfBarrelsDeliveredOutOnTrunkLines}#f3);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NumberOfBarrelsDeliveredOut with a value of {$sum1} that is not equal to the value of the sum of its components of  value of {$addend} comprised of the following:
+
++ NumberOfBarrelsDeliveredOutToConnectingCarriers		{$f1}
++ NumberOfBarrelsDeliveredOutOnGatheringLines 			{$f2}
++ NumberOfBarrelsDeliveredOutOnTrunkLines				{$f3}
+
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.600.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = [@NumberOfBarrelsReceivedFromConnectingCarriers]; 
+ $addend = ([@NumberOfBarrelsReceivedFromConnectingCarriers @ProductsAndServicesAxis=CrudeOilMember]#f1 
+ + [@NumberOfBarrelsReceivedFromConnectingCarriers @ProductsAndServicesAxis=OilProductsMember]#f2 
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NumberOfBarrelsReceivedFromConnectingCarriers with a value of {$sum1} that is not equal to the value of the sum of its components of  value of {$addend} comprised of the following:
+
++ NumberOfBarrelsReceivedFromConnectingCarriers	(Crude Oil)	{$f1}
++ NumberOfBarrelsReceivedFromConnectingCarriers (Products)	{$f2}
+
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.600.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = [@NumberOfBarrelsReceivedOnGatheringLines]; 
+ $addend = ([@NumberOfBarrelsReceivedOnGatheringLines @ProductsAndServicesAxis=CrudeOilMember]#f1 
+ + [@NumberOfBarrelsReceivedOnGatheringLines @ProductsAndServicesAxis=OilProductsMember]#f2 
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NumberOfBarrelsReceivedOnGatheringLines with a value of {$sum1} that is not equal to the value of the sum of its components of  value of {$addend} comprised of the following:
+
++ NumberOfBarrelsReceivedOnGatheringLines	(Crude Oil)	        {$f1}
++ NumberOfBarrelsReceivedOnGatheringLines   (Products)			{$f2}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.600.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = [@NumberOfBarrelsReceivedOnTrunkLines]; 
+ $addend = ([@NumberOfBarrelsReceivedOnTrunkLines @ProductsAndServicesAxis=CrudeOilMember]#f1 
+ + [@NumberOfBarrelsReceivedOnTrunkLines @ProductsAndServicesAxis=OilProductsMember]#f2 
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NumberOfBarrelsReceivedOnTrunkLines with a value of {$sum1} that is not equal to the value of the sum of its components of  value of {$addend} comprised of the following:
+
++ NumberOfBarrelsReceivedOnTrunkLines	(Crude Oil)	        {$f1}
++ NumberOfBarrelsReceivedOnTrunkLines   (Products)			{$f2}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F6.600.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = [@NumberOfBarrelsReceived]; 
+ $addend = ([@NumberOfBarrelsReceived @ProductsAndServicesAxis=CrudeOilMember]#f1 
+ + [@NumberOfBarrelsReceived @ProductsAndServicesAxis=OilProductsMember]#f2 
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NumberOfBarrelsReceived with a value of {$sum1} that is not equal to the value of the sum of its components of  value of {$addend} comprised of the following:
+
++ NumberOfBarrelsReceived	(Crude Oil)	{$f1}
++ NumberOfBarrelsReceived   (Products)	{$f2}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.600.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = [@NumberOfBarrelsDeliveredOutToConnectingCarriers]; 
+ $addend = ([@NumberOfBarrelsDeliveredOutToConnectingCarriers @ProductsAndServicesAxis=CrudeOilMember]#f1 
+ + [@NumberOfBarrelsDeliveredOutToConnectingCarriers @ProductsAndServicesAxis=OilProductsMember]#f2 
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NumberOfBarrelsDeliveredOutToConnectingCarriers with a value of {$sum1} that is not equal to the value of the sum of its components of  value of {$addend} comprised of the following:
+
++ NumberOfBarrelsDeliveredOutToConnectingCarriers  (Crude Oil)	{$f1}
++ NumberOfBarrelsDeliveredOutToConnectingCarriers  (Products)	{$f2}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.600.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = [@NumberOfBarrelsDeliveredOutOnGatheringLines]; 
+ $addend = ([@NumberOfBarrelsDeliveredOutOnGatheringLines @ProductsAndServicesAxis=CrudeOilMember]#f1 
+ + [@NumberOfBarrelsDeliveredOutOnGatheringLines @ProductsAndServicesAxis=OilProductsMember]#f2 
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NumberOfBarrelsDeliveredOutOnGatheringLines with a value of {$sum1} that is not equal to the value of the sum of its components of  value of {$addend} comprised of the following:
+
++ NumberOfBarrelsDeliveredOutOnGatheringLines  (Crude Oil)	{$f1}
++ NumberOfBarrelsDeliveredOutOnGatheringLines  (Products)	{$f2}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.600.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = [@NumberOfBarrelsDeliveredOutOnTrunkLines]; 
+ $addend = ([@NumberOfBarrelsDeliveredOutOnTrunkLines @ProductsAndServicesAxis=CrudeOilMember]#f1 
+ + [@NumberOfBarrelsDeliveredOutOnTrunkLines @ProductsAndServicesAxis=OilProductsMember]#f2 
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NumberOfBarrelsDeliveredOutOnTrunkLines with a value of {$sum1} that is not equal to the value of the sum of its components of  value of {$addend} comprised of the following:
+
++ NumberOfBarrelsDeliveredOutOnTrunkLines  (Crude Oil)	{$f1}
++ NumberOfBarrelsDeliveredOutOnTrunkLines  (Products)	{$f2}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.600.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = [@NumberOfBarrelsDeliveredOut]; 
+ $addend = ([@NumberOfBarrelsDeliveredOut @ProductsAndServicesAxis=CrudeOilMember]#f1 
+ + [@NumberOfBarrelsDeliveredOut @ProductsAndServicesAxis=OilProductsMember]#f2 
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NumberOfBarrelsDeliveredOut with a value of {$sum1} that is not equal to the value of the sum of its components of  value of {$addend} comprised of the following:
+
++ NumberOfBarrelsDeliveredOut  (Crude Oil)	{$f1}
++ NumberOfBarrelsDeliveredOut  (Products)	{$f2}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+

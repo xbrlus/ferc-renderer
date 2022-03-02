@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xule="http://xbrl.us/xule/2.0/template"
     xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-    xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
+    xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
 
 <head>
     <title>Template - F6 - 602</title>
@@ -12,6 +12,12 @@ xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
 
 <body class="xbrl">
     <div id="ScheduleMilesOfPipelineOperatedAtEndOfYearAbstract"></div>
+    <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleMilesOfPipelineOperatedAtEndOfYearAbstract"]).length > 0
+                false
+        else
+                true
+    </xule:showif>
     <table class="schedule-header xbrl" width="100%">
         <tr>
             <td class="xbrl">

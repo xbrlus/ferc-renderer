@@ -1,0 +1,273 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.200.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@UtilityPlantInServiceClassifiedAndUnclassified}; 
+ $addend = ({@UtilityPlantInServiceClassified}#f200-1a
+ + {@UtilityPlantInServicePropertyUnderCapitalLeases}#f200-1b
+ + {@UtilityPlantInServicePlantPurchasedOrSold}#f200-1c
+ + {@UtilityPlantInServiceCompletedConstructionNotClassified}#f200-1d
+ + {@UtilityPlantInServiceExperimentalPlantUnclassified}#f200-1e);
+
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UtilityPlantInServiceClassifiedAndUnclassified with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}.
+
+
+= \t UtilityPlantInServiceClassified \t = \t {$f200-1a}
++ \t UtilityPlantInServicePropertyUnderCapitalLeases \t = \t {$f200-1b}
++ \t UtilityPlantInServicePlantPurchasedOrSold \t = \t {$f200-1c}
++ \t UtilityPlantInServiceCompletedConstructionNotClassified \t = \t {$f200-1d}
++ \t UtilityPlantInServiceExperimentalPlantUnclassified \t = \t {$f200-1e}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.200.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@UtilityPlantAndConstructionWorkInProgress @period=$currentInstant}; 
+ $addend = ({@UtilityPlantInServiceClassifiedAndUnclassified @period=$currentInstant}#f200-2a
+ + {@UtilityPlantLeasedToOthers @period=$currentInstant}#f200-2b
+ + {@UtilityPlantHeldForFutureUse @period=$currentInstant}#f200-2c
+ + {@ConstructionWorkInProgress @period=$currentInstant}#f200-2d
+ + {@UtilityPlantAcquisitionAdjustment @period=$currentInstant}#f200-2e);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UtilityPlantAndConstructionWorkInProgress with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}.
+
+= \t UtilityPlantInServiceClassifiedAndUnclassified \t = \t {$f200-2a}
++ \t UtilityPlantLeasedToOthers \t = \t {$f200-2b}
++ \t UtilityPlantHeldForFutureUse \t = \t {$f200-2c}
++ \t ConstructionWorkInProgress \t = \t {$f200-2d}
++ \t UtilityPlantAcquisitionAdjustment \t = \t {$f200-2e}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.200.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@UtilityPlantNet}; 
+ $addend = ({@UtilityPlantAndConstructionWorkInProgress} 
+ - {@AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UtilityPlantNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.200.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@DepreciationAmortizationAndDepletionUtilityPlantInService}; 
+ $addend = ({@DepreciationUtilityPlantInService} 
+ + {@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRightsutilityPlantInService} 
+ + {@AmortizationOfUndergroundStorageLandAndLandRightsutilityPlantInService} 
+ + {@AmortizationOfOtherUtilityPlantUtilityPlantInService}); 
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DepreciationAmortizationAndDepletionUtilityPlantInService with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.200.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@DepreciationAmortizationAndDepletionUtilityPlantLeasedToOthers}; 
+ $addend = ({@DepreciationUtilityPlantLeasedToOthers} 
+ + {@AmortizationAndDepletionUtilityPlantLeasedToOthers});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DepreciationAmortizationAndDepletionUtilityPlantLeasedToOthers with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.200.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@DepreciationAndAmortizationUtilityPlantHeldForFutureUse}; 
+ $addend = ({@DepreciationUtilityPlantHeldForFutureUse} 
+ + {@AmortizationUtilityPlantHeldForFutureUse});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DepreciationAndAmortizationUtilityPlantHeldForFutureUse with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.200.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility}; 
+ $addend = ({@DepreciationAmortizationAndDepletionUtilityPlantLeasedToOthers} 
+ + {@DepreciationAmortizationAndDepletionUtilityPlantInService} 
+ + {@DepreciationAndAmortizationUtilityPlantHeldForFutureUse} 
+ + {@AbandonmentOfLeases} 
+ + {@AmortizationOfPlantAcquisitionAdjustment});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationAmortizationAndDepletionOfPlantUtility with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.200.8 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@DepreciationUtilityPlantHeldForFutureUse @UtilityTypeAxis=ElectricUtilityMember}; 
+ $addend = {@AccumulatedProvisionForDepreciationOfElectricUtilityPlant @ElectricPlantClassificationAxis=ElectricPlantHeldForFutureUseMember};
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The depreciation of utility plant held for future use must equal the accumulated provision for depreciation. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.200.9 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@UtilityPlantHeldForFutureUse @UtilityTypeAxis=ElectricUtilityMember}; 
+ $addend = {@ElectricPlantHeldForFutureUse};
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The utility plant held for future use must equal the electric plant held for future use. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.200.10 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@DepreciationUtilityPlantInService @UtilityTypeAxis=ElectricUtilityMember}; 
+ $addend = {@AccumulatedProvisionForDepreciationOfElectricUtilityPlant @ElectricPlantClassificationAxis=ElectricPlantInServiceMember};
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The depreciation of utility plant in service must equal the accumulated provision for depreciation. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.200.11 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@DepreciationUtilityPlantLeasedToOthers @UtilityTypeAxis=ElectricUtilityMember}; 
+ $addend = {@AccumulatedProvisionForDepreciationOfElectricUtilityPlant @ElectricPlantClassificationAxis=ElectricPlantLeasedToOthersMember};
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The depreciation of utility plant leased to others must equal the accumulated provision for depreciation. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.200.12 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@UtilityPlantLeasedToOthers @UtilityTypeAxis=ElectricUtilityMember}; 
+ $addend = {@ElectricPlantLeasedToOthers};
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The utility plant leased to others must equal the electric plant leased to others. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.200.13 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@UtilityPlantInServiceExperimentalPlantUnclassified @UtilityTypeAxis=ElectricUtilityMember}; 
+ $addend = {@ExperimentalElectricPlantUnclassified};
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The utility plant in service experimental plant unclassified must equal experimental electrical plant unclassified. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

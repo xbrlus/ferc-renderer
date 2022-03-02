@@ -1,0 +1,543 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.354.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesElectricOperation}; 
+ $addend = ({@SalariesAndWagesElectricOperationProduction} 
+ + {@SalariesAndWagesElectricOperationTransmission} 
+ + {@SalariesAndWagesElectricOperationRegionalMarket} 
+ + {@SalariesAndWagesElectricOperationDistribution} 
+ + {@SalariesAndWagesElectricOperationCustomerAccounts} 
+ + {@SalariesAndWagesElectricOperationCustomerServiceAndInformational} 
+ + {@SalariesAndWagesElectricOperationSales} 
+ + {@SalariesAndWagesElectricOperationAdministrativeAndGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesElectricOperation with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesElectricMaintenance}; 
+ $addend = ({@SalariesAndWagesElectricMaintenanceProduction} 
+ + {@SalariesAndWagesElectricMaintenanceTransmission} 
+ + {@SalariesAndWagesElectricMaintenanceRegionalMarket} 
+ + {@SalariesAndWagesElectricMaintenanceDistribution} 
+ + {@SalariesAndWagesElectricMaintenanceAdministrativeAndGeneral}); 
+ 
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesElectricMaintenance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesElectricProduction}; 
+ $addend = ({@SalariesAndWagesElectricOperationProduction} 
+ + {@SalariesAndWagesElectricMaintenanceProduction});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesElectricProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesElectricTransmission}; 
+ $addend = ({@SalariesAndWagesElectricOperationTransmission} 
+ + {@SalariesAndWagesElectricMaintenanceTransmission});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesElectricTransmission with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesElectricRegionalMarket}; 
+ $addend = ({@SalariesAndWagesElectricOperationRegionalMarket} 
+ + {@SalariesAndWagesElectricMaintenanceRegionalMarket});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesElectricRegionalMarket with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesElectricDistribution}; 
+ $addend = ({@SalariesAndWagesElectricOperationDistribution} 
+ + {@SalariesAndWagesElectricMaintenanceDistribution});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesElectricDistribution with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesElectricAdministrativeAndGeneral}; 
+ $addend = ({@SalariesAndWagesElectricOperationAdministrativeAndGeneral} 
+ + {@SalariesAndWagesElectricMaintenanceAdministrativeAndGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesElectricAdministrativeAndGeneral with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.8 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesElectricOperationAndMaintenance}; 
+ $addend = ({@SalariesAndWagesElectricProduction} 
+ + {@SalariesAndWagesElectricTransmission} 
+ + {@SalariesAndWagesElectricRegionalMarket} 
+ + {@SalariesAndWagesElectricDistribution} 
+ + {@SalariesAndWagesElectricCustomerAccounts} 
+ + {@SalariesAndWagesElectricCustomerServiceAndInformational} 
+ + {@SalariesAndWagesElectricSales} +{@SalariesAndWagesElectricAdministrativeAndGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesElectricOperationAndMaintenance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.9 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasOperation}; 
+ $addend = ({@SalariesAndWagesGasOperationProductionManufacturedGas} 
+ + {@SalariesAndWagesGasOperationProductionNaturalGas} 
+ + {@SalariesAndWagesGasOperationOtherGasSupply} 
+ + {@SalariesAndWagesGasOperationStorageLiquifiedNaturalGasTerminalingAndProcessing} 
+ + {@SalariesAndWagesGasOperationTransmission} 
+ + {@SalariesAndWagesGasOperationDistribution} 
+ + {@SalariesAndWagesGasCustomerAccounts} 
+ + {@SalariesAndWagesGasCustomerServiceAndInformational} 
+ + {@SalariesAndWagesGasSales} 
+ + {@SalariesAndWagesGasOperationAdministrativeAndGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasOperation with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.10 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasMaintenance}; 
+ $addend = ({@SalariesAndWagesGasMaintenanceProductionManufacturedGas} 
+ + {@SalariesAndWagesGasMaintenanceProductionNaturalGas} 
+ + {@SalariesAndWagesGasMaintenanceOtherGasSupply} 
+ + {@SalariesAndWagesGasMaintenanceStorageLngTerminalingAndProcessing} 
+ + {@SalariesAndWagesGasMaintenanceTransmission} 
+ + {@SalariesAndWagesGasMaintenanceDistribution} 
+ + {@SalariesAndWagesGasMaintenanceAdministrativeAndGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasMaintenance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.11 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasProductionManufacturedGas}; 
+ $addend = ({@SalariesAndWagesGasOperationProductionManufacturedGas} 
+ + {@SalariesAndWagesGasMaintenanceProductionManufacturedGas});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasProductionManufacturedGas with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.12 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasProductionNaturalGas}; 
+ $addend = ({@SalariesAndWagesGasOperationProductionNaturalGas} 
+ + {@SalariesAndWagesGasMaintenanceProductionNaturalGas});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasProductionNaturalGas with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.13 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasOtherGasSupply}; 
+ $addend = ({@SalariesAndWagesGasOperationOtherGasSupply} 
+ + {@SalariesAndWagesGasMaintenanceOtherGasSupply});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasOtherGasSupply with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.14 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasStorageLngTerminalingAndProcessing}; 
+ $addend = ({@SalariesAndWagesGasOperationStorageLiquifiedNaturalGasTerminalingAndProcessing} 
+ + {@SalariesAndWagesGasMaintenanceStorageLngTerminalingAndProcessing});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasStorageLngTerminalingAndProcessing with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.15 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasTransmission}; 
+ $addend = ({@SalariesAndWagesGasOperationTransmission} 
+ + {@SalariesAndWagesGasMaintenanceTransmission});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasTransmission with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.16 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasDistribution}; 
+ $addend = ({@SalariesAndWagesGasOperationDistribution} 
+ + {@SalariesAndWagesGasMaintenanceDistribution});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasDistribution with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.17 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasAdministrativeAndGeneral}; 
+ $addend = ({@SalariesAndWagesGasOperationAdministrativeAndGeneral} 
+ + {@SalariesAndWagesGasMaintenanceAdministrativeAndGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasAdministrativeAndGeneral with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.18 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasOperationAndMaintenance}; 
+ $addend = ({@SalariesAndWagesGasProductionManufacturedGas} 
+ + {@SalariesAndWagesGasProductionNaturalGas} 
+ + {@SalariesAndWagesGasOtherGasSupply} 
+ + {@SalariesAndWagesGasStorageLngTerminalingAndProcessing} 
+ + {@SalariesAndWagesGasTransmission} 
+ + {@SalariesAndWagesGasDistribution} 
+ + {@SalariesAndWagesGasCustomerAccounts} +{@SalariesAndWagesGasCustomerServiceAndInformational} 
+ + {@SalariesAndWagesGasSales} 
+ + {@SalariesAndWagesGasAdministrativeAndGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasOperationAndMaintenance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.19 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesOperationsAndMaintenance}; 
+ $addend = ({@SalariesAndWagesElectricOperationAndMaintenance} 
+ + {@SalariesAndWagesGasOperationAndMaintenance} 
+ + {@SalariesAndWagesOtherUtilityDepartmentsOperationAndMaintenance});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesOperationsAndMaintenance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.20 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesUtilityPlantConstruction}; 
+ $addend = ({@SalariesAndWagesUtilityPlantConstructionElectricPlant} 
+ + {@SalariesAndWagesUtilityPlantConstructionGasPlant} 
+ + {@SalariesAndWagesUtilityPlantConstructionOther});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesUtilityPlantConstruction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.21 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesPlantRemoval}; 
+ $addend = ({@SalariesAndWagesPlantRemovalElectricPlant} 
+ + {@SalariesAndWagesPlantRemovalGasPlant} 
+ + {@SalariesAndWagesPlantRemovalOther});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesPlantRemoval with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.354.22 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGeneralExpense}; 
+ $addend = ({@SalariesAndWagesOperationsAndMaintenance} 
+ + {@SalariesAndWagesUtilityPlantConstruction} 
+ + {@SalariesAndWagesPlantRemoval} 
+ + {@SalariesAndWagesOtherAccounts});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGeneralExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.354.23 satisfied
+
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+    
+$sum1 = [@AllowanceInventoryTimePeriodAxis=none];
+$addend = {@TypeOfDistributionAxis=DirectPayrollDistributionMember}#a1 + 
+{@TypeOfDistributionAxis=AllocationOfPayrollChargedForClearingAccountsMember}#a2;
+
+
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TypeOfDistributionAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are as follows:
++ {$a1}
++ {$a2}
+
+
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

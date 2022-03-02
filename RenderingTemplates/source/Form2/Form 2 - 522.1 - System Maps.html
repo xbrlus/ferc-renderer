@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -14,6 +14,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl" id="ScheduleSystemMapsAbstract">
+    <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleSystemMapsAbstract"]).length > 0
+                false
+        else
+                true
+    </xule:showif>
         <table class="schedule-header xbrl" width="100%">
                 <tr>
                     <td class="xbrl">
@@ -83,7 +89,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             </table>
     <table class="xbrl">
         <tr class="sch-title">
-            <td colspan="1" class="xbrl">
+            <td colspan="3" class="xbrl">
                 <xule:replace>
                         <xule:expression class="hide">taxonomy().concept(ferc:ScheduleSystemMapsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2ScheduleTitle").text
                         </xule:expression>
@@ -94,7 +100,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             </td>
         </tr>
          <tr>
-            <td class="instruction xbrl" colspan="1">
+            <td class="instruction xbrl" colspan="3">
                 <xule:replace>
                     <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleSystemMapsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Instructions").text
                     </xule:expression>
@@ -120,6 +126,56 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 </xule:replace>
             </td>
         </tr>
+        <tr class="schedule-row" xule:repeat="SystemMaps">
+            <xule:expression class="hide" name="SystemMaps">// adding a comment
+                
+            $data2 =   list(for $i in range(5)
+                            list($i,none,none)
+            );
+
+            $data = if count(list({covered @ferc:SystemMapsAxis=*})) > 0  
+            
+            
+                list({covered @ferc:SystemMapsAxis=*  {list(
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
+                        first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                    else
+                        0,
+                if exists({@ferc:FileNameOfSystemMap @unit  @period=$currentDuration}) 
+                    first(list({@ferc:FileNameOfSystemMap @unit  @period=$currentDuration})) 
+                else 
+                    none,
+                if exists({@ferc:FileCommentOfSystemMap @unit @period=$currentDuration})
+                    first(list({@ferc:FileCommentOfSystemMap @unit @period=$currentDuration})) 
+                else 
+                    none
+                )}})
+                else $data2;
+            
+                $uniqueData = list(for $x in  $data
+                                if $x == list(0,none,none)
+                                    skip
+                                else 
+                                    $x
+                            );
+
+            for $row in $uniqueData.sort        
+
+            </xule:expression>
+            <td class="xbrl line-number"><xule:lineNumber name="SystemMaps"/>
+                <xule:template-display>1</xule:template-display>
+            </td>
+            <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="SystemMaps" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                <xule:template-display>
+                    System Map 1
+                </xule:template-display>
+            </td>
+            <td class="xbrl description_items"><xule:replace><xule:expression class="hide"  name="SystemMaps" fact="true" part="3">$row[3]</xule:expression></xule:replace>
+                <xule:template-display>
+                        System Map 1 is not included but was included in 2016 annual report
+                </xule:template-display>
+            </td>
+        </tr> 
     </table>
     <br/>
     <div class="schedule-footer">

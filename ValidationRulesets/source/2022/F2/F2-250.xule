@@ -1,0 +1,188 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.250.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@CapitalStockValueOutstanding}; 
+        $addend = ({@CommonStockIssued}
+        + {@PreferredStockIssued});
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CapitalStockValueOutstanding with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F2.250.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $agg1 = [@CommonStockSharesAuthorized]; 
+ $addend = sum(list([nonils @CommonStockSharesAuthorized @CommonStockAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+tolerance_for_decimals($agg1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$agg1.concept.name} using the axis CommonStockAxis has a total value of {$addend}. The value of the aggregate amount for {$agg1.concept.name} is equal to {$agg1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$agg1.concept.name}
+Total Period : {$agg1.period}
+Total Value : {$agg1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $agg1
+
+
+assert F2.250.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $agg1 = [@CommonStockSharesOutstanding]; 
+ $addend = sum(list([nonils @CommonStockSharesOutstanding @CommonStockAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+tolerance_for_decimals($agg1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$agg1.concept.name} using the axis CommonStockAxis has a total value of {$addend}. The value of the aggregate amount for {$agg1.concept.name} is equal to {$agg1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$agg1.concept.name}
+Total Period : {$agg1.period}
+Total Value : {$agg1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $agg1
+
+assert F2.250.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $agg1 = [@CommonStockIssued]; 
+ $addend = sum(list([nonils @CommonStockIssued @CommonStockAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+tolerance_for_decimals($agg1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$agg1.concept.name} using the axis CommonStockAxis has a total value of {$addend}. The value of the aggregate amount for {$agg1.concept.name} is equal to {$agg1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$agg1.concept.name}
+Total Period : {$agg1.period}
+Total Value : {$agg1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $agg1
+
+assert F2.250.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $agg1 = [@PreferredStockSharesAuthorized]; 
+ $addend = sum(list([nonils @PreferredStockSharesAuthorized @PreferredStockAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+tolerance_for_decimals($agg1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$agg1.concept.name} using the axis PreferredStockAxis has a total value of {$addend}. The value of the aggregate amount for {$agg1.concept.name} is equal to {$agg1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$agg1.concept.name}
+Total Period : {$agg1.period}
+Total Value : {$agg1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $agg1
+
+assert F2.250.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $agg1 = [@PreferredStockSharesOutstanding]; 
+ $addend = sum(list([nonils @PreferredStockSharesOutstanding @PreferredStockAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+tolerance_for_decimals($agg1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$agg1.concept.name} using the axis PreferredStockAxis has a total value of {$addend}. The value of the aggregate amount for {$agg1.concept.name} is equal to {$agg1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$agg1.concept.name}
+Total Period : {$agg1.period}
+Total Value : {$agg1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $agg1
+
+assert F2.250.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $agg1 = [@PreferredStockIssued]; 
+ $addend = sum(list([nonils @PreferredStockIssued @PreferredStockAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+tolerance_for_decimals($agg1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$agg1.concept.name} using the axis PreferredStockAxis has a total value of {$addend}. The value of the aggregate amount for {$agg1.concept.name} is equal to {$agg1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$agg1.concept.name}
+Total Period : {$agg1.period}
+Total Value : {$agg1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $agg1

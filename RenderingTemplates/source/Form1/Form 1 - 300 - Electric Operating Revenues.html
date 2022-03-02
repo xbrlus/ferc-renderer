@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -381,7 +381,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             <td colspan="8">
                 <span>Line12, column (b) includes $ </span>
                 <xule:replace>
-                    <xule:expression class="hide" fact="true">first(list([@ferc:RevenueFromSalesOfElectricityUnbilled @period=$currentDuration]))</xule:expression>
+                    <xule:expression class="hide" format="ixt4:num-dot-decimal" fact="true">first(list([@ferc:RevenueFromSalesOfElectricityUnbilled @period=$currentDuration]))</xule:expression>
                     <xule:template-display>789</xule:template-display>
                 </xule:replace>
                 <span> of unbilled revenues.</span>
@@ -389,9 +389,9 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         </tr>
         <tr>
             <td colspan="8">
-                <span>Line12, column (d) includes $ </span>
+                <span>Line12, column (d) includes </span>
                 <xule:replace>
-                    <xule:expression class="hide" fact="true">first(list([@ferc:MegawattHoursOfElectricitySoldUnbilled @period=$currentDuration]))</xule:expression>
+                    <xule:expression class="hide" format="ixt4:num-dot-decimal" fact="true">first(list([@ferc:MegawattHoursOfElectricitySoldUnbilled @period=$currentDuration]))</xule:expression>
                     <xule:template-display>200</xule:template-display>
                 </xule:replace>
                 <span> MWH relating to unbilled revenues</span>
@@ -417,7 +417,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         </div> 
         <div style="text-align: center">Page 
             <xule:replace>
-                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleElectricOperatingRevenuesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Page").text
+                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleElectricOperatingRevenuesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1PageRange").text
                 </xule:expression>
                 <xule:template-display>
                 300

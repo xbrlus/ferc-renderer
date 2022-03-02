@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -14,6 +14,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl" id="ScheduleInvestmentsAbstract">
+    <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleInvestmentsAbstract"]).length > 0
+                false
+        else
+                true
+    </xule:showif>
         <table class="schedule-header xbrl" width="100%">
                 <tr>
                     <td class="xbrl">
@@ -165,7 +171,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                    
                     list({covered @ferc:InvestmentsInAssociatedCompaniesAxis=*  {list(
                         
-                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
@@ -223,7 +229,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     if $x == list(0,none,none,none,none,none,none,none,none,none,none,none,none)
                         skip
                     else 
-                        if list({covered @ferc:InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsAtBookCost}).length > 0
+                        if list({covered @ferc:InvestmentsAxis=*}).length > 0
                             skip
                         else
                             $x
@@ -302,7 +308,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     $group1 = if count(list([covered @ferc:DescriptionOfInvestment @ferc:InvestmentsInAssociatedCompaniesAxis=*])) > 0
                                 count(list([covered @ferc:DescriptionOfInvestment @ferc:InvestmentsInAssociatedCompaniesAxis=*]))
                             else
-                                if list({covered @ferc:InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsAtBookCost}).length > 0
+                                if list({covered @ferc:InvestmentsAxis=*}).length > 0
                                     0
                                 else 3;
     
@@ -398,55 +404,55 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                    
                     list({covered @ferc:OtherInvestmentsAxis=*  {list(
                         
-                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).lenghth > 0
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:DescriptionOfInvestment @unit  @period=$currentDuration}) 
+                    if list({@ferc:DescriptionOfInvestment @unit  @period=$currentDuration}).length > 0
                         first(list({@ferc:DescriptionOfInvestment @unit  @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:IndicatorInvestmentsArePledged @unit @period=$currentDuration})
+                    if list({@ferc:IndicatorInvestmentsArePledged @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:IndicatorInvestmentsArePledged  @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:DateOfAcquisitionForInvestments @unit @period=$currentDuration})
+                    if list({@ferc:DateOfAcquisitionForInvestments @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DateOfAcquisitionForInvestments  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:DateOfMaturityForInvestments @unit @period=$currentDuration})
+                    if list({@ferc:DateOfMaturityForInvestments @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DateOfMaturityForInvestments  @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:OtherInvestments @unit @period=$priorInstant})
+                    if list({@ferc:OtherInvestments @unit @period=$priorInstant}).length > 0
                         first(list({@ferc:OtherInvestments  @unit @period=$priorInstant}))
                     else 
                         none,
-                    if exists({@ferc:InvestmentsInOtherInvestmentsPurchasesOrAdditions @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsInOtherInvestmentsPurchasesOrAdditions @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsInOtherInvestmentsPurchasesOrAdditions  @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:InvestmentsInOtherInvestmentsSalesOrOtherDispositions @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsInOtherInvestmentsSalesOrOtherDispositions @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsInOtherInvestmentsSalesOrOtherDispositions  @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:InvestmentsInBondsPrincipal @unit @period=$currentInstant})
+                    if list({@ferc:InvestmentsInBondsPrincipal @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:InvestmentsInBondsPrincipal  @unit @period=$currentInstant}))
                     else 
                         none,
-                    if exists({@ferc:InvestmentsInCapitalStockNumberOfSharesForInvestments @unit @period=$currentInstant})
+                    if list({@ferc:InvestmentsInCapitalStockNumberOfSharesForInvestments @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:InvestmentsInCapitalStockNumberOfSharesForInvestments  @unit @period=$currentInstant}))
                     else 
                         none,
-                    if exists({@ferc:OtherInvestments @unit @period=$currentInstant})
+                    if list({@ferc:OtherInvestments @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:OtherInvestments  @unit @period=$currentInstant}))
                     else 
                         none,
-                    if exists({@ferc:InvestmentsInOtherInvestmentsRevenues @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsInOtherInvestmentsRevenues @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsInOtherInvestmentsRevenues  @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:InvestmentsInOtherInvestmentsGainOrLossFromInvestmentDisposed @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsInOtherInvestmentsGainOrLossFromInvestmentDisposed @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsInOtherInvestmentsGainOrLossFromInvestmentDisposed  @unit @period=$currentDuration}))
                     else 
                         none
@@ -457,7 +463,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     if $x == list(0,none,none,none,none,none,none,none,none,none,none,none,none)
                         skip
                     else 
-                        if list({covered @ferc:InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsAtBookCost}).length > 0
+                        if list({covered @ferc:InvestmentsAxis=*}).length > 0
                             skip
                         else
                             $x
@@ -538,7 +544,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         $group2 = if count(list([covered @ferc:DescriptionOfInvestment @ferc:OtherInvestmentsAxis=*])) > 0
                                         count(list([covered @ferc:DescriptionOfInvestment @ferc:OtherInvestmentsAxis=*]))
                                     else
-                                        if list({covered @ferc:InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsAtBookCost}).length > 0
+                                        if list({covered @ferc:InvestmentsAxis=*}).length > 0
                                             0
                                         else 
                                             3;
@@ -635,44 +641,44 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                    
                     list({covered @ferc:TemporaryCashInvestmentsAxis=*  {list(
                         
-                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
-                    first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
+                        first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:DescriptionOfInvestment @unit  @period=$currentDuration}) 
+                    if list({@ferc:DescriptionOfInvestment @unit  @period=$currentDuration}).length > 0
                         first(list({@ferc:DescriptionOfInvestment @unit  @period=$currentDuration} ))
                     else none,
-                    if exists({@ferc:IndicatorInvestmentsArePledged @unit @period=$currentDuration})
+                    if list({@ferc:IndicatorInvestmentsArePledged @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:IndicatorInvestmentsArePledged  @unit @period=$currentDuration} ))
                     else none,
-                    if exists({@ferc:DateOfAcquisitionForInvestments @unit @period=$currentDuration})
+                    if list({@ferc:DateOfAcquisitionForInvestments @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DateOfAcquisitionForInvestments  @unit @period=$currentDuration} ))
                     else none,
-                    if exists({@ferc:DateOfMaturityForInvestments @unit @period=$currentDuration})
+                    if list({@ferc:DateOfMaturityForInvestments @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DateOfMaturityForInvestments  @unit @period=$currentDuration} ))
                     else none,
-                    if exists({@ferc:TemporaryCashInvestments @unit @period=$priorInstant})
+                    if list({@ferc:TemporaryCashInvestments @unit @period=$priorInstant}).length > 0
                         first(list({@ferc:TemporaryCashInvestments  @unit @period=$priorInstant} ))
                     else none,
-                    if exists({@ferc:InvestmentsToInvestTemporaryCashPurchasesOrAdditions @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsToInvestTemporaryCashPurchasesOrAdditions @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsToInvestTemporaryCashPurchasesOrAdditions  @unit @period=$currentDuration} ))
                     else none,
-                    if exists({@ferc:InvestmentsToInvestTemporaryCashSalesOrOtherDispositions @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsToInvestTemporaryCashSalesOrOtherDispositions @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsToInvestTemporaryCashSalesOrOtherDispositions  @unit @period=$currentDuration} ))
                     else none,
-                    if exists({@ferc:InvestmentsInBondsPrincipal @unit @period=$currentInstant})
+                    if list({@ferc:InvestmentsInBondsPrincipal @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:InvestmentsInBondsPrincipal  @unit @period=$currentInstant} ))
                     else none,
-                    if exists({@ferc:InvestmentsInCapitalStockNumberOfSharesForInvestments @unit @period=$currentInstant})
+                    if list({@ferc:InvestmentsInCapitalStockNumberOfSharesForInvestments @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:InvestmentsInCapitalStockNumberOfSharesForInvestments  @unit @period=$currentInstant} ))
                     else none,
-                    if exists({@ferc:TemporaryCashInvestments @unit @period=$currentInstant})
+                    if list({@ferc:TemporaryCashInvestments @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:TemporaryCashInvestments  @unit @period=$currentInstant} ))
                     else none,
-                    if exists({@ferc:InvestmentsToInvestTemporaryCashRevenues @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsToInvestTemporaryCashRevenues @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsToInvestTemporaryCashRevenues  @unit @period=$currentDuration} ))
                     else none,
-                    if exists({@ferc:InvestmentsToInvestTemporaryCashInvestmentsGainOrLossFromInvestmentDisposed @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsToInvestTemporaryCashInvestmentsGainOrLossFromInvestmentDisposed @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsToInvestTemporaryCashInvestmentsGainOrLossFromInvestmentDisposed  @unit @period=$currentDuration} ))
                     else none
                     )}})
@@ -682,7 +688,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     if $x == list(0,none,none,none,none,none,none,none,none,none,none,none,none)
                         skip
                     else 
-                        if list({covered @ferc:InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsAtBookCost}).length > 0
+                        if list({covered @ferc:InvestmentsAxis=*}).length > 0
                             skip
                         else
                             $x
@@ -763,7 +769,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         $group3 = if count(list([covered @ferc:DescriptionOfInvestment @ferc:TemporaryCashInvestmentsAxis=*])) > 0
                                         count(list([covered @ferc:DescriptionOfInvestment @ferc:TemporaryCashInvestmentsAxis=*]))
                                     else
-                                        if list({covered @ferc:InvestmentsInAssociatedCompaniesOtherInvestmentsAndTemporaryCashInvestmentsAtBookCost}).length > 0
+                                        if list({covered @ferc:InvestmentsAxis=*}).length > 0
                                              0
                                         else 
                                             3;       

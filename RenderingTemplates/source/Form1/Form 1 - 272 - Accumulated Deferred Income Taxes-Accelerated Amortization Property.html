@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -277,8 +277,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                                                     else 
                                                                         none,
                                                                     /** Debits - Acct Credited **/
-                                                                    if exists({@concept = $lineItemsList[8][1] @unit=* @period = $currentDuration where $fact.dimension($axis) != none}) 
-                                                                        {@concept = $lineItemsList[8][1] @unit=* @period = $currentDuration where $fact.dimension($axis) != none}     
+                                                                    if exists({@concept = $lineItemsList[8][1] @unit @period = $currentDuration where $fact.dimension($axis) != none}) 
+                                                                        {@concept = $lineItemsList[8][1] @unit @period = $currentDuration where $fact.dimension($axis) != none}     
                                                                     else 
                                                                         none,
                                                                     /** Debits - Amount **/
@@ -287,8 +287,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                                                     else 
                                                                         none,
                                                                     /** Credits - Acct Debited **/
-                                                                    if exists({@concept = $lineItemsList[10][1] @unit=* @period = $currentDuration where $fact.dimension($axis) != none}) 
-                                                                        {@concept = $lineItemsList[10][1] @unit=* @period = $currentDuration where $fact.dimension($axis) != none}     
+                                                                    if exists({@concept = $lineItemsList[10][1] @unit @period = $currentDuration where $fact.dimension($axis) != none}) 
+                                                                        {@concept = $lineItemsList[10][1] @unit @period = $currentDuration where $fact.dimension($axis) != none}     
                                                                     else 
                                                                         none,
                                                                     /** Credits - Amount **/
@@ -385,6 +385,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             </td>
             <td class="xbrl description_items">
                 <xule:replace><xule:expression  class="hide"  name="DeferredIncomeTaxesLineItems" part="2">$rowl[2]</xule:expression>
+                <xule:fact name="DeferredIncomeTaxesLineItems"  class="hide">if $rowl[2].is-fact "true" else "false"</xule:fact>
                 
             </xule:replace>
                 <xule:template-display>
@@ -645,7 +646,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         </div>
         <div class="center-text">Page 
                 <xule:replace>
-                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAccumulatedDeferredIncomeTaxesAcceleratedAmortizationPropertyAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Page").text
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAccumulatedDeferredIncomeTaxesAcceleratedAmortizationPropertyAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1PageRange").text
                         </xule:expression>
                         <xule:template-display>
                         272

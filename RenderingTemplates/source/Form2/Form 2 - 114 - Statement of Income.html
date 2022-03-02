@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -14,6 +14,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl" id="ScheduleStatementOfIncomeAbstract">
+    <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleStatementOfIncomeAbstract"]).length > 0
+                false
+        else
+                true
+    </xule:showif>
     <table class="schedule-header xbrl" width="100%">
         <tr>
             <td class="xbrl">
@@ -298,6 +304,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <td class="monetary_items xbrl">
                                 <xule:replace><xule:expression fact="true" format="ixt4:num-dot-decimal" class="hide" name="ISLineItems" part="8">$rowl[9]</xule:expression>
                                 <xule:class class="hide" location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[4].number > 30 "gray-out" else ""</xule:class>
                                 <xule:template-display>
                                         300
                                 </xule:template-display>                          
@@ -307,6 +314,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <td class="monetary_items xbrl">
                                 <xule:replace><xule:expression fact="true" format="ixt4:num-dot-decimal" class="hide" name="ISLineItems" part="9">$rowl[10]</xule:expression>
                                 <xule:class class="hide" location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[4].number > 30 "gray-out" else ""</xule:class>
                                 <xule:template-display>
                                         300
                                 </xule:template-display>                           
@@ -317,6 +325,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                          <td class="monetary_items xbrl">
                                 <xule:replace><xule:expression fact="true" format="ixt4:num-dot-decimal" class="hide" name="ISLineItems" part="10">$rowl[11]</xule:expression>
                                 <xule:class class="hide" location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[4].number > 30 "gray-out" else ""</xule:class>
                                 <xule:template-display>
                                         300
                                 </xule:template-display>                            
@@ -326,6 +335,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <td class="monetary_items xbrl">
                                 <xule:replace><xule:expression fact="true" format="ixt4:num-dot-decimal" class="hide" name="ISLineItems" part="11">$rowl[12]</xule:expression>
                                 <xule:class  class="hide" location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[4].number > 30 "gray-out" else ""</xule:class>
                                 <xule:template-display>
                                         300
                                 </xule:template-display>
@@ -335,6 +345,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <td class="monetary_items xbrl">
                                 <xule:replace><xule:expression fact="true" format="ixt4:num-dot-decimal" class="hide" name="ISLineItems" part="12">$rowl[13]</xule:expression>
                                 <xule:class class="hide" location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[4].number > 30 "gray-out" else ""</xule:class>
                                 <xule:template-display>
                                         300
                                 </xule:template-display>
@@ -344,6 +355,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <td class="monetary_items xbrl">
                                 <xule:replace><xule:expression fact="true" format="ixt4:num-dot-decimal" class="hide" name="ISLineItems" part="13">$rowl[14]</xule:expression>
                                 <xule:class class="hide" location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[4].number > 30 "gray-out" else ""</xule:class>
                                 <xule:template-display>
                                         300
                                 </xule:template-display>

@@ -1,0 +1,211 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.326.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:PurchasedPowerMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@SettlementOfPower}; 
+ $addend = ({@DemandChargesOfPurchasedPower} 
+ + {@EnergyChargesOfPurchasedPower} 
+ + {@OtherChargesOfPurchasedPower});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SettlementOfPower with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.326.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:PurchasedPowerMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@MegawattHoursPurchased]; 
+ $addend = sum(list([nonils @MegawattHoursPurchased @PurchasedPowerAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis PurchasedPowerAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.326.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:PurchasedPowerMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@EnergyReceivedThroughPowerExchanges]; 
+ $addend = sum(list([nonils @EnergyReceivedThroughPowerExchanges @PurchasedPowerAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis PurchasedPowerAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.326.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:PurchasedPowerMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@EnergyDeliveredThroughPowerExchanges]; 
+ $addend = sum(list([nonils @EnergyDeliveredThroughPowerExchanges @PurchasedPowerAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis PurchasedPowerAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.326.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:PurchasedPowerMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@DemandChargesOfPurchasedPower]; 
+ $addend = sum(list([nonils @DemandChargesOfPurchasedPower @PurchasedPowerAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis PurchasedPowerAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.326.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:PurchasedPowerMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@EnergyChargesOfPurchasedPower]; 
+ $addend = sum(list([nonils @EnergyChargesOfPurchasedPower @PurchasedPowerAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis PurchasedPowerAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.326.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:PurchasedPowerMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@OtherChargesOfPurchasedPower]; 
+ $addend = sum(list([nonils @OtherChargesOfPurchasedPower @PurchasedPowerAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis PurchasedPowerAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.326.8 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:PurchasedPowerMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@SettlementOfPower]; 
+ $addend = sum(list([nonils @SettlementOfPower @PurchasedPowerAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis PurchasedPowerAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.326.9 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+	$codes = list('RQ','LF','IF','SF','LU','IU','EX','OS','AD')
+	if {@StatisticalClassificationCode @PurchasedPowerAxis=*}#code not in $codes
+        true
+   	 else
+   	 	skip
+message 
+"A Statistical Classification Code with a value of {$code} has been used. This is an invalid code. Statical Classification codes must be one of the following  {$codes.join(', ')}.
+
+Element : {$code.concept.name}
+Code Period : {$code.period}
+Code Value : {$code}
+Code Dimension: {$code.dimensions.join(',','=')}
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $code

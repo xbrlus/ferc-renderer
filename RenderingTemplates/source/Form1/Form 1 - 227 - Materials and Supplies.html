@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xule="http://xbrl.us/xule/2.0/template"
     xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
     xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-    xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
+    xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
 
 <head>
     <title>Template - F1 - 227</title>
@@ -846,27 +846,97 @@
                 </xule:replace>
             </td>
         </tr>
-        <tr>
-            <td class="xbrl line-number">17</td>
-            <td class="xbrl"></td>
-            <td class="xbrl"></td>
-            <td class="xbrl"></td>
-            <td class="xbrl"></td>
+
+        <tr class="schedule-row" xule:repeat="MatsAndSuppsOtherClasses">
+            <xule:expression class="hide" name="MatsAndSuppsOtherClasses">// adding a comment
+
+                $data2 = list(for $i in range(17,19)
+                list($i,none,none,none,none)
+                );
+
+                $data = if count(list({covered @ferc:MaterialsAndSuppliesOtherClassesAxis=*})) > 0
+
+                list({covered @ferc:MaterialsAndSuppliesOtherClassesAxis=* {list(
+
+                if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
+                    first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                else
+                    0,
+                if exists({@ferc:DescriptionOfMaterialsAndSuppliesOtherClasses @unit @period=$currentDuration})
+                    first(list({@ferc:DescriptionOfMaterialsAndSuppliesOtherClasses @unit @period=$currentDuration}))
+                else
+                    none,
+                if exists({@ferc:MaterialsAndSuppliesOtherClasses @unit @period=$priorInstant})
+                    first(list({@ferc:MaterialsAndSuppliesOtherClasses @unit @period=$priorInstant}))
+                else
+                    none,
+                if exists({@ferc:MaterialsAndSuppliesOtherClasses @unit @period=$currentInstant})
+                    first(list({@ferc:MaterialsAndSuppliesOtherClasses @unit @period=$currentInstant}))
+                else
+                    none,
+                if exists({@ferc:MaterialsAndSuppliesOtherClassesDepartmentsUsingMaterial @unit @period=$currentDuration})
+                    first(list({@ferc:MaterialsAndSuppliesOtherClassesDepartmentsUsingMaterial @unit @period=$currentDuration}))
+                else
+                    none
+
+                )}})
+                else $data2;
+
+                $uniqueData = list(for $x in  $data
+                    if $x == list(0,none,none,none,none)
+                        skip
+                    else 
+                        $x
+                    );
+
+                for $row in $uniqueData.sort    
+
+
+            </xule:expression>
+
+            <td class="xbrl line-number">
+                <xule:lineNumber class="hide" name="MatsAndSuppsOtherClasses">
+                    <xule:startNumber>17</xule:startNumber>
+                </xule:lineNumber>
+             </td>
+            
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide" name="MatsAndSuppsOtherClasses" fact="true" part="2">$row[2]</xule:expression>
+                </xule:replace>
+                <xule:template-display>
+                    Various
+                </xule:template-display>
+            </td>
+            
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                    <xule:expression class="hide" name="MatsAndSuppsOtherClasses" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression>
+                </xule:replace>
+                <xule:template-display>
+                    $7,951
+                </xule:template-display>
+            </td>
+            
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                    <xule:expression class="hide" name="MatsAndSuppsOtherClasses" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression>
+                </xule:replace>
+                <xule:template-display>
+                    $27,416
+                </xule:template-display>
+            </td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide" name="MatsAndSuppsOtherClasses" fact="true" part="5">$row[5]</xule:expression>
+                </xule:replace>
+                <xule:template-display>
+                    Department A
+                </xule:template-display>
+            </td>
+       
         </tr>
-        <tr>
-            <td class="xbrl line-number">18</td>
-            <td class="xbrl"></td>
-            <td class="xbrl"></td>
-            <td class="xbrl"></td>
-            <td class="xbrl"></td>
-        </tr>
-        <tr>
-            <td class="xbrl line-number">19</td>
-            <td class="xbrl"></td>
-            <td class="xbrl"></td>
-            <td class="xbrl"></td>
-            <td class="xbrl"></td>
-        </tr>
+
         <tr>
             <td class="xbrl line-number">20</td>
             <td class="xbrl">
@@ -922,7 +992,7 @@
         </div>
         <div class="center-text">Page 
                 <xule:replace>
-                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleMaterialsAndSuppliesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Page").text
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleMaterialsAndSuppliesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1PageRange").text
                         </xule:expression>
                         <xule:template-display>
                         1

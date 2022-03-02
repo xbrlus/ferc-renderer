@@ -1,0 +1,177 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.408.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NetOutputForLoad}; 
+ $addend = ({@NetGenerationExcludingPlantUse} 
+ - {@EnergyUsedForPumping});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetOutputForLoad with a value of {$sum1} that is not equal to the value of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.408.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CostOfPlant}; 
+ $addend = ({@CostOfLandAndLandRightsPumpedStoragePlant} 
+ + {@CostOfStructuresAndImprovementsPumpedStoragePlant} 
+ + {@CostOfReservoirsDamsAndWaterwaysPumpedStoragePlant} 
+ + {@CostOfWaterWheelsTurbinesAndGeneratorsPumpedStoragePlant} 
+ + {@CostOfAccessoryElectricEquipmentPumpedStoragePlant} 
+ + {@CostOfMiscellaneousPowerPlantEquipmentPumpedStoragePlant} 
+ + {@CostOfRoadsRailroadsAndBridgesPumpedStoragePlant} 
+ + {@AssetRetirementCostsPumpedStoragePlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CostOfPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.408.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CostPerKilowattOfInstalledCapacity @unit=*}; 
+ $denominator = {@InstalledCapacityOfPlant @unit=*}
+ if $denominator == 0
+        skip
+ else
+        $addend = (({@CostOfPlant @unit=*} / $denominator) * 1000);
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CostPerKilowattOfInstalledCapacity with a value of {$sum1} that is not equal to the value of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.408.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PowerProductionExpenseBeforePumpingExpenses}; 
+ $addend = ({@OperationSupervisionAndEngineeringExpense} 
+ + {@WaterForPower} 
+ + {@PumpedStorageExpenses} 
+ + {@ElectricExpensesPumpedStoragePlant} 
+ + {@MiscellaneousPumpedStoragePowerGenerationExpenses} 
+ + {@RentsPumpedStoragePlant} 
+ + {@MaintenanceSupervisionAndEngineeringPumpedStoragePlant} 
+ + {@MaintenanceOfStructuresPumpedStoragePlant} 
+ + {@MaintenanceOfReservoirsDamsAndWaterwaysPumpedStoragePlant} 
+ + {@MaintenanceOfElectricPlantPumpedStoragePlant} 
+ + {@MaintenanceOfMiscellaneousPumpedStoragePlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PowerProductionExpenseBeforePumpingExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.408.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PowerProductionExpensesPumpedStoragePlant}; 
+ $addend = ({@PowerProductionExpenseBeforePumpingExpenses} 
+ + {@PumpingExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PowerProductionExpensesPumpedStoragePlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.408.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ExpensesPerNetKilowattHourGenerationAndPumping @unit=*};
+ $denominator = ({@NetGenerationExcludingPlantUse @unit=*} + {@EnergyUsedForPumping @unit=*})
+ if $denominator == 0
+        skip
+ else
+        $addend = ({@PowerProductionExpensesPumpedStoragePlant @unit=*} / $denominator);
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ExpensesPerNetKilowattHourGenerationAndPumping with a value of {$sum1} that is not equal to the value of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F1.408.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ExpensesPerNetKilowattHour @unit=*}; 
+  $denominator = {@NetGenerationExcludingPlantUse @unit=*}
+  if $denominator == 0
+        skip
+  else
+        $addend = ({@PowerProductionExpensesPumpedStoragePlant @unit=*} / $denominator);
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ExpensesPerNetKilowattHour with a value of {$sum1} that is not equal to the value of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

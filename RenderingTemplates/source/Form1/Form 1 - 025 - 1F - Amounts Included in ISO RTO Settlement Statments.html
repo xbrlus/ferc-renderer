@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xule="http://xbrl.us/xule/2.0/template"
     xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
     xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-    xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
+    xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
 
 <head>
     <title>Template - F1F - 025</title>
@@ -11,7 +11,7 @@
 </head>
 
 <body class="xbrl">
-    <div id="ScheduleAmountsIncludedInIsoOrRtoSettlementAbstract"></div>
+    <div id="ScheduleAmountsIncludedInISOOrRTOSettlementF1FAbstract"></div>
     <table class="ident-table xbrl" width="100%">
         <tr>
             <td class="xbrl">
@@ -110,7 +110,7 @@
         <tr class="sch-title">
             <td colspan="6" class="xbrl">
                 <xule:replace>
-                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAmountsIncludedInIsoOrRtoSettlementAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FScheduleTitle").text
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAmountsIncludedInISOOrRTOSettlementF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FScheduleTitle").text
                         </xule:expression>
                         <xule:template-display>
                             XXV Amounts Included in ISO/RTO Settlement Statements
@@ -121,7 +121,7 @@
         <tr>
             <td class="instruction xbrl" colspan="6">
                 <xule:replace>
-                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleAmountsIncludedInIsoOrRtoSettlementAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Instructions").text
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleAmountsIncludedInISOOrRTOSettlementF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FInstructions").text
                     </xule:expression>
                     <xule:template-display>
                         <ol>
@@ -136,7 +136,7 @@
             <td class="col-heading xbrl" xule:repeat="BSHeadings">
                     <xule:expression class="hide" name="BSHeadings">
                             /** THIS CODE EXCLUDES ELEMENT NAMES AS THERE ARE NO ELEMENT SPECIFIC COLUMNS  **/
-                            $headings = filter (taxonomy().concept(ferc:ScheduleAmountsIncludedInIsoOrRtoSettlementAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "F1F - 025 - Schedule - Amounts Included in ISO-RTO Settlement Statements") 
+                            $headings = filter (taxonomy().concept(ferc:ScheduleAmountsIncludedInISOOrRTOSettlementF1FAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "F1F - 025 - Schedule - Amounts Included in ISO-RTO Settlement Statements") 
 
                             $headings = list(for $ref in $headings 
                             list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value))
@@ -528,7 +528,7 @@
     <div class="schedule-footer">
         <div> FERC FORM NO. 1-F
             <xule:replace>
-                        <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleAmountsIncludedInIsoOrRtoSettlementAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FDateRevised").text + ")"
+                        <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleAmountsIncludedInISOOrRTOSettlementF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FDateRevised").text + ")"
                         </xule:expression>
                         <xule:template-display>
                             NEW 12-05
@@ -539,7 +539,7 @@
         <div class="center-text">Page 
             <xule:replace>
                 <xule:expression class="hide">
-                    taxonomy().concept(ferc:ScheduleAmountsIncludedInIsoOrRtoSettlementAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPage").text
+                    taxonomy().concept(ferc:ScheduleAmountsIncludedInISOOrRTOSettlementF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPageRange").text
                 </xule:expression>
                 <xule:template-display>
                     30

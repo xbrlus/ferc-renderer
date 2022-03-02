@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -15,7 +15,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl">
-    <div id="ScheduleListOfSchedulesAbstract"></div>
+    <div id="ScheduleListOfSchedulesF1FAbstract"></div>
     <table class="schedule-header xbrl" width="100%">
         <tr>
             <td class="xbrl">
@@ -86,11 +86,11 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             </td>
         </tr>
     </table>
-    <table class="xbrl">
+    <table class="xbrl" width="100%">
         <tr class="sch-title">
             <td colspan="3" class="xbrl">
                 <xule:replace>
-                    <xule:expression class="hide">taxonomy().concept(ferc:ScheduleListOfSchedulesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FTableOfContents").text</xule:expression>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ScheduleListOfSchedulesF1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FTableOfContents").text</xule:expression>
                     <xule:template-display>
                        Table Of Contents
                     </xule:template-display>
@@ -127,7 +127,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         </tr>
         <tr class="schedule-row" xule:repeat="ListLineItems">
                 <xule:expression class="hide" name="ListLineItems">
-    $data = navigate parent-child descendants from ferc:Form1FAbstract role "http://ferc.gov/form/2020-01-01/roles/Schedule/F1F/TableOfContents" returns list (target, preferred-label, navigation-depth);
+    $data = navigate parent-child descendants from ferc:Form1FAbstract role "http://ferc.gov/form/2020-01-01/roles/Schedule/F1F/TableOfContents" where $relationship.preferred-label in list("http://ferc.gov/form/2020-01-01/roles/label/F1FTableOfContents","http://ferc.gov/form/2020-01-01/roles/label/F1FSubstitutePages") returns list (target, preferred-label, navigation-depth);
     $data-labels = list(for $row in filter $data where $item[1].is-abstract
             
                 $concept = $row[1];
@@ -215,7 +215,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         </div>
         <div class="center-text">Page 
                 <xule:replace>
-                        <xule:expression class="hide">taxonomy().concept(ferc:Form1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPage").text
+                        <xule:expression class="hide">taxonomy().concept(ferc:Form1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPageRange").text
                         </xule:expression>
                         <xule:template-display>
                         1

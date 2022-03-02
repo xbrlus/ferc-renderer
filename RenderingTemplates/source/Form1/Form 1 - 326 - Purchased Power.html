@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -309,7 +309,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             2
                     </xule:template-display>
                 </td>  
-                <td class="xbrl numeric_items"><xule:replace><xule:expression class="hide"  name="PurchasedPower" facte="true" format="ixt4:num-dot-decimal" part="7">$row[7]</xule:expression></xule:replace>
+                <td class="xbrl numeric_items"><xule:replace><xule:expression class="hide"  name="PurchasedPower" fact="true" format="ixt4:num-dot-decimal" part="7">$row[7]</xule:expression></xule:replace>
                     <xule:template-display>
                             3
                     </xule:template-display>
@@ -473,7 +473,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         </div>
         <div class="center-text">Page 
                 <xule:replace>
-                        <xule:expression class="hide">taxonomy().concept(ferc:SchedulePurchasedPowerAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Page").text
+                        <xule:expression class="hide">taxonomy().concept(ferc:SchedulePurchasedPowerAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1PageRange").text
                         </xule:expression>
                         <xule:template-display>
                         326

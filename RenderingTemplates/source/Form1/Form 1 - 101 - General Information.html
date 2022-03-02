@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 
 >
 
@@ -228,8 +228,8 @@ are kept, if different from that where the general corporate books are kept.
                         </xule:replace> 
                         <p></p>
                         <xule:replace>
-                                <xule:expression class="hide">if exists([@concept=ferc:DateRespondentWasOrganizedIfNotIncorporated]) 
-                                'Date Respondent was Organized : ' + [@concept=ferc:DateRespondentWasOrganizedIfNotIncorporated].string else ''
+                                <xule:expression class="hide">if exists([@concept=ferc:OrganizationDate]) 
+                                'Date Respondent was Organized : ' + [@concept=ferc:OrganizationDate].string else ''
                                 </xule:expression>
                                 <xule:template-display>
                                 </xule:template-display>
@@ -395,7 +395,7 @@ the respondent operated.
         </div>
         <div class="center-text">Page 
                 <xule:replace>
-                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleGeneralInformationAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Page").text
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleGeneralInformationAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1PageRange").text
                         </xule:expression>
                         <xule:template-display>
                         212

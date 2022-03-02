@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2021-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -554,6 +554,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <xule:replace>
                             <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="APLineItems2" part="4">$rowl[4]</xule:expression>
                             <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                            <xule:sign>if $rowl[1].name in list(ferc:BookCostOfRetiredPlant,ferc:CostOfRemovalOfPlant,ferc:NetChargesForRetiredPlant) "-" else none</xule:sign>
                         </xule:replace>        
                 </td> 
 
@@ -561,6 +562,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 <td class="xbrl monetary_items">
                         <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="APLineItems2" part="5">$rowl[5]</xule:expression>
                         <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                        <xule:sign>if $rowl[1].name in list(ferc:BookCostOfRetiredPlant,ferc:CostOfRemovalOfPlant,ferc:NetChargesForRetiredPlant) "-" else none</xule:sign>
                     </xule:replace>        
                 </td> 
               
@@ -568,12 +570,14 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 <td class="xbrl monetary_items">
                         <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="APLineItems2" part="6">$rowl[6]</xule:expression>
                         <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                        <xule:sign>if $rowl[1].name in list(ferc:BookCostOfRetiredPlant,ferc:CostOfRemovalOfPlant,ferc:NetChargesForRetiredPlant) "-" else none</xule:sign>
                     </xule:replace>                
                 </td> 
                 <!-- Gas Plant Leased to Others -->
                 <td class="xbrl monetary_items">
                         <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="APLineItems2" part="7">$rowl[7]</xule:expression>
                         <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
+                        <xule:sign>if $rowl[1].name in list(ferc:BookCostOfRetiredPlant,ferc:CostOfRemovalOfPlant,ferc:NetChargesForRetiredPlant) "-" else none</xule:sign>
                     </xule:replace>                
                 </td>    
         </tr>
@@ -607,6 +611,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 <xule:template-display>
                                         $5,080,500 
                                 </xule:template-display>
+                                <xule:sign>"-"</xule:sign>
                         </xule:replace>                   
                 </td>
                 <td class="xbrl monetary_items">
@@ -616,6 +621,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 <xule:template-display>
                                         $1,080,500 
                                 </xule:template-display>
+                                <xule:sign>"-"</xule:sign>
                         </xule:replace>                   
                 </td>
                 <td class="xbrl monetary_items">
@@ -625,6 +631,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 <xule:template-display>
                                         $6,080,500 
                                 </xule:template-display>
+                                <xule:sign>"-"</xule:sign>
                         </xule:replace>                   
                 </td>
                 <td class="xbrl monetary_items">
@@ -634,6 +641,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 <xule:template-display>
                                         $8,080,500 
                                 </xule:template-display>
+                                <xule:sign>"-"</xule:sign>
                         </xule:replace>                   
                 </td>
         </tr>
@@ -703,22 +711,25 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         Other Debit or Credit Items (Describe, details in footnote)
                     </xule:template-display>
                 </td>
-                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="SectionASequence2" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="SectionASequence2" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression><xule:sign>if $row[3].name in list(ferc:OtherAdjustmentsToAccumulatedDepreciation) "-" else none</xule:sign>
+                </xule:replace>
                     <xule:template-display>
                            $200,000,000
                     </xule:template-display>
                 </td>
-                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="SectionASequence2" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="SectionASequence2" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression><xule:sign>if $row[4].name in list(ferc:OtherAdjustmentsToAccumulatedDepreciation) "-" else none</xule:sign>
+                </xule:replace>
                     <xule:template-display>
                             $2,000,000
                     </xule:template-display>
                 </td>
-                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="SectionASequence2" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="SectionASequence2" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression><xule:sign>if $row[5].name in list(ferc:OtherAdjustmentsToAccumulatedDepreciation) "-" else none</xule:sign>
+                </xule:replace>
                     <xule:template-display>
                            $3,000,000
                     </xule:template-display>
                 </td>
-                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="SectionASequence2" fact="true" format="ixt4:num-dot-decimal"  part="6">$row[6]</xule:expression></xule:replace>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="SectionASequence2" fact="true" format="ixt4:num-dot-decimal"  part="6">$row[6]</xule:expression><xule:sign>if $row[6].name in list(ferc:OtherAdjustmentsToAccumulatedDepreciation) "-" else none</xule:sign></xule:replace>
                     <xule:template-display>
                             $90,000,000
                     </xule:template-display>
@@ -751,6 +762,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 <xule:template-display>
                                         $5,080,500 
                                 </xule:template-display>
+                                <xule:sign>"-"</xule:sign>
                         </xule:replace>                   
                 </td>
                 <td class="xbrl monetary_items">
@@ -760,6 +772,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 <xule:template-display>
                                         $1,080,500 
                                 </xule:template-display>
+                                <xule:sign>"-"</xule:sign>
                         </xule:replace>                   
                 </td>
                 <td class="xbrl monetary_items">
@@ -769,6 +782,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 <xule:template-display>
                                         $6,080,500 
                                 </xule:template-display>
+                                <xule:sign>"-"</xule:sign>
                         </xule:replace>                   
                 </td>
                 <td class="xbrl monetary_items">
@@ -778,6 +792,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 <xule:template-display>
                                         $8,080,500 
                                 </xule:template-display>
+                                <xule:sign>"-"</xule:sign>
                         </xule:replace>                   
                 </td>
         </tr>
@@ -1016,7 +1031,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         </div>
         <div class="center-text">Page 
                 <xule:replace>
-                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAccumulatedProvisionForDepreciationOfElectricUtilityPlantAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Page").text
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAccumulatedProvisionForDepreciationOfElectricUtilityPlantAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1PageRange").text
                         </xule:expression>
                         <xule:template-display>
                         1

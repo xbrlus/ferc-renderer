@@ -1,0 +1,139 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.401a.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NetEnergyGeneration}; 
+ $addend = ({@SteamGeneration} 
+ + {@NuclearGeneration} 
+ + {@HydroConventionalGeneration} 
+ + {@HydroPumpedStorageGeneration} 
+ + {@OtherEnergyGeneration} 
+ - {@PumpingEnergy});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetEnergyGeneration with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.401a.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NetEnergyThroughPowerExchanges}; 
+ $addend = ({@EnergyReceivedThroughPowerExchanges} 
+ - {@EnergyDeliveredThroughPowerExchanges});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetEnergyThroughPowerExchanges with a value of {$sum1} that is not equal to the value of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.401a.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NetTransmissionEnergyForOthersElectricPowerWheeling}; 
+ $addend = ({@ElectricPowerWheelingEnergyReceived} 
+ - {@ElectricPowerWheelingEnergyDelivered});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetTransmissionEnergyForOthersElectricPowerWheeling with a value of {$sum1} that is not equal to the value of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.401a.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SourcesOfEnergy}; 
+ $addend = ({@NetEnergyGeneration} 
+ + {@MegawattHoursPurchasedOtherThanStorage}
+ + {@MegawattHoursPurchasedForEnergyStorage} 
+ + {@NetEnergyThroughPowerExchanges} 
+ + {@NetTransmissionEnergyForOthersElectricPowerWheeling} 
+ + {@TransmissionLossesByOthersElectricPowerWheeling});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for EnergyActivity with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.401a.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@DispositionOfEnergy}; 
+ $addend = ({@MegawattHoursSoldSalesToUltimateConsumers} 
+ + {@MegawattHoursSoldRequirementsSales} 
+ + {@MegawattHoursSoldNonRequirementsSales} 
+ + {@NonChargedEnergy} 
+ + {@InternalUseEnergy} 
+ + {@EnergyLosses}
+ + {@EnergyStored});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DispositionOfEnergy with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.401a.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@SourcesOfEnergy}; 
+ $addend = {@DispositionOfEnergy};
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"Sources of energy generated must equal disposition of energy generated. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

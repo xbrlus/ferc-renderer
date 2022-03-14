@@ -210,96 +210,109 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         
         <tr class="schedule-row" xule:repeat="TransmissionLineStatistics">
                 <xule:expression class="hide" name="TransmissionLineStatistics">// adding a comment
-                 
-                $data2 =   list(for $i in range(35)
-                                list($i,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none)
-                );
 
-                $data = if count(list({covered @ferc:TransmissionLineStatisticsAxis=*})) > 0  
+                $transmissionLines = set({covered @ferc:TransmissionLineStatisticsAxis=*}.dimension(ferc:TransmissionLineStatisticsAxis)); 
+            
+               $row =
+                    (if $transmissionLines.length == 0
+                                for $i in range(35)
+                                    list($i,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none)
+                    
+                else
 
-                $transmissionLines = set({covered @ferc:TransmissionLineStatisticsAxis=*}.dimension(ferc:TransmissionLineStatisticsAxis));                
+                    $orderNumberList =  list(
+                        for $member in $transmissionLines
+                            $orderNumber = list({covered @ferc:OrderNumber @ferc:TransmissionLineStatisticsAxis = $member});
+                            list(if $orderNumber.length == 0 0 else first($orderNumber), $member) 
+                    ).sort
 
-                list(for $x in $transmissionLines
-                    list(
-                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x}).length > 0
-                        first(list({@ferc:OrderNumber @unit=* @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x}))
-                    else
-                        0,
-                    if exists({@ferc:TransmissionLineStartPoint @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x}) 
-                        first(list({@ferc:TransmissionLineStartPoint @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none,
-                    if exists({@ferc:TransmissionLineEndPoint @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})
-                        first(list({@ferc:TransmissionLineEndPoint @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none,
-                    if exists({@ferc:OperatingVoltageOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})
-                        first(list({@ferc:OperatingVoltageOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none,
-                    if exists({@ferc:DesignedVoltageOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})
-                        first(list({@ferc:DesignedVoltageOfTransmissionLine @unit  @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none,
-                    if exists({@ferc:SupportingStructureOfTransmissionLineType @unit  @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x}) 
-                        first(list({@ferc:SupportingStructureOfTransmissionLineType @unit  @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none,
-                    if exists({@ferc:LengthForStandAloneTransmissionLines @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x}) 
-                        first(list({@ferc:LengthForStandAloneTransmissionLines @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none,
-                    if exists({@ferc:LengthForTransmissionLinesAggregatedWithOtherStructures @unit  @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})
-                        first(list({@ferc:LengthForTransmissionLinesAggregatedWithOtherStructures @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none,
-                    if exists({@ferc:NumberOfTransmissionCircuits @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})
-                        first(list({@ferc:NumberOfTransmissionCircuits @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none,
-                    if exists({@ferc:SizeOfConductorAndMaterial @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})
-                        first(list({@ferc:SizeOfConductorAndMaterial @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none,
-                    if exists({@ferc:CostOfLandAndLandRightsTransmissionLines @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})
-                        first(list({@ferc:CostOfLandAndLandRightsTransmissionLines @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none,
-                    if exists({@ferc:ConstructionAndOtherCostsTransmissionLines @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})
-                        first(list({@ferc:ConstructionAndOtherCostsTransmissionLines @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none,
-                    if exists({@ferc:OverallCostOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})
-                        first(list({@ferc:OverallCostOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none,
-                    if exists({@ferc:OperatingExpensesOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})
-                        first(list({@ferc:OperatingExpensesOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none,
-                    if exists({@ferc:MaintenanceExpensesOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})
-                        first(list({@ferc:MaintenanceExpensesOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none,
-                    if exists({@ferc:RentExpensesOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})
-                        first(list({@ferc:RentExpensesOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none,
-                    if exists({@ferc:OverallExpensesOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})
-                        first(list({@ferc:OverallExpensesOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $x})) 
-                    else 
-                        none
-                    ))
-                    else $data2;
-
-                    $uniqueData = list(for $x in  $data
-                    if $x == list(0,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none,none)
-                        skip
-                    else 
-                        $x
-                    );
-
-                    for $row in $uniqueData.sort
+                    for $order in $orderNumberList
+                        list(
+                            $order[1],
+                            $TransmissionLineStartPoint = list([@ferc:TransmissionLineStartPoint @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                            if $TransmissionLineStartPoint.length > 0
+                                first($TransmissionLineStartPoint) 
+                            else 
+                                none,
+                            $TransmissionLineEndPoint = list([@ferc:TransmissionLineEndPoint @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                            if $TransmissionLineEndPoint.length > 0
+                                first($TransmissionLineEndPoint) 
+                            else 
+                                none,
+                            $OperatingVoltageOfTransmissionLine = list([@ferc:OperatingVoltageOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                            if $OperatingVoltageOfTransmissionLine.length > 0
+                                first($OperatingVoltageOfTransmissionLine) 
+                            else 
+                                none,
+                            $DesignedVoltageOfTransmissionLine = list([@ferc:DesignedVoltageOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                            if $DesignedVoltageOfTransmissionLine.length > 0
+                                first($DesignedVoltageOfTransmissionLine) 
+                            else 
+                                none,
+                            $SupportingStructureOfTransmissionLineType = list([@ferc:SupportingStructureOfTransmissionLineType @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                            if $SupportingStructureOfTransmissionLineType.length > 0
+                                first($SupportingStructureOfTransmissionLineType) 
+                            else 
+                                none,
+                            $LengthForStandAloneTransmissionLines = list([@ferc:LengthForStandAloneTransmissionLines @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                            if $LengthForStandAloneTransmissionLines.length > 0
+                                first($LengthForStandAloneTransmissionLines) 
+                            else 
+                                none,
+                            $LengthForTransmissionLinesAggregatedWithOtherStructures = list([@ferc:LengthForTransmissionLinesAggregatedWithOtherStructures @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                            if $LengthForTransmissionLinesAggregatedWithOtherStructures.length > 0
+                                first($LengthForTransmissionLinesAggregatedWithOtherStructures) 
+                            else 
+                                none,
+                            $NumberOfTransmissionCircuits = list([@ferc:NumberOfTransmissionCircuits @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                            if $NumberOfTransmissionCircuits.length > 0
+                                first($NumberOfTransmissionCircuits) 
+                            else 
+                                none,
+                            $SizeOfConductorAndMaterial = list([@ferc:SizeOfConductorAndMaterial @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                            if $SizeOfConductorAndMaterial.length > 0
+                                first($SizeOfConductorAndMaterial) 
+                            else 
+                                none,
+                            $CostOfLandAndLandRightsTransmissionLines = list([@ferc:CostOfLandAndLandRightsTransmissionLines @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                            if $CostOfLandAndLandRightsTransmissionLines.length > 0
+                                first($CostOfLandAndLandRightsTransmissionLines) 
+                            else 
+                                none,
+                            $ConstructionAndOtherCostsTransmissionLines = list([@ferc:ConstructionAndOtherCostsTransmissionLines @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                            if $ConstructionAndOtherCostsTransmissionLines.length > 0
+                                first($ConstructionAndOtherCostsTransmissionLines) 
+                            else 
+                                none,
+                            $OverallCostOfTransmissionLine = list([@ferc:OverallCostOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                            if $OverallCostOfTransmissionLine.length > 0
+                                first($OverallCostOfTransmissionLine) 
+                            else 
+                                none,
+                            $OperatingExpensesOfTransmissionLine = list([@ferc:OperatingExpensesOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                            if $OperatingExpensesOfTransmissionLine.length > 0
+                                first($OperatingExpensesOfTransmissionLine) 
+                            else 
+                                none,
+                            $MaintenanceExpensesOfTransmissionLine = list([@ferc:MaintenanceExpensesOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                                if $MaintenanceExpensesOfTransmissionLine.length > 0
+                                    first($MaintenanceExpensesOfTransmissionLine) 
+                                else 
+                                    none,
+                            $RentExpensesOfTransmissionLine = list([@ferc:RentExpensesOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                            if $RentExpensesOfTransmissionLine.length > 0
+                                first($RentExpensesOfTransmissionLine) 
+                            else 
+                                none,
+                            $OverallExpensesOfTransmissionLine = list([@ferc:OverallExpensesOfTransmissionLine @unit @period=$currentDuration @ferc:TransmissionLineStatisticsAxis = $order[2]]);
+                            if $OverallExpensesOfTransmissionLine.length > 0
+                                first($OverallExpensesOfTransmissionLine) 
+                            else 
+                                none
+                                )
+                        )
+                        
+                    
                 </xule:expression>
                 <td class="xbrl line-number"><xule:lineNumber name="TransmissionLineStatistics"/>
                     <xule:template-display>1</xule:template-display>

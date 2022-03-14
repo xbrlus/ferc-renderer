@@ -13,13 +13,17 @@ else
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
- $sum1 = {@UnamortizedDebtExpense @period=$currentInstant}; 
- $addend = ({@UnamortizedDebtExpense @period=$priorInstant}
- - {@AmortizationOfDebtIssuanceExpensesLongTermDebt @period=$currentDuration}
- + {@DebtIssuanceExpensesLongTermDebtAdditions @period=$currentDuration});
+ $sum1 = {@UnamortizedDebtExpense @@UnamortizedDebtExpenseAxis=* @period=$currentInstant}; 
+ $addend = ({@UnamortizedDebtExpense @@UnamortizedDebtExpenseAxis=* @period=$priorInstant}#f0
+ - {@AmortizationOfDebtIssuanceExpensesLongTermDebt @@UnamortizedDebtExpenseAxis=* @period=$currentDuration}#f2
+ + {@DebtIssuanceExpensesLongTermDebtAdditions @@UnamortizedDebtExpenseAxis=* @period=$currentDuration}#f1);
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
 
 Total Element : {$sum1.concept.name}
 Total Dimensions: {$sum1.dimensions.join(', ','=')} 
@@ -39,13 +43,17 @@ else
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
- $sum1 = {@UnamortizedPremiumOnLongTermDebt @period=$currentInstant}; 
- $addend = ({@UnamortizedPremiumOnLongTermDebt @period=$priorInstant}
- <- {@AmortizationOfPremiumOnLongTermDebt @period=$currentDuration}
- + {@PremiumLongTermDebtAdditions @period=$currentDuration});
+ $sum1 = {@UnamortizedPremiumOnLongTermDebt @@UnamortizedPremiumOnLongTermDebtAxis=* @period=$currentInstant}; 
+ $addend = ({@UnamortizedPremiumOnLongTermDebt @@UnamortizedPremiumOnLongTermDebtAxis=* @period=$priorInstant}#f0
+ <- {@AmortizationOfPremiumOnLongTermDebt @@UnamortizedPremiumOnLongTermDebtAxis=* @period=$currentDuration}#f1
+ + {@PremiumLongTermDebtAdditions @@UnamortizedPremiumOnLongTermDebtAxis=* @period=$currentDuration}#f2);
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
 
 Total Element : {$sum1.concept.name}
 Total Dimensions: {$sum1.dimensions.join(', ','=')} 
@@ -65,13 +73,17 @@ else
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
- $sum1 = {@UnamortizedDiscountOnLongTermDebtDebit @period=$currentInstant}; 
- $addend = ({@UnamortizedDiscountOnLongTermDebtDebit @period=$priorInstant}
- - {@AmortizationOfDiscountLongTermDebt @period=$currentDuration}
- + {@DiscountLongTermDebtAdditions @period=$currentDuration});
+ $sum1 = {@UnamortizedDiscountOnLongTermDebtDebit @@UnamortizedDiscountOnLongTermDebtAxis=* @period=$currentInstant}; 
+ $addend = ({@UnamortizedDiscountOnLongTermDebtDebit @@UnamortizedDiscountOnLongTermDebtAxis=* @period=$priorInstant}#f0
+ - {@AmortizationOfDiscountLongTermDebt @@UnamortizedDiscountOnLongTermDebtAxis=* @period=$currentDuration}#f2
+ + {@DiscountLongTermDebtAdditions @@UnamortizedDiscountOnLongTermDebtAxis=* @period=$currentDuration}#f1);
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
 
 Total Element : {$sum1.concept.name}
 Total Dimensions: {$sum1.dimensions.join(', ','=')} 
@@ -91,10 +103,10 @@ else
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
- $sum1 = {@BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @period=$currentInstant};
- $v1 = {@BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @period=$priorInstant};
- $addend = ($v1 + {@UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtDebits @period=$currentDuration}#v2
- - {@UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtCredits @period=$currentDuration}#v3);
+ $sum1 = {@BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @@UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAxis=* @period=$currentInstant};
+ $v1 = {@BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @@UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAxis=* @period=$priorInstant};
+ $addend = ($v1 + {@UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtDebits @@UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAxis=* @period=$currentDuration}#v2
+ - {@UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtCredits @@UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAxis=* @period=$currentDuration}#v3);
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}. This is comprised of:

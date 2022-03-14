@@ -137,7 +137,7 @@ else
  $sum1 = [@OtherPaidInCapital @period=$currentInstant]; 
  $addend = ([@DonationsReceivedFromStockholders @period=$currentInstant]#f0
  + [@ReductionInParOrStatedValueOfCapitalStock @period=$currentInstant]#f1
- + [@GainOrResaleOrCancellationOfReacquiredCapitalStockAbstract @period=$currentInstant]#f2
+ + [@GainOnResaleOrCancellationOfReacquiredCapitalStock @period=$currentInstant]#f2
  + [@MiscellaneousPaidInCapital @period=$currentInstant]#f3);
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
@@ -145,7 +145,7 @@ message
 The breakdown is as follows:
 = \t DonationsReceivedFromStockholders                                  {$f0}
 + \t ReductionInParOrStatedValueOfCapitalStock                          {$f1}
-+ \t GainOrResaleOrCancellationOfReacquiredCapitalStockAbstract         {$f2}
++ \t GainOnResaleOrCancellationOfReacquiredCapitalStock                 {$f2}
 + \t MiscellaneousPaidInCapital                                         {$f3}
 
 

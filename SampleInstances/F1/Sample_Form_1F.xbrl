@@ -1657,6 +1657,34 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
+  <context id="c-263-p">
+    <entity>
+      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
+      <segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsPreferredStockAxis">
+          <ferc:RetainedEarningsPreferredStockDomain>Prefered Stock</ferc:RetainedEarningsPreferredStockDomain>
+        </xbrldi:typedMember>
+      </segment>
+    </entity>
+    <period>
+      <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+    </period>
+  </context>
+    <context id="c-263-p1">
+    <entity>
+      <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
+      <segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsPreferredStockAxis">
+          <ferc:RetainedEarningsPreferredStockDomain>Prefered Stock 2nd traunche</ferc:RetainedEarningsPreferredStockDomain>
+        </xbrldi:typedMember>
+      </segment>
+    </entity>
+    <period>
+      <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+    </period>
+  </context>
   <context id="c-264">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000388</identifier>
@@ -3531,7 +3559,8 @@
   <ferc:CashAndCashEquivalents decimals="0" contextRef="c-04" unitRef="u-01">28232</ferc:CashAndCashEquivalents>
   <ferc:UnappropriatedRetainedEarnings decimals="0" contextRef="c-01" unitRef="u-01">36165286</ferc:UnappropriatedRetainedEarnings>
   <ferc:BalanceTransferredFromIncome decimals="0" contextRef="c-03" unitRef="u-01">4742349</ferc:BalanceTransferredFromIncome>
-  <ferc:DividendsDeclaredCommonStock decimals="0" contextRef="c-03" unitRef="u-01">12910</ferc:DividendsDeclaredCommonStock>
+  <ferc:DividendsDeclaredCommonStock decimals="0" contextRef="c-03" unitRef="u-01">10910</ferc:DividendsDeclaredCommonStock>
+  <ferc:DividendsDeclaredPreferredStock decimals="0" contextRef="c-03" unitRef="u-01">2000</ferc:DividendsDeclaredPreferredStock>
   <ferc:OrderNumber decimals="0" contextRef="c-260" unitRef="u-02">2</ferc:OrderNumber>
   <ferc:AdjustmentsToRetainedEarningsCreditDescription contextRef="c-260">Adjustment 1</ferc:AdjustmentsToRetainedEarningsCreditDescription>
   <ferc:AdjustmentsToRetainedEarningsCreditContraPrimaryAccountAffected contextRef="c-260">432</ferc:AdjustmentsToRetainedEarningsCreditContraPrimaryAccountAffected>
@@ -3556,9 +3585,15 @@
   <ferc:OtherDeferredCredits decimals="0" contextRef="c-01" unitRef="u-01">464936</ferc:OtherDeferredCredits>
   <ferc:OtherDeferredCredits decimals="0" contextRef="c-02" unitRef="u-01">358722</ferc:OtherDeferredCredits>
   <ferc:OrderNumber decimals="0" contextRef="c-263" unitRef="u-02">1</ferc:OrderNumber>
-  <ferc:DividendsDeclaredCommonStock decimals="0" contextRef="c-263" unitRef="u-01">12910</ferc:DividendsDeclaredCommonStock>
+  <ferc:DividendsDeclaredCommonStock decimals="0" contextRef="c-263" unitRef="u-01">10910</ferc:DividendsDeclaredCommonStock>
   <ferc:DividendsDeclaredCommonStockContraPrimaryAccountAffected contextRef="c-263">435</ferc:DividendsDeclaredCommonStockContraPrimaryAccountAffected>
   <ferc:DividendsDeclaredCommonStockDescription contextRef="c-263">Common stock dividends</ferc:DividendsDeclaredCommonStockDescription>
+  <ferc:DividendsDeclaredPreferredStock decimals="0" contextRef="c-263-p" unitRef="u-01">1000</ferc:DividendsDeclaredPreferredStock>
+  <ferc:DividendsDeclaredPreferredStockContraPrimaryAccountAffected contextRef="c-263-p">435</ferc:DividendsDeclaredPreferredStockContraPrimaryAccountAffected>
+  <ferc:DividendsDeclaredPreferredStockDescription contextRef="c-263-p">Preferred stock dividends</ferc:DividendsDeclaredPreferredStockDescription>
+  <ferc:DividendsDeclaredPreferredStock decimals="0" contextRef="c-263-p1" unitRef="u-01">1000</ferc:DividendsDeclaredPreferredStock>
+  <ferc:DividendsDeclaredPreferredStockContraPrimaryAccountAffected contextRef="c-263-p1">435</ferc:DividendsDeclaredPreferredStockContraPrimaryAccountAffected>
+  <ferc:DividendsDeclaredPreferredStockDescription contextRef="c-263-p1">Preferred stock dividends - 2nd Traunch</ferc:DividendsDeclaredPreferredStockDescription>
   <ferc:IncreaseInOtherRegulatoryLiabilities decimals="0" contextRef="c-185" unitRef="u-01">1242977</ferc:IncreaseInOtherRegulatoryLiabilities>
   <ferc:UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsAdditions decimals="0" contextRef="c-03" unitRef="u-01">3179863</ferc:UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsAdditions>
   <ferc:UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsRetirements decimals="0" contextRef="c-03" unitRef="u-01">567578</ferc:UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsRetirements>

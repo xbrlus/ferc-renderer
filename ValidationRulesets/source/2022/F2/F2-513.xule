@@ -1,5 +1,7 @@
-/**FERC Form 1 Rules 
+/**FERC Form 2 Rules 
 **/
+
+RULE-NAME-PREFIX FERC
 
 assert F2.513.1 satisfied 
 $rule_id = rule-name();

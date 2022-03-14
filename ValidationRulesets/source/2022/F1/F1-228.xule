@@ -220,24 +220,3 @@ Total Value : {$sum1}
 Rule Id:{$rule_id}"
 severity error
 rule-focus $sum1
-
-assert F1.228.8 satisfied 
-$rule_id = rule-name();
-
-if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
-        skip
-else 
- $AggAllowanceInvAndWithheld = {@AllowanceInventoryAndWithheld}; 
- $addendAllowance = ({@AllowanceInventory}#fa
- + {@AllowancesWithheld}#fw);
-tolerance_for_decimals($AggAllowanceInvAndWithheld,$addendAllowance,$tolerance_factor)  
-message 
-"The company has reported a value for AllowanceInventoryAndWithheld with a value of {$AggAllowanceInvAndWithheld} that is not equal to the value of the sum of its components of {$addendAllowance} comprised of AllowanceInventory and AllowancesWithheld with values of {$fa} and {$fw}.
-
-Total Element : {$AggAllowanceInvAndWithheld.concept.name}
-Total Period : {$AggAllowanceInvAndWithheld.period}
-Total Value : {$AggAllowanceInvAndWithheld} 
-
-Rule Id:{$rule_id}"
-severity error
-rule-focus $AggAllowanceInvAndWithheld

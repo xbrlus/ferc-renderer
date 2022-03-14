@@ -700,7 +700,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     <xule:replace>
                         <xule:expression class="hide" name="OperationalLineItems"  part="2">$rowl[2]</xule:expression>
                         <xule:class location="parent">if $rowl[1].is-abstract "title" else ""</xule:class>
-                        <xule:fact class="hide">if $rowl[4].is-fact "true" else "false"</xule:fact>
+                        <xule:fact class="hide">if $rowl[2].is-fact "true" else "false"</xule:fact>
                     </xule:replace>
                     <xule:template-display>Section A: SINGLE DAY PEAK DELIVERIES</xule:template-display>
                     </div>

@@ -150,8 +150,9 @@
                             /** THIS CODE EXCLUDES ELEMENT NAMES AS THERE ARE NO ELEMENT SPECIFIC COLUMNS  **/
                             $headings = filter (taxonomy().concept(ferc:ScheduleEnergyStorageOperationsLargePlantsAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "414 - Schedule - Energy Storage Operations (Large Plants)") 
 
+                            /** This needs to be updated to remove the hardcoded name **/
                             $headings = list(for $ref in $headings 
-                            list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value))
+                            list($ref.part-by-name(ferc-part:Column).part-value, if $ref.part-by-name(ferc-part:Column).part-value == "g" "MWHs delivered to the grid to support Distribution" else $ref.part-by-name(ferc-part:ColumnName).part-value))
 
                             $heading_dict = dict(for $row in $headings
 						            list("("+$row[1]+")",$row[2])

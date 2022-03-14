@@ -2350,3 +2350,28 @@ Total Value : {$sum1}
 Rule Id:{$rule_id}"
 severity error
 rule-focus $sum1
+
+assert F1.204.97 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ElectricPlantInServiceAndCompletedConstructionNotClassifiedElectric};
+ $addend = ({@IntangiblePlant} 
+ + {@ProductionPlant} 
+ + {@TransmissionPlant} 
+ + {@DistributionPlant}
+ + {@TransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlant}
+ + {@GeneralPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantInServiceAndCompletedConstructionNotClassifiedElectric with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

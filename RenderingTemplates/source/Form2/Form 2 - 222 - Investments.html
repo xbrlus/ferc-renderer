@@ -404,7 +404,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                    
                     list({covered @ferc:OtherInvestmentsAxis=*  {list(
                         
-                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).lenghth > 0
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,

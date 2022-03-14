@@ -193,7 +193,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     else $data2;
                 
                     $cleanedDimData = list(for $z in $data
-                                    if $z == list(0,none,none,none,none,none, "Detail")
+                                    if $z == list($z[1],none,none,none,none,none, "Detail")
                                         skip
                                     else
                                         $z
@@ -218,15 +218,15 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         else skip;
                 
                     $cleanedDataSubTotal = list(for $z in $dataOpsTotals
-                    if $z == list(0,none,none,none,none,none,"Subtotal")
+                    if $z == list($z[1],none,none,none,none,none,"Subtotal")
                         skip
                     else
                         $z
                     );
     
-                    $cleanedData = $cleanedDimData + $cleanedDataSubTotal
+                    $cleanedData = $cleanedDimData.sort + $cleanedDataSubTotal.sort 
     
-                    for $row in $cleanedData.sort
+                    for $row in $cleanedData
 
 
                 </xule:expression>
@@ -235,7 +235,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 <td class="xbrl line-number"><xule:lineNumber name="TransmissionLines"/>
                     <xule:template-display>1</xule:template-display>
                 </td>
-                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="TransmissionLines" part="2">if ($row[7] =="Detail") $row[2] else if ($row[7]=="Subtotal" and $row[2] == none) "Subtotal " + taxonomy().concept($row[6].dimension(ferc:OperationTypeAxis).name).label("http://ferc.gov/form/2020-01-01/roles/label/F2TransmissionLines").text else $row[2] </xule:expression>  
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="TransmissionLines" part="2">if ($row[7] =="Detail") $row[2] else if ($row[7]=="Subtotal" and $row[2] == none and $row[6] != none) "Subtotal " + taxonomy().concept($row[6].dimension(ferc:OperationTypeAxis).name).label("http://ferc.gov/form/2020-01-01/roles/label/F2TransmissionLines").text else $row[2] </xule:expression>  
                     <xule:class class="hide" location="parent">if ($row[7]=="Subtotal") "total_items" else ""</xule:class>
                     <xule:fact>not($row[7]=="Subtotal" and $row[2] == none)</xule:fact>
                     </xule:replace>

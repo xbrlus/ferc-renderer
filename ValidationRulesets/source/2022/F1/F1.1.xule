@@ -239,9 +239,3 @@ The filer should report a constant CID in the filing.
 Rule Id: {$rule_id}"
 
 SEVERITY error
-
-
-output facts304
-
-$data = navigate parent-child descendants from ferc:ProvisionForRateRefundsAbstract returns list (target-name);
-list([covered @concept in $data]).length > 0

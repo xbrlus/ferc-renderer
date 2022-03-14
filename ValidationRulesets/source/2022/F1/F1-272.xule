@@ -71,17 +71,19 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
 
+$OtherFacilities = first-value([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=OtherUtilityMember], sum(list({nonils @AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @AcceleratedAmortizationPropertyOtherAxis=* @UtilityTypeAxis=OtherUtilityMember})));
+
  $sum1 = [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=none]; 
  $addend = ([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricUtilityMember]#f0
  + [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasUtilityMember]#f1 
- + [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=OtherUtilityMember]#f2
+ + $OtherFacilities
 );
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
 = \t {$f0.concept.name.local-name} \t = \t {$f0}
 + \t {$f1.concept.name.local-name} \t = \t {$f1}
-+ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$OtherFacilities.concept.name.local-name} \t = \t {$OtherFacilities}
 
 Total Element : {$sum1.concept.name}
 Total Period : {$sum1.period}

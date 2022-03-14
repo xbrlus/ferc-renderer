@@ -3058,8 +3058,12 @@ if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
  $sum1 = {@GasPlantInServiceAndCompletedConstructionNotClassifiedGas}; 
- $addend = ({@Meters}
- + {@OtherPropertyOnCustomersPremises});
+ $addend = ({@IntangiblePlant}
+ + {@NaturalGasProductionPlantAndManufacturedGasProductionPlant}
+ + {@NaturalGasStorageAndProcessingPlant}
+ + {@TransmissionPlant}
+ + {@DistributionPlant}
+ + {@GeneralPlant});
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
 "The company has reported a value for GasPlantInServiceAndCompletedConstructionNotClassifiedGas with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}

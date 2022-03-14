@@ -281,14 +281,26 @@ a utility department. Spread the amount(s) over lines 2 thru 26 as appropriate. 
                         <td class="xbrl monetary_items">
                                 <xule:replace><xule:expression class="hide" name="ISLineItems" format="ixt4:num-dot-decimal" fact="true" part="8">$rowl[9]</xule:expression>
                                 <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
-                                <xule:class location="parent">if $rowl[4].number > 30 "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[4] == ""
+                                                                ""
+                                                              else
+                                                                if $rowl[4].number > 30 
+                                                                    "gray-out" 
+                                                                else 
+                                                                    ""</xule:class>
                             </xule:replace>                
                         </td> 
                         <!--prior_electric-->
                         <td class="xbrl monetary_items">
                                 <xule:replace><xule:expression class="hide" name="ISLineItems" format="ixt4:num-dot-decimal" fact="true" part="9">$rowl[10]</xule:expression>
                                 <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
-                                <xule:class location="parent">if $rowl[4].number > 30 "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[4] == ""
+                                                                ""
+                                                              else
+                                                                if $rowl[4].number > 30 
+                                                                    "gray-out" 
+                                                                else 
+                                                                    ""</xule:class>
                             </xule:replace>                
                         </td> 
 
@@ -296,28 +308,52 @@ a utility department. Spread the amount(s) over lines 2 thru 26 as appropriate. 
                          <td class="xbrl monetary_items">
                                 <xule:replace><xule:expression class="hide" name="ISLineItems" format="ixt4:num-dot-decimal" fact="true"  part="10">$rowl[11]</xule:expression>
                                 <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
-                                <xule:class location="parent">if $rowl[4].number > 30 "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[4] == ""
+                                                                ""
+                                                              else
+                                                                if $rowl[4].number > 30 
+                                                                    "gray-out" 
+                                                                else 
+                                                                    ""</xule:class>
                             </xule:replace>                
                         </td> 
                         <!--prior_gas-->
                         <td class="xbrl monetary_items">
                                 <xule:replace><xule:expression class="hide" name="ISLineItems" format="ixt4:num-dot-decimal" fact="true"  part="11">$rowl[12]</xule:expression>
                                 <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
-                                <xule:class location="parent">if $rowl[4].number > 30 "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[4] == ""
+                                                                ""
+                                                              else
+                                                                if $rowl[4].number > 30 
+                                                                    "gray-out" 
+                                                                else 
+                                                                    ""</xule:class>
                             </xule:replace>                
                         </td> 
                         <!--current_other-->
                         <td class="xbrl monetary_items">
                                 <xule:replace><xule:expression class="hide" name="ISLineItems" format="ixt4:num-dot-decimal" fact="true"  part="12">$rowl[13]</xule:expression>
                                 <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
-                                <xule:class location="parent">if $rowl[4].number > 30 "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[4] == ""
+                                                                ""
+                                                              else
+                                                                if $rowl[4].number > 30 
+                                                                    "gray-out" 
+                                                                else 
+                                                                    ""</xule:class>
                             </xule:replace>                
                         </td> 
                         <!--prior_other-->
                         <td class="xbrl monetary_items">
                                 <xule:replace><xule:expression class="hide" name="ISLineItems" format="ixt4:num-dot-decimal" fact="true"  part="13">$rowl[14]</xule:expression>
                                 <xule:class location="parent">if $rowl[1].is-abstract "gray-out" else ""</xule:class>
-                                <xule:class location="parent">if $rowl[4].number > 30 "gray-out" else ""</xule:class>
+                                <xule:class location="parent">if $rowl[4] == ""
+                                                                ""
+                                                              else
+                                                                if $rowl[4].number > 30 
+                                                                    "gray-out" 
+                                                                else 
+                                                                    ""</xule:class>
                             </xule:replace>                
                         </td> 
            

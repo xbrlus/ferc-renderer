@@ -13233,7 +13233,7 @@ Resignations:
   <ferc:PrepaidTaxes decimals="INF" contextRef="c-218" unitRef="u-02">1000000</ferc:PrepaidTaxes>
   <ferc:TaxAdjustments decimals="INF" contextRef="c-217" unitRef="u-02">1</ferc:TaxAdjustments>
   <ferc:PrepaidTaxes decimals="INF" contextRef="c-219" unitRef="u-02">1000000</ferc:PrepaidTaxes>
-  <ferc:TaxesAccrued id="f-949" decimals="INF" contextRef="c-219" unitRef="u-02">917925</ferc:TaxesAccrued>
+  <ferc:TaxesAccrued id="f-949" decimals="INF" contextRef="c-219" unitRef="u-02">917926</ferc:TaxesAccrued>
   <ferc:TaxesAccruedPrepaidAndCharged decimals="INF" contextRef="c-220.1" unitRef="u-02">1000000</ferc:TaxesAccruedPrepaidAndCharged>
   <ferc:TaxesAccruedPrepaidAndCharged decimals="INF" contextRef="c-220.2" unitRef="u-02">1000000</ferc:TaxesAccruedPrepaidAndCharged>
   <ferc:OtherIncomeAndDeductions decimals="INF" contextRef="c-217" unitRef="u-02">-1000000</ferc:OtherIncomeAndDeductions>
@@ -14415,8 +14415,8 @@ Resignations:
   <ferc:GeneralPlantRetirements id="f-515" decimals="INF" contextRef="c-01" unitRef="u-02">12000000</ferc:GeneralPlantRetirements>
   <ferc:GeneralPlantAdjustments decimals="INF" contextRef="c-01" unitRef="u-02">-12000000</ferc:GeneralPlantAdjustments>
   <ferc:GeneralPlantTransfers decimals="INF" contextRef="c-01" unitRef="u-02">12000000</ferc:GeneralPlantTransfers>
-  <ferc:GasPlantInServiceAndCompletedConstructionNotClassifiedGas id="f-517" decimals="INF" contextRef="c-17" unitRef="u-02">2000000</ferc:GasPlantInServiceAndCompletedConstructionNotClassifiedGas>
-  <ferc:GasPlantInServiceAndCompletedConstructionNotClassifiedGas id="f-520" decimals="INF" contextRef="c-16" unitRef="u-02">2000000</ferc:GasPlantInServiceAndCompletedConstructionNotClassifiedGas>
+  <ferc:GasPlantInServiceAndCompletedConstructionNotClassifiedGas id="f-517" decimals="INF" contextRef="c-17" unitRef="u-02">100000000</ferc:GasPlantInServiceAndCompletedConstructionNotClassifiedGas>
+  <ferc:GasPlantInServiceAndCompletedConstructionNotClassifiedGas id="f-520" decimals="INF" contextRef="c-16" unitRef="u-02">100000000</ferc:GasPlantInServiceAndCompletedConstructionNotClassifiedGas>
   <ferc:GasPlantInServiceAndCompletedConstructionNotClassifiedGasAdditions id="f-518" decimals="INF" contextRef="c-01" unitRef="u-02">2000000</ferc:GasPlantInServiceAndCompletedConstructionNotClassifiedGasAdditions>
   <ferc:GasPlantInServiceAndCompletedConstructionNotClassifiedGasRetirements id="f-519" decimals="INF" contextRef="c-01" unitRef="u-02">2000000</ferc:GasPlantInServiceAndCompletedConstructionNotClassifiedGasRetirements>
   <ferc:GasPlantInServiceAndCompletedConstructionNotClassifiedGasAdjustments decimals="INF" contextRef="c-01" unitRef="u-02">-2000000</ferc:GasPlantInServiceAndCompletedConstructionNotClassifiedGasAdjustments>
@@ -14439,8 +14439,8 @@ Resignations:
   <ferc:GasPlantSoldAdjustments id="f-522" decimals="INF" contextRef="c-01" unitRef="u-02">-1000000</ferc:GasPlantSoldAdjustments>
   <ferc:GasPlantSoldTransfers id="f-523" decimals="INF" contextRef="c-01" unitRef="u-02">1000000</ferc:GasPlantSoldTransfers>
   <ferc:GasPlantSold decimals="INF" contextRef="c-16" unitRef="u-02">1000000</ferc:GasPlantSold>
-  <ferc:GasPlantInService id="f-524" decimals="INF" contextRef="c-17" unitRef="u-02">3000000</ferc:GasPlantInService>
-  <ferc:GasPlantInService id="f-529" decimals="INF" contextRef="c-16" unitRef="u-02">3000000</ferc:GasPlantInService>
+  <ferc:GasPlantInService id="f-524" decimals="INF" contextRef="c-17" unitRef="u-02">101000000</ferc:GasPlantInService>
+  <ferc:GasPlantInService id="f-529" decimals="INF" contextRef="c-16" unitRef="u-02">101000000</ferc:GasPlantInService>
   <ferc:GasPlantInServiceAdditions id="f-525" decimals="INF" contextRef="c-01" unitRef="u-02">3000000</ferc:GasPlantInServiceAdditions>
   <ferc:GasPlantInServiceRetirements id="f-526" decimals="INF" contextRef="c-01" unitRef="u-02">3000000</ferc:GasPlantInServiceRetirements>
   <ferc:GasPlantInServiceAdjustments id="f-527" decimals="INF" contextRef="c-01" unitRef="u-02">-3000000</ferc:GasPlantInServiceAdjustments>

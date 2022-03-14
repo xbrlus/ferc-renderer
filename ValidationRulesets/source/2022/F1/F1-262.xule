@@ -10,13 +10,13 @@ $rule_id = rule-name();
 if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
- $sum1 = [@TaxesAccrued @@TaxesAccruedPrepaidAndChargedAxis=* @period=$currentInstant]; 
- $addend = ([@TaxesAccrued @@TaxesAccruedPrepaidAndChargedAxis=* @period=$priorInstant]#f99
- - [@PrepaidTaxes @@TaxesAccruedPrepaidAndChargedAxis=* @period=$priorInstant]#f1
- + [@TaxesCharged @@TaxesAccruedPrepaidAndChargedAxis=* @period=$currentDuration]#f2 
- - [@TaxesPaid @@TaxesAccruedPrepaidAndChargedAxis=* @period=$currentDuration]#f3
- + [@TaxAdjustments @@TaxesAccruedPrepaidAndChargedAxis=* @period=$currentDuration]#f4
- + [@PrepaidTaxes @@TaxesAccruedPrepaidAndChargedAxis=* @period=$currentInstant]#f5
+ $sum1 = {@TaxesAccrued @@TaxesAccruedPrepaidAndChargedAxis=* @period=$currentInstant}; 
+ $addend = ({@TaxesAccrued @@TaxesAccruedPrepaidAndChargedAxis=* @period=$priorInstant}#f99
+ - {@PrepaidTaxes @@TaxesAccruedPrepaidAndChargedAxis=* @period=$priorInstant}#f1
+ + {@TaxesCharged @@TaxesAccruedPrepaidAndChargedAxis=* @period=$currentDuration}#f2 
+ - {@TaxesPaid @@TaxesAccruedPrepaidAndChargedAxis=* @period=$currentDuration}#f3
+ + {@TaxAdjustments @@TaxesAccruedPrepaidAndChargedAxis=* @period=$currentDuration}#f4
+ + {@PrepaidTaxes @@TaxesAccruedPrepaidAndChargedAxis=* @period=$currentInstant}#f5
 );
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 

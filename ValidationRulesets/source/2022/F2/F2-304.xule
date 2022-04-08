@@ -13,8 +13,8 @@ else
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
-        $sum1 = [@RevenuesForTransitionCostsAndTakeOrPay]; 
-        $addend = sum(list([nonils @RevenuesForTransitionCostsAndTakeOrPay @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
+        $sum1 = [@RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember]; 
+        $addend = sum(list([nonils @RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
         if $addend == none
                 skip
         else
@@ -39,8 +39,8 @@ else
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
-        $sum1 = [@RevenuesFromGRIAndACA]; 
-        $addend = sum(list([nonils @RevenuesFromGRIAndACA @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
+        $sum1 = [@RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember]; 
+        $addend = sum(list([nonils @RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
         if $addend == none
                 skip
         else
@@ -65,8 +65,8 @@ else
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
-        $sum1 = [@OtherRevenues]; 
-        $addend = sum(list([nonils @OtherRevenues @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
+        $sum1 = [@OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember]; 
+        $addend = sum(list([nonils @OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
         if $addend == none
                 skip
         else
@@ -91,7 +91,7 @@ else
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
-        $sum1 = [@RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities]; 
+        $sum1 = [@RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember]; 
         $addend = sum(list([nonils @RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
         if $addend == none
                 skip
@@ -117,7 +117,7 @@ else
 if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
-        $sum1 = [@QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities
+        $sum1 = [@QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember
 ]; 
         $addend = sum(list([nonils @QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities
  @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);

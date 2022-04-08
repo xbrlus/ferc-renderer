@@ -279,7 +279,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 else $data2;
             
                 $uniqueData = list(for $x in  $data
-                                        if $x == list(0,none,none,none,none,none)
+                                        if $x == list($x[1],$x[2],none,none,none,none)
                                             skip
                                         else 
                                             $x
@@ -421,7 +421,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 else $data2;
             
                 $uniqueData = list(for $x in  $data
-                                        if $x == list(0,none,none,none,none,none)
+                                        if $x == list($x[1],$x[2],none,none,none,none)
                                             skip
                                         else 
                                             $x

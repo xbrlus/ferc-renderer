@@ -368,6 +368,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                     <xule:template-display>
                                             300
                                     </xule:template-display>
+                                    <xule:sign>if $rowl[3].name in list(ferc:DividendsDeclaredPreferredStock,ferc:DividendsDeclaredCommonStock,ferc:AppropriationsOfRetainedEarnings,) "-" else none</xule:sign>
                              </xule:replace>        
                         </td> 
                         <!--PRIOR -->
@@ -377,6 +378,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 <xule:template-display>
                                         300
                                 </xule:template-display>
+                                <xule:sign>if $rowl[3].name in list(ferc:DividendsDeclaredPreferredStock,ferc:DividendsDeclaredCommonStock,ferc:AppropriationsOfRetainedEarnings,) "-" else none</xule:sign>
                             </xule:replace>        
                         </td> 
         

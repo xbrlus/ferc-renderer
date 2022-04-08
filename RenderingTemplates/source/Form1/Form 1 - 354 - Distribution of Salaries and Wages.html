@@ -146,7 +146,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
     $data = navigate parent-child descendants from ferc:DistributionOfSalariesAndWagesLineItems role "http://ferc.gov/form/2020-01-01/roles/Schedule/F1/DistributionOfSalariesAndWages" returns list (target-name, preferred-label);
     $data-labels = list(for $row in $data
             $concept = taxonomy().concept($row[1]);
-            $row_num = (filter $concept.references("http://ferc.gov/form/2020-01-01/roles/reference/formLocation") where ($item.part-by-name(ferc-part:Schedule).part-value == "354 - Schedule - Distribution of Salaries and Wages" and $item.part-by-name(ferc-part:ValueType).part-value.string == "Label")).to-list;
+            $row_num = (filter $concept.references("http://ferc.gov/form/2020-01-01/roles/reference/formLocation") where ($item.part-by-name(ferc-part:Schedule).part-value == "354 - Schedule - Distribution of Salaries and Wages" and $item.part-by-name(ferc-part:ValueType).part-value.string == "Label" and $row[2].role.uri.contains($item.part-by-name(ferc-part:ColumnName).part-value.string))).to-list;
             $DirectPayrollDistribution = if list([covered @concept = $row[1] @ferc:TypeOfDistributionAxis=ferc:DirectPayrollDistributionMember @period = $currentDuration]).length > 0
                                          first(list([covered @concept = $row[1] @ferc:TypeOfDistributionAxis=ferc:DirectPayrollDistributionMember @period = $currentDuration]))
                         else
@@ -185,74 +185,71 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                                                             skip
                                                                                 );
 
-                                                 $row_number = if ($row_num.part-by-name(ferc-part:Row)).length > 0
-                                                                                ($row_num.part-by-name(ferc-part:Row))[1].part-value
-                                                                            else 
-                                                                                "";
-                                                $number_of_Rows = count(set({covered where $fact.dimension($axis) != none}.dimension($axis)));
+                                    $row_number = if ($row_num.part-by-name(ferc-part:Row)).length > 0
+                                                                    ($row_num.part-by-name(ferc-part:Row))[1].part-value
+                                                                else 
+                                                                    "";
+                                    $number_of_Rows = count(set({covered where $fact.dimension($axis) != none}.dimension($axis)));
 
-                                                $NoData = list(for $i in range(78,94-$number_of_Rows)
-                                                                            list($i, $row_number, none, none, none, none)
-                                                                    );
+                                    $NoData = list(for $i in range((78 + $number_of_Rows),94)
+                                                                list($i + 1000, $row_number, none, none, none, none)
+                                                        );
                                                     
-                                                $data1 = if count(list({covered where $fact.dimension($axis) != none})) > 0  
-                                                
-                                                                list({covered {list(
-                                                                    if exists({ @ferc:OrderNumber @unit=* @period = $currentDuration  @ferc:TypeOfDistributionAxis=none where $fact.dimension($axis) != none})
-                                                                        first(list({ @ferc:OrderNumber @unit=* @period = $currentDuration  @ferc:TypeOfDistributionAxis=none where $fact.dimension($axis) != none}))
-                                                                    else
-                                                                        0,
-                                                                    $row_number,
-                                                                     /** Description **/   
-                                                                    if exists({ @concept = $lineItemsList[2][1] @unit @period = $currentDuration  @ferc:TypeOfDistributionAxis=none where $fact.dimension($axis) != none}) 
-                                                                        first(list({ @concept = $lineItemsList[2][1] @unit @period = $currentDuration  @ferc:TypeOfDistributionAxis=none where $fact.dimension($axis) != none}))
-                                                                    else 
-                                                                        none,
-                                                                    /** DirectPayrollDistributionMember **/
-                                                                    if exists({@concept = $lineItemsList[3][1] @unit=* @ferc:TypeOfDistributionAxis=ferc:DirectPayrollDistributionMember @period = $currentDuration where $fact.dimension($axis) != none} ) 
-                                                                        first(list({@concept = $lineItemsList[3][1] @unit=* @ferc:TypeOfDistributionAxis=ferc:DirectPayrollDistributionMember @period = $currentDuration where $fact.dimension($axis) != none}))
-                                                                    else 
-                                                                        none,
-                                                                    /** AllocationOfPayrollChargedForClearingAccountsMember  **/
-                                                                    if exists({@concept = $lineItemsList[3][1]  @unit=*  @ferc:TypeOfDistributionAxis=ferc:AllocationOfPayrollChargedForClearingAccountsMember @period = $currentDuration  where $fact.dimension($axis) != none}) 
-                                                                        first(list({@concept = $lineItemsList[3][1]  @unit=* @ferc:TypeOfDistributionAxis=ferc:AllocationOfPayrollChargedForClearingAccountsMember @period = $currentDuration  where $fact.dimension($axis) != none}))   
-                                                                    else 
-                                                                        none,
-                                                                    /** Default **/
-                                                                    if exists({@concept = $lineItemsList[3][1] @unit=* @period = $currentDuration @ferc:TypeOfDistributionAxis=none where $fact.dimension($axis) != none}) 
-                                                                        first(list({@concept = $lineItemsList[3][1] @unit=* @period = $currentDuration @ferc:TypeOfDistributionAxis=none where $fact.dimension($axis) != none}))    
-                                                                    else 
-                                                                        none
+                                    $data1 = if count(list({covered where $fact.dimension($axis) != none})) > 0  
+                                    
+                                                    list({covered {list(
+                                                        if list({ @ferc:OrderNumber @unit=* @period = $currentDuration  @ferc:TypeOfDistributionAxis=none where $fact.dimension($axis) != none}).length > 0
+                                                            first(list({ @ferc:OrderNumber @unit=* @period = $currentDuration  @ferc:TypeOfDistributionAxis=none where $fact.dimension($axis) != none}))
+                                                        else
+                                                            0,
+                                                        $row_number,
+                                                            /** Description **/   
+                                                        if list({ @concept = $lineItemsList[2][1] @unit @period = $currentDuration  @ferc:TypeOfDistributionAxis=none where $fact.dimension($axis) != none}).length > 0
+                                                            first(list({ @concept = $lineItemsList[2][1] @unit @period = $currentDuration  @ferc:TypeOfDistributionAxis=none where $fact.dimension($axis) != none}))
+                                                        else 
+                                                            none,
+                                                        /** DirectPayrollDistributionMember **/
+                                                        if list({@concept = $lineItemsList[3][1] @unit=* @ferc:TypeOfDistributionAxis=ferc:DirectPayrollDistributionMember @period = $currentDuration where $fact.dimension($axis) != none}).length > 0
+                                                            first(list({@concept = $lineItemsList[3][1] @unit=* @ferc:TypeOfDistributionAxis=ferc:DirectPayrollDistributionMember @period = $currentDuration where $fact.dimension($axis) != none}))
+                                                        else 
+                                                            none,
+                                                        /** AllocationOfPayrollChargedForClearingAccountsMember  **/
+                                                        if list({@concept = $lineItemsList[3][1]  @unit=*  @ferc:TypeOfDistributionAxis=ferc:AllocationOfPayrollChargedForClearingAccountsMember @period = $currentDuration  where $fact.dimension($axis) != none}).length > 0
+                                                            first(list({@concept = $lineItemsList[3][1]  @unit=* @ferc:TypeOfDistributionAxis=ferc:AllocationOfPayrollChargedForClearingAccountsMember @period = $currentDuration  where $fact.dimension($axis) != none}))   
+                                                        else 
+                                                            none,
+                                                        /** Default **/
+                                                        if list({@concept = $lineItemsList[3][1] @unit=* @period = $currentDuration @ferc:TypeOfDistributionAxis=none where $fact.dimension($axis) != none}).length > 0
+                                                            first(list({@concept = $lineItemsList[3][1] @unit=* @period = $currentDuration @ferc:TypeOfDistributionAxis=none where $fact.dimension($axis) != none}))    
+                                                        else 
+                                                            none
 
-                                                                    )}}) + $NoData
-                                                            else
-                                                                $NoData;
+                                                        )}}) + $NoData
+                                                else
+                                                    $NoData;
                     
-                                                $data2 = list(for $x in $data1 
-                                                            if $x == list(0,$x[2],none,none,none,none)
-                                                                skip
-                                                            else
-                                                                $x);
-                                                    
-                                                $orderedData = $data2.sort;
+                                    $data2 = list(for $x in $data1 
+                                                if $x == list(0,$x[2],none,none,none,none)
+                                                    skip
+                                                else
+                                                    $x);
                                         
-                                                $data = list(for $z in range($orderedData.length)
-                                                                $updatedNumber = $orderedData[$z][2].number + $z
-                                                                list(
-                                                                $lineItemsList[2][1],
-                                                                $orderedData[$z][3],
-                                                                $updatedNumber.number,
-                                                                $orderedData[$z][4],
-                                                                $orderedData[$z][5],
-                                                                $orderedData[$z][6],
-                                                                
-                                                                )
-                                                            );
-                    
-                                                for $row in $data
-                                                    $row      
+                                    $orderedData = $data2.sort;
+                            
+                                    for $z in range($orderedData.length)
+                                                    $updatedNumber = $orderedData[$z][2].number + $z
+                                                    list(
+                                                    $lineItemsList[2][1],
+                                                    $orderedData[$z][3],
+                                                    $updatedNumber.number,
+                                                    $orderedData[$z][4],
+                                                    $orderedData[$z][5],
+                                                    $orderedData[$z][6],
+                                                    
+                                                    )
+                         
                                 else    
-                                                skip
+                                    skip
                             );
             
 

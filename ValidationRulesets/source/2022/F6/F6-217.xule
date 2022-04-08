@@ -65,7 +65,7 @@ $messageSection = list(for $p in $pipelines
                                         
                         
                         $addend = $dataRow1[1] + $dataRow1[2] - $dataRow1[3] + $dataRow1[4];
-                        if ($dataRow1[5] + 0 != $addend)
+                        if ($dataRow1[5] + 0 != $addend) and tolerance_for_decimals($dataRow1[5] + 0 ,$addend,$tolerance_factor)
                                 "The company has reported an ending balance for {$abstractLabel[2]} on row {$row_number[1]} for pipeline {$p[1]} with a value of {$dataRow1[5]} that is not equal to the value of the sum of its components of {$addend}. The total is comprised of the following:
                                 {$dataRow1[1].concept.name.local-name} = {$dataRow1[1]}
                                 {$dataRow1[2].concept.name.local-name} = {$dataRow1[2]}

@@ -234,7 +234,11 @@ $decimals = $fact1.decimals;
 if $decimals > -1
 	false
 else
-	true
+	/** This is the only element that is allowed to be reported in thousands **/
+	if ($fact1.concept.name == PlantBasesUsedInEstimatingDepreciationCharges and $decimals == -3)
+		false
+	else
+		true
 
 message
 

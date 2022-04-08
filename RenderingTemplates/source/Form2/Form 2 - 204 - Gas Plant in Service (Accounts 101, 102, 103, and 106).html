@@ -168,7 +168,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             $dataRow1 =   list(for $y in $data
                                 $conceptPeriod = $y[1].period-type
                                 if $conceptPeriod == "instant"
-                                    if $y[2].role.uri == "http://ferc.gov/form/2020-01-01/roles/label/F2BeginningBalance" or $y[3].number == 1
+                                    if ($y[2].role.uri == "http://ferc.gov/form/2020-01-01/roles/label/F2BeginningBalance" or $y[3].number == 1) and not ($y[1].name == ferc:BaseLoadLiquefiedNaturalGasTerminalingAndProcessingPlant and $y[3].number == 6)
                                         if list([covered @concept = $y[1].name @period = $priorInstant]).length > 0
                                             first(list([covered @concept = $y[1].name @period = $priorInstant]))
                                         else

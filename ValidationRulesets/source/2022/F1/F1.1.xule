@@ -121,6 +121,10 @@ severity error
 assert F1.1.11 unsatisfied 
 $rule_id = rule-name();
 
+if set('1-F').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
  exists([covered @AttestationName @period=$currentDuration])  
 message 
 "The attestation name must be reported in the current period. 

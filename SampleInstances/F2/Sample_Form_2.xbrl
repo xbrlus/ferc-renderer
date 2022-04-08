@@ -1349,6 +1349,20 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
+  <context id="c-51.1">
+    <entity>
+      <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
+      <segment>
+        <xbrldi:typedMember dimension="ferc:ConstructionWorkInProgressAxis">
+					<ferc:ConstructionWorkInProgressDomain>0-1</ferc:ConstructionWorkInProgressDomain>
+				</xbrldi:typedMember>
+      </segment>
+    </entity>
+    <period>
+      <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+    </period>
+  </context>
   <context id="c-52">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -1371,6 +1385,20 @@
 					<ferc:ConstructionWorkInProgressDomain>0-2</ferc:ConstructionWorkInProgressDomain>
 				</xbrldi:typedMember>
         <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:GasUtilityMember</xbrldi:explicitMember>
+      </segment>
+    </entity>
+    <period>
+      <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+    </period>
+  </context>
+  <context id="c-53.1">
+    <entity>
+      <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
+      <segment>
+        <xbrldi:typedMember dimension="ferc:ConstructionWorkInProgressAxis">
+					<ferc:ConstructionWorkInProgressDomain>0-2</ferc:ConstructionWorkInProgressDomain>
+				</xbrldi:typedMember>
       </segment>
     </entity>
     <period>
@@ -1407,6 +1435,20 @@
       <endDate>2018-12-31</endDate>
     </period>
   </context>
+  <context id="c-55.1">
+    <entity>
+      <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
+      <segment>
+        <xbrldi:typedMember dimension="ferc:ConstructionWorkInProgressAxis">
+					<ferc:ConstructionWorkInProgressDomain>0-3</ferc:ConstructionWorkInProgressDomain>
+				</xbrldi:typedMember>
+      </segment>
+    </entity>
+    <period>
+      <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+    </period>
+  </context>
   <context id="c-56">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
@@ -1429,6 +1471,20 @@
 					<ferc:ConstructionWorkInProgressDomain>0-4</ferc:ConstructionWorkInProgressDomain>
 				</xbrldi:typedMember>
         <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:GasUtilityMember</xbrldi:explicitMember>
+      </segment>
+    </entity>
+    <period>
+      <startDate>2018-01-01</startDate>
+      <endDate>2018-12-31</endDate>
+    </period>
+  </context>
+  <context id="c-57.1">
+    <entity>
+      <identifier scheme="http://www.ferc.gov/CID">C000981</identifier>
+      <segment>
+        <xbrldi:typedMember dimension="ferc:ConstructionWorkInProgressAxis">
+					<ferc:ConstructionWorkInProgressDomain>0-4</ferc:ConstructionWorkInProgressDomain>
+				</xbrldi:typedMember>
       </segment>
     </entity>
     <period>
@@ -14316,7 +14372,7 @@
   <ferc:ZoneOfDeliveryOrReceiptRateSchedule contextRef="c-743">IT-3</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
   <ferc:ZoneOfDeliveryOrReceiptRateSchedule contextRef="c-745">IT-4</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
   <ferc:ZoneOfDeliveryOrReceiptRateSchedule contextRef="c-747">OTHER</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
-  <ferc:ZoneOfDeliveryOrReceiptRateSchedule contextRef="c-749">TOTAL</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
+  <ferc:ZoneOfDeliveryOrReceiptRateSchedule contextRef="c-749">IT-5</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
   <ferc:DateOfTheLatestClosingOfTheStockBook contextRef="c-01">2018-12-31</ferc:DateOfTheLatestClosingOfTheStockBook>
   <ferc:DateAndPlaceOfTheLatestGeneralMeeting contextRef="c-01">2018-12-30 in Miami, FL</ferc:DateAndPlaceOfTheLatestGeneralMeeting>
   <ferc:DateOfTheLatestGeneralMeetingVotingSecurities contextRef="c-01">2018-10-28</ferc:DateOfTheLatestGeneralMeetingVotingSecurities>
@@ -17983,120 +18039,122 @@ adjustments to future period fuel retention rates</ferc:CitationAuthorizationFor
   <ferc:ForfeitedDiscounts id="f-1404" decimals="INF" contextRef="c-20" unitRef="u-02">300</ferc:ForfeitedDiscounts>
   <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1405" decimals="INF" contextRef="c-19" unitRef="u-02">100</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
   <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1406" decimals="INF" contextRef="c-20" unitRef="u-02">100</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities decimals="INF" contextRef="c-377" unitRef="u-02">100</ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities decimals="INF" contextRef="c-378" unitRef="u-02">100</ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities decimals="INF" contextRef="c-379" unitRef="u-02">100</ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities decimals="INF" contextRef="c-380" unitRef="u-02">100</ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1463" decimals="INF" contextRef="c-377" unitRef="u-02">1709</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1464" decimals="INF" contextRef="c-378" unitRef="u-02">938</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1472" decimals="INF" contextRef="c-379" unitRef="u-02">89642</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1473" decimals="INF" contextRef="c-380" unitRef="u-02">61890</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1481" decimals="INF" contextRef="c-381" unitRef="u-02">776</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1482" decimals="INF" contextRef="c-382" unitRef="u-02">662</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1501" decimals="INF" contextRef="c-388" unitRef="u-02">828089</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1502" decimals="INF" contextRef="c-389" unitRef="u-02">684270</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1510" decimals="INF" contextRef="c-390" unitRef="u-02">2046</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1511" decimals="INF" contextRef="c-391" unitRef="u-02">1964</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1519" decimals="INF" contextRef="c-392" unitRef="u-02">340922</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1520" decimals="INF" contextRef="c-393" unitRef="u-02">385765</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1528" decimals="INF" contextRef="c-394" unitRef="u-02">7953</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1529" decimals="INF" contextRef="c-395" unitRef="u-02">10121</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1537" decimals="INF" contextRef="c-396" unitRef="u-02">22025</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1538" decimals="INF" contextRef="c-397" unitRef="u-02">1040</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1546" decimals="INF" contextRef="c-398" unitRef="u-02">14843</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1547" decimals="INF" contextRef="c-399" unitRef="u-02">10543</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1555" decimals="INF" contextRef="c-400" unitRef="u-02">7155</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1556" decimals="INF" contextRef="c-401" unitRef="u-02">5230</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1564" decimals="INF" contextRef="c-402" unitRef="u-02">1315160</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1565" decimals="INF" contextRef="c-403" unitRef="u-02">1162423</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities decimals="INF" contextRef="c-377" unitRef="u-02">25</ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities decimals="INF" contextRef="c-378" unitRef="u-02">25</ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities decimals="INF" contextRef="c-379" unitRef="u-02">25</ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities decimals="INF" contextRef="c-380" unitRef="u-02">25</ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities decimals="INF" contextRef="c-402" unitRef="u-02">50</ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities decimals="INF" contextRef="c-403" unitRef="u-02">50</ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1463" decimals="INF" contextRef="c-377" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1464" decimals="INF" contextRef="c-378" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1472" decimals="INF" contextRef="c-379" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1473" decimals="INF" contextRef="c-380" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1481" decimals="INF" contextRef="c-381" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1482" decimals="INF" contextRef="c-382" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1501" decimals="INF" contextRef="c-388" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1502" decimals="INF" contextRef="c-389" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1510" decimals="INF" contextRef="c-390" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1511" decimals="INF" contextRef="c-391" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1519" decimals="INF" contextRef="c-392" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1520" decimals="INF" contextRef="c-393" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1528" decimals="INF" contextRef="c-394" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1529" decimals="INF" contextRef="c-395" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1537" decimals="INF" contextRef="c-396" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1538" decimals="INF" contextRef="c-397" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1546" decimals="INF" contextRef="c-398" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1547" decimals="INF" contextRef="c-399" unitRef="u-02">10</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1555" decimals="INF" contextRef="c-400" unitRef="u-02">5</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1556" decimals="INF" contextRef="c-401" unitRef="u-02">5</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1564" decimals="INF" contextRef="c-402" unitRef="u-02">5</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1565" decimals="INF" contextRef="c-403" unitRef="u-02">5</ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
   <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1407" decimals="INF" contextRef="c-19" unitRef="u-02">100</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
   <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1408" decimals="INF" contextRef="c-20" unitRef="u-02">100</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1453" decimals="INF" contextRef="c-373" unitRef="u-02">21820</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1454" decimals="INF" contextRef="c-374" unitRef="u-02">49139</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1458" decimals="INF" contextRef="c-375" unitRef="u-02">1278361</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1459" decimals="INF" contextRef="c-376" unitRef="u-02">1272498</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1465" decimals="INF" contextRef="c-377" unitRef="u-02">16330</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1466" decimals="INF" contextRef="c-378" unitRef="u-02">7261</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1474" decimals="INF" contextRef="c-379" unitRef="u-02">52516006</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1475" decimals="INF" contextRef="c-380" unitRef="u-02">52426426</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1483" decimals="INF" contextRef="c-381" unitRef="u-02">304789</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1484" decimals="INF" contextRef="c-382" unitRef="u-02">243750</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1491" decimals="INF" contextRef="c-384" unitRef="u-02">780014</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1492" decimals="INF" contextRef="c-385" unitRef="u-02">433941</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1496" decimals="INF" contextRef="c-386" unitRef="u-02">2136982</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1497" decimals="INF" contextRef="c-387" unitRef="u-02">1819803</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1503" decimals="INF" contextRef="c-388" unitRef="u-02">181221053</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1504" decimals="INF" contextRef="c-389" unitRef="u-02">166002338</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1512" decimals="INF" contextRef="c-390" unitRef="u-02">808461</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1513" decimals="INF" contextRef="c-391" unitRef="u-02">697359</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1521" decimals="INF" contextRef="c-392" unitRef="u-02">37920067</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1522" decimals="INF" contextRef="c-393" unitRef="u-02">37062962</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1530" decimals="INF" contextRef="c-394" unitRef="u-02">1203347</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1531" decimals="INF" contextRef="c-395" unitRef="u-02">1629131</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1539" decimals="INF" contextRef="c-396" unitRef="u-02">1363882</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1540" decimals="INF" contextRef="c-397" unitRef="u-02">68584</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1548" decimals="INF" contextRef="c-398" unitRef="u-02">35366849</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1549" decimals="INF" contextRef="c-399" unitRef="u-02">35249652</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1557" decimals="INF" contextRef="c-400" unitRef="u-02">14087945</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1558" decimals="INF" contextRef="c-401" unitRef="u-02">14054799</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1566" decimals="INF" contextRef="c-402" unitRef="u-02">329025906</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1567" decimals="INF" contextRef="c-403" unitRef="u-02">311017643</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1453" decimals="INF" contextRef="c-373" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1454" decimals="INF" contextRef="c-374" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1458" decimals="INF" contextRef="c-375" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1459" decimals="INF" contextRef="c-376" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1465" decimals="INF" contextRef="c-377" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1466" decimals="INF" contextRef="c-378" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1474" decimals="INF" contextRef="c-379" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1475" decimals="INF" contextRef="c-380" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1483" decimals="INF" contextRef="c-381" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1484" decimals="INF" contextRef="c-382" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1491" decimals="INF" contextRef="c-384" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1492" decimals="INF" contextRef="c-385" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1496" decimals="INF" contextRef="c-386" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1497" decimals="INF" contextRef="c-387" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1503" decimals="INF" contextRef="c-388" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1504" decimals="INF" contextRef="c-389" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1512" decimals="INF" contextRef="c-390" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1513" decimals="INF" contextRef="c-391" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1521" decimals="INF" contextRef="c-392" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1522" decimals="INF" contextRef="c-393" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1530" decimals="INF" contextRef="c-394" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1531" decimals="INF" contextRef="c-395" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1539" decimals="INF" contextRef="c-396" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1540" decimals="INF" contextRef="c-397" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1548" decimals="INF" contextRef="c-398" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1549" decimals="INF" contextRef="c-399" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1557" decimals="INF" contextRef="c-400" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1558" decimals="INF" contextRef="c-401" unitRef="u-02">5</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1566" decimals="INF" contextRef="c-402" unitRef="u-02">30</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1567" decimals="INF" contextRef="c-403" unitRef="u-02">30</ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
   <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1409" decimals="INF" contextRef="c-19" unitRef="u-02">300</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
   <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1410" decimals="INF" contextRef="c-20" unitRef="u-02">300</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1455" decimals="INF" contextRef="c-373" unitRef="u-02">21820</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1456" decimals="INF" contextRef="c-374" unitRef="u-02">49139</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1460" decimals="INF" contextRef="c-375" unitRef="u-02">1278361</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1461" decimals="INF" contextRef="c-376" unitRef="u-02">1272498</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1467" decimals="INF" contextRef="c-377" unitRef="u-02">18139</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1468" decimals="INF" contextRef="c-378" unitRef="u-02">8299</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1476" decimals="INF" contextRef="c-379" unitRef="u-02">52605748</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1477" decimals="INF" contextRef="c-380" unitRef="u-02">52488416</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1485" decimals="INF" contextRef="c-381" unitRef="u-02">305565</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1486" decimals="INF" contextRef="c-382" unitRef="u-02">244412</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1493" decimals="INF" contextRef="c-384" unitRef="u-02">780014</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1494" decimals="INF" contextRef="c-385" unitRef="u-02">433941</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1498" decimals="INF" contextRef="c-386" unitRef="u-02">2136982</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1499" decimals="INF" contextRef="c-387" unitRef="u-02">1819803</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1505" decimals="INF" contextRef="c-388" unitRef="u-02">182049142</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1506" decimals="INF" contextRef="c-389" unitRef="u-02">166686608</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1514" decimals="INF" contextRef="c-390" unitRef="u-02">810507</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1515" decimals="INF" contextRef="c-391" unitRef="u-02">699323</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1523" decimals="INF" contextRef="c-392" unitRef="u-02">38260989</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1524" decimals="INF" contextRef="c-393" unitRef="u-02">37448727</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1532" decimals="INF" contextRef="c-394" unitRef="u-02">1211300</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1533" decimals="INF" contextRef="c-395" unitRef="u-02">1639252</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1541" decimals="INF" contextRef="c-396" unitRef="u-02">1385907</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1542" decimals="INF" contextRef="c-397" unitRef="u-02">69624</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1550" decimals="INF" contextRef="c-398" unitRef="u-02">35381692</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1551" decimals="INF" contextRef="c-399" unitRef="u-02">35260195</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1559" decimals="INF" contextRef="c-400" unitRef="u-02">14095100</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1560" decimals="INF" contextRef="c-401" unitRef="u-02">14060029</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1568" decimals="INF" contextRef="c-402" unitRef="u-02">330341066</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1569" decimals="INF" contextRef="c-403" unitRef="u-02">312180066</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1455" decimals="INF" contextRef="c-373" unitRef="u-02">5</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1456" decimals="INF" contextRef="c-374" unitRef="u-02">5</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1460" decimals="INF" contextRef="c-375" unitRef="u-02">5</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1461" decimals="INF" contextRef="c-376" unitRef="u-02">5</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1467" decimals="INF" contextRef="c-377" unitRef="u-02">40</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1468" decimals="INF" contextRef="c-378" unitRef="u-02">40</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1476" decimals="INF" contextRef="c-379" unitRef="u-02">40</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1477" decimals="INF" contextRef="c-380" unitRef="u-02">40</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1485" decimals="INF" contextRef="c-381" unitRef="u-02">15</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1486" decimals="INF" contextRef="c-382" unitRef="u-02">15</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1493" decimals="INF" contextRef="c-384" unitRef="u-02">5</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1494" decimals="INF" contextRef="c-385" unitRef="u-02">5</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1498" decimals="INF" contextRef="c-386" unitRef="u-02">5</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1499" decimals="INF" contextRef="c-387" unitRef="u-02">5</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1505" decimals="INF" contextRef="c-388" unitRef="u-02">15</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1506" decimals="INF" contextRef="c-389" unitRef="u-02">15</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1514" decimals="INF" contextRef="c-390" unitRef="u-02">15</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1515" decimals="INF" contextRef="c-391" unitRef="u-02">15</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1523" decimals="INF" contextRef="c-392" unitRef="u-02">15</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1524" decimals="INF" contextRef="c-393" unitRef="u-02">15</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1532" decimals="INF" contextRef="c-394" unitRef="u-02">15</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1533" decimals="INF" contextRef="c-395" unitRef="u-02">15</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1541" decimals="INF" contextRef="c-396" unitRef="u-02">15</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1542" decimals="INF" contextRef="c-397" unitRef="u-02">15</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1550" decimals="INF" contextRef="c-398" unitRef="u-02">15</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1551" decimals="INF" contextRef="c-399" unitRef="u-02">15</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1559" decimals="INF" contextRef="c-400" unitRef="u-02">10</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1560" decimals="INF" contextRef="c-401" unitRef="u-02">10</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1568" decimals="INF" contextRef="c-402" unitRef="u-02">85</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1569" decimals="INF" contextRef="c-403" unitRef="u-02">85</ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
   <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1411" decimals="INF" contextRef="c-19" unitRef="u-03">100</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
   <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1412" decimals="INF" contextRef="c-20" unitRef="u-03">100</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1469" decimals="INF" contextRef="c-377" unitRef="u-03">1314519</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1470" decimals="INF" contextRef="c-378" unitRef="u-03">722700</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1478" decimals="INF" contextRef="c-379" unitRef="u-03">68955622</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1479" decimals="INF" contextRef="c-380" unitRef="u-03">47607162</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1487" decimals="INF" contextRef="c-381" unitRef="u-03">597444</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1488" decimals="INF" contextRef="c-382" unitRef="u-03">509035</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1507" decimals="INF" contextRef="c-388" unitRef="u-03">654608343</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1508" decimals="INF" contextRef="c-389" unitRef="u-03">508742616</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1516" decimals="INF" contextRef="c-390" unitRef="u-03">1573806</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1517" decimals="INF" contextRef="c-391" unitRef="u-03">1510985</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1525" decimals="INF" contextRef="c-392" unitRef="u-03">262246509</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1526" decimals="INF" contextRef="c-393" unitRef="u-03">296742014</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1534" decimals="INF" contextRef="c-394" unitRef="u-03">6117740</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1535" decimals="INF" contextRef="c-395" unitRef="u-03">7785883</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1543" decimals="INF" contextRef="c-396" unitRef="u-03">16942646</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1544" decimals="INF" contextRef="c-397" unitRef="u-03">799496</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1552" decimals="INF" contextRef="c-398" unitRef="u-03">11418190</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1553" decimals="INF" contextRef="c-399" unitRef="u-03">8109215</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1561" decimals="INF" contextRef="c-400" unitRef="u-03">5503591</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1562" decimals="INF" contextRef="c-401" unitRef="u-03">4023333</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1570" decimals="INF" contextRef="c-402" unitRef="u-03">1029278410</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
-  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1571" decimals="INF" contextRef="c-403" unitRef="u-03">876552439</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1469" decimals="INF" contextRef="c-377" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1470" decimals="INF" contextRef="c-378" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1478" decimals="INF" contextRef="c-379" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1479" decimals="INF" contextRef="c-380" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1487" decimals="INF" contextRef="c-381" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1488" decimals="INF" contextRef="c-382" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1507" decimals="INF" contextRef="c-388" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1508" decimals="INF" contextRef="c-389" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1516" decimals="INF" contextRef="c-390" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1517" decimals="INF" contextRef="c-391" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1525" decimals="INF" contextRef="c-392" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1526" decimals="INF" contextRef="c-393" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1534" decimals="INF" contextRef="c-394" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1535" decimals="INF" contextRef="c-395" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1543" decimals="INF" contextRef="c-396" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1544" decimals="INF" contextRef="c-397" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1552" decimals="INF" contextRef="c-398" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1553" decimals="INF" contextRef="c-399" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1561" decimals="INF" contextRef="c-400" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1562" decimals="INF" contextRef="c-401" unitRef="u-03">5</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1570" decimals="INF" contextRef="c-402" unitRef="u-03">50</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
+  <ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities id="f-1571" decimals="INF" contextRef="c-403" unitRef="u-03">50</ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities>
   <ferc:QuantityOfNaturalGasRevenuesFromStoringGasOfOthers id="f-1417" decimals="INF" contextRef="c-19" unitRef="u-03">100</ferc:QuantityOfNaturalGasRevenuesFromStoringGasOfOthers>
   <ferc:QuantityOfNaturalGasRevenuesFromStoringGasOfOthers id="f-1418" decimals="INF" contextRef="c-20" unitRef="u-03">100</ferc:QuantityOfNaturalGasRevenuesFromStoringGasOfOthers>
   <ferc:QuantityOfNaturalGasRevenuesFromStoringGasOfOthers id="f-1577" decimals="INF" contextRef="c-404" unitRef="u-03">76131</ferc:QuantityOfNaturalGasRevenuesFromStoringGasOfOthers>
@@ -18144,13 +18202,13 @@ adjustments to future period fuel retention rates</ferc:CitationAuthorizationFor
   <ferc:ZoneOfDeliveryOrReceiptRateSchedule id="f-1536" contextRef="c-396">TI-HP</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
   <ferc:ZoneOfDeliveryOrReceiptRateSchedule id="f-1545" contextRef="c-398">TSB-T</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
   <ferc:ZoneOfDeliveryOrReceiptRateSchedule id="f-1554" contextRef="c-400">TSB-Y</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
-  <ferc:ZoneOfDeliveryOrReceiptRateSchedule id="f-1563" contextRef="c-402">TOTAL</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
+  <ferc:ZoneOfDeliveryOrReceiptRateSchedule id="f-1563" contextRef="c-402">TSB-Z</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
   <ferc:ZoneOfDeliveryOrReceiptRateSchedule id="f-1572" contextRef="c-404">IS-1</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
   <ferc:ZoneOfDeliveryOrReceiptRateSchedule id="f-1579" contextRef="c-406">NNT-1</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
   <ferc:ZoneOfDeliveryOrReceiptRateSchedule id="f-1584" contextRef="c-408">NNT-2</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
   <ferc:ZoneOfDeliveryOrReceiptRateSchedule id="f-1589" contextRef="c-410">TSB-T</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
   <ferc:ZoneOfDeliveryOrReceiptRateSchedule id="f-1594" contextRef="c-412">TSB-Y</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
-  <ferc:ZoneOfDeliveryOrReceiptRateSchedule id="f-1599" contextRef="c-414">TOTAL</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
+  <ferc:ZoneOfDeliveryOrReceiptRateSchedule id="f-1599" contextRef="c-414">TSB-Z</ferc:ZoneOfDeliveryOrReceiptRateSchedule>
   <ferc:CommissionsOnSaleOrDistributionOfGasOfOthers decimals="INF" contextRef="c-01" unitRef="u-02">100</ferc:CommissionsOnSaleOrDistributionOfGasOfOthers>
   <ferc:CompensationForMinorOrIncidentalServicesProvidedForOthers decimals="INF" contextRef="c-01" unitRef="u-02">100</ferc:CompensationForMinorOrIncidentalServicesProvidedForOthers>
   <ferc:ProfitOrLossOnSaleOfMaterialAndSuppliesNotOrdinarilyPurchasedForResale decimals="INF" contextRef="c-01" unitRef="u-02">100</ferc:ProfitOrLossOnSaleOfMaterialAndSuppliesNotOrdinarilyPurchasedForResale>
@@ -18446,14 +18504,14 @@ adjustments to future period fuel retention rates</ferc:CitationAuthorizationFor
   <ferc:DepreciationDepletionAndAmortizationCharges id="f-1859" decimals="INF" contextRef="c-445" unitRef="u-02">1400166</ferc:DepreciationDepletionAndAmortizationCharges>
   <ferc:DepreciationDepletionAndAmortizationCharges id="f-1861" decimals="INF" contextRef="c-446" unitRef="u-02">20598846</ferc:DepreciationDepletionAndAmortizationCharges>
   <ferc:DepreciationDepletionAndAmortizationCharges id="f-1863" decimals="INF" contextRef="c-19" unitRef="u-02">35499012</ferc:DepreciationDepletionAndAmortizationCharges>
-  <ferc:PlantBasesUsedInEstimatingDepreciationCharges decimals="INF" contextRef="c-447.1" unitRef="u-02">100000</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
-  <ferc:PlantBasesUsedInEstimatingDepreciationCharges decimals="INF" contextRef="c-447.2" unitRef="u-02">100000</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
-  <ferc:PlantBasesUsedInEstimatingDepreciationCharges id="f-1864" decimals="INF" contextRef="c-447" unitRef="u-02">154252</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
-  <ferc:PlantBasesUsedInEstimatingDepreciationCharges decimals="INF" contextRef="c-447.3" unitRef="u-02">100000</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
-  <ferc:PlantBasesUsedInEstimatingDepreciationCharges id="f-1866" decimals="INF" contextRef="c-448" unitRef="u-02">1282582</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
-  <ferc:PlantBasesUsedInEstimatingDepreciationCharges id="f-1867" decimals="INF" contextRef="c-449" unitRef="u-02">31699</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
-  <ferc:PlantBasesUsedInEstimatingDepreciationCharges id="f-1868" decimals="INF" contextRef="c-450" unitRef="u-02">4676</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
-  <ferc:PlantBasesUsedInEstimatingDepreciationCharges decimals="INF" contextRef="c-450.1" unitRef="u-02">1000</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
+  <ferc:PlantBasesUsedInEstimatingDepreciationCharges decimals="-3" contextRef="c-447.1" unitRef="u-02">100000</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
+  <ferc:PlantBasesUsedInEstimatingDepreciationCharges decimals="-3" contextRef="c-447.2" unitRef="u-02">100000</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
+  <ferc:PlantBasesUsedInEstimatingDepreciationCharges id="f-1864" decimals="-3" contextRef="c-447" unitRef="u-02">154252</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
+  <ferc:PlantBasesUsedInEstimatingDepreciationCharges decimals="-3" contextRef="c-447.3" unitRef="u-02">100000</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
+  <ferc:PlantBasesUsedInEstimatingDepreciationCharges id="f-1866" decimals="-3" contextRef="c-448" unitRef="u-02">1282582</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
+  <ferc:PlantBasesUsedInEstimatingDepreciationCharges id="f-1867" decimals="-3" contextRef="c-449" unitRef="u-02">31699</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
+  <ferc:PlantBasesUsedInEstimatingDepreciationCharges id="f-1868" decimals="-3" contextRef="c-450" unitRef="u-02">4676</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
+  <ferc:PlantBasesUsedInEstimatingDepreciationCharges decimals="-3" contextRef="c-450.1" unitRef="u-02">1000</ferc:PlantBasesUsedInEstimatingDepreciationCharges>
   <ferc:AppliedDepreciationOrAmortizationRates id="f-1865" decimals="INF" contextRef="c-447" unitRef="u-01">0.0195</ferc:AppliedDepreciationOrAmortizationRates>
   <ferc:AppliedDepreciationOrAmortizationRates decimals="INF" contextRef="c-447.1" unitRef="u-01">0.0155</ferc:AppliedDepreciationOrAmortizationRates>
   <ferc:AppliedDepreciationOrAmortizationRates decimals="INF" contextRef="c-447.2" unitRef="u-01">0.0145</ferc:AppliedDepreciationOrAmortizationRates>
@@ -19901,10 +19959,10 @@ adjustments to future period fuel retention rates</ferc:CitationAuthorizationFor
   <ferc:OrderNumber decimals="INF" contextRef="c-50.3" unitRef="u-01">2</ferc:OrderNumber>
   <ferc:OrderNumber decimals="INF" contextRef="c-450.2" unitRef="u-01">9</ferc:OrderNumber>
   <ferc:OrderNumber decimals="INF" contextRef="c-450.3" unitRef="u-01">10</ferc:OrderNumber>
-  <ferc:OrderNumber id="f-2972" decimals="INF" contextRef="c-51" unitRef="u-01">1</ferc:OrderNumber>
-  <ferc:OrderNumber id="f-2973" decimals="INF" contextRef="c-53" unitRef="u-01">2</ferc:OrderNumber>
-  <ferc:OrderNumber id="f-2974" decimals="INF" contextRef="c-55" unitRef="u-01">3</ferc:OrderNumber>
-  <ferc:OrderNumber id="f-2975" decimals="INF" contextRef="c-57" unitRef="u-01">4</ferc:OrderNumber>
+  <ferc:OrderNumber id="f-2972" decimals="INF" contextRef="c-51.1" unitRef="u-01">1</ferc:OrderNumber>
+  <ferc:OrderNumber id="f-2973" decimals="INF" contextRef="c-53.1" unitRef="u-01">2</ferc:OrderNumber>
+  <ferc:OrderNumber id="f-2974" decimals="INF" contextRef="c-55.1" unitRef="u-01">3</ferc:OrderNumber>
+  <ferc:OrderNumber id="f-2975" decimals="INF" contextRef="c-57.1" unitRef="u-01">4</ferc:OrderNumber>
   <ferc:OrderNumber id="f-2976" decimals="INF" contextRef="c-59" unitRef="u-01">1</ferc:OrderNumber>
   <ferc:OrderNumber id="f-2977" decimals="INF" contextRef="c-61" unitRef="u-01">2</ferc:OrderNumber>
   <ferc:OrderNumber id="f-2978" decimals="INF" contextRef="c-63" unitRef="u-01">3</ferc:OrderNumber>
@@ -21141,8 +21199,8 @@ adjustments to future period fuel retention rates</ferc:CitationAuthorizationFor
   <ferc:OtherOtherOperationalActivities decimals="0" contextRef="c-755.2" unitRef="u-03">250000</ferc:OtherOtherOperationalActivities>
   <ferc:OtherOtherOperationalActivities decimals="0" contextRef="c-756.1" unitRef="u-03">250000</ferc:OtherOtherOperationalActivities>
   <ferc:OtherOtherOperationalActivities decimals="0" contextRef="c-756.2" unitRef="u-03">250000</ferc:OtherOtherOperationalActivities>
-  <ferc:StartDatePeakDeliveries contextRef="c-582">2019-02-06</ferc:StartDatePeakDeliveries>
-  <ferc:StartDatePeakDeliveries contextRef="c-588">2019-02-06</ferc:StartDatePeakDeliveries>
+  <ferc:StartDatePeakDeliveries contextRef="c-584">2019-02-06</ferc:StartDatePeakDeliveries>
+  <ferc:StartDatePeakDeliveries contextRef="c-590">2019-02-17</ferc:StartDatePeakDeliveries>
   <ferc:NoNoticeTransportationVolumesOfGasTransported decimals="0" contextRef="c-588" unitRef="u-03">1000000</ferc:NoNoticeTransportationVolumesOfGasTransported>
   <ferc:NoNoticeStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract decimals="0" contextRef="c-582" unitRef="u-03">1000000</ferc:NoNoticeStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract>
   <ferc:OtherFirmStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract decimals="0" contextRef="c-582" unitRef="u-03">1000000</ferc:OtherFirmStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract>

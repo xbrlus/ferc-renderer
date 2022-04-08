@@ -33,7 +33,8 @@ rule-focus $sum1
 
 constant $OperationTypeLookup = dict(list("Fully Owned and Operated by Respondent",FullyOwnedAndOperatedByRespondentMember),
                                 list("Jointly Owned and Operated by Respondent",JointlyOwnedAndOperatedByRespondentMember),
-                                list("Not Operated by Respondent",NotOperatedByRespondentMember)
+                                list("Not Operated by Respondent",NotOperatedByRespondentMember),
+                                list("Operated but not Owned by Respondent",OperatedButNotOwnedByRespondentMember)
                                 )
 
 assert F2.514.1 satisfied

@@ -375,7 +375,7 @@
             <td class="xbrl description_items">
                 <xule:replace>
                     <xule:expression class="hide">
-                        taxonomy().concept(ferc:PlantMaterialsAndOperatingSuppliesOperationsAndMaintenance).label("http://ferc.gov/form/2020-01-01/roles/label/F1RollforwardHeader").text
+                        taxonomy().concept(ferc:OperationsAndMaintenanceAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1RollforwardHeader").text
                     </xule:expression>
                     <xule:template-display>
                         Assigned to - Operations and Maintenance
@@ -650,17 +650,7 @@
                 </xule:template-display>
             </xule:replace>
         </td>
-        <td class="xbrl description_items">
-            <xule:replace>
-                <xule:expression class="hide" fact="true">
-                    [@ferc:PlantMaterialsAndOperatingSuppliesOtherDepartmentsUsingMaterial @period = $currentDuration]
-                    
-                </xule:expression>
-                <xule:template-display>
-                    Electric
-                </xule:template-display>
-            </xule:replace>
-        </td>
+        <td class="xbrl gray-out"></td>
         </tr>
         <tr>
             <td class="xbrl line-number">13</td>
@@ -971,7 +961,7 @@
                     </xule:template-display>
                 </xule:replace>
             </td>
-            <td class="xbrl"></td>
+            <td class="xbrl gray-out"></td>
         </tr>
     </table>
     <p></p>

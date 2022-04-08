@@ -232,6 +232,7 @@ Rule Id:{$rule_id}
 "
 severity error
 
+/** 
 assert F1.all.11  satisfied 
 $rule_id = rule-name();
 
@@ -261,6 +262,7 @@ Value : {$f1}
 Rule Id:{$rule_id}
 "
 severity error
+**/
 
 assert F1.all.12 satisfied 
 $rule_id = rule-name();

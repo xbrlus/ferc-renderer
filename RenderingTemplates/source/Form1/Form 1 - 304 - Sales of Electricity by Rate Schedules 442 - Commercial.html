@@ -179,54 +179,57 @@
         <tr class="schedule-row" xule:repeat="SalesOfElectricityByRateSchedule">
             <xule:expression class="hide" name="SalesOfElectricityByRateSchedule">// adding a comment
 
-                $data2 = list(for $i in range(40)
-                list($i,none,none,none,none,none,none)
-                );
+                
+                $CommercialSales = set({covered @ferc:CommercialSalesAxis=*}.dimension(ferc:CommercialSalesAxis));
 
-                $data = if count(list({covered @ferc:CommercialSalesAxis=*})) > 0
+                $row =
+                (if $CommercialSales.length == 0
+                            for $i in range(40)
+                                list($i,none,none,none,none,none,none)
+                
+                else
 
-                list({covered @ferc:CommercialSalesAxis=*  {list(
-                        if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
-                            first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
-                        else
-                            0,
-                        if exists({@ferc:DescriptionOfNumberAndTitleOfRateSchedule @unit @period=$currentDuration})
-                            first(list({@ferc:DescriptionOfNumberAndTitleOfRateSchedule @unit @period=$currentDuration}))
-                        else
-                            none,
-                        if exists({@ferc:MegawattHoursSoldSmallOrCommercialBilled @unit @period=$currentDuration})
-                            first(list({@ferc:MegawattHoursSoldSmallOrCommercialBilled @unit @period=$currentDuration}))
-                        else
-                            none,
-                        if exists({@ferc:SmallOrCommercialSalesElectricOperatingRevenueBilled @unit @period=$currentDuration})
-                            first(list({@ferc:SmallOrCommercialSalesElectricOperatingRevenueBilled @unit @period=$currentDuration}))
-                        else 
-                            none,
-                        if exists({@ferc:AverageNumberOfCustomersPerMonthSmallOrCommercialBilled @unit @period=$currentDuration})
-                            first(list({@ferc:AverageNumberOfCustomersPerMonthSmallOrCommercialBilled @unit @period=$currentDuration}))
-                        else 
-                            none,
-                        if exists({@ferc:KilowattHoursOfSalesPerCustomerSmallOrCommercialSalesBilled @unit @period=$currentDuration})
-                            first(list({@ferc:KilowattHoursOfSalesPerCustomerSmallOrCommercialSalesBilled @unit @period=$currentDuration}))
-                        else 
-                            none,
-                        if exists({@ferc:RevenuePerKilowattHourSoldSmallOrCommercialSalesBilled @unit @period=$currentDuration})
-                            first(list({@ferc:RevenuePerKilowattHourSoldSmallOrCommercialSalesBilled @unit @period=$currentDuration}))
-                        else 
-                            none
-                            )}})
-                else $data2;
+                    $orderNumberList =  list(
+                        for $member in $CommercialSales
+                            $orderNumber = list({covered @ferc:OrderNumber @ferc:CommercialSalesAxis = $member});
+                            list(if $orderNumber.length == 0 0 else first($orderNumber), $member) 
+                    ).sort
 
-                 $uniqueData = list(for $x in  $data
-                if $x == list(0,none,none,none,none,none,none)
-                    skip
-                else 
-                    $x
-                );
-
-                for $row in $uniqueData.sort
-                               
-
+                    for $order in $orderNumberList
+                        list(
+                            $order[1],
+                            $DescriptionOfNumberAndTitleOfRateSchedule = list([@ferc:DescriptionOfNumberAndTitleOfRateSchedule @unit @period=$currentDuration @ferc:CommercialSalesAxis = $order[2]]);
+                            if $DescriptionOfNumberAndTitleOfRateSchedule.length > 0
+                                first($DescriptionOfNumberAndTitleOfRateSchedule) 
+                            else 
+                                none,
+                            $MegawattHoursSoldSmallOrCommercialBilled = list([@ferc:MegawattHoursSoldSmallOrCommercialBilled @unit @period=$currentDuration @ferc:CommercialSalesAxis = $order[2]]);
+                            if $MegawattHoursSoldSmallOrCommercialBilled.length > 0
+                                first($MegawattHoursSoldSmallOrCommercialBilled) 
+                            else 
+                                none,
+                            $SmallOrCommercialSalesElectricOperatingRevenueBilled = list([@ferc:SmallOrCommercialSalesElectricOperatingRevenueBilled @unit @period=$currentDuration @ferc:CommercialSalesAxis = $order[2]]);
+                                if $SmallOrCommercialSalesElectricOperatingRevenueBilled.length > 0
+                                    first($SmallOrCommercialSalesElectricOperatingRevenueBilled) 
+                                else 
+                                    none,
+                            $AverageNumberOfCustomersPerMonthSmallOrCommercialBilled = list([@ferc:AverageNumberOfCustomersPerMonthSmallOrCommercialBilled @unit @period=$currentDuration @ferc:CommercialSalesAxis = $order[2]]);
+                            if $AverageNumberOfCustomersPerMonthSmallOrCommercialBilled.length > 0
+                                first($AverageNumberOfCustomersPerMonthSmallOrCommercialBilled) 
+                            else 
+                                none,
+                            $KilowattHoursOfSalesPerCustomerSmallOrCommercialSalesBilled = list([@ferc:KilowattHoursOfSalesPerCustomerSmallOrCommercialSalesBilled @unit @period=$currentDuration @ferc:CommercialSalesAxis = $order[2]]);
+                            if $KilowattHoursOfSalesPerCustomerSmallOrCommercialSalesBilled.length > 0
+                                first($KilowattHoursOfSalesPerCustomerSmallOrCommercialSalesBilled) 
+                            else 
+                                none,
+                            $RevenuePerKilowattHourSoldSmallOrCommercialSalesBilled = list([@ferc:RevenuePerKilowattHourSoldSmallOrCommercialSalesBilled @unit @period=$currentDuration @ferc:CommercialSalesAxis = $order[2]]);
+                            if $RevenuePerKilowattHourSoldSmallOrCommercialSalesBilled.length > 0
+                                first($RevenuePerKilowattHourSoldSmallOrCommercialSalesBilled) 
+                            else 
+                                none
+                                )
+                        )
 
             </xule:expression>
 

@@ -225,7 +225,7 @@
                 else $data2;
 
                 $uniqueData = list(for $x in  $data
-                if $x == list(0,none,none,none)
+                if $x == list($x[1],none,none,none)
                     skip
                 else 
                     $x
@@ -391,7 +391,7 @@
                 else $data2;
 
                 $uniqueData = list(for $x in  $data
-                if $x == list(0,none,none,none)
+                if $x == list($x[1],none,none,none)
                     skip
                 else 
                     $x
@@ -538,19 +538,28 @@
                 )}})
                 else $data2;
 
+                
+
                 $uniqueData = list(for $x in  $data
-                if $x == list(0,none,none,none)
+                if $x == list($x[1],none,none,none)
                     skip
                 else 
                     $x
                 );
 
-                for $row in $uniqueData.sort   
+                $orderedData = $uniqueData.sort
+
+                $finalData = list(for $z in range($orderedData.length)
+                                            $updatedNumber = "17." + $z.string;
+                                            list($updatedNumber,$orderedData[$z][2],$orderedData[$z][3],$orderedData[$z][4])
+                                        );
+
+                for $row in $finalData.sort   
 
             </xule:expression>
             <td class="xbrl line-number">
                 <xule:replace>
-                    <xule:expression class="hide" name="ADITOtherLineItems"  part="1">"16." + $row[1].string
+                    <xule:expression class="hide" name="ADITOtherLineItems"  part="1">$row[1].string
                     </xule:expression>
                 </xule:replace>
             </td>
@@ -667,7 +676,7 @@
         <tr class="schedule-row">
             <td class="xbrl">
                 <xule:replace>
-                    <xule:expression class="hide" fact="true">
+                    <xule:expression class="hide" fact="true" html="true">
                         first(list([covered @concept=ferc:AccumulatedDeferredIncomeTaxesTextBlock @period = $currentDuration]))
                     </xule:expression>
                         <xule:template-display>

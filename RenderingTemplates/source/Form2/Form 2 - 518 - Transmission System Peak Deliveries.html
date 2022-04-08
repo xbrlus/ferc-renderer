@@ -173,8 +173,15 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                         </xule:template-display>
                                 </div>
                             </xule:replace>
-                            <xule:replace>
+                        <!--For historical data conversion-->
+                            <!--    <xule:replace>
                                 <xule:expression class="hide" fact="true">max(list([covered @concept=ferc:DescriptiveStartDateForPeakDeliveries @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period=$currentDuration]))</xule:expression>
+                                <xule:template-display>
+                                    Date: 5/25/2018  
+                                </xule:template-display>
+                        </xule:replace>-->
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true">max(list([covered @concept=ferc:StartDatePeakDeliveries @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @period=$currentDuration]))</xule:expression>
                                 <xule:template-display>
                                     Date: 5/25/2018  
                                 </xule:template-display>
@@ -889,12 +896,19 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                     </xule:template-display>
                             </div>
                         </xule:replace>
-                        <xule:replace>
+                        <!--For Historical Data Conversion-->
+                       <!-- <xule:replace>
                             <xule:expression class="hide" fact="true">max(list([covered @concept=ferc:DescriptiveStartDateForPeakDeliveries @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration]))</xule:expression>
                             <xule:template-display>
                                 Dates: 5/26/2018-5/28/2018   
                             </xule:template-display>
-                    </xule:replace>  
+                    </xule:replace>  -->
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true">max(list([covered @concept=ferc:StartDatePeakDeliveries @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration]))</xule:expression>
+                            <xule:template-display>
+                                Dates: 5/26/2018-5/28/2018   
+                            </xule:template-display>
+                    </xule:replace>
             </td>
             <td class="xbrl gray-out"></td>
             <td class="xbrl gray-out"></td>

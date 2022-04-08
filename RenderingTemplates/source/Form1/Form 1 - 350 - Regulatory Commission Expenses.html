@@ -289,10 +289,9 @@
 
             </xule:expression>
             <td class="xbrl line-number">
-                <xule:replace>
-                    <xule:repeatNumber />
-                    <xule:expression class="hide" name="RegulatoryCommissionExpenses" part="1">$row[1]</xule:expression>
-                </xule:replace>
+                <xule:lineNumber class="hide" name="RegulatoryCommissionExpenses">
+                    <xule:startNumber>1</xule:startNumber>
+                </xule:lineNumber>
                 <xule:template-display>1</xule:template-display>
             </td>
             <td class="xbrl description_items">

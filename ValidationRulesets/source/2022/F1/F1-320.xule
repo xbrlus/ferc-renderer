@@ -230,6 +230,7 @@ else
  $addend = ({@OperationSupervisionAndEngineeringOtherPowerGeneration} 
  + {@Fuel} 
  + {@GenerationExpenses} 
+ + {@OperationOfEnergyStorageEquipment}
  + {@MiscellaneousOtherPowerGenerationExpenses} 
  + {@RentsOtherPowerGeneration});
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
@@ -254,6 +255,7 @@ else
  $addend = ({@MaintenanceSupervisionAndEngineeringOtherPowerGeneration} 
  + {@MaintenanceOfStructures} 
  + {@MaintenanceOfGeneratingAndElectricPlant} 
+ + {@MaintenanceOfEnergyStorageEquipmentOtherPowerGeneration}
  + {@MaintenanceOfMiscellaneousOtherPowerGenerationPlant});
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
@@ -296,6 +298,7 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and fi
 else
  $sum1 = {@OtherPowerSupplyExpense}; 
  $addend = ({@PurchasedPower} 
+ + {@PowerPurchasedForStorageOperations}
  + {@SystemControlAndLoadDispatchingElectric} 
  + {@OtherExpensesOtherPowerSupplyExpenses});
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
@@ -347,9 +350,11 @@ else
  + {@LoadDispatchTransmissionServiceAndScheduling} 
  + {@SchedulingSystemControlAndDispatchServices} 
  + {@ReliabilityPlanningAndStandardsDevelopment} 
- + {@TransmissionServiceStudies} +{@GenerationInterconnectionStudies} 
+ + {@TransmissionServiceStudies} 
+ + {@GenerationInterconnectionStudies} 
  + {@ReliabilityPlanningAndStandardsDevelopmentServices} 
  + {@StationExpensesTransmissionExpense} 
+ + {@OperationOfEnergyStorageEquipmentTransmissionExpense}
  + {@OverheadLineExpense} 
  + {@UndergroundLineExpensesTransmissionExpense} 
  + {@TransmissionOfElectricityByOthers} 
@@ -381,6 +386,7 @@ else
  + {@MaintenanceOfCommunicationEquipmentElectricTransmission} 
  + {@MaintenanceOfMiscellaneousRegionalTransmissionPlant} 
  + {@MaintenanceOfStationEquipmentTransmission} 
+ + {@MaintenanceOfEnergyStorageEquipmentTransmission} 
  + {@MaintenanceOfOverheadLinesTransmission} 
  + {@MaintenanceOfUndergroundLinesTransmission} 
  + {@MaintenanceOfMiscellaneousTransmissionPlant});
@@ -501,6 +507,7 @@ else
  + {@StationExpensesDistribution} 
  + {@OverheadLineExpenses} 
  + {@UndergroundLineExpenses} 
+ + {@OperationOfEnergyStorageEquipmentDistribution}
  + {@StreetLightingAndSignalSystemExpenses} 
  + {@MeterExpenses} 
  + {@CustomerInstallationsExpenses} 
@@ -528,6 +535,7 @@ else
  $addend = ({@MaintenanceSupervisionAndEngineering} 
  + {@MaintenanceOfStructuresDistributionExpense} 
  + {@MaintenanceOfStationEquipment} 
+ + {@MaintenanceOfEnergyStorageEquipment}
  + {@MaintenanceOfOverheadLines} 
  + {@MaintenanceOfUndergroundLines} 
  + {@MaintenanceOfLineTransformers} 

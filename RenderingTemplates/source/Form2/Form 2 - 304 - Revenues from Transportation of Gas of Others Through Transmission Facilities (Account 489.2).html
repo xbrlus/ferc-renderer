@@ -292,6 +292,114 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 </xule:template-display>
             </td>
         </tr>
+        <tr> <!-- Line 40: Total -->
+            <td class="xbrl line-number">40</td>
+            <!-- Zone Of Delivery -->
+            <td class="xbrl description_items">
+                Total
+            </td>
+            <!-- RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities Current -->
+            <td class="monetary_items xbrl">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            $36,882,942
+                        </xule:template-display>
+                </xule:replace> 
+            </td>
+             <!-- RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities Prior -->
+            <td class="numeric_items xbrl">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember @period = $priorDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            119,417,042 
+                        </xule:template-display>
+                </xule:replace> 
+            </td>
+            <!-- RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities Current -->
+            <td class="monetary_items xbrl">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            $823,468,108
+                        </xule:template-display>
+                </xule:replace> 
+            </td>
+             <!-- RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities Prior -->
+            <td class="numeric_items xbrl">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember @period = $priorDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            1,473,648,227
+                        </xule:template-display>
+                </xule:replace> 
+            </td>
+            <!--  OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities Current -->
+            <td class="numeric_items xbrl">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            1,473,648,227
+                        </xule:template-display>
+                </xule:replace> 
+            </td>
+            <!-- OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities Prior -->
+            <td class="numeric_items xbrl">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember @period = $priorDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            1,473,648,227
+                        </xule:template-display>
+                </xule:replace> 
+            </td>
+            <!--  RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities Current -->
+            <td class="numeric_items xbrl">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            1,473,648,227
+                        </xule:template-display>
+                </xule:replace> 
+            </td>
+            <!--  RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities Prior -->
+            <td class="numeric_items xbrl">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember @period = $priorDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            1,473,648,227
+                        </xule:template-display>
+                </xule:replace> 
+            </td>
+            <!-- QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities Current -->
+            <td class="numeric_items xbrl">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            1,473,648,227
+                        </xule:template-display>
+                </xule:replace> 
+            </td>
+            <!-- QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities Prior -->
+            <td class="numeric_items xbrl">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember @period = $priorDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            1,473,648,227
+                        </xule:template-display>
+                </xule:replace> 
+            </td>
+
+        </tr>
     </table>
 <br/>
 <div class="schedule-footer">

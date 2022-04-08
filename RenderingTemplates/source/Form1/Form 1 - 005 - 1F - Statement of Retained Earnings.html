@@ -360,7 +360,7 @@ for $rows in $data-labels
                                 <xule:template-display>
                                         300
                                 </xule:template-display>
-                                <xule:sign>if $rowl[3].name in list(ferc:DividendsDeclaredPreferredStock,ferc:DividendsDeclaredCommonStock) "-" else none</xule:sign>
+                                <xule:sign>if $rowl[3].name in list(ferc:DividendsDeclaredPreferredStockContraPrimaryAccountAffected,ferc:DividendsDeclaredCommonStockContraPrimaryAccountAffected,ferc:DividendsDeclaredPreferredStock,ferc:DividendsDeclaredCommonStock,ferc:AdjustmentsToRetainedEarningsDebit,ferc:AppropriationsOfRetainedEarnings,ferc:AdjustmentsToRetainedEarningsDebitContraPrimaryAccountAffected,ferc:AppropriationsOfRetainedEarningsContraPrimaryAccountAffected) "-" else none</xule:sign>
                          </xule:replace>        
                     </td> 
                     

@@ -242,15 +242,15 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             
             /** Row 8 **/  
             
-            $number_of_Rows_with_facts = count(set({covered @ferc:AllowancesInventoryAxis=*}.dimension(ferc:AllowancesInventoryAxis)));
+            $number_of_Rows_with_facts = count(set({covered @ferc:AllowancesInventoryAxis=* @ferc:EmissionTypeAxis = $Emmission}.dimension(ferc:AllowancesInventoryAxis)));
 
             $data2 =   list(for $i in range(7 - min(list(7,$number_of_Rows_with_facts)) )
                             list($i + 100000,false,none,none,none,none,none,none,none,none,none,none,none,none,none)
             );
            
             
-            $data = if count(list({covered @ferc:AllowancesInventoryAxis=*})) > 0           
-                        $allowances = set({covered @ferc:AllowancesInventoryAxis=*}.dimension(ferc:AllowancesInventoryAxis));
+            $data = if count(list({covered @ferc:AllowancesInventoryAxis=* @ferc:EmissionTypeAxis = $Emmission})) > 0           
+                        $allowances = set({covered @ferc:AllowancesInventoryAxis=* @ferc:EmissionTypeAxis = $Emmission}.dimension(ferc:AllowancesInventoryAxis));
    
                         list(for $x in $allowances
                             sum(list(list(
@@ -287,9 +287,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 
             $TPN =  $uniqueTransferData.sort
 
-            $TPNRow = list(for $i in range(7)
-                        list(7 + $i, false) +  list($TPN[$i][3]) + list($TPN[$i][4]) + list($TPN[$i][5]) + list($TPN[$i][6]) + list($TPN[$i][7]) + list($TPN[$i][8]) + list($TPN[$i][9]) + list($TPN[$i][10]) + list($TPN[$i][11]) + list($TPN[$i][12]) + list($TPN[$i][13]) + list($TPN[$i][14]) + list($TPN[$i][15])
-            )
+            $TPNRow = list(for $i in range($TPN.length)
+                            /** If i is greater than 7 we don't have enough rows so use 14.1, 14.2 etc. **/
+                            list(7 + if $i > 7 ("7." + ($i - 7).string).number else $i, false) +  list($TPN[$i][3]) + list($TPN[$i][4]) + list($TPN[$i][5]) + list($TPN[$i][6]) + list($TPN[$i][7]) + list($TPN[$i][8]) + list($TPN[$i][9]) + list($TPN[$i][10]) + list($TPN[$i][11]) + list($TPN[$i][12]) + list($TPN[$i][13]) + list($TPN[$i][14]) + list($TPN[$i][15])
+                            )
            $TransferData = $TPNRow; 
 
             /** Row 15 **/
@@ -344,14 +345,14 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             $other = list(20 , false, "Allowances Used") + $otherValue;
 
             /** Row20 ** Sub **/
-            $number_of_Rows_with_Other_facts = count(set({covered @ferc:AllowancesRelinquishedAxis=*}.dimension(ferc:AllowancesRelinquishedAxis)));
+            $number_of_Rows_with_Other_facts = count(set({covered @ferc:AllowancesRelinquishedAxis=* @ferc:EmissionTypeAxis = $Emmission}.dimension(ferc:AllowancesRelinquishedAxis)));
 
             $Otherdata2 =   list(for $i in range(1 - min(list(1,$number_of_Rows_with_Other_facts)))
                             list($i + 100000,false,none,none,none,none,none,none,none,none,none,none,none,none,none)
             );
                             
-            $otherSubValue = if count(list({covered @ferc:AllowancesRelinquishedAxis=*})) > 0           
-                                    $allowances3 = set({covered @ferc:AllowancesRelinquishedAxis=*}.dimension(ferc:AllowancesRelinquishedAxis));
+            $otherSubValue = if count(list({covered @ferc:AllowancesRelinquishedAxis=* @ferc:EmissionTypeAxis = $Emmission})) > 0           
+                                    $allowances3 = set({covered @ferc:AllowancesRelinquishedAxis=* @ferc:EmissionTypeAxis = $Emmission}.dimension(ferc:AllowancesRelinquishedAxis));
 
                                     list(for $x in $allowances3
                                         sum(list(list(
@@ -399,14 +400,14 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             
              /** Row 21 **/ 
 
-            $number_of_Rows_with_COS_facts = count(set({covered @ferc:AllowancesCostOfSalesAxis=*}.dimension(ferc:AllowancesCostOfSalesAxis)));
+            $number_of_Rows_with_COS_facts = count(set({covered @ferc:AllowancesCostOfSalesAxis=* @ferc:EmissionTypeAxis = $Emmission}.dimension(ferc:AllowancesCostOfSalesAxis)));
 
             $COSdata2 =   list(for $i in range(6 - min(list(6,$number_of_Rows_with_COS_facts)))
                             list($i + 100000,false,none,none,none,none,none,none,none,none,none,none,none,none,none)
             );
 
-            $COSdata = if count(list({covered @ferc:AllowancesCostOfSalesAxis=*})) > 0           
-                        $allowances2 = set({covered @ferc:AllowancesCostOfSalesAxis=*}.dimension(ferc:AllowancesCostOfSalesAxis));
+            $COSdata = if count(list({covered @ferc:AllowancesCostOfSalesAxis=* @ferc:EmissionTypeAxis = $Emmission})) > 0           
+                        $allowances2 = set({covered @ferc:AllowancesCostOfSalesAxis=* @ferc:EmissionTypeAxis = $Emmission}.dimension(ferc:AllowancesCostOfSalesAxis));
    
                         list(for $x in $allowances2
                             sum(list(list(
@@ -446,9 +447,11 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 
         $CPN =  $uniqueCOSData.sort
 
-        $CPNRow = list(for $i in range(6)
-                                list(21 + $i, false) +  list($CPN[$i][3]) + list($CPN[$i][4]) + list($CPN[$i][5]) + list($CPN[$i][6]) + list($CPN[$i][7]) + list($CPN[$i][8]) + list($CPN[$i][9]) + list($CPN[$i][10]) + list($CPN[$i][11]) + list($CPN[$i][12]) + list($CPN[$i][13]) + list($CPN[$i][14]) + list($CPN[$i][15])
+        $CPNRow = list(for $i in range($CPN.length)
+                        /** If i is greater than 6 we don't have enough rows so use 27.1, 27.2 etc. **/
+                        list(21 + if $i > 6 ("6." + ($i - 6).string).number else $i, false) +  list($CPN[$i][3]) + list($CPN[$i][4]) + list($CPN[$i][5]) + list($CPN[$i][6]) + list($CPN[$i][7]) + list($CPN[$i][8]) + list($CPN[$i][9]) + list($CPN[$i][10]) + list($CPN[$i][11]) + list($CPN[$i][12]) + list($CPN[$i][13]) + list($CPN[$i][14]) + list($CPN[$i][15])
                                     )
+
         $COSDataProc = $CPNRow; 
         
 

@@ -139,7 +139,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         </tr>
         <tr class="schedule-row" xule:repeat="ListLineItems">
                 <xule:expression class="hide" name="ListLineItems">
-    $data = navigate parent-child descendants from ferc:Form6Abstract role "http://ferc.gov/form/2020-01-01/roles/Schedule/F6/ListOfSchedule" where $relationship.target-name not in list(ferc:ScheduleIdentificationAbstract, ferc:ScheduleListOfSchedulesAbstract, ferc:StockholdersReportsAbstract, ferc:IndicatorStockholdersReportSubmittedOrNotPrepared, ferc:ScheduleRemarksTable, ferc:ScheduleRemarksAxis, ferc:RemarksLineItems, ferc:Remarks) returns list (target-name, preferred-label);
+    $data = navigate parent-child descendants from ferc:Form6Abstract role "http://ferc.gov/form/2020-01-01/roles/Schedule/F6/ListOfSchedule" where $relationship.target-name not in list(ferc:ScheduleIdentificationAbstract, ferc:ScheduleListOfSchedulesAbstract, ferc:StockholdersReportsAbstract, ferc:IndicatorStockholdersReportSubmittedOrNotPrepared, ferc:ScheduleRemarksTable, ferc:ScheduleRemarksAxis, ferc:RemarksLineItems, ferc:Remarks, ferc:ScheduleWaiverSchedule, ferc:ScheduleExemption) returns list (target-name, preferred-label);
     $data-labels = list(for $row in $data
             $concept = taxonomy().concept($row[1]);
             $row_num = (filter $concept.references("http://ferc.gov/form/2020-01-01/roles/reference/formLocation") where ($item.part-by-name(ferc-part:Schedule).part-value == "002 - Schedule - List of Schedule" and $item.part-by-name(ferc-part:ValueType).part-value.string == "Label")).to-list;

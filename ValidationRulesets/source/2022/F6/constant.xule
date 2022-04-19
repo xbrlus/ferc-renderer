@@ -196,6 +196,7 @@ constant $waivedSchedules = set(for $schedule in (list([covered @concept in list
 
 constant $scheduleLookup = dict(list('101', set("ScheduleGeneralInformationAbstract")),
 								list('102', set("ScheduleControlOverRespondentAbstract")),
+								list('103', set("ScheduleCompaniesControlledByRespondentAbstract")),
 								list('104', set("ScheduleOfficersAbstract")),
 								list('105', set("ScheduleDirectorsAbstract")),
 								list('110', set("ScheduleComparativeBalanceSheetAbstract")),

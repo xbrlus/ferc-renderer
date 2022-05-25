@@ -73957,7 +73957,7 @@ Bali, FL 32304</ferc:RespondentMailingAddress>
 	<ferc:TitleOfCertifyingOfficial contextRef="c-01" id="f-16">Electric Utility Engineer</ferc:TitleOfCertifyingOfficial>
 	<ferc:CertifyingOfficialDate contextRef="c-01" id="f-17">2018-04-06</ferc:CertifyingOfficialDate>
 	<ferc:SubmissionType contextRef="c-01" id="f-18">O</ferc:SubmissionType>
-	<ferc:UnitDispatchNotBasedOnEconomicDispatchOfThermalUnits contextRef="c-01" id="f-19">false</ferc:UnitDispatchNotBasedOnEconomicDispatchOfThermalUnits>
+	<ferc:UnitDispatchNotBasedOnEconomicDispatchOfThermalUnits contextRef="c-01" id="f-19">true</ferc:UnitDispatchNotBasedOnEconomicDispatchOfThermalUnits>
 	<ferc:ElectricUtilityName contextRef="c-02" id="f-20">City of Bali</ferc:ElectricUtilityName>
 	<ferc:ElectricUtilityName contextRef="c-03" id="f-24">City of Bali</ferc:ElectricUtilityName>
 	<ferc:ElectricUtilityName contextRef="c-04" id="f-28">City of Bali</ferc:ElectricUtilityName>
@@ -74000,7 +74000,9 @@ Bali, FL 32304</ferc:RespondentMailingAddress>
 	<ferc:NetCapabilityFromPlants unitRef="u-03" contextRef="c-14" decimals="0" id="f-67">700</ferc:NetCapabilityFromPlants>
 	<ferc:NetCapabilityFromPlants unitRef="u-03" contextRef="c-15" decimals="0" id="f-71">772</ferc:NetCapabilityFromPlants>
 	<ferc:NetCapabilityFromPlants unitRef="u-03" contextRef="c-16" decimals="0" id="f-75">772</ferc:NetCapabilityFromPlants>
-	<ferc:NetCapabilityAtTheTimeOfTheMonthlyPeakDemand unitRef="u-03" contextRef="c-05" decimals="0" id="f-36">772</ferc:NetCapabilityAtTheTimeOfTheMonthlyPeakDemand>
+	<ferc:ExternalToTheBalancingAuthorityAreaNetUnitOrFirmCapabilityAvailable unitRef="u-03" contextRef="c-05" decimals="0">-100</ferc:ExternalToTheBalancingAuthorityAreaNetUnitOrFirmCapabilityAvailable>
+	<ferc:ExternalToTheBalancingAuthorityAreaNetUnitOrFirmCapabilityNotAvailable unitRef="u-03" contextRef="c-05" decimals="0">-100</ferc:ExternalToTheBalancingAuthorityAreaNetUnitOrFirmCapabilityNotAvailable>
+	<ferc:NetCapabilityAtTheTimeOfTheMonthlyPeakDemand unitRef="u-03" contextRef="c-05" decimals="0" id="f-36">572</ferc:NetCapabilityAtTheTimeOfTheMonthlyPeakDemand>
 	<ferc:NetCapabilityAtTheTimeOfTheMonthlyPeakDemand unitRef="u-03" contextRef="c-06" decimals="0" id="f-40">772</ferc:NetCapabilityAtTheTimeOfTheMonthlyPeakDemand>
 	<ferc:NetCapabilityAtTheTimeOfTheMonthlyPeakDemand unitRef="u-03" contextRef="c-07" decimals="0" id="f-44">772</ferc:NetCapabilityAtTheTimeOfTheMonthlyPeakDemand>
 	<ferc:NetCapabilityAtTheTimeOfTheMonthlyPeakDemand unitRef="u-03" contextRef="c-08" decimals="0" id="f-48">700</ferc:NetCapabilityAtTheTimeOfTheMonthlyPeakDemand>

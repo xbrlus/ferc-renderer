@@ -128,7 +128,7 @@ severity error
 assert F714.1.1.12 satisfied 
 $rule_id = rule-name();
 
- {@concept.data-type=num:powerItemType where $fact.concept.name != LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandNetNonFirmAndInadvertent and $fact.concept.name != IntegratedNetLoadOnThePlantAtTheHourOfTheAnnualPeakDemandBasedOnNetEnergyForLoad}#f1<0  
+ {@concept.data-type=num:powerItemType where $fact.concept.name != LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandNetNonFirmAndInadvertent and $fact.concept.name != IntegratedNetLoadOnThePlantAtTheHourOfTheAnnualPeakDemandBasedOnNetEnergyForLoad and $fact.concept.name != ExternalToTheBalancingAuthorityAreaNetUnitOrFirmCapabilityAvailable and $fact.concept.name != ExternalToTheBalancingAuthorityAreaNetUnitOrFirmCapabilityNotAvailable}#f1<0  
 message 
 "The value for the concept {$f1.concept.name} with a value of {$f1} cannot have a negative number.  
 

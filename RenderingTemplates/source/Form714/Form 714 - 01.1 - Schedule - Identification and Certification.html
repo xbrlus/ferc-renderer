@@ -176,7 +176,7 @@ xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
                     
                 <xule:replace>
                         <xule:expression html="true" class="hide">if missing({covered @concept=ferc:UnitDispatchNotBasedOnEconomicDispatchOfThermalUnits}) <![CDATA[
-                        '<span class="checkbox">&#9744;</span> Unit dispatch is not based on the economic dispatch of thermal units (i.e., a system lambda is not calculated)']]> else if ([@concept=ferc:UnitDispatchNotBasedOnEconomicDispatchOfThermalUnits @period=$currentDuration] == "True"  or [@concept=ferc:UnitDispatchNotBasedOnEconomicDispatchOfThermalUnits @period=$currentDuration] == "Both")<![CDATA[
+                        '<span class="checkbox">&#9744;</span> Unit dispatch is not based on the economic dispatch of thermal units (i.e., a system lambda is not calculated)']]> else if ([@concept=ferc:UnitDispatchNotBasedOnEconomicDispatchOfThermalUnits @period=$currentDuration])<![CDATA[
                         '<span class="checkbox">&#9745;</span> Unit dispatch is not based on the economic dispatch of thermal units (i.e., a system lambda is not calculated)']]> else <![CDATA[
                         '<span class="checkbox">&#9744;</span> Unit dispatch is not based on the economic dispatch of thermal units (i.e., a system lambda is not calculated)']]>
                         </xule:expression>  

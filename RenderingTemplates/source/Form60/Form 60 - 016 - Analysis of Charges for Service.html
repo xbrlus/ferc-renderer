@@ -282,7 +282,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <td class="xbrl monetary_items">
                             <xule:replace>
                                 <xule:expression class="hide" name="ChargesLineItems" fact="true" format="ixt4:num-dot-decimal" part="12">$rowl[13]</xule:expression>
-                                <xule:sign>if $rowl[13].name in list(ferc:AllowanceForOtherFundsUsedDuringConstruction,ferc:AllowanceForBorrowedFundsUsedDuringConstructionCredit) "-" else none</xule:sign>
+                               <!--<xule:sign>if $rowl[13].name in list(ferc:AllowanceForOtherFundsUsedDuringConstruction,ferc:AllowanceForBorrowedFundsUsedDuringConstructionCredit) "-" else none</xule:sign>-->
                             </xule:replace>
                         </td>
 

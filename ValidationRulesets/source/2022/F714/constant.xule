@@ -2,7 +2,7 @@
 
 constant $valid_year = (max(list([covered @ferc:ReportYear])) >= 1990) and (max(list([covered @ferc:ReportYear])) <= 2100)
 
-constant $report-year-guess = most_frequent(list({covered @concept}.period.end))
+constant $report-year-guess = most_frequent(list({covered @concept not in list(ferc:SystemLambda, ferc:PlanningAreaHourlyDemandMegawatts)}.period.end))
 
 constant $report-year-default = if max(list([covered @ferc:ReportYear])) == none
 								$report-year-guess.year

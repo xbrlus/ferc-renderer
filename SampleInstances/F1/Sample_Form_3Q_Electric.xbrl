@@ -110,6 +110,33 @@
       <endDate>2018-03-31</endDate>
     </period>
   </context>
+  <context id="c-10.1">
+    <entity>
+      <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
+      <segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
+					<ferc:RetainedEarningsDomain>0-39</ferc:RetainedEarningsDomain>
+				</xbrldi:typedMember>
+      </segment>
+    </entity>
+    <period>
+      <startDate>2018-01-01</startDate>
+      <endDate>2018-03-31</endDate>
+    </period>
+  </context>
+  <context id="c-10.2">
+    <entity>
+      <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
+      <segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
+					<ferc:RetainedEarningsDomain>0-39</ferc:RetainedEarningsDomain>
+				</xbrldi:typedMember>
+      </segment>
+    </entity>
+    <period>
+      <instant>2018-03-31</instant>
+    </period>
+  </context>
   <context id="c-11">
     <entity>
       <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
@@ -122,6 +149,19 @@
     <period>
       <startDate>2017-01-01</startDate>
       <endDate>2017-03-31</endDate>
+    </period>
+  </context>
+  <context id="c-11.1">
+    <entity>
+      <identifier scheme="http://www.ferc.gov/CID">C001552</identifier>
+      <segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
+					<ferc:RetainedEarningsDomain>0-39</ferc:RetainedEarningsDomain>
+				</xbrldi:typedMember>
+      </segment>
+    </entity>
+    <period>
+      <instant>2017-03-31</instant>
     </period>
   </context>
   <context id="c-12">
@@ -2679,14 +2719,23 @@
   <ferc:UnappropriatedRetainedEarnings id="f-362" decimals="INF" contextRef="c-12" unitRef="u-02">2477922701</ferc:UnappropriatedRetainedEarnings>
   <ferc:BalanceTransferredFromIncome id="f-349" decimals="INF" contextRef="c-01" unitRef="u-02">228156591</ferc:BalanceTransferredFromIncome>
   <ferc:BalanceTransferredFromIncome id="f-350" decimals="INF" contextRef="c-05" unitRef="u-02">176604140</ferc:BalanceTransferredFromIncome>
+  <ferc:DividendsDeclaredPreferredStockDescription contextRef="c-08">PS Declared 1</ferc:DividendsDeclaredPreferredStockDescription>
   <ferc:DividendsDeclaredPreferredStock id="f-351" decimals="INF" contextRef="c-08" unitRef="u-02">-3665371</ferc:DividendsDeclaredPreferredStock>
   <ferc:DividendsDeclaredPreferredStock id="f-352" decimals="INF" contextRef="c-09" unitRef="u-02">-4325509</ferc:DividendsDeclaredPreferredStock>
   <ferc:DividendsDeclaredPreferredStock id="f-353" decimals="INF" contextRef="c-01" unitRef="u-02">-3665371</ferc:DividendsDeclaredPreferredStock>
   <ferc:DividendsDeclaredPreferredStock id="f-354" decimals="INF" contextRef="c-05" unitRef="u-02">-4325509</ferc:DividendsDeclaredPreferredStock>
+  <ferc:DividendsDeclaredCommonStockDescription contextRef="c-10">CS Declared 1</ferc:DividendsDeclaredCommonStockDescription>
   <ferc:DividendsDeclaredCommonStock id="f-355" decimals="INF" contextRef="c-10" unitRef="u-02">-202253000</ferc:DividendsDeclaredCommonStock>
   <ferc:DividendsDeclaredCommonStock id="f-356" decimals="INF" contextRef="c-11" unitRef="u-02">-178507250</ferc:DividendsDeclaredCommonStock>
   <ferc:DividendsDeclaredCommonStock id="f-357" decimals="INF" contextRef="c-01" unitRef="u-02">-202253000</ferc:DividendsDeclaredCommonStock>
   <ferc:DividendsDeclaredCommonStock id="f-358" decimals="INF" contextRef="c-05" unitRef="u-02">-178507250</ferc:DividendsDeclaredCommonStock>
+
+  <ferc:AppropriatedRetainedEarningsDescription contextRef="c-10.1">Patronage Capital</ferc:AppropriatedRetainedEarningsDescription>
+  <ferc:AppropriatedRetainedEarnings decimals="INF" contextRef="c-10.2" unitRef="u-02">0</ferc:AppropriatedRetainedEarnings>
+  <ferc:AppropriatedRetainedEarnings decimals="INF" contextRef="c-11.1" unitRef="u-02">0</ferc:AppropriatedRetainedEarnings>
+  <ferc:AppropriatedRetainedEarnings decimals="INF" contextRef="c-02" unitRef="u-02">0</ferc:AppropriatedRetainedEarnings>
+  <ferc:AppropriatedRetainedEarnings decimals="INF" contextRef="c-12" unitRef="u-02">0</ferc:AppropriatedRetainedEarnings>
+
   <ferc:TransfersFromUnappropriatedUndistributedSubsidiaryEarnings id="f-359" decimals="INF" contextRef="c-01" unitRef="u-02">3057029</ferc:TransfersFromUnappropriatedUndistributedSubsidiaryEarnings>
   <ferc:TransfersFromUnappropriatedUndistributedSubsidiaryEarnings id="f-360" decimals="INF" contextRef="c-05" unitRef="u-02">2961380</ferc:TransfersFromUnappropriatedUndistributedSubsidiaryEarnings>
   <ferc:DepreciationAndDepletion id="f-364" decimals="INF" contextRef="c-01" unitRef="u-02">202543934</ferc:DepreciationAndDepletion>
@@ -3442,6 +3491,7 @@ offering shippers enhanced connectivity and service optionality in the New York 
   <ferc:AdministrativeAndGeneralExpenses id="f-1144" decimals="INF" contextRef="c-01" unitRef="u-02">88449664</ferc:AdministrativeAndGeneralExpenses>
   <ferc:OrderNumber id="f-1145" decimals="INF" contextRef="c-08" unitRef="u-01">24</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1146" decimals="INF" contextRef="c-10" unitRef="u-01">31</ferc:OrderNumber>
+  <ferc:OrderNumber decimals="INF" contextRef="c-10.1" unitRef="u-01">39</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1147" decimals="INF" contextRef="c-13" unitRef="u-01">5</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1148" decimals="INF" contextRef="c-15" unitRef="u-01">18</ferc:OrderNumber>
   <ferc:OrderNumber id="f-1149" decimals="INF" contextRef="c-17" unitRef="u-01">31</ferc:OrderNumber>

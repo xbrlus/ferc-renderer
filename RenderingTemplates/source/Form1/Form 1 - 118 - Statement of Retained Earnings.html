@@ -293,11 +293,11 @@ $data-labels = list(for $row in $treeElements
                                                     first(list({@concept = $lineItemsList[3][1] @unit @period = $currentInstant where $fact.dimension($axis) != none}))
                                                 else 
                                                     none,
-                                            if exists({@concept = $lineItemsList[3][1] @unit=* @period = $priorDuration where $fact.dimension($axis) != none}) 
-                                                first(list({@concept = $lineItemsList[3][1] @unit=* @period = $priorDuration where $fact.dimension($axis) != none}))    
+                                            if exists({@concept = $lineItemsList[3][1] @unit @period = $priorDuration where $fact.dimension($axis) != none}) 
+                                                first(list({@concept = $lineItemsList[3][1] @unit @period = $priorDuration where $fact.dimension($axis) != none}))    
                                             else 
-                                                if exists({@concept = $lineItemsList[3][1] @unit @period = $priorInstant where $fact.dimension($axis) != none} ) 
-                                                    first(list({@concept = $lineItemsList[3][1] @unit @period = $priorInstant where $fact.dimension($axis) != none}))
+                                                if exists({@concept = $lineItemsList[3][1] @unit @period = $prior12MonthsInstant where $fact.dimension($axis) != none} ) 
+                                                    first(list({@concept = $lineItemsList[3][1] @unit @period = $prior12MonthsInstant where $fact.dimension($axis) != none}))
                                                 else 
                                                     none,
                                             $formFlag

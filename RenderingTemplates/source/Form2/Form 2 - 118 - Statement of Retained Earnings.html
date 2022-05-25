@@ -264,19 +264,25 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                                 $lineItemsList[3][1],
                                                     
                                                 if exists({@concept = $lineItemsList[2][1] @unit @period = $currentDuration where $fact.dimension($axis) != none}) 
-                                                    {@concept = $lineItemsList[2][1] @unit @period = $currentDuration where $fact.dimension($axis) != none} 
+                                                first(list({@concept = $lineItemsList[2][1] @unit @period = $currentDuration where $fact.dimension($axis) != none}))
+                                            else 
+                                                none,
+                                            if exists({@concept = $lineItemsList[4][1] @unit @period = $currentDuration where $fact.dimension($axis) != none} ) 
+                                                first(list({@concept = $lineItemsList[4][1] @unit @period = $currentDuration where $fact.dimension($axis) != none}))
+                                            else 
+                                                none,
+                                            if exists({@concept = $lineItemsList[3][1] @unit @period = $currentDuration where $fact.dimension($axis) != none} ) 
+                                                first(list({@concept = $lineItemsList[3][1] @unit @period = $currentDuration where $fact.dimension($axis) != none}))
+                                            else 
+                                                if exists({@concept = $lineItemsList[3][1] @unit @period = $currentInstant where $fact.dimension($axis) != none} ) 
+                                                    first(list({@concept = $lineItemsList[3][1] @unit @period = $currentInstant where $fact.dimension($axis) != none}))
                                                 else 
                                                     none,
-                                                if exists({@concept = $lineItemsList[4][1] @unit @period = $currentDuration where $fact.dimension($axis) != none} ) 
-                                                    {@concept = $lineItemsList[4][1] @unit @period = $currentDuration where $fact.dimension($axis) != none} 
-                                                else 
-                                                    none,
-                                                if exists({@concept = $lineItemsList[3][1] @unit @period = $currentDuration where $fact.dimension($axis) != none} ) 
-                                                    {@concept = $lineItemsList[3][1] @unit @period = $currentDuration where $fact.dimension($axis) != none} 
-                                                else 
-                                                    none,
-                                                if exists({@concept = $lineItemsList[3][1] @unit=* @period = $priorDuration where $fact.dimension($axis) != none}) 
-                                                    {@concept = $lineItemsList[3][1] @unit=* @period = $priorDuration where $fact.dimension($axis) != none}     
+                                            if exists({@concept = $lineItemsList[3][1] @unit @period = $priorDuration where $fact.dimension($axis) != none}) 
+                                                first(list({@concept = $lineItemsList[3][1] @unit @period = $priorDuration where $fact.dimension($axis) != none}))    
+                                            else 
+                                                if exists({@concept = $lineItemsList[3][1] @unit @period = $prior12MonthsInstant where $fact.dimension($axis) != none} ) 
+                                                    first(list({@concept = $lineItemsList[3][1] @unit @period = $prior12MonthsInstant where $fact.dimension($axis) != none}))
                                                 else 
                                                     none
                                                 )}});

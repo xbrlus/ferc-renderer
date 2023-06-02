@@ -1,0 +1,246 @@
+/**FERC Form 6 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F6.120.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+$NoncashAdjustmentsToCashFlowsFromOperatingActivities = first-value({@NoncashAdjustmentsToCashFlowsFromOperatingActivities}, sum(list({nonils @NoncashAdjustmentsToCashFlowsFromOperatingActivities @NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis=*})));
+
+$OtherAdjustmentsToCashFlowsFromOperatingActivities = first-value({@OtherAdjustmentsToCashFlowsFromOperatingActivities}, sum(list({nonils @OtherAdjustmentsToCashFlowsFromOperatingActivities @OtherAdjustmentsToCashFlowsFromOperatingActivitiesAxis=*})));
+
+ $sum1 = {@NetCashProvidedByUsedInOperatingActivities}; 
+ $addend = ({@NetIncomeLoss}#f0 
+ + {@DepreciationAndDepletion}#f1 
+ + {@Amortization}#f2 
+ + $NoncashAdjustmentsToCashFlowsFromOperatingActivities 
+ + {@DeferredIncomeTaxesNet}#f4 
+ - {@NetIncreaseDecreaseInReceivablesOperatingActivities}#f5 
+ - {@NetIncreaseDecreaseInInventoryOperatingActivities}#f6 
+ + {@NetIncreaseDecreaseInPayablesAndAccruedExpensesOperatingActivities}#f7 
+ + $OtherAdjustmentsToCashFlowsFromOperatingActivities
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetCashProvidedByUsedInOperatingActivities with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t NoncashAdjustmentsToCashFlowsFromOperatingActivities \t = \t {$NoncashAdjustmentsToCashFlowsFromOperatingActivities}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
+- \t {$f6.concept.name.local-name} \t = \t {$f6}
++ \t {$f7.concept.name.local-name} \t = \t {$f7}
++ \t OtherAdjustmentsToCashFlowsFromOperatingActivities \t = \t {$OtherAdjustmentsToCashFlowsFromOperatingActivities}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.120.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+$OtherConstructionAndAcquisitionOfPlantInvestmentActivities = first-value({@OtherConstructionAndAcquisitionOfPlantInvestmentActivities}, sum(list({nonils @OtherConstructionAndAcquisitionOfPlantInvestmentActivities @OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesAxis=*})));
+
+ $sum1 = {@CashOutflowsForPlant}; 
+ $addend = ({@GrossAdditionsToCarrierPropertyInvestmentActivities}#f0 
+ + {@GrossAdditionsToNoncarrierPropertyInvestmentActivities}#f1 
+ + $OtherConstructionAndAcquisitionOfPlantInvestmentActivities
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CashOutflowsForPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t OtherConstructionAndAcquisitionOfPlantInvestmentActivities \t = \t {$OtherConstructionAndAcquisitionOfPlantInvestmentActivities}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.120.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+$OtherAdjustmentsToCashFlowsFromInvestmentActivities = first-value({@OtherAdjustmentsToCashFlowsFromInvestmentActivities}, sum(list({nonils @OtherAdjustmentsToCashFlowsFromInvestmentActivities @OtherAdjustmentsToCashFlowsFromInvestmentActivitiesAxis=*})));
+
+ $sum1 = {@CashFlowsProvidedFromUsedInInvestmentActivities}; 
+ $addend = ({@ProceedsFromDisposalOfNoncurrentAssets}#f0 
+ - {@CashOutflowsForPlant}#f1 
+ - {@AcquisitionOfOtherNoncurrentAssets}#f2 
+ - {@InvestmentsInAndAdvancesToAssociatedAndSubsidiaryCompanies}#f3 
+ + {@ContributionsAndAdvancesFromAssociatedAndSubsidiaryCompanies}#f4 
+ + {@DispositionOfInvestmentsInAndAdvancesToAssociatedAndSubsidiaryCompanies}#f5 
+ - {@PurchaseOfInvestmentSecurities}#f6 
+ + {@ProceedsFromSalesOfInvestmentSecurities}#f7 
+ - {@LoansMadeOrPurchased}#f8 
+ + {@CollectionsOnLoans}#f9 
+ - {@NetIncreaseDecreaseInReceivablesInvestingActivities}#f10 
+ - {@NetIncreaseDecreaseInInventoryInvestingActivities}#f11 
+ + {@NetIncreaseDecreaseInPayablesAndAccruedExpensesInvestingActivities}#f12 
+ + $OtherAdjustmentsToCashFlowsFromInvestmentActivities
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CashFlowsProvidedFromUsedInInvestmentActivities with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
+- \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
+- \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
+- \t {$f6.concept.name.local-name} \t = \t {$f6}
++ \t {$f7.concept.name.local-name} \t = \t {$f7}
+- \t {$f8.concept.name.local-name} \t = \t {$f8}
++ \t {$f9.concept.name.local-name} \t = \t {$f9}
+- \t {$f10.concept.name.local-name} \t = \t {$f10}
++ \t {$f11.concept.name.local-name} \t = \t {$f11}
++ \t {$f12.concept.name.local-name} \t = \t {$f12}
++ \t OtherAdjustmentsToCashFlowsFromInvestmentActivities \t = \t {$OtherAdjustmentsToCashFlowsFromInvestmentActivities}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.120.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+$OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities = first-value([@OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities], sum(list([nonils @OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities @OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesAxis=*])));
+
+$OtherAdjustmentByShortTermDebtToCashFlowsFromFinancingActivities = first-value([@OtherAdjustmentByShortTermDebtToCashFlowsFromFinancingActivities], sum(list([nonils @OtherAdjustmentByShortTermDebtToCashFlowsFromFinancingActivities @OtherAdjustmentByShortTermDebtToCashFlowsFromFinancingActivitiesAxis=*])));
+
+$sum1 = [@CashProvidedByOutsideSources]; 
+$addend = ([@ProceedsFromIssuanceOfLongTermDebtFinancingActivities]#f0 
++ [@ProceedsFromIssuanceOfCapitalStock]#f1 
++ $OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities 
++ {@NetIncreaseInShortTermDebt}#f3 
++ $OtherAdjustmentByShortTermDebtToCashFlowsFromFinancingActivities
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CashProvidedByOutsideSources with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities \t = \t {$OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivities}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t OtherAdjustmentByShortTermDebtToCashFlowsFromFinancingActivities \t = \t {$OtherAdjustmentByShortTermDebtToCashFlowsFromFinancingActivities}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.120.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+$OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities  = first-value([@OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities],sum(list([nonils @OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities @OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis=*])));
+
+$OtherAdjustmentsToCashFlowsFromFinancingActivities = first-value([@OtherAdjustmentsToCashFlowsFromFinancingActivities],sum(list([nonils @OtherAdjustmentsToCashFlowsFromFinancingActivities @OtherAdjustmentsToCashFlowsFromFinancingActivitiesAxis=*])));
+
+ $sum1 = [@CashFlowsProvidedFromUsedInFinancingActivities]; 
+ $addend = ([@CashProvidedByOutsideSources]#f0 
+ - [@PaymentsForRetirementOfLongTermDebtFinancingActivities]#f1 
+ - [@PaymentForRetirementOfCapitalStock]#f2 
+ - $OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities 
+ - [@NetDecreaseInShortTermDebt]#f4 
+ - [@DividendsOnCapitalStock]#f5 
+ + $OtherAdjustmentsToCashFlowsFromFinancingActivities);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CashFlowsProvidedFromUsedInFinancingActivities with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
+- \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
+- \t OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities \t = \t {$OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivities}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t OtherAdjustmentsToCashFlowsFromFinancingActivities \t = \t {$OtherAdjustmentsToCashFlowsFromFinancingActivities}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.120.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@NetIncreaseDecreaseInCashAndCashEquivalents}; 
+ $addend = ({@NetCashProvidedByUsedInOperatingActivities}#f0 
+ + {@CashFlowsProvidedFromUsedInInvestmentActivities}#f1 
+ + {@CashFlowsProvidedFromUsedInFinancingActivities}#f2
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetIncreaseDecreaseInCashAndCashEquivalents with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.120.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@CashAndCashEquivalents @period=$currentInstant}; 
+ $addend = ({@CashAndCashEquivalents @period=$priorInstant}#f0 
+ + {@NetIncreaseDecreaseInCashAndCashEquivalents @period=$currentDuration}#f1
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CashAndCashEquivalents with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

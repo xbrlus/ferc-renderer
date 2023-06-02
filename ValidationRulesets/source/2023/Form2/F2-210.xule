@@ -1,0 +1,70 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.210.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2','2-A').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+  $sum1 = {@GasPlantInService}; 
+ $addend = ({@IntangiblePlant}
+ + {@ManufacturedGasProductionPlant}
+ + {@NaturalGasProductionAndGatheringPlantCost}
+ + {@ProductsExtractionPlant}
+ + {@UndergroundStoragePlantCost}
+ + {@OtherStoragePlantCost}
+ + {@BaseLoadLiquefiedNaturalGasTerminalingAndProcessingPlantCost} +{@TransmissionPlant}
+ + {@DistributionPlant}
+ + {@GeneralPlantExcludingOtherTangiblePropertyAndAssetRetirementCostsForGeneralPlant}
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasPlantInService with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.210.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2','2-A').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+   $sum1 = {@GasPlantInServiceAccumulatedDepreciationAndAmortization}; 
+ $addend = ({@IntangiblePlantAccumulatedDepreciationAndAmortization}
+ + {@ManufacturedGasProductionsAccumulatedDepreciationAndAmortization}
+ + {@ProductionAndGatheringNaturalGasAccumulatedDepreciationAndAmortization}
+ + {@ProductsExtractionNaturalGasAccumulatedDepreciationAndAmortization}
+ + {@UndergroundGasStorageAccumulatedDepreciationAndAmortization}
+ + {@OtherStoragePlantAccumulatedDepreciationAndAmortization}
+ + {@BaseLoadLiquefiedNaturalGasTerminalingAndProcessingPlantAccumulatedDepreciationAndAmortization} 
+ + {@TransmissionPlantAccumulatedDepreciationAndAmortization}
+ + {@DistributionPlantAccumulatedDepreciationAndAmortization}
+ + {@GeneralPlantAccumulatedDepreciationAndAmortization}
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasPlantInServiceAccumulatedDepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

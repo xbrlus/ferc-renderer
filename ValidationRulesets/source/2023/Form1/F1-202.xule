@@ -1,0 +1,368 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.202.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@FabricationCostsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication @period=$currentInstant}; 
+ $addend = ({@FabricationCostsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication @period=$priorInstant} 
+ + {@FabricationCostsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabricationAdditions @period=$currentDuration} 
+ - {@FabricationCostsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabricationOtherReductions @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for FabricationCostsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.202.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NuclearMaterialsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication @period=$currentInstant}; 
+ $addend = ({@NuclearMaterialsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication @period=$priorInstant} 
+ + {@NuclearMaterialsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabricationAdditions @period=$currentDuration} 
+ - {@NuclearMaterialsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabricationOtherReductions @period=$currentDuration}
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NuclearMaterialsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.202.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AllowanceForFundsConstructionNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication @period=$currentInstant}; 
+ $addend = ({@AllowanceForFundsConstructionNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication @period=$priorInstant} 
+ + {@AllowanceForFundsConstructionNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabricationAdditions @period=$currentDuration} 
+ - {@AllowanceForFundsConstructionNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabricationOtherReductions @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AllowanceForFundsConstructionNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.202.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherOverheadConstructionCostsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication @period=$currentInstant}; 
+ $addend = ({@OtherOverheadConstructionCostsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication @period=$priorInstant} 
+ + {@OtherOverheadConstructionCostsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabricationAdditions @period=$currentDuration} 
+ - {@OtherOverheadConstructionCostsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabricationOtherReductions @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherOverheadConstructionCostsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.202.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication}; 
+ $addend = ({@FabricationCostsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication} 
+ + {@NuclearMaterialsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication} 
+ + {@AllowanceForFundsConstructionNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication} 
+ + {@OtherOverheadConstructionCostsNuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.202.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NuclearFuelMaterialsAndAssembliesInStock @period=$currentInstant}; 
+ $addend = ({@NuclearFuelMaterialsAndAssembliesInStock @period=$priorInstant} 
+ + {@NuclearFuelMaterialsAndAssembliesInStockAdditions @period=$currentDuration} 
+ - {@NuclearFuelMaterialsAndAssembliesInStockAmortization @period=$currentDuration} 
+ - {@NuclearFuelMaterialsAndAssembliesInStockOtherReductions @period=$currentDuration}); 
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NuclearFuelMaterialsAndAssembliesInStock with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.202.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NuclearFuelAssembliesInReactor @period=$currentInstant}; 
+ $addend = ({@NuclearFuelAssembliesInReactor @period=$priorInstant} 
+ + {@NuclearFuelAssembliesInReactorAdditions @period=$currentDuration} 
+ - {@NuclearFuelAssembliesInReactorAmortization @period=$currentDuration} 
+ - {@NuclearFuelAssembliesInReactorOtherReductions @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NuclearFuelAssembliesInReactor with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.202.8 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NuclearFuelMaterialsAndAssemblies}; 
+ $addend = ({@NuclearFuelMaterialsAndAssembliesInStock} 
+ + {@NuclearFuelAssembliesInReactor});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NuclearFuelMaterialsAndAssemblies with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.202.9 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SpentNuclearFuel @period=$currentInstant}; 
+ $addend = ({@SpentNuclearFuel @period=$priorInstant} 
+ + {@SpentNuclearFuelAdditions @period=$currentDuration} 
+ - {@SpentNuclearFuelAmortization @period=$currentDuration} 
+ - {@SpentNuclearFuelOtherReductions @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SpentNuclearFuel with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.202.10 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NuclearFuelUnderCapitalLeases @period=$currentInstant}; 
+ $addend = ({@NuclearFuelUnderCapitalLeases @period=$priorInstant} 
+ + {@NuclearFuelUnderCapitalLeasesAdditions @period=$currentDuration} 
+ - {@NuclearFuelUnderCapitalLeasesAmortization @period=$currentDuration} 
+ - {@NuclearFuelUnderCapitalLeasesOtherReductions @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NuclearFuelUnderCapitalLeases with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.202.11 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AccumulatedProvisionForAmortizationOfNuclearFuelAssemblies @period=$currentInstant}; 
+ $addend = ({@AccumulatedProvisionForAmortizationOfNuclearFuelAssemblies @period=$priorInstant} 
+ + {@AccumulatedProvisionForAmortizationOfNuclearFuelAssembliesAdditions @period=$currentDuration} 
+ - {@AccumulatedProvisionForAmortizationOfNuclearFuelAssembliesAmortization @period=$currentDuration} 
+ - {@AccumulatedProvisionForAmortizationOfNuclearFuelAssembliesOtherReductions @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedProvisionForAmortizationOfNuclearFuelAssemblies with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.202.12 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NuclearFuelNet}; 
+ $addend = ({@NuclearFuelInProcessOfRefinementConversionEnrichmentAndFabrication} 
+ + {@NuclearFuelMaterialsAndAssemblies} 
+ + {@SpentNuclearFuel} 
+ + {@NuclearFuelUnderCapitalLeases} 
+ - {@AccumulatedProvisionForAmortizationOfNuclearFuelAssemblies});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NuclearFuelStock with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.202.13 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NuclearMaterialsHeldForSaleUranium @period=$currentInstant}; 
+ $addend = ({@NuclearMaterialsHeldForSaleUranium @period=$priorInstant} 
+ + {@NuclearMaterialsHeldForSaleUraniumAdditions @period=$currentDuration} 
+ - {@NuclearMaterialsHeldForSaleUraniumAmortization @period=$currentDuration} 
+ - {@NuclearMaterialsHeldForSaleUraniumOtherReductions @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NuclearMaterialsHeldForSaleUranium with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.202.14 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NuclearMaterialsHeldForSalePlutonium @period=$currentInstant}; 
+ $addend = ({@NuclearMaterialsHeldForSalePlutonium @period=$priorInstant} 
+ + {@NuclearMaterialsHeldForSalePlutoniumAdditions  @period=$currentDuration} 
+ - {@NuclearMaterialsHeldForSalePlutoniumAmortization  @period=$currentDuration} 
+ - {@NuclearMaterialsHeldForSalePlutoniumOtherReductions  @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NuclearMaterialsHeldForSalePlutonium with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.202.15 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NuclearMaterialsHeldForSaleOther @period=$currentInstant}; 
+ $addend = ({@NuclearMaterialsHeldForSaleOther @period=$priorInstant} 
+ + {@NuclearMaterialsHeldForSaleOtherAdditions  @period=$currentDuration} 
+ - {@NuclearMaterialsHeldForSaleOtherAmortization  @period=$currentDuration} 
+ - {@NuclearMaterialsHeldForSaleOtherOtherReductions @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NuclearMaterialsHeldForSaleOther with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.202.16 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NuclearMaterialsHeldForSale}; 
+ $addend = ({@NuclearMaterialsHeldForSaleUranium} 
+ + {@NuclearMaterialsHeldForSalePlutonium} 
+ + {@NuclearMaterialsHeldForSaleOther});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NuclearMaterialsHeldForSale with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

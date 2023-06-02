@@ -1,0 +1,124 @@
+/**FERC Form 60 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F60.16.1 satisfied 
+
+
+$rowsToCheck = navigate parent-child descendants 1 from AnalysisOfChargesForServiceLineItems role "http://ferc.gov/form/2020-01-01/roles/Schedule/F60/AnalysisOfChargesForServiceAssociateAndNonAssociateCompanies" returns list (target, result-order);
+
+for $row in $rowsToCheck
+	$elementsInRow = navigate parent-child children from $row[1].name role "http://ferc.gov/form/2020-01-01/roles/Schedule/F60/AnalysisOfChargesForServiceAssociateAndNonAssociateCompanies" returns list (target-name);
+	
+	$value3 = if list({@concept = $elementsInRow[3]}).length > 0 {@concept = $elementsInRow[3]} else none
+	$value6 = if list({@concept = $elementsInRow[6]}).length > 0 {@concept = $elementsInRow[6]} else none
+	$value7 = if list({@concept = $elementsInRow[7]}).length > 0 {@concept = $elementsInRow[7]} else none
+	$value8 = if list({@concept = $elementsInRow[8]}).length > 0 {@concept = $elementsInRow[8]} else none
+	$value9 = if list({@concept = $elementsInRow[9]}).length > 0 {@concept = $elementsInRow[9]} else none
+	
+	
+	$error1 = ({@concept = $elementsInRow[1]} + {@concept = $elementsInRow[2]}) != $value3;
+	
+	$error2 = ({@concept = $elementsInRow[4]} + {@concept = $elementsInRow[5]}) != $value6;
+	
+	$error3 = ({@concept = $elementsInRow[7]} + {@concept = $elementsInRow[8]}) != $value9;
+	
+	$error4 = ({@concept = $elementsInRow[1]} + {@concept = $elementsInRow[4]}) != $value7;
+	
+	$error5 = ({@concept = $elementsInRow[2]} + {@concept = $elementsInRow[5]}) != $value8;
+	
+	$error6 = ({@concept = $elementsInRow[3]} + {@concept = $elementsInRow[6]}) != $value9;
+	
+	$error_list = list(list(if exists($error1) $error1 else false , $value3),
+						list(if exists($error2) $error2 else false , $value6),
+						list(if exists($error3) $error3 else false , $value9),
+						list(if exists($error4) $error4 else false , $value7),
+						list(if exists($error5) $error5 else false , $value8),
+						list(if exists($error6) $error6 else false , $value9));
+	
+	$error_message = sum(list(for $i in range($error_list.length)
+									if $error_list[$i][1]
+										"In the row for " + $row[1].label.text + ", the components comprising the concept " + $error_list[$i][2].concept.name.local-name  + " with a value of " + $error_list[$i][2].string + " do not aggregate to the same value. This rule checks the aggregation of the following elements and this rule failed for Check " + $i + " : 
+	Check 1 = " + $elementsInRow[1].local-name +  " + " + $elementsInRow[2].local-name +  " = " + $elementsInRow[3].local-name + "
+	Check 2 = " + $elementsInRow[4].local-name +  " + " + $elementsInRow[5].local-name +  " = " + $elementsInRow[6].local-name + "
+	Check 3 = " + $elementsInRow[7].local-name +  " + " + $elementsInRow[8].local-name +  " = " + $elementsInRow[9].local-name + "
+	Check 4 = " + $elementsInRow[1].local-name +  " + " + $elementsInRow[4].local-name +  " = " + $elementsInRow[7].local-name + "
+	Check 5 = " + $elementsInRow[2].local-name +  " + " + $elementsInRow[5].local-name +  " = " + $elementsInRow[8].local-name + "
+	Check 6 = " + $elementsInRow[3].local-name +  " + " + $elementsInRow[6].local-name +  " = " + $elementsInRow[9].local-name + "
+
+"
+									 else
+									 	""))
+	if any(list($error1,$error2,$error3,$error4,$error5,$error6))
+		true
+	else
+		false
+		
+message 
+	$error_message + "
+	Rule Id:F60.16.1"
+severity error
+rule-focus $row[1]
+
+
+/**
+assert F60.16.2 satisfied 
+**/
+
+assert F60.16.2 satisfied 
+$rule_id = rule-name();
+
+$all_source = navigate summation-item descendants include start role "http://ferc.gov/form/2020-01-01/roles/Schedule/F60/AnalysisOfChargesForServiceAssociateAndNonAssociateCompanies" returns  (source-name);
+
+for $concept_item in $all_source.to-set
+ if $concept_item == none
+  	skip
+ else
+	$data = navigate summation-item children from $concept_item role "http://ferc.gov/form/2020-01-01/roles/Schedule/F60/AnalysisOfChargesForServiceAssociateAndNonAssociateCompanies" returns  (target-name, weight)
+
+/**$addendConcepts = filter $data returns $item[1]; **/
+
+$addend = sum(list(for $x in $data
+					$targetElement = $x[1];
+					$targetWeight = $x[2];
+    				[nonils @concept = $targetElement @period = $currentDuration] * $targetWeight
+					)
+			)
+			
+$addend_string = sum(list(for $x in $data.sort
+					$targetElement = $x[1];
+					$factAmt = [nonils @concept = $targetElement @period = $currentDuration].string;
+					$weight =  if $x[2] == 1
+									"+"
+								else
+							        "-";
+					$strLength = $targetElement.local-name.string.length;
+					$pad = sum(list(for $x in range(110 - $strLength - $factAmt.length)
+									" " 
+									)
+								)
+    				"" + $weight + "  \t" + $targetElement.local-name.string + $pad + $factAmt + " \n"
+					)
+			)
+
+$sum2 = [@concept=$concept_item @period = $currentDuration]
+
+$conceptReported = $concept_item;
+tolerance_for_decimals($sum2,$addend,$tolerance_factor)  
+
+message
+
+"The value reported for {$conceptReported.local-name} is {$sum2} and the calculated value is {$addend} comprising the following values:
+
+{$addend_string}
+
+ Total Element : {$sum2.concept.name}
+ Total Period : {$sum2.period}
+ Total Value : {$sum2} 
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $sum2

@@ -1,0 +1,222 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.228.1 satisfied
+
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+    $conceptsToCheck = list(AllowanceInventoryNumber, AllowanceInventory,
+                        AllowancesIssuedLessWithheldAllowancesNumber, AllowancesIssuedLessWithheldAllowances,
+                        AllowancesReturnedByEnvironmentalProtectionAgencyNumber, AllowancesReturnedByEnvironmentalProtectionAgency,
+                        AllowancesInventoryPurchasesTransfersNumber, AllowancesInventoryPurchasesTransfers,
+                        ChargesToAllowancesInventoryNumber, ChargesToAllowancesInventory,
+                        AllowancesRelinquishedOtherNumber, AllowancesRelinquishedOther,
+                        AllowancesInventorySalesTransfersNumber, AllowancesInventorySalesTransfers,
+                        NetSalesProceedsFromAllowanceInventorySalesAssociatedCompanyNumber, NetSalesProceedsFromAllowanceInventorySalesAssociatedCompany,
+                        NetSalesProceedsFromAllowanceInventorySalesOtherNumber, NetSalesProceedsFromAllowanceInventorySalesOther,
+                        GainsFromAllowanceInventorySalesNumber, GainsFromAllowanceInventorySales,
+                        LossesFromAllowanceInventorySalesNumber, LossesFromAllowanceInventorySales,
+                        AllowancesWithheldByEnvironmentalProtectionAgencyNumber, AllowancesWithheldByEnvironmentalProtectionAgency,
+                        AllowancesWithheldReturnedByEnvironmentalProtectionAgencyNumber, AllowancesWithheldReturnedByEnvironmentalProtectionAgency,
+                        AllowancesWithheldCostOfSalesNumber, AllowancesWithheldCostOfSales,
+                        AllowancesWithheldNumber, AllowancesWithheld,
+                        AllowancesWithheldNetSalesProceedsFromAllowanceSalesAssociatedCompanyNumber, AllowancesWithheldNetSalesProceedsFromAllowanceSalesAssociatedCompany,
+                        AllowancesWithheldNetSalesProceedsFromAllowanceSalesOtherNumber, AllowancesWithheldNetSalesProceedsFromAllowanceSalesOther,
+                        AllowancesWithheldGainsFromAllowanceSalesNumber, AllowancesWithheldGainsFromAllowanceSales,
+                        AllowancesWithheldLossesFromAllowanceSalesNumber, AllowancesWithheldLossesFromAllowanceSales
+                        );
+$sum1 = {@@concept in $conceptsToCheck  @AllowanceInventoryTimePeriodAxis=none};
+$addend = {@@concept in $conceptsToCheck @AllowanceInventoryTimePeriodAxis=CurrentYearMember}#a1 + 
+{@@concept in $conceptsToCheck @AllowanceInventoryTimePeriodAxis=NextTwelveMonthsMember}#a2 + 
+{@@concept in $conceptsToCheck @AllowanceInventoryTimePeriodAxis=TwoYearsMember}#a3 +
+{@@concept in $conceptsToCheck @AllowanceInventoryTimePeriodAxis=ThreeYearsMember}#a4 +
+{@@concept in $conceptsToCheck @AllowanceInventoryTimePeriodAxis= AfterThreeYearsMember}#a5
+
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis AllowanceInventoryTimePeriodAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are as follows:
++ {$a1}
++ {$a2}
++ {$a3}
++ {$a4}
++ {$a5}
+
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F1.228.2 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = {@AllowancesInventoryPurchasesTransfersNumber @AllowancesInventoryAxis=none}; 
+ $addend = sum(list({nonils @AllowancesInventoryPurchasesTransfersNumber @AllowancesInventoryAxis=*})#breakdown);
+ if $addend == none
+ 	skip
+ else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis AllowancesInventoryAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.228.3 satisfied 
+$rule_id = rule-name();
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+  $sum1 = {@AllowancesInventoryPurchasesTransfers @AllowancesInventoryAxis=none}; 
+ $addend = sum(list({nonils @AllowancesInventoryPurchasesTransfers @AllowancesInventoryAxis=*})#breakdown);
+ if $addend == none
+ 	skip
+ else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis AllowancesInventoryAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.228.4 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = {@AllowancesInventorySalesTransfersNumber @AllowancesCostOfSalesAxis=none}; 
+ $addend = sum(list({nonils @AllowancesInventorySalesTransfersNumber @AllowancesCostOfSalesAxis=*})#breakdown);
+ if $addend == none
+ 	skip
+ else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis AllowancesCostOfSalesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.228.5 satisfied 
+$rule_id = rule-name();
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+  $sum1 = {@AllowancesInventorySalesTransfers @AllowancesCostOfSalesAxis=none}; 
+ $addend = sum(list({nonils @AllowancesInventorySalesTransfers @AllowancesCostOfSalesAxis=*})#breakdown);
+ if $addend == none
+ 	skip
+ else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis AllowancesInventoryAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F1.228.6 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum6 = {@AllowancesWithheldNumber @period=$currentInstant}; 
+ $addend = ({@AllowancesWithheldNumber @period=$priorInstant}#f228-0
+ + {@AllowancesWithheldByEnvironmentalProtectionAgencyNumber @period=$currentDuration}#f228-1
+ - {@AllowancesWithheldReturnedByEnvironmentalProtectionAgencyNumber @period=$currentDuration}#f228-2
+ - {@AllowancesWithheldCostOfSalesNumber  @period=$currentDuration}#f228-3)
+ 
+tolerance_for_decimals($sum6,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AllowancesWithheldNumber  with a value of {$sum6} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f228-0.concept.name.local-name} \t = \t {$f228-0}
++ \t {$f228-1.concept.name.local-name} \t = \t {$f228-1}
+- \t {$f228-2.concept.name.local-name} \t = \t {$f228-2}
+- \t {$f228-3.concept.name.local-name} \t = \t {$f228-3}
+
+
+Total Element : {$sum6.concept.name}
+Total Period : {$sum6.period}
+Total Dimensions : {$sum6.dimensions.join(',','=')}
+Total Value : {$sum6} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum6
+
+
+assert F1.228.7 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = {@AllowancesWithheld @period=$currentInstant}; 
+ $addend = ({@AllowancesWithheld @period=$priorInstant}#f228-7-1
+ + {@AllowancesWithheldByEnvironmentalProtectionAgency @period=$currentDuration}#f228-7-2
+ - {@AllowancesWithheldReturnedByEnvironmentalProtectionAgency @period=$currentDuration}#f228-7-3
+ - {@AllowancesWithheldCostOfSales  @period=$currentDuration}#f228-7-4)
+ 
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AllowancesWithheldNumber  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f228-7-1.concept.name.local-name} \t = \t {$f228-7-1}
++ \t {$f228-7-2.concept.name.local-name} \t = \t {$f228-7-2}
+- \t {$f228-7-3.concept.name.local-name} \t = \t {$f228-7-3}
+- \t {$f228-7-4.concept.name.local-name} \t = \t {$f228-7-4}
+
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

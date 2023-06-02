@@ -1,0 +1,25 @@
+/**FERC Form 60 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F60.5.1 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@AccountsReceivableFromAssociateCompanies]; 
+ $addend = sum(list([nonils @AccountsReceivableFromAssociateCompanies @AccountsReceivableFromAssociateCompaniesAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis AccountsReceivableFromAssociateCompaniesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+ Total Element : {$sum1.concept.name}
+ Total Period : {$sum1.period}
+ Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

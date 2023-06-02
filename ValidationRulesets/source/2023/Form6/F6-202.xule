@@ -1,0 +1,924 @@
+/**FERC Form 6 Rules 
+**/
+
+RULE-NAME-PREFIX FERC
+
+assert F6.202.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@InvestmentsInAffiliatedCompaniesStocks @period=$currentInstant]; 
+        $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesStocks @InvestmentsInAffiliatedCompaniesStockAxis=* @period=$currentInstant])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)    
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesStockAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@InvestmentInAffiliatedCompaniesBonds @period = $currentInstant]; 
+        $addend = sum(list([nonils @InvestmentInAffiliatedCompaniesBonds @InvestmentsInAffiliatedCompaniesBondAxis=* @period=$currentInstant])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesBondAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@InvestmentsInAffiliatedCompaniesOtherSecuredObligations @period=$currentInstant]; 
+        $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesOtherSecuredObligations @InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis=* @period=$currentInstant])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsInAffiliatedCompaniesUnsecuredNotes @period=$currentInstant]; 
+ $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesUnsecuredNotes @InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis=* @period=$currentInstant])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsInAffiliatedCompaniesInvestmentAdvances @period=$currentInstant]; 
+ $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesInvestmentAdvances @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis=* @period=$currentInstant])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@InvestmentsInAffiliatedCompanies}; 
+ $addend = ({@InvestmentsInAffiliatedCompaniesStocks} 
+ + {@InvestmentInAffiliatedCompaniesBonds} 
+ + {@InvestmentsInAffiliatedCompaniesOtherSecuredObligations} 
+ + {@InvestmentsInAffiliatedCompaniesUnsecuredNotes} 
+ + {@InvestmentsInAffiliatedCompaniesInvestmentAdvances} 
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for InvestmentsInAffiliatedCompanies with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@SinkingAndOtherFunds @period=$currentInstant]; 
+ $addend = sum(list([nonils @SinkingAndOtherFunds @InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis=* @period=$currentInstant])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentInAffiliatedCompaniesStockAdditions]; 
+ $addend = sum(list([nonils @InvestmentInAffiliatedCompaniesStockAdditions @InvestmentsInAffiliatedCompaniesStockAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsDisposedOfOrWrittenDownStockBookValue]; 
+ $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownStockBookValue @InvestmentsInAffiliatedCompaniesStockAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsDisposedOfOrWrittenDownStockSellingPrice]; 
+ $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownStockSellingPrice @InvestmentsInAffiliatedCompaniesStockAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.11 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@InvestmentsInAffiliatedCompaniesAdditions}; 
+ $addend = ({@InvestmentInAffiliatedCompaniesStockAdditions} 
+ + {@InvestmentInAffiliatedCompaniesBondsAdditions} 
+ + {@InvestmentsInAffiliatedCompaniesOtherSecuredObligationsAdditions} 
+ + {@InvestmentsInAffiliatedCompaniesUnsecuredNotesAdditions} 
+ + {@InvestmentsInAffiliatedCompaniesInvestmentAdvancesAdditions} 
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for InvestmentsInAffiliatedCompaniesAdditions with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.12 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@InvestmentsInAffiliatedCompaniesDisposedOfOrWrittenDownBookValue}; 
+ $addend = ({@InvestmentsDisposedOfOrWrittenDownStockBookValue} 
+ + {@InvestmentsDisposedOfOrWrittenDownBondsBookValue} 
+ + {@InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsBookValue} 
+ + {@InvestmentsDisposedOfOrWrittenDownUnsecuredNotesBookValue} 
+ + {@InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesBookValue} 
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for InvestmentsInAffiliatedCompaniesDisposedOfOrWrittenDownBookValue with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.13 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@InvestmentsInAffiliatedCompaniesDisposedOfOrWrittenDownSellingPrice}; 
+ $addend = ({@InvestmentsDisposedOfOrWrittenDownStockSellingPrice} 
+ + {@InvestmentsDisposedOfOrWrittenDownBondsSellingPrice}
+ + {@InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsSellingPrice}
+ + {@InvestmentsDisposedOfOrWrittenDownUnsecuredNotesSellingPrice}
+ + {@InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesSellingPrice}
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for InvestmentsInAffiliatedCompaniesDisposedOfOrWrittenDownSellingPrice with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.14 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@InterestAndDividendIncomeInvestmentsInAffiliatedCompanies}; 
+ $addend = ({@InterestAndDividendIncomeStock}
+ + {@InterestAndDividendIncomeBonds}
+ + {@InterestAndDividendIncomeOtherSecuredObligations}
+ + {@InterestAndDividendIncomeUnsecuredNotes}
+ + {@InterestAndDividendIncomeInvestmentAdvances}
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for InterestAndDividendIncomeInvestmentsInAffiliatedCompanies with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.15 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InterestAndDividendIncomeStock]; 
+ $addend = sum(list([nonils @InterestAndDividendIncomeStock @InvestmentsInAffiliatedCompaniesStockAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesStockAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.16 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentInAffiliatedCompaniesBondsAdditions]; 
+ $addend = sum(list([nonils @InvestmentInAffiliatedCompaniesBondsAdditions @InvestmentsInAffiliatedCompaniesBondAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesBondAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.17 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsDisposedOfOrWrittenDownBondsBookValue]; 
+ $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownBondsBookValue @InvestmentsInAffiliatedCompaniesBondAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesBondAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.18 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsDisposedOfOrWrittenDownBondsSellingPrice]; 
+ $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownBondsSellingPrice @InvestmentsInAffiliatedCompaniesBondAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesBondAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.19 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InterestAndDividendIncomeBonds]; 
+ $addend = sum(list([nonils @InterestAndDividendIncomeBonds @InvestmentsInAffiliatedCompaniesBondAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesBondAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.20 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsInAffiliatedCompaniesOtherSecuredObligationsAdditions]; 
+ $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesOtherSecuredObligationsAdditions @InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.21 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsBookValue]; 
+ $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsBookValue @InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.22 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsSellingPrice]; 
+ $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsSellingPrice @InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)    
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.23 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InterestAndDividendIncomeOtherSecuredObligations]; 
+ $addend = sum(list([nonils @InterestAndDividendIncomeOtherSecuredObligations @InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)     
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesOtherSecuredObligationAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.24 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsInAffiliatedCompaniesUnsecuredNotesAdditions]; 
+ $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesUnsecuredNotesAdditions @InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)    
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.25 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsDisposedOfOrWrittenDownUnsecuredNotesBookValue]; 
+ $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownUnsecuredNotesBookValue @InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.26 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsDisposedOfOrWrittenDownUnsecuredNotesSellingPrice]; 
+ $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownUnsecuredNotesSellingPrice @InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)     
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.27 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InterestAndDividendIncomeUnsecuredNotes]; 
+ $addend = sum(list([nonils @InterestAndDividendIncomeUnsecuredNotes @InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)    
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesUnsecuredNotesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.28 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsInAffiliatedCompaniesInvestmentAdvancesAdditions]; 
+ $addend = sum(list([nonils @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAdditions @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)    
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.29 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesBookValue]; 
+ $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesBookValue @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)    
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.30 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesSellingPrice]; 
+ $addend = sum(list([nonils @InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesSellingPrice @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)    
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.31 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InterestAndDividendIncomeInvestmentAdvances]; 
+ $addend = sum(list([nonils @InterestAndDividendIncomeInvestmentAdvances @InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)    
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesInvestmentAdvancesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.202.32 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@SinkingAndOtherFundsAdditions]; 
+ $addend = sum(list([nonils @SinkingAndOtherFundsAdditions @InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)    
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.33 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownBookValue]; 
+ $addend = sum(list([nonils @InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownBookValue @InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.34 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownSellingPrice]; 
+ $addend = sum(list([nonils @InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownSellingPrice @InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)    
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.202.35 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InterestAndDividendIncomeInvestmentsInSinkingAndOtherFunds]; 
+ $addend = sum(list([nonils @InterestAndDividendIncomeInvestmentsInSinkingAndOtherFunds @InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)    
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InvestmentsInAffiliatedCompaniesSinkingOtherFundsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1

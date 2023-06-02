@@ -1,0 +1,37 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.397.1 satisfied 
+$rule_id = rule-name();
+
+ $OtherItems = first-value({@IsoOrRtoSettlementsOtherItems @AmountsIncludedInIsoOrRtoSettlementStatementsAxis=none}, sum(list({nonils @IsoOrRtoSettlementsOtherItems @AmountsIncludedInIsoOrRtoSettlementStatementsAxis=*})));
+
+ $sum397-1 = {@IsoOrRtoSettlements @AmountsIncludedInIsoOrRtoSettlementStatementsAxis=none}; 
+ $addend = {@IsoOrRtoSettlementsEnergyNetPurchasesPurchasedPower @AmountsIncludedInIsoOrRtoSettlementStatementsAxis=none}#f397-1-1
+ + {@IsoOrRtoSettlementsEnergyNetPurchasesPowerPurchasedForStorageOperations @AmountsIncludedInIsoOrRtoSettlementStatementsAxis=none}#f397-1-2
+ + {@IsoOrRtoSettlementsEnergyNetSales @AmountsIncludedInIsoOrRtoSettlementStatementsAxis=none}#f397-1-3
+ + {@IsoOrRtoSettlementsTransmissionRights @AmountsIncludedInIsoOrRtoSettlementStatementsAxis=none}#f397-1-4
+ + {@IsoOrRtoSettlementsAncillaryServices @AmountsIncludedInIsoOrRtoSettlementStatementsAxis=none}#f397-1-5
+ + $OtherItems;
+tolerance_for_decimals($sum397-1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for IsoOrRtoSettlements with a value of {$sum397-1} that is not equal to the value of the sum of its components of {$addend}, comprised of the following:
+
+IsoOrRtoSettlementsEnergyNetPurchasesPurchasedPower                             {$f397-1-1}
++ IsoOrRtoSettlementsEnergyNetPurchasesPowerPurchasedForStorageOperations       {$f397-1-2}
++ IsoOrRtoSettlementsEnergyNetSales                                             {$f397-1-3}
++ IsoOrRtoSettlementsTransmissionRights                                         {$f397-1-4}
++ IsoOrRtoSettlementsAncillaryServices                                          {$f397-1-5}
++ IsoOrRtoSettlementsOtherItems                                                 {$OtherItems}
+
+
+Total Element : {$sum397-1.concept.name}
+Total Period : {$sum397-1.period}
+Total Value : {$sum397-1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum397-1

@@ -1,0 +1,92 @@
+/**FERC Form 714 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F714.2.5.1 satisfied 
+$rule_id = (rule-name().split('.'))[rule-name().split('.').length];
+
+$sum1 = [@ScheduledInterchangeBetweenBalancingAuthorityAreasReceived]; 
+$addend = sum(list([@ScheduledInterchangeBetweenBalancingAuthorityAreasReceived@BalancingAuthorityAreaScheduledAndActualInterchangeAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a total value for ScheduledInterchangeBetweenBalancingAuthorityAreasReceived with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F714.2.5.2 satisfied 
+$rule_id = (rule-name().split('.'))[rule-name().split('.').length];
+
+ $sum1 = [@ScheduledInterchangeBetweenBalancingAuthorityAreasDelivered]; 
+ $addend = sum(list([@ScheduledInterchangeBetweenBalancingAuthorityAreasDelivered@BalancingAuthorityAreaScheduledAndActualInterchangeAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a total value for ScheduledInterchangeBetweenBalancingAuthorityAreasDelivered with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F714.2.5.3 satisfied 
+$rule_id = (rule-name().split('.'))[rule-name().split('.').length];
+
+ $sum1 = [@ActualInterchangeBetweenAdjacentBalancingAuthorityAreasReceived]; 
+ $addend = sum(list([@ActualInterchangeBetweenAdjacentBalancingAuthorityAreasReceived@BalancingAuthorityAreaScheduledAndActualInterchangeAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a total value for ActualInterchangeBetweenAdjacentBalancingAuthorityAreasReceived with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F714.2.5.4 satisfied 
+$rule_id = (rule-name().split('.'))[rule-name().split('.').length];
+
+ $sum1 = [@ActualInterchangeBetweenAdjacentBalancingAuthorityAreasDelivered]; 
+ $addend = sum(list([@ActualInterchangeBetweenAdjacentBalancingAuthorityAreasDelivered@BalancingAuthorityAreaScheduledAndActualInterchangeAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a total value for ActualInterchangeBetweenAdjacentBalancingAuthorityAreasDelivered with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F714.2.5.5 satisfied 
+$rule_id = (rule-name().split('.'))[rule-name().split('.').length];
+
+ $sum1 = [@NetEnergyForLoadAndPeakDemandSourcesByMonthNetActualInterchange];
+ $received = sum(list([@ActualInterchangeBetweenAdjacentBalancingAuthorityAreasReceived@BalancingAuthorityAreaScheduledAndActualInterchangeAxis=*]));
+ $delivered = sum(list([@ActualInterchangeBetweenAdjacentBalancingAuthorityAreasDelivered@BalancingAuthorityAreaScheduledAndActualInterchangeAxis=*]))
+ $addend = ($received - $delivered);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetEnergyForLoadAndPeakDemandSourcesByMonthNetActualInterchange with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}. The recalculated total add the value of the received amount {$received} less the delivered amout of {$delivered}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

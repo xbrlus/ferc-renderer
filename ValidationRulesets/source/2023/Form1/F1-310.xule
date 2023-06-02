@@ -1,0 +1,497 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.310.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@RevenueFromSalesOfElectricityForResale}; 
+ $addend = ({@DemandChargesRevenueSalesForResale} 
+ + {@EnergyChargesRevenueSalesForResale} 
+ + {@OtherChargesRevenueSalesForResale});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RevenueFromSalesOfElectricityForResale with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@DemandChargesRevenueSalesForResale]; 
+ $addend = sum(list([nonils @DemandChargesRevenueSalesForResale @SalesForResaleAxis=*])#breakdown);
+if $addend == none
+	false
+else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis SalesForResaleAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}  
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@EnergyChargesRevenueSalesForResale]; 
+ $addend = sum(list([nonils @EnergyChargesRevenueSalesForResale @SalesForResaleAxis=*])#breakdown);
+ if $addend == none
+	false
+else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis SalesForResaleAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}  
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@OtherChargesRevenueSalesForResale]; 
+ $addend = sum(list([nonils @OtherChargesRevenueSalesForResale @SalesForResaleAxis=*])#breakdown);
+if $addend == none
+	false
+else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis SalesForResaleAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}  
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@RevenueFromSalesOfElectricityForResale]; 
+ $addend = sum(list([nonils @RevenueFromSalesOfElectricityForResale @SalesForResaleAxis=*])#breakdown);
+
+ if $addend == none
+	false
+else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis SalesForResaleAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}  
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@MegawattHoursSoldRequirementsSales]; 
+ $addend = sum(({covered @SalesForResaleAxis=* {list(
+     if {@StatisticalClassificationCode @unit} == 'RQ'
+        {@MegawattHoursSoldSalesForResale}
+	else
+		skip
+    )}}));
+	
+if $addend == none
+	false
+else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+
+message 
+"The breakdown of MegawattHoursSoldRequirementsSales sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for MegawattHoursSoldRequirementsSales. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@DemandChargesRevenueRequirementsSales];
+ 
+ $addend = sum(({covered @SalesForResaleAxis=* {list(
+     if {@StatisticalClassificationCode @unit} == 'RQ'
+        {@DemandChargesRevenueSalesForResale}
+	 else
+	 	skip
+		
+    )}}));
+	
+if $addend == none
+	false
+else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of DemandChargesRevenueRequirementsSales sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for DemandChargesRevenueRequirementsSales. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.8 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@EnergyChargesRevenueRequirementsSales]; 
+ $addend = sum(({covered @SalesForResaleAxis=* {list(
+     if {@StatisticalClassificationCode @unit} == 'RQ'
+        {@EnergyChargesRevenueSalesForResale}
+  	 else
+  	 	skip
+    )}}));
+if $addend == none
+	false
+else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of EnergyChargesRevenueRequirementsSales sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for EnergyChargesRevenueRequirementsSales. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.9 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@OtherChargesRevenueRequirementsSales]; 
+ $addend = sum(({covered @SalesForResaleAxis=* {list(
+     if {@StatisticalClassificationCode @unit} == 'RQ'
+        {@OtherChargesRevenueSalesForResale}
+   	 else
+   	 	skip
+    )}}));
+if $addend == none
+	false
+else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)    
+message 
+"The breakdown of OtherChargesRevenueRequirementsSales sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for OtherChargesRevenueRequirementsSales. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.10 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@RevenueFromSalesOfElectricityForResaleRequirementsSales @period=$currentDuration]; 
+ $addend = sum(({covered @SalesForResaleAxis=* {list(
+     if {@StatisticalClassificationCode @period=$currentDuration @unit} == 'RQ'
+        {@RevenueFromSalesOfElectricityForResale @period=$currentDuration}
+   	 else
+   	 	skip
+    )}}));
+if $addend == none
+	false
+else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of RevenueFromSalesOfElectricityForResaleRequirementsSales sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for RevenueFromSalesOfElectricityForResaleRequirementsSales. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.11 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@MegawattHoursSoldNonRequirementsSales @period=$currentDuration]; 
+  $addend = sum(({covered @SalesForResaleAxis=* {list(
+     if {@StatisticalClassificationCode @period=$currentDuration @unit} == 'RQ'
+        {@MegawattHoursSoldSalesForResale @period=$currentDuration}
+   	 else
+   	 	skip
+ )}}));
+if $addend == none
+	false
+else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)    
+message 
+"The breakdown of MegawattHoursSoldNonRequirementsSales sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for MegawattHoursSoldNonRequirementsSales. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.12 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@DemandChargesRevenueNonRequirementsSales]; 
+ $addend = sum(({covered @SalesForResaleAxis=* {list(
+     if {@StatisticalClassificationCode @unit} == 'RQ'
+        {@DemandChargesRevenueSalesForResale}
+   	 else
+   	 	skip
+ )}}));
+if $addend == none
+	false
+else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of DemandChargesRevenueNonRequirementsSales sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for DemandChargesRevenueNonRequirementsSales. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.13 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@EnergyChargesRevenueNonRequirementsSales]; 
+ $addend = sum(({covered @SalesForResaleAxis=* {list(
+     if {@StatisticalClassificationCode @unit} == 'RQ'
+        {@EnergyChargesRevenueSalesForResale}
+   	 else
+   	 	skip
+ )}}));
+if $addend == none
+	false
+else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of EnergyChargesRevenueNonRequirementsSales sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for EnergyChargesRevenueNonRequirementsSales. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.14 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@OtherChargesRevenueNonRequirementsSales]; 
+ $addend = sum(({covered @SalesForResaleAxis=* {list(
+     if {@StatisticalClassificationCode @unit} == 'RQ'
+        {@OtherChargesRevenueSalesForResale}
+   	 else
+   	 	skip
+ )}}));
+if $addend == none
+	false
+else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of OtherChargesRevenueNonRequirementsSales sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for OtherChargesRevenueNonRequirementsSales. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.15 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@RevenueFromSalesOfElectricityForResaleNonRequirementsSales]; 
+ $addend = sum(({covered @SalesForResaleAxis=* {list(
+     if {@StatisticalClassificationCode @unit} == 'RQ'
+        {@RevenueFromSalesOfElectricityForResale}
+   	 else
+   	 	skip
+ )}}));
+if $addend == none
+	false
+else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of RevenueFromSalesOfElectricityForResaleNonRequirementsSales sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for RevenueFromSalesOfElectricityForResaleNonRequirementsSales. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.16 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@MegawattHoursSoldSalesForResale @period=$currentDuration]; 
+ $addend = sum(list([nonils @MegawattHoursSoldSalesForResale @SalesForResaleAxis=* @period=$currentDuration])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis SalesForResaleAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.310.17 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = [@SalesForResale]; 
+ $addend = ([@DemandChargesRevenueSalesForResale]
+ + [@EnergyChargesRevenueSalesForResale]
+ + [@OtherChargesRevenueSalesForResale]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of SalesForResale sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for SalesForResale. 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F1.310.18 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $salesForResale = [@SalesForResale]; 
+ $addendSalesForResale = ([@RevenueFromSalesOfElectricityForResaleRequirementsSales]#SFS1
+ + [@RevenueFromSalesOfElectricityForResaleNonRequirementsSales]#SFS2);
+tolerance_for_decimals($salesForResale,$addendSalesForResale,$tolerance_factor)  
+message 
+"The breakdown of SalesForResale sums to a value of {$addendSalesForResale} when summing the components of RevenueFromSalesOfElectricityForResaleRequirementsSales ({$SFS1}) and RevenueFromSalesOfElectricityForResaleNonRequirementsSales ({$SFS2}) that is not equal to the total value reported of {$salesForResale} for SalesForResale. 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $salesForResale
+
+assert F1.310.19 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $DCSalesForResale = [@DemandChargesRevenueSalesForResale]; 
+ $addendDCSalesForResale = ([@DemandChargesRevenueRequirementsSales]#SFS1
+ + [@DemandChargesRevenueNonRequirementsSales]#SFS2);
+tolerance_for_decimals($DCSalesForResale,$addendDCSalesForResale,$tolerance_factor)  
+message 
+"The breakdown of SalesForResale sums to a value of {$addendDCSalesForResale} when summing the components of DemandChargesRevenueRequirementsSales ({$SFS1}) and DemandChargesRevenueNonRequirementsSales ({$SFS2}) that is not equal to the total value reported of {$DCSalesForResale} for DemandChargesRevenueSalesForResale. 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $DCSalesForResale
+
+assert F1.310.20 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $ECSalesForResale = [@EnergyChargesRevenueSalesForResale]; 
+ $addendECSalesForResale = ([@EnergyChargesRevenueRequirementsSales]#SFS1
+ + [@EnergyChargesRevenueNonRequirementsSales]#SFS2);
+tolerance_for_decimals($ECSalesForResale,$addendECSalesForResale,$tolerance_factor)  
+message 
+"The breakdown of SalesForResale sums to a value of {$addendECSalesForResale} when summing the components of EnergyChargesRevenueRequirementsSales ({$SFS1}) and EnergyChargesRevenueNonRequirementsSales ({$SFS2}) that is not equal to the total value reported of {$ECSalesForResale} for EnergyChargesRevenueSalesForResale. 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $ECSalesForResale
+
+assert F1.310.21 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+ $OCSalesForResale = [@OtherChargesRevenueSalesForResale]; 
+ $addendOCSalesForResale = ([@OtherChargesRevenueRequirementsSales]#SFS1
+ + [@OtherChargesRevenueNonRequirementsSales]#SFS2);
+tolerance_for_decimals($OCSalesForResale,$addendOCSalesForResale,$tolerance_factor)  
+message 
+"The breakdown of SalesForResale sums to a value of {$addendOCSalesForResale} when summing the components of OtherChargesRevenueRequirementsSales ({$SFS1}) and OtherChargesRevenueNonRequirementsSales ({$SFS2}) that is not equal to the total value reported of {$OCSalesForResale} for OtherChargesRevenueSalesForResale. 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $OCSalesForResale
+
+assert F1.310.22 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:SalesForResaleMajorNonmajor]))  != "Major"
+        skip
+else
+	$codes = list('RQ','LF','IF','SF','LU','IU','EX','OS','AD')
+	if {@StatisticalClassificationCode @SalesForResaleAxis=*}#code not in $codes
+        true
+   	 else
+   	 	skip
+message 
+"A Statistical Classification Code with a value of {$code} has been used. This is an invalid code. Statical Classification codes must be one of the following  {$codes.join(', ')}.
+
+Element : {$code.concept.name}
+Code Period : {$code.period}
+Code Value : {$code}
+Code Dimension: {$code.dimensions.join(',','=')}
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $code

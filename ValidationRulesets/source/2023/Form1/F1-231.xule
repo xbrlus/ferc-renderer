@@ -1,0 +1,121 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.231.1 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@StudyCostsIncurred @StudyTypeAxis=TransmissionStudiesMember]; 
+ $addend = sum(list([nonils @StudyCostsIncurred @StudyTypeAxis=TransmissionStudiesMember @TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionServiceAndGenerationInterconnectionStudyCostsAxis and axis StudyTypeAxis=TransmissionStudiesMember has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.231.2 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@StudyCostsReimbursements @StudyTypeAxis=TransmissionStudiesMember]; 
+ $addend = sum(list([nonils @StudyCostsReimbursements @StudyTypeAxis=TransmissionStudiesMember @TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionServiceAndGenerationInterconnectionStudyCostsAxis and asix StudyTypeAxis=TransmissionStudiesMember has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.231.3 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@StudyCostsIncurred @StudyTypeAxis=GenerationStudiesMember]; 
+ $addend = sum(list([nonils @StudyCostsIncurred @StudyTypeAxis=GenerationStudiesMember @TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionServiceAndGenerationInterconnectionStudyCostsAxis and axis StudyTypeAxis=GenerationStudiesMember has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.231.4 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@StudyCostsReimbursements @StudyTypeAxis=GenerationStudiesMember]; 
+ $addend = sum(list([nonils @StudyCostsReimbursements @StudyTypeAxis=GenerationStudiesMember @TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis StudyTypeAxis=GenerationStudiesMember and axis TransmissionServiceAndGenerationInterconnectionStudyCostsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.231.5 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@StudyCostsIncurred @StudyTypeAxis=none]; 
+ $addend = ([@StudyCostsIncurred @StudyTypeAxis=TransmissionStudiesMember] 
+ + [@StudyCostsIncurred @StudyTypeAxis=GenerationStudiesMember]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)
+message 
+"The company has reported a value for StudyCostsIncurred with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.231.6 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@StudyCostsReimbursements @StudyTypeAxis=none]; 
+ $addend = ([@StudyCostsReimbursements @StudyTypeAxis=TransmissionStudiesMember] 
+ + [@StudyCostsReimbursements @StudyTypeAxis=GenerationStudiesMember]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)
+message 
+"The company has reported a value for StudyCostsReimbursements with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} comprised of Transmission Studies and Generation Studies.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

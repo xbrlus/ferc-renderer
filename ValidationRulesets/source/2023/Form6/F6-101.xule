@@ -1,0 +1,73 @@
+/**FERC Form 6 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F6.101.1 unsatisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ exists([covered @concept=IncorporationDate @period=$currentDuration])  
+message 
+"The date of incorporation must be reported in the current period.  
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F6.101.2 unsatisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ exists([covered  @concept=SpecialLawRespondentIncorporatedUnder @period=$currentDuration])  
+message 
+"The laws of the Government, State, or Territory under which the company is organized must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F6.101.3 unsatisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ exists([covered  @concept=IndicationRespondentConductedBusinessInDifferentNames @period=$currentDuration])  
+message 
+"The respondent must report whether or not it conducted business under a different name in the current period.  
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F6.101.4 unsatisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ exists([covered  @concept=NameOfPipelineCompanyMakingReport @period=$currentDuration])  
+message 
+"The exact name of pipeline company making this report must be reported in the current period.  
+
+Rule Id:{$rule_id}
+"
+severity error

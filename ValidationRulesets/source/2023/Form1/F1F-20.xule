@@ -1,0 +1,759 @@
+/**
+FERC Rules
+**/
+
+RULE-NAME-PREFIX FERC
+
+assert F1F.20.1 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@IntangiblePlant @period=$currentInstant};
+ $addend = ({@IntangiblePlant @period=$priorInstant} 
+ + {@IntangiblePlantAdditions @period=$currentDuration} 
+ - {@IntangiblePlantRetirements @period=$currentDuration} 
+ + {@IntangiblePlantTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for IntangiblePlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.2 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@SteamProductionPlant @period=$currentInstant};
+ $addend = ({@SteamProductionPlant @period=$priorInstant} 
+ + {@SteamProductionPlantAdditions @period=$currentDuration} 
+ - {@SteamProductionPlantRetirements @period=$currentDuration} 
+ + {@SteamProductionPlantTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SteamProductionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.3 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@HydraulicProductionPlant @period=$currentInstant};
+ $addend = ({@HydraulicProductionPlant @period=$priorInstant} 
+ + {@HydraulicProductionPlantAdditions @period=$currentDuration} 
+ - {@HydraulicProductionPlantRetirements @period=$currentDuration} 
+ + {@HydraulicProductionPlantTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for HydraulicProductionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.4 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@OtherProductionPlant @period=$currentInstant};
+ $addend = ({@OtherProductionPlant @period=$priorInstant} 
+ + {@OtherProductionPlantAdditions @period=$currentDuration} 
+ - {@OtherProductionPlantRetirements @period=$currentDuration} 
+ + {@OtherProductionPlantTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherProductionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.5 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@TransmissionPlant @period=$currentInstant};
+ $addend = ({@TransmissionPlant @period=$priorInstant} 
+ + {@TransmissionPlantAdditions @period=$currentDuration} 
+ - {@TransmissionPlantRetirements @period=$currentDuration} 
+ + {@TransmissionPlantTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TransmissionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.6 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@DistributionPlant @period=$currentInstant};
+ $addend = ({@DistributionPlant @period=$priorInstant} 
+ + {@DistributionPlantAdditions @period=$currentDuration} 
+ - {@DistributionPlantRetirements @period=$currentDuration} 
+ + {@DistributionPlantTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.7 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@GeneralPlant @period=$currentInstant};
+ $addend = ({@GeneralPlant @period=$priorInstant} 
+ + {@GeneralPlantAdditions @period=$currentDuration} 
+ - {@GeneralPlantRetirements @period=$currentDuration} 
+ + {@GeneralPlantTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GeneralPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.8 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@ElectricPlantInService @period=$currentInstant};
+ $addend = ({@ElectricPlantInService @period=$priorInstant} 
+ + {@ElectricPlantInServiceAdditions @period=$currentDuration} 
+ - {@ElectricPlantInServiceRetirements @period=$currentDuration} 
+ + {@ElectricPlantInServiceTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantInService with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.9 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@ElectricPlantPurchased @period=$currentInstant};
+ $addend = ({@ElectricPlantPurchased @period=$priorInstant} 
+ + {@ElectricPlantPurchasedAdditions @period=$currentDuration} 
+ - {@ElectricPlantPurchasedRetirements @period=$currentDuration} 
+ + {@ElectricPlantPurchasedTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantPurchased with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.10 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@ElectricPlantSold @period=$currentInstant};
+ $addend = ({@ElectricPlantSold @period=$priorInstant} 
+ + {@ElectricPlantSoldAdditions @period=$currentDuration} 
+ - {@ElectricPlantSoldRetirements @period=$currentDuration} 
+ + {@ElectricPlantSoldTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantSold with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.11 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@ElectricPlantInProcessOfReclassification @period=$currentInstant};
+ $addend = ({@ElectricPlantInProcessOfReclassification @period=$priorInstant} 
+ + {@ElectricPlantInProcessOfReclassificationAdditions @period=$currentDuration} 
+ - {@ElectricPlantInProcessOfReclassificationRetirements @period=$currentDuration} 
+ + {@ElectricPlantInProcessOfReclassificationTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantInProcessOfReclassification with a value of {$sum1} that is not equal to the value of the sum the changes in the current reporting period of {$addend}.
+
+ElectricPlantInProcessOfReclassification (Prior Balance)
++ ElectricPlantInProcessOfReclassificationAdditions
+- ElectricPlantInProcessOfReclassificationRetirements
++ ElectricPlantInProcessOfReclassificationTransfersAndAdjustments
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.12 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@ElectricPlantLeasedToOthers @period=$currentInstant};
+ $addend = ({@ElectricPlantLeasedToOthers @period=$priorInstant} 
+ + {@ElectricPlantLeasedToOthersAdditions @period=$currentDuration} 
+ - {@ElectricPlantLeasedToOthersRetirements @period=$currentDuration} 
+ + {@ElectricPlantLeasedToOthersTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantLeasedToOthers with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.13 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@ElectricPlantHeldForFutureUse @period=$currentInstant};
+ $addend = ({@ElectricPlantHeldForFutureUse @period=$priorInstant} 
+ + {@ElectricPlantHeldForFutureUseAdditions @period=$currentDuration} 
+ - {@ElectricPlantHeldForFutureUseRetirements @period=$currentDuration} 
+ + {@ElectricPlantHeldForFutureUseTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantHeldForFutureUse with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.14 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@ConstructionWorkInProgressElectric @period=$currentInstant};
+ $addend = ({@ConstructionWorkInProgressElectric @period=$priorInstant} 
+ + {@ConstructionWorkInProgressElectricAdditions @period=$currentDuration} 
+ - {@ConstructionWorkInProgressElectricRetirements @period=$currentDuration} 
+ + {@ConstructionWorkInProgressElectricTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ConstructionWorkInProgressElectric with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.15 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@ElectricPlantAcquisitionAdjustments @period=$currentInstant};
+ $addend = ({@ElectricPlantAcquisitionAdjustments @period=$priorInstant} 
+ + {@ElectricPlantAcquisitionAdjustmentsAdditions @period=$currentDuration} 
+ - {@ElectricPlantAcquisitionAdjustmentsRetirements @period=$currentDuration} 
+ + {@ElectricPlantAcquisitionAdjustmentsTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantAcquisitionAdjustments with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.16 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlant @period=$currentInstant};
+ $addend = ({@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlant @period=$priorInstant} 
+ + {@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantAdditions @period=$currentDuration} 
+ - {@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantRetirements @period=$currentDuration} 
+ + {@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.17 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@OtherUtilityPlant @period=$currentInstant};
+ $addend = ({@OtherUtilityPlant @period=$priorInstant} 
+ + {@OtherUtilityPlantAdditions @period=$currentDuration} 
+ - {@OtherUtilityPlantRetirements @period=$currentDuration} 
+ + {@OtherUtilityPlantTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherUtilityPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.18 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustments @period=$currentInstant};
+ $addend = ({@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustments @period=$priorInstant} 
+ + {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsAdditions @period=$currentDuration} 
+ - {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsRetirements @period=$currentDuration} 
+ + {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustments with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.19 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@OtherElectricPlantAdjustments @period=$currentInstant};
+ $addend = ({@OtherElectricPlantAdjustments @period=$priorInstant} 
+ + {@OtherElectricPlantAdjustmentsAdditions @period=$currentDuration} 
+ - {@OtherElectricPlantAdjustmentsRetirements @period=$currentDuration} 
+ + {@OtherElectricPlantAdjustmentsTransfersAndAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherElectricPlantAdjustments with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.20 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@ElectricPlantInServiceAdditions}; 
+ $addend = ({@IntangiblePlantAdditions} 
+ + {@SteamProductionPlantAdditions}
+ + {@HydraulicProductionPlantAdditions}
+ + {@OtherProductionPlantAdditions}
+ + {@TransmissionPlantAdditions}
+ + {@DistributionPlantAdditions}
+ + {@GeneralPlantAdditions});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantInServiceAdditions with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.21 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@ElectricPlantInServiceRetirements}; 
+ $addend = ({@IntangiblePlantRetirements} 
+ + {@SteamProductionPlantRetirements}
+ + {@HydraulicProductionPlantRetirements}
+ + {@OtherProductionPlantRetirements}
+ + {@TransmissionPlantRetirements}
+ + {@DistributionPlantRetirements}
+ + {@GeneralPlantRetirements});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantInServiceRetirements with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.22 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@ElectricPlantInServiceTransfersAndAdjustments}; 
+ $addend = ({@IntangiblePlantTransfersAndAdjustments} 
+ + {@SteamProductionPlantTransfersAndAdjustments} 
+ + {@HydraulicProductionPlantTransfersAndAdjustments} 
+ + {@OtherProductionPlantTransfersAndAdjustments} 
+ + {@TransmissionPlantTransfersAndAdjustments} 
+ + {@DistributionPlantTransfersAndAdjustments}
+ + {@GeneralPlantTransfersAndAdjustments});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantInServiceTransfersAndAdjustments with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.23 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@ElectricPlantInService}; 
+ $addend = ({@IntangiblePlant} 
+ + {@SteamProductionPlant}
+ + {@HydraulicProductionPlant}
+ + {@OtherProductionPlant}
+ + {@TransmissionPlant}
+ + {@DistributionPlant}
+ + {@GeneralPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantInService with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.24 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantAdditions};
+ $addend = ({@ElectricPlantInServiceAdditions} 
+ + {@ElectricPlantPurchasedAdditions} 
+ + {@ElectricPlantSoldAdditions} 
+ + {@ElectricPlantInProcessOfReclassificationAdditions} 
+ + {@ElectricPlantLeasedToOthersAdditions} 
+ + {@ElectricPlantHeldForFutureUseAdditions} 
+ + {@ConstructionWorkInProgressElectricAdditions} 
+ + {@ElectricPlantAcquisitionAdjustmentsAdditions}
+ + sum(list([nonils @concept = OtherElectricPlantAdjustmentsAdditions @OtherElectricPlantAdjustmentsAxis=*]))
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantAdditions with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.25 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantRetirements}; 
+ $addend = ({@ElectricPlantInServiceRetirements} 
+ + {@ElectricPlantPurchasedRetirements} 
+ + {@ElectricPlantSoldRetirements} 
+ + {@ElectricPlantInProcessOfReclassificationRetirements} 
+ + {@ElectricPlantLeasedToOthersRetirements} 
+ + {@ElectricPlantHeldForFutureUseRetirements} 
+ + {@ConstructionWorkInProgressElectricRetirements} 
+ + {@ElectricPlantAcquisitionAdjustmentsRetirements}
+ + sum(list([nonils @concept = OtherElectricPlantAdjustmentsRetirements @OtherElectricPlantAdjustmentsAxis=*]))
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantRetirements with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.26 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantTransfersAndAdjustments};
+ $addend = ({@ElectricPlantInServiceTransfersAndAdjustments} 
+ + {@ElectricPlantPurchasedTransfersAndAdjustments} 
+ + {@ElectricPlantSoldTransfersAndAdjustments} 
+ + {@ElectricPlantInProcessOfReclassificationTransfersAndAdjustments} 
+ + {@ElectricPlantLeasedToOthersTransfersAndAdjustments} 
+ + {@ElectricPlantHeldForFutureUseTransfersAndAdjustments} 
+ + {@ConstructionWorkInProgressElectricTransfersAndAdjustments} 
+ + {@ElectricPlantAcquisitionAdjustmentsTransfersAndAdjustments}
+ + sum(list([nonils @concept = OtherElectricPlantAdjustmentsTransfersAndAdjustments @OtherElectricPlantAdjustmentsAxis=*]))
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantTransfersAndAdjustments with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.27 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlant}; 
+ $addend = ({@ElectricPlantInService} 
+ + {@ElectricPlantPurchased} 
+ + {@ElectricPlantSold} 
+ + {@ElectricPlantInProcessOfReclassification} 
+ + {@ElectricPlantLeasedToOthers} 
+ + {@ElectricPlantHeldForFutureUse}
+ + {@ConstructionWorkInProgressElectric}
+ + {@ElectricPlantAcquisitionAdjustments}
+ + sum(list([nonils @concept = OtherElectricPlantAdjustments @OtherElectricPlantAdjustmentsAxis=*]))
+ );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.20.28 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $OtherAdditions = first-value({@OtherUtilityPlantAdditions @OtherUtilityPlantAxis=none}, sum(list({nonils @OtherUtilityPlantAdditions @OtherUtilityPlantAxis=*})));
+ $sum1 = {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsAdditions @OtherUtilityPlantAxis=none}; 
+ $addend = ({@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantAdditions @OtherUtilityPlantAxis=none} 
+ + $OtherAdditions);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsAdditions with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}
+"
+severity error
+rule-focus $sum1
+
+assert F1F.20.29 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $OtherRetirements = first-value({@OtherUtilityPlantRetirements @OtherUtilityPlantAxis=none}, sum(list({nonils @OtherUtilityPlantRetirements @OtherUtilityPlantAxis=*})));
+ $sum1 = {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsRetirements @OtherUtilityPlantAxis=none}; 
+ $addend = ({@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantRetirements @OtherUtilityPlantAxis=none} 
+ + $OtherRetirements);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsRetirements with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}
+"
+severity error
+rule-focus $sum1
+
+assert F1F.20.30 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $OtherTransfers = first-value({@OtherUtilityPlantTransfersAndAdjustments @OtherUtilityPlantAxis=none}, sum(list({nonils @OtherUtilityPlantTransfersAndAdjustments @OtherUtilityPlantAxis=*})));
+ $sum1 = {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsTransfersAndAdjustments @OtherUtilityPlantAxis=none}; 
+ $addend = ({@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlantTransfersAndAdjustments @OtherUtilityPlantAxis=none} 
+ +  $OtherTransfers); 
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustmentsTransfersAndAdjustments with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}
+"
+severity error
+rule-focus $sum1
+
+assert F1F.20.31 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:UtilityPlantDataMajorNonmajor]))  == "Major"
+        skip
+else
+$Other = first-value({@OtherUtilityPlant @OtherUtilityPlantAxis=none}, sum(list({nonils @OtherUtilityPlant @OtherUtilityPlantAxis=*})));
+ $sum1 = {@UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustments @OtherUtilityPlantAxis=none}; 
+ $addend = ({@UtilityPlantAndConstructionWorkInProgressNotIncludingOtherUtilityPlant @OtherUtilityPlantAxis=none} 
+ + $Other );
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)
+message 
+"The company has reported a value for UtilityPlantAndConstructionWorkInProgressIncludingOtherElectricPlantAdjustments with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}
+"
+severity error
+rule-focus $sum1

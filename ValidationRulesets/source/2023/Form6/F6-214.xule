@@ -1,0 +1,2936 @@
+/**FERC Form 6 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F6.214.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@LandGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@LandGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@LandGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@LandGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@LandGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@LandGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@LandGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@RightOfWayGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@RightOfWayGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@RightOfWayGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@RightOfWayGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RightOfWayGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@RightOfWayGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; 
+ $addend = ({@RightOfWayGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} 
+ + {@RightOfWayGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RightOfWayGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@RightOfWayGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; 
+ $addend = ({@RightOfWayGatheringLinesUndividedJointInterestProperty @period=$priorInstant} 
+ + {@RightOfWayGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RightOfWayGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LinePipeGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@LinePipeGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@LinePipeGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@LinePipeGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LinePipeGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LinePipeGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@LinePipeGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@LinePipeGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LinePipeGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LinePipeGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@LinePipeGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@LinePipeGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LinePipeGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LinePipeFittingsGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@LinePipeFittingsGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@LinePipeFittingsGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@LinePipeFittingsGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LinePipeFittingsGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.11 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LinePipeFittingsGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@LinePipeFittingsGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@LinePipeFittingsGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LinePipeFittingsGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.12 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LinePipeFittingsGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@LinePipeFittingsGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@LinePipeFittingsGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LinePipeFittingsGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.13 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PipelineConstructionGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@PipelineConstructionGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@PipelineConstructionGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@PipelineConstructionGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PipelineConstructionGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.14 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PipelineConstructionGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@PipelineConstructionGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@PipelineConstructionGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PipelineConstructionGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.15 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PipelineConstructionGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@PipelineConstructionGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@PipelineConstructionGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PipelineConstructionGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.16 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BuildingsGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@BuildingsGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@BuildingsGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@BuildingsGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BuildingsGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.17 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BuildingsGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@BuildingsGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@BuildingsGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BuildingsGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.18 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BuildingsGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@BuildingsGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@BuildingsGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BuildingsGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.19 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BoilersGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@BoilersGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@BoilersGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@BoilersGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BoilersGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.20 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BoilersGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@BoilersGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@BoilersGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BoilersGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.21 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BoilersGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@BoilersGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@BoilersGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BoilersGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.22 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PumpingEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@PumpingEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@PumpingEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@PumpingEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PumpingEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.23 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PumpingEquipmentGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@PumpingEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@PumpingEquipmentGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PumpingEquipmentGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.24 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PumpingEquipmentGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@PumpingEquipmentGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@PumpingEquipmentGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PumpingEquipmentGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.25 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MachineToolsAndMachineryGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@MachineToolsAndMachineryGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@MachineToolsAndMachineryGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@MachineToolsAndMachineryGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MachineToolsAndMachineryGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.26 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MachineToolsAndMachineryGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@MachineToolsAndMachineryGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@MachineToolsAndMachineryGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MachineToolsAndMachineryGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.27 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MachineToolsAndMachineryGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@MachineToolsAndMachineryGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@MachineToolsAndMachineryGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MachineToolsAndMachineryGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.28 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherStationEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@OtherStationEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@OtherStationEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@OtherStationEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherStationEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.29 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherStationEquipmentGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@OtherStationEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@OtherStationEquipmentGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherStationEquipmentGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.30 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherStationEquipmentGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@OtherStationEquipmentGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@OtherStationEquipmentGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherStationEquipmentGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.31 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OilTanksGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@OilTanksGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@OilTanksGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@OilTanksGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OilTanksGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.32 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OilTanksGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@OilTanksGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@OilTanksGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OilTanksGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.33 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OilTanksGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@OilTanksGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@OilTanksGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OilTanksGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.34 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@DeliveryFacilitiesGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@DeliveryFacilitiesGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@DeliveryFacilitiesGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@DeliveryFacilitiesGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DeliveryFacilitiesGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.35 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@DeliveryFacilitiesGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@DeliveryFacilitiesGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@DeliveryFacilitiesGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DeliveryFacilitiesGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.36 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@DeliveryFacilitiesGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@DeliveryFacilitiesGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@DeliveryFacilitiesGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DeliveryFacilitiesGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.37 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CommunicationSystemsGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@CommunicationSystemsGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@CommunicationSystemsGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@CommunicationSystemsGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CommunicationSystemsGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.38 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CommunicationSystemsGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@CommunicationSystemsGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@CommunicationSystemsGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CommunicationSystemsGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.39 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CommunicationSystemsGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@CommunicationSystemsGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@CommunicationSystemsGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CommunicationSystemsGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.40 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OfficeFurnitureAndEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@OfficeFurnitureAndEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@OfficeFurnitureAndEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@OfficeFurnitureAndEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OfficeFurnitureAndEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.41 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OfficeFurnitureAndEquipmentGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@OfficeFurnitureAndEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@OfficeFurnitureAndEquipmentGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OfficeFurnitureAndEquipmentGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.42 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OfficeFurnitureAndEquipmentGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@OfficeFurnitureAndEquipmentGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@OfficeFurnitureAndEquipmentGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OfficeFurnitureAndEquipmentGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.43 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@VehiclesAndOtherWorkEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@VehiclesAndOtherWorkEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@VehiclesAndOtherWorkEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@VehiclesAndOtherWorkEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VehiclesAndOtherWorkEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.44 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@VehiclesAndOtherWorkEquipmentGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@VehiclesAndOtherWorkEquipmentGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@VehiclesAndOtherWorkEquipmentGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VehiclesAndOtherWorkEquipmentGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.45 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@VehiclesAndOtherWorkEquipmentGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@VehiclesAndOtherWorkEquipmentGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@VehiclesAndOtherWorkEquipmentGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VehiclesAndOtherWorkEquipmentGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.46 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherPropertyGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@OtherPropertyGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@OtherPropertyGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@OtherPropertyGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherPropertyGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.47 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherPropertyGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@OtherPropertyGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@OtherPropertyGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherPropertyGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.48 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherPropertyGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@OtherPropertyGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@OtherPropertyGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherPropertyGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.49 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForGatheringLinesGatheringLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@AssetRetirementCostsForGatheringLinesGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@AssetRetirementCostsForGatheringLinesGatheringLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@AssetRetirementCostsForGatheringLinesGatheringLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForGatheringLinesGatheringLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.50 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForGatheringLinesGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@AssetRetirementCostsForGatheringLinesGatheringLinesUndividedJointInterestPropertyPropertyChangesNet} + {@AssetRetirementCostsForGatheringLinesGatheringLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForGatheringLinesGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.51 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForGatheringLinesGatheringLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@AssetRetirementCostsForGatheringLinesGatheringLinesUndividedJointInterestProperty @period=$priorInstant} + {@AssetRetirementCostsForGatheringLinesGatheringLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForGatheringLinesGatheringLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.52 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@UndividedJointInterestPropertyGatheringLines}; $addend = ({@LandGatheringLinesUndividedJointInterestProperty} + {@RightOfWayGatheringLinesUndividedJointInterestProperty} + {@LinePipeGatheringLinesUndividedJointInterestProperty} + {@LinePipeFittingsGatheringLinesUndividedJointInterestProperty} + {@PipelineConstructionGatheringLinesUndividedJointInterestProperty} + {@BuildingsGatheringLinesUndividedJointInterestProperty} + {@BoilersGatheringLinesUndividedJointInterestProperty} + {@PumpingEquipmentGatheringLinesUndividedJointInterestProperty} + {@MachineToolsAndMachineryGatheringLinesUndividedJointInterestProperty} + {@OtherStationEquipmentGatheringLinesUndividedJointInterestProperty} + {@OilTanksGatheringLinesUndividedJointInterestProperty} + {@DeliveryFacilitiesGatheringLinesUndividedJointInterestProperty} + {@CommunicationSystemsGatheringLinesUndividedJointInterestProperty} + {@OfficeFurnitureAndEquipmentGatheringLinesUndividedJointInterestProperty} + {@VehiclesAndOtherWorkEquipmentGatheringLinesUndividedJointInterestProperty} + {@OtherPropertyGatheringLinesUndividedJointInterestProperty} + {@AssetRetirementCostsForGatheringLinesGatheringLinesUndividedJointInterestProperty});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UndividedJointInterestPropertyGatheringLines with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.53 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@LandTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@LandTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@LandTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.54 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@LandTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@LandTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.55 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@LandTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@LandTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.56 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@RightOfWayTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@RightOfWayTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@RightOfWayTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@RightOfWayTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RightOfWayTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.57 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@RightOfWayTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@RightOfWayTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@RightOfWayTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RightOfWayTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.58 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@RightOfWayTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@RightOfWayTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@RightOfWayTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RightOfWayTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.59 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LinePipeTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@LinePipeTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@LinePipeTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@LinePipeTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LinePipeTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.60 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LinePipeTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@LinePipeTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@LinePipeTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LinePipeTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.61 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LinePipeTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@LinePipeTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@LinePipeTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LinePipeTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.62 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LinePipeFittingsTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@LinePipeFittingsTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@LinePipeFittingsTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@LinePipeFittingsTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LinePipeFittingsTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.63 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LinePipeFittingsTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@LinePipeFittingsTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@LinePipeFittingsTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LinePipeFittingsTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.64 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LinePipeFittingsTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@LinePipeFittingsTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@LinePipeFittingsTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LinePipeFittingsTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.65 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PipelineConstructionTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@PipelineConstructionTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@PipelineConstructionTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@PipelineConstructionTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PipelineConstructionTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.66 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PipelineConstructionTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@PipelineConstructionTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@PipelineConstructionTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PipelineConstructionTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.67 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PipelineConstructionTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@PipelineConstructionTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@PipelineConstructionTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PipelineConstructionTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.68 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BuildingsTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@BuildingsTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@BuildingsTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@BuildingsTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BuildingsTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.69 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BuildingsTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@BuildingsTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@BuildingsTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BuildingsTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.70 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BuildingsTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@BuildingsTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@BuildingsTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BuildingsTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.71 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BoilersTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@BoilersTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@BoilersTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@BoilersTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BoilersTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.72 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BoilersTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@BoilersTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@BoilersTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BoilersTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.73 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BoilersTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@BoilersTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@BoilersTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BoilersTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.74 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PumpingEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@PumpingEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@PumpingEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@PumpingEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PumpingEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.75 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PumpingEquipmentTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@PumpingEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@PumpingEquipmentTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PumpingEquipmentTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.76 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PumpingEquipmentTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@PumpingEquipmentTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@PumpingEquipmentTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PumpingEquipmentTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.77 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MachineToolsAndMachineryTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@MachineToolsAndMachineryTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@MachineToolsAndMachineryTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@MachineToolsAndMachineryTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MachineToolsAndMachineryTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.78 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MachineToolsAndMachineryTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@MachineToolsAndMachineryTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@MachineToolsAndMachineryTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MachineToolsAndMachineryTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.79 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MachineToolsAndMachineryTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@MachineToolsAndMachineryTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@MachineToolsAndMachineryTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MachineToolsAndMachineryTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.80 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherStationEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@OtherStationEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@OtherStationEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@OtherStationEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherStationEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.81 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherStationEquipmentTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@OtherStationEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@OtherStationEquipmentTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherStationEquipmentTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.82 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherStationEquipmentTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@OtherStationEquipmentTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@OtherStationEquipmentTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherStationEquipmentTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.83 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OilTanksTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@OilTanksTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@OilTanksTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@OilTanksTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OilTanksTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.84 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OilTanksTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@OilTanksTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@OilTanksTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OilTanksTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.85 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OilTanksTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@OilTanksTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@OilTanksTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OilTanksTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.86 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@DeliveryFacilitiesTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@DeliveryFacilitiesTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@DeliveryFacilitiesTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@DeliveryFacilitiesTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DeliveryFacilitiesTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.87 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@DeliveryFacilitiesTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@DeliveryFacilitiesTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@DeliveryFacilitiesTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DeliveryFacilitiesTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.88 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@DeliveryFacilitiesTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@DeliveryFacilitiesTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@DeliveryFacilitiesTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DeliveryFacilitiesTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.89 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CommunicationSystemsTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@CommunicationSystemsTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@CommunicationSystemsTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@CommunicationSystemsTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CommunicationSystemsTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.90 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CommunicationSystemsTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@CommunicationSystemsTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@CommunicationSystemsTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CommunicationSystemsTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.91 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CommunicationSystemsTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@CommunicationSystemsTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@CommunicationSystemsTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CommunicationSystemsTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.92 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OfficeFurnitureAndEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@OfficeFurnitureAndEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@OfficeFurnitureAndEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@OfficeFurnitureAndEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OfficeFurnitureAndEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.93 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OfficeFurnitureAndEquipmentTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@OfficeFurnitureAndEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@OfficeFurnitureAndEquipmentTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OfficeFurnitureAndEquipmentTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.94 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OfficeFurnitureAndEquipmentTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@OfficeFurnitureAndEquipmentTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@OfficeFurnitureAndEquipmentTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OfficeFurnitureAndEquipmentTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.95 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@VehiclesAndOtherWorkEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@VehiclesAndOtherWorkEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@VehiclesAndOtherWorkEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@VehiclesAndOtherWorkEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VehiclesAndOtherWorkEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.96 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@VehiclesAndOtherWorkEquipmentTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@VehiclesAndOtherWorkEquipmentTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@VehiclesAndOtherWorkEquipmentTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VehiclesAndOtherWorkEquipmentTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.97 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@VehiclesAndOtherWorkEquipmentTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@VehiclesAndOtherWorkEquipmentTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@VehiclesAndOtherWorkEquipmentTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VehiclesAndOtherWorkEquipmentTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.98 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherPropertyTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@OtherPropertyTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@OtherPropertyTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@OtherPropertyTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherPropertyTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.99 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherPropertyTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@OtherPropertyTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@OtherPropertyTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherPropertyTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.100 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherPropertyTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@OtherPropertyTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@OtherPropertyTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherPropertyTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.101 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForTrunkLinesTrunkLinesUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@AssetRetirementCostsForTrunkLinesTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@AssetRetirementCostsForTrunkLinesTrunkLinesUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@AssetRetirementCostsForTrunkLinesTrunkLinesUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForTrunkLinesTrunkLinesUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.102 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForTrunkLinesTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@AssetRetirementCostsForTrunkLinesTrunkLinesUndividedJointInterestPropertyPropertyChangesNet} + {@AssetRetirementCostsForTrunkLinesTrunkLinesUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForTrunkLinesTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.103 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForTrunkLinesTrunkLinesUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@AssetRetirementCostsForTrunkLinesTrunkLinesUndividedJointInterestProperty @period=$priorInstant} + {@AssetRetirementCostsForTrunkLinesTrunkLinesUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForTrunkLinesTrunkLinesUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.104 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@UndividedJointInterestPropertyTrunkLines}; $addend = ({@LandTrunkLinesUndividedJointInterestProperty} + {@RightOfWayTrunkLinesUndividedJointInterestProperty} + {@LinePipeTrunkLinesUndividedJointInterestProperty} + {@LinePipeFittingsTrunkLinesUndividedJointInterestProperty} + {@PipelineConstructionTrunkLinesUndividedJointInterestProperty} + {@BuildingsTrunkLinesUndividedJointInterestProperty} + {@BoilersTrunkLinesUndividedJointInterestProperty} + {@PumpingEquipmentTrunkLinesUndividedJointInterestProperty} + {@MachineToolsAndMachineryTrunkLinesUndividedJointInterestProperty} + {@OtherStationEquipmentTrunkLinesUndividedJointInterestProperty} + {@OilTanksTrunkLinesUndividedJointInterestProperty} + {@DeliveryFacilitiesTrunkLinesUndividedJointInterestProperty} + {@CommunicationSystemsTrunkLinesUndividedJointInterestProperty} + {@OfficeFurnitureAndEquipmentTrunkLinesUndividedJointInterestProperty} + {@VehiclesAndOtherWorkEquipmentTrunkLinesUndividedJointInterestProperty} + {@OtherPropertyTrunkLinesUndividedJointInterestProperty} + {@AssetRetirementCostsForTrunkLinesTrunkLinesUndividedJointInterestProperty});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UndividedJointInterestPropertyTrunkLines with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.105 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandGeneralUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@LandGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@LandGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@LandGeneralUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandGeneralUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.106 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@LandGeneralUndividedJointInterestPropertyPropertyChangesNet} + {@LandGeneralUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.107 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandGeneralUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@LandGeneralUndividedJointInterestProperty @period=$priorInstant} + {@LandGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandGeneralUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.108 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BuildingsGeneralUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@BuildingsGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@BuildingsGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@BuildingsGeneralUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BuildingsGeneralUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.109 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BuildingsGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@BuildingsGeneralUndividedJointInterestPropertyPropertyChangesNet} + {@BuildingsGeneralUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BuildingsGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.110 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BuildingsGeneralUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@BuildingsGeneralUndividedJointInterestProperty @period=$priorInstant} + {@BuildingsGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BuildingsGeneralUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.111 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MachineToolsAndMachineryGeneralUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@MachineToolsAndMachineryGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@MachineToolsAndMachineryGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@MachineToolsAndMachineryGeneralUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MachineToolsAndMachineryGeneralUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.112 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MachineToolsAndMachineryGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@MachineToolsAndMachineryGeneralUndividedJointInterestPropertyPropertyChangesNet} + {@MachineToolsAndMachineryGeneralUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MachineToolsAndMachineryGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.113 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MachineToolsAndMachineryGeneralUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@MachineToolsAndMachineryGeneralUndividedJointInterestProperty @period=$priorInstant} + {@MachineToolsAndMachineryGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MachineToolsAndMachineryGeneralUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.114 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CommunicationSystemsGeneralUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@CommunicationSystemsGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@CommunicationSystemsGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@CommunicationSystemsGeneralUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CommunicationSystemsGeneralUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.115 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CommunicationSystemsGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@CommunicationSystemsGeneralUndividedJointInterestPropertyPropertyChangesNet} + {@CommunicationSystemsGeneralUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CommunicationSystemsGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.116 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CommunicationSystemsGeneralUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@CommunicationSystemsGeneralUndividedJointInterestProperty @period=$priorInstant} + {@CommunicationSystemsGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CommunicationSystemsGeneralUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.117 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OfficeFurnitureAndEquipmentGeneralUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@OfficeFurnitureAndEquipmentGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@OfficeFurnitureAndEquipmentGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@OfficeFurnitureAndEquipmentGeneralUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OfficeFurnitureAndEquipmentGeneralUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.118 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OfficeFurnitureAndEquipmentGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@OfficeFurnitureAndEquipmentGeneralUndividedJointInterestPropertyPropertyChangesNet} + {@OfficeFurnitureAndEquipmentGeneralUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OfficeFurnitureAndEquipmentGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.119 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OfficeFurnitureAndEquipmentGeneralUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@OfficeFurnitureAndEquipmentGeneralUndividedJointInterestProperty @period=$priorInstant} + {@OfficeFurnitureAndEquipmentGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OfficeFurnitureAndEquipmentGeneralUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.120 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@VehiclesAndOtherWorkEquipmentGeneralUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@VehiclesAndOtherWorkEquipmentGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@VehiclesAndOtherWorkEquipmentGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@VehiclesAndOtherWorkEquipmentGeneralUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VehiclesAndOtherWorkEquipmentGeneralUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.121 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@VehiclesAndOtherWorkEquipmentGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@VehiclesAndOtherWorkEquipmentGeneralUndividedJointInterestPropertyPropertyChangesNet} + {@VehiclesAndOtherWorkEquipmentGeneralUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VehiclesAndOtherWorkEquipmentGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.122 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@VehiclesAndOtherWorkEquipmentGeneralUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@VehiclesAndOtherWorkEquipmentGeneralUndividedJointInterestProperty @period=$priorInstant} + {@VehiclesAndOtherWorkEquipmentGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VehiclesAndOtherWorkEquipmentGeneralUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.123 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherPropertyGeneralUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@OtherPropertyGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@OtherPropertyGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@OtherPropertyGeneralUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherPropertyGeneralUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.124 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherPropertyGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@OtherPropertyGeneralUndividedJointInterestPropertyPropertyChangesNet} + {@OtherPropertyGeneralUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherPropertyGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.125 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherPropertyGeneralUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@OtherPropertyGeneralUndividedJointInterestProperty @period=$priorInstant} + {@OtherPropertyGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherPropertyGeneralUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.126 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForGeneralPropertyGeneralUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@AssetRetirementCostsForGeneralPropertyGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@AssetRetirementCostsForGeneralPropertyGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@AssetRetirementCostsForGeneralPropertyGeneralUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForGeneralPropertyGeneralUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.127 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForGeneralPropertyGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@AssetRetirementCostsForGeneralPropertyGeneralUndividedJointInterestPropertyPropertyChangesNet} + {@AssetRetirementCostsForGeneralPropertyGeneralUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForGeneralPropertyGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.128 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForGeneralPropertyGeneralUndividedJointInterestProperty @period=$currentInstant}; 
+ $addend = ({@AssetRetirementCostsForGeneralPropertyGeneralUndividedJointInterestProperty @period=$priorInstant} + {@AssetRetirementCostsForGeneralPropertyGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForGeneralPropertyGeneralUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.129 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ConstructionWorkInProgressGeneralUndividedJointInterestPropertyPropertyChangesNet}; $addend = ({@ConstructionWorkInProgressGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForNewConstructionAdditionsAndImprovements} + {@ConstructionWorkInProgressGeneralUndividedJointInterestPropertyPropertyChangesExpendituresForExistingPropertyPurchasedOrAcquired} - {@ConstructionWorkInProgressGeneralUndividedJointInterestPropertyPropertyChangesPropertySoldAbandonedOrRetired});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ConstructionWorkInProgressGeneralUndividedJointInterestPropertyPropertyChangesNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.130 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ConstructionWorkInProgressGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease}; $addend = ({@ConstructionWorkInProgressGeneralUndividedJointInterestPropertyPropertyChangesNet} + {@ConstructionWorkInProgressGeneralUndividedJointInterestPropertyOtherAdjustmentsTransfersAndClearances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ConstructionWorkInProgressGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.131 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ConstructionWorkInProgressGeneralUndividedJointInterestProperty @period=$currentInstant}; $addend = ({@ConstructionWorkInProgressGeneralUndividedJointInterestProperty @period=$priorInstant} + {@ConstructionWorkInProgressGeneralUndividedJointInterestPropertyPeriodIncreaseDecrease @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ConstructionWorkInProgressGeneralUndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.132 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@UndividedJointInterestPropertyGeneral}; $addend = ({@LandGeneralUndividedJointInterestProperty} + {@BuildingsGeneralUndividedJointInterestProperty} + {@MachineToolsAndMachineryGeneralUndividedJointInterestProperty} + {@CommunicationSystemsGeneralUndividedJointInterestProperty} + {@OfficeFurnitureAndEquipmentGeneralUndividedJointInterestProperty} + {@VehiclesAndOtherWorkEquipmentGeneralUndividedJointInterestProperty} + {@OtherPropertyGeneralUndividedJointInterestProperty} + {@AssetRetirementCostsForGeneralPropertyGeneralUndividedJointInterestProperty} + {@ConstructionWorkInProgressGeneralUndividedJointInterestProperty});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UndividedJointInterestPropertyGeneral with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.214.133 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@UndividedJointInterestProperty}; $addend = ({@UndividedJointInterestPropertyGatheringLines} + {@UndividedJointInterestPropertyTrunkLines} + {@UndividedJointInterestPropertyGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UndividedJointInterestProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

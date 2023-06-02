@@ -1,0 +1,258 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.424.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CostOfTransmissionLinesAdded}; 
+ $addend = ({@CostOfLandAndLandRightsTransmissionLinesAdded} 
+ + {@CostOfPolesTowersAndFixturesTransmissionLinesAdded} 
+ + {@CostOfConductorsAndDevicesTransmissionLinesAdded} 
+ + {@AssetRetirementCostsTransmissionLinesAdded});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CostOfTransmissionLinesAdded with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.424.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@CostOfTransmissionLinesAdded]; 
+ $addend = sum(list([nonils @CostOfTransmissionLinesAdded @TransmissionLinesAddedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionLinesAddedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.424.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@LengthOfTransmissionLineAdded]; 
+ $addend = sum(list([nonils @LengthOfTransmissionLineAdded @TransmissionLinesAddedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionLinesAddedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.424.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@AverageNumberOfSupportingStructuresOfTransmissionLinePerMiles]; 
+ $addend = sum(list([nonils @AverageNumberOfSupportingStructuresOfTransmissionLinePerMiles @TransmissionLinesAddedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionLinesAddedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.424.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@NumberOfTransmissionCircuitsPerStructurePresent]; 
+ $addend = sum(list([nonils @NumberOfTransmissionCircuitsPerStructurePresent @TransmissionLinesAddedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionLinesAddedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.424.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@NumberOfTransmissionCircuitsPerStructureUltimate]; 
+ $addend = sum(list([nonils @NumberOfTransmissionCircuitsPerStructureUltimate @TransmissionLinesAddedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionLinesAddedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.424.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@OperatingVoltageOfTransmissionLine]; 
+ $addend = sum(list([nonils @OperatingVoltageOfTransmissionLine @TransmissionLinesAddedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionLinesAddedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.424.8 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@CostOfLandAndLandRightsTransmissionLinesAdded]; 
+ $addend = sum(list([nonils @CostOfLandAndLandRightsTransmissionLinesAdded @TransmissionLinesAddedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionLinesAddedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.424.9 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@CostOfPolesTowersAndFixturesTransmissionLinesAdded]; 
+ $addend = sum(list([nonils @CostOfPolesTowersAndFixturesTransmissionLinesAdded @TransmissionLinesAddedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionLinesAddedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.424.10 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@CostOfConductorsAndDevicesTransmissionLinesAdded]; 
+ $addend = sum(list([nonils @CostOfConductorsAndDevicesTransmissionLinesAdded @TransmissionLinesAddedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionLinesAddedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.424.11 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@AssetRetirementCostsTransmissionLinesAdded]; 
+ $addend = sum(list([nonils @AssetRetirementCostsTransmissionLinesAdded @TransmissionLinesAddedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionLinesAddedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

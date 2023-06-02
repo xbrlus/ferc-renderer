@@ -1,0 +1,83 @@
+/**FERC Form 60 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F60.6.1 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@FuelStockExpensesUndistributedLabor];
+ 
+ $addend = sum(list([nonils @FuelStockExpensesUndistributedLabor @FuelStockExpensesUndistributedAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis FuelStockExpensesUndistributedAxisFuelStockExpensesUndistributedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.6.2 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@FuelStockExpensesUndistributedExpenses];
+  $addend = sum(list([nonils @FuelStockExpensesUndistributedExpenses @FuelStockExpensesUndistributedAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)    
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis FuelStockExpensesUndistributedAxisFuelStockExpensesUndistributedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.6.3 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@FuelStockExpensesUndistributed];
+  $addend = sum(list([nonils @FuelStockExpensesUndistributed @FuelStockExpensesUndistributedAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis FuelStockExpensesUndistributedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.6.4 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@FuelStockExpensesUndistributed};
+  $addend = ({@FuelStockExpensesUndistributedLabor} + {@FuelStockExpensesUndistributedExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for FuelStockExpensesUndistributed with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

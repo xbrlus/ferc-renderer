@@ -1,0 +1,482 @@
+/**FERC Form 6 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F6.602.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@MilesOfGatheringLinesOperated @MilesOfPipelineOperatedAxis = none}; 
+        $addend = sum(list({nonils @MilesOfGatheringLinesOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The  element {$sum1.concept.name} with the dimensions {$sum1.dimensions.join(', ','=')} broken down using the axis MilesOfPipelineOperatedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@MilesOfTrunkLinesForCrudeOilOperated @MilesOfPipelineOperatedAxis = none}; 
+        $addend = sum(list({nonils @MilesOfTrunkLinesForCrudeOilOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The  element {$sum1.concept.name} with the dimensions {$sum1.dimensions.join(', ','=')} broken down using the axis MilesOfPipelineOperatedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@MilesOfTrunkLinesForProductsOperated @MilesOfPipelineOperatedAxis = none}; 
+        $addend = sum(list({nonils @MilesOfTrunkLinesForProductsOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The  element {$sum1.concept.name} with the dimensions {$sum1.dimensions.join(', ','=')} broken down using the axis MilesOfPipelineOperatedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@IncreaseMilesOfGatheringLinesOperated @MilesOfPipelineOperatedAxis = none}; 
+        $addend = sum(list({nonils @IncreaseMilesOfGatheringLinesOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+         if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The  element {$sum1.concept.name} with the dimensions {$sum1.dimensions.join(', ','=')} broken down using the axis MilesOfPipelineOperatedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@IncreaseMilesOfTrunkLinesForCrudeOilOperated @MilesOfPipelineOperatedAxis = none};
+        $addend = sum(list({nonils @IncreaseMilesOfTrunkLinesForCrudeOilOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The  element {$sum1.concept.name} with the dimensions {$sum1.dimensions.join(', ','=')} broken down using the axis MilesOfPipelineOperatedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@IncreaseMilesOfTrunkLinesForProductsOperated @MilesOfPipelineOperatedAxis = none};
+        $addend = sum(list({nonils @IncreaseMilesOfTrunkLinesForProductsOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+         if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The  element {$sum1.concept.name} with the dimensions {$sum1.dimensions.join(', ','=')} broken down using the axis MilesOfPipelineOperatedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@DecreaseMilesOfGatheringLinesOperated @MilesOfPipelineOperatedAxis = none};
+        $addend = sum(list({nonils @DecreaseMilesOfGatheringLinesOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The  element {$sum1.concept.name} with the dimensions {$sum1.dimensions.join(', ','=')} broken down using the axis MilesOfPipelineOperatedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@DecreaseMilesOfTrunkLinesForCrudeOilOperated @MilesOfPipelineOperatedAxis = none};
+        $addend = sum(list({nonils @DecreaseMilesOfTrunkLinesForCrudeOilOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The  element {$sum1.concept.name} with the dimensions {$sum1.dimensions.join(', ','=')} broken down using the axis MilesOfPipelineOperatedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@DecreaseMilesOfTrunkLinesForProductsOperated @MilesOfPipelineOperatedAxis = none}; 
+        $addend = sum(list({nonils @DecreaseMilesOfTrunkLinesForProductsOperated @MilesOfPipelineOperatedAxis=*})#breakdown);
+         if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The  element {$sum1.concept.name} with the dimensions {$sum1.dimensions.join(', ','=')} broken down using the axis MilesOfPipelineOperatedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.14 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@MilesOfGatheringLinesOperated]; 
+        $addend = sum(list([nonils @MilesOfGatheringLinesOperated @OwnershipAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The  element {$sum1.concept.name}  broken down using the axis OwnershipAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.15 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@MilesOfTrunkLinesForCrudeOilOperated]; 
+        $addend = sum(list([nonils @MilesOfTrunkLinesForCrudeOilOperated @OwnershipAxis=*])#breakdown);
+         if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The  element {$sum1.concept.name}  broken down using the axis OwnershipAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.16 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@MilesOfTrunkLinesForProductsOperated]; 
+        $addend = sum(list([nonils @MilesOfTrunkLinesForProductsOperated @OwnershipAxis=*])#breakdown);
+         if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The  element {$sum1.concept.name}  broken down using the axis OwnershipAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.17 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@IncreaseMilesOfGatheringLinesOperated]; 
+        $addend = sum(list([nonils @IncreaseMilesOfGatheringLinesOperated @OwnershipAxis=*])#breakdown);
+         if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The  element {$sum1.concept.name}  broken down using the axis OwnershipAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.18 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@IncreaseMilesOfTrunkLinesForCrudeOilOperated]; 
+        $addend = sum(list([nonils @IncreaseMilesOfTrunkLinesForCrudeOilOperated @OwnershipAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The  element {$sum1.concept.name}  broken down using the axis OwnershipAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.19 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@IncreaseMilesOfTrunkLinesForProductsOperated]; 
+        $addend = sum(list([nonils @IncreaseMilesOfTrunkLinesForProductsOperated @OwnershipAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The  element {$sum1.concept.name}  broken down using the axis OwnershipAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.20 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@DecreaseMilesOfGatheringLinesOperated]; 
+        $addend = sum(list([nonils @DecreaseMilesOfGatheringLinesOperated @OwnershipAxis=*])#breakdown);
+         if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The  element {$sum1.concept.name}  broken down using the axis OwnershipAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.21 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@DecreaseMilesOfTrunkLinesForCrudeOilOperated]; 
+        $addend = sum(list([nonils @DecreaseMilesOfTrunkLinesForCrudeOilOperated @OwnershipAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The  element {$sum1.concept.name}  broken down using the axis OwnershipAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+
+assert F6.602.22 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@DecreaseMilesOfTrunkLinesForProductsOperated]; 
+        $addend = sum(list([nonils @DecreaseMilesOfTrunkLinesForProductsOperated @OwnershipAxis=*])#breakdown);
+         if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The  element {$sum1.concept.name}  broken down using the axis OwnershipAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1

@@ -1,0 +1,262 @@
+/**
+FERC Rules
+**/
+
+RULE-NAME-PREFIX FERC
+
+assert F60.all.1 satisfied 
+
+$rule_id = rule-name();
+
+$occurrences = count(list({@}#fact1)#factItems);
+$occurrences > 1
+
+message
+"The values of {$fact1} for the elements {$fact1.concept.name} are duplicated in the filing {$occurrences} times with the values of {$factItems.join(' and ')}.
+
+Element : {$fact1.concept.name}
+Period : {$fact1.period}
+
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $fact1
+
+/** The following rules perform unit checking **/
+
+
+/** Checks that all monetary amounts are in USD **/
+
+assert F60.all.2 satisfied 
+
+$rule_id = rule-name();
+
+$invalid_currency = {nonils @concept.data-type = xbrli:monetaryItemType @unit != unit(iso4217:USD)};
+exists($invalid_currency)
+
+message
+
+"The value for {$invalid_currency.concept.name.local-name} with a value of {$invalid_currency} has a unit of {$invalid_currency.unit}. All monetary types should have a unit of USD.
+
+Element : {$invalid_currency.concept.name}
+Period : {$invalid_currency.period}
+Unit : {$invalid_currency.unit}
+
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $invalid_currency
+
+/** Checks that all order numbers are pure **/
+
+assert F60.all.3 satisfied 
+$rule_id = rule-name();
+
+$invalid_unit = {nonils @concept = OrderNumber @unit != unit(xbrli:pure)};
+exists($invalid_unit)
+
+message
+
+"The value for {$invalid_unit.concept.name.local-name} with a value of {$invalid_unit} has a unit of {$invalid_unit.unit}. The Order Number should have a unit of pure.
+
+Element : {$invalid_unit.concept.name}
+Period : {$invalid_unit.period}
+Unit : {$invalid_unit.unit}
+
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $invalid_unit
+
+/** Checks that all Share amounts are shares **/
+
+assert F60.all.4 satisfied 
+$rule_id = rule-name();
+
+$invalid_unit = {nonils @concept.data-type = xbrli:sharesItemType @unit != unit(xbrli:shares)};
+exists($invalid_unit)
+
+message
+
+"The value for {$invalid_unit.concept.name.local-name} with a value of {$invalid_unit} has a unit of {$invalid_unit.unit}. Share types should have a unit of shares.
+
+Element : {$invalid_unit.concept.name}
+Period : {$invalid_unit.period}
+Unit : {$invalid_unit.unit}
+
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $invalid_unit
+
+/** Checks that all per Share amounts are usd/shares **/
+
+assert F60.all.5 satisfied 
+$rule_id = rule-name();
+
+$invalid_unit = {nonils @concept.data-type = num:perShareItemType @unit != unit(iso4217:USD, xbrli:shares)};
+exists($invalid_unit)
+
+message
+
+"The value for {$invalid_unit.concept.name.local-name} with a value of {$invalid_unit} has a unit of {$invalid_unit.unit}. Per share item types should have a unit of USD/shares.
+
+Element : {$invalid_unit.concept.name}
+Period : {$invalid_unit.period}
+Unit : {$invalid_unit.unit}
+
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $invalid_unit
+
+/** Checks that all length amounts are measured in correct units **/
+
+assert F60.all.6 satisfied 
+$rule_id = rule-name();
+
+$length_facts = {nonils @concept.data-type = num:lengthItemType};
+$LengthUnits = $associatedUnits[$length_facts.concept];
+if $LengthUnits.contains(none)
+	false
+else
+	$length_facts.unit.numerator.string not in  $LengthUnits
+
+message
+
+"The value for {$length_facts.concept.name.local-name} with a value of {$length_facts} has a unit of {$length_facts.unit.numerator}. This concept allows units of {$LengthUnits.join(',')}.
+
+Element : {$length_facts.concept.name}
+Period : {$length_facts.period}
+Unit : {$length_facts.unit.numerator}
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $length_facts
+
+/** Checks that all energy amounts are measured in correct units. **/
+
+assert F60.all.7 satisfied 
+$rule_id = rule-name();
+
+
+$energy_facts = {nonils @concept.data-type = num:energyItemType};
+$EnergyUnits = $associatedUnits[$energy_facts.concept];
+if $EnergyUnits.contains(none)
+	false
+else
+	$energy_facts.unit.numerator.string not in  $EnergyUnits
+
+message
+
+"The value for {$energy_facts.concept.name.local-name} with a value of {$energy_facts} has a unit of {$energy_facts.unit.numerator}. This concept allows units of {$EnergyUnits.join(',')}.
+
+Element : {$energy_facts.concept.name}
+Period : {$energy_facts.period}
+Unit : {$energy_facts.unit.numerator}
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $energy_facts
+ 
+/** Checks that all power amounts are measured in correct units **/
+
+assert F60.all.8 satisfied 
+$rule_id = rule-name();
+
+$power_facts = {nonils @concept.data-type = num:powerItemType};
+$PowerUnits = $associatedUnits[$power_facts.concept];
+if $PowerUnits.contains(none)
+	false
+else
+	$power_facts.unit.numerator.string not in  $PowerUnits
+
+message
+
+"The value for {$power_facts.concept.name.local-name} with a value of {$power_facts} has a unit of {$power_facts.unit.numerator}. This concept allows units of {$PowerUnits.join(',')}.
+
+Element : {$power_facts.concept.name}
+Period : {$power_facts.period}
+Unit : {$power_facts.unit.numerator}
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $power_facts
+
+assert F60.all.9 satisfied 
+$rule_id = rule-name();
+
+$invalid_period = {nonils @concept = OrderNumber @period != $currentDuration};
+exists($invalid_period)
+
+message
+
+"The value for {$invalid_period.concept.name.local-name} with a value of {$invalid_period} has a period of {$invalid_period.period}. The Order Number should only use the current reporting duration
+
+Element : {$invalid_period.concept.name}
+Period : {$invalid_period.period}
+Dimensions :{$invalid_period.dimensions.join(', ','=')}
+
+
+Rule Id:{$rule_id}"
+
+severity error
+
+assert F60.all.10 satisfied 
+$rule_id = rule-name();
+
+$fact1 = {nonils}
+$decimals = $fact1.decimals;
+if $decimals > -1
+	false
+else
+	true
+
+message
+
+"The value for {$fact1.concept.name.local-name} with a value of {$fact1} has a decimal value of {$decimals}. Fact values should not be reported with a decimals value less than zero as all numbers have to be reported to at most zero decimal places. 
+
+Element : {$fact1.concept.name}
+Period : {$fact1.period}
+Unit : {$fact1.unit.numerator}
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $fact1
+
+assert F60.all.11 satisfied
+$rule_id = rule-name();
+
+$fact1 = {@concept not in list(OrderNumber)};
+
+$PeriodRefs = $associatedRefs[$fact1.concept]
+											
+$valueToReport = if $fact1.concept.data-type.name == nonnum:textBlockItemType
+					"a text block string"
+				else
+					$fact1
+											
+$fact1.period.string not in $PeriodRefs
+			
+message
+
+"The value for {$fact1.concept.name.local-name} with a datatype of {$fact1.concept.data-type.name.local-name} with a value of {$valueToReport} is reported for an invalid period. 
+
+Element : {$fact1.concept.name}
+Period : {$fact1.period}
+Dimensions :{$fact1.dimensions.join(', ','=')}
+Unit : {$fact1.unit}
+
+Rule Id:{$rule_id}"
+
+severity error	
+rule-focus $fact1

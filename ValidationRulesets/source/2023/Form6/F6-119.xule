@@ -1,0 +1,137 @@
+/**FERC Form 6 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F6.119.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@AdditionsToUnappropriatedRetainedIncome}; 
+ $addend = ({@UnappropriatedRetainedIncomeCreditTransferredFromIncome} 
+ + {@PriorPeriodAdjustmentsToBeginningRetainedIncomeAccount} 
+ + {@OtherCreditsToRetainedIncome});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AdditionsToUnappropriatedRetainedIncome with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.119.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@DeductionsFromUnappropriatedRetainedIncome}; 
+ $addend = ({@UnappropriatedRetainedIncomeDebitTransferredFromIncome} 
+ + {@OtherDebitsToRetainedIncome} 
+ + {@AppropriationsOfRetainedIncome} 
+ + {@DividendAppropriationsOfRetainedIncome});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DeductionsFromUnappropriatedRetainedIncome with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.119.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@NetIncreaseDecreaseInUnappropriatedRetainedIncome}; 
+ $addend = ({@AdditionsToUnappropriatedRetainedIncome} 
+ - {@DeductionsFromUnappropriatedRetainedIncome});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetIncreaseDecreaseInUnappropriatedRetainedIncome with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.119.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@UnappropriatedRetainedIncome @period=$currentInstant}; 
+ $addend = ({@UnappropriatedRetainedIncome @period=$priorInstant} 
+ + {@NetIncreaseDecreaseInUnappropriatedRetainedIncome @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.119.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@UnappropriatedRetainedIncomeAndEquityInUndistributedEarningsLossesOfAffiliatedCompany}; 
+ $addend = ({@UnappropriatedRetainedIncome}#f0
+ + {@EquityInEarningsLossesOfAffiliatedCompanies}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)
+message 
+"The company has reported a value for UnappropriatedRetainedIncomeAndEquityInUndistributedEarningsLossesOfAffiliatedCompany with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.119.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@EquityInEarningsLossesOfAffiliatedCompanies @period=$currentInstant}; 
+ $addend = ({@EquityInEarningsLossesOfAffiliatedCompanies @period=$priorInstant} 
+ + {@UndistributedEarningsLosses @period=$currentDuration} 
+ + {@OtherCreditsDebitsToEquityInUndistributedEarningsLossesOfAffiliatedCompanies @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

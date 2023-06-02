@@ -1,0 +1,73 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.331.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@RevenuesByRateOrTariff]; 
+ $addend = sum(list([nonils @RevenuesByRateOrTariff @TransmissionOfElectricityByIsosOrRtosAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionOfElectricityByIsosOrRtosAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.331.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@TransmissionOfElectricityByIsosOrRtosRevenue]; 
+ $addend = sum(list([nonils @TransmissionOfElectricityByIsosOrRtosRevenue @TransmissionOfElectricityByIsosOrRtosAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionOfElectricityByIsosOrRtosAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.331.3 satisfied 
+$rule_id = rule-name();
+if set('1-F').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+	$codes = list('FNO','FNS','LFP','OLF','SFP','NF','OS','AD')
+	if {@StatisticalClassificationCode @TransmissionOfElectricityByIsosOrRtosAxis=*}#code not in $codes
+        true
+   	 else
+   	 	skip
+message 
+"A Statistical Classification Code with a value of {$code} has been used. This is an invalid code. Statical Classification codes must be one of the following  {$codes.join(', ')}.
+
+Element : {$code.concept.name}
+Code Period : {$code.period}
+Code Value : {$code}
+Code Dimension: {$code.dimensions.join(',','=')}
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $code

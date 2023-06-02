@@ -1,0 +1,502 @@
+/**FERC Form 60 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F60.2.1 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@Organization @period=$currentInstant}; 
+ $addend = ({@Organization @period=$priorInstant} 
+ + {@OrganizationAdditions @period=$currentDuration} 
+ - {@OrganizationRetirements @period=$currentDuration} 
+ + {@OrganizationAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for Organization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.2 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@MiscellaneousIntangiblePlant @period=$currentInstant}; 
+ $addend = ({@MiscellaneousIntangiblePlant @period=$priorInstant} 
+ + {@MiscellaneousIntangiblePlantAdditions @period=$currentDuration} 
+ - {@MiscellaneousIntangiblePlantRetirements @period=$currentDuration} 
+ + {@MiscellaneousIntangiblePlantAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MiscellaneousIntangiblePlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.3 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@LeaseholdImprovements @period=$currentInstant}; 
+ $addend = ({@LeaseholdImprovements @period=$priorInstant} 
+ + {@LeaseholdImprovementsAdditions @period=$currentDuration} 
+ - {@LeaseholdImprovementsRetirements @period=$currentDuration} 
+ + {@LeaseholdImprovementsAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LeaseholdImprovements with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.4 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@LandAndLandRights @period=$currentInstant}; 
+ $addend = ({@LandAndLandRights @period=$priorInstant} 
+ + {@LandAndLandRightsAdditions @period=$currentDuration} 
+ - {@LandAndLandRightsRetirements @period=$currentDuration} 
+ + {@LandAndLandRightsAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandAndLandRights with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.5 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@StructuresAndImprovements @period=$currentInstant}; 
+ $addend = ({@StructuresAndImprovements @period=$priorInstant} 
+ + {@StructuresAndImprovementsAdditions @period=$currentDuration} 
+ - {@StructuresAndImprovementsRetirements @period=$currentDuration} 
+ + {@StructuresAndImprovementsAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StructuresAndImprovements with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.6 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@OfficeFurnitureAndEquipment @period=$currentInstant}; 
+ $addend = ({@OfficeFurnitureAndEquipment @period=$priorInstant} 
+ + {@OfficeFurnitureAndEquipmentAdditions @period=$currentDuration} 
+ - {@OfficeFurnitureAndEquipmentRetirements @period=$currentDuration} 
+ + {@OfficeFurnitureAndEquipmentAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OfficeFurnitureAndEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.7 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@TransportationEquipment @period=$currentInstant}; 
+ $addend = ({@TransportationEquipment @period=$priorInstant} 
+ + {@TransportationEquipmentAdditions @period=$currentDuration} 
+ - {@TransportationEquipmentRetirements @period=$currentDuration} 
+ + {@TransportationEquipmentAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TransportationEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.8 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@StoresEquipment @period=$currentInstant}; 
+ $addend = ({@StoresEquipment @period=$priorInstant} 
+ + {@StoresEquipmentAdditions @period=$currentDuration} 
+ - {@StoresEquipmentRetirements @period=$currentDuration} 
+ + {@StoresEquipmentAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StoresEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.9 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@ToolsShopAndGarageEquipment @period=$currentInstant}; 
+ $addend = ({@ToolsShopAndGarageEquipment @period=$priorInstant} 
+ + {@ToolsShopAndGarageEquipmentAdditions @period=$currentDuration} 
+ - {@ToolsShopAndGarageEquipmentRetirements @period=$currentDuration} 
+ + {@ToolsShopAndGarageEquipmentAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ToolsShopAndGarageEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.10 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@LaboratoryEquipment @period=$currentInstant}; 
+ $addend = ({@LaboratoryEquipment @period=$priorInstant} 
+ + {@LaboratoryEquipmentAdditions @period=$currentDuration} 
+ - {@LaboratoryEquipmentRetirements @period=$currentDuration} 
+ + {@LaboratoryEquipmentAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LaboratoryEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.11 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@PowerOperatedEquipment @period=$currentInstant}; 
+ $addend = ({@PowerOperatedEquipment @period=$priorInstant} 
+ + {@PowerOperatedEquipmentAdditions @period=$currentDuration} 
+ - {@PowerOperatedEquipmentRetirements @period=$currentDuration} 
+ + {@PowerOperatedEquipmentAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PowerOperatedEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.12 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@CommunicationEquipment @period=$currentInstant}; 
+ $addend = ({@CommunicationEquipment @period=$priorInstant} 
+ + {@CommunicationEquipmentAdditions @period=$currentDuration} 
+ - {@CommunicationEquipmentRetirements @period=$currentDuration} 
+ + {@CommunicationEquipmentAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CommunicationEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.13 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@MiscellaneousEquipment @period=$currentInstant}; 
+ $addend = ({@MiscellaneousEquipment @period=$priorInstant} 
+ + {@MiscellaneousEquipmentAdditions @period=$currentDuration} 
+ - {@MiscellaneousEquipmentRetirements @period=$currentDuration} 
+ + {@MiscellaneousEquipmentAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MiscellaneousEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.14 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@OtherTangibleProperty @period=$currentInstant}; 
+ $addend = ({@OtherTangibleProperty @period=$priorInstant} 
+ + {@OtherTangiblePropertyAdditions @period=$currentDuration} 
+ - {@OtherTangiblePropertyRetirements @period=$currentDuration} 
+ + {@OtherTangiblePropertyAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherTangibleProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.15 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@AssetRetirementCostsForServiceCompanyProperty @period=$currentInstant}; 
+ $addend = ({@AssetRetirementCostsForServiceCompanyProperty @period=$priorInstant} 
+ + {@AssetRetirementCostsForServiceCompanyPropertyAdditions @period=$currentDuration} 
+ - {@AssetRetirementCostsForServiceCompanyPropertyRetirements @period=$currentDuration} 
+ + {@AssetRetirementCostsForServiceCompanyPropertyAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForServiceCompanyProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.16 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@ServiceCompanyPropertyBalance}; 
+ $addend = ({@Organization} 
+ + {@MiscellaneousIntangiblePlant} 
+ + {@LeaseholdImprovements} 
+ + {@LandAndLandRights} 
+ + {@StructuresAndImprovements} 
+ + {@OfficeFurnitureAndEquipment} 
+ + {@TransportationEquipment} 
+ + {@StoresEquipment} 
+ + {@ToolsShopAndGarageEquipment} 
+ + {@LaboratoryEquipment} 
+ + {@PowerOperatedEquipment} 
+ + {@CommunicationEquipment} 
+ + {@MiscellaneousEquipment} 
+ + {@OtherTangibleProperty} 
+ + {@AssetRetirementCostsForServiceCompanyProperty});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ServiceCompanyPropertyBalance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.17 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@ConstructionWorkInProgress]; 
+ $addend = sum(list([nonils @ConstructionWorkInProgress @ConstructionWorkInProgressAxis=*])#breakdown);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis ConstructionWorkInProgressAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.18 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@ConstructionWorkInProgress @period=$currentInstant}; 
+ $addend = ({@ConstructionWorkInProgress @period=$priorInstant} 
+ + {@ConstructionWorkInProgressAdditions @period=$currentDuration} 
+ + {@ConstructionWorkInProgressAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ConstructionWorkInProgress with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+/**assert F60.2.19 satisfied 
+$rule_id = (rule-name().split('.'))[rule-name().split('.').length];
+
+ $sum1 = {@ServiceCompanyPropertyIncludingConstructionWorkInProgress @period=$currentInstant}; 
+ $addend = ({@ServiceCompanyPropertyIncludingConstructionWorkInProgress @period=$priorInstant} 
+ + {@ServiceCompanyPropertyIncludingConstructionWorkInProgressAdditions @period=$currentDuration} 
+ + {@ServiceCompanyPropertyIncludingConstructionWorkInProgressAdjustments @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ServiceCompanyPropertyIncludingConstructionWorkInProgress with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+ **/
+assert F60.2.20 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@ServiceCompanyPropertyIncludingConstructionWorkInProgress}; 
+ $addend = ({@ServiceCompanyPropertyBalance} 
+ + {@ConstructionWorkInProgress});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ServiceCompanyPropertyIncludingConstructionWorkInProgress with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.21 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@ServiceCompanyPropertyAdditions}; 
+ $addend = ({@OrganizationAdditions} 
+ + {@MiscellaneousIntangiblePlantAdditions} 
+ + {@LeaseholdImprovementsAdditions} 
+ + {@LandAndLandRightsAdditions} 
+ + {@StructuresAndImprovementsAdditions} 
+ + {@OfficeFurnitureAndEquipmentAdditions} 
+ + {@TransportationEquipmentAdditions} 
+ + {@StoresEquipmentAdditions} 
+ + {@ToolsShopAndGarageEquipmentAdditions} 
+ + {@LaboratoryEquipmentAdditions} 
+ + {@PowerOperatedEquipmentAdditions} 
+ + {@CommunicationEquipmentAdditions} 
+ + {@MiscellaneousEquipmentAdditions} 
+ + {@OtherTangiblePropertyAdditions} 
+ + {@AssetRetirementCostsForServiceCompanyPropertyAdditions});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ServiceCompanyPropertyAdditions with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.22 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@ServiceCompanyPropertyRetirements}; 
+ $addend = ({@OrganizationRetirements} 
+ + {@MiscellaneousIntangiblePlantRetirements} 
+ + {@LeaseholdImprovementsRetirements} 
+ + {@LandAndLandRightsRetirements} 
+ + {@StructuresAndImprovementsRetirements} 
+ + {@OfficeFurnitureAndEquipmentRetirements} 
+ + {@TransportationEquipmentRetirements} 
+ + {@StoresEquipmentRetirements} 
+ + {@ToolsShopAndGarageEquipmentRetirements} 
+ + {@LaboratoryEquipmentRetirements} 
+ + {@PowerOperatedEquipmentRetirements} 
+ + {@CommunicationEquipmentRetirements} 
+ + {@MiscellaneousEquipmentRetirements} 
+ + {@OtherTangiblePropertyRetirements} 
+ + {@AssetRetirementCostsForServiceCompanyPropertyRetirements});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ServiceCompanyPropertyRetirements with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F60.2.23 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@ServiceCompanyPropertyAdjustments}; 
+ $addend = ({@OrganizationAdjustments} 
+ + {@MiscellaneousIntangiblePlantAdjustments} 
+ + {@LeaseholdImprovementsAdjustments} 
+ + {@LandAndLandRightsAdjustments} 
+ + {@StructuresAndImprovementsAdjustments} 
+ + {@OfficeFurnitureAndEquipmentAdjustments} 
+ + {@TransportationEquipmentAdjustments} 
+ + {@StoresEquipmentAdjustments} 
+ + {@ToolsShopAndGarageEquipmentAdjustments} 
+ + {@LaboratoryEquipmentAdjustments} 
+ + {@PowerOperatedEquipmentAdjustments} 
+ + {@CommunicationEquipmentAdjustments} 
+ + {@MiscellaneousEquipmentAdjustments} 
+ + {@OtherTangiblePropertyAdjustments} 
+ + {@AssetRetirementCostsForServiceCompanyPropertyAdjustments});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ServiceCompanyPropertyAdjustments with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

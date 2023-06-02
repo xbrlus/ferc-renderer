@@ -1,0 +1,276 @@
+/**FERC Form 2 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.219.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherAccounts = first-value({@OtherAccounts @OtherClearingAccountsAxis=none}, sum(list({nonils @OtherAccounts @OtherClearingAccountsAxis=*})));
+
+$sum219-1 = {@DepreciationProvision}; 
+ $addend = ({@DepreciationExpenseExcludingAdjustments}
+ + {@DepreciationExpenseForAssetRetirementCosts}
+ + {@ExpensesOfGasPlantLeasedToOthers}
+ + {@TransportationExpensesClearing}
+ + {@OtherClearingAccounts}
+ + $OtherAccounts);
+tolerance_for_decimals($sum219-1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DepreciationProvision with a value of {$sum219-1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum219-1.concept.name}
+Total Period : {$sum219-1.period}
+Total Value : {$sum219-1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum219-1
+
+assert F2.219.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum219-2 = {@NetChargesForRetiredPlant}; 
+ $addend = ({@BookCostOfRetiredPlant}
+ + {@CostOfRemovalOfPlant}
+ - {@SalvageValueOfRetiredPlant});
+tolerance_for_decimals($sum219-2,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetChargesForRetiredPlant with a value of {$sum219-2} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum219-2.concept.name}
+Total Period : {$sum219-2.period}
+Total Value : {$sum219-2} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum219-2
+
+assert F2.219.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantInServiceMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=* @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantInServiceMember @period=$currentDuration})));
+
+
+$sum219-3 = {@AccumulatedProvisionForDepreciationOfGasUtilityPlant @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantInServiceMember @OtherDebitOrCreditItemsAxis=none @period=$currentInstant}; 
+ $addend = ({@AccumulatedProvisionForDepreciationOfGasUtilityPlant @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantInServiceMember @OtherDebitOrCreditItemsAxis=none @period=$priorInstant}#f219-3-1
+ + {@DepreciationProvision @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=none @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantInServiceMember @period=$currentDuration}#f219-3-2
+ - {@NetChargesForRetiredPlant @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=none @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantInServiceMember @period=$currentDuration}#f219-3-3
+ - $OtherAdjustmentsToAccumulatedDepreciation
+ - {@BookCostOfAssetRetirementCosts @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=none @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantInServiceMember @period=$currentDuration}#f219-3-5);
+tolerance_for_decimals($sum219-3,$addend,$tolerance_factor)
+
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationOfGasUtilityPlant with a value of {$sum219-3} that is not equal to the value of the sum of its components of {$addend} for GasPlantInServiceMember.
+The addend is comprised of the following:
++ AccumulatedProvisionForDepreciationOfGasUtilityPlant	{$f219-3-1}  {$f219-3-1.dimensions.join(',','=')}
++ DepreciationProvision	                         	{$f219-3-2}  {$f219-3-2.dimensions.join(',','=')}
+- NetChargesForRetiredPlant	                 	{$f219-3-3}  {$f219-3-3.dimensions.join(',','=')}
+- OtherAdjustmentsToAccumulatedDepreciation	        {$OtherAdjustmentsToAccumulatedDepreciation}
+- BookCostOfAssetRetirementCosts	 	        {$f219-3-5}  {$f219-3-5.dimensions.join(',','=')}
+
+Total Element : {$sum219-3.concept.name}
+Total Period : {$sum219-3.period}
+Total Dimensions : {$sum219-3.dimensions.join(',','=')}
+Total Value : {$sum219-3} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum219-3
+
+assert F2.219.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum219-4= {@AccumulatedProvisionForDepreciationOfGasUtilityPlant}; 
+ $addend = ({@AccumulatedDepreciationProductionsManufacturedGas}
+ + {@AccumulatedDepreciationProductionAndGatheringNaturalGas}
+ + {@AccumulatedDepreciationProductsExtractionNaturalGas}
+ + {@AccumulatedDepreciationUndergroundGasStorage}
+ + {@AccumulatedDepreciationOtherStorage}
+ + {@AccumulatedDepreciationBaseLoadLngTerminalingAndProcessingPlant}
+ + {@AccumulatedDepreciationTransmission}
+ + {@AccumulatedDepreciationDistribution}
+ + {@AccumulatedDepreciationGeneral});
+tolerance_for_decimals($sum219-4,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationOfGasUtilityPlant with a value of {$sum219-4} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum219-4.concept.name}
+Total Period : {$sum219-4.period}
+Total Value : {$sum219-4} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum219-4
+
+assert F2.219.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantLeasedToOthersMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=* @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantLeasedToOthersMember @period=$currentDuration})));
+
+
+ $sum219-5 = {@AccumulatedProvisionForDepreciationOfGasUtilityPlant @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantLeasedToOthersMember @OtherDebitOrCreditItemsAxis=none @period=$currentInstant}; 
+ $addend = ({@AccumulatedProvisionForDepreciationOfGasUtilityPlant @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantLeasedToOthersMember @OtherDebitOrCreditItemsAxis=none @period=$priorInstant}#f1
+ + {@DepreciationProvision @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=none @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantLeasedToOthersMember @period=$currentDuration}#f2
+ - {@NetChargesForRetiredPlant @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=none @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantLeasedToOthersMember @period=$currentDuration}#f3
+ - $OtherAdjustmentsToAccumulatedDepreciation
+ - {@BookCostOfAssetRetirementCosts @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=none @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantLeasedToOthersMember @period=$currentDuration}#f5);
+tolerance_for_decimals($sum219-5,$addend,$tolerance_factor)
+
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationOfGasUtilityPlant with a value of {$sum219-5} that is not equal to the value of the sum of its components of {$addend} for GasPlantLeasedToOthersMember.
+The addend is comprised of the following:
++ AccumulatedProvisionForDepreciationOfGasUtilityPlant	{$f1}  {$f1.dimensions.join(',','=')}
++ DepreciationProvision	                         	{$f2}  {$f2.dimensions.join(',','=')}
+- NetChargesForRetiredPlant	                 	{$f3}  {$f3.dimensions.join(',','=')}
+- OtherAdjustmentsToAccumulatedDepreciation	        {$OtherAdjustmentsToAccumulatedDepreciation}
+- BookCostOfAssetRetirementCosts	 	        {$f5}  {$f5.dimensions.join(',','=')}
+
+Total Element : {$sum219-5.concept.name}
+Total Period : {$sum219-5.period}
+Total Dimensions : {$sum219-5.dimensions.join(',','=')}
+Total Value : {$sum219-5} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum219-5
+
+
+assert F2.219.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantHeldForFutureUseMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=* @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantHeldForFutureUseMember @period=$currentDuration})));
+
+
+$sum219-6 = {@AccumulatedProvisionForDepreciationOfGasUtilityPlant @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantHeldForFutureUseMember @OtherDebitOrCreditItemsAxis=none @period=$currentInstant}; 
+ $addend = ({@AccumulatedProvisionForDepreciationOfGasUtilityPlant @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantHeldForFutureUseMember @OtherDebitOrCreditItemsAxis=none @period=$priorInstant}#f1
+ + {@DepreciationProvision @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=none @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantHeldForFutureUseMember @period=$currentDuration}#f2
+ - {@NetChargesForRetiredPlant @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=none @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantHeldForFutureUseMember @period=$currentDuration}#f3
+ - $OtherAdjustmentsToAccumulatedDepreciation
+ - {@BookCostOfAssetRetirementCosts @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=none @AccumulatedProvisionForDepreciationOfGasUtilityAxis=GasPlantHeldForFutureUseMember @period=$currentDuration}#f5);
+tolerance_for_decimals($sum219-6,$addend,$tolerance_factor)
+
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationOfGasUtilityPlant with a value of {$sum219-6} that is not equal to the value of the sum of its components of {$addend} for GasPlantLeasedToOthersMember.
+The addend is comprised of the following:
++ AccumulatedProvisionForDepreciationOfGasUtilityPlant	{$f1}  {$f1.dimensions.join(',','=')}
++ DepreciationProvision	                         	{$f2}  {$f2.dimensions.join(',','=')}
+- NetChargesForRetiredPlant	                 	{$f3}  {$f3.dimensions.join(',','=')}
+- OtherAdjustmentsToAccumulatedDepreciation	        {$OtherAdjustmentsToAccumulatedDepreciation}
+- BookCostOfAssetRetirementCosts	 	        {$f5}  {$f5.dimensions.join(',','=')}
+
+Total Element : {$sum219-6.concept.name}
+Total Period : {$sum219-6.period}
+Total Dimensions : {$sum219-6.dimensions.join(',','=')}
+Total Value : {$sum219-6} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum219-6
+
+assert F2.219.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=none @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=* @AccumulatedProvisionForDepreciationOfGasUtilityAxis=none @period=$currentDuration})));
+
+
+ $sum219-7 = {@AccumulatedProvisionForDepreciationOfGasUtilityPlant @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=none @OtherDebitOrCreditItemsAxis=none @period=$currentInstant}; 
+ $addend = ({@AccumulatedProvisionForDepreciationOfGasUtilityPlant @UtilityTypeAxis=GasUtilityMember @AccumulatedProvisionForDepreciationOfGasUtilityAxis=none @OtherDebitOrCreditItemsAxis=none @period=$priorInstant}#f219-7-1
+ + {@DepreciationProvision @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=none @AccumulatedProvisionForDepreciationOfGasUtilityAxis=none @period=$currentDuration}#f219-7-2
+ - {@NetChargesForRetiredPlant @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=none @AccumulatedProvisionForDepreciationOfGasUtilityAxis=none @period=$currentDuration}#f219-7-3
+ - $OtherAdjustmentsToAccumulatedDepreciation
+ - {@BookCostOfAssetRetirementCosts @UtilityTypeAxis=GasUtilityMember @OtherDebitOrCreditItemsAxis=none @AccumulatedProvisionForDepreciationOfGasUtilityAxis=none @period=$currentDuration}#f219-7-5);
+tolerance_for_decimals($sum219-7 ,$addend,$tolerance_factor)
+
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationOfGasUtilityPlant with a value of {$sum219-7} that is not equal to the value of the sum of its components of {$addend} with no members for AccumulatedProvisionForDepreciationOfGasUtilityAxis.
+The addend is comprised of the following:
+
++ AccumulatedProvisionForDepreciationOfGasUtilityPlant	{$f219-7-1}  {$f219-7-1.dimensions.join(',','=')}
++ DepreciationProvision	                         	{$f219-7-2}  {$f219-7-2.dimensions.join(',','=')}
+- NetChargesForRetiredPlant	                 	{$f219-7-3}  {$f219-7-3.dimensions.join(',','=')}
+- OtherAdjustmentsToAccumulatedDepreciation	        {$OtherAdjustmentsToAccumulatedDepreciation}
+- BookCostOfAssetRetirementCosts	 	        {$f219-7-5}  {$f219-7-5.dimensions.join(',','=')}
+
+Total Element : {$sum219-7 .concept.name}
+Total Period : {$sum219-7 .period}
+Total Dimensions : {$sum219-7.dimensions.join(',','=')}
+Total Value : {$sum219-7} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum219-7
+
+
+assert F2.219.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum219-8 = {@OtherAdjustmentsToAccumulatedDepreciation}; 
+ $addend = sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @OtherDebitOrCreditItemsAxis=*})#breakdown);
+ if $addend == none
+ 	skip
+ else
+tolerance_for_decimals($sum219-8,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum219-8.concept.name} using the axis OtherDebitOrCreditItemsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum219-8.concept.name} is equal to {$sum219-8}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum219-8.concept.name}
+Total Period : {$sum219-8.period}
+Total Value : {$sum219-8} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum219-8

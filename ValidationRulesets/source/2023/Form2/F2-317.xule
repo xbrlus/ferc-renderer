@@ -1,0 +1,1099 @@
+/**FERC Form 2 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.317.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ProductionOperationExpense}; 
+ $addend = ({@OperationSupervisionAndEngineeringNaturalGasProductionAndGathering}
+ + {@ProductionMapsAndRecords}
+ + {@GasWellsExpenses}
+ + {@FieldLinesExpenses}
+ + {@FieldCompressorStationExpenses}
+ + {@FieldCompressorStationFuelAndPower}
+ + {@FieldMeasuringAndRegulatingStationExpenses}
+ + {@PurificationExpensesNaturalGasProductionAndGathering}
+ + {@GasWellRoyalties}
+ + {@OtherExpensesNaturalGasProductionAndGathering}
+ + {@RentsNaturalGasProductionAndGathering});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ProductionOperationExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ProductionMaintenanceExpense}; 
+ $addend = ({@MaintenanceSupervisionAndEngineeringNaturalGasProductionAndGathering}
+ + {@MaintenanceOfStructuresAndImprovementsNaturalGasProductionAndGathering}
+ + {@MaintenanceOfProducingGasWells}
+ + {@MaintenanceOfFieldLines}
+ + {@MaintenanceOfFieldCompressorStationEquipment}
+ + {@MaintenanceOfFieldMeasuringAndRegulatingStationEquipment}
+ + {@MaintenanceOfPurificationEquipment}
+ + {@MaintenanceOfDrillingAndCleaningEquipment}
+ + {@MaintenanceOfOtherEquipmentNaturalGasProductionAndGathering});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ProductionMaintenanceExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ProductionOperationAndMaintenanceExpense}; 
+ $addend = ({@ProductionOperationExpense}
+ + {@ProductionMaintenanceExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ProductionOperationAndMaintenanceExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ProductsExtractionOperationExpense}; 
+ $addend = ({@OperationSupervisionAndEngineeringProductsExtraction}
+ + {@OperationLaborNaturalGasProduction}
+ + {@GasShrinkage}
+ + {@Fuel}
+ + {@Power}
+ + {@Materials}
+ + {@OperationSuppliesAndExpenses}
+ + {@GasProcessedByOthers}
+ + {@RoyaltiesOnProductsExtracted}
+ + {@MarketingExpenses}
+ + {@ProductsPurchasedForResale}
+ + {@VariationInProductsInventory}
+ - {@ExtractedProductsUsedByTheUtilityCredit}
+ + {@RentsProductsExtraction});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ProductsExtractionOperationExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ProductsExtractionMaintenanceExpense}; 
+ $addend = ({@MaintenanceSupervisionAndEngineeringProductsExtraction}
+ + {@MaintenanceOfStructuresAndImprovementsProductsExtraction}
+ + {@MaintenanceOfExtractionAndRefiningEquipment}
+ + {@MaintenanceOfPipeLines}
+ + {@MaintenanceOfExtractedProductsStorageEquipment}
+ + {@MaintenanceOfCompressorEquipment}
+ + {@MaintenanceOfGasMeasuringAndRegulatingEquipment}
+ + {@MaintenanceOfOtherEquipmentProductsExtraction});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ProductsExtractionMaintenanceExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ProductsExtractionExpense}; 
+ $addend = ({@ProductsExtractionOperationExpense}
+ + {@ProductsExtractionMaintenanceExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ProductsExtractionExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ExplorationAndDevelopmentOperatingExpense}; 
+ $addend = ({@DelayRentals}
+ + {@NonproductiveWellDrilling}
+ + {@AbandonedLeases}
+ + {@OtherExploration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ExplorationAndDevelopment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PurchasedGasOperationExpenses}; 
+ $addend = ({@NaturalGasWellHeadPurchases}
+ + {@NaturalGasWellHeadPurchasesIntracompanyTransfers}
+ + {@NaturalGasFieldLinePurchases}
+ + {@NaturalGasGasolinePlantOutletPurchases}
+ + {@NaturalGasTransmissionLinePurchases}
+ + {@NaturalGasCityGatePurchases}
+ + {@LiquefiedNaturalGasPurchases}
+ + {@OtherGasPurchases}
+ - {@PurchasedGasCostAdjustments});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PurchasedGasOperationExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PurchasedGasExpenses}; 
+ $addend = ({@WellExpensePurchasedGas}
+ + {@OperationOfPurchasedGasMeasuringStations}
+ + {@MaintenanceOfPurchasedGasMeasuringStations}
+ + {@PurchasedGasCalculationsExpenses}
+ + {@OtherPurchasedGasExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PurchasedGasExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasUsedInUtilityOperationCredit}; 
+ $addend = ({@GasUsedForCompressorStationFuelCredit}
+ + {@GasUsedForProductsExtractionCredit}
+ + {@GasUsedForOtherUtilityOperationsCredit});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasUsedInUtilityOperationCredit with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.11 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherGasSupplyExpensesOperation}; 
+ $addend = ({@PurchasedGasOperationExpenses}
+ + {@ExchangeGas}
+ + {@PurchasedGasExpenses}
+ + {@GasWithdrawnFromStorageDebt}
+ - {@GasDeliveredToStorageCredit}
+ + {@WithdrawalsOfLiquefiedNaturalGasHeldForProcessingDebit}
+ - {@DeliveriesOfNaturalGasForProcessingCredit}
+ - {@GasUsedInUtilityOperationCredit}
+ + {@OtherGasSupplyExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherGasSupplyExpensesOperation with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.12 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ProductionExpenses}; 
+ $addend = ({@concept = ManufacturedGasProduction}
+ + {@concept = ProductionOperationAndMaintenanceExpense}
+ + {@concept = ProductsExtractionExpense}
+ + {@concept = ExplorationAndDevelopmentOperatingExpense}
+ + {@concept = OtherGasSupplyExpensesOperation});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ProductionExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.13 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@UndergroundStorageOperationExpenses}; 
+ $addend = ({@OperationSupervisionAndEngineeringUndergroundStorageExpenses}
+ + {@MapsAndRecords}
+ + {@WellsExpenses}
+ + {@LinesExpenses}
+ + {@CompressorStationExpenses}
+ + {@CompressorStationFuelAndPowerUndergroundStorageExpenses}
+ + {@MeasuringAndRegulatingStationExpenses}
+ + {@PurificationExpensesUndergroundStorage}
+ + {@ExplorationAndDevelopment}
+ + {@GasLossesUndergroundStorageExpenses}
+ + {@OtherExpensesUndergroundStorage}
+ + {@StorageWellRoyalties}
+ + {@RentsUndergroundStorageExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UndergroundStorageOperationExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.14 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@UndergroundStorageMaintenanceExpenses}; 
+ $addend = ({@MaintenanceSupervisionAndEngineeringUndergroundStorageExpenses}
+ + {@MaintenanceOfStructuresAndImprovementsUndergroundStorageExpenses}
+ + {@MaintenanceOfReservoirsAndWells}
+ + {@MaintenanceOfLines}
+ + {@MaintenanceOfCompressorStationEquipmentUndergroundStorageExpenses}
+ + {@MaintenanceOfMeasuringAndRegulatingStationEquipmentUndergroundStorageExpenses}
+ + {@MaintenanceOfPurificationEquipmentUndergroundStorageExpenses}
+ + {@MaintenanceOfOtherEquipmentUndergroundStorageExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UndergroundStorageMaintenanceExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.15 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@UndergroundStorageExpenses}; 
+ $addend = ({@UndergroundStorageOperationExpenses}
+ + {@UndergroundStorageMaintenanceExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UndergroundStorageExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.16 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherStorageOperationExpenses}; 
+ $addend = ({@OperationSupervisionAndEngineeringOtherStorageExpenses}
+ + {@OperationLaborAndExpenses}
+ + {@RentsOtherStorageExpenses}
+ + {@FuelOtherStorageExpenses}
+ + {@PowerOtherStorageExpenses}
+ + {@GasLossesOtherStorageExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherStorageOperationExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.17 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherStorageMaintenanceExpenses}; 
+ $addend = ({@MaintenanceSupervisionAndEngineeringOtherStorageExpenses}
+ + {@MaintenanceOfStructuresAndImprovementsOtherStorageExpenses}
+ + {@MaintenanceOfGasHolders}
+ + {@MaintenanceOfPurificationEquipmentOtherStorageExpenses}
+ + {@MaintenanceOfLiquefactionEquipmentOtherStorageExpenses}
+ + {@MaintenanceOfVaporizingEquipmentOtherStorageExpenses}
+ + {@MaintenanceOfCompressorEquipmentOtherStorageExpenses}
+ + {@MaintenanceOfMeasuringAndRegulatingEquipmentOtherStorageExpenses}
+ + {@MaintenanceOfOtherEquipmentOtherStorageExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherStorageMaintenanceExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.18 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherStorageExpenses}; 
+ $addend = ({@OtherStorageOperationExpenses}
+ + {@OtherStorageMaintenanceExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherStorageExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.19 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LiquifiedNaturalGasTerminalingAndProcessingOperationExpenses}; 
+ $addend = ({@OperationSupervisionAndEngineeringLiquefiedNaturalGasTerminalingAndProcessingExpenses}
+ + {@LngProcessingTerminalLaborAndExpenses}
+ + {@LiquefactionProcessingLaborAndExpenses}
+ + {@LngTransportationLaborAndExpenses}
+ + {@MeasuringAndRegulatingLaborAndExpenses}
+ + {@CompressorStationLaborAndExpensesLiquefiedNaturalGasTerminalingAndProcessingExpenses}
+ + {@CommunicationSystemExpensesLiquefiedNaturalGasTerminalingAndProcessingExpenses}
+ + {@SystemControlAndLoadDispatchingLiquefiedNaturalGasTerminalingAndProcessingExpenses}
+ + {@FuelLiquefiedNaturalGasTerminalingAndProcessingExpenses}
+ + {@PowerLiquefiedNaturalGasTerminalingAndProcessingExpenses}
+ + {@RentsLiquefiedNaturalGasTerminalingAndProcessing}
+ + {@DemurrageChargesLiquefiedNaturalGasTerminalingAndProcessingExpenses}
+ - {@WharfageReceiptsCreditLiquefiedNaturalGasTerminalingAndProcessingExpenses}
+ + {@ProcessingLiquefiedOrVaporizedGasByOthers}
+ + {@GasLossesLiquefiedNaturalGasTerminalingAndProcessingExpenses}
+ + {@OtherExpensesLiquefiedNaturalGasTerminalingAndProcessing});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LiquifiedNaturalGasTerminalingAndProcessingOperationExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.20 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LiquifiedNaturalGasTerminalingAndProcessingMaintenanceExpenses}; 
+ $addend = ({@MaintenanceSupervisionAndEngineeringLiquefiedNaturalGasTerminalingAndProcessingExpenses}
+ + {@MaintenanceOfStructuresAndImprovementsLiquefiedNaturalGasTerminalingAndProcessingExpenses}
+ + {@MaintenanceOfLngProcessingTerminalEquipment}
+ + {@MaintenanceOfLngTransportationEquipment}
+ + {@MaintenanceOfMeasuringAndRegulatingEquipment}
+ + {@MaintenanceOfCompressorStationEquipmentLiquefiedNaturalGasTerminalingAndProcessingExpenses}
+ + {@MaintenanceOfCommunicationEquipmentLiquefiedNaturalGasTerminalingAndProcessingExpenses}
+ + {@MaintenanceOfOtherEquipmentLiquefiedNaturalGasTerminalingAndProcessingExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LiquifiedNaturalGasTerminalingAndProcessingMaintenanceExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.21 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LiquifiedNaturalGasTerminalingAndProcessingExpenses}; 
+ $addend = ({@LiquifiedNaturalGasTerminalingAndProcessingOperationExpenses}
+ + {@LiquifiedNaturalGasTerminalingAndProcessingMaintenanceExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LiquifiedNaturalGasTerminalingAndProcessingExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.22 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NaturalGasStorageExpense}; 
+ $addend = ({@UndergroundStorageExpenses}
+ + {@OtherStorageExpenses}
+ + {@LiquifiedNaturalGasTerminalingAndProcessingExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NaturalGasStorageExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.23 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@TransmissionOperationExpense}; 
+ $addend = ({@OperationSupervisionAndEngineeringGasTransmissionExpenses}
+ + {@SystemControlAndLoadDispatchingGas}
+ + {@CommunicationSystemExpenses}
+ + {@CompressorStationLaborAndExpensesTransmissionExpenses}
+ + {@GasForCompressorStationFuel}
+ + {@OtherFuelAndPowerForCompressorStations}
+ + {@MainsExpenses}
+ + {@MeasuringAndRegulatingStationExpensesTransmissionExpenses}
+ + {@TransmissionAndCompressionOfGasByOthers}
+ + {@OtherExpensesGasTransmission}
+ + {@RentsGasTransmissionExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TransmissionOperationExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.24 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@TransmissionMaintenanceExpensesGas}; 
+ $addend = ({@MaintenanceSupervisionAndEngineeringGasTransmissionExpenses}
+ + {@MaintenanceOfStructuresAndImprovementsTransmissionExpenses}
+ + {@MaintenanceOfMainsTransmissionExpenses}
+ + {@MaintenanceOfCompressorStationEquipmentTransmissionExpenses}
+ + {@MaintenanceOfMeasuringAndRegulatingStationEquipment}
+ + {@MaintenanceOfCommunicationEquipmentGasTransmission}
+ + {@MaintenanceOfOtherEquipmentTransmissionExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TransmissionMaintenanceExpensesGas with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.25 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@TransmissionExpenses}; 
+ $addend = ({@TransmissionOperationExpense}
+ + {@TransmissionMaintenanceExpensesGas});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TransmissionExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.26 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@DistributionOperationExpensesGas}; 
+ $addend = ({@OperationSupervisionAndEngineeringDistributionExpenses}
+ + {@DistributionLoadDispatching}
+ + {@CompressorStationLaborAndExpenses}
+ + {@CompressorStationFuelAndPowerDistributionExpenses}
+ + {@MainsAndServicesExpenses}
+ + {@MeasuringAndRegulatingStationExpensesGeneral}
+ + {@MeasuringAndRegulatingStationExpensesIndustrial}
+ + {@MeasuringAndRegulatingStationExpensesCityGateCheckStations}
+ + {@MeterAndHouseRegulatorExpenses}
+ + {@CustomerInstallationsExpenses}
+ + {@OtherExpensesGasDistribution}
+ + {@RentsDistributionExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DistributionOperationExpensesGas with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.27 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@DistributionMaintenanceExpenseGas}; 
+ $addend = ({@MaintenanceSupervisionAndEngineeringDistributionExpenses}
+ + {@MaintenanceOfStructuresAndImprovementsDistributionExpenses}
+ + {@MaintenanceOfMains}
+ + {@MaintenanceOfCompressorStationEquipment}
+ + {@MaintenanceOfMeasuringAndRegulatingStationEquipmentGeneral}
+ + {@MaintenanceOfMeasuringAndRegulatingStationEquipmentIndustrial}
+ + {@MaintenanceOfMeasuringAndRegulatingStationEquipmentCityGateCheckStations}
+ + {@MaintenanceOfServices}
+ + {@MaintenanceOfMetersAndHouseRegulators}
+ + {@MaintenanceOfOtherEquipmentGasDistribution});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DistributionMaintenanceExpenseGas with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.28 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@DistributionExpenses}; 
+ $addend = ({@DistributionOperationExpensesGas}
+ + {@DistributionMaintenanceExpenseGas});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DistributionExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.29 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CustomerAccountExpenses}; 
+ $addend = ({@SupervisionCustomerAccountExpenses}
+ + {@MeterReadingExpenses}
+ + {@CustomerRecordsAndCollectionExpenses}
+ + {@UncollectibleAccounts}
+ + {@MiscellaneousCustomerAccountsExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CustomerAccountExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.30 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CustomerServiceAndInformationalExpenses}; 
+ $addend = ({@SupervisionCustomerServiceAndInformationExpenses}
+ + {@CustomerAssistanceExpenses}
+ + {@InformationalAndInstructionalAdvertisingExpenses}
+ + {@MiscellaneousCustomerServiceAndInformationalExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CustomerServiceAndInformationalExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.31 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalesExpenses}; 
+ $addend = ({@SupervisionSalesExpense}
+ + {@DemonstratingAndSellingExpenses}
+ + {@AdvertisingExpenses}
+ + {@MiscellaneousSalesExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalesExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.32 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AdministrativeAndGeneralOperationExpense}; 
+ $addend = ({@AdministrativeAndGeneralSalaries}
+ + {@OfficeSuppliesAndExpenses}
+ - {@AdministrativeExpensesTransferredCredit}
+ + {@OutsideServicesEmployed}
+ + {@PropertyInsurance}
+ + {@InjuriesAndDamages}
+ + {@EmployeePensionsAndBenefits}
+ + {@FranchiseRequirements}
+ + {@RegulatoryCommissionExpenses}
+ - {@DuplicateChargesCredit}
+ + {@GeneralAdvertisingExpenses}
+ + {@MiscellaneousGeneralExpenses}
+ + {@RentsAdministrativeAndGeneralExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AdministrativeAndGeneralOperationExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.33 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AdministrativeAndGeneralExpenses}; 
+ $addend = ({@AdministrativeAndGeneralOperationExpense}
+ + {@MaintenanceOfGeneralPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AdministrativeAndGeneralExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.34 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OperationsAndMaintenanceExpensesGas}; 
+ $addend = ({@ProductionExpenses}
+ + {@NaturalGasStorageExpense}
+ + {@TransmissionExpenses}
+ + {@DistributionExpenses}
+ + {@CustomerAccountExpenses}
+ + {@CustomerServiceAndInformationalExpenses}
+ + {@SalesExpenses}
+ + {@AdministrativeAndGeneralExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OperationsAndMaintenanceExpensesGas with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.35 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OperationsAndMaintenanceExpensesGas}; 
+ $addend = ({@OperationExpense @UtilityTypeAxis=GasUtilityMember}
+ + {@MaintenanceExpense @UtilityTypeAxis=GasUtilityMember});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OperationsAndMaintenanceExpensesGas with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.36 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OperationExpense @UtilityTypeAxis=GasUtilityMember}; 
+ $addend = ({@ManufacturedGasProduction}
+ + {@ProductionOperationExpense}
+ + {@ProductsExtractionOperationExpense}
+ + {@ExplorationAndDevelopmentOperatingExpense}
+ + {@OtherGasSupplyExpensesOperation}
+ + {@UndergroundStorageOperationExpenses}
+ + {@OtherStorageOperationExpenses}
+ + {@LiquifiedNaturalGasTerminalingAndProcessingOperationExpenses}
+ + {@TransmissionOperationExpense}
+ + {@DistributionOperationExpensesGas}
+ + {@CustomerAccountExpenses}
+ + {@CustomerServiceAndInformationalExpenses}
+ + {@SalesExpenses}
+ + {@AdministrativeAndGeneralOperationExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OperationExpense__GasUtilityMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.37 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MaintenanceExpense @UtilityTypeAxis=GasUtilityMember}; 
+ $addend = ({@ProductionMaintenanceExpense}
+ + {@ProductsExtractionMaintenanceExpense}
+ + {@UndergroundStorageMaintenanceExpenses}
+ + {@OtherStorageMaintenanceExpenses}
+ + {@LiquifiedNaturalGasTerminalingAndProcessingMaintenanceExpenses}
+ + {@TransmissionMaintenanceExpensesGas}
+ + {@DistributionMaintenanceExpenseGas}
+ + {@MaintenanceOfGeneralPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MaintenanceExpense__GasUtilityMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.317.38 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AmortizationAndDepletionOfUtilityPlant}; 
+ $addend = ({@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights}
+ + {@AmortizationOfUndergroundStorageLandAndLandRights}
+ + {@AmortizationOfOtherLimitedTermGasPlant}
+ + {@AmortizationOfOtherGasPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AmortizationAndDepletionOfUtilityPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

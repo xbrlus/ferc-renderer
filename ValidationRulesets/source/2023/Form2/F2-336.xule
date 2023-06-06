@@ -1,0 +1,315 @@
+/**FERC Form 2 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.336.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=none @period=$currentDuration]; 
+ $addend = ({@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=IntangiblePlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductionPlantManufacturedGasMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductionAndGatheringPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductsExtractionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=UndergroundGasStoragePlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=OtherStoragePlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=BaseLoadLngTerminalingAndProcessingPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=TransmissionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=DistributionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=GeneralPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=CommonPlantGasMember @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.336.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=none @period=$currentDuration]; 
+ $addend = ({@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=IntangiblePlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductionPlantManufacturedGasMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductionAndGatheringPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductsExtractionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=UndergroundGasStoragePlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=OtherStoragePlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=BaseLoadLngTerminalingAndProcessingPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=TransmissionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=DistributionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=GeneralPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=CommonPlantGasMember @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.336.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=none @period=$currentDuration]; 
+ $addend = ({@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=IntangiblePlantMember @period=$currentDuration}
+ + {@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductionPlantManufacturedGasMember @period=$currentDuration}
+ + {@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductionAndGatheringPlantMember @period=$currentDuration}
+ + {@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductsExtractionPlantMember @period=$currentDuration}
+ + {@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=UndergroundGasStoragePlantMember @period=$currentDuration}
+ + {@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=OtherStoragePlantMember @period=$currentDuration}
+ + {@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=BaseLoadLngTerminalingAndProcessingPlantMember @period=$currentDuration}
+ + {@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=TransmissionPlantMember @period=$currentDuration}
+ + {@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=DistributionPlantMember @period=$currentDuration}
+ + {@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=GeneralPlantMember @period=$currentDuration}
+ + {@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=CommonPlantGasMember @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.336.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@AmortizationOfUndergroundStorageLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=none @period=$currentDuration]; 
+ $addend = ({@AmortizationOfUndergroundStorageLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=IntangiblePlantMember @period=$currentDuration}
+ + {@AmortizationOfUndergroundStorageLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductionPlantManufacturedGasMember @period=$currentDuration}
+ + {@AmortizationOfUndergroundStorageLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductionAndGatheringPlantMember @period=$currentDuration}
+ + {@AmortizationOfUndergroundStorageLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductsExtractionPlantMember @period=$currentDuration}
+ + {@AmortizationOfUndergroundStorageLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=UndergroundGasStoragePlantMember @period=$currentDuration}
+ + {@AmortizationOfUndergroundStorageLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=OtherStoragePlantMember @period=$currentDuration}
+ + {@AmortizationOfUndergroundStorageLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=BaseLoadLngTerminalingAndProcessingPlantMember @period=$currentDuration}
+ + {@AmortizationOfUndergroundStorageLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=TransmissionPlantMember @period=$currentDuration}
+ + {@AmortizationOfUndergroundStorageLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=DistributionPlantMember @period=$currentDuration}
+ + {@AmortizationOfUndergroundStorageLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=GeneralPlantMember @period=$currentDuration}
+ + {@AmortizationOfUndergroundStorageLandAndLandRights @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=CommonPlantGasMember @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of AmortizationOfUndergroundStorageLandAndLandRights sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for AmortizationOfUndergroundStorageLandAndLandRights. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.336.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+  $sum1 = [@AmortizationOfOtherLimitedTermGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=none @period=$currentDuration]; 
+ $addend = ({@AmortizationOfOtherLimitedTermGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=IntangiblePlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherLimitedTermGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductionPlantManufacturedGasMember @period=$currentDuration}
+ + {@AmortizationOfOtherLimitedTermGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductionAndGatheringPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherLimitedTermGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductsExtractionPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherLimitedTermGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=UndergroundGasStoragePlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherLimitedTermGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=OtherStoragePlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherLimitedTermGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=BaseLoadLngTerminalingAndProcessingPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherLimitedTermGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=TransmissionPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherLimitedTermGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=DistributionPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherLimitedTermGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=GeneralPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherLimitedTermGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=CommonPlantGasMember @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of AmortizationOfOtherLimitedTermGasPlant sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for AmortizationOfOtherLimitedTermGasPlant. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.336.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+  $sum1 = [@AmortizationOfOtherGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=none @period=$currentDuration]; 
+ $addend = ({@AmortizationOfOtherGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=IntangiblePlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductionPlantManufacturedGasMember @period=$currentDuration}
+ + {@AmortizationOfOtherGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductionAndGatheringPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductsExtractionPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=UndergroundGasStoragePlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=OtherStoragePlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=BaseLoadLngTerminalingAndProcessingPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=TransmissionPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=DistributionPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=GeneralPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherGasPlant @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=CommonPlantGasMember @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of AmortizationOfOtherGasPlant sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for AmortizationOfOtherGasPlant. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.336.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+  $sum1 = [@DepreciationDepletionAndAmortizationCharges @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=none @period=$currentDuration]; 
+ $addend = ({@DepreciationDepletionAndAmortizationCharges @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=IntangiblePlantMember @period=$currentDuration}
+ + {@DepreciationDepletionAndAmortizationCharges @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductionPlantManufacturedGasMember @period=$currentDuration}
+ + {@DepreciationDepletionAndAmortizationCharges @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductionAndGatheringPlantMember @period=$currentDuration}
+ + {@DepreciationDepletionAndAmortizationCharges @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=ProductsExtractionPlantMember @period=$currentDuration}
+ + {@DepreciationDepletionAndAmortizationCharges @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=UndergroundGasStoragePlantMember @period=$currentDuration}
+ + {@DepreciationDepletionAndAmortizationCharges @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=OtherStoragePlantMember @period=$currentDuration}
+ + {@DepreciationDepletionAndAmortizationCharges @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=BaseLoadLngTerminalingAndProcessingPlantMember @period=$currentDuration}
+ + {@DepreciationDepletionAndAmortizationCharges @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=TransmissionPlantMember @period=$currentDuration}
+ + {@DepreciationDepletionAndAmortizationCharges @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=DistributionPlantMember @period=$currentDuration}
+ + {@DepreciationDepletionAndAmortizationCharges @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=GeneralPlantMember @period=$currentDuration}
+ + {@DepreciationDepletionAndAmortizationCharges @UtilityTypeAxis=GasUtilityMember @FunctionalClassificationAxis=CommonPlantGasMember @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of DepreciationDepletionAndAmortizationCharges sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for DepreciationDepletionAndAmortizationCharges. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.336.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@DepreciationDepletionAndAmortizationCharges}; 
+ $addend = ({@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments} 
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments} 
+ + {@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights}
+ + {@AmortizationOfUndergroundStorageLandAndLandRights}
+ + {@AmortizationOfOtherLimitedTermGasPlant}   
+ + {@AmortizationOfOtherGasPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DepreciationDepletionAndAmortizationCharges with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.336.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $account403 = {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments}; 
+ $addend = ({@DepreciationExpenseExcludingAdjustments}#f0
+);
+tolerance_for_decimals($account403,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments with a value of {$account403} on Schedule 336 that is not equal to the element DepreciationExpenseExcludingAdjustments on Schedule 219 with a value of {$addend}
+
+Total Element : {$account403.concept.name}
+Total Period : {$account403.period}
+Total Value : {$account403} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $account403
+
+assert F2.336.11 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $account403 = {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments}; 
+ $addend = ({@DepreciationExpenseForAssetRetirementCosts}#f0);
+tolerance_for_decimals($account403,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments with a value of {$account403} on Schedule 336 that is not equal to the element DepreciationExpenseForAssetRetirementCosts on Schedule 219 with a value of {$addend}
+
+Total Element : {$account403.concept.name}
+Total Period : {$account403.period}
+Total Value : {$account403} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $account403
+
+
+assert F2.336.12 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $account404405 = {@AmortizationAndDepletionOfUtilityPlant}; 
+ $addend = ({@AmortizationAndDepletionOfProducingNaturalGasLandAndLandRights}#f0
+ + {@AmortizationOfUndergroundStorageLandAndLandRights}#f1
+ + {@AmortizationOfOtherLimitedTermGasPlant}#f2
+ + {@AmortizationOfOtherGasPlant}#f3);
+tolerance_for_decimals($account404405,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AmortizationAndDepletionOfUtilityPlant with a value of {$account404405} on Schedule 114 that is not equal to the element sum of accounts 404-405 on schedule 336 with a value of {$addend} comprised of:
+
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+
+Total Element : {$account404405.concept.name}
+Total Period : {$account404405.period}
+Total Value : {$account404405} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $account404405

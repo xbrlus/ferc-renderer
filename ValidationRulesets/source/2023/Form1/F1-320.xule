@@ -1,0 +1,726 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.320.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@SteamPowerGenerationOperationsExpense}; 
+ $addend = ({@OperationSupervisionAndEngineeringSteamPowerGeneration} 
+ + {@FuelSteamPowerGeneration} 
+ + {@SteamExpensesSteamPowerGeneration} 
+ + {@SteamFromOtherSources} 
+ - {@SteamTransferredCredit} 
+ + {@ElectricExpensesSteamPowerGeneration} 
+ + {@MiscellaneousSteamPowerExpenses} 
+ + {@RentsSteamPowerGeneration} 
+ + {@Allowances});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SteamPowerGenerationOperationsExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@SteamPowerGenerationMaintenanceExpense}; 
+ $addend = ({@MaintenanceSupervisionAndEngineeringSteamPowerGeneration} 
+ + {@MaintenanceOfStructuresSteamPowerGeneration} 
+ + {@MaintenanceOfBoilerPlantSteamPowerGeneration} 
+ + {@MaintenanceOfElectricPlantSteamPowerGeneration} 
+ + {@MaintenanceOfMiscellaneousSteamPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SteamPowerGenerationMaintenanceExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@PowerProductionExpensesSteamPower}; 
+ $addend = ({@SteamPowerGenerationOperationsExpense} 
+ + {@SteamPowerGenerationMaintenanceExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PowerProductionExpensesSteamPower with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@NuclearPowerGenerationOperationsExpense}; 
+ $addend = ({@OperationSupervisionAndEngineeringNuclearPowerGeneration} 
+ + {@NuclearFuelExpense} 
+ + {@CoolantsAndWater} 
+ + {@SteamExpensesNuclearPowerGeneration} 
+ + {@SteamFromOtherSourcesNuclearPowerGeneration} 
+ - {@SteamTransferredCreditNuclearPowerGeneration} 
+ + {@ElectricExpensesNuclearPowerGeneration} 
+ + {@MiscellaneousNuclearPowerExpenses} 
+ + {@RentsNuclearPowerGeneration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NuclearPowerGenerationOperationsExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@NuclearPowerGenerationMaintenanceExpense}; 
+ $addend = ({@MaintenanceSupervisionAndEngineeringNuclearPowerGeneration} 
+ + {@MaintenanceOfStructuresNuclearPowerGeneration} 
+ + {@MaintenanceOfReactorPlantEquipmentNuclearPowerGeneration} 
+ + {@MaintenanceOfElectricPlantNuclearPowerGeneration} 
+ + {@MaintenanceOfMiscellaneousNuclearPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NuclearPowerGenerationMaintenanceExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@PowerProductionExpensesNuclearPower}; 
+ $addend = ({@NuclearPowerGenerationOperationsExpense} 
+ + {@NuclearPowerGenerationMaintenanceExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PowerProductionExpensesNuclearPower with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@HydraulicPowerGenerationOperationsExpense}; 
+ $addend = ({@OperationSupervisionAndEngineeringHydraulicPowerGeneration} 
+ + {@WaterForPower} 
+ + {@HydraulicExpenses} 
+ + {@ElectricExpensesHydraulicPowerGeneration} 
+ + {@MiscellaneousHydraulicPowerGenerationExpenses} 
+ + {@RentsHydraulicPowerGeneration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for HydraulicPowerGenerationOperationsExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.8 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@HydraulicPowerGenerationMaintenanceExpense}; 
+ $addend = ({@MaintenanceSupervisionAndEngineeringHydraulicPowerGeneration} 
+ + {@MaintenanceOfStructuresHydraulicPowerGeneration} 
+ + {@MaintenanceOfReservoirsDamsAndWaterways} 
+ + {@MaintenanceOfElectricPlantHydraulicPowerGeneration} 
+ + {@MaintenanceOfMiscellaneousHydraulicPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for HydraulicPowerGenerationMaintenanceExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.9 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@PowerProductionExpensesHydraulicPower}; 
+ $addend = ({@HydraulicPowerGenerationOperationsExpense} 
+ + {@HydraulicPowerGenerationMaintenanceExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PowerProductionExpensesHydraulicPower with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.10 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@OtherPowerGenerationOperationsExpense}; 
+ $addend = ({@OperationSupervisionAndEngineeringOtherPowerGeneration} 
+ + {@Fuel} 
+ + {@GenerationExpenses} 
+ + {@OperationOfEnergyStorageEquipment}
+ + {@MiscellaneousOtherPowerGenerationExpenses} 
+ + {@RentsOtherPowerGeneration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherPowerGenerationOperationsExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.11 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@OtherPowerGenerationMaintenanceExpense}; 
+ $addend = ({@MaintenanceSupervisionAndEngineeringOtherPowerGeneration} 
+ + {@MaintenanceOfStructures} 
+ + {@MaintenanceOfGeneratingAndElectricPlant} 
+ + {@MaintenanceOfEnergyStorageEquipmentOtherPowerGeneration}
+ + {@MaintenanceOfMiscellaneousOtherPowerGenerationPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherPowerGenerationMaintenanceExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.12 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@PowerProductionExpensesOtherPower}; 
+ $addend = ({@OtherPowerGenerationOperationsExpense} 
+ + {@OtherPowerGenerationMaintenanceExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PowerProductionExpensesOtherPower with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.13 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@OtherPowerSupplyExpense}; 
+ $addend = ({@PurchasedPower} 
+ + {@PowerPurchasedForStorageOperations}
+ + {@SystemControlAndLoadDispatchingElectric} 
+ + {@OtherExpensesOtherPowerSupplyExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherPowerSupplyExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.14 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@PowerProductionExpenses}; 
+ $addend = ({@PowerProductionExpensesSteamPower} 
+ + {@PowerProductionExpensesNuclearPower} 
+ + {@PowerProductionExpensesHydraulicPower} 
+ + {@PowerProductionExpensesOtherPower} 
+ + {@OtherPowerSupplyExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PowerProductionExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.15 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@TransmissionOperationExpense}; 
+ $addend = ({@OperationSupervisionAndEngineeringElectricTransmissionExpenses} 
+ + {@LoadDispatchReliability} 
+ + {@LoadDispatchMonitorAndOperateTransmissionSystem} 
+ + {@LoadDispatchTransmissionServiceAndScheduling} 
+ + {@SchedulingSystemControlAndDispatchServices} 
+ + {@ReliabilityPlanningAndStandardsDevelopment} 
+ + {@TransmissionServiceStudies} 
+ + {@GenerationInterconnectionStudies} 
+ + {@ReliabilityPlanningAndStandardsDevelopmentServices} 
+ + {@StationExpensesTransmissionExpense} 
+ + {@OperationOfEnergyStorageEquipmentTransmissionExpense}
+ + {@OverheadLineExpense} 
+ + {@UndergroundLineExpensesTransmissionExpense} 
+ + {@TransmissionOfElectricityByOthers} 
+ + {@MiscellaneousTransmissionExpenses} 
+ + {@RentsTransmissionElectricExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TransmissionOperationExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.16 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@TransmissionMaintenanceExpenseElectric}; 
+ $addend = ({@MaintenanceSupervisionAndEngineeringElectricTransmissionExpenses} 
+ + {@MaintenanceOfStructuresTransmissionExpense} 
+ + {@MaintenanceOfComputerHardwareTransmission} 
+ + {@MaintenanceOfComputerSoftwareTransmission} 
+ + {@MaintenanceOfCommunicationEquipmentElectricTransmission} 
+ + {@MaintenanceOfMiscellaneousRegionalTransmissionPlant} 
+ + {@MaintenanceOfStationEquipmentTransmission} 
+ + {@MaintenanceOfEnergyStorageEquipmentTransmission} 
+ + {@MaintenanceOfOverheadLinesTransmission} 
+ + {@MaintenanceOfUndergroundLinesTransmission} 
+ + {@MaintenanceOfMiscellaneousTransmissionPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TransmissionMaintenanceExpenseElectric with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.17 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@TransmissionExpenses}; 
+ $addend = ({@TransmissionOperationExpense} 
+ + {@TransmissionMaintenanceExpenseElectric});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TransmissionExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.18 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@RegionalMarketOperationExpense}; 
+ $addend = ({@OperationSupervision} 
+ + {@DayAheadAndRealTimeMarketAdministration} 
+ + {@TransmissionRightsMarketAdministration} 
+ + {@CapacityMarketAdministration} 
+ + {@AncillaryServicesMarketAdministration} 
+ + {@MarketMonitoringAndCompliance} 
+ + {@MarketFacilitationMonitoringAndComplianceServices} 
+ + {@RentsRegionalMarketExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RegionalMarketOperationExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.19 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@RegionalMarketMaintenanceExpense}; 
+ $addend = ({@MaintenanceOfStructuresAndImprovementsRegionalMarketExpenses} 
+ + {@MaintenanceOfComputerHardware} 
+ + {@MaintenanceOfComputerSoftware} 
+ + {@MaintenanceOfCommunicationEquipmentRegionalMarketExpenses} 
+ + {@MaintenanceOfMiscellaneousMarketOperationPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RegionalMarketMaintenanceExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.20 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@RegionalMarketExpenses}; 
+ $addend = ({@RegionalMarketOperationExpense} 
+ + {@RegionalMarketMaintenanceExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RegionalMarketExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.21 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@DistributionOperationExpensesElectric}; 
+ $addend = ({@OperationSupervisionAndEngineeringDistributionExpense} 
+ + {@LoadDispatching} 
+ + {@StationExpensesDistribution} 
+ + {@OverheadLineExpenses} 
+ + {@UndergroundLineExpenses} 
+ + {@OperationOfEnergyStorageEquipmentDistribution}
+ + {@StreetLightingAndSignalSystemExpenses} 
+ + {@MeterExpenses} 
+ + {@CustomerInstallationsExpenses} 
+ + {@MiscellaneousDistributionExpenses} 
+ + {@RentsDistributionExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DistributionOperationExpensesElectric with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.22 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@DistributionMaintenanceExpenseElectric}; 
+ $addend = ({@MaintenanceSupervisionAndEngineering} 
+ + {@MaintenanceOfStructuresDistributionExpense} 
+ + {@MaintenanceOfStationEquipment} 
+ + {@MaintenanceOfEnergyStorageEquipment}
+ + {@MaintenanceOfOverheadLines} 
+ + {@MaintenanceOfUndergroundLines} 
+ + {@MaintenanceOfLineTransformers} 
+ + {@MaintenanceOfStreetLightingAndSignalSystems} 
+ + {@MaintenanceOfMeters} 
+ + {@MaintenanceOfMiscellaneousDistributionPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DistributionMaintenanceExpenseElectric with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.23 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@DistributionExpenses}; 
+ $addend = ({@DistributionOperationExpensesElectric} 
+ + {@DistributionMaintenanceExpenseElectric});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DistributionExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.24 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@CustomerAccountExpenses}; 
+ $addend = ({@SupervisionCustomerAccountExpenses} 
+ + {@MeterReadingExpenses} 
+ + {@CustomerRecordsAndCollectionExpenses} 
+ + {@UncollectibleAccounts} 
+ + {@MiscellaneousCustomerAccountsExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CustomerAccountExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.25 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@CustomerServiceAndInformationExpenses}; 
+ $addend = ({@SupervisionCustomerServiceAndInformationExpenses} 
+ + {@CustomerAssistanceExpenses} 
+ + {@InformationalAndInstructionalAdvertisingExpenses} 
+ + {@MiscellaneousCustomerServiceAndInformationalExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CustomerServiceAndInformationExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.26 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@SalesExpenses}; 
+ $addend = ({@SupervisionSalesExpense} 
+ + {@DemonstratingAndSellingExpenses} 
+ + {@AdvertisingExpenses} 
+ + {@MiscellaneousSalesExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalesExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.27 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@AdministrativeAndGeneralOperationExpense}; 
+ $addend = ({@AdministrativeAndGeneralSalaries} 
+ + {@OfficeSuppliesAndExpenses} 
+ - {@AdministrativeExpensesTransferredCredit} 
+ + {@OutsideServicesEmployed} 
+ + {@PropertyInsurance} 
+ + {@InjuriesAndDamages} 
+ + {@EmployeePensionsAndBenefits} 
+ + {@FranchiseRequirements} 
+ + {@RegulatoryCommissionExpenses} 
+ - {@DuplicateChargesCredit} 
+ + {@GeneralAdvertisingExpenses} 
+ + {@MiscellaneousGeneralExpenses} 
+ + {@RentsAdministrativeAndGeneralExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AdministrativeAndGeneralOperationExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.28 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@AdministrativeAndGeneralExpenses}; 
+ $addend = ({@AdministrativeAndGeneralOperationExpense} 
+ + {@MaintenanceOfGeneralPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AdministrativeAndGeneralExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.320.29 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricOperationAndMaintanenanceExpensesMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@OperationsAndMaintenanceExpensesElectric}; 
+ $addend = ({@PowerProductionExpenses} 
+ + {@TransmissionExpenses} 
+ + {@RegionalMarketExpenses} 
+ + {@DistributionExpenses} 
+ + {@CustomerAccountExpenses} 
+ + {@CustomerServiceAndInformationExpenses} 
+ + {@SalesExpenses} 
+ + {@AdministrativeAndGeneralExpenses});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OperationsAndMaintenanceExpensesElectric with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

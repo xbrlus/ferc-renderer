@@ -1,0 +1,127 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+/**
+assert F2.218.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CapitalizationOfConstructionOverheadGrossRateForBorrowedFunds}; 
+ $addend = ({@CapitalizationOfConstructionOverheadCostRateShortTermInterest} ({@CapitalizationOfConstructionOverheadAverageShortTermDebt}/{@CapitalizationOfConstructionOverheadAverageConstructionWorkInProgressBalance}) 
+ + {@CapitalizationOfConstructionOverheadCostRateLongTermDebt}[({@CapitalizationOfConstructionOverheadLongTermDebt}/({@CapitalizationOfConstructionOverheadLongTermDebt} 
+ + {@CapitalizationOfConstructionOverheadPreferredStock} 
+ + {@CapitalizationOfConstructionOverheadCommonEquity})) (1-({@CapitalizationOfConstructionOverheadAverageShortTermDebt}/{@CapitalizationOfConstructionOverheadAverageConstructionWorkInProgressBalance}))]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CapitalizationOfConstructionOverheadGrossRateForBorrowedFunds with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.218.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CapitalizationOfConstructionOverheadRateForOtherFunds}; 
+ $addend = ([1- ({@CapitalizationOfConstructionOverheadAverageShortTermDebt}/{@CapitalizationOfConstructionOverheadAverageConstructionWorkInProgressBalance})] [{@CapitalizationOfConstructionOverheadCostRatePreferredStock}({@CapitalizationOfConstructionOverheadPreferredStock}/({@CapitalizationOfConstructionOverheadLongTermDebt}
+ + {@CapitalizationOfConstructionOverheadPreferredStock}
+ + {@CapitalizationOfConstructionOverheadCommonEquity})) + {@CapitalizationOfConstructionOverheadCostRateCommonEquity}({@CapitalizationOfConstructionOverheadCommonEquity}/({@CapitalizationOfConstructionOverheadLongTermDebt}
+ + {@CapitalizationOfConstructionOverheadPreferredStock}
+ + {@CapitalizationOfConstructionOverheadCommonEquity}))]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CapitalizationOfConstructionOverheadRateForOtherFunds with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+**/
+assert F2.218.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CapitalizationOfConstructionOverheadCapitalizationRationLongTermDebt @unit = xbrli:pure}; 
+ $addend = ({@CapitalizationOfConstructionOverheadLongTermDebt @unit = *} / {nonils @CapitalizationOfConstructionOverhead @unit = *});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CapitalizationOfConstructionOverheadCapitalizationRationLongTermDebt with a value of {$sum1} that is not equal CapitalizationOfConstructionOverheadLongTermDebt / CapitalizationOfConstructionOverhead with a value of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.218.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CapitalizationOfConstructionOverheadCapitalizationRationPreferredStock @unit = xbrli:pure}; 
+ $addend = ({@CapitalizationOfConstructionOverheadPreferredStock @unit = *} / {nonils @CapitalizationOfConstructionOverhead @unit = *});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CapitalizationOfConstructionOverheadCapitalizationRationPreferredStock with a value of {$sum1} that is not equal to CapitalizationOfConstructionOverheadPreferredStock / CapitalizationOfConstructionOverhead with a value of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.218.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CapitalizationOfConstructionOverheadCapitalizationRationCommonEquity @unit = xbrli:pure}; 
+ $addend = ({@CapitalizationOfConstructionOverheadCommonEquity @unit = *} / {nonils @CapitalizationOfConstructionOverhead @unit = *});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CapitalizationOfConstructionOverheadCapitalizationRationCommonEquity with a value of {$sum1} that is not equal to  CapitalizationOfConstructionOverheadCommonEquity / CapitalizationOfConstructionOverhead with a value of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

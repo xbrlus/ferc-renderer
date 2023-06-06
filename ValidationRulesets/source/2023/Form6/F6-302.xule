@@ -1,0 +1,135 @@
+/**FERC Form 6 Rules 
+**/
+
+RULE-NAME-PREFIX FERC
+
+assert F6.302.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@OperationsAndMaintenanceExpensesOil}; 
+ $addend = ({@SalariesAndWagesOperationsAndMaintenance} 
+ + {@MaterialsAndSuppliesOperationsAndMaintenance} 
+ + {@OutsideServicesOperationsAndMaintenance} 
+ + {@OilLossesAndShortagesOperationsAndMaintenance} 
+ + {@OperatingFuelAndPowerOperationsAndMaintenance} 
+ + {@RentalsOperationsAndMaintenance} 
+ + {@OtherExpensesOperationsAndMaintenance});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OperationsAndMaintenanceExpensesOil with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.302.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@GeneralExpensesOil}; 
+ $addend = ({@SalariesAndWagesGeneralExpense} 
+ + {@MaterialsAndSuppliesGeneralExpense} 
+ + {@OutsideServicesGeneralExpense} 
+ + {@RentalsGeneralExpense} 
+ + {@DepreciationAndAmortizationGeneralExpense} 
+ + {@DepreciationExpenseForAssetRetirementCosts} 
+ + {@EmployeeBenefitsGeneralExpense} 
+ + {@InsuranceGeneralExpense} 
+ + {@CasualtyAndOtherLossesGeneralExpense} 
+ + {@PipelineTaxesGeneralExpense} 
+ + {@OtherExpensesGeneralExpense} 
+ + {@AccretionExpense} 
+ + {@GainsOrLossesOnAssetRetirementObligationsGeneralExpense});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GeneralExpensesOil with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.302.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@OperatingExpenses}; 
+ $addend = {@OperationsAndMaintenanceExpensesOil}#f1
+ + {@GeneralExpensesOil}#f2;
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OperatingExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}. The totalis comprised of the following:
+
++ OperationsAndMaintenanceExpensesOil	            {$f1}  
++ GeneralExpensesOil	                         	{$f2}  
+
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.302.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@ProductsAndServicesAxis = CrudeOilMember @cube.name = OperatingExpenseTable}; 
+ $addend = {@ProductsAndServicesAxis=CrudeOilGatheringMember @cube.name = OperatingExpenseTable}
+ + {@ProductsAndServicesAxis=CrudeOilTrunkMember @cube.name = OperatingExpenseTable}
+ + {@ProductsAndServicesAxis=CrudeOilDeliveryMember @cube.name = OperatingExpenseTable};
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for {$sum1.concept.name.local-name} with a value of {$sum1} using the CrudeOilMember that is not equal to the value of the sum of {$sum1.concept.name.local-name} broken down by the  CrudeOilGatheringMember, CrudeOilTrunkMember and CrudeDeliveryTrunkMember with a value of {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.302.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@ProductsAndServicesAxis = OilProductsMember @cube.name = OperatingExpenseTable}; 
+ $addend = {@ProductsAndServicesAxis=OilProductsTrunkMember @cube.name = OperatingExpenseTable}
+ + {@ProductsAndServicesAxis=OilProductsDeliveryMember @cube.name = OperatingExpenseTable};
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for {$sum1.concept.name.local-name} with a value of {$sum1} using the OilProductsMember that is not equal to the value of the sum of {$sum1.concept.name.local-name} broken down by the  OilProductsTrunkMember and OilProductsDeliveryMember  with a value of {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

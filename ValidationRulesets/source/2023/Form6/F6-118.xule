@@ -1,0 +1,41 @@
+/**FERC Form 6 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F6.118.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@concept=AppropriatedRetainedIncome]; 
+ $addend = ([@concept=AppropriatedRetainedIncome @ClassOfAppropriationAxis=AdditionsToPropertyThroughRetainedIncomeMember]#f0 
+ + [@concept=AppropriatedRetainedIncome @ClassOfAppropriationAxis=DebtRetainedThroughRetainedIncomeMember]#f1 
+ + [@concept=AppropriatedRetainedIncome @ClassOfAppropriationAxis=SinkingFundsMember]#f2 
+ + [@concept=AppropriatedRetainedIncome @ClassOfAppropriationAxis=OtherFundsMember]#f3 
+ + [@concept=AppropriatedRetainedIncome @ClassOfAppropriationAxis=AppropriatedRetainedIncomeNotSpecificallyInvestedMember]#f4 
+ + sum(list([nonils @concept=AppropriatedRetainedIncome @ClassOfAppropriationAxis=OtherAppropriationsMember @ClassOfOtherAppropriationAxis=*]))#f5
+);
+
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AppropriatedRetainedIncome with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t Other Appropriations \t = \t {$f5}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

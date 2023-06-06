@@ -1,0 +1,84 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.232.1 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@OtherRegulatoryAssets @period=$currentInstant}; 
+ $addend = ({@OtherRegulatoryAssets @period=$prior3MYInstant} 
+ + {@IncreaseDecreaseInOtherRegulatoryAssets @period=$current3MYDuration} 
+ - {@OtherRegulatoryAssetsWrittenOffRecovered @period=$current3MYDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherRegulatoryAssets with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.232.2 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@OtherRegulatoryAssets]; 
+ $addend = sum(list([nonils @OtherRegulatoryAssets @OtherRegulatoryAssetsAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis OtherRegulatoryAssetsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.232.3 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@IncreaseDecreaseInOtherRegulatoryAssets]; 
+ $addend = sum(list([nonils @IncreaseDecreaseInOtherRegulatoryAssets @OtherRegulatoryAssetsAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis OtherRegulatoryAssetsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.232.4 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@OtherRegulatoryAssetsWrittenOffRecovered]; 
+ $addend = sum(list([nonils @OtherRegulatoryAssetsWrittenOffRecovered @OtherRegulatoryAssetsAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis OtherRegulatoryAssetsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}  
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

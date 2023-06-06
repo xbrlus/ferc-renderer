@@ -1,0 +1,136 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.400a.1 satisfied 
+$rule_id = rule-name();
+
+$elementsToSum = list(ImportsIntoIsoOrRto, ExportsFromIsoOrRto, ThroughAndOutService, NetworkServiceUsage, PointToPointServiceUsage, NetworkAndPointToPointServiceUsage);
+
+for $concept in $elementsToSum
+ $sum1 = {@concept = $concept @@NameOfTransmissionSystemAxis=* @MonthAxis = none}; 
+ $addend = sum(list({nonils @concept = $concept @MonthAxis in $monthMembers @@NameOfTransmissionSystemAxis=* })#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis MonthAxis with month members has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.400a.2 satisfied 
+$rule_id = rule-name();
+
+$QuarterMembers = list(Quarter1Member,Quarter2Member,Quarter3Member,Quarter4Member)
+
+$elementsToSum = list(ImportsIntoIsoOrRto, ExportsFromIsoOrRto, ThroughAndOutService, NetworkServiceUsage, PointToPointServiceUsage, NetworkAndPointToPointServiceUsage);
+
+for $concept in $elementsToSum
+ $sum1 = {@concept = $concept @@NameOfTransmissionSystemAxis=* @MonthAxis=none}; 
+ $addend = sum(list({nonils @concept = $concept @MonthAxis in $QuarterMembers @@NameOfTransmissionSystemAxis=* })#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis MonthAxis with quarter members has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F1.400a.3 satisfied 
+$rule_id = rule-name();
+
+{@concept = DayOfIsoAndRtoMonthlyPeak}#dayMonth > 31
+
+message 
+"The element {$dayMonth.concept.name} with a value of {$dayMonth} is a day of the month. The value should not exceed 31.
+
+Total Element : {$dayMonth.concept.name}
+Total Period : {$dayMonth.period}
+Total Value : {$dayMonth} 
+Dimensions : {$dayMonth.dimensions.join(',','=')}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $dayMonth
+
+assert F1.400a.4 satisfied 
+$rule_id = rule-name();
+
+{@concept = HourOfIsoAndRtoMonthlyPeak}#HourDay > 24
+
+message 
+"The element {$HourDay.concept.name} with a value of {$HourDay} is an hour of the day. The value should not exceed 24.
+
+Total Element : {$HourDay.concept.name}
+Total Period : {$HourDay.period}
+Total Value : {$HourDay} 
+Dimensions : {$HourDay.dimensions.join(',','=')}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $HourDay
+
+assert F1.400a.5 satisfied 
+$rule_id = rule-name();
+
+ 
+ $sum400a = {@NetworkAndPointToPointServiceUsage}; 
+ $addend = ({@PointToPointServiceUsage}#f400a-1
+ + {@NetworkServiceUsage}#f400a-2
+ );
+tolerance_for_decimals($sum400a,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetworkAndPointToPointServiceUsage with a value of {$sum400a} that is not equal to the value of the sum of its components of {$addend}. The addend is comprised of the following:
++ {$f400a-1.name.local-name}	= 	{$f400a-1}
++ {$f400a-2.name.local-name}	= 	{$f400a-2}
+
+
+Total Element : {$sum400a.concept.name}
+Total Period : {$sum400a.period}
+Total Dimensions : {$sum400a.dimensions.join(',','=')}
+Total Value : {$sum400a} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum400a
+
+
+assert F1.400a.6 satisfied 
+$rule_id = rule-name();
+
+$QuarterMembers = list(Quarter1Member,Quarter2Member,Quarter3Member,Quarter4Member)
+
+$elementsNoValue = list(MonthlyIsoAndRtoPeakLoad, DayOfIsoAndRtoMonthlyPeak, HourOfIsoAndRtoMonthlyPeak);
+
+for $concept in $elementsNoValue
+ 
+        exists([@concept = $concept @MonthAxis in $QuarterMembers @NameOfTransmissionSystemAxis=* ]#badValue)
+
+message 
+"The  element {$badValue.concept.name} using the axis MonthAxis with a quarter member has a value of {$badValue}. Filers should not report values for this element and member combination.
+
+Element : {$badValue.concept.name}
+Period : {$badValue.period}
+Dimensions : {$badValue.dimensions.join(',','=')}
+Value : {$badValue} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $badValue

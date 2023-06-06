@@ -1,0 +1,342 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.262.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@TaxesAccrued @@TaxesAccruedPrepaidAndChargedAxis=* @period=$currentInstant}; 
+ $addend = ({@TaxesAccrued @@TaxesAccruedPrepaidAndChargedAxis=* @period=$priorInstant}#f99
+ - {@PrepaidTaxes @@TaxesAccruedPrepaidAndChargedAxis=* @period=$priorInstant}#f1
+ + {@TaxesCharged @@TaxesAccruedPrepaidAndChargedAxis=* @period=$currentDuration}#f2 
+ - {@TaxesPaid @@TaxesAccruedPrepaidAndChargedAxis=* @period=$currentDuration}#f3
+ + {@TaxAdjustments @@TaxesAccruedPrepaidAndChargedAxis=* @period=$currentDuration}#f4
+ + {@PrepaidTaxes @@TaxesAccruedPrepaidAndChargedAxis=* @period=$currentInstant}#f5
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TaxesAccrued with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f99.concept.name.local-name} \t = \t {$f99}
+- \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
+- \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.262.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@TaxesAccrued]; 
+ $addend = sum(list([nonils @TaxesAccrued @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TaxesAccruedPrepaidAndChargedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}  
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.262.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@PrepaidTaxes]; 
+ $addend = sum(list([nonils @PrepaidTaxes @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TaxesAccruedPrepaidAndChargedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}  
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.262.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@TaxesCharged]; 
+ $addend = sum(list([nonils @TaxesCharged @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TaxesAccruedPrepaidAndChargedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}  
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.262.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@TaxesPaid]; 
+ $addend = sum(list([nonils @TaxesPaid @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TaxesAccruedPrepaidAndChargedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}  
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.262.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@TaxAdjustments]; 
+ $addend = sum(list([nonils @TaxAdjustments @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis SubsidiaryCompanyAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.262.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@IncomeTaxesExtraordinaryItems]; 
+ $addend = sum(list([nonils @IncomeTaxesExtraordinaryItems @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TaxesAccruedPrepaidAndChargedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.262.8 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@AdjustmentsToRetainedEarnings]; 
+ $addend = sum(list([nonils @AdjustmentsToRetainedEarnings @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TaxesAccruedPrepaidAndChargedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.262.9 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@TaxesIncurredOther]; 
+ $addend = sum(list([nonils @TaxesIncurredOther @TaxesAccruedPrepaidAndChargedAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TaxesAccruedPrepaidAndChargedAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.262.10 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@TaxesAccrued @period=$currentInstant]; 
+ $addend = ([@TaxesAccrued @period=$priorInstant]#f262
+ - [@PrepaidTaxes @period=$priorInstant]#f1 
+ + [@TaxesCharged @period=$currentDuration]#f2 
+ - [@TaxesPaid @period=$currentDuration]#f3
+ + [@TaxAdjustments @period=$currentDuration]#f4
+ + [@PrepaidTaxes @period=$currentInstant]#f5
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TaxesAccrued with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f262.concept.name.local-name} \t = \t {$f262}
+- \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
+- \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+/** The following dictionary is used to map between the human readable label and the member used to define the total fact.
+** This dictionary allows a single rule to be written to check all of the possible 25 sub-totals that could be provided by the filer. 
+**/
+constant $TaxTypeLookup = dict(list("Income Tax",IncomeTaxMember),
+                                list("State Tax", StateTaxMember),
+                                list("Real Estate Tax", RealEstateTaxMember),
+                                list("Sales And Use Tax", SalesAndUseTaxMember ),
+                                list("Payroll Tax", PayrollTaxMember),
+                                list("Federal Insurance Tax", FederalInsuranceTaxMember),
+                                list("Unemployment Tax", UnemploymentTaxMember),
+                                list("Miscellaneous Other Tax", MiscellaneousOtherTaxMember),
+                                list("Federal Tax", FederalTaxMember),
+                                list("Other Taxes", OtherTaxMember),
+                                list("Property Tax", PropertyTaxMember),
+                                list("Excise Tax", ExciseTaxMember),
+                                list("Fuel Tax", FuelTaxMember),
+                                list("Franchise Tax", FranchiseTaxMember),
+                                list("Other Federal Tax", OtherFederalTaxMember),
+                                list("Other State Tax", OtherStateTaxMember),
+                                list("Other Property Tax", OtherPropertyTaxMember),
+                                list("Other Use Tax", OtherUseTaxMember),
+                                list("Other Ad Valorem Tax", OtherAdValoremTaxMember),
+                                list("Other License And Fees Tax", OtherLicenseAndFeesTaxMember),
+                                list("Ad Valorem Tax", AdValoremTaxMember),
+                                list("Other Allocated Tax", OtherAllocatedTaxMember),
+                                list("Severance Tax", SeveranceTaxMember),
+                                list("Penalty Tax", PenaltyTaxMember),
+                                list("Other Taxes and Fees", OtherTaxesAndFeesMember)
+                                )
+
+assert F1.262.12 satisfied
+$rule_id = rule-name();
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+        $TaxItems = list(TaxesCharged, PrepaidTaxes, TaxesAccrued, TaxesPaid, TaxAdjustments, TaxesAccruedPrepaidAndCharged, IncomeTaxesExtraordinaryItems, TaxesIncurredOther);
+        
+        for $TaxType in  $TaxTypeLookup.keys
+                for $TaxItem in $TaxItems
+                        $IncomeTaxMembers = list([covered @TypeOfTax @TaxesAccruedPrepaidAndChargedAxis=* where $fact == $TaxType].dimension(TaxesAccruedPrepaidAndChargedAxis));
+                        $sum2 = [@concept = $TaxItem @KindOfTaxAxis=$TaxTypeLookup[$TaxType] @unit=*]; 
+                        $addend = sum(list([nonils @concept = $TaxItem @unit=* @TaxesAccruedPrepaidAndChargedAxis in $IncomeTaxMembers])#breakdown);
+                        if $addend == none
+                                skip
+                        else
+                                tolerance_for_decimals($sum2,$addend,$tolerance_factor) 
+message
+
+"The breakdown of the element {$sum2.concept.name} using the axis TaxesAccruedPrepaidAndChargedAxis has a sub total value of {$addend} for {$TaxType}. The value of the aggregate amount for {$sum2.concept.name} is equal to {$sum2}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum2.concept.name}
+Total Period : {$sum2.period}
+Total Dimensions : {$sum2.dimensions.join(', ','=')}
+Total Value : {$sum2} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum2
+
+assert F1.262.13 satisfied
+$rule_id = rule-name();
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+        for $TaxType in $TaxTypeLookup.keys
+                $IncomeTaxMembers = list([covered @TypeOfTax @TaxesAccruedPrepaidAndChargedAxis=*  where $fact == $TaxType].dimension(TaxesAccruedPrepaidAndChargedAxis));
+                $sum1 = {@concept = TaxesAccruedPrepaidAndCharged @KindOfTaxAxis=$TaxTypeLookup[$TaxType] @@UtilityTypeAxis=* @unit=*}; 
+                $addend = sum(list({nonils @concept = TaxesAccruedPrepaidAndCharged @unit=* @@UtilityTypeAxis=* @TaxesAccruedPrepaidAndChargedAxis in $IncomeTaxMembers})#breakdown);
+                if $addend == none
+                        skip
+                else
+                        tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message
+
+"The breakdown of the element {$sum1.concept.name} using the axis TaxesAccruedPrepaidAndChargedAxis has a sub total value of {$addend}  for {$TaxType}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+

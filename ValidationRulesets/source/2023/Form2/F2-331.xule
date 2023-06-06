@@ -1,0 +1,115 @@
+/**FERC Form 2 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.331.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+	skip
+else
+	$sum811 = first-value([@GasUsedForProductsExtractionCredit @period=$currentDuration], ([@NaturalGasShrinkageAndOtherUsageInRespondentOwnProcessingCredit @period=$currentDuration] + [@NaturalGasShrinkageAndOtherUsageInRespondentGasProcessedByOthersCredit @period=$currentDuration]));
+
+	$sum812 = first-value([@GasUsedForOtherUtilityOperationsCredit @period=$currentDuration],(sum(list([nonils @GasUsedForOtherUtilityOperationsCredit @GasUsedInUtilityOperationsAxis=* @period=$currentDuration]))));
+
+	 $sum1 = [@GasUsedInUtilityOperationCredit @period=$currentDuration]; 
+	 $addend = ([@GasUsedForCompressorStationFuelCredit @period=$currentDuration]
+	 + $sum811
+	 + $sum812 );
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for {$sum1.concept.name} with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.331.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+	skip
+else
+	$sum811-1 = first-value([@QuantityOfNaturalGasDeliveredByRespondentGasUsedForProductsExtraction @period=$currentDuration], ([@QuantityOfNaturalGasShrinkageAndOtherUsageInRespondentOwnProcessing @period=$currentDuration] + [@QuantityOfNaturalGasShrinkageAndOtherUsageInRespondentGasProcessedByOthers @period=$currentDuration]));
+
+	$sum812-1 = first-value([@QuantityOfNaturalGasDeliveredByRespondentGasUsedForOtherUtilityOperations @period=$currentDuration],(sum(list([nonils @QuantityOfNaturalGasDeliveredByRespondentGasUsedForOtherUtilityOperations @GasUsedInUtilityOperationsAxis=* @period=$currentDuration]))));
+
+	$sum1 = [@QuantityOfNaturalGasDeliveredByRespondentGasUsedInUtilityOperations @period=$currentDuration]; 
+	$addend = ([@QuantityOfNaturalGasDeliveredByUtilityGasUsedForCompressorStationFuel @period=$currentDuration]
+	+ $sum811-1
+	+ $sum812-1);
+	tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for {$sum1.concept.name} with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.331.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+if set('2-A').contains([covered @concept.local-name ='FormType'])
+	skip
+else
+	$sum1 = [@QuantityOfNaturalGasDeliveredByRespondentGasUsedInUtilityOperations]; 
+	$addend = sum(list([nonils @QuantityOfNaturalGasDeliveredByRespondentGasUsedInUtilityOperations @GasUsedInUtilityOperationsAxis=*])#breakdown);
+	if $addend == none
+		skip
+	else
+		tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis GasUsedInUtilityOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.331.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+	skip
+else
+
+ $sum1 = [@GasUsedInUtilityOperationCredit]; 
+ $addend = sum(list([nonils @GasUsedInUtilityOperationCredit @GasUsedInUtilityOperationsAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis GasUsedInUtilityOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

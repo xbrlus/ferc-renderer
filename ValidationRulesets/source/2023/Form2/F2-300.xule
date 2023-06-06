@@ -1,0 +1,568 @@
+/**FERC Form 2 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.300.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else 
+ $sum1 = {@ResidentialSales}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayResidentialSales}
+ + {@RevenuesForGRIAndACAResidentialSales}
+ + {@OtherRevenuesResidentialSales});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ResidentialSales with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CommercialAndIndustrialSales}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayCommercialAndIndustrialSales}
+ + {@RevenuesForGriAndAcaCommercialAndIndustrialSales}
+ + {@OtherRevenuesCommercialAndIndustrialSales});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CommercialAndIndustrialSales with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherSalesToPublicAuthorities}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayOtherSalesToPublicAuthorities}
+ + {@RevenuesForGriAndAcaOtherSalesToPublicAuthorities}
+ + {@OtherRevenuesOtherSalesToPublicAuthorities});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherSalesToPublicAuthorities with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalesForResale}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPaySalesForResale}
+ + {@RevenuesForGriAndAcaSalesForResale}
+ + {@OtherRevenuesSalesForResale});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalesForResale with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@InterdepartmentalSales}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayInterdepartmentalSales}
+ + {@RevenuesForGriAndAcaInterdepartmentalSales}
+ + {@OtherRevenuesInterdepartmentalSales});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for InterdepartmentalSales with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@IntracompanyTransfers}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayIntracompanyTransfers}
+ + {@RevenuesForGriAndAcaIntracompanyTransfers}
+ + {@OtherRevenuesIntracompanyTransfers});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for IntracompanyTransfers with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ForfeitedDiscounts}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayForfeitedDiscounts}
+ + {@RevenuesForGriAndAcaForfeitedDiscounts}
+ + {@OtherRevenuesForfeitedDiscounts});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ForfeitedDiscounts with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MiscellaneousServiceRevenues}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayMiscellaneousServiceRevenues}
+ + {@RevenuesForGriAndAcaMiscellaneousServiceRevenues}
+ + {@OtherRevenuesMiscellaneousServiceRevenues});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MiscellaneousServiceRevenues with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@RevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities}
+ + {@RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities}
+ + {@OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities}
+ + {@RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities}
+ + {@OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.11 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@RevenuesFromTransportationOfGasOfOthersThroughDistributionFacilities}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughDistributionFacilities}
+ + {@RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughDistributionFacilities}
+ + {@OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughDistributionFacilities});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RevenuesFromTransportationOfGasOfOthersThroughDistributionFacilities with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.12 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@RevenuesFromStoringGasOfOthers}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromStoringGasOfOthers}
+ + {@RevenuesForGriAndAcaRevenuesFromStoringGasOfOthers}
+ + {@OtherRevenuesRevenuesFromStoringGasOfOthers});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RevenuesFromStoringGasOfOthers with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.13 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalesOfProductsExtractedFromNaturalGas}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPaySalesOfProductsExtractedFromNaturalGas}
+ + {@RevenuesForGriAndAcaSalesOfProductsExtractedFromNaturalGas}
+ + {@OtherRevenueSalesOfProductsExtractedFromNaturalGas});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalesOfProductsExtractedFromNaturalGas with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.14 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@RevenuesFromNaturalGasProcessedByOthers}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromNaturalGasProcessedByOthers}
+ + {@RevenuesForGriAndAcaRevenuesFromNaturalGasProcessedByOthers}
+ + {@OtherRevenuesRevenuesFromNaturalGasProcessedByOthers});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RevenuesFromNaturalGasProcessedByOthers with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.15 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@IncidentalGasolineAndOilSales}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayIncidentalGasolineAndOilSales}
+ + {@RevenuesForGriAndAcaIncidentalGasolineAndOilSales}
+ + {@OtherRevenuesIncidentalGasolineAndOilSales});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for IncidentalGasolineAndOilSales with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.16 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@RentFromGasProperty}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayRentFromGasProperty}
+ + {@RevenuesForGriAndAcaRentFromGasProperty}
+ + {@OtherRevenuesRentFromGasProperty});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RentFromGasProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.17 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@InterdepartmentalRents}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayInterdepartmentalRents}
+ + {@RevenuesForGriAndAcaInterdepartmentalRents}
+ + {@OtherRevenuesInterdepartmentalRents});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for InterdepartmentalRents with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.18 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherGasRevenues}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayOtherGasRevenues}
+ + {@RevenuesForGriAndAcaOtherGasRevenues}
+ + {@OtherRevenuesOtherGasRevenues});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherGasRevenues with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.19 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OperatingRevenueBeforeProvisionForRateRefunds}; 
+ $addend = ({@ResidentialSales}
+ + {@CommercialAndIndustrialSales}
+ + {@OtherSalesToPublicAuthorities}
+ + {@SalesForResale}
+ + {@InterdepartmentalSales}
+ + {@IntracompanyTransfers}
+ + {@ForfeitedDiscounts}
+ + {@MiscellaneousServiceRevenues}
+ + {@RevenuesFromTransportationOfGasOfOthersThroughGatheringFacilities}
+ + {@RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities}
+ + {@RevenuesFromTransportationOfGasOfOthersThroughDistributionFacilities}
+ + {@RevenuesFromStoringGasOfOthers}
+ + {@SalesOfProductsExtractedFromNaturalGas}
+ + {@RevenuesFromNaturalGasProcessedByOthers}
+ + {@IncidentalGasolineAndOilSales}
+ + {@RentFromGasProperty}
+ + {@InterdepartmentalRents}
+ + {@OtherGasRevenues});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OperatingRevenueBeforeProvisionForRateRefunds with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.20 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ProvisionForRateRefunds}; 
+ $addend = ({@RevenuesFromTransitionCostsAndTakeOrPayProvisionForRateRefunds}
+ + {@RevenuesForGriAndAcaProvisionForRateRefunds}
+ + {@OtherRevenuesProvisionForRateRefunds});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ProvisionForRateRefunds with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.21 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OperatingRevenues @period=$currentDuration}; 
+ $addend = ({@OperatingRevenueBeforeProvisionForRateRefunds @period=$currentDuration}
+ - {@ProvisionForRateRefunds @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OperatingRevenues with a value of {$sum1} that is not equal to the value of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.300.22 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OperatingRevenues @period=$priorDuration}; 
+ $addend = ({@OperatingRevenueBeforeProvisionForRateRefunds @period=$priorDuration}
+ - {@ProvisionForRateRefunds @period=$priorDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OperatingRevenues with a value of {$sum1} that is not equal to the value of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

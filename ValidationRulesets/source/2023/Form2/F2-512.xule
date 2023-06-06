@@ -1,0 +1,264 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.512.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasDeliveredToStorageThatBelongToRespondent}; 
+ $addend = ({@GasDeliveredToStorageThatBelongToRespondent @MonthAxis=JanuaryMember}
+ + {@GasDeliveredToStorageThatBelongToRespondent @MonthAxis=FebruaryMember}
+ + {@GasDeliveredToStorageThatBelongToRespondent @MonthAxis=MarchMember}
+ + {@GasDeliveredToStorageThatBelongToRespondent @MonthAxis=AprilMember}
+ + {@GasDeliveredToStorageThatBelongToRespondent @MonthAxis=MayMember}
+ + {@GasDeliveredToStorageThatBelongToRespondent @MonthAxis=JuneMember}
+ + {@GasDeliveredToStorageThatBelongToRespondent @MonthAxis=JulyMember}
+ + {@GasDeliveredToStorageThatBelongToRespondent @MonthAxis=AugustMember}
+ + {@GasDeliveredToStorageThatBelongToRespondent @MonthAxis=SeptemberMember}
+ + {@GasDeliveredToStorageThatBelongToRespondent @MonthAxis=OctoberMember}
+ + {@GasDeliveredToStorageThatBelongToRespondent @MonthAxis=NovemberMember}
+ + {@GasDeliveredToStorageThatBelongToRespondent @MonthAxis=DecemberMember});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasDeliveredToStorageThatBelongToRespondent with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} when broken down by the MonthAxis.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.512.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasDeliveredToStorageThatBelongToOthers}; 
+ $addend = ({@GasDeliveredToStorageThatBelongToOthers @MonthAxis=JanuaryMember}
+ + {@GasDeliveredToStorageThatBelongToOthers @MonthAxis=FebruaryMember}
+ + {@GasDeliveredToStorageThatBelongToOthers @MonthAxis=MarchMember}
+ + {@GasDeliveredToStorageThatBelongToOthers @MonthAxis=AprilMember}
+ + {@GasDeliveredToStorageThatBelongToOthers @MonthAxis=MayMember}
+ + {@GasDeliveredToStorageThatBelongToOthers @MonthAxis=JuneMember}
+ + {@GasDeliveredToStorageThatBelongToOthers @MonthAxis=JulyMember}
+ + {@GasDeliveredToStorageThatBelongToOthers @MonthAxis=AugustMember}
+ + {@GasDeliveredToStorageThatBelongToOthers @MonthAxis=SeptemberMember}
+ + {@GasDeliveredToStorageThatBelongToOthers @MonthAxis=OctoberMember}
+ + {@GasDeliveredToStorageThatBelongToOthers @MonthAxis=NovemberMember}
+ + {@GasDeliveredToStorageThatBelongToOthers @MonthAxis=DecemberMember});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasDeliveredToStorageThatBelongToOthers with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} when broken down by the MonthAxis.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.512.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasDeliveredToStorage}; 
+ $addend = ({@GasDeliveredToStorageThatBelongToRespondent}#f1
+ + {@GasDeliveredToStorageThatBelongToOthers}#f2);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasDeliveredToStorage with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} comprised of the following:
++ GasDeliveredToStorageThatBelongToRespondent   {$f1}
++ GasDeliveredToStorageThatBelongToOthers       {$f2}
+.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.512.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasDeliveredToStorage}; 
+ $addend = ({@GasDeliveredToStorage @MonthAxis=JanuaryMember}
+ + {@GasDeliveredToStorage @MonthAxis=FebruaryMember}
+ + {@GasDeliveredToStorage @MonthAxis=MarchMember}
+ + {@GasDeliveredToStorage @MonthAxis=AprilMember}
+ + {@GasDeliveredToStorage @MonthAxis=MayMember}
+ + {@GasDeliveredToStorage @MonthAxis=JuneMember}
+ + {@GasDeliveredToStorage @MonthAxis=JulyMember}
+ + {@GasDeliveredToStorage @MonthAxis=AugustMember}
+ + {@GasDeliveredToStorage @MonthAxis=SeptemberMember}
+ + {@GasDeliveredToStorage @MonthAxis=OctoberMember}
+ + {@GasDeliveredToStorage @MonthAxis=NovemberMember}
+ + {@GasDeliveredToStorage @MonthAxis=DecemberMember});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasDeliveredToStorage with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} when broken down by the MonthAxis.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.512.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasWithdrawnFromStorageThatBelongToRespondent}; 
+ $addend = ({@GasWithdrawnFromStorageThatBelongToRespondent @MonthAxis=JanuaryMember}
+ + {@GasWithdrawnFromStorageThatBelongToRespondent @MonthAxis=FebruaryMember}
+ + {@GasWithdrawnFromStorageThatBelongToRespondent @MonthAxis=MarchMember}
+ + {@GasWithdrawnFromStorageThatBelongToRespondent @MonthAxis=AprilMember}
+ + {@GasWithdrawnFromStorageThatBelongToRespondent @MonthAxis=MayMember}
+ + {@GasWithdrawnFromStorageThatBelongToRespondent @MonthAxis=JuneMember}
+ + {@GasWithdrawnFromStorageThatBelongToRespondent @MonthAxis=JulyMember}
+ + {@GasWithdrawnFromStorageThatBelongToRespondent @MonthAxis=AugustMember}
+ + {@GasWithdrawnFromStorageThatBelongToRespondent @MonthAxis=SeptemberMember}
+ + {@GasWithdrawnFromStorageThatBelongToRespondent @MonthAxis=OctoberMember}
+ + {@GasWithdrawnFromStorageThatBelongToRespondent @MonthAxis=NovemberMember}
+ + {@GasWithdrawnFromStorageThatBelongToRespondent @MonthAxis=DecemberMember});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasWithdrawnFromStorageThatBelongToRespondent with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} when broken down by the MonthAxis.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.512.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasWithdrawnFromStorage}; 
+ $addend = ({@GasWithdrawnFromStorageThatBelongToRespondent}#f1
+ + {@GasWithdrawnFromStorageThatBelongToOthers}#f2);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasWithdrawnFromStorage with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} comprised of the following:
++ GasWithdrawnFromStorageThatBelongToRespondent   {$f1}
++ GasWithdrawnFromStorageThatBelongToOthers       {$f2}
+
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F2.512.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasWithdrawnFromStorageThatBelongToOthers}; 
+ $addend = ({@GasWithdrawnFromStorageThatBelongToOthers @MonthAxis=JanuaryMember}
+ + {@GasWithdrawnFromStorageThatBelongToOthers @MonthAxis=FebruaryMember}
+ + {@GasWithdrawnFromStorageThatBelongToOthers @MonthAxis=MarchMember}
+ + {@GasWithdrawnFromStorageThatBelongToOthers @MonthAxis=AprilMember}
+ + {@GasWithdrawnFromStorageThatBelongToOthers @MonthAxis=MayMember}
+ + {@GasWithdrawnFromStorageThatBelongToOthers @MonthAxis=JuneMember}
+ + {@GasWithdrawnFromStorageThatBelongToOthers @MonthAxis=JulyMember}
+ + {@GasWithdrawnFromStorageThatBelongToOthers @MonthAxis=AugustMember}
+ + {@GasWithdrawnFromStorageThatBelongToOthers @MonthAxis=SeptemberMember}
+ + {@GasWithdrawnFromStorageThatBelongToOthers @MonthAxis=OctoberMember}
+ + {@GasWithdrawnFromStorageThatBelongToOthers @MonthAxis=NovemberMember}
+ + {@GasWithdrawnFromStorageThatBelongToOthers @MonthAxis=DecemberMember});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasWithdrawnFromStorageThatBelongToOthers with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} when broken down by the MonthAxis.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.512.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasWithdrawnFromStorage}; 
+ $addend = ({@GasWithdrawnFromStorage @MonthAxis=JanuaryMember}
+ + {@GasWithdrawnFromStorage @MonthAxis=FebruaryMember}
+ + {@GasWithdrawnFromStorage @MonthAxis=MarchMember}
+ + {@GasWithdrawnFromStorage @MonthAxis=AprilMember}
+ + {@GasWithdrawnFromStorage @MonthAxis=MayMember}
+ + {@GasWithdrawnFromStorage @MonthAxis=JuneMember}
+ + {@GasWithdrawnFromStorage @MonthAxis=JulyMember}
+ + {@GasWithdrawnFromStorage @MonthAxis=AugustMember}
+ + {@GasWithdrawnFromStorage @MonthAxis=SeptemberMember}
+ + {@GasWithdrawnFromStorage @MonthAxis=OctoberMember}
+ + {@GasWithdrawnFromStorage @MonthAxis=NovemberMember}
+ + {@GasWithdrawnFromStorage @MonthAxis=DecemberMember});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasWithdrawnFromStorageThatBelongToOthers with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} when broken down by the MonthAxis.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

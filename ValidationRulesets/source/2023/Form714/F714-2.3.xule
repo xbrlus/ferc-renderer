@@ -1,0 +1,104 @@
+/**FERC Form 714 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F714.2.3.1 satisfied 
+$rule_id = (rule-name().split('.'))[rule-name().split('.').length];
+
+ $sum1 = {@NetEnergyForLoadAndPeakDemandSourcesByMonthNetEnergyForLoad}; 
+ $addend = ({@NetEnergyForLoadAndPeakDemandSourcesByMonthBalancingAuthorityAreaNetGeneration}#f1 
+ + {@ferc:NetEnergyForLoadAndPeakDemandSourcesByMonthNetActualInterchange}#f2);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetEnergyForLoadAndPeakDemandSourcesByMonthNetEnergyForLoad with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+The value is calculated as follows:
+NetEnergyForLoadAndPeakDemandSourcesByMonthBalancingAuthorityAreaNetGeneration = {$f1}
++ NetEnergyForLoadAndPeakDemandSourcesByMonthNetEnergyForLoad = {$f2}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F714.2.3.2 satisfied 
+$rule_id = (rule-name().split('.'))[rule-name().split('.').length];
+
+ $sum1 = [@NetEnergyForLoadAndPeakDemandSourcesByMonthBalancingAuthorityAreaNetGeneration]; 
+ $addend = sum(list([@NetEnergyForLoadAndPeakDemandSourcesByMonthBalancingAuthorityAreaNetGeneration@MonthAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a total value for NetEnergyForLoadAndPeakDemandSourcesByMonthBalancingAuthorityAreaNetGeneration with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F714.2.3.3 satisfied 
+$rule_id = (rule-name().split('.'))[rule-name().split('.').length];
+
+ $sum1 = [@NetEnergyForLoadAndPeakDemandSourcesByMonthNetEnergyForLoad]; 
+ $addend = sum(list([@NetEnergyForLoadAndPeakDemandSourcesByMonthNetEnergyForLoad@MonthAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a total value for NetEnergyForLoadAndPeakDemandSourcesByMonthNetEnergyForLoad with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F714.2.3.4 satisfied 
+$rule_id = (rule-name().split('.'))[rule-name().split('.').length];
+
+ $sum1 = [@NetEnergyForLoadAndPeakDemandSourcesByMonthNetEnergyForLoad]; 
+ $addend = sum(list([@NetEnergyForLoadAndPeakDemandSourcesByMonthNetEnergyForLoad@MonthAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a total value for NetEnergyForLoadAndPeakDemandSourcesByMonthNetEnergyForLoad with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F714.2.3.5 satisfied 
+$rule_id = (rule-name().split('.'))[rule-name().split('.').length];
+
+ $sum1 = {@LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandMonthlyPeakDemand};
+ $addend = ({@LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandOutputOfGeneratingPlants}#f1
+ + {@LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandUnitOrFirmPurchases}#f2
+ - {@LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandUnitOrFirmSales}#f3
+ + {@LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandNetNonFirmAndInadvertent}#f4);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandMonthlyPeakDemand with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}. 
+
+The value is calculated as follows:
+LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandOutputOfGeneratingPlants = {$f1}
++ LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandUnitOrFirmPurchases = {$f2}
++ LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandUnitOrFirmSales = {$f3}
++ LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandNetNonFirmAndInadvertent = {$f4}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

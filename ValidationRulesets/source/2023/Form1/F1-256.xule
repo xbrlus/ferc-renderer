@@ -1,0 +1,584 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+/** assert F1.256.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InterestExpenseOnLongTermDebtIssued]; 
+ $addend = sum(list([nonils @InterestExpenseOnLongTermDebtIssued @ClassOrSeriesOfObligationAndNameOfStockExchangeAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of InterestExpenseOnLongTermDebtIssued sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for InterestExpenseOnLongTermDebtIssued. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.256.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@LongTermDebtPrincipalAmountIssued]; 
+ $addend = sum(list([nonils @LongTermDebtPrincipalAmountIssued @ClassOrSeriesOfObligationAndNameOfStockExchangeAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of LongTermDebtPrincipalAmountIssued sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for LongTermDebtPrincipalAmountIssued. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.256.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@LongTermDebtIssuanceExpensePremiumOrDiscount]; 
+ $addend = sum(list([nonils @LongTermDebtIssuanceExpensePremiumOrDiscount @ClassOrSeriesOfObligationAndNameOfStockExchangeAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of LongTermDebtIssuanceExpensePremiumOrDiscount sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for LongTermDebtIssuanceExpensePremiumOrDiscount. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.256.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@LongTermDebtOutstanding]; 
+ $addend = sum(list([nonils @LongTermDebtOutstanding @ClassOrSeriesOfObligationAndNameOfStockExchangeAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of LongTermDebtOutstanding sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for LongTermDebtOutstanding. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+ **/
+
+ assert F1.256.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$lineItems = list(BondsPrincipalAmountIssued, BondIssuanceExpense, BondsPremium, BondsDiscount, InterestExpenseBonds);
+
+ $sum1 = [@@concept in $lineItems @BondObligationsAxis = none  where $fact.is-monetary]; 
+ $addend = sum(list([nonils @@concept in $lineItems @BondObligationsAxis = *  where $fact.is-monetary])#breakdown);
+ if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis BondObligationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+ 
+
+assert F1.256.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$lineItems = list(ReacquiredBondsPrincipalAmount, ReacquiredBondsIssuanceExpense, ReaquiredBondsPremium, ReaquiredBondsDiscount, ReacquiredBonds, InterestExpenseReacquiredBonds);
+
+ $sum1 = [@@concept in $lineItems @ReAcquiredBondObligationsAxis = none where $fact.is-monetary]; 
+ $addend = sum(list([nonils @@concept in $lineItems @ReAcquiredBondObligationsAxis = * where $fact.is-monetary])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis ReAcquiredBondObligationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.256.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$lineItems = list(AdvancesFromAssociatedCompaniesPrincipalAmountIssued, AdvancesFromAssociatedCompaniesIssuanceExpense, AdvancesFromAssociatedCompaniesPremium, AdvancesFromAssociatedCompaniesDiscount, AdvancesFromAssociatedCompanies, InterestExpenseDebtAdvancesFromAssociatedCompanies);
+
+ $sum1 = [@@concept in $lineItems @AdvancesFromAssociatedCompaniesAxis = none where $fact.is-monetary]; 
+ $addend = sum(list([nonils @@concept in $lineItems @AdvancesFromAssociatedCompaniesAxis = * where $fact.is-monetary])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis AdvancesFromAssociatedCompaniesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+ assert F1.256.8 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$lineItems = list(OtherLongTermDebtPrincipalAmountIssued, OtherLongTermDebtIssuanceExpense, OtherLongTermDebtPremium, OtherLongTermDebtDiscount, OtherLongTermDebt, InterestExpenseOtherLongTermDebt);
+
+ $sum1 = [@@concept in $lineItems @OtherLongTermDebtAxis = none where $fact.is-monetary]; 
+ $addend = sum(list([nonils @@concept in $lineItems @OtherLongTermDebtAxis = * where $fact.is-monetary])#breakdown);
+ if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis OtherLongTermDebtAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F1.256.9 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sumPrincipal = [@LongTermDebtPrincipalAmountIssued]; 
+ $addendPrincipal = ([@OtherLongTermDebtPrincipalAmountIssued]
+ + [@AdvancesFromAssociatedCompaniesPrincipalAmountIssued]
+ + [@ReacquiredBondsPrincipalAmount]
+ + [@BondsPrincipalAmountIssued]);
+tolerance_for_decimals($sumPrincipal,$addendPrincipal,$tolerance_factor)
+message 
+"The company has reported a value for LongTermDebtPrincipalAmountIssued with a value of {$sumPrincipal} that is not equal to the value of the sum of its components of {$addendPrincipal}. This is comprised of BondsPrincipalAmountIssued + ReacquiredBondsPrincipalAmount + AdvancesFromAssociatedCompaniesPrincipalAmountIssued + OtherLongTermDebtPrincipalAmountIssued.
+
+Total Element : {$sumPrincipal.concept.name}
+Total Period : {$sumPrincipal.period}
+Total Value : {$sumPrincipal} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sumPrincipal
+
+
+assert F1.256.10 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sumLongTermDebtPremium = [@LongTermDebtPremium]; 
+ $addendLongTermDebtPremium = ([@BondsPremium] 
+ + [@ReaquiredBondsPremium]
+ + [@AdvancesFromAssociatedCompaniesPremium]
+ + [@OtherLongTermDebtPremium]);
+tolerance_for_decimals($sumLongTermDebtPremium,$addendLongTermDebtPremium,$tolerance_factor)
+message 
+"The company has reported a value for LongTermDebtPremium with a value of {$sumLongTermDebtPremium} that is not equal to the value of the sum of its components of {$addendLongTermDebtPremium}. This is comprised of BondsPremium + ReaquiredBondsPremium + AdvancesFromAssociatedCompaniesPremium + OtherLongTermDebtPremium.
+
+Total Element : {$sumLongTermDebtPremium.concept.name}
+Total Period : {$sumLongTermDebtPremium.period}
+Total Value : {$sumLongTermDebtPremium} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sumLongTermDebtPremium
+
+assert F1.256.11 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sumLongTermDebtDiscount = [@LongTermDebtDiscount]; 
+ $addendLongTermDebtDiscount = ([@BondsDiscount] 
+ + [@ReaquiredBondsDiscount]
+ + [@AdvancesFromAssociatedCompaniesDiscount]
+ + [@OtherLongTermDebtDiscount]);
+tolerance_for_decimals($sumLongTermDebtDiscount,$addendLongTermDebtDiscount,$tolerance_factor)
+message 
+"The company has reported a value for LongTermDebtDiscount with a value of {$sumLongTermDebtDiscount} that is not equal to the value of the sum of its components of {$addendLongTermDebtDiscount}. This is comprised of BondsDiscount + ReaquiredBondsDiscount + AdvancesFromAssociatedCompaniesDiscount + OtherLongTermDebtDiscount.
+
+Total Element : {$sumLongTermDebtDiscount.concept.name}
+Total Period : {$sumLongTermDebtDiscount.period}
+Total Value : {$sumLongTermDebtDiscount} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sumLongTermDebtDiscount
+
+assert F1.256.12 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sumLongTermDebtOutstanding = [@LongTermDebtOutstanding]; 
+ $addendLongTermDebtOutstanding = ([@Bonds]
+ - [@ReacquiredBonds]
+ + [@AdvancesFromAssociatedCompanies]
+ + [@OtherLongTermDebt]);
+tolerance_for_decimals($sumLongTermDebtOutstanding,$addendLongTermDebtOutstanding,$tolerance_factor)
+message 
+"The company has reported a value for LongTermDebtOutstanding with a value of {$sumLongTermDebtOutstanding} that is not equal to the value of the sum of its components of {$addendLongTermDebtOutstanding}. This is comprised of Bonds + ReacquiredBonds + AdvancesFromAssociatedCompanies + OtherLongTermDebt.
+
+Total Element : {$sumLongTermDebtOutstanding.concept.name}
+Total Period : {$sumLongTermDebtOutstanding.period}
+Total Value : {$sumLongTermDebtOutstanding} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sumLongTermDebtOutstanding
+
+
+
+assert F1.256.13 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sumInterestExpenseOnLongTermDebtIssued = [@InterestExpenseOnLongTermDebtIssued]; 
+ $addendInterestExpenseOnLongTermDebtIssued = ([@InterestExpenseBonds]
+ + [@InterestExpenseReacquiredBonds]
+ + [@InterestExpenseDebtAdvancesFromAssociatedCompanies]
+ + [@InterestExpenseOtherLongTermDebt]);
+tolerance_for_decimals($sumInterestExpenseOnLongTermDebtIssued,$addendInterestExpenseOnLongTermDebtIssued,$tolerance_factor)
+message 
+"The company has reported a value for InterestExpenseOnLongTermDebtIssued with a value of {$sumInterestExpenseOnLongTermDebtIssued} that is not equal to the value of the sum of its components of {$addendInterestExpenseOnLongTermDebtIssued}.
+
+Total Element : {$sumInterestExpenseOnLongTermDebtIssued.concept.name}
+Total Period : {$sumInterestExpenseOnLongTermDebtIssued.period}
+Total Value : {$sumInterestExpenseOnLongTermDebtIssued} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sumInterestExpenseOnLongTermDebtIssued
+
+assert F1.256.14 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sumIssuanceExpenses = {@LongTermDebtIssuanceExpenses}; 
+ $addendIssuanceExpenses = ({@BondIssuanceExpense} 
+ + {@ReacquiredBondsIssuanceExpense}
+ + {@AdvancesFromAssociatedCompaniesIssuanceExpense}
+ + {@OtherLongTermDebtIssuanceExpense});
+tolerance_for_decimals($sumIssuanceExpenses,$addendIssuanceExpenses,$tolerance_factor)
+message 
+"The company has reported a value for LongTermDebtIssuanceExpenses with a value of {$sumIssuanceExpenses} that is not equal to the value of the sum of its components of {$addendIssuanceExpenses}. This is comprised of BondIssuanceExpense + ReacquiredBondsIssuanceExpense + AdvancesFromAssociatedCompaniesIssuanceExpense + OtherLongTermDebtIssuanceExpense.
+
+Total Element : {$sumIssuanceExpenses.concept.name}
+Total Period : {$sumIssuanceExpenses.period}
+Total Value : {$sumIssuanceExpenses} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sumIssuanceExpenses
+
+assert F1.256.15 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $DiscontinuedFactsList = list({covered @ClassOrSeriesOfObligationAndNameOfStockExchangeAxis=*});
+        if  $DiscontinuedFactsList.length > 0
+                $ElementName = filter $DiscontinuedFactsList returns $item.concept.name.local-name
+                true
+        else
+                false
+message 
+"The filing contains fact values using the axis ClassOrSeriesOfObligationAndNameOfStockExchangeAxis. This axis is used for historical data only. For filings subsequent to 2021 the following more specifc axis should be used.
+1. AdvancesFromAssociatedCompaniesAxis
+2. BondObligationsAxis
+3. OtherLongTermDebtAxis
+4. ReAcquiredBondObligationsAxis
+
+The elements using this historical axis are as follows:
+
+{$ElementName.join(', ')}
+
+Rule Id:{$rule_id}"
+severity error
+
+
+
+/**
+assert F1.256.15 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@Bonds @BondObligationsAxis = none @period=$currentInstant]; 
+ $addend = sum(list([nonils @Bonds @BondObligationsAxis = * @period=$currentInstant]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of Bonds sums to a value of Bonds that is not equal to the total value reported of {$sum1} when disaggregated by the axis BondObligationsAxis. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.256.16 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@BondsPrincipalAmountIssued @BondObligationsAxis = none @period=$currentDuration]; 
+ $addend = sum(list([nonils @BondsPrincipalAmountIssued @BondObligationsAxis = * @period=$currentDuration]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of BondsPrincipalAmountIssued sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis BondObligationsAxis. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.256.17 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@BondIssuanceExpense @BondObligationsAxis = none @period=$currentDuration]; 
+ $addend = sum(list([nonils @BondIssuanceExpense @BondObligationsAxis = * @period=$currentDuration]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of BondIssuanceExpense sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis BondObligationsAxis. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.256.18 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@BondsPremium @BondObligationsAxis = none @period=$currentDuration]; 
+ $addend = sum(list([nonils @BondsPremium @BondObligationsAxis = * @period=$currentDuration]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of BondsPremium sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis BondObligationsAxis. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.256.19 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@BondsDiscount @BondObligationsAxis = none @period=$currentDuration]; 
+ $addend = sum(list([nonils @BondsDiscount @BondObligationsAxis = * @period=$currentDuration]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of BondsDiscount sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis BondObligationsAxis. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.256.20 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InterestExpenseBonds @BondObligationsAxis = none @period=$currentDuration]; 
+ $addend = sum(list([nonils @InterestExpenseBonds @BondObligationsAxis = * @period=$currentDuration]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of InterestExpenseBonds sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis BondObligationsAxis. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.256.21 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@OtherLongTermDebt @OtherLongTermDebtAxis = none @period=$currentInstant]; 
+ $addend = sum(list([nonils @OtherLongTermDebt @OtherLongTermDebtAxis = * @period=$currentInstant]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of OtherLongTermDebt sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis OtherLongTermDebtAxis. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.256.22 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@OtherLongTermDebtPrincipalAmountIssued @OtherLongTermDebtAxis = none @period=$currentDuration]; 
+ $addend = sum(list([nonils @OtherLongTermDebtPrincipalAmountIssued @OtherLongTermDebtAxis = * @period=$currentDuration]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of OtherLongTermDebtPrincipalAmountIssued sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis OtherLongTermDebtAxis. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.256.23 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@OtherLongTermDebtIssuanceExpense @OtherLongTermDebtAxis = none @period=$currentDuration]; 
+ $addend = sum(list([nonils @OtherLongTermDebtIssuanceExpense @OtherLongTermDebtAxis = * @period=$currentDuration]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of OtherLongTermDebtIssuanceExpense sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis OtherLongTermDebtAxis. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.256.24 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@OtherLongTermDebtPremium @OtherLongTermDebtAxis = none @period=$currentDuration]; 
+ $addend = sum(list([nonils @OtherLongTermDebtPremium @OtherLongTermDebtAxis = * @period=$currentDuration]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of OtherLongTermDebtPremium sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis OtherLongTermDebtAxis. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.256.25 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@OtherLongTermDebtDiscount @OtherLongTermDebtAxis = none @period=$currentDuration]; 
+ $addend = sum(list([nonils @OtherLongTermDebtDiscount @OtherLongTermDebtAxis = * @period=$currentDuration]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of OtherLongTermDebtDiscount sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis OtherLongTermDebtAxis. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.256.26 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InterestExpenseOtherLongTermDebt @OtherLongTermDebtAxis = none @period=$currentDuration]; 
+ $addend = sum(list([nonils @InterestExpenseOtherLongTermDebt @OtherLongTermDebtAxis = * @period=$currentDuration]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of InterestExpenseOtherLongTermDebt sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis OtherLongTermDebtAxis. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+ **/

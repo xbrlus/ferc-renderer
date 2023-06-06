@@ -1,0 +1,276 @@
+/**FERC Form 60 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F60.0.1 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @RespondentLegalName @period=$currentDuration])  
+message 
+"The respondent's legal name (RespondentLegalName) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.2 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @ReportYear @period=$currentDuration])  
+message 
+"
+The report year (ReportYear) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.3 satisfied 
+$rule_id = rule-name();
+
+if exists([covered @PreviousName @period=$currentDuration]) and exists([covered @NameChangeDate @period=$currentDuration]) 
+ 	 false
+else if
+	exists([covered @PreviousName @period=$currentDuration]) or exists([covered @NameChangeDate @period=$currentDuration]) 
+	 	 true
+	else
+		false
+
+message 
+"Both the previous name and date of change must be reported in the current period if either one is reported.  
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.4 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @AddressOfPrincipalOfficeAtEndOfPeriod @period=$currentDuration])  
+message 
+"The address of principal office at end of period (AddressOfPrincipalOfficeAtEndOfPeriod) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.5 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @NameOfContactPerson @period=$currentDuration])  
+message 
+"The name of contact person (NameOfContactPerson) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.6 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @TitleOfContactPerson @period=$currentDuration])  
+message 
+"The title of contact person (TitleOfContactPerson) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.7 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @AddressOfContactPerson @period=$currentDuration])  
+message 
+"The address of contact person (AddressOfContactPerson) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.8 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @TelephoneOfContactPerson @period=$currentDuration])  
+message 
+"The telephone of contact person (TelephoneOfContactPerson) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.9 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @EmailOfContactPerson @period=$currentDuration])  
+message 
+"The email address of contact person (EmailOfContactPerson) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.10 unsatisfied 
+$rule_id = (rule-name().split('.'))[rule-name().split('.').length];
+
+ exists([covered @SubmissionType @period=$currentDuration])  
+message 
+"The submission type (SubmissionType) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.11 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @ReportDate @period=$currentDuration])  
+message 
+"The report date (ReportDate) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.12 satisfied 
+$rule_id = rule-name();
+
+if exists([covered @StateOfIncorporation @period=$currentDuration]) and exists([covered @IncorporationDate @period=$currentDuration])  
+ 	 false
+else if
+	exists([covered @StateOfIncorporation @period=$currentDuration]) or exists([covered @IncorporationDate @period=$currentDuration])  
+	 	 true
+	else
+		false
+		
+message 
+"Both the state and date of incorporation the respondent is incorporated under must be reported in the current period if either one is reported. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.13 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @HoldingCompanyName @period=$currentDuration])  
+message 
+"The name of the principal holding company under which the reporting company is organized must be reported in the current period.  
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.14 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @AttestationName @period=$currentDuration])  
+message 
+"The attestation name (AttestationName) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.15 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @AttestationTitle @period=$currentDuration])  
+message 
+"The attestation title (AttestationTitle) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.16 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @CorporateOfficerCertificationSignature @period=$currentDuration])  
+message 
+"The corporate office certification signature (CorporateOfficerCertificationSignature) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.17 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @AttestationDate @period=$currentDuration])  
+message 
+"The attestation date (AttestationDate) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+
+assert F60.0.18 satisfied 
+$rule_id = rule-name();
+
+ count(list({covered @ReportPeriod})) == 0
+message 
+"The report period (ReportPeriod) must be reported in the instance. 
+
+Rule Id:{$rule_id}"
+
+severity error
+
+assert F60.0.19 satisfied 
+$rule_id = rule-name();
+
+ count(list({covered @ReportYear})) > 1 
+message 
+"The report year (ReportYear) must only be reported once in the  instance document. 
+
+Rule Id:{$rule_id}"
+
+severity error
+
+assert F60.0.20 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @FormType @period=$currentDuration])  
+message 
+"The form type (FormType) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error	
+
+assert F60.0.21 unsatisfied 
+$rule_id = rule-name();
+
+ exists([covered @CompanyIdentifier @period=$currentDuration])  
+message 
+"The company identifier (CompanyIdentifier) must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F60.0.22 satisfied 
+$rule_id = rule-name();
+
+$report-year_check != $report-year_pre
+message 
+"The company has reported a report year of {$report-year_pre} which is not a valid year. For purposes of running the rules the default period end of {$report-year-end-default} has been used.
+
+Rule Id:{$rule_id}
+"
+severity error	
+
+assert F60.0.23 satisfied
+$rule_id = rule-name()
+$ReportedCID =  [covered @concept=ferc:CompanyIdentifier];
+$BadFactContextId = {covered @entity.id != $ReportedCID };
+exists($BadFactContextId)
+message
+"The company has reported a CID of {$ReportedCID}. This does not match the CID reported in the context using the element {$BadFactContextId.concept.name}, the period {$BadFactContextId.period} and the dimensions {$BadFactContextId.dimensions.join(',','=')}. This context has a CID of {$BadFactContextId.entity.id}.
+The filer should report a constant CID in the filing.
+
+Rule Id: {$rule_id}"
+
+SEVERITY error

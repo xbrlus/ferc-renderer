@@ -359,3 +359,20 @@ Rule Id:{$rule_id}"
 severity error
 rule-focus $perUnit_facts
 
+assert F1.all.16 satisfied 
+$rule_id = rule-name();
+
+exists({@concept in $DEP_CONCEPTS}#depfact)
+
+message
+"The value for {$depfact.concept.name.local-name} with a value of {$depfact} has been deprecated, please select another element.
+
+Element : {$depfact.concept.name}
+Period : {$depfact.period}
+Dimensions : {$depfact.dimensions.join(', ', '=')}
+Unit : {$depfact.unit}
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $depfact

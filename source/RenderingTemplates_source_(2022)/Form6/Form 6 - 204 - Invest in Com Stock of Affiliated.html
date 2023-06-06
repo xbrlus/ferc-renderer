@@ -1,0 +1,683 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F6 - 204</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl">
+    <div id="ScheduleInvestmentsInCommonStocksOfAffiliatedCompaniesAbstract"></div>
+    <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleInvestmentsInCommonStocksOfAffiliatedCompaniesAbstract"]).length > 0
+                false
+        else
+                true
+    </xule:showif>
+    <table class="schedule-header xbrl" width="100%">
+            <tr>
+                <td class="xbrl">
+                    <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                        <xule:template-display>Name of Respondent:</xule:template-display>
+                    </xule:replace><br/>
+                   
+                    
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:RespondentLegalName @period=$currentDuration]))</xule:expression>
+                        <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                    </xule:replace>
+                </td>
+                <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                            <xule:template-display>This report is:</xule:template-display>
+                    </xule:replace><br/>
+                           
+                    (1) 
+                    <xule:replace>
+                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                            '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                            '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                            '<span class="checkbox">&#9744;</span> An Original']]>
+                            </xule:expression>  
+                            <xule:template-display>
+                                    <input type="checkbox"/> An Original
+                            </xule:template-display>
+                    </xule:replace><br/>
+                    
+                    (2)
+                    <xule:replace>
+                            <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                            '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                            '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                            '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                    </xule:expression> 
+                            <xule:template-display>
+                                    <input type="checkbox" checked = "true"/> A Resubmission
+                            </xule:template-display>
+                    </xule:replace> 
+            </td>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                <xule:template-display>Date of Report:</xule:template-display>
+                </xule:replace><br/>
+                   
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">first(list([@ferc:ReportDate @period=$currentDuration]))</xule:expression>
+                        <xule:template-display>04/26/2019</xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                <xule:template-display>Year/Period of Report:</xule:template-display>
+                </xule:replace> <br/>
+            
+                End of: <xule:replace>
+                    <xule:expression class="hide" fact="true">first(list([@ferc:ReportYear @period=$currentDuration]))</xule:expression>
+                    <xule:template-display>2018</xule:template-display>
+                </xule:replace>
+                <span>/</span>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">first(list([@ferc:ReportPeriod @period=$currentDuration]))</xule:expression>
+                    <xule:template-display>Q4</xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+    </table>
+    <table class="xbrl">
+        <tr class="sch-title">
+            <td class="xbrl" colspan="8"> 
+                <xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleInvestmentsInCommonStocksOfAffiliatedCompaniesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6ScheduleTitle").text
+                </xule:expression>
+                <xule:template-display>
+                    Invest in Com Stocks of Affiliated Co / Co Controlled Directly by Resp Other than Through Title to Securities
+                </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="8">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleInvestmentsInCommonStocksOfAffiliatedCompaniesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                        <ol>
+                            <li>Report below the particulars (details) of all investments in common stocks included in Account No. 20, Investments in Affiliated Companies, which qualify for the equity method under instruction 2-2 of the USofA.</li>
+                            <li>Enter in column (c) the amount necessary to retroactively adjust those investments qualifying for the equity method of accounting in accordance with instruction 2-2 (c) (11) of the USofA.</li>
+                            <li>Enter in column (d) the share of undistributed earnings (i.e., less dividends) or losses.</li>
+                            <li>Enter in column (e) the amortization for the year of the excess of cost over equity in net assets (equity over cost) at date of acquisition.  See instruction 2-2 (c) (4) of the USofA.</li>
+                            <li>The cumulative total of column (g) must agree with column (c), line 20, Schedule 110.</li>
+                            </ol>
+                            <p> GENERAL INSTRUCTIONS CONCERNING SCHEDULES 202 THRU 205</p>
+                            <ol>
+                            <li>In Schedules 202 thru 205, give particulars (details) of stocks, bonds, notes, advances, and miscellaneous securities of affiliated and nonaffiliated companies held by respondent at end of year specifically as investments; investments made or disposed of during the year; and dividends and interest credited to income. Exclude securities issued or assumed by respondent.</li>
+                            <li>Classify the investments in the following order by accounts. Show a total for each group.
+                            <ol>
+                            <li>Stocks</li>
+                            <li>Bonds (Including U.S. Government Bonds)</li>
+                            <li>Other Secured Obligations</li>
+                            <li>Unsecured Notes</li>
+                            <li>Investment Advances</li>
+                            </ol>
+                            </li>
+                            </ol>
+                            
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr class="col-heading-row">     
+            <td class="col-heading xbrl line-number">Line No.</td>
+            <td class="col-heading xbrl" xule:repeat="ColumnHeadings">
+                    <xule:expression class="hide" name="ColumnHeadings">
+                            $headings = filter (taxonomy().concept(ferc:ScheduleInvestmentsInCommonStocksOfAffiliatedCompaniesAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "204 - Schedule - Investments in Common Stocks of Affiliated Companies") 
+
+                            $heading = list(for $ref in $headings 
+                            list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value, $ref.part-by-name(ferc-part:ElementName).part-value))
+    
+                            $heading_dict = dict(for $row in $heading
+                                    list("("+$row[1]+")",list($row[2],taxonomy().concept(to-qname($row[3]))))
+                            );
+                            for $row in $heading_dict.keys.sort
+                    </xule:expression>
+                    <div style="text-align: center">
+                        <div class="tooltip">
+                                <div class="tooltiptext">
+                                        <xule:replace>
+                                                <xule:expression class="hide" name="ColumnHeadings" part="3">$heading_dict[$row][2].name.local-name</xule:expression>
+                                            </xule:replace>
+                                </div>    
+                            <xule:replace>
+                                <xule:expression class="hide" name="ColumnHeadings" part="1">$heading_dict[$row][1]</xule:expression>
+                                <xule:template-display>
+                                    Nature of Payment
+                                </xule:template-display>
+                            </xule:replace>
+                        </div>
+                    </div>
+                <div style="text-align: center"><xule:replace>
+                        <xule:expression class="hide" name="ColumnHeadings" part="2">$row</xule:expression>
+                        <xule:template-display>
+                            (a)
+                        </xule:template-display>
+                    </xule:replace></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl line-number"></td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:CarrierMember).label("http://ferc.gov/form/2020-01-01/roles/label/F6InvestCommonStock").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                            Carriers (List specifics for each company)
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl"></td>
+            <td class="xbrl"></td>
+            <td class="xbrl"></td>
+            <td class="xbrl"></td>
+            <td class="xbrl"></td>
+            <td class="xbrl"></td>
+        </tr>
+        <tr class="schedule-row" xule:repeat="InvestCommStocks">
+            <xule:expression class="hide" name="InvestCommStocks">// adding a comment
+                
+            $data2 =   list(for $i in range(12)
+                            list($i,none,none,none,none,none,none,none)
+            );
+            
+            $data = if count(list({covered @ferc:InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*})) > 0 
+            
+                list({covered @ferc:InvestInCommonStocksOfAffiliatedCompaniesOrCompaniesControlledDirectlyByRespondentOtherThanThroughTitleToSecuritiesAxis=*  {list(
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
+                        first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                    else
+                        0,
+                    if exists({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @ferc:CarrierTypeAxis=ferc:CarrierMember @unit @period=$currentDuration}) 
+                        first(list({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @ferc:CarrierTypeAxis=ferc:CarrierMember @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if exists({@ferc:InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @ferc:CarrierTypeAxis=ferc:CarrierMember @unit @period=$priorInstant})
+                        first(list({@ferc:InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @ferc:CarrierTypeAxis=ferc:CarrierMember @unit @period=$priorInstant})) 
+                    else 
+                        none,
+                    if exists({@ferc:AdjustmentForInvestmentsQualifyingForEquityMethod @ferc:CarrierTypeAxis=ferc:CarrierMember @unit @period=$currentDuration})
+                        first(list({@ferc:AdjustmentForInvestmentsQualifyingForEquityMethod @ferc:CarrierTypeAxis=ferc:CarrierMember @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if exists({@ferc:EquityInUndistributedEarningsLosses @ferc:CarrierTypeAxis=ferc:CarrierMember @unit @period=$currentDuration})
+                        first(list({@ferc:EquityInUndistributedEarningsLosses @ferc:CarrierTypeAxis=ferc:CarrierMember @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if exists({@ferc:AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies @ferc:CarrierTypeAxis=ferc:CarrierMember @unit @period=$currentDuration})
+                        first(list({@ferc:AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies @ferc:CarrierTypeAxis=ferc:CarrierMember @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if exists({@ferc:AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown @ferc:CarrierTypeAxis=ferc:CarrierMember @unit @period=$currentDuration})
+                        first(list({@ferc:AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown @ferc:CarrierTypeAxis=ferc:CarrierMember @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if exists({@ferc:InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @ferc:CarrierTypeAxis=ferc:CarrierMember @unit @period=$currentInstant})
+                        first(list({@ferc:InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @ferc:CarrierTypeAxis=ferc:CarrierMember @unit @period=$currentInstant})) 
+                    else 
+                        none
+
+                    )}})
+                    else $data2;
+
+                    $uniqueData = list(for $x in  $data
+                    if $x == list(0,none,none,none,none,none,none,none)
+                        skip
+                    else 
+                        $x
+                    );
+
+                    for $row in $uniqueData.sort           
+            
+            </xule:expression>
+            <td class="xbrl line-number"><xule:lineNumber name="InvestCommStocks"/>
+                <xule:template-display>1</xule:template-display>
+            </td>
+            <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="InvestCommStocks" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                <xule:template-display>
+                        ABC Pipeline
+                </xule:template-display>
+            </td>
+            <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="InvestCommStocks" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                <xule:template-display>
+                        $100,000
+                </xule:template-display>
+            </td>
+            <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="InvestCommStocks" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                <xule:template-display>
+                        $120,000
+                </xule:template-display>
+            </td>
+            <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="InvestCommStocks" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
+                <xule:template-display>
+                        $140,000
+                </xule:template-display>
+            </td>
+            <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="InvestCommStocks" fact="true" format="ixt4:num-dot-decimal" part="6">$row[6]</xule:expression>
+                <xule:sign>if $row[6].name in list(ferc:AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies) "-" else none</xule:sign>
+            </xule:replace>
+                <xule:template-display>
+                        $920,000
+                </xule:template-display>
+            </td>
+            <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="InvestCommStocks" fact="true" format="ixt4:num-dot-decimal" part="7">$row[7]</xule:expression>
+                <xule:sign>if $row[7].name in list(ferc:AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown) "-" else none</xule:sign>
+            </xule:replace>
+                <xule:template-display>
+                        $820,000
+                </xule:template-display>
+            </td>
+            <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="InvestCommStocks" fact="true" format="ixt4:num-dot-decimal" part="8">$row[8]</xule:expression></xule:replace>
+                <xule:template-display>
+                        $420,000
+                </xule:template-display>
+            </td>
+        </tr> 
+
+    <!-- Line 13 Total Carrier -->
+        <tr>
+            <td class="xbrl line-number">13</td>
+            <td class="xbrl description_items">Carriers Total</td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @ferc:CarrierTypeAxis=ferc:CarrierMember @period = $priorInstant]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $27,666,233
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                    first(list([covered @concept=ferc:AdjustmentForInvestmentsQualifyingForEquityMethod @ferc:CarrierTypeAxis=ferc:CarrierMember @period = $currentDuration]))
+                </xule:expression>
+                <xule:template-display>
+                    $81,982,726
+                </xule:template-display>
+            </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:EquityInUndistributedEarningsLosses @ferc:CarrierTypeAxis=ferc:CarrierMember @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $25,200,177
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" sign="-" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies @ferc:CarrierTypeAxis=ferc:CarrierMember @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $428,165,099
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" sign="-" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown @ferc:CarrierTypeAxis=ferc:CarrierMember @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $187,091,726
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @ferc:CarrierTypeAxis=ferc:CarrierMember @period = $currentInstant]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $109,837,144
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+
+        </tr>
+    <!-- Line 14 Total Noncarrier -->
+        <tr>
+            <td class="xbrl line-number">14</td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:NoncarrierMember).label("http://ferc.gov/form/2020-01-01/roles/label/F6InvestCommonStock").text
+                    </xule:expression>
+                    <xule:template-display>Noncarriers (Show totals only for each column)
+                    </xule:template-display>
+                </xule:replace>          
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @ferc:CarrierTypeAxis=ferc:NoncarrierMember @period = $priorInstant]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $36,254,888
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                    first(list([covered @concept=ferc:AdjustmentForInvestmentsQualifyingForEquityMethod @ferc:CarrierTypeAxis=ferc:NoncarrierMember @period = $currentDuration]))
+                </xule:expression>
+                <xule:template-display>
+                    $37,765,726
+                </xule:template-display>
+            </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:EquityInUndistributedEarningsLosses @ferc:CarrierTypeAxis=ferc:NoncarrierMember @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $16,837,177
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" sign="-" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies @ferc:CarrierTypeAxis=ferc:NoncarrierMember @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $123,542,998
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" sign="-" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown @ferc:CarrierTypeAxis=ferc:NoncarrierMember @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $172,827,666
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @ferc:CarrierTypeAxis=ferc:NoncarrierMember @period = $currentInstant]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $999,111,726
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+    <!-- Line 15 GRAND Total -->
+        <tr>
+            <td class="xbrl line-number">15</td>
+            <td class="xbrl description_items">
+                    <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments).label("http://ferc.gov/form/2020-01-01/roles/label/F6Total").text
+                    </xule:expression>
+                    <xule:template-display>
+                        TOTAL
+                    </xule:template-display>
+                    </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @period = $priorInstant]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $36,254,888
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                    first(list([covered @concept=ferc:AdjustmentForInvestmentsQualifyingForEquityMethod @period = $currentDuration]))
+                </xule:expression>
+                <xule:template-display>
+                    $37,765,726
+                </xule:template-display>
+            </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:EquityInUndistributedEarningsLosses @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $16,837,177
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" sign="-" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:AmortizationForInvestmentInCommonStocksOfAffiliatedCompanies @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $123,542,998
+                    </xule:template-display>                    
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" sign="-" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:AdjustmentForInvestmentsInCommonStocksOfAffiliatedCompaniesDisposedOfOrWrittenDown @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $172,827,666
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:InvestmentsInAffiliatedCompaniesUndistributedEarningsFromCertainInvestments @period = $currentInstant]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $999,111,726
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+    </table>
+
+<!-- Companies Controlled Directly By Respondent Other than through title to Securities -->
+<div id="ScheduleInvestInComStocksOfAffiliatedCoCoControlledDirectlyByRespOtherThanThroughTitleToSecuritiesAbstract"></div>    
+    <table class="xbrl" width="100%">
+        <tr class="sch-title">
+            <td class="xbrl" colspan="7"> 
+                <xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleInvestInComStocksOfAffiliatedCoCoControlledDirectlyByRespOtherThanThroughTitleToSecuritiesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6ScheduleTitle").text
+                </xule:expression>
+                <xule:template-display>
+                    COMPANIES CONTROLLED DIRECTLY BY RESPONDENT OTHER THAN THROUGH TITLE TO SECURITIES
+                </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr class="col-heading-row">
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+            <td class="xbrl col-heading" colspan="3">Description of Control</td>
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+        </tr>  
+        <tr class="col-heading-row">     
+            <td class="col-heading xbrl-no-top-line line-number">Line No.</td>
+            <td class="col-heading xbrl-no-top-line" xule:repeat="ColumnHeadings2">
+                    <xule:expression class="hide" name="ColumnHeadings2">
+                            $headings = filter (taxonomy().concept(ferc:ScheduleInvestInComStocksOfAffiliatedCoCoControlledDirectlyByRespOtherThanThroughTitleToSecuritiesAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "204 - Schedule - Companies Controlled Directly by Respondent Other than Through Title to Securities") 
+
+                            $heading = list(for $ref in $headings 
+                            list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value, $ref.part-by-name(ferc-part:ElementName).part-value))
+    
+                            $heading_dict = dict(for $row in $heading
+                                    list("("+$row[1]+")",list($row[2],taxonomy().concept(to-qname($row[3]))))
+                            );
+                            for $row in $heading_dict.keys.sort
+                    </xule:expression>
+                    <div style="text-align: center">
+                        <div class="tooltip">
+                                <div class="tooltiptext">
+                                        <xule:replace>
+                                                <xule:expression class="hide" name="ColumnHeadings2" part="3">$heading_dict[$row][2].name.local-name</xule:expression>
+                                            </xule:replace>
+                                </div>    
+                            <xule:replace>
+                                <xule:expression class="hide" name="ColumnHeadings2" part="1">$heading_dict[$row][1]</xule:expression>
+                                <xule:template-display>
+                                    Nature of Payment
+                                </xule:template-display>
+                            </xule:replace>
+                        </div>
+                    </div>
+                <div style="text-align: center"><xule:replace>
+                        <xule:expression class="hide" name="ColumnHeadings2" part="2">$row</xule:expression>
+                        <xule:template-display>
+                            (a)
+                        </xule:template-display>
+                    </xule:replace></div>
+            </td>
+        </tr>
+        <tr class="schedule-row" xule:repeat="CoControlledDirectly">
+                <xule:expression class="hide" name="CoControlledDirectly">// adding a comment
+                    
+                $data2 =   list(for $i in range(24)
+                                list($i,none,none,none,none,none,none)
+                );
+                
+                $data = if count(list({covered @ferc:CompaniesControlledDirectlybyRespondentOtherthanThroughTitletoSecuritiesAxis=*})) > 0 
+                
+                    list({covered @ferc:CompaniesControlledDirectlybyRespondentOtherthanThroughTitletoSecuritiesAxis=*  {list(
+                        if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
+                            first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                        else
+                            0,
+                        if exists({@ferc:NameOfCompanyControlledByRespondentOtherthanThroughTitletoSecurities @unit @period=$currentDuration})
+                            first(list({@ferc:NameOfCompanyControlledByRespondentOtherthanThroughTitletoSecurities @unit @period=$currentDuration})) 
+                        else 
+                            none,
+                        if exists({@ferc:SoleOrJointType @unit @period=$currentDuration})
+                            first(list({@ferc:SoleOrJointType @unit @period=$currentDuration})) 
+                        else 
+                            none,
+                        if exists({@ferc:DescriptionOfControlOtherPartiesToJointAgreementForControl @unit @period=$currentDuration})
+                            first(list({@ferc:DescriptionOfControlOtherPartiesToJointAgreementForControl @unit @period=$currentDuration})) 
+                        else 
+                            none,
+                        if exists({@ferc:DescriptionOfControlHowEstablished @unit @period=$currentDuration})
+                            first(list({@ferc:DescriptionOfControlHowEstablished @unit @period=$currentDuration})) 
+                        else 
+                            none,
+                        if exists({@ferc:DescriptionOfControlExtentOfControl @unit @period=$currentDuration})
+                            first(list({@ferc:DescriptionOfControlExtentOfControl @unit @period=$currentDuration})) 
+                        else 
+                            none,
+                        if exists({@ferc:CompaniesControlledByRespondentRemarks @unit @period=$currentDuration})
+                            first(list({@ferc:CompaniesControlledByRespondentRemarks @unit @period=$currentDuration})) 
+                        else 
+                            none
+
+                        )}})
+                        else $data2;
+
+                        $uniqueData = list(for $x in  $data
+                        if $x == list(0,none,none,none,none,none,none)
+                            skip
+                        else 
+                            $x
+                        );
+    
+                        for $row in $uniqueData.sort             
+                
+            </xule:expression>
+            <td class="xbrl line-number">
+                <xule:lineNumber name="CoControlledDirectly">
+                    <xule:startNumber>1</xule:startNumber>
+                </xule:lineNumber>
+            </td>
+            <td class="xbrl description_items"><xule:replace><xule:expression class="hide" name="CoControlledDirectly" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                <xule:template-display>
+                        XYZ Company
+                </xule:template-display>
+            </td>
+            <td class="xbrl description_items"><xule:replace><xule:expression class="hide" name="CoControlledDirectly" fact="true" part="3">$row[3]</xule:expression></xule:replace>
+                <xule:template-display>
+                        Sole
+                </xule:template-display>
+            </td>
+            <td class="xbrl description_items"><xule:replace><xule:expression class="hide"  name="CoControlledDirectly" fact="true" part="4">$row[4]</xule:expression></xule:replace>
+                <xule:template-display>
+                        DEF Inc.
+                </xule:template-display>
+            </td>
+            <td class="xbrl description_items"><xule:replace><xule:expression class="hide"  name="CoControlledDirectly" fact="true" part="5">$row[5]</xule:expression></xule:replace>
+                <xule:template-display>
+                        Through intermediaries
+                </xule:template-display>
+            </td>
+            <td class="xbrl description_items"><xule:replace><xule:expression class="hide"  name="CoControlledDirectly" fact="true" scale="-2" format="ixt4:num-dot-decimal" part="6">$row[6]</xule:expression></xule:replace>
+                <xule:template-display>
+                        55%
+                </xule:template-display>
+            </td>
+            <td class="xbrl description_items"><xule:replace><xule:expression class="hide"  name="CoControlledDirectly" fact="true" part="7">$row[7]</xule:expression></xule:replace>
+                <xule:template-display>
+                        N/A
+                </xule:template-display>
+            </td>
+        </tr>
+    </table>
+<p></p>
+    <div class ="schedule-footer">
+        <div> FERC FORM NO. 
+            <xule:replace>
+                <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                <xule:template-display>6/6-Q</xule:template-display>
+            </xule:replace>
+            <span> </span>
+            <xule:replace>
+                    <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleInvestmentsInCommonStocksOfAffiliatedCompaniesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6DateRevised").text + ")"
+                    </xule:expression>
+                    <xule:template-display>
+                        (ED. 12-91)
+                    </xule:template-display>
+            </xule:replace>               
+        </div> 
+        <div style="text-align: center">Page 
+        <xule:replace>
+            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleInvestmentsInCommonStocksOfAffiliatedCompaniesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6Page").text
+            </xule:expression>
+            <xule:template-display>
+            204
+            </xule:template-display>
+        </xule:replace>
+        </div>
+    </div>
+</body>
+</html>

@@ -230,6 +230,3 @@ Total Value : {$sum219-8}
 Rule Id:{$rule_id}"
 severity error
 rule-focus $sum219-8
-
-
-

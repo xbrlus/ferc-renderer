@@ -1,0 +1,494 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F2 - 331</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl" id="ScheduleGasUsedInUtilityOperationsAbstract">
+    <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleGasUsedInUtilityOperationsAbstract"]).length > 0
+                false
+        else
+                true
+    </xule:showif>
+    <table class="schedule-header xbrl" width="100%">
+        <tr>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
+                </xule:replace><br/>
+                <br/>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                    <xule:template-display>This report is:</xule:template-display>
+                </xule:replace>
+                    <br/>
+                    (1) 
+                        <xule:replace>
+                                <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                                '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                                '<span class="checkbox">&#9744;</span> An Original']]>
+                                </xule:expression>  
+                            <xule:template-display>
+                                    <input type="checkbox"/> An Original
+                            </xule:template-display>
+                        </xule:replace>
+                        <br/>
+                    (2)
+                        <xule:replace>
+                                <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                                '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                                '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                                '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                    </xule:expression> 
+                                <xule:template-display>
+                                        <input type="checkbox" checked = "checked"/> A Resubmission
+                                </xule:template-display>
+                        </xule:replace> 
+            </td>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                <xule:template-display>Date of Report:</xule:template-display>
+                </xule:replace><br/>
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xule:expression>
+                        <xule:template-display>04/26/2019</xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                <xule:template-display>Year/Period of Report:</xule:template-display>
+                </xule:replace><br/>
+                End of: <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                    <xule:template-display>2018</xule:template-display>
+                </xule:replace>
+                <span>/</span>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xule:expression>
+                    <xule:template-display>Q4</xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+    </table>
+    <table class="xbrl">
+        <tr class="sch-title">
+            <td colspan="5" class="xbrl">
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleGasUsedInUtilityOperationsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2ScheduleTitle").text
+                        </xule:expression>
+                        <xule:template-display>
+                            Gas Used In Utility Operations
+                        </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="5">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleGasUsedInUtilityOperationsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                        <ol>
+                            <li>Report below details of credits during the year to Accounts 810, 811, and 812.</li>
+                            <li>If any natural gas was used by the respondent for which a charge was not made to the appropriate operating expense or other account, list separately in column (c) the Dth of gas used, omitting entries in column (d).</li>
+                        </ol>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr class="col-heading-row">     
+            <td class="col-heading xbrl line-number">Line No.</td>
+            <td class="col-heading xbrl" xule:repeat="GasUsedHeadings">
+                    <xule:expression class="hide" name="GasUsedHeadings">
+                            $headings = filter (taxonomy().concept(ferc:ScheduleGasUsedInUtilityOperationsAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "331 - Schedule - Gas Used in Utility Operations") 
+
+                            $headings = list(for $ref in $headings 
+                            list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value))
+
+                            $heading_dict = dict(for $row in $headings
+						            list("("+$row[1]+")",$row[2])
+						    );
+                            for $row in $heading_dict.keys.sort
+                    </xule:expression>
+                    <div style="text-align: center"><xule:replace>
+                    <xule:expression class="hide" name="GasUsedHeadings" part="1">$heading_dict[$row]</xule:expression>
+                    <xule:template-display>
+                            Purpose for Which Gas
+                            Was Used
+                    </xule:template-display>
+                </xule:replace>
+            </div>
+                <div style="text-align: center"><xule:replace>
+                        <xule:expression class="hide" name="GasUsedHeadings" part="2">$row</xule:expression>
+                        <xule:template-display>
+                            (a)
+                        </xule:template-display>
+                    </xule:replace></div>
+            </td>
+        </tr>
+        <!-- Line 1: (810) Gas Used for Compressor Station - Fuel (Credit) -->
+        <tr>
+            <td class="xbrl line-number">1</td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:GasUsedForCompressorStationFuelCredit).label("http://ferc.gov/form/2020-01-01/roles/label/F2GasUsedInUtilityOperations").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                                810  Gas Used for Compressor Station Fuel - Credit
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl account-number">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true">max(list([covered @concept=ferc:GasUsedForCompressorStationFuelAccountCharged @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    854
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="xbrl numeric_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:QuantityOfNaturalGasDeliveredByUtilityGasUsedForCompressorStationFuel @period=$currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    681,825 dth
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:GasUsedForCompressorStationFuelCredit @period=$currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $1,550,244
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+        </tr>
+        <!-- Line 2: (811) Gas Used for Products Extraction (Credit) -->
+        <tr>
+            <td class="xbrl line-number">2</td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:GasUsedForProductsExtractionCredit).label("http://ferc.gov/form/2020-01-01/roles/label/F2GasUsedInUtilityOperations").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                                811  Gas Used for Products Extraction - Credit                                                                   
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl account-number">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true">max(list([covered @concept=ferc:GasUsedForProductsExctractionAccountCharged @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                not reported
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="xbrl numeric_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:QuantityOfNaturalGasDeliveredByRespondentGasUsedForProductsExtraction @period=$currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    0 dth
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:GasUsedForProductsExtractionCredit @period=$currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $0
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+        </tr>
+        <!-- Line 3: Gas Shrinkage and Other Usage in Respondent's Own Processing -->
+        <tr>
+            <td class="xbrl line-number">3</td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:NaturalGasShrinkageAndOtherUsageInRespondentOwnProcessingCredit).label("http://ferc.gov/form/2020-01-01/roles/label/F2GasUsedInUtilityOperations").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                                Gas Shrinkage and Other Usage in Respondent's Own Processing                                                                   
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl account-number">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true">max(list([covered @concept=ferc:GasUsedForShrinkageByRespondentAccountCharged @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                not reported
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="xbrl numeric_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:QuantityOfNaturalGasShrinkageAndOtherUsageInRespondentOwnProcessing @period=$currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    0 dth
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:NaturalGasShrinkageAndOtherUsageInRespondentOwnProcessingCredit @period=$currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $0
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+        </tr>
+        <!-- Line 4: Gas Shrinkage, etc for Respondent's Gas Processed by Others -->
+        <tr>
+            <td class="xbrl line-number">4</td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:NaturalGasShrinkageAndOtherUsageInRespondentGasProcessedByOthersCredit).label("http://ferc.gov/form/2020-01-01/roles/label/F2GasUsedInUtilityOperations").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                                Gas Shrinkage and Other Usage in Respondent's Own Processing                                                                   
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl account-number">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true">max(list([covered @concept=ferc:GasUsedForShrinkageByOthersAccountCharged @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                not reported
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="xbrl numeric_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:QuantityOfNaturalGasShrinkageAndOtherUsageInRespondentGasProcessedByOthers @period=$currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    0 dth
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="xbrl monetary_items">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:NaturalGasShrinkageAndOtherUsageInRespondentGasProcessedByOthersCredit @period=$currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $0
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+        </tr>
+        <!-- Line 5: (812) Gas Used for Other Utility Operations (Credit) 
+            Line 5 is a part of sequence data from the observation in the database.
+        <tr>
+            <td class="xbrl line-number">5</td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:GasUsedForOtherUtilityOperationsCredit).label("http://ferc.gov/form/2020-01-01/roles/label/F2GasUsedInUtilityOperations").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                                812 Gas Used for Other Utility Operations - Credit (Report separately for each principal use. Group minor uses.)                                                              
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl account-number">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true">max(list([covered @concept=ferc:GasUsedForOtherUtilityOperationsAccountCharged @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            not reported
+                        </xule:template-display>
+                </xule:replace>  
+            </td>
+            <td class="xbrl numeric_items">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:QuantityOfNaturalGasDeliveredByRespondentGasUsedForOtherUtilityOperations @period=$currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                                0 dth
+                        </xule:template-display>
+                </xule:replace>  
+            </td>
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:GasUsedForOtherUtilityOperationsCredit @period=$currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                                $0
+                        </xule:template-display>
+                </xule:replace>  
+            </td>
+        </tr>
+        -->                                     
+    <tr class="schedule-row" xule:repeat="GasUtilityOperationsLineItems">
+            <xule:expression class="hide" name="GasUtilityOperationsLineItems">// adding a comment
+                
+            $data2 =   list(for $i in range(20)
+                            list($i,none,none,none,none)
+            );
+            
+            $data = if count(list({covered @ferc:GasUsedInUtilityOperationsAxis=*})) > 0 
+            
+                list({covered @ferc:GasUsedInUtilityOperationsAxis=*  {list(
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
+                        first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                    else
+                        0,
+                    if exists({@ferc:GasUsedForOtherUtilityOperationsDescription @unit@period=$currentDuration}) 
+                        first(list({@ferc:GasUsedForOtherUtilityOperationsDescription @unit @period=$currentDuration})) 
+                    else none,
+                    if exists({@ferc:GasUsedForOtherUtilityOperationsAccountCharged @unit @period=$currentDuration})
+                        first(list({@ferc:GasUsedForOtherUtilityOperationsAccountCharged @unit @period=$currentDuration}))
+                    else none,
+                    if exists({@ferc:QuantityOfNaturalGasDeliveredByRespondentGasUsedForOtherUtilityOperations @unit @period=$currentDuration})
+                        first(list({@ferc:QuantityOfNaturalGasDeliveredByRespondentGasUsedForOtherUtilityOperations @unit @period=$currentDuration})) 
+                    else none,
+                    if exists({@ferc:GasUsedForOtherUtilityOperationsCredit @unit @period=$currentDuration})
+                        first(list({@ferc:GasUsedForOtherUtilityOperationsCredit @unit @period=$currentDuration})) 
+                    else none
+                    )}})
+                    else $data2;
+
+                    $uniqueData = list(for $x in  $data
+                    if $x == list(0,none,none,none,none)
+                        skip
+                    else 
+                        $x
+                    );
+
+                for $row in $uniqueData.sort        
+            
+            </xule:expression>
+            <td class="xbrl line-number"><xule:lineNumber name="GasUtilityOperationsLineItems"><xule:startNumber>5</xule:startNumber></xule:lineNumber>
+                <xule:template-display>5</xule:template-display>
+            </td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression  class="hide"  name="GasUtilityOperationsLineItems" fact="true" part="2">$row[2]</xule:expression>
+                    <xule:class>"padding-4"</xule:class>
+                </xule:replace>
+                <xule:template-display>
+                        Gas Used - Unaccounted For
+                </xule:template-display>
+            </td>
+            <td class="account-number xbrl"><xule:replace><xule:expression class="hide"  name="GasUtilityOperationsLineItems" fact="true" part="3">$row[3]</xule:expression></xule:replace>
+                <xule:template-display>
+                        813 
+                </xule:template-display>
+            </td>
+            <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="GasUtilityOperationsLineItems" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                <xule:template-display>
+                        278,361 dth
+                </xule:template-display>
+            </td>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="GasUtilityOperationsLineItems" fact="true" part="5" format="ixt4:num-dot-decimal">$row[5]</xule:expression></xule:replace>
+                <xule:template-display>
+                        $708,589
+                </xule:template-display>
+            </td>
+        </tr>
+        <tr>
+            <td class="xbrl line-number">25</td>
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:GasUsedInUtilityOperationCredit).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                            Total
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="gray-out"></td>
+            <td class="xbrl numeric_items">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:QuantityOfNaturalGasDeliveredByRespondentGasUsedInUtilityOperations @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                                7,319,694 dth 
+                        </xule:template-display>
+                </xule:replace>  
+            </td>
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:GasUsedInUtilityOperationCredit @period=$currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                                $20,218,091
+                        </xule:template-display>
+                </xule:replace>  
+            </td>
+        </tr>
+    </table>
+<br/>
+    <div class="schedule-footer">
+        <div>FERC FORM No. 
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                    <xule:template-display>2/3-Q</xule:template-display>
+                </xule:replace>
+                <span> </span>
+                <xule:replace>
+                        <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleGasUsedInUtilityOperationsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2DateRevised").text + ")"
+                        </xule:expression>
+                        <xule:template-display>
+                                12-96
+                        </xule:template-display>
+                </xule:replace>       
+            </div>
+            <div class="center-text">Page 
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleGasUsedInUtilityOperationsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Page").text
+                        </xule:expression>
+                        <xule:template-display>
+                        331
+                        </xule:template-display>
+                </xule:replace>
+            </div> 
+
+</div>
+</body>
+</html>

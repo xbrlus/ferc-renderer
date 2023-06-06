@@ -1,0 +1,411 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F6 - 218</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl">
+    <div id="ScheduleAmortizationBaseAndReserveAbstract"></div>
+    <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleAmortizationBaseAndReserveAbstract"]).length > 0
+                false
+        else
+                true
+    </xule:showif>
+    <table class="schedule-header xbrl" width="100%">
+            <tr>
+                <td class="xbrl">
+                    <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                        <xule:template-display>Name of Respondent:</xule:template-display>
+                    </xule:replace>
+                    <br></br>
+                    
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:RespondentLegalName @period=$currentDuration]))</xule:expression>
+                        <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                    </xule:replace>
+                </td>
+                <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                            <xule:template-display>This report is:</xule:template-display>
+                    </xule:replace>
+                    <br></br>        
+                    (1) 
+                    <xule:replace>
+                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                            '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                            '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                            '<span class="checkbox">&#9744;</span> An Original']]>
+                            </xule:expression>  
+                            <xule:template-display>
+                                    <input type="checkbox"/> An Original
+                            </xule:template-display>
+                    </xule:replace>
+                    <br></br>  
+                    (2)
+                    <xule:replace>
+                            <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                            '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                            '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                            '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                    </xule:expression> 
+                            <xule:template-display>
+                                    <input type="checkbox" checked = "checked"/> A Resubmission
+                            </xule:template-display>
+                    </xule:replace> 
+            </td>
+                <td class="xbrl"><xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                    <xule:template-display>Date of Report:</xule:template-display>
+                    </xule:replace>
+                     <br></br>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">first(list([@ferc:ReportDate @period=$currentDuration]))</xule:expression>
+                            <xule:template-display>04/26/2019</xule:template-display>
+                    </xule:replace>
+                </td>
+                <td class="xbrl"><xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                    <xule:template-display>Year/Period of Report:</xule:template-display>
+                    </xule:replace> 
+                    <br></br>
+                    End of: <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:ReportYear @period=$currentDuration]))</xule:expression>
+                        <xule:template-display>2018</xule:template-display>
+                    </xule:replace>
+                    <span>/</span>
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:ReportPeriod @period=$currentDuration]))</xule:expression>
+                        <xule:template-display>Q4</xule:template-display>
+                    </xule:replace>
+                </td>
+            </tr>
+        </table>
+    <table class="xbrl">
+        <tr class="sch-title">
+            <td class="xbrl" colspan="10"> 
+                <xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAmortizationBaseAndReserveAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6ScheduleTitle").text
+                </xule:expression>
+                <xule:template-display>
+                    Amortization Base and Reserve
+                </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="10">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleAmortizationBaseAndReserveAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                    <ol>
+                        <li>Enter in columns (b) thru (e) the cost of pipeline property used as the base in computing amortization charges included in Account 540, Depreciation and Amortization, and Account 541, Depreciation Expense for Asset Retirement Costs, of the accounting company.</li>
+                        <li>Enter in columns (f) thru (i) the balances at the beginning and end of the year and the total credits and debits during the year in Account No. 32, Accrued Amortization -Carrier Property.</li>
+                        <li>The information requested for columns (b) thru (i) may be shown by projects or for totals only.</li>
+                        <li>If reporting by project, briefly describe in a footnote each project amounting to $100,000 or more. Reference the kind of property reported; do not include location. Items less than $100,000 may be combined in a single entry titled Minor Items, Each Less Than $100,000.</li>
+                        <li>If the amounts in column (g) do not correspond to the amounts actually charged to Account No. 540 and/or 541, explain such differences in a footnote.</li>
+                        <li>Explain in a footnote adjustments included in column (h) that affect operating expenses.</li>
+                    </ol>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr class="col-heading-row">
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+            <td class="xbrl col-heading" colspan="4">BASE 540 AND 541</td>
+            <td class="xbrl col-heading" colspan="4">RESERVE</td>
+          
+
+        </tr>
+
+
+        <tr class="col-heading-row">     
+            <td class="col-heading xbrl-no-top-line line-number">Line No.</td>
+            <td class="col-heading xbrl-no-top-line" xule:repeat="ColumnHeadings">
+                    <xule:expression class="hide" name="ColumnHeadings">
+                            $headings = filter (taxonomy().concept(ferc:ScheduleAmortizationBaseAndReserveAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "218 - Schedule - Amortization Base and Reserve") 
+
+                            $heading = list(for $ref in $headings 
+                            list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value, $ref.part-by-name(ferc-part:ElementName).part-value))
+    
+                            $heading_dict = dict(for $row in $heading
+                                    list("("+$row[1]+")",list($row[2],taxonomy().concept(to-qname($row[3]))))
+                            );
+                            for $row in $heading_dict.keys.sort
+                    </xule:expression>
+                    <div style="text-align: center">
+                        <div class="tooltip">
+                                <div class="tooltiptext">
+                                        <xule:replace>
+                                                <xule:expression class="hide" name="ColumnHeadings" part="3">$heading_dict[$row][2].name.local-name</xule:expression>
+                                            </xule:replace>
+                                </div>    
+                            <xule:replace>
+                                <xule:expression class="hide" name="ColumnHeadings" part="1">$heading_dict[$row][1]</xule:expression>
+                                <xule:template-display>
+                                    Nature of Payment
+                                </xule:template-display>
+                            </xule:replace>
+                        </div>
+                    </div>
+                <div style="text-align: center"><xule:replace>
+                        <xule:expression class="hide" name="ColumnHeadings" part="2">$row</xule:expression>
+                        <xule:template-display>
+                            (a)
+                        </xule:template-display>
+                    </xule:replace></div>
+            </td>
+        </tr>
+            <tr class="schedule-row" xule:repeat="AmortizationBaseReserve">
+                <xule:expression class="hide" name="AmortizationBaseReserve">// adding a comment
+                    
+               
+
+                $data2 = list(for $i in range(46)
+                    list($i,none,none,none,none,none,none,none,none,none)
+                          );
+                
+                $data = if count(list({covered @ferc:AmortizationBaseAndReserveAxis=*})) > 0 
+                
+                    list({covered @ferc:AmortizationBaseAndReserveAxis=*  {list(
+                        if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
+                            first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                        else
+                            0,
+                        if list({@ferc:DescriptionOfPipelineProperty @unit@period=$currentDuration}).length > 0
+                            first(list({@ferc:DescriptionOfPipelineProperty @unit @period=$currentDuration}))
+                        else 
+                            none,
+                        if list({@ferc:CostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @unit @period=$priorInstant}).length > 0
+                            first(list({@ferc:CostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @unit @period=$priorInstant}))
+                        else 
+                            none,
+                        if list({@ferc:IncreaseInCostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @unit @period=$currentDuration}).length > 0
+                            first(list({@ferc:IncreaseInCostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @unit @period=$currentDuration}))
+                        else 
+                            none,
+                        if list({@ferc:DecreaseInCostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @unit @period=$currentDuration}).length > 0
+                            first(list({@ferc:DecreaseInCostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @unit @period=$currentDuration}))
+                        else 
+                            none,
+                        if list({@ferc:CostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @unit @period=$currentInstant}).length > 0
+                            first(list({@ferc:CostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @unit @period=$currentInstant})) 
+                        else 
+                            none,
+                        if list({@ferc:AccruedAmortizationCarrierProperty @unit @period=$priorInstant}).length > 0
+                            first(list({@ferc:AccruedAmortizationCarrierProperty @unit @period=$priorInstant}))
+                        else 
+                            none,
+                        if list({@ferc:IncreaseInAccruedAmortizationCarrierProperty @unit @period=$currentDuration}).length > 0
+                            first(list({@ferc:IncreaseInAccruedAmortizationCarrierProperty @unit @period=$currentDuration})) 
+                        else 
+                            none,
+                        if list({@ferc:DecreaseInAccruedAmortizationCarrierProperty @unit @period=$currentDuration}).length > 0
+                            first(list({@ferc:DecreaseInAccruedAmortizationCarrierProperty @unit @period=$currentDuration}))
+                        else 
+                            none,
+                        if list({@ferc:AccruedAmortizationCarrierProperty @unit @period=$currentInstant}).length > 0
+                            first(list({@ferc:AccruedAmortizationCarrierProperty @unit @period=$currentInstant}))
+                        else 
+                            none
+
+                        )}})
+                        else $data2;
+
+                        $uniqueData = list(for $x in  $data
+                        if $x == list(0,none,none,none,none,none,none,none,none,none)
+                            skip
+                        else 
+                            $x
+                        );
+    
+                        for $row in $uniqueData.sort          
+                
+                </xule:expression>
+                <td class="xbrl line-number"><xule:lineNumber name="AmortizationBaseReserve"/>
+                    <xule:template-display>1</xule:template-display>
+                </td>
+               <td class="xbrl description_items"><xule:replace><xule:expression  class="hide" fact="true"  name="AmortizationBaseReserve" part="2">$row[2]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            ABC Property
+                    </xule:template-display>
+                </td>
+               <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="AmortizationBaseReserve" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $28,376,978
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="AmortizationBaseReserve" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $1,231,456
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="AmortizationBaseReserve" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $2,987,092
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="AmortizationBaseReserve" fact="true" format="ixt4:num-dot-decimal" part="6">$row[6]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $26,322,999
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="AmortizationBaseReserve" fact="true" format="ixt4:num-dot-decimal" part="7">$row[7]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $98,332,184
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="AmortizationBaseReserve" fact="true" format="ixt4:num-dot-decimal" part="8">$row[8]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $1,998,243
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="AmortizationBaseReserve" fact="true" format="ixt4:num-dot-decimal" part="9">$row[9]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $7,643,365
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="AmortizationBaseReserve" fact="true" format="ixt4:num-dot-decimal" part="10">$row[10]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $89,435,232
+                    </xule:template-display>
+                </td>
+            </tr> 
+
+            <!-- Line 47 Total -->
+           <tr>
+                <td class="xbrl line-number">47</td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:CostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges).label("http://ferc.gov/form/2020-01-01/roles/label/F6Total").text
+                        </xule:expression>
+                        <div>
+                            <xule:template-display>
+                                Total
+                            </xule:template-display>
+                        </div>
+                    </xule:replace></td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:CostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @period = $priorInstant]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $85,531,884
+                    </xule:template-display>
+                </xule:replace>
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:IncreaseInCostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $85,531,884
+                    </xule:template-display>
+                </xule:replace>
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:DecreaseInCostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $85,531,884
+                    </xule:template-display>
+                </xule:replace>
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:CostOfPipelinePropertyUsedAsBaseInDepreciationAndAmortizationCharges @period = $currentInstant]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $112,837,455
+                    </xule:template-display>
+                </xule:replace>
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:AccruedAmortizationCarrierProperty @period = $priorInstant]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $82,266,391
+                    </xule:template-display>
+                </xule:replace>
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:IncreaseInAccruedAmortizationCarrierProperty @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $99,635,129
+                    </xule:template-display>
+                </xule:replace>
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:DecreaseInAccruedAmortizationCarrierProperty @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $115,378,112
+                    </xule:template-display>
+                </xule:replace>
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:AccruedAmortizationCarrierProperty @period = $currentInstant]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $711,927,653
+                    </xule:template-display>
+                </xule:replace>
+                </td>
+            </tr>
+    </table>
+<p></p>
+    <div class ="schedule-footer">
+            <div> FERC FORM NO.
+                 <xule:replace>
+                    <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                    <xule:template-display>6/6-Q</xule:template-display>
+            </xule:replace>
+            <span> </span>
+            <xule:replace>
+                    <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleAmortizationBaseAndReserveAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6DateRevised").text + ")"
+                    </xule:expression>
+                    <xule:template-display>
+                        (REV. 12-03)  
+                    </xule:template-display>
+            </xule:replace>
+            </div> 
+            <div style="text-align: center">Page 
+                <xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAmortizationBaseAndReserveAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6Page").text
+                </xule:expression>
+                <xule:template-display>
+                218
+                </xule:template-display>
+                </xule:replace>
+            </div>
+    </div>
+</body>
+</html>

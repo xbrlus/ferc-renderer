@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F6 - 101</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+
+</head>
+
+<body class="xbrl">
+        <div id="ScheduleGeneralInformationAbstract"></div>
+        <xule:showif>
+                if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleGeneralInformationAbstract"]).length > 0
+                        false
+                else
+                        true
+        </xule:showif>
+        <table class="schedule-header xbrl" width="100%">
+                <tr>
+                        <td class="xbrl">
+                                <xule:replace>
+                                        <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                                        <xule:template-display>Name of Respondent:</xule:template-display>
+                                </xule:replace>
+                                <br></br>
+                                <xule:replace>
+                                        <xule:expression class="hide" fact="true">first(list([@ferc:RespondentLegalName @period=$currentDuration]))</xule:expression>
+                                        <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                                </xule:replace>
+                        </td>
+                        <td class="xbrl">
+                                <xule:replace>
+                                        <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                                        <xule:template-display>This report is:</xule:template-display>
+                                </xule:replace>
+                                        <br></br>
+                                (1) 
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]>
+                                        </xule:expression>  
+                                        <xule:template-display>
+                                                <input type="checkbox"/> An Original
+                                        </xule:template-display>
+                                </xule:replace>
+                                <br></br>
+                                (2)
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                                </xule:expression> 
+                                        <xule:template-display>
+                                                <input type="checkbox" checked = "true"/> A Resubmission
+                                        </xule:template-display>
+                                </xule:replace> 
+                        </td>
+                        <td class="xbrl">
+                                <xule:replace>
+                                        <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                                        <xule:template-display>Date of Report:</xule:template-display>
+                                </xule:replace>
+                                <br></br>
+                                <xule:replace>
+                                        <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">first(list([@ferc:ReportDate @period=$currentDuration]))</xule:expression>
+                                        <xule:template-display>04/26/2019</xule:template-display>
+                                </xule:replace>
+                        </td>
+                        <td class="xbrl">
+                                <xule:replace>
+                                        <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                                        <xule:template-display>Year/Period of Report:</xule:template-display>
+                                </xule:replace>
+                                <br></br>
+                                End of: <xule:replace>
+                                <xule:expression class="hide" fact="true">first(list([@ferc:ReportYear @period=$currentDuration]))</xule:expression>
+                                        <xule:template-display>2018</xule:template-display>
+                                </xule:replace>
+                                <span>/</span>
+                                <xule:replace>
+                                        <xule:expression class="hide" fact="true">first(list([@ferc:ReportPeriod @period=$currentDuration]))</xule:expression>
+                                        <xule:template-display>Q4</xule:template-display>
+                                </xule:replace>
+                        </td>
+                </tr>
+        </table>
+        <table width="100%" class="xbrl">
+
+        <tr class="sch-title">
+                <td class="xbrl" colspan="5"> 
+                        <xule:replace>
+                                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleGeneralInformationAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6ScheduleTitle").text
+                                </xule:expression>
+                                <xule:template-display>
+                                        General Information
+                                </xule:template-display>
+                        </xule:replace>
+                </td>
+        </tr>
+        <tr>
+                <td class="instruction xbrl" colspan="5">
+                        <xule:replace>
+                        <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleGeneralInformationAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6Instructions").text
+                        </xule:expression>
+                        <xule:template-display>
+                                <ol>
+                                        <li>For item No. 1, give the exact full name of the respondent. Use the words ""The"" and ""Company"" only when they are parts of the corporate name. The corporate name should also be given uniformly throughout the report, notably on the cover, on the title page, and in the ""Verification"" (p. 1). If the report is made by receivers, trustees, a committee of bondholders, or individuals otherwise in possession of the property, state names and facts with precision.</li>
+                                        <li>For item No. 2, if incorporated under a special charter, give date of passage of the act; if under a general law, give date of filing certificate of organization; if a reorganization has been effected, give date of reorganization. If a receivership or other trust, give also date when such receivership or other possession began. If a partnership, give date of formation and full names of present partners.</li>
+                                        <li>For item No. 3, give specific reference to laws of each State or Territory under which organized, citing chapter and section. Include all grants of corporate powers by the United States, or by Canada or other foreign country; also, all amendments to charter. It in bankruptcy, give court of jurisdiction and dates of beginning of receivership or trusteeship and of appointment of receivers of trustees.</li>
+                                        <li>For item No. 4, give specific reference to special or general laws under which each consolidation or merger or combination of other form was effected during the year, citing chapter and section. Specify Government, State, Territory under the laws of which each company consolidated or merged or otherwise combined during the year into the present company was organized; give reference to the charters of each, and to all amendments of them. Carefully distinguish between mergers and consolidations. For the purpose of this report, a merger may be defined as the absorption of one of two existing corporations by the other so the absorbed or merged corporation ceases to exist as a legal entity, its property passing to the merging or absorbing corporation, which assumes all of the merged corporation's obligations. A consolidation may be defined as the union of two or more existing corporations into a new corporation, which, through the consolidation, acquires all of the property of the uniting corporations, assumes all of their obligations, and issues its capital stock in exchange for those of the uniting corporations in ratios fixed in the agreement for consolidations, after completion of which both or all of the consolidating corporations cease to exist as legal entities. In a footnote, explain combinations that are not classifiable as mergers or consolidations. Cases in which corporations have become inactive and have been practically absorbed through ownership or control of their entire capital stock, through leases of long duration (under which the lessor companies so not keep up independent organizations for financial purposes), or otherwise, so that no distinction is made in operating or in accounting by reason of the original separate incorporation, should be included in a separate list and fully explained in answering this and the following page.</li>
+                                </ol>
+                        </xule:template-display>
+                        </xule:replace>
+                </td>
+        </tr>
+        <tr>
+            <td class="combinedField xbrl" colspan="1">
+                    <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:NameOfPipelineCompanyMakingReport).label("http://ferc.gov/form/2020-01-01/roles/label/F6GeneralInformation").text
+                            </xule:expression>
+                            <xule:template-display>
+                                        1. Give exact name of pipeline company making this report.
+                            </xule:template-display>
+                     </xule:replace>
+                     <br></br>
+                     <br></br>
+                    <xule:replace>
+                            <xule:expression class="hide"  fact="true">first(list([@concept=ferc:NameOfPipelineCompanyMakingReport @period=$currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    Dwight L. Jacobs 
+                            </xule:template-display>
+                    </xule:replace> 
+                    <br></br>
+                    <br></br>  
+            </td>
+        </tr>
+        <tr>
+                <td class="combinedField xbrl" colspan="1">
+                        <xule:replace>
+                                <xule:expression class="hide">taxonomy().concept(ferc:IncorporationDate).label("http://ferc.gov/form/2020-01-01/roles/label/F6GeneralInformation").text
+                                </xule:expression>
+                                <xule:template-display>
+                                                2. Give date of incorporation.
+                                </xule:template-display>
+                         </xule:replace>
+                         <br></br>
+                         <br></br>
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">first(list([@concept=ferc:IncorporationDate @period=$currentDuration]))
+                                </xule:expression>
+                                <xule:template-display>
+                                        2018-12-31 
+                                </xule:template-display>
+                        </xule:replace> 
+                        <br></br>
+                        <br></br>
+                </td>
+            </tr>
+            <tr>
+                    <td class="combinedField xbrl" colspan="1">
+                            <xule:replace>
+                                    <xule:expression class="hide">taxonomy().concept(ferc:SpecialLawRespondentIncorporatedUnder).label("http://ferc.gov/form/2020-01-01/roles/label/F6GeneralInformation").text
+                                    </xule:expression>
+                                    <xule:template-display>
+                                                3. Give reference to laws of the Government, State, or Territory under which the company is organized. If more than one, name all.
+                                    </xule:template-display>
+                             </xule:replace>
+                             <br></br>
+                             <br></br> 
+
+                            <xule:replace>
+                                    <xule:expression class="hide"  fact="true">first(list([@concept=ferc:SpecialLawRespondentIncorporatedUnder @period=$currentDuration]))
+                                    </xule:expression>
+                                    <xule:template-display>
+                                            The Nine Partners Contract
+                                    </xule:template-display>
+                            </xule:replace> 
+                            <br></br>
+                            <br></br>  
+                    </td>
+                </tr>
+                <tr>
+                        <td class="combinedField xbrl" colspan="1">
+                                <xule:replace>
+                                        <xule:expression class="hide">taxonomy().concept(ferc:NamesOfConstituentAndMergedCompanies).label("http://ferc.gov/form/2020-01-01/roles/label/F6GeneralInformation").text
+                                        </xule:expression>
+                                        <xule:template-display>
+                                                        4. If a consolidated or a merged company, name all constituent and all merged companies absorbed during the year.
+                                        </xule:template-display>
+                                 </xule:replace>
+                                 <br></br>
+                                 <br></br>
+                                <xule:replace>
+                                        <xule:expression class="hide"  fact="true">first(list([@concept=ferc:NamesOfConstituentAndMergedCompanies @period=$currentDuration]))
+                                        </xule:expression>
+                                        <xule:template-display>
+                                                Kentucky - Gas and Electric and many more.
+                                        </xule:template-display>
+                                </xule:replace>  
+                                <br></br>
+                                <br></br>
+                        </td>
+                </tr>
+                <tr>
+                        <td class="combinedField xbrl" colspan="1">
+                                <xule:replace>
+                                        <xule:expression class="hide" html="true">taxonomy().concept(ferc:DateAndAuthorityForEachConsolidationAndForEachMergerEffected).label("http://ferc.gov/form/2020-01-01/roles/label/F6GeneralInformation").text
+                                        </xule:expression>
+                                        <xule:template-display>
+                                                        5. Give date and authority for each consolidation and for each merger effected during the year.
+                                        </xule:template-display>
+                                 </xule:replace>
+                                 <br></br>
+                                 <br></br>
+                                   <xule:replace>
+                                                <xule:expression class="hide" fact="true">first(list([@concept=ferc:DateAndAuthorityForEachConsolidationAndForEachMergerEffected @period=$currentDuration]))
+                                                </xule:expression>
+                                                <xule:template-display>
+                                                        2018-12-31 
+                                                </xule:template-display>
+                                        </xule:replace>  
+                                        <br></br>
+                                        <br></br>
+                                      
+                        </td>
+                </tr>
+
+                 <tr>
+                        <td class="combinedField xbrl" colspan="1">
+                                <xule:replace>
+                                        <xule:expression class="hide" html="true">taxonomy().concept(ferc:NameOfOriginalCorporation).label("http://ferc.gov/form/2020-01-01/roles/label/F6GeneralInformation").text
+                                        </xule:expression>
+                                        <xule:template-display>
+                                                        6. If a reorganized company, give name of original corporation, refer to laws under which it was organized, and state the occasion of any reorganization effected during the year.
+                                        </xule:template-display>
+                                 </xule:replace>
+                                 <br></br>
+                                 <br></br>
+                                   <xule:replace>
+                                                <xule:expression class="hide" fact="true">first(list([@concept=ferc:NameOfOriginalCorporation @period=$currentDuration]))
+                                                </xule:expression>
+                                                <xule:template-display>
+                                                        2018-12-31 
+                                                </xule:template-display>
+                                        </xule:replace> 
+                                        <br></br>
+                                        <br></br> 
+                                      
+                        </td>
+                </tr>
+                <tr>
+                                <td class="combinedField xbrl" colspan="1">
+                                        <xule:replace>
+                                                <xule:expression class="hide" html="true">taxonomy().concept(ferc:IndicationRespondentConductedBusinessInDifferentNames).label("http://ferc.gov/form/2020-01-01/roles/label/F6GeneralInformation").text
+                                                </xule:expression>
+                                                <xule:template-display>
+                                                                7. State whether or not the respondent during the year conducted any part of its businesss under a name or names other than that shown in response to inquiry No. 1, above; if so, give full particulars (details).
+                                                </xule:template-display>
+                                         </xule:replace>
+                                         <br></br>
+                                         <br></br>
+                                           <xule:replace>
+                                                        <xule:expression class="hide" fact="true">first(list([@concept=ferc:IndicationRespondentConductedBusinessInDifferentNames @period=$currentDuration]))
+                                                        </xule:expression>
+                                                        <xule:template-display>
+                                                                Yes did lots of business under different names.
+                                                        </xule:template-display>
+                                                </xule:replace>  
+                                                <br></br>
+                                                <br></br>
+                                              
+                                </td>
+                </tr>
+
+                <tr>
+                                <td class="combinedField xbrl" colspan="1">
+                                        <br></br>
+                                        <br></br>
+                                        <br></br>
+                                        <br></br> 
+                                        <br></br>
+                                        <br></br>
+                                              
+                                </td>
+                </tr>
+
+    </table>
+        <div class="schedule-footer">
+                <div>FERC FORM No.
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                                <xule:template-display>6/6-Q</xule:template-display>
+                            </xule:replace>                        
+                        <span> </span>
+                        <xule:replace>
+                                <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleGeneralInformationAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6DateRevised").text + ")"
+                                </xule:expression>
+                                <xule:template-display>
+                                                12-96
+                                </xule:template-display>
+                        </xule:replace>     
+                </div>
+                <div class="center-text">Page 
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleGeneralInformationAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6Page").text
+                        </xule:expression>
+                        <xule:template-display>
+                        101
+                        </xule:template-display>
+                </xule:replace>
+                </div> 
+        </div>
+</body>
+
+</html>

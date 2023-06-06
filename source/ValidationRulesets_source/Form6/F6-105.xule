@@ -1,0 +1,22 @@
+/**FERC Form 6 Rules 
+**/
+
+RULE-NAME-PREFIX FERC
+
+assert F6.105.1 unsatisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ exists([covered @concept = NameAndTitleOfDirector @period=$currentDuration @DirectorAxis = *])  
+message 
+"The name and title of directors must be reported in the current period.  
+
+Rule Id:{$rule_id}
+"
+severity warning
+

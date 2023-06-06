@@ -1,0 +1,281 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F6/F6Q - 119</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl">
+    <div id="ScheduleUnappropriatedRetainedIncomeStatementAbstract"></div>
+    <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleUnappropriatedRetainedIncomeStatementAbstract"]).length > 0
+                false
+        else
+                true
+    </xule:showif>
+    <table class="schedule-header xbrl" width="100%">
+        <tr>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
+                </xule:replace>
+                <br></br>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">first(list([@ferc:RespondentLegalName @period=$currentDuration]))</xule:expression>
+                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                    <xule:template-display>This report is:</xule:template-display>
+                </xule:replace>
+                <br></br>
+                    (1) 
+                        <xule:replace>
+                                <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                                '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                                '<span class="checkbox">&#9744;</span> An Original']]>
+                                </xule:expression>  
+                            <xule:template-display>
+                                    <input type="checkbox"/> An Original
+                            </xule:template-display>
+                        </xule:replace>
+                        <br></br>
+                    (2)
+                        <xule:replace>
+                                <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                                '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                                '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                                '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                    </xule:expression> 
+                                <xule:template-display>
+                                        <input type="checkbox" checked = "true"/> A Resubmission
+                                </xule:template-display>
+                        </xule:replace> 
+            </td>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                <xule:template-display>Date of Report:</xule:template-display>
+                </xule:replace>
+                <br></br>
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">first(list([@ferc:ReportDate @period=$currentDuration]))</xule:expression>
+                        <xule:template-display>04/26/2019</xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                <xule:template-display>Year/Period of Report:</xule:template-display>
+                </xule:replace>
+                <br></br>
+                End of: <xule:replace>
+                    <xule:expression class="hide" fact="true">first(list([@ferc:ReportYear @period=$currentDuration]))</xule:expression>
+                    <xule:template-display>2018</xule:template-display>
+                </xule:replace>
+                <span>/</span>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">first(list([@ferc:ReportPeriod @period=$currentDuration]))</xule:expression>
+                    <xule:template-display>Q4</xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+    </table>
+    <table class="xbrl">
+        <tr class="sch-title">
+            <td class="xbrl" colspan="5">
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ScheduleUnappropriatedRetainedIncomeStatementAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6ScheduleTitle").text
+                    </xule:expression>
+                    <xule:template-display>
+                            Unappropriated Retained Income Statement
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="5">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleUnappropriatedRetainedIncomeStatementAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                        <ol>
+                                <li>Report items of the Retained Income Accounts of the respondents for the period, classified in accordance with the USofA.</li>
+                                <li>Report on lines 15 and 16 the amount of assigned Federal income tax consequences, Account Nos. 710 and 720.</li>
+                                <li>Report on lines 17 through 20 all amounts applicable to the equity in undistributed earnings (losses) of affiliated companies based on the equity method of accounting.</li>
+                                <li>Line 18 should agree with Line 12, Schedule 114. The total of lines 2, 6, and 18 should agree with line 29, Schedule 114</li>
+                                <li>Include on lines 1 through 12 only amounts applicable to Retained Income exclusive of any amounts included on lines 17 through 20.</li>
+                        </ol>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr class="col-heading-row">     
+            <td class="col-heading xbrl line-number">Line No.</td>
+            <td class="col-heading xbrl" xule:repeat="UnappropriatedHeadings">
+                    <xule:expression class="hide" name="UnappropriatedHeadings">
+                            $headings = filter (taxonomy().concept(ferc:ScheduleUnappropriatedRetainedIncomeStatementAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "119 - Schedule - Unappropriated Retained Income Statement") 
+
+                            $headings = list(for $ref in $headings 
+                            list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value))
+
+                            $heading_dict = dict(for $row in $headings
+						            list("("+$row[1]+")",$row[2])
+						    );
+                            for $row in $heading_dict.keys.sort
+                    </xule:expression>
+                    <div style="text-align: center"><xule:replace>
+                    <xule:expression class="hide" name="UnappropriatedHeadings" part="1">$heading_dict[$row]</xule:expression>
+                    <xule:template-display>
+                        Item
+                    </xule:template-display>
+                </xule:replace>
+            </div>
+                <div style="text-align: center"><xule:replace>
+                        <xule:expression class="hide" name="UnappropriatedHeadings" part="2">$row</xule:expression>
+                        <xule:template-display>
+                            (a)
+                        </xule:template-display>
+                    </xule:replace></div>
+            </td>
+        </tr>
+        <tr class="schedule-row" xule:repeat="UnappropriatedLineItems">
+                <xule:expression class="hide" name="UnappropriatedLineItems">
+    $data = navigate parent-child descendants from ferc:UnappropriatedRetainedIncomeStatementLineItems role "http://ferc.gov/form/2020-01-01/roles/Schedule/F6/UnappropriatedRetainedIncomeStatement" returns list (target-name, preferred-label, order);
+    $data-labels = list(for $row in $data
+            $concept = taxonomy().concept($row[1]);
+            $row_num = (filter $concept.references("http://ferc.gov/form/2020-01-01/roles/reference/formLocation") where ($item.part-by-name(ferc-part:Schedule).part-value == "119 - Schedule - Unappropriated Retained Income Statement" and $item.part-by-name(ferc-part:ValueType).part-value.string == "Label" and "http://ferc.gov/form/2020-01-01/roles/label/" + $item.part-by-name(ferc-part:ColumnName).part-value.string == $row[2].role.uri)).to-list;
+            $page = $concept.label("http://ferc.gov/form/2020-01-01/roles/label/F6PageRange2").text;
+            
+            $beginningBalance = if $row[2].role.uri == "http://ferc.gov/form/2020-01-01/roles/label/F6BeginningBalance"
+                                    true
+                                else
+                                    false
+
+            $beginningRow = if ($row_num.part-by-name(ferc-part:Row)).length > 0
+                                min(($row_num.part-by-name(ferc-part:Row)).part-value)
+                            else 
+                                 ""
+            $endingRow = if ($row_num.part-by-name(ferc-part:Row)).length > 0
+                            max(($row_num.part-by-name(ferc-part:Row)).part-value)
+                         else 
+                             ""
+            
+            $current = if list([covered @concept = $row[1] @period = $currentDuration]).length > 0
+                           first(list([covered @concept = $row[1] @period = $currentDuration]))
+                       else
+                            if $beginningBalance
+                                if list([covered @concept = $row[1] @period = $priorInstant]).length > 0
+                                      first(list([covered @concept = $row[1] @period = $priorInstant]))
+                                else
+                                      none
+                            else
+                                  if list([covered @concept = $row[1] @period = $currentInstant]).length > 0
+                                      first(list([covered @concept = $row[1] @period = $currentInstant]))
+                                  else
+                                      none
+            $prior = if list([covered @concept = $row[1] @period = $priorDuration]).length > 0
+                         first(list([covered @concept = $row[1] @period = $priorDuration]))
+					  else
+                            if $beginningBalance
+                                if list([covered @concept = $row[1] @period = $prior2Instant]).length > 0
+                                    first(list([covered @concept = $row[1] @period = $prior2Instant]))
+                                else
+                                    none
+                            else
+                                if list([covered @concept = $row[1] @period = $prior12MonthsInstant]).length > 0
+                                    first(list([covered @concept = $row[1] @period = $prior12MonthsInstant]))
+                                else
+                                    none
+            
+        
+            list($concept,
+			$concept.label($row[2].role.uri).text, //Title of Account
+			if exists($page) $page else "",  //Page Ref
+            if $beginningBalance
+                $beginningRow
+            else 
+                $endingRow,
+            $current,
+            $prior
+            
+				));
+    for $rowl in $data-labels
+
+                </xule:expression>
+                        <td class="xbrl line-number">
+                            <xule:replace><xule:expression class="hide" name="UnappropriatedLineItems" part="1">$rowl[4] </xule:expression></xule:replace>
+                            <xule:template-display>1</xule:template-display>
+                        </td> 
+                        <td class="xbrl description_items">
+                                <div class="tooltip">
+                                        <div class="tooltiptext">
+                                                <xule:replace>
+                                                        <xule:expression class="hide" name="UnappropriatedLineItems" part="6">$rowl[1].name.local-name</xule:expression>
+                                                    </xule:replace>
+                                        </div>
+                                <xule:replace>
+                                    <xule:expression class="hide" name="UnappropriatedLineItems"  part="2">$rowl[2]</xule:expression>
+                                    <xule:class location="parent">if $rowl[1].is-abstract "sch-title" else ""</xule:class>
+                                </xule:replace>
+                                <xule:template-display>UNAPPROPRIATED RETAINED INCOME</xule:template-display>
+                                </div>
+                        </td>
+                        <td class="xbrl page-number">
+                                <xule:replace><xule:expression class="hide" name="UnappropriatedLineItems" part="3">$rowl[3]</xule:expression></xule:replace>        
+                        </td>  
+
+                        <!--Current-->
+                        <td class="monetary_items xbrl">
+                                <xule:replace>
+                                    <xule:expression class="hide" name="UnappropriatedLineItems" format="ixt4:num-dot-decimal" fact="true" part="4">$rowl[5]</xule:expression>
+                                    
+                            </xule:replace>        
+                        </td> 
+                        <!--PRIOR-->
+                        <td class="monetary_items xbrl">
+                                <xule:replace><xule:expression class="hide" name="UnappropriatedLineItems" format="ixt4:num-dot-decimal" fact="true" part="5">$rowl[6]</xule:expression>
+                                 
+                            </xule:replace>       
+                        </td> 
+                                    
+        </tr>
+    </table>
+<p></p>
+    <div class ="schedule-footer">
+        <div> FERC FORM NO. 
+            <xule:replace>
+                <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                <xule:template-display>6/6-Q</xule:template-display>
+            </xule:replace>
+            <span> </span>
+            <xule:replace>
+                    <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleUnappropriatedRetainedIncomeStatementAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6DateRevised").text + ")"
+                    </xule:expression>
+                    <xule:template-display>
+                        (REV. 02-04) 
+                    </xule:template-display>
+            </xule:replace>                                    
+        </div> 
+        <div style="text-align: center">Page 
+            <xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleUnappropriatedRetainedIncomeStatementAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6Page").text
+                </xule:expression>
+                <xule:template-display>
+                119
+                </xule:template-display>
+            </xule:replace>
+        </div>
+    </div>
+</body>
+</html>

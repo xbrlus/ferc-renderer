@@ -1,0 +1,74 @@
+/** 
+ * tolerance_for_decimals
+ * 
+ * This function works out the tolerance between 2 values with different decimals with a tolerance factor.
+ * 
+ * @param factset - $left - Passes a factset value to compare to a second parameter called $right
+ * @param factset - $right - Passes a factset value to compare to the first parameter called $left
+ * @param integer - $decimal_tolerance_factor - Integer value that defines how different the values can be
+ * @return boolean - Returns true if the two values provided are outside of the tolerance range.
+**/
+
+function tolerance_for_decimals($left, $right, $decimal_tolerance_factor)
+
+$left_decimal = if $left.decimals == none
+					inf else $left.decimals;
+					
+$right_decimal = if $right.decimals == none
+					inf else $right.decimals;
+					
+$tolerance1 = if ($left_decimal < $right_decimal) 
+					$left_decimal
+				else 	
+					$right_decimal;
+$tolerance2 = if ($tolerance1 == inf) 
+					0
+				else 	
+					(10.power(-1 * $tolerance1)) * $decimal_tolerance_factor;
+					
+$left = if $left == none
+			0
+		else
+			$left;
+
+$right = if $right == none
+			0
+		else
+			$right;
+
+if (abs(round($left,$tolerance1) - round($right,$tolerance1)) > $tolerance2) 
+	true
+else 
+	false 
+
+
+function pad($padee, $len, $pad_char)
+	if length($padee) >= $len
+		// There is nothing to pad
+		$padee
+	else
+		$pad_char_1 = if $pad_char == none ' '
+				      else if (length($pad_char.string) >= 1) substring($pad_char.string,1,1) 
+				      else ' ';
+		$padding = sum(list(for $x in range($len) $pad_char_1));
+		$padded_num = $padding + $padee;
+
+		substring($padded_num, length($padded_num)-$len+1)
+
+/** 
+ * most_frequent
+ * 
+ * This function will return the most frequent item in a list.
+ * 
+ * @param list - $listOfItems - Passes the list of items to determine the most common.
+ **/
+function most_frequent($list_of_items)
+            $unique_items = $list_of_items.to-set;
+            $index = dict(for $x in $unique_items
+                        list((filter $list_of_items where $item == $x).length, $x)
+            );
+            $max_occurence = max(list(for $x in $unique_items
+                                    (filter $list_of_items where $item == $x).length
+                              )
+                              )
+            $index[$max_occurence]

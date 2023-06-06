@@ -1,0 +1,337 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F6 - 214</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl">
+    <div id="ScheduleUndividedJointInterestPropertyAbstract"></div>
+    <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleUndividedJointInterestPropertyAbstract"]).length > 0
+                false
+        else
+                true
+    </xule:showif>
+    <table class="schedule-header xbrl" width="100%">
+        <tr>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
+                </xule:replace>
+                <br/> 
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">first(list([@ferc:RespondentLegalName @period=$currentDuration]))</xule:expression>
+                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                    <xule:template-display>This report is:</xule:template-display>
+                </xule:replace>
+                <br/>
+                    (1) 
+                        <xule:replace>
+                                <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                                '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                                '<span class="checkbox">&#9744;</span> An Original']]>
+                                </xule:expression>  
+                            <xule:template-display>
+                                    <input type="checkbox"/> An Original
+                            </xule:template-display>
+                        </xule:replace>
+                        <br/> 
+                    (2)
+                        <xule:replace>
+                                <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                                '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                                '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                                '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                    </xule:expression> 
+                                <xule:template-display>
+                                        <input type="checkbox" checked = "checked"/> A Resubmission
+                                </xule:template-display>
+                        </xule:replace> 
+            </td>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                <xule:template-display>Date of Report:</xule:template-display>
+                </xule:replace>
+                <br/>
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">first(list([@ferc:ReportDate @period=$currentDuration]))</xule:expression>
+                        <xule:template-display>04/26/2019</xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                <xule:template-display>Year/Period of Report:</xule:template-display>
+                </xule:replace>
+                <br/> 
+                End of: <xule:replace>
+                    <xule:expression class="hide" fact="true">first(list([@ferc:ReportYear @period=$currentDuration]))</xule:expression>
+                    <xule:template-display>2018</xule:template-display>
+                </xule:replace>
+                <span>/</span>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">first(list([@ferc:ReportPeriod @period=$currentDuration]))</xule:expression>
+                    <xule:template-display>Q4</xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+    </table>
+    <table class="xbrl">
+        <tr class="sch-title">
+            <td class="xbrl" colspan="10"> 
+                <xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleUndividedJointInterestPropertyAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6ScheduleTitle").text
+                </xule:expression>
+                <xule:template-display>
+                    Undivided Joint Interest Property Property
+                </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="10">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleUndividedJointInterestPropertyAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                            <ol>
+                                    <li>Give an analysis of changes during the year in Account No. 30, Carrier Property, by carrier property accounts, for investments in undivided joint interest property. The   respondent   will   only   report   its   portion   of   the   carrier   property   of   any undivided  joint  interest  pipeline  in  which  it  has  an  interest.  If  the  respondent owns  an  interest  in  multiple  undivided  joint  interest  pipelines,  prepare  and submit a separate schedule 214-215 for each undivided joint interest pipeline in which it has an interest. If multiple schedules 214-215 are submitted, number all schedules subsequent to the first with a number and letter page designator (For example ... 214, 215; 214a, 215a; 214b, 215b; etc...).</li>
+                                    <li>Enter  in  column  (c)  the  cost  of  newly  constructed  property,  additions,  and improvements made to existing property.   Include amounts distributed to carrier property accounts during the year which were previously charged to Account No. 187,  Construction  Work  in  Progress.     In  column  (d)  enter  expenditures  for existing pipeline property purchased or otherwise acquired.  Enter in column (e) property  sold,  abandoned,  or  otherwise  retired  during  the  year.   This  will generally  be  a  positive  number  so  that  the  calculation  in  column  (f)  works properly.</li>
+                                    <li>If pipeline operating property was acquired from or sold to some other company during the year, footnote the acquisition or sale if it exceeded $250,000. Include the following in the footnote:  the name of the company the property was acquired from or sold to, the mileage acquired or sold, and the date of acquisition or sale.  Include termini, the original cost of property acquired from an affiliate or other common carrier (see Instruction 3-1, Property acquired, Instructions for Carrier Property Accounts in Uniform System of Accounts), and the cost of the property to the respondent.  Also give the amount debited or credited to each company account representing such property acquired or disposed of.</li>
+                                    <li>Enter in column (g) for each account the net of all other accounting adjustments, transfers, and clearances applicable to prior years' accounting.</li>
+                                    <li>Explain fully each adjustment, clearance, or transfer in excess of $500,000 in a footnote.  Explain transfers to or from Account No. 34, Noncarrier Property, in Schedule 219.</li>
+                                    <li>Indicate in parenthesis any entry in columns (f), (g), or (h) which represents an excess of credits over debits.</li>
+                            </ol>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr class="col-heading-row">
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+            <td class="xbrl col-heading" colspan="3">Property Change During Year (in dollars)</td>
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+         
+
+        </tr>
+
+
+
+        <tr class="col-heading-row">     
+            <td class="col-heading xbrl-no-top-line line-number">Line No.</td>
+            <td class="col-heading xbrl-no-top-line" xule:repeat="ColumnHeadings">
+                    <xule:expression class="hide" name="ColumnHeadings">
+                            $headings = filter (taxonomy().concept(ferc:ScheduleUndividedJointInterestPropertyAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "214 - Schedule - Undivided Joint Interest Property") 
+
+                            $headings = list(for $ref in $headings 
+                            list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value))
+    
+                            $heading_dict = dict(for $row in $headings
+                                    list("("+$row[1]+")",$row[2])
+                            );
+                            for $row in $heading_dict.keys.sort
+                    </xule:expression>
+                    <div style="text-align: center"><xule:replace>
+                    <xule:expression class="hide" name="ColumnHeadings" part="1">$heading_dict[$row]</xule:expression>
+                    <xule:template-display>
+                        Account
+                    </xule:template-display>
+                    </xule:replace>
+                    </div>
+                <div style="text-align: center"><xule:replace>
+                        <xule:expression class="hide" name="ColumnHeadings" part="2">$row</xule:expression>
+                        <xule:template-display>
+                            (a)
+                        </xule:template-display>
+                    </xule:replace></div>
+            </td>
+        </tr>
+
+        <tr class="schedule-row" xule:repeat="UndividedJIPropertyItems">
+                <xule:expression class="hide" name="UndividedJIPropertyItems">
+    $dataHead = navigate parent-child descendants from ferc:UndividedJointInterestPropertyLineItems stop when $relationship.preferred-label == "http://ferc.gov/form/2020-01-01/roles/label/F6RollforwardHeader" role "http://ferc.gov/form/2020-01-01/roles/Schedule/F6/UndividedJointInterestProperty" where ($relationship.target-name != ferc:OrderNumber and $relationship.target-name != ferc:PlantName) returns list (target, preferred-label, order);
+    $dataRow2 = list(none, none, none, none, none, none, none, none);
+    $pipelinesList = set([covered @ferc:NameOfUndividedJointInterestPipelineAxis = *].dimensions-typed().values);
+
+    $piplinesUnique = if ($pipelinesList).to-list.length > 0
+                           sum($pipelinesList).to-list
+                            
+                     else  
+                            list("Enter Pipeline Name:");
+
+    $allData = list(
+                
+                    
+        $rollforwardSection = list(for $pipeline in $piplinesUnique
+                                        $pipelineName = if list({covered @ferc:PlantName @ferc:NameOfUndividedJointInterestPipelineAxis=$pipeline}).length > 0
+                                                            first(list({covered @ferc:PlantName @ferc:NameOfUndividedJointInterestPipelineAxis=$pipeline}))
+                                                        else
+                                                            $pipeline
+                                                            
+                                        $pipelineData = list(for $x in $dataHead
+                                            $abstractConcept = $x[1]; 
+                                            $data = navigate parent-child children from $x[1] role "http://ferc.gov/form/2020-01-01/roles/Schedule/F6/UndividedJointInterestProperty" returns list(target, preferred-label, order);
+                                            $row_num = (filter $abstractConcept.references("http://ferc.gov/form/2020-01-01/roles/reference/formLocation") where ($item.part-by-name(ferc-part:Schedule).part-value == "214 - Schedule - Undivided Joint Interest Property" and $item.part-by-name(ferc-part:ValueType).part-value.string == "Label")).to-list;
+                                            $row_number = list(if ($row_num.part-by-name(ferc-part:Row)).length == 0
+                                                ""
+                                            else
+                                                ($row_num.part-by-name(ferc-part:Row))[1].part-value);  
+                                                
+                                            $abstractLabel = list($row_number[1], $abstractConcept.label($x[2].role.uri).text);
+                                            $dataRow1 =   list(
+                                                                    for $y in $data
+                                                                        $conceptPeriod = $y[1].period-type;
+                                                                        if $conceptPeriod == "instant"
+                                                                            if $y[2].role.uri == "http://ferc.gov/form/2020-01-01/roles/label/F6BeginningBalance"
+                                                                                if exists([covered @concept = $y[1].name @unit = * @period = $priorInstant @ferc:NameOfUndividedJointInterestPipelineAxis = $pipeline])
+                                                                                    first(list([covered @concept = $y[1].name @unit = * @period = $priorInstant @ferc:NameOfUndividedJointInterestPipelineAxis = $pipeline]))
+                                                                                else
+                                                                                    none
+                                                                            else
+                                                                                if exists([covered @concept = $y[1].name @unit = * @period = $currentInstant @ferc:NameOfUndividedJointInterestPipelineAxis = $pipeline])
+                                                                                    first(list([covered @concept = $y[1].name @unit = * @period = $currentInstant @ferc:NameOfUndividedJointInterestPipelineAxis = $pipeline]))
+                                                                                else
+                                                                                    none
+                                                                        else
+                                                                                if exists([covered @concept = $y[1].name @unit = * @period = $currentDuration @ferc:NameOfUndividedJointInterestPipelineAxis = $pipeline])
+                                                                                    first(list([covered @concept = $y[1].name @unit = * @period = $currentDuration @ferc:NameOfUndividedJointInterestPipelineAxis = $pipeline]))
+                                                                                else
+                                                                                    none);
+                                            
+                                                    $abstractLabel + $dataRow1);
+                                                    list(list("PIPE LINE NAME",$pipelineName,none,none,none,none,none,none,none,none)) +  $pipelineData
+                                            );
+                                $rollforwardSection
+    );
+           
+           
+           
+              for $pipelines in  $allData
+                    for $pipeline  in $pipelines 
+                        for $rowl in  $pipeline
+                        
+
+                </xule:expression>
+
+            <td class="xbrl line-number">
+                <xule:replace><xule:expression class="hide" name="UndividedJIPropertyItems" part="1">$rowl[1]</xule:expression>
+                    <xule:class  class="hide" location="parent">if $rowl[1] == "PIPE LINE NAME" "data-heading" else ""</xule:class>
+                
+                </xule:replace>
+                <xule:template-display>1</xule:template-display>
+            </td> 
+           
+            <!-- Header -->
+            <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide" name="UndividedJIPropertyItems" part="1">$rowl[2]</xule:expression>
+                        <xule:class  class="hide" location="parent">if $rowl[1] == "PIPE LINE NAME" "gray-out" else ""</xule:class>
+                    </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                    <xule:expression class="hide" name="UndividedJIPropertyItems" fact="true" format="ixt4:num-dot-decimal" part="2">$rowl[3]</xule:expression>
+                    <xule:class  class="hide" location="parent">if $rowl[1] == "PIPE LINE NAME" "gray-out" else ""</xule:class>
+                    
+                </xule:replace>
+            </td>
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                    <xule:expression class="hide" name="UndividedJIPropertyItems" fact="true" format="ixt4:num-dot-decimal" part="3">$rowl[4]</xule:expression>
+                    <xule:class  class="hide" location="parent">if $rowl[1] == "PIPE LINE NAME" "gray-out" else ""</xule:class>
+                    
+                </xule:replace>
+            </td> 
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                    <xule:expression class="hide" name="UndividedJIPropertyItems" fact="true" format="ixt4:num-dot-decimal" part="4">$rowl[5]</xule:expression>
+                    <xule:class  class="hide" location="parent">if $rowl[1] == "PIPE LINE NAME" "gray-out" else ""</xule:class>
+                    
+                </xule:replace>
+            </td> 
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                    <xule:expression class="hide" name="UndividedJIPropertyItems" fact="true" format="ixt4:num-dot-decimal" part="5">$rowl[6]</xule:expression>
+                    <xule:class  class="hide" location="parent">if $rowl[1] == "PIPE LINE NAME" "gray-out" else ""</xule:class>
+                    
+                </xule:replace>
+            </td> 
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                    <xule:expression class="hide" name="UndividedJIPropertyItems" fact="true" format="ixt4:num-dot-decimal" part="6">$rowl[7]</xule:expression>
+                    <xule:class  class="hide" location="parent">if $rowl[1] == "PIPE LINE NAME" "gray-out" else ""</xule:class>
+                </xule:replace>
+            </td> 
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                    <xule:expression class="hide" name="UndividedJIPropertyItems" fact="true" format="ixt4:num-dot-decimal" part="7">$rowl[8]</xule:expression>
+                    <xule:class  class="hide" location="parent">if $rowl[1] == "PIPE LINE NAME" "gray-out" else ""</xule:class>
+                    
+                </xule:replace>
+            </td> 
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                    <xule:expression class="hide" name="UndividedJIPropertyItems" fact="true" format="ixt4:num-dot-decimal" part="8">$rowl[9]</xule:expression>
+                    <xule:class  class="hide" location="parent">if $rowl[1] == "PIPE LINE NAME" "gray-out" else ""</xule:class>
+                    
+                </xule:replace>
+            </td> 
+            
+            <!-- Closing Balance --> 
+            <td class="xbrl monetary_items">
+                <xule:replace>
+                    <xule:expression class="hide" name="UndividedJIPropertyItems" fact="true" format="ixt4:num-dot-decimal" part="9">$rowl[10]</xule:expression>
+                    <xule:class  class="hide" location="parent">if $rowl[1] == "PIPE LINE NAME" "gray-out" else ""</xule:class>
+                    
+                </xule:replace>
+            </td>
+        
+        </tr>
+    </table>
+<p></p>
+    <div class ="schedule-footer">
+        <div> FERC FORM NO. 
+            <xule:replace>
+                <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                <xule:template-display>6/6-Q</xule:template-display>
+            </xule:replace>
+            <span> </span>
+            <xule:replace>
+                <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleUndividedJointInterestPropertyAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6DateRevised").text + ")"
+                </xule:expression>
+                <xule:template-display>
+                    (REV. 12-03) 
+                </xule:template-display>
+            </xule:replace>           
+        </div> 
+        <div style="text-align: center">Page 
+            <xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleUndividedJointInterestPropertyAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6Page").text
+                </xule:expression>
+                <xule:template-display>
+                214
+                </xule:template-display>
+            </xule:replace>
+        </div>
+    </div>
+</body>
+</html>

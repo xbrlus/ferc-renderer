@@ -1,0 +1,969 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F2 - 250</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl" id="ScheduleCapitalStockAbstract">
+    <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleCapitalStockAbstract"]).length > 0
+                false
+        else
+                true
+    </xule:showif>
+        <table class="schedule-header xbrl" width="100%">
+                <tr>
+                    <td class="xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                            <xule:template-display>Name of Respondent:</xule:template-display>
+                        </xule:replace><br/>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                            <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                        </xule:replace>
+                    </td>
+                    <td class="xbrl">
+                        <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                            <xule:template-display>This report is:</xule:template-display>
+                        </xule:replace>
+                            <br/>
+                            (1) 
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> An Original']]>
+                                        </xule:expression>  
+                                    <xule:template-display>
+                                            <input type="checkbox"/> An Original
+                                    </xule:template-display>
+                                </xule:replace>
+                                <br/>
+                            (2)
+                                <xule:replace>
+                                        <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                                        '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                                        '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                            </xule:expression> 
+                                        <xule:template-display>
+                                                <input type="checkbox" checked = "checked"/> A Resubmission
+                                        </xule:template-display>
+                                </xule:replace> 
+                    </td>
+                    <td class="xbrl"><xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                        <xule:template-display>Date of Report:</xule:template-display>
+                        </xule:replace><br/>
+                            <xule:replace>
+                                <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xule:expression>
+                                <xule:template-display>04/26/2019</xule:template-display>
+                        </xule:replace>
+                    </td>
+                    <td class="xbrl"><xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                        <xule:template-display>Year/Period of Report:</xule:template-display>
+                        </xule:replace><br/>
+                        End of: <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                            <xule:template-display>2018</xule:template-display>
+                        </xule:replace>
+                        <span>/</span>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xule:expression>
+                            <xule:template-display>Q4</xule:template-display>
+                        </xule:replace>
+                    </td>
+                </tr>
+            </table>
+    <table class="xbrl" width="100%">
+        <tr class="sch-title">
+            <td colspan="11" class="xbrl">
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleCapitalStockAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2ScheduleTitle").text
+                        </xule:expression>
+                        <xule:template-display>
+                            Capital Stock (Accounts 201 and 204)
+                        </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="11">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleCapitalStockAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                    <ol>
+                        <li>Report below the details called for concerning common and preferred stock at end of year, distinguishing separate series of any general class.  Show separate totals for common and preferred stock.</li>
+                        <li>Entries in column (b) should represent the number of shares authorized by the articles of incorporation as amended to end of year.</li>
+                        <li>Give details concerning shares of any class and series of stock authorized to be issued by a regulatory commission which have not yet been issued.</li>
+                        <li>The identification of each class of preferred stock should show the dividend rate and whether the dividends are cumulative or noncumulative.</li>
+                        <li>State in a footnote if any capital stock that has been nominally issued is nominally outstanding at end of year.</li>
+                        <li>Give particulars (details) in column (a) of any nominally issued capital stock, reacquired stock, or stock in sinking and other funds which is pledged, stating name of pledgee and purpose of pledge.</li>
+                    </ol>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr class="col-heading-row">     
+                <td class="col-heading xbrl line-number">Line No.</td>
+                <td class="col-heading xbrl" xule:repeat="ISHeadings">
+                        <xule:expression class="hide" name="ISHeadings">
+                                $headings = filter (taxonomy().concept(ferc:ScheduleCapitalStockAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "250 - Schedule - Capital Stock - Common Stock (Account 201)") 
+    
+                                $headings = list(for $ref in $headings 
+                                list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value))
+    
+                                $heading_dict = dict(for $row in $headings
+                                        list("("+$row[1]+")",$row[2])
+                                );
+                                for $row in $heading_dict.keys.sort
+                        </xule:expression>
+                        <div style="text-align: center"><xule:replace>
+                        <xule:expression class="hide" name="ISHeadings" part="1">$heading_dict[$row]</xule:expression>
+                        <xule:template-display>
+                            Title  of Account
+                        </xule:template-display>
+                    </xule:replace>
+                </div>
+                    <div style="text-align: center"><xule:replace>
+                            <xule:expression class="hide" name="ISHeadings" part="2">$row</xule:expression>
+                            <xule:template-display>
+                                (a)
+                            </xule:template-display>
+                        </xule:replace></div>
+                </td>
+            </tr>
+    <!-- Common Stock Heading-->
+        <tr>
+            <td class="xbrl">1</td>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:CommonStockAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2CapitalStock").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                            Common Stock (Account 201)
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+        </tr>
+
+        <tr class="schedule-row" xule:repeat="CommonStockLineItems">
+                <xule:expression class="hide" name="CommonStockLineItems">// adding a comment
+                    
+                $data2 =   list(for $i in range(41, 43-length(set({covered @ferc:CommonStockAxis=*}.dimension(ferc:CommonStockAxis))))
+                                list($i,none,none,none,none,none,none,none,none,none,none)
+                );
+                
+                $data = if list({covered @ferc:CommonStockAxis=*}).length > 0  
+                    list({covered @ferc:CommonStockAxis=*  {list(
+                        
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
+                        first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                    else
+                        0,
+                    if list({@ferc:CapitalStockDescription @unit @period=$currentDuration}).length > 0 
+                        first(list({@ferc:CapitalStockDescription @unit @period=$currentDuration})) 
+                    else  
+                        none,
+                    if list({@ferc:CommonStockSharesAuthorized @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CommonStockSharesAuthorized @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:CapitalStockParOrStatedValuePerShare @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CapitalStockParOrStatedValuePerShare @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:CapitalStockCallPrice @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CapitalStockCallPrice @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:CommonStockSharesOutstanding @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CommonStockSharesOutstanding @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:CommonStockIssued @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CommonStockIssued @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:CapitalStockSharesHeldAsReacquiredStock @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CapitalStockSharesHeldAsReacquiredStock @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:ReacquiredCapitalStock @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:ReacquiredCapitalStock @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:CapitalStockSharesHeldInSinkingAndOtherFunds @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CapitalStockSharesHeldInSinkingAndOtherFunds @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:CapitalStockValueHeldInSinkingAndOtherFunds @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CapitalStockValueHeldInSinkingAndOtherFunds @unit @period=$currentInstant})) 
+                    else 
+                        none
+                    )}}) + $data2
+                    else $data2;
+            
+                    $uniqueData = list(for $x in  $data
+                                        if $x == list(0,none,none,none,none,none,none,none,none,none,none)
+                                            skip
+                                        else 
+                                            $x
+                                    );
+            
+                    for $row in $uniqueData.sort          
+    
+                </xule:expression>
+    
+            <td class="xbrl line-number">
+                    <xule:lineNumber name="CommonStockLineItems"><xule:startNumber>2</xule:startNumber></xule:lineNumber>
+                    <xule:template-display>1</xule:template-display>
+            </td>
+            <!-- Description -->
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" name="CommonStockLineItems" part="2">$row[2]</xule:expression>
+                    <xule:template-display>
+                            300
+                    </xule:template-display>
+                </xule:replace>        
+            </td>
+            <!-- Number of Shares Authorized by Charter-->  
+            <td class="numeric_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CommonStockLineItems" part="3">$row[3]</xule:expression>
+                <xule:template-display>
+                        400 shares
+                </xule:template-display>
+                </xule:replace>        
+            </td> 
+            <!-- Par or Stated Value per Share -->
+            <td class="numeric_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CommonStockLineItems" part="4">$row[4]</xule:expression>
+                <xule:template-display>
+                        $4,000
+                </xule:template-display>
+                </xule:replace>        
+            </td>
+            <!-- Call Price at End of Year-->
+            <td class="numeric_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CommonStockLineItems" part="5">$row[5]</xule:expression>
+                    <xule:template-display>
+                            $4,000
+                    </xule:template-display>
+                    </xule:replace>        
+            </td>
+            <!-- Outstanding per Balance Sheet (Shares) -->
+            <td class="numeric_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CommonStockLineItems" part="6">$row[6]</xule:expression>
+                    <xule:template-display>
+                            4,000 Shares
+                    </xule:template-display>
+                    </xule:replace>        
+            </td>
+            <!-- Outstanding per Balance Sheet (Amount) --> 
+            <td class="monetary_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CommonStockLineItems" part="7">$row[7]</xule:expression>
+                <xule:template-display>
+                        $4,000,000
+                </xule:template-display>
+                </xule:replace>        
+            </td>
+            <!-- Held by Respondent as reacquired Stock (Account 217) (Shares) --> 
+            <td class="numeric_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CommonStockLineItems" part="8">$row[8]</xule:expression>
+                <xule:template-display>
+                        4,000 Shares
+                </xule:template-display>
+                </xule:replace>        
+            </td>
+            <!-- Held by Respondent as reacquired Stock (Account 217) (Amount) --> 
+            <td class="monetary_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CommonStockLineItems" part="9">$row[9]</xule:expression>
+                <xule:template-display>
+                        $4,000,000
+                </xule:template-display>
+                </xule:replace>        
+            </td>
+            <!-- Held by Respondent in Sinking and Other Funds (Shares) -->
+            <td class="numeric_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CommonStockLineItems" part="10">$row[10]</xule:expression>
+                <xule:template-display>
+                        4,000 shares
+                </xule:template-display>
+                </xule:replace>        
+            </td>
+            <!-- Held by Respondent in Sinking and Other Funds (Amount) --> 
+            <td class="monetary_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CommonStockLineItems" part="11">$row[11]</xule:expression>
+                <xule:template-display>
+                        $4,000,000
+                </xule:template-display>
+                </xule:replace>        
+            </td> 
+        </tr>
+    <!-- Common Stock Sub total -->
+        <tr>
+            <td class="xbrl line-number">
+                <xule:replace><xule:expression class="hide">
+                        $heading = 1
+                        $total = 1
+                        $group1 = if length(set({covered @ferc:CommonStockAxis=*}.dimension(ferc:CommonStockAxis))) > 0
+                                    max(list(length(set({covered @ferc:CommonStockAxis=*}.dimension(ferc:CommonStockAxis))),3))
+                                else
+                                    3;
+        
+                        $heading + $group1 + $total
+                    </xule:expression></xule:replace>
+                        <xule:template-display>
+                            1
+                        </xule:template-display>
+            </td>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:CommonStockIssued).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                            Sub Total
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="numeric_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:CommonStockSharesAuthorized @period=$currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                   4,080 shares
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="numeric_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:CommonStockSharesOutstanding @period=$currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    4,080 shares
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="monetary_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:CommonStockIssued @period=$currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $4,080,200 
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+        </tr>
+    <!-- Preferred Stock Heading-->
+        <tr>
+                <td class="xbrl line-number">
+                        <xule:replace><xule:expression class="hide">
+                                $heading = 2
+                                $total = 1
+                                $group1 = if length(set({covered @ferc:CommonStockAxis=*}.dimension(ferc:CommonStockAxis))) > 0
+                                            max(list(length(set({covered @ferc:CommonStockAxis=*}.dimension(ferc:CommonStockAxis))),3))
+                                        else
+                                            3;
+                
+                                $heading + $group1 + $total
+                        </xule:expression></xule:replace>
+                        <xule:template-display>1</xule:template-display>
+                </td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:PreferredStockAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2CapitalStock").text
+                        </xule:expression>
+                        <div>
+                            <xule:template-display>
+                                Preferred Stock (Account 204)
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+                <td class="xbrl gray-out"></td>
+            </tr>
+    <!-- Preferred Stock -->
+    <tr class="schedule-row" xule:repeat="PreferredStockLineItems">
+            <xule:expression class="hide" name="PreferredStockLineItems">// adding a comment
+                
+            $data2 =   list(for $i in range(41,43-length(set({covered @ferc:PreferredStockAxis=*}.dimension(ferc:PreferredStockAxis))))
+                            list($i,none,none,none,none,none,none,none,none,none,none)
+            );
+            
+            $data = if list({covered @ferc:PreferredStockAxis=*}).length > 0  
+                list({covered @ferc:PreferredStockAxis=*  {list(
+                    
+                if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
+                    first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                else
+                    0,
+                if list({@ferc:CapitalStockDescription @unit @period=$currentDuration}).length > 0 
+                    first(list({@ferc:CapitalStockDescription @unit @period=$currentDuration})) 
+                else  
+                    none,
+                if list({@ferc:PreferredStockSharesAuthorized @unit @period=$currentInstant}).length > 0
+                    first(list({@ferc:PreferredStockSharesAuthorized @unit @period=$currentInstant})) 
+                else 
+                    none,
+                if list({@ferc:CapitalStockParOrStatedValuePerShare @unit @period=$currentInstant}).length > 0
+                    first(list({@ferc:CapitalStockParOrStatedValuePerShare @unit @period=$currentInstant})) 
+                else 
+                    none,
+                if list({@ferc:CapitalStockCallPrice @unit @period=$currentInstant}).length > 0
+                    first(list({@ferc:CapitalStockCallPrice @unit @period=$currentInstant})) 
+                else 
+                    none,
+                if list({@ferc:PreferredStockSharesOutstanding @unit @period=$currentInstant}).length > 0
+                    first(list({@ferc:PreferredStockSharesOutstanding @unit @period=$currentInstant})) 
+                else 
+                    none,
+                if list({@ferc:PreferredStockIssued @unit @period=$currentInstant}).length > 0
+                    first(list({@ferc:PreferredStockIssued @unit @period=$currentInstant})) 
+                else 
+                    none,
+                if list({@ferc:CapitalStockSharesHeldAsReacquiredStock @unit @period=$currentInstant}).length > 0
+                    first(list({@ferc:CapitalStockSharesHeldAsReacquiredStock @unit @period=$currentInstant})) 
+                else 
+                    none,
+                if list({@ferc:ReacquiredCapitalStock @unit @period=$currentInstant}).length > 0
+                    first(list({@ferc:ReacquiredCapitalStock @unit @period=$currentInstant})) 
+                else 
+                    none,
+                if list({@ferc:CapitalStockSharesHeldInSinkingAndOtherFunds @unit @period=$currentInstant}).length > 0
+                    first(list({@ferc:CapitalStockSharesHeldInSinkingAndOtherFunds @unit @period=$currentInstant})) 
+                else 
+                    none,
+                if list({@ferc:CapitalStockValueHeldInSinkingAndOtherFunds @unit @period=$currentInstant}).length > 0
+                    first(list({@ferc:CapitalStockValueHeldInSinkingAndOtherFunds @unit @period=$currentInstant})) 
+                else 
+                    none
+                )}}) + $data2
+                else $data2;
+        
+                $uniqueData = list(for $x in  $data
+                                    if $x == list(0,none,none,none,none,none,none,none,none,none,none)
+                                        skip
+                                    else 
+                                        $x
+                                );
+        
+                $orders = set(for $x in $uniqueData $x[1]).sort;
+                for $order in $orders
+                    for $row in $uniqueData
+                        if $row[1] != $order
+                            skip
+                        else            
+
+            </xule:expression>
+
+        <td class="xbrl line-number">
+                <xule:lineNumber name="PreferredStockLineItems"><xule:startNumber>
+                        $heading = 2
+                        $total = 1
+                        $group1 = if length(set({covered @ferc:CommonStockAxis=*}.dimension(ferc:CommonStockAxis))) > 0
+                                    max(list(count(set({covered @ferc:CommonStockAxis=*}.dimension(ferc:CommonStockAxis))),3))
+                                else
+                                    3;
+        
+                        $heading + $group1 + $total + 1
+                </xule:startNumber></xule:lineNumber>
+                <xule:template-display>1</xule:template-display>
+        </td>
+        <!-- Description -->
+        <td class="xbrl description_items">
+            <xule:replace>
+                <xule:expression class="hide" fact="true" name="PreferredStockLineItems" part="2">$row[2]</xule:expression>
+                <xule:template-display>
+                    Capital Stock
+                </xule:template-display>
+            </xule:replace>        
+        </td>
+        <!-- Number of Shares Authorized-->
+        <td class="numeric_items xbrl">
+            <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="PreferredStockLineItems" part="3">$row[3]</xule:expression>
+            <xule:template-display>
+                    400 shares
+            </xule:template-display>
+            </xule:replace>        
+        </td> 
+        <!-- Par or Stated Value per Share -->
+        <td class="numeric_items xbrl">
+            <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="PreferredStockLineItems" part="4">$row[4]</xule:expression>
+            <xule:template-display>
+                    $4,000
+            </xule:template-display>
+            </xule:replace>        
+        </td> 
+        <!-- Call Price at End of Year-->
+        <td class="numeric_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="PreferredStockLineItems" part="5">$row[5]</xule:expression>
+                <xule:template-display>
+                        $4,000
+                </xule:template-display>
+                </xule:replace>        
+        </td> 
+        <!-- Outstanding per Balance Sheet (Shares) -->
+        <td class="numeric_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="PreferredStockLineItems" part="6">$row[6]</xule:expression>
+                <xule:template-display>
+                        $4,000,000
+                </xule:template-display>
+                </xule:replace>        
+        </td>
+        <!-- Outstanding per Balance Sheet (Amount) -->         
+        <td class="monetary_items xbrl">
+            <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="PreferredStockLineItems" part="7">$row[7]</xule:expression>
+            <xule:template-display>
+                    $4,000,000
+            </xule:template-display>
+            </xule:replace>        
+        </td> 
+        <!-- Held by Respondent as reacquired Stock (Account 217) (Shares) --> 
+        <td class="numeric_items xbrl">
+            <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="PreferredStockLineItems" part="8">$row[8]</xule:expression>
+            <xule:template-display>
+                    $4,000,000
+            </xule:template-display>
+            </xule:replace>        
+        </td> 
+         <!-- Held by Respondent as reacquired Stock (Account 217) (Amount) -->
+        <td class="monetary_items xbrl">
+            <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="PreferredStockLineItems" part="9">$row[9]</xule:expression>
+            <xule:template-display>
+                    $4,000,000
+            </xule:template-display>
+            </xule:replace>        
+        </td> 
+         <!-- Held by Respondent in Sinking and Other Funds (Shares) -->
+        <td class="numeric_items xbrl">
+            <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="PreferredStockLineItems" part="10">$row[10]</xule:expression>
+            <xule:template-display>
+                    $4,000,000
+            </xule:template-display>
+            </xule:replace>        
+        </td> 
+        <!-- Held by Respondent in Sinking and Other Funds (Amount) --> 
+        <td class="monetary_items xbrl">
+            <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="PreferredStockLineItems" part="11">$row[11]</xule:expression>
+            <xule:template-display>
+                    $4,000,000
+            </xule:template-display>
+            </xule:replace>        
+        </td> 
+    </tr>
+    <!-- Preferred Stock Sub total -->
+    <tr>
+            <td class="xbrl">
+                <xule:replace><xule:expression class="hide">
+                    $heading = 2
+                    $total = 2
+                    $group1 = if length(set({covered @ferc:CommonStockAxis=*}.dimension(ferc:CommonStockAxis))) > 0
+                                    max(list(count(set({covered @ferc:CommonStockAxis=*}.dimension(ferc:CommonStockAxis))),3))
+                                else
+                                    3;
+                    $group2 = if length(set({covered @ferc:PreferredStockAxis=*}.dimension(ferc:PreferredStockAxis))) > 0
+                                        max(list(count(set({covered @ferc:PreferredStockAxis=*}.dimension(ferc:PreferredStockAxis))),3))
+                            else
+                                3;
+        
+                        $heading + $group1 + $group2 + $total
+                </xule:expression></xule:replace>
+                <xule:template-display>
+                    1
+                </xule:template-display>
+            </td>
+            <!-- Description -->
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:PreferredStockIssued).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                            Sub Total
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <!-- Number of Shares Authorized by Charter--> 
+            <td class="numeric_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:PreferredStockSharesAuthorized @period=$currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                   4,080,200,000 shares 
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="xbrl gray-out"></td> <!-- Par or Stated Value per Share -->
+            <td class="xbrl gray-out"></td> <!-- Call Price at End of Year-->
+            <!-- Outstanding per Balance Sheet (Shares) -->
+            <td class="numeric_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:PreferredStockSharesOutstanding @period=$currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $4,080,200,000 shares 
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <!-- Outstanding per Balance Sheet (Amount) --> 
+            <td class="monetary_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:PreferredStockIssued @period=$currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $4,080,200 
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+        </tr>
+    <!-- Capital Stock (Historical Data) -->
+        <tr class="schedule-row" xule:repeat="CapitalStockHeader">
+            <xule:expression class="hide" name="CapitalStockHeader">
+                $Historicalheader = list(if count(list({covered @ferc:CapitalStockByTypesAxis=*})) > 0 
+                            "Historical Data"
+                        else
+                            skip);
+                for $row in $Historicalheader 
+            </xule:expression>
+            <td class="xbrl" colspan="11">
+                <xule:replace>
+                        <xule:expression class="hide"  name="CapitalStockHeader" part="1">$row</xule:expression>
+                </xule:replace>
+            </td> 
+        </tr>
+        <tr class="schedule-row" xule:repeat="CapitalStockLineItems">
+                <xule:expression class="hide" name="CapitalStockLineItems">// adding a comment
+                
+                $data = if list({covered @ferc:CapitalStockByTypesAxis=*}).length > 0  
+                    list({covered @ferc:CapitalStockByTypesAxis=*  {list(
+                        
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
+                        first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                    else
+                        0,
+                    if list({@ferc:CapitalStockDescription @unit @period=$currentDuration}).length > 0 
+                        first(list({@ferc:CapitalStockDescription @unit @period=$currentDuration})) 
+                    else  
+                        none,
+                    if list({@ferc:CapitalStockSharesAuthorized @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CapitalStockSharesAuthorized @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:CapitalStockParOrStatedValuePerShare @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CapitalStockParOrStatedValuePerShare @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:CapitalStockCallPrice @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CapitalStockCallPrice @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:CapitalStockSharesOutstanding @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CapitalStockSharesOutstanding @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:CapitalStockValueOutstanding @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CapitalStockValueOutstanding @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:CapitalStockSharesHeldAsReacquiredStock @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CapitalStockSharesHeldAsReacquiredStock @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:CapitalStockValueHeldAsReacquiredStock @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CapitalStockValueHeldAsReacquiredStock @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:CapitalStockSharesHeldInSinkingAndOtherFunds @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CapitalStockSharesHeldInSinkingAndOtherFunds @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if list({@ferc:CapitalStockValueHeldInSinkingAndOtherFunds @unit @period=$currentInstant}).length > 0
+                        first(list({@ferc:CapitalStockValueHeldInSinkingAndOtherFunds @unit @period=$currentInstant})) 
+                    else 
+                        none
+                    )}})
+                    else skip;
+            
+                    $uniqueData = list(for $x in  $data
+                                        if $x == list(0,none,none,none,none,none,none,none,none,none,none)
+                                            skip
+                                        else 
+                                            $x
+                                    );
+            
+                    $orders = set(for $x in $uniqueData $x[1]).sort;
+                    for $order in $orders
+                        for $row in $uniqueData
+                            if $row[1] != $order
+                                skip
+                            else            
+    
+                </xule:expression>
+    
+            <td class="xbrl">
+                    <xule:lineNumber name="CapitalStockLineItems"><xule:startNumber>
+                        $heading = 2
+                        $total = 2
+                        $group1 = if length(set({covered @ferc:CommonStockAxis=*}.dimension(ferc:CommonStockAxis))) > 0
+                                        max(list(count(set({covered @ferc:CommonStockAxis=*}.dimension(ferc:CommonStockAxis))),3))
+                                    else
+                                        3;
+                        $group2 = if length(set({covered @ferc:PreferredStockAxis=*}.dimension(ferc:PreferredStockAxis))) > 0
+                                            max(list(count(set({covered @ferc:PreferredStockAxis=*}.dimension(ferc:PreferredStockAxis))),3))
+                                else
+                                    3;
+            
+                            $heading + $group1 + $group2 + $total + 1
+
+
+                    </xule:startNumber></xule:lineNumber>
+                    <xule:template-display>1</xule:template-display>
+            </td>
+            <!-- Descrition -->
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide" fact2="true" name="CapitalStockLineItems" part="2">$row[2]</xule:expression>
+                    <xule:template-display>
+                            Capital Stock
+                    </xule:template-display>
+                </xule:replace>        
+            </td>
+            <!-- Number of Shares -->
+            <td class="xbrl numeric_items">
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true"  format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="3">$row[3]</xule:expression>
+                         <xule:template-display>Capital Stock</xule:template-display>
+                     </xule:replace>
+            </td> 
+        
+             <!-- Par or Stated Value per Share         -->    
+            <td class="numeric_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="4">$row[4]</xule:expression>
+                <xule:template-display>
+                        400 shares
+                </xule:template-display>
+                </xule:replace>        
+            </td> 
+            
+             <!-- Call Price at End of Year -->    
+            <td class="numeric_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="5">$row[5]</xule:expression>
+                <xule:template-display>
+                        $400
+                </xule:template-display>
+                </xule:replace>        
+            </td> 
+           
+             <!-- Outstanding (Shares)  -->
+            <td class="numeric_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="6">$row[6]</xule:expression>
+                    <xule:template-display>
+                        4,000 shares
+                    </xule:template-display>
+                    </xule:replace>        
+            </td> 
+           
+             <!-- Outstanding (Amount)  -->
+            <td class="monetary_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="7">$row[7]</xule:expression>
+                    <xule:template-display>
+                            $4,000,000
+                    </xule:template-display>
+                    </xule:replace>        
+            </td> 
+ 
+             <!-- Held by Respondent as Reacquired Stock (Shares) -->
+            <td class="numeric_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="8">$row[8]</xule:expression>
+                <xule:template-display>
+                    4,000 shares
+                </xule:template-display>
+                </xule:replace>        
+            </td> 
+             
+             <!-- Held by Respondent as Reacquired Stock (Amount) -->
+            <td class="monetary_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="9">$row[9]</xule:expression>
+                <xule:template-display>
+                        $4,000,000
+                </xule:template-display>
+                </xule:replace>        
+            </td> 
+          
+             <!-- Held by Respondent In Skinking and Other Funds (Shares)   -->
+            <td class="numeric_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="10">$row[10]</xule:expression>
+                <xule:template-display>
+                        4,000 shares
+                </xule:template-display>
+                </xule:replace>        
+            </td> 
+          
+            <!-- Held by Respondent In Skinking and Other Funds (Amount)   -->
+            <td class="monetary_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="11">$row[11]</xule:expression>
+                <xule:template-display>
+                        $4,000,000
+                </xule:template-display>
+                </xule:replace>        
+            </td> 
+        </tr>
+
+
+
+
+        
+        <tr>
+            <td class="xbrl line-number">
+                    <xule:replace><xule:expression class="hide">
+                        $heading = 2
+                        $total = 2
+                        $group1 = if length(set({covered @ferc:CommonStockAxis=*}.dimension(ferc:CommonStockAxis))) > 0
+                                        max(list(count(set({covered @ferc:CommonStockAxis=*}.dimension(ferc:CommonStockAxis))),3))
+                                    else
+                                        3;
+                        $group2 = if length(set({covered @ferc:PreferredStockAxis=*}.dimension(ferc:PreferredStockAxis))) > 0
+                                            max(list(count(set({covered @ferc:PreferredStockAxis=*}.dimension(ferc:PreferredStockAxis))),3))
+                                else
+                                    3;
+
+                        $group3 = if length(set({covered @ferc:CapitalStockByTypesAxis=*}.dimension(ferc:CapitalStockByTypesAxis))) > 0
+                                   count(set({covered @ferc:CapitalStockByTypesAxis=*}.dimension(ferc:CapitalStockByTypesAxis)))
+                        else
+                            0;
+            
+                            $heading + $group1 + $group2 + $group3 +$total + 1
+                        </xule:expression></xule:replace>
+                        <xule:template-display>
+                            1
+                        </xule:template-display>
+            </td>
+        <!-- Capital Stock (Data Conversion) - Total -->
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:CapitalStockValueOutstanding).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                            Grand Total
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <!-- Shares Authorized  -->
+            <td class="numeric_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:CapitalStockSharesAuthorized @period=$currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    4,080,200 shares
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <!-- Capital Stock, Outstanding (Shares) -->
+            <td class="numeric_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:CapitalStockSharesOutstanding @period=$currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    4,080,200 shares
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <!-- Capital Stock, Outstanding (Amount) -->
+            <td class="monetary_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:CapitalStockValueOutstanding @period=$currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $4,080,200 
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+            <td class="xbrl gray-out"></td>
+        </tr>
+    </table>
+<br/>
+<div class="schedule-footer">
+    <div>FERC FORM No. 
+            <xule:replace>
+                <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                <xule:template-display>2/3-Q</xule:template-display>
+            </xule:replace>
+            <span> </span>
+            <xule:replace>
+                <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleCapitalStockAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2DateRevised").text + ")"
+                </xule:expression>
+                <xule:template-display>
+                        12-96
+                </xule:template-display>
+            </xule:replace>              
+    </div>
+    <div class="center-text">Page 
+            <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ScheduleCapitalStockAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Page").text
+                    </xule:expression>
+                    <xule:template-display>
+                    250
+                    </xule:template-display>
+            </xule:replace>
+    </div> 
+</div>
+</body>
+</html>

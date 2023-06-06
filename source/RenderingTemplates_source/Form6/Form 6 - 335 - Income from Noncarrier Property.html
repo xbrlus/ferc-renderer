@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F6 - 335</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl">
+    <div id="ScheduleIncomeFromNoncarrierPropertyAbstract"></div>
+    <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleIncomeFromNoncarrierPropertyAbstract"]).length > 0
+                false
+        else
+                true
+    </xule:showif>
+    <table class="schedule-header xbrl" width="100%">
+            <tr>
+                <td class="xbrl">
+                    <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                        <xule:template-display>Name of Respondent:</xule:template-display>
+                    </xule:replace>
+                    <br></br>
+                    
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:RespondentLegalName @period=$currentDuration]))</xule:expression>
+                        <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                    </xule:replace>
+                </td>
+                <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                            <xule:template-display>This report is:</xule:template-display>
+                    </xule:replace>
+                    <br></br>        
+                    (1) 
+                    <xule:replace>
+                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                            '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                            '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                            '<span class="checkbox">&#9744;</span> An Original']]>
+                            </xule:expression>  
+                            <xule:template-display>
+                                    <input type="checkbox"/> An Original
+                            </xule:template-display>
+                    </xule:replace>
+                    <br></br>  
+                    (2)
+                    <xule:replace>
+                            <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                            '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                            '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                            '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                    </xule:expression> 
+                            <xule:template-display>
+                                    <input type="checkbox" checked = "true"/> A Resubmission
+                            </xule:template-display>
+                    </xule:replace> 
+            </td>
+                <td class="xbrl"><xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                    <xule:template-display>Date of Report:</xule:template-display>
+                    </xule:replace>
+                     <br></br>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">first(list([@ferc:ReportDate @period=$currentDuration]))</xule:expression>
+                            <xule:template-display>04/26/2019</xule:template-display>
+                    </xule:replace>
+                </td>
+                <td class="xbrl"><xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                    <xule:template-display>Year/Period of Report:</xule:template-display>
+                    </xule:replace> 
+                    <br></br>
+                    End of: <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:ReportYear @period=$currentDuration]))</xule:expression>
+                        <xule:template-display>2018</xule:template-display>
+                    </xule:replace>
+                    <span>/</span>
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:ReportPeriod @period=$currentDuration]))</xule:expression>
+                        <xule:template-display>Q4</xule:template-display>
+                    </xule:replace>
+                </td>
+            </tr>
+        </table>
+    <table class="xbrl">
+        <tr class="sch-title">
+            <td class="xbrl" colspan="5"> 
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ScheduleIncomeFromNoncarrierPropertyAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6ScheduleTitle").text
+                    </xule:expression>
+                    <xule:template-display>
+                        Income from Noncarrier Property
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="5">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleIncomeFromNoncarrierPropertyAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                    <ol>
+                            <li>State the revenues, expenses, and net income of the respondent during the year from each class of noncarrier property provided for in Account No. 620, Income from Noncarrier Property, in the USofA.</li>
+                            <li>If the income relates to only a part of the year, give particulars (details) in a footnote.</li>
+                    </ol>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr class="col-heading-row">     
+            <td class="col-heading xbrl line-number">Line No.</td>
+            <td class="col-heading xbrl" xule:repeat="ColumnHeadings">
+                    <xule:expression class="hide" name="ColumnHeadings">
+                            $headings = filter (taxonomy().concept(ferc:ScheduleIncomeFromNoncarrierPropertyAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "335 - Schedule - Income From Noncarrier Property") 
+
+                            $heading = list(for $ref in $headings 
+                            list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value, $ref.part-by-name(ferc-part:ElementName).part-value))
+    
+                            $heading_dict = dict(for $row in $heading
+                                    list("("+$row[1]+")",list($row[2],taxonomy().concept(to-qname($row[3]))))
+                            );
+                            for $row in $heading_dict.keys.sort
+                    </xule:expression>
+                    <div style="text-align: center">
+                        <div class="tooltip">
+                                <div class="tooltiptext">
+                                        <xule:replace>
+                                                <xule:expression class="hide" name="ColumnHeadings" part="3">$heading_dict[$row][2].name.local-name</xule:expression>
+                                            </xule:replace>
+                                </div>    
+                            <xule:replace>
+                                <xule:expression class="hide" name="ColumnHeadings" part="1">$heading_dict[$row][1]</xule:expression>
+                                <xule:template-display>
+                                    Nature of Payment
+                                </xule:template-display>
+                            </xule:replace>
+                        </div>
+                    </div>
+                <div style="text-align: center"><xule:replace>
+                        <xule:expression class="hide" name="ColumnHeadings" part="2">$row</xule:expression>
+                        <xule:template-display>
+                            (a)
+                        </xule:template-display>
+                    </xule:replace></div>
+            </td>
+        </tr>
+            <tr class="schedule-row" xule:repeat="NoncarrierPropertyIncome">
+                <xule:expression class="hide" name="NoncarrierPropertyIncome">// adding a comment
+                    
+                $data2 =   list(for $i in range(49)
+                                list($i,none,none,none,none)
+                );
+                
+                $data = if count(list({covered @ferc:IncomeFromNoncarrierPropertyAxis=*})) > 0 
+                
+                    list({covered @ferc:IncomeFromNoncarrierPropertyAxis=*  {list(
+                        if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
+                            first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                        else
+                            0,
+                        if exists({@ferc:NoncarrierPropertyDescription @unit@period=$currentDuration}) 
+                            {@ferc:NoncarrierPropertyDescription @unit @period=$currentDuration} 
+                        else 
+                            none,
+                        if exists({@ferc:NoncarrierPropertyRevenue @unit @period=$currentDuration})
+                             {@ferc:NoncarrierPropertyRevenue @unit @period=$currentDuration} 
+                        else 
+                            none,
+                        if exists({@ferc:NoncarrierPropertyExpense @unit @period=$currentDuration})
+                            {@ferc:NoncarrierPropertyExpense @unit @period=$currentDuration} 
+                        else 
+                            none,
+                            none
+
+                        )}})
+                        else $data2;
+
+                        $uniqueData = list(for $x in  $data
+                        if $x == list(0,none,none,none,none)
+                            skip
+                        else 
+                            $x
+                        );
+    
+                       for $row in $uniqueData.sort  
+
+                          
+                
+                </xule:expression>
+                <td class="xbrl line-number"><xule:lineNumber name="NoncarrierPropertyIncome"/>
+                    <xule:template-display>1</xule:template-display>
+                </td>
+                <td class="xbrl description_items"><xule:replace><xule:expression  class="hide" fact="true" name="NoncarrierPropertyIncome" part="2">$row[2]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            Noncarrier Facilities
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="NoncarrierPropertyIncome" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $3,983,643
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="NoncarrierPropertyIncome" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                    <xule:template-display>
+                            $1,231,456
+                    </xule:template-display>
+                </td>
+                <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="NoncarrierPropertyIncome" fact="true" format="ixt4:num-dot-decimal" part="4">$row[5]</xule:expression>
+                    <xule:class location="parent">"gray-out"</xule:class>
+                </xule:replace>
+
+
+                </td>
+               
+            </tr> 
+
+            <!-- Line 50 Total -->
+            <tr>
+                <td class="xbrl line-number">50</td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:NoncarrierPropertyRevenue).label("http://ferc.gov/form/2020-01-01/roles/label/F6Total").text
+                        </xule:expression>
+                        <div>
+                            <xule:template-display>
+                                Total
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                <td class="xbrl monetary_items">
+                    <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([covered @concept=ferc:NoncarrierPropertyRevenue @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        $85,531,884
+                    </xule:template-display>
+                </xule:replace>
+                </td>
+                <td class="xbrl monetary_items">
+                        <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                            first(list([covered @concept=ferc:NoncarrierPropertyExpense @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            $21,938,231
+                        </xule:template-display>
+                    </xule:replace>
+                </td>
+                <td class="xbrl monetary_items">
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                                first(list([covered @concept=ferc:IncomeNetFromNoncarrierProperty @period = $currentDuration]))
+                            </xule:expression>
+                            <xule:template-display>
+                                $63,593,653‬
+                            </xule:template-display>
+                        </xule:replace>
+                </td>
+            </tr>
+
+    </table>
+<p></p>
+    <div class ="schedule-footer">
+        <div> FERC FORM NO.   
+            <xule:replace>
+                <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                <xule:template-display>6/6-Q</xule:template-display>
+            </xule:replace>
+            <span> </span>
+            <xule:replace>
+                    <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleIncomeFromNoncarrierPropertyAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6DateRevised").text + ")"
+                    </xule:expression>
+                    <xule:template-display>
+                        (ED. 12-91) 
+                    </xule:template-display>
+            </xule:replace>            
+        </div> 
+        <div style="text-align: center">Page 
+        <xule:replace>
+            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleIncomeFromNoncarrierPropertyAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6Page").text
+            </xule:expression>
+            <xule:template-display>
+            335
+            </xule:template-display>
+        </xule:replace>
+        </div>
+    </div>
+</body>
+</html>

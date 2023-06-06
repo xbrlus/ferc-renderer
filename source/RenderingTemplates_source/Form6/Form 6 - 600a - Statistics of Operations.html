@@ -1,0 +1,721 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F6/F6Q - 600a</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl" id="ScheduleStatisticsOfOperationsOwnedByRespondentButOperatedByOthersAbstract">
+    <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleStatisticsOfOperationsOwnedByRespondentButOperatedByOthersAbstract"]).length > 0
+                false
+        else
+                true
+    </xule:showif>
+    <table class="schedule-header xbrl" width="100%">
+            <tr>
+                <td class="xbrl">
+                    <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                        <xule:template-display>Name of Respondent:</xule:template-display>
+                    </xule:replace>
+                    <br></br>
+                    
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:RespondentLegalName @period=$currentDuration]))</xule:expression>
+                        <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                    </xule:replace>
+                </td>
+                <td class="xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                            <xule:template-display>This report is:</xule:template-display>
+                    </xule:replace>
+                    <br></br>        
+                    (1) 
+                    <xule:replace>
+                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                            '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                            '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                            '<span class="checkbox">&#9744;</span> An Original']]>
+                            </xule:expression>  
+                            <xule:template-display>
+                                    <input type="checkbox"/> An Original
+                            </xule:template-display>
+                    </xule:replace>
+                    <br></br>  
+                    (2)
+                    <xule:replace>
+                            <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                            '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                            '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                            '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                    </xule:expression> 
+                            <xule:template-display>
+                                    <input type="checkbox" checked = "checked"/> A Resubmission
+                            </xule:template-display>
+                    </xule:replace> 
+            </td>
+                <td class="xbrl"><xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                    <xule:template-display>Date of Report:</xule:template-display>
+                    </xule:replace>
+                     <br></br>
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">first(list([@ferc:ReportDate @period=$currentDuration]))</xule:expression>
+                            <xule:template-display>04/26/2019</xule:template-display>
+                    </xule:replace>
+                </td>
+                <td class="xbrl"><xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F6Header").text</xule:expression>
+                    <xule:template-display>Year/Period of Report:</xule:template-display>
+                    </xule:replace> 
+                    <br></br>
+                    End of: <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:ReportYear @period=$currentDuration]))</xule:expression>
+                        <xule:template-display>2018</xule:template-display>
+                    </xule:replace>
+                    <span>/</span>
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:ReportPeriod @period=$currentDuration]))</xule:expression>
+                        <xule:template-display>Q4</xule:template-display>
+                    </xule:replace>
+                </td>
+            </tr>
+        </table>
+    <table class="xbrl">
+        <tr class="sch-title">
+            <td class="xbrl" colspan="11"> 
+                <xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleStatisticsOfOperationsOwnedByRespondentButOperatedByOthersAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6ScheduleTitle").text
+                </xule:expression>
+                <xule:template-display>
+                    Statistics of Operations
+                </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr>
+            <td class="instruction xbrl" colspan="11">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleStatisticsOfOperationsOwnedByRespondentButOperatedByOthersAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                        <ol>
+                            <li>Give particulars (details) by States of origin for crude oil and for each kind of product received year to date and totals only (i.e., no State detail) for number of barrels of crude oil and of each kind of product delivered out of the pipeline year to date. Classify and list in column (b) by States of origin the refined products transported in the following order: 29111, Gasoline, jet fuels, and other high volatile petroleum fuels, except natural gasoline; 29112, Kerosene; 29113, Distillate fuel oil; 29114, Lubricating and similar oils and derivatives; 29117, Residual fuel oil and other low volatile petroleum fuels; 29112, Products of petroleum refining, n.e.c. - Specify.</li>
+                            <li>In column (c) show all oils received by the respondent from connecting carriers reporting to the Federal Energy Regulatory Commission. In column (d) show all oils originated on respondent&rsquo;s gathering lines and in column (e) all oils received into respondent&rsquo;s trunk line, except receipts shown in columns (c) and (d). Any barrels received into a pipeline owned by the respondent, but operated by others, should be reported separately on additional pages (For example 600a- 601a, 600b- 601b, etc.).</li>
+                            <li>Entries in column (f) should be the sum of columns (c), (d), and (e). In column (g) show all oils delivered to connecting carriers reporting to the Federal Energy Regulatory Commission. In column (h) show all oils terminated on the respondent&rsquo;s gathering lines, and in column (i) all oils delivered out of respondent&rsquo;s pipeline, except deliveries shown under columns (g) and (h).
+                            <br>Entries in column (j) should be the sum of columns (g), (h), and (i). Any barrels delivered out of a pipeline owned by the respondent, but operated by others, should be reported separately on additional pages (For example 600a- 601a, 600b- 601b, etc.).</br></li>
+                            <li>Enter actual amount for lines 33a and 33b on an annual basis only. Do not report on a quarterly basis. Estimate if actual figures are not available. Barrel miles as reported on this schedule are the summation, for all segments, of the number of miles associated with each pipeline segment (trunk line only) multiplied by the number of barrels delivered through the segment. For example, 1,000 barrels moved through a 57-mile pipeline segment would be recorded as 57,000 barrel-miles. For a crude pipeline with several segments:
+                            <table>
+                            <tr>
+                            <th>Segments</th>
+                            <th>Barrels</th>
+                            <th>Miles</th>
+                            <th>Barrel-Miles</th>
+                            </tr>
+                            <tr>
+                            <td>A</td>
+                            <td>1,000</td>
+                            <td>57</td>
+                            <td>57,000</td>
+                            </tr>
+                            <tr>
+                            <td>B</td>
+                            <td>5,000</td>
+                            <td>10</td>
+                            <td>50,000</td>
+                            </tr>
+                            <tr>
+                            <td>C</td>
+                            <td>1,000</td>
+                            <td>25</td>
+                            <td>25,000</td>
+                            </tr>
+                            </table>
+                            </li>
+                    </ol>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+
+        <tr class="col-heading-row">
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+            <td class="xbrl-no-bottom-line" colspan="1"> </td>
+            <td class="xbrl col-heading" colspan="4">Number of Barrels Received (Year to Date)</td>
+            <td class="xbrl col-heading" colspan="4">Number of Barrels Delivered Out (Year to Date)</td>
+        </tr>  
+        <tr class="col-heading-row">
+            <td class="xbrl-no-bottom-top-line" colspan="1"> </td>
+            <td class="xbrl-no-bottom-top-line" colspan="1"> </td>
+            <td class="xbrl-no-bottom-top-line" colspan="1"> </td>
+            <td class="xbrl-no-bottom-top-line" colspan="1"> </td>
+            <td class="xbrl center-text" colspan="2">ORIGINATED On</td>
+            <td class="xbrl-no-bottom-top-line" colspan="1"> </td>
+            <td class="xbrl-no-bottom-top-line" colspan="1"> </td>
+            <td class="xbrl center-text" colspan="2">TERMINATED On</td>
+            <td class="xbrl-no-bottom-line" colspan="1"></td>
+        </tr>      
+        <tr class="col-heading-row">     
+            <td class="col-heading xbrl-no-top-line line-number">Line No.</td>
+            <td class="col-heading xbrl-no-top-line" xule:repeat="ColumnHeadings">
+                    <xule:expression class="hide" name="ColumnHeadings">
+                            $headings = filter (taxonomy().concept(ferc:ScheduleStatisticsOfOperationsOwnedByRespondentButOperatedByOthersAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "600a - Schedule - Statistics of Operations - Operator") 
+
+                            $heading = list(for $ref in $headings 
+                            list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value, $ref.part-by-name(ferc-part:ElementName).part-value))
+    
+                            $heading_dict = dict(for $row in $heading
+                                    list("("+$row[1]+")",list($row[2],taxonomy().concept(to-qname($row[3]))))
+                            );
+                            for $row in $heading_dict.keys.sort
+                    </xule:expression>
+                    <div style="text-align: center">
+                        <div class="tooltip">
+                                <div class="tooltiptext">
+                                        <xule:replace>
+                                                <xule:expression class="hide" name="ColumnHeadings" part="3">$heading_dict[$row][2].name.local-name</xule:expression>
+                                            </xule:replace>
+                                </div>    
+                            <xule:replace>
+                                <xule:expression class="hide" name="ColumnHeadings" part="1">$heading_dict[$row][1]</xule:expression>
+                                <xule:template-display>
+                                    Nature of Payment
+                                </xule:template-display>
+                            </xule:replace>
+                        </div>
+                    </div>
+                <div style="text-align: center"><xule:replace>
+                        <xule:expression class="hide" name="ColumnHeadings" part="2">$row</xule:expression>
+                        <xule:template-display>
+                            (a)
+                        </xule:template-display>
+                    </xule:replace></div>
+            </td>
+        </tr>
+        <tr class="schedule-row" xule:repeat="StatisticsOperations">
+                <xule:expression class="hide" name="StatisticsOperations">// adding a comment
+                /** FLAG TYPE IS USED TO RENDER CORRECTLY 
+                ** A = Listing of details
+                ** B = Sub Total
+                ** C = Grand Total
+                ** D = Header
+                ** E = Total Number of Barrel-Miles (End Disclosure)
+                
+                **/
+
+                $CrudeHeader = list(list("","CRUDE OIL",none,none,none,none,none,none,none,none,none,"D"));
+                $ProductHeader =  list(list("","PRODUCT",none,none,none,none,none,none,none,none,none,"D"));
+                
+                $data1 =   list(for $i in range(15)
+                                        list($i,none,none,none,none,none,none,none,none,none,none,"A")
+                                    );
+
+                $TotalNumberOfBarrelMilesBlank = list(list("33","33a	Total Number of Barrel-Miles (Trunk Lines Only):",none,none,none,none,none,none, none, none,none,"E"),
+                                                 list(0,"(1) Crude Oil", none, none,none,none,none,none,none,none,none,"E"),
+                                                 list(0,"(2) Products",  none,none,none, none,none,none,none,none,none,"E"));
+
+                $TotalNumberOfBarrelOfOilBlank = list(list("33","33b 	Total Number of Barrels of Oil Having Trunk-Line Movement:",none,none,none,none,none,none, none, none,none,"E"),
+                                                 list(0,"(1) Crude Oil", none, none,none,none,none,none,none,none,none,"E"),
+                                                 list(0,"(2) Products",  none,none,none, none,none,none,none,none,none,"E"));
+
+                $data3 = list($CrudeHeader + $data1 + $ProductHeader + $data1 + $TotalNumberOfBarrelMilesBlank + $TotalNumberOfBarrelOfOilBlank);
+
+
+                $all-data =  if list({covered @ferc:NameOfOperatorAxis=*}).length == 0 
+                                        $data3
+                                    else
+                                        $data = if count(list({covered @ferc:StateOfOriginAndProductTypeAxis=*})) > 0 
+                        
+                                                        $operators = set({covered @ferc:NameOfOperatorAxis=*}.dimension(ferc:NameOfOperatorAxis));
+                        
+                                                        list(for $x in $operators
+                                                            $crudeOilDetail = list({covered @ferc:StateOfOriginAndProductTypeAxis=*  {list(
+                                                                if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
+                                                                    first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                                                                else
+                                                                    0,
+                                                                if exists({@ferc:StateOfOriginOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit@period=$currentDuration @ferc:NameOfOperatorAxis = $x}) 
+                                                                    first(list({@ferc:StateOfOriginOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                else 
+                                                                    none,
+                                                                if exists({@ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit@period=$currentDuration @ferc:NameOfOperatorAxis = $x}) 
+                                                                    first(list({@ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                else 
+                                                                    none,
+                                                                if exists({@ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    first(list({@ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                else 
+                                                                    none,
+                                                                if exists({@ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    first(list({@ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                else 
+                                                                    none,
+                                                                if exists({@ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    first(list({@ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                else 
+                                                                    none,
+                                                                if exists({@ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    first(list({@ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                else 
+                                                                    none,
+                                                                if exists({@ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    first(list({@ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                else 
+                                                                    none,
+                                                                if exists({@ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    first(list({@ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                else 
+                                                                    none,
+                                                                if exists({@ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    first(list({@ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                else 
+                                                                    none,
+                                                                if exists({@ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    first(list({@ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                else 
+                                                                    none ,
+                                                                "A"
+                                                                )}});
+
+                                                                $crudeOilDetailUnique = list(for $y in  $crudeOilDetail
+                                                                if $y == list($y[1],none,none,none,none,none,none,none,none,none, none, "A")
+                                                                    skip
+                                                                else 
+                                                                    $y
+                                                                    )
+                                
+                                                                $crudeOilDetailSorted = $crudeOilDetailUnique.sort
+                                                                
+                                                                $crudeOilTotal = list(list(15,
+                                                                "Total",
+                                                                none,
+                                                                if exists([covered @concept=ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none 
+                                                                    ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none,
+                                                                if exists([covered @concept=ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    "B"
+                                                                ));
+
+                                                                $OilProductsDetail = list({covered @ferc:StateOfOriginAndProductTypeAxis=*  {list(
+                                                                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
+                                                                        first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                                                                    else
+                                                                        0,
+                                                                    if exists({@ferc:StateOfOriginOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit@period=$currentDuration @ferc:NameOfOperatorAxis = $x}) 
+                                                                        first(list({@ferc:StateOfOriginOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                    else 
+                                                                        none,
+                                                                    if exists({@ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit@period=$currentDuration @ferc:NameOfOperatorAxis = $x}) 
+                                                                        first(list({@ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                    else 
+                                                                        none,
+                                                                    if exists({@ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                        first(list({@ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                    else 
+                                                                        none,
+                                                                    if exists({@ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                        first(list({@ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                    else 
+                                                                        none,
+                                                                    if exists({@ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                        first(list({@ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                    else 
+                                                                        none,
+                                                                    if exists({@ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                        first(list({@ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                    else 
+                                                                        none,
+                                                                    if exists({@ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                        first(list({@ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                    else 
+                                                                        none,
+                                                                    if exists({@ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                        first(list({@ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                    else 
+                                                                        none,
+                                                                    if exists({@ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                        first(list({@ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                    else 
+                                                                        none,
+                                                                    if exists({@ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                        first(list({@ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
+                                                                    else 
+                                                                        none,
+                                                                    "A"
+                                            
+                                                                    )}});
+                                                                    $OilProductsDetailUnique = list(for $y in  $OilProductsDetail
+                                                                                                if $y == list($y[1],none,none,none,none,none,none,none,none,none,none,"A")
+                                                                                                    skip
+                                                                                                else 
+                                                                                                    $y
+                                                                                                    )
+                                                                
+                                                                   $OilProductsDetailSorted = $OilProductsDetailUnique.sort
+                                                                
+                                                                $OilProductsTotal = list(list(31,
+                                                                "Total",
+                                                                none,
+                                                                if exists([covered @concept=ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none 
+                                                                    ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none,
+                                                                if exists([covered @concept=ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none,
+                                                                "B"
+                                                                ));
+
+                                                                $GrandTotal = list(list(32,
+                                                                "Grand Total",
+                                                                none,
+                                                                if exists([covered @concept=ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none 
+                                                                    ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none ,
+                                                                    if exists([covered @concept=ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none,
+                                                                if exists([covered @concept=ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                    first(list([covered @concept=ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                else 
+                                                                    none,
+                                                                "C" 
+                                                                ));
+
+                                                                $TotalNumberOfBarrelMiles = list(list("33",
+                                                                                                        "33a	Total Number of Barrel-Miles (Trunk Lines Only):",
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        "E"
+                                                                                                        ),
+                                                                                                 list(0,
+                                                                                                        "(1) Crude Oil",
+                                                                                                        if exists([covered @concept=ferc:NumberOfBarrelMilesOnTrunkLinesOfCrudeOilOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                                                            first(list([covered @concept=ferc:NumberOfBarrelMilesOnTrunkLinesOfCrudeOilOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                                                        else 
+                                                                                                            none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        "E"
+                                                                                                        ),
+                                                                                                list(0,
+                                                                                                        "(2) Products",
+                                                                                                        if exists([covered @concept=ferc:NumberOfBarrelMilesOnTrunkLinesOfOilProductsOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                                                            first(list([covered @concept=ferc:NumberOfBarrelMilesOnTrunkLinesOfOilProductsOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                                                        else 
+                                                                                                            none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        "E"
+                                                                                                        )  
+                                                                                                        );
+
+                                                                $TotalNumberOfBarrelOfOil = list(list("33",
+                                                                                                        "33b 	Total Number of Barrels of Oil Having Trunk-Line Movement:",
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        "E"
+                                                                                                        ),
+                                                                                                 list(0,
+                                                                                                        "(1) Crude Oil",
+                                                                                                        if exists([covered @concept=ferc:NumberOfBarrelsOfOilHavingTrunkLineMovementForCrudeOilOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                                                            first(list([covered @concept=ferc:NumberOfBarrelsOfOilHavingTrunkLineMovementForCrudeOilOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                                                        else 
+                                                                                                            none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        "E"
+                                                                                                        ),
+                                                                                                list(0,
+                                                                                                        "(2) Products",
+                                                                                                        if exists([covered @concept=ferc:NumberOfBarrelsOfOilHavingTrunkLineMovementForOilProductsOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])
+                                                                                                            first(list([covered @concept=ferc:NumberOfBarrelsOfOilHavingTrunkLineMovementForOilProductsOwnedByRespondentButOperatedByOthers @period = $currentDuration @ferc:NameOfOperatorAxis = $x])) 
+                                                                                                        else 
+                                                                                                            none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        none,
+                                                                                                        "E"
+                                                                                                        )  
+                                                                                                        );
+                                                                
+                                                                list(list("","Name of Operator: " + $x.string,none,none,none,none,none,none,none,none,none,"D")) +                                    
+                                                                $CrudeHeader + 
+                                                                $crudeOilDetailSorted + 
+                                                                $crudeOilTotal + 
+                                                                $ProductHeader + 
+                                                                $OilProductsDetailSorted + 
+                                                                $OilProductsTotal + 
+                                                                $GrandTotal +
+                                                                $TotalNumberOfBarrelMiles +
+                                                                $TotalNumberOfBarrelOfOil
+                                                                )
+                                                    else
+                                                        $data3
+
+                                        $data
+                                ;
+
+
+                        for $rows in $all-data       
+                            for $row in $rows
+                
+                </xule:expression>
+                <td class="xbrl line-number"><xule:lineNumber name="StatisticsOperations"/>
+                    <xule:template-display>1</xule:template-display>
+                </td>
+                <td class="">
+                    <xule:replace>
+                        <xule:expression  class="hide"  name="StatisticsOperations"  part="2">$row[2]</xule:expression>
+                        <xule:class location="parent">if $row[12] == "E" "xbrl-no-box" else "xbrl" </xule:class>
+                        <xule:class location="parent">if $row[12] == "D" "col-heading" else "description_items" </xule:class>
+                        <xule:fact> if $row[12] == "A" true else false</xule:fact>
+                        <xule:class location="parent">if $row[1] == "33" "overflow" else ""</xule:class>
+                    </xule:replace>
+                    <xule:template-display>
+                            Alaska
+                    </xule:template-display>
+                </td>
+                <td class="">
+                    <xule:replace>
+                        <xule:expression  class="hide"  name="StatisticsOperations" fact="true"  part="3">$row[3]</xule:expression>
+                        <xule:class location="parent">if $row[12] == "E" "xbrl-no-box" else "xbrl" </xule:class>
+                        <xule:class location="parent">if $row[12] == "E" "numeric_items" else "description_items" </xule:class>
+                        
+                </xule:replace>
+                    <xule:template-display>
+                            21000
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items">
+                    <xule:replace>
+                        <xule:expression class="hide"  name="StatisticsOperations" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression>
+                        <xule:class location="parent">if $row[12] == "E" "xbrl-no-box" else "xbrl" </xule:class>
+                </xule:replace>
+                    <xule:template-display>
+                            100,000
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items">
+                    <xule:replace>
+                        <xule:expression class="hide"  name="StatisticsOperations" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression>
+                        <xule:class location="parent">if $row[12] == "E" "xbrl-no-box" else "xbrl" </xule:class>
+                    </xule:replace>
+                    <xule:template-display>
+                            120,000
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items">
+                    <xule:replace>
+                    <xule:expression class="hide"  name="StatisticsOperations" fact="true" format="ixt4:num-dot-decimal" part="6">$row[6]</xule:expression>
+                    <xule:class location="parent">if $row[12] == "E" "xbrl-no-box" else "xbrl" </xule:class>
+                </xule:replace>
+                    <xule:template-display>
+                            140,000
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items">
+                    <xule:replace>
+                        <xule:expression class="hide"  name="StatisticsOperations" fact="true" format="ixt4:num-dot-decimal" part="7">$row[7]</xule:expression>
+                        <xule:class location="parent">if $row[12] == "E" "xbrl-no-box" else "xbrl" </xule:class>
+                    </xule:replace>
+                    <xule:template-display>
+                            920,000
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items">
+                    <xule:replace>
+                    <xule:expression class="hide"  name="StatisticsOperations" fact="true" format="ixt4:num-dot-decimal" part="8">$row[8]</xule:expression>
+                    <xule:class location="parent">if $row[12] == "E" "xbrl-no-box" else "xbrl" </xule:class>
+                </xule:replace>
+                    <xule:template-display>
+                            820,000
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items">
+                    <xule:replace>
+                        <xule:expression class="hide"  name="StatisticsOperations" fact="true" format="ixt4:num-dot-decimal" part="9">$row[9]</xule:expression>
+                        <xule:class location="parent">if $row[12] == "E" "xbrl-no-box" else "xbrl" </xule:class>
+                    </xule:replace>
+                    <xule:template-display>
+                            420,000
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items">
+                    <xule:replace>
+                        <xule:expression class="hide"  name="StatisticsOperations" fact="true" format="ixt4:num-dot-decimal" part="10">$row[10]</xule:expression>
+                        <xule:class location="parent">if $row[12] == "E" "xbrl-no-box" else "xbrl" </xule:class>
+                    </xule:replace>
+                    <xule:template-display>
+                            220,000
+                    </xule:template-display>
+                </td>
+                <td class="numeric_items">
+                    <xule:replace>
+                    <xule:expression class="hide"  name="StatisticsOperations" fact="true" format="ixt4:num-dot-decimal" part="11">$row[11]</xule:expression>
+                    <xule:class location="parent">if $row[12] == "E" "xbrl-right-side-only" else "xbrl" </xule:class>
+                </xule:replace>
+                    <xule:template-display>
+                            760,000
+                    </xule:template-display>
+                </td>
+       
+            </tr> 
+
+          
+    </table>
+   
+<p></p>
+    <div class ="schedule-footer">
+        <div> FERC FORM NO.
+            <xule:replace>
+                <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                <xule:template-display>6/6-Q</xule:template-display>
+            </xule:replace>
+            <span> </span>
+            <xule:replace>
+                    <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleStatisticsOfOperationsOwnedByRespondentButOperatedByOthersAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6DateRevised").text + ")"
+                    </xule:expression>
+                    <xule:template-display>
+                        (REV. 12-00) 
+                    </xule:template-display>
+            </xule:replace>            
+        </div> 
+        <div style="text-align: center">Page 
+            <xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleStatisticsOfOperationsOwnedByRespondentButOperatedByOthersAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F6PageRange").text
+                </xule:expression>
+                <xule:template-display>
+                600a
+                </xule:template-display>
+            </xule:replace>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+/**FERC Form 6 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F6.216.1 satisfied
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$dataHead = navigate parent-child descendants from ferc:AccruedDepreciationCarrierPropertyLineItems stop when $relationship.preferred-label == "http://ferc.gov/form/2020-01-01/roles/label/F6RollforwardHeader" role "http://ferc.gov/form/2020-01-01/roles/Schedule/F6/AccruedDepreciationCarrierProperty" returns list (target-name, preferred-label, order);
+$messageSection = list(for $x in $dataHead
+                        $abstractConcept = taxonomy().concept($x[1]);
+                        $is-heading = if ($x[2].role.uri == "http://ferc.gov/form/2020-01-01/roles/label/F6DepreciationCarrierProperty")
+                                                true
+                                        else 
+                                                false;
+                        $abstractLabel = list($is-heading, $abstractConcept.label($x[2].role.uri).text);
+                        $row_num = (filter $abstractConcept.references("http://ferc.gov/form/2020-01-01/roles/reference/formLocation") where ($item.part-by-name(ferc-part:Schedule).part-value == "216 - Schedule - Accrued Depreciation - Carrier Property" and $item.part-by-name(ferc-part:ValueType).part-value.string == "Label")).to-list;
+                        $row_number = list(if ($row_num.part-by-name(ferc-part:Row)).length == 0
+                                                        ""
+                                                else
+                                                        ($row_num.part-by-name(ferc-part:Row))[1].part-value);  
+                        $data = navigate parent-child children from $x[1] role "http://ferc.gov/form/2020-01-01/roles/Schedule/F6/AccruedDepreciationCarrierProperty" returns list(target, preferred-label, order);
+                                          
+                        $dataRow1 =   list(for $y in $data
+                                                $conceptPeriod = $y[1].period-type
+                                                if $conceptPeriod == "instant"
+                                                        if $y[2].role.uri == "http://ferc.gov/form/2020-01-01/roles/label/F6BeginningBalance"
+                                                                if list([covered @concept = $y[1].name @period = $priorInstant]).length > 0
+                                                                first(list([covered @concept = $y[1].name @period = $priorInstant]))
+                                                                else
+                                                                none
+                                                        else
+                                                                if list([covered @concept = $y[1].name @period = $currentInstant]).length > 0
+                                                                first(list([covered @concept = $y[1].name @period = $currentInstant]))
+                                                                else
+                                                                none
+                                                else
+                                                        if list([covered @concept = $y[1].name @period = $currentDuration]).length > 0
+                                                        first(list([covered @concept = $y[1].name @period = $currentDuration]))
+                                                        else
+                                                        none);
+                        $addend = $dataRow1[1] + $dataRow1[2] - $dataRow1[3] + $dataRow1[4];
+                        if ($dataRow1[5] + 0 != $addend)
+                                "The company has reported an ending balance for {$abstractLabel[2]} on row {$row_number[1]} with a value of {$dataRow1[5]} that is not equal to the value of the sum of its components of {$addend}. The total is comprised of the following:
+                                {$dataRow1[1].concept.name.local-name} = {$dataRow1[1]}
+                                {$dataRow1[2].concept.name.local-name} = {$dataRow1[2]}
+                                {$dataRow1[3].concept.name.local-name} = {$dataRow1[3]}
+                                {$dataRow1[4].concept.name.local-name} = {$dataRow1[4]}
+
+                                Total Element : {$dataRow1[5].concept.name}
+                                Total Period : {$dataRow1[5].period}
+                                Total Value : {$dataRow1[5]} 
+
+                               "
+                        else
+                                skip
+
+                );
+for $result in $messageSection
+        $message = $result;
+        true
+message
+"{$message}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $dataRow1[5]
+
+
+assert F6.216.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $all_source = navigate summation-item descendants include start role "http://ferc.gov/form/2020-01-01/roles/Schedule/F6/AccruedDepreciationCarrierProperty" returns  (source-name);
+
+        for $concept_item in $all_source.to-set
+        if $concept_item == none
+                skip
+        else
+                $data = navigate summation-item children from $concept_item role "http://ferc.gov/form/2020-01-01/roles/Schedule/F6/AccruedDepreciationCarrierProperty" returns  (target-name, weight)
+
+        /**$addendConcepts = filter $data returns $item[1]; **/
+
+        $addend = sum(list(for $x in $data
+                                                $targetElement = $x[1];
+                                                $targetWeight = $x[2];
+                                        [nonils @concept = $targetElement] * $targetWeight
+                                                )
+                                )
+                                
+        $addend_string = sum(list(for $x in $data.sort
+                                                $targetElement = $x[1];
+                                                $factAmt = [nonils @concept = $targetElement].string;
+                                                $weight =  if $x[2] == 1
+                                                                                "+"
+                                                                        else
+                                                                        "-";
+                                                $strLength = $targetElement.local-name.string.length;
+                                                $pad = sum(list(for $x in range(150 - $strLength - $factAmt.length)
+                                                                                " " 
+                                                                                )
+                                                                        )
+                                        "" + $weight + "  \t" + $targetElement.local-name.string + $pad + $factAmt + " \n"
+                                                )
+                                )
+
+        $sum2 = [@concept=$concept_item]
+
+        $conceptReported = $concept_item;
+        tolerance_for_decimals($sum2,$addend,$tolerance_factor)
+
+message
+
+"The value reported for {$conceptReported.local-name} is {$sum2} and the calculated value is {$addend} comprising the following values:
+
+{$addend_string}
+
+ Total Element : {$sum2.concept.name}
+ Total Period : {$sum2.period}
+ Total Value : {$sum2} 
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $sum2

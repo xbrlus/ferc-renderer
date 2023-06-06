@@ -1,0 +1,417 @@
+/**FERC Form 6 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F6.226.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@LongTermDebtPayableWithinOneYear}; 
+        $addend = {@MortgageBondsPayableWithinOneYear}#f1
+        + {@CollateralTrustBondsPayableWithinOneYear}#f2
+        + {@IncomeBondsPayableWithinOneYear}#f3
+        + {@MiscellaneousObligationsPayableWithinOneYear}#f4
+        + {@DebtToAffiliatedCompaniesPayableWithinOneYear}#f5
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LongTermDebtPayableWithinOneYear  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} which is comprised of the following:
+ + MortgageBondsPayableWithinOneYear			{$f1}
+ + CollateralTrustBondsPayableWithinOneYear		{$f2}
+ + IncomeBondsPayableWithinOneYear			{$f3}
+ + MiscellaneousObligationsPayableWithinOneYear		{$f4}
+ + DebtToAffiliatedCompaniesPayableWithinOneYear	{$f5}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.226.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@LongTermDebtPayableAfterOneYear}; 
+        $addend = {@MortgageBondsPayableAfterOneYear}#f1
+        + {@CollateralTrustBondsPayableAfterOneYear}#f2
+        + {@IncomeBondsPayableAfterOneYear}#f3
+        + {@MiscellaneousObligationsPayableAfterOneYear}#f4
+        + {@DebtToAffiliatedCompaniesPayableAfterOneYear}#f5
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LongTermDebtPayableAfterOneYear  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} which is comprised of the following:
+ + MortgageBondsPayableAfterOneYear			{$f1}
+ + CollateralTrustBondsPayableAfterOneYear		{$f2}
+ + IncomeBondsPayableAfterOneYear			{$f3}
+ + MiscellaneousObligationsPayableAfterOneYear		{$f4}
+ + DebtToAffiliatedCompaniesPayableAfterOneYear		{$f5}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.226.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@AccruedInterestLongTermDebt}; 
+        $addend = {@AccruedInterestMortgageBonds}#f1
+        + {@AccruedInterestCollateralTrustBonds}#f2
+        + {@AccruedInterestIncomeBonds}#f3
+        + {@AccruedInterestMiscellaneousObligations}#f4
+        + {@AccruedInterestDebtToAffiliatedCompanies}#f5
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccruedInterestLongTermDebt  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} which is comprised of the following:
+ + AccruedInterestMortgageBonds				{$f1}
+ + AccruedInterestCollateralTrustBonds			{$f2}
+ + AccruedInterestIncomeBonds				{$f3}
+ + AccruedInterestMiscellaneousObligations		{$f4}
+ + AccruedInterestDebtToAffiliatedCompanies		{$f5}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.226.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@InterestChargedToConstructionOrOtherInvestmentAccountLongTermDebt}; 
+        $addend = {@InterestChargedToConstructionOrOtherInvestmentAccountMortgageBonds}#f1
+        + {@InterestChargedToConstructionOrOtherInvestmentAccountCollateralTrustBonds}#f2
+        + {@InterestChargedToConstructionOrOtherInvestmentAccountIncomeBonds}#f3
+        + {@InterestChargedToConstructionOrOtherInvestmentAccountMiscellaneousObligations}#f4
+        + {@InterestChargedToConstructionOrOtherInvestmentAccountDebtToAffiliatedCompanies}#f5
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for InterestChargedToConstructionOrOtherInvestmentAccountLongTermDebt  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} which is comprised of the following:
+ + InterestChargedToConstructionOrOtherInvestmentAccountMortgageBonds				{$f1}
+ + InterestChargedToConstructionOrOtherInvestmentAccountCollateralTrustBonds			{$f2}
+ + InterestChargedToConstructionOrOtherInvestmentAccountIncomeBonds				{$f3}
+ + InterestChargedToConstructionOrOtherInvestmentAccountMiscellaneousObligations		{$f4}
+ + InterestChargedToConstructionOrOtherInvestmentAccountLongTermDebt				{$f5}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.226.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = {@InterestPaidLongTermDebt}; 
+        $addend = {@InterestPaidMortgageBonds}#f1
+        + {@InterestPaidCollateralTrustBonds}#f2
+        + {@InterestPaidIncomeBonds}#f3
+        + {@InterestPaidMiscellaneousObligations}#f4
+        + {@InterestPaidDebtToAffiliatedCompanies}#f5
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for InterestPaidLongTermDebt  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} which is comprised of the following:
+ + InterestPaidMortgageBonds					{$f1}
+ + InterestPaidCollateralTrustBonds				{$f2}
+ + InterestPaidIncomeBonds					{$f3}
+ + InterestPaidMiscellaneousObligations			        {$f4}
+ + InterestPaidDebtToAffiliatedCompanies		        {$f5}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.226.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@MortgageBondsPayableWithinOneYear]; 
+        $addend = sum(list([nonils @MortgageBondsPayableWithinOneYear @MortgageBondsLongTermDebtAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis MortgageBondsLongTermDebtAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $sum1
+
+assert F6.226.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@MortgageBondsPayableAfterOneYear]; 
+        $addend = sum(list([nonils @MortgageBondsPayableAfterOneYear @MortgageBondsLongTermDebtAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis MortgageBondsLongTermDebtAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $sum1
+
+assert F6.226.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@AccruedInterestMortgageBonds]; 
+        $addend = sum(list([nonils @AccruedInterestMortgageBonds @MortgageBondsLongTermDebtAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis MortgageBondsLongTermDebtAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $sum1
+
+assert F6.226.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@InterestChargedToConstructionOrOtherInvestmentAccountMortgageBonds]; 
+        $addend = sum(list([nonils @InterestChargedToConstructionOrOtherInvestmentAccountMortgageBonds @MortgageBondsLongTermDebtAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis MortgageBondsLongTermDebtAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $sum1
+
+assert F6.226.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@InterestPaidMortgageBonds]; 
+        $addend = sum(list([nonils @InterestPaidMortgageBonds @MortgageBondsLongTermDebtAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+
+"The breakdown of the element {$sum1.concept.name} using the axis MortgageBondsLongTermDebtAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $sum1
+
+assert F6.226.11 satisfied
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $elementsList = list(CollateralTrustBondsPayableWithinOneYear, CollateralTrustBondsPayableAfterOneYear, AccruedInterestCollateralTrustBonds, InterestChargedToConstructionOrOtherInvestmentAccountCollateralTrustBonds, InterestPaidCollateralTrustBonds)
+
+        $sum1 = [@@concept in $elementsList]; 
+        $addend = sum(list([nonils @@concept in $elementsList @CollateralTrustBondsLongTermDebtAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis CollateralTrustBondsLongTermDebtAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $sum1
+
+assert F6.226.12 satisfied
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $elementsList = list(IncomeBondsPayableWithinOneYear, IncomeBondsPayableAfterOneYear, AccruedInterestIncomeBonds, InterestChargedToConstructionOrOtherInvestmentAccountIncomeBonds, InterestPaidIncomeBonds)
+
+        $sum1 = [@@concept in $elementsList]; 
+        $addend = sum(list([nonils @@concept in $elementsList @IncomeBondsLongTermDebtAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis IncomeBondsLongTermDebtAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $sum1
+
+assert F6.226.13 satisfied
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $elementsList = list(MiscellaneousObligationsPayableWithinOneYear, MiscellaneousObligationsPayableAfterOneYear, AccruedInterestMiscellaneousObligations, InterestChargedToConstructionOrOtherInvestmentAccountMiscellaneousObligations, InterestPaidMiscellaneousObligations)
+
+        $sum1 = [@@concept in $elementsList]; 
+        $addend = sum(list([nonils @@concept in $elementsList @MiscellaneousObligationsLongTermDebtAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis MiscellaneousObligationsLongTermDebtAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $sum1
+
+assert F6.226.14 satisfied
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $elementsList = list(DebtToAffiliatedCompaniesPayableWithinOneYear, DebtToAffiliatedCompaniesPayableAfterOneYear, AccruedInterestDebtToAffiliatedCompanies, InterestChargedToConstructionOrOtherInvestmentAccountDebtToAffiliatedCompanies, InterestPaidDebtToAffiliatedCompanies)
+
+        $sum1 = [@@concept in $elementsList]; 
+        $addend = sum(list([nonils @@concept in $elementsList @DebtToAffiliatedCompaniesLongTermDebtAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis DebtToAffiliatedCompaniesLongTermDebtAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $sum1

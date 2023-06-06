@@ -1,0 +1,29 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1F.12.1 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:AccumulatedProvisionForDepreciationAndAmortizationOfUtilityPlantMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@UtilityPlant @UtilityTypeAxis=ElectricUtilityMember @period=$currentInstant};
+ $addend = ({@UtilityPlant @UtilityTypeAxis=ElectricUtilityMember @period=$priorInstant}
+ - {@AccruedDepreciationandAmortization @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration} 
+ + {@NetChargesForRetiredPlant @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration} 
+ + {@OtherUtilityPlantChanges @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UtilityPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+

@@ -1,0 +1,237 @@
+/**FERC Form 2 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.256.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@OutstandingHeldByRespondentReacquiredBonds]; 
+        $addend = sum(list([nonils @OutstandingHeldByRespondentReacquiredBonds @ReAcquiredBondObligationsAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis ReAcquiredBondObligationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F2.256.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $lineItems = list(Bonds, InterestExpenseBonds, OutstandingHeldByRespondentSinkingAndOtherFundsBonds);
+
+        $sum1 = [@@concept in $lineItems @BondObligationsAxis = none where $fact.is-monetary]; 
+        $addend = sum(list([nonils @@concept in $lineItems @BondObligationsAxis = * where $fact.is-monetary])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis BondObligationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.256.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+        $lineItems = list(ReacquiredBonds, InterestExpenseReacquiredBonds, OutstandingHeldByRespondentReacquiredBonds, OutstandingHeldByRespondentSinkingAndOtherFundsReacquiredBonds);
+
+        $sum1 = [@@concept in $lineItems @ReAcquiredBondObligationsAxis = none where $fact.is-monetary]; 
+        $addend = sum(list([nonils @@concept in $lineItems @ReAcquiredBondObligationsAxis = * where $fact.is-monetary])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis ReAcquiredBondObligationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.256.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+        $lineItems = list(AdvancesFromAssociatedCompanies, InterestExpenseDebtAdvancesFromAssociatedCompanies, OutstandingHeldByRespondentSinkingAndOtherFundsDebtAdvancesFromAssociatedCompanies);
+
+        $sum1 = [@@concept in $lineItems @AdvancesFromAssociatedCompaniesAxis = none where $fact.is-monetary]; 
+        $addend = sum(list([nonils @@concept in $lineItems @AdvancesFromAssociatedCompaniesAxis = * where $fact.is-monetary])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis AdvancesFromAssociatedCompaniesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.256.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+        $lineItems = list(OtherLongTermDebt, InterestExpenseOtherLongTermDebt, OutstandingHeldByRespondentSinkingAndOtherFundsOtherLongTermDebt);
+
+        $sum1 = [@@concept in $lineItems @OtherLongTermDebtAxis = none where $fact.is-monetary]; 
+        $addend = sum(list([nonils @@concept in $lineItems @OtherLongTermDebtAxis = * where $fact.is-monetary])#breakdown);
+         if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis OtherLongTermDebtAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.256.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@LongTermDebtOutstanding]; 
+ $addend = ([@Bonds]#f1
+ + [@ReacquiredBonds]#f2
+ + [@AdvancesFromAssociatedCompanies]#f3
+ + [@OtherLongTermDebt]#f4);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)
+message 
+"The company has reported a value for LongTermDebtOutstanding with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}. The sum is calculated as follows:
++ {$f1.concept.name}                     {$f1}
++ {$f2.concept.name}                     {$f2}
++ {$f3.concept.name}                     {$f3}
++ {$f4.concept.name}                     {$f4}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.256.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@InterestExpenseOnLongTermDebtIssued]; 
+ $addend = ([@InterestExpenseBonds]
+ + [@InterestExpenseReacquiredBonds]
+ + [@InterestExpenseDebtAdvancesFromAssociatedCompanies]
+ + [@InterestExpenseOtherLongTermDebt]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)
+message 
+"The company has reported a value for InterestExpenseOnLongTermDebtIssued with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.256.11 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@OutstandingHeldByRespondentSinkingAndOtherFunds]; 
+ $addend = ([@OutstandingHeldByRespondentSinkingAndOtherFundsBonds] 
+ + [@OutstandingHeldByRespondentSinkingAndOtherFundsReacquiredBonds]
+ + [@OutstandingHeldByRespondentSinkingAndOtherFundsDebtAdvancesFromAssociatedCompanies]
+ + [@OutstandingHeldByRespondentSinkingAndOtherFundsOtherLongTermDebt]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)
+message 
+"The company has reported a value for OutstandingHeldByRespondentSinkingAndOtherFunds with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1 

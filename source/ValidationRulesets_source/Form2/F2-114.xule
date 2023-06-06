@@ -1,0 +1,357 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.114.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@UtilityOperatingExpenses}; 
+ $addend = ({@OperationExpense}#f0
+ + {@MaintenanceExpense}#f1
+ + {@DepreciationExpense}#f2
+ + {@DepreciationExpenseForAssetRetirementCosts}#f3
+ + {@AmortizationAndDepletionOfUtilityPlant}#f4
+ + {@AmortizationOfGasPlantAcquisitionAdjustments}#f5
+ + {@AmortizationOfPropertyLossesUnrecoveredPlantAndRegulatoryStudyCosts}#f6
+ + {@AmortizationOfConversionExpenses}#f7
+ + {@RegulatoryDebits}#f8
+ - {@RegulatoryCredits}#f9
+ + {@TaxesOtherThanIncomeTaxesUtilityOperatingIncome}#f10
+ + {@IncomeTaxesUtilityOperatingIncome}#f11
+ + {@IncomeTaxesUtilityOperatingIncomeOther}#f12
+ + {@ProvisionsForDeferredIncomeTaxesUtilityOperatingIncome}#f13
+ - {@ProvisionForDeferredIncomeTaxesCreditUtilityOperatingIncome}#f14
+ + {@InvestmentTaxCreditAdjustments}#f15
+ - {@GainsFromDispositionOfPlant}#f16
+ + {@LossesFromDispositionOfUtilityPlant}#f17
+ - {@GainsFromDispositionOfAllowances}#f18
+ + {@LossesFromDispositionOfAllowances}#f19
+ + {@AccretionExpense}#f20
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UtilityOperatingExpenses with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}. The components are as follows:
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
++ \t {$f7.concept.name.local-name} \t = \t {$f7}
++ \t {$f8.concept.name.local-name} \t = \t {$f8}
+- \t {$f9.concept.name.local-name} \t = \t {$f9}
++ \t {$f10.concept.name.local-name} \t = \t {$f10}
++ \t {$f11.concept.name.local-name} \t = \t {$f11}
++ \t {$f12.concept.name.local-name} \t = \t {$f12}
++ \t {$f13.concept.name.local-name} \t = \t {$f13}
+- \t {$f14.concept.name.local-name} \t = \t {$f14}
++ \t {$f15.concept.name.local-name} \t = \t {$f15}
+- \t {$f16.concept.name.local-name} \t = \t {$f16}
++ \t {$f17.concept.name.local-name} \t = \t {$f17}
+- \t {$f18.concept.name.local-name} \t = \t {$f18}
++ \t {$f19.concept.name.local-name} \t = \t {$f19}
++ \t {$f20.concept.name.local-name} \t = \t {$f20}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.114.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@NetUtilityOperatingIncome}; 
+ $addend = ({@OperatingRevenues}#f0
+ - {@UtilityOperatingExpenses}#f1
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetUtilityOperatingIncome with a value of {$sum1} that is not equal to the value of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.114.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@OtherIncome}; 
+ $addend = ({@RevenuesFromMerchandisingJobbingAndContractWork}#f0
+ - {@CostsAndExpensesOfMerchandisingJobbingAndContractWork}#f1
+ + {@RevenuesFromNonutilityOperations}#f2
+ - {@ExpensesOfNonutilityOperations}#f3
+ + {@NonoperatingRentalIncome}#f4
+ + {@EquityInEarningsOfSubsidiaryCompanies}#f5
+ + {@InterestAndDividendIncome}#f6
+ + {@AllowanceForOtherFundsUsedDuringConstruction}#f7
+ + {@MiscellaneousNonoperatingIncome}#f8
+ + {@GainOnDispositionOfProperty}#f9
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherIncome with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
+- \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
+- \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
++ \t {$f7.concept.name.local-name} \t = \t {$f7}
++ \t {$f8.concept.name.local-name} \t = \t {$f8}
++ \t {$f9.concept.name.local-name} \t = \t {$f9}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.114.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@OtherIncomeDeductions}; 
+ $addend = ({@LossOnDispositionOfProperty}#f0
+ + {@MiscellaneousAmortization}#f1
+ + {@Donations}#f2
+ + {@LifeInsurance}#f3
+ + {@Penalties}#f4
+ + {@ExpendituresForCertainCivicPoliticalAndRelatedActivities}#f5
+ + {@OtherDeductions}#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherIncomeDeductions with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.114.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@TaxesOnOtherIncomeAndDeductions}; 
+ $addend = ({@TaxesOtherThanIncomeTaxesOtherIncomeAndDeductions}#f0
+ + {@IncomeTaxesFederal}#f1
+ + {@IncomeTaxesOther}#f2
+ + {@ProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions}#f3
+ - {@ProvisionForDeferredIncomeTaxesCreditOtherIncomeAndDeductions}#f4
+ + {@InvestmentTaxCreditAdjustmentsNonutilityOperations}#f5
+ - {@InvestmentTaxCredits}#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TaxesOnOtherIncomeAndDeductions with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
+- \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.114.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@NetOtherIncomeAndDeductions}; 
+ $addend = ({@OtherIncome}#f0
+ - {@OtherIncomeDeductions}#f1
+ - {@TaxesOnOtherIncomeAndDeductions}#f2
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetOtherIncomeAndDeductions with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
+- \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.114.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@NetInterestCharges}; 
+ $addend = ({@InterestOnLongTermDebt}#f0
+ + {@AmortizationOfDebtDiscountAndExpense}#f1
+ + {@AmortizationOfLossOnReacquiredDebt}#f2
+ - {@AmortizationOfPremiumOnDebtCredit}#f3
+ - {@AmortizationOfGainOnReacquiredDebtCredit}#f4
+ + {@InterestOnDebtToAssociatedCompanies}#f5
+ + {@OtherInterestExpense}#f6
+ - {@AllowanceForBorrowedFundsUsedDuringConstructionCredit}#f7
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetInterestCharges with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
+- \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+- \t {$f7.concept.name.local-name} \t = \t {$f7}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.114.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@IncomeBeforeExtraordinaryItems}; 
+ $addend = ({@NetUtilityOperatingIncome}#f0
+ + {@NetOtherIncomeAndDeductions}#f1
+ - {@NetInterestCharges}#f2
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for IncomeBeforeExtraordinaryItems with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.114.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@NetExtraordinaryItems}; 
+ $addend = ({@ExtraordinaryIncome}#f0
+ - {@ExtraordinaryDeductions}#f1
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetExtraordinaryItems with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
+- \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.114.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@ExtraordinaryItemsAfterTaxes}; 
+ $addend = ({@NetExtraordinaryItems}#f0
+ - {@IncomeTaxesExtraordinaryItems}#f1
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ExtraordinaryItemsAfterTaxes with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
+- \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.114.11 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@NetIncomeLoss}; 
+ $addend = ({@IncomeBeforeExtraordinaryItems}#f0
+ + {@ExtraordinaryItemsAfterTaxes}#f1
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetIncomeLoss with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

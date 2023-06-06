@@ -1,0 +1,1412 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
+xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
+xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc-part="http://www.ferc.gov/form/parts"
+>
+
+<head>
+    <title>Template - F2 - 252</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" type="text/css" href="form-template.css"/>
+</head>
+
+<body class="xbrl" id="ScheduleCapitalStockSubscribedLiabilityForConversionPremiumOnAndInstallmentsReceivedOnAbstract">
+    <xule:showif>
+        if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleCapitalStockSubscribedLiabilityForConversionPremiumOnAndInstallmentsReceivedOnAbstract"]).length > 0
+                false
+        else
+                true
+    </xule:showif>
+    <table class="schedule-header xbrl" width="100%">
+        <tr>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
+                </xule:replace>
+                <br/>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                    <xule:template-display>This report is:</xule:template-display>
+                </xule:replace>
+                    <br/>
+                    (1) 
+                        <xule:replace>
+                                <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
+                                '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
+                                '<span class="checkbox">&#9744;</span> An Original']]>
+                                </xule:expression>  
+                            <xule:template-display>
+                                    <input type="checkbox"/> An Original
+                            </xule:template-display>
+                        </xule:replace>
+                        <br/>
+                    (2)
+                        <xule:replace>
+                                <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                                '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
+                                '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
+                                '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                    </xule:expression> 
+                                <xule:template-display>
+                                        <input type="checkbox" checked = "checked"/> A Resubmission
+                                </xule:template-display>
+                        </xule:replace> 
+            </td>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                <xule:template-display>Date of Report:</xule:template-display>
+                </xule:replace>
+                <br/>
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xule:expression>
+                        <xule:template-display>04/26/2019</xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F2Header").text</xule:expression>
+                <xule:template-display>Year/Period of Report:</xule:template-display>
+                </xule:replace><br/>
+                End of: <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                    <xule:template-display>2018</xule:template-display>
+                </xule:replace>
+                <span>/</span>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xule:expression>
+                    <xule:template-display>Q4</xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+    </table>
+    <table class="xbrl">
+            <tr class="sch-title">
+                <td colspan="5" class="xbrl">
+                        <xule:replace>
+                                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleCapitalStockSubscribedLiabilityForConversionPremiumOnAndInstallmentsReceivedOnAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2ScheduleTitle").text
+                                </xule:expression>
+                                <xule:template-display>
+                                    Capital Stock: Subscribed, Liability for Conversion, Premium on, and Installments Recieved on (Accts 202, 203, 205, 206, 207, and 212)
+                                </xule:template-display>
+                        </xule:replace>
+                    </td>
+            </tr>
+            <tr>
+            <td class="instruction xbrl" colspan="5">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleCapitalStockSubscribedLiabilityForConversionPremiumOnAndInstallmentsReceivedOnAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
+                        <ol>
+                            <li>Show for each of the above accounts the amounts applying to each class and series of capital stock.</li>
+                            <li>For Account 202, Common Stock Subscribed, and Account 205, Preferred Stock Subscribed, show the subscription price and the alance due on each class at the end of year.</li>
+                            <li>Describe in a footnote the agreement and transactions under which a conversion liability existed under Account 203, Common tock Liability for Conversion, or Account 206, Preferred Stock Liability for Conversion, at the end of year.</li>
+                            <li>For Premium on Account 207, Capital Stock, designate with an asterisk in column (b), any amounts representing the excess of onsideration received over stated values of stocks without par value.</li>
+                        </ol>
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+        </tr>
+        <tr class="col-heading-row">     
+            <td class="col-heading xbrl line-number">Line No.</td>
+            <td class="col-heading xbrl" xule:repeat="CSHeadings">
+                    <xule:expression class="hide" name="CSHeadings">
+                            $headings = filter (taxonomy().concept(ferc:ScheduleCapitalStockSubscribedLiabilityForConversionPremiumOnAndInstallmentsReceivedOnAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "252 - Schedule - Capital Stock - Common Stock Subscribed (Account 202)") 
+
+                            $headings = list(for $ref in $headings 
+                            list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value))
+
+                            $heading_dict = dict(for $row in $headings
+						            list("("+$row[1]+")",$row[2])
+						    );
+                            for $row in $heading_dict.keys.sort
+                    </xule:expression>
+                    <div style="text-align: center"><xule:replace>
+                    <xule:expression class="hide" name="CSHeadings" part="1">$heading_dict[$row]</xule:expression>
+                    <xule:template-display>
+                        Account No.
+                    </xule:template-display>
+                </xule:replace>
+            </div>
+                <div style="text-align: center"><xule:replace>
+                        <xule:expression class="hide" name="CSHeadings" part="2">$row</xule:expression>
+                        <xule:template-display>
+                            (a)
+                        </xule:template-display>
+                    </xule:replace></div>
+            </td>
+        </tr>
+    <!-- Common Stock Subscribed -->
+        <tr>
+            <td class="xbrl">1</td>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:CaptalAccountCommonStockSubscribedAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2CapitalStock").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                                Common Stock, Subscribed
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="gray-out xbrl"></td>
+            <td class="gray-out xbrl"></td>
+            <td class="gray-out xbrl"></td>
+        </tr>
+        <tr class="schedule-row" xule:repeat="CommonStockSubscribedLineItems">
+                <xule:expression class="hide" name="CommonStockSubscribedLineItems">// adding a comment
+                    
+                $data2 =   list(for $i in range(3)
+                                list($i,none,none,none)
+                );
+                
+                $data = if count(list({covered @ferc:CommonStockSubscribedAxis=*})) > 0  
+                    list({covered @ferc:CommonStockSubscribedAxis=*  {list(
+                        
+                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                        first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                    else
+                        0,
+                    if exists({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}) 
+                        first(list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration})) 
+                    else  none,
+                    if exists({@ferc:CommonStockSubscribedShares @unit @period=$currentInstant})
+                        first(list({@ferc:CommonStockSubscribedShares @unit @period=$currentInstant})) 
+                    else none,
+                    if exists({@ferc:CommonStockSubscribed @unit @period=$currentInstant})
+                        first(list({@ferc:CommonStockSubscribed @unit @period=$currentInstant})) 
+                    else none
+                    
+                    )}})
+                    else $data2;
+            
+                    $uniqueData = list(for $x in  $data
+                                        if $x == list(0,none,none,none)
+                                            skip
+                                        else 
+                                            $x
+                                    );
+
+                    for $row in $uniqueData.sort         
+    
+                </xule:expression>
+        
+                <td class="xbrl line-number">
+                    <xule:lineNumber name="CommonStockSubscribedLineItems"><xule:startNumber>2</xule:startNumber></xule:lineNumber>
+                    <xule:template-display>1</xule:template-display>
+                </td>
+                <!-- Name of Account -->
+                <td class="xbrl description_items">
+                        <xule:replace>
+                            <xule:expression class="hide" fact = "true" name="CommonStockSubscribedLineItems"  part="2">$row[2]</xule:expression>
+                        </xule:replace>
+                        <xule:template-display>Capital Stock</xule:template-display>
+                </td> 
+                <!--Indicator -->
+                <td class="xbrl gray-out"></td> 
+                <!-- Number of Shares -->
+                <td class="numeric_items xbrl">
+                        <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CommonStockSubscribedLineItems" part="3">$row[3]</xule:expression>
+                        <xule:template-display>
+                                400 shares
+                        </xule:template-display>
+                    </xule:replace>        
+                </td> 
+                <!-- Amount -->
+                <td class="monetary_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CommonStockSubscribedLineItems" part="4">$row[4]</xule:expression>
+                    <xule:template-display>
+                            $4,000,000
+                    </xule:template-display>
+                </xule:replace>        
+            </td>
+                   
+        </tr>
+        <tr>
+                <td class="xbrl line-number"><xule:replace><xule:expression class="hide">
+                        $heading = 1
+                        $total = 1
+                        $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                    else
+                                        3;
+
+                        $heading + $group1 + $total
+                    </xule:expression></xule:replace>
+                    <xule:template-display>1</xule:template-display></td>
+                <td class="xbrl">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:CommonStockSubscribed).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                        </xule:expression>
+                        <div>
+                            <xule:template-display>
+                             Total
+                            </xule:template-display>
+                        </div>
+                    </xule:replace>
+                </td>
+                <td class="gray-out xbrl"></td>
+                <!-- Common Stock Subscribed (Shares) -->
+                <td class="numeric_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:CommonStockSubscribedShares @period = $currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    4,080,200 shares
+                            </xule:template-display>
+                    </xule:replace>  
+                </td>
+                <!-- Common Stock Subscribed (Amount) -->
+                <td class="monetary_items xbrl">
+                            <xule:replace>
+                                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:CommonStockSubscribed @period = $currentInstant]))
+                                    </xule:expression>
+                                    <xule:template-display>
+                                            $4,080,200,000 
+                                    </xule:template-display>
+                            </xule:replace>  
+                </td>
+                
+            </tr>
+
+<!-- Common Stock Converted (Account 203) -->
+    <tr>
+        <td class="xbrl line-number">
+            <xule:replace><xule:expression class="hide">
+                    $heading = 2
+                    $total = 1
+                    $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                else
+                                    3;
+
+                    $heading + $group1 + $total
+            </xule:expression></xule:replace>
+            <xule:template-display>1</xule:template-display>
+        </td>
+        <td class="xbrl">
+            <xule:replace>
+                <xule:expression class="hide">
+                    taxonomy().concept(ferc:CaptalAccountLiabilityToConvertToCommonStockAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2CapitalStock").text
+                </xule:expression>
+                <div>
+                    <xule:template-display>
+                            Common Stock, Converted to Liability
+                    </xule:template-display>
+                </div>
+            </xule:replace>
+        </td>
+        <td class="gray-out xbrl"></td>
+        <td class="gray-out xbrl"></td>
+        <td class="gray-out xbrl"></td>
+    </tr>
+    <tr class="schedule-row" xule:repeat="CommonStockConvertedLineItems">
+            <xule:expression class="hide" name="CommonStockConvertedLineItems">// adding a comment
+                
+            $data2 =   list(for $i in range(3)
+                            list($i,none,none,none)
+            );
+            
+            $data = if count(list({covered @ferc:LiabilityToCommonStockConversionAxis=*})) > 0  
+                list({covered @ferc:LiabilityToCommonStockConversionAxis=*  {list(
+                    
+                if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                    first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                else
+                    0,
+                if exists({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}) 
+                    first(list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration})) 
+                else  none,
+                if exists({@ferc:CommonStockLiabilityForConversionShares @unit @period=$currentInstant})
+                    first(list({@ferc:CommonStockLiabilityForConversionShares @unit @period=$currentInstant})) 
+                else none,
+                if exists({@ferc:CommonStockLiabilityForConversion @unit @period=$currentInstant})
+                    first(list({@ferc:CommonStockLiabilityForConversion @unit @period=$currentInstant})) 
+                else none
+                
+                
+                )}})
+                else $data2;
+        
+                $uniqueData = list(for $x in  $data
+                                    if $x == list(0,none,none,none)
+                                        skip
+                                    else 
+                                        $x
+                                );
+        
+                for $row in $uniqueData.sort          
+
+            </xule:expression>
+    
+            <td class="xbrl line-number">
+                    <xule:lineNumber name="CommonStockConvertedLineItems"><xule:startNumber>
+                            $heading = 2
+                            $total = 1
+                            $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                        else
+                                            3;
+
+                            $heading + $group1 + $total +1
+                    </xule:startNumber></xule:lineNumber>
+                    <xule:template-display>1</xule:template-display>
+            </td>
+            <!-- Name of Account-->
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" name="CommonStockConvertedLineItems" part="4">$row[2]</xule:expression>
+                    <xule:template-display>
+                          Capital Stock
+                    </xule:template-display>
+                </xule:replace>        
+                </td>
+            <!--Indicator -->
+            <td class="xbrl gray-out"></td> 
+            <!-- Shares -->
+            <td class="numeric_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CommonStockConvertedLineItems" part="3">$row[3]</xule:expression>
+                    <xule:template-display>
+                            400 shares
+                    </xule:template-display>
+                </xule:replace>        
+            </td> 
+            <!-- Amount -->
+            <td class="monetary_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CommonStockConvertedLineItems" part="4">$row[4]</xule:expression>
+                <xule:template-display>
+                        $4,000,000
+                </xule:template-display>
+            </xule:replace>        
+        </td> 
+    </tr>
+    <tr>
+        <td class="xbrl line-number">
+                <xule:replace><xule:expression class="hide">
+                        $heading = 2
+                        $total = 2
+                        $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                    else
+                                        3;
+                        $group2 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*]))
+                                    else
+                                     3;
+                        $heading + $group1 + $group2 + $total
+                </xule:expression></xule:replace>
+                <xule:template-display>1</xule:template-display>
+        </td>
+        <td class="xbrl">
+            <xule:replace>
+                <xule:expression class="hide">
+                    taxonomy().concept(ferc:CommonStockLiabilityForConversion).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                </xule:expression>
+                <div>
+                    <xule:template-display>
+                        Total
+                    </xule:template-display>
+                </div>
+            </xule:replace>
+        </td>
+        <td class="gray-out xbrl"></td>
+        <!-- Share -->
+        <td class="numeric_items xbrl">
+            <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:CommonStockLiabilityForConversionShares @period = $currentInstant]))
+                    </xule:expression>
+                    <xule:template-display>
+                            4,080,200 shares
+                    </xule:template-display>
+            </xule:replace>  
+        </td>
+        <!-- Amount -->
+        <td class="monetary_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:CommonStockLiabilityForConversion @period = $currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $4,080,200,000 
+                            </xule:template-display>
+                    </xule:replace>  
+        </td>
+        
+    </tr>
+    <!-- Preferred Stock Subscribed (Account 205) -->
+    <tr>
+        <td class="xbrl line-number">
+                <xule:replace><xule:expression class="hide">
+                        $heading = 3
+                        $total = 2
+                        $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                    else
+                                        3;
+                        $group2 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*]))
+                                    else
+                                     3;
+                        $heading + $group1 + $group2 + $total
+                </xule:expression></xule:replace>
+                <xule:template-display>1</xule:template-display>
+        </td>
+        <td class="xbrl">
+            <xule:replace>
+                <xule:expression class="hide">
+                    taxonomy().concept(ferc:CaptalAccountPreferredStockSubscribedAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2CapitalStock").text
+                </xule:expression>
+                <div>
+                    <xule:template-display>
+                            Preferred Stock, Subscribed
+                    </xule:template-display>
+                </div>
+            </xule:replace>
+        </td>
+        <td class="gray-out xbrl"></td>
+        <td class="gray-out xbrl"></td>
+        <td class="gray-out xbrl"></td>
+    </tr>
+    <tr class="schedule-row" xule:repeat="PreferredStockSubscribedLineItems">
+            <xule:expression class="hide" name="PreferredStockSubscribedLineItems">// adding a comment
+                
+            $data2 =   list(for $i in range(3)
+                            list($i,none,none,none)
+            );
+            
+            $data = if count(list({covered @ferc:PreferredStockSubscribedAxis=*})) > 0  
+                list({covered @ferc:PreferredStockSubscribedAxis=*  {list(
+                    
+                if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                    first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                else
+                    0,
+                if exists({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}) 
+                    first(list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration})) 
+                else  none,
+                if exists({@ferc:PreferredStockSubscribedShares @unit @period=$currentInstant})
+                    first(list({@ferc:PreferredStockSubscribedShares @unit @period=$currentInstant})) 
+                else none,
+                if exists({@ferc:PreferredStockSubscribed @unit @period=$currentInstant})
+                    first(list({@ferc:PreferredStockSubscribed @unit @period=$currentInstant})) 
+                else none
+                
+                
+                )}})
+                else $data2;
+        
+                $uniqueData = list(for $x in  $data
+                                    if $x == list(0,none,none,none)
+                                        skip
+                                    else 
+                                        $x
+                                );
+        
+                for $row in $uniqueData.sort         
+
+            </xule:expression>
+    
+            <td class="xbrl line-number">
+                    <xule:lineNumber name="PreferredStockSubscribedLineItems"><xule:startNumber>
+                            $heading = 3
+                            $total = 2
+                            $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                        else
+                                            3;
+                            $group2 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*]))
+                                        else
+                                         3;
+                            $heading + $group1 + $group2 + $total +1
+                    </xule:startNumber></xule:lineNumber>
+                    <xule:template-display>1</xule:template-display>
+            </td>
+            <!-- Name of Account -->
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" name="PreferredStockSubscribedLineItems" part="4">$row[2]</xule:expression>
+                    <xule:template-display>
+                            Capital Stock
+                    </xule:template-display>
+                </xule:replace>        
+                </td>
+            <!--Indicator -->
+            <td class="xbrl gray-out"></td> 
+            <!-- Shares -->
+            <td class="numeric_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="PreferredStockSubscribedLineItems" part="3">$row[3]</xule:expression>
+                    <xule:template-display>
+                            400 shares
+                    </xule:template-display>
+                </xule:replace>        
+            </td> 
+            <!-- Amount -->
+            <td class="monetary_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="PreferredStockSubscribedLineItems" part="4">$row[4]</xule:expression>
+                <xule:template-display>
+                        $4,000,000
+                </xule:template-display>
+            </xule:replace>        
+        </td> 
+    </tr>
+    <tr>
+            <td class="xbrl line-number">
+                    <xule:replace><xule:expression class="hide">
+                            $heading = 3
+                            $total = 3
+                            $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                        else
+                                            3;
+                            $group2 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*]))
+                                        else
+                                         3;
+                            $group3 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*]))
+                                        else
+                                        3;
+                            $heading + $group1 + $group2 + $group3 + $total
+                    </xule:expression></xule:replace>
+                    <xule:template-display>1</xule:template-display>
+            </td>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:PreferredStockSubscribed).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                            Total
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="gray-out xbrl"></td>
+            <!-- Shares -->
+            <td class="numeric_items xbrl">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:PreferredStockSubscribedShares @period = $currentInstant]))
+                        </xule:expression>
+                        <xule:template-display>
+                                4,080,200 shares
+                        </xule:template-display>
+                </xule:replace>  
+            </td>
+            <!-- Amount -->
+            <td class="monetary_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:PreferredStockSubscribed @period = $currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    $4,080,200,000 
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+
+        </tr>
+<!-- Preferred Stock Liability for COnversion (Account 206) -->
+    <tr>
+        <td class="xbrl line-number">
+                <xule:replace><xule:expression class="hide">
+                        $heading = 4
+                        $total = 3
+                        $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                    else
+                                       3;
+                        $group2 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*]))
+                                    else
+                                     3;
+                        $group3 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*]))
+                                    else
+                                    3;
+                        $heading + $group1 + $group2 + $group3 + $total
+                </xule:expression></xule:replace>
+                <xule:template-display>1</xule:template-display>
+        </td>
+        <td class="xbrl">
+            <xule:replace>
+                <xule:expression class="hide">
+                    taxonomy().concept(ferc:CaptalAccountLiabilityToConvertToPreferredStockAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2CapitalStock").text
+                </xule:expression>
+                <div>
+                    <xule:template-display>
+                            Preferred Stock Liability for Conversion
+                    </xule:template-display>
+                </div>
+            </xule:replace>
+        </td>
+        <td class="gray-out xbrl"></td>
+        <td class="gray-out xbrl"></td>
+        <td class="gray-out xbrl"></td>
+    </tr>
+    <tr class="schedule-row" xule:repeat="PreferredStockConvertedLineItems">
+            <xule:expression class="hide" name="PreferredStockConvertedLineItems">// adding a comment
+                
+            $data2 =   list(for $i in range(3)
+                            list($i,none,none,none)
+            );
+            
+            $data = if count(list({covered @ferc:PreferredStockLiabilityForConversionAxis=*})) > 0  
+                list({covered @ferc:PreferredStockLiabilityForConversionAxis=*  {list(
+                    
+                if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                    first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                else
+                    0,
+                if exists({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}) 
+                    first(list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration})) 
+                else  
+                    none,
+                if exists({@ferc:PreferredStockLiabilityForConversionShares @unit @period=$currentInstant})
+                    first(list({@ferc:PreferredStockLiabilityForConversionShares @unit @period=$currentInstant})) 
+                else 
+                    none,
+                if exists({@ferc:PreferredStockLiabilityForConversion @unit @period=$currentInstant})
+                    first(list({@ferc:PreferredStockLiabilityForConversion @unit @period=$currentInstant})) 
+                else 
+                    none
+                
+                
+                )}})
+                else $data2;
+        
+                $uniqueData = list(for $x in  $data
+                                    if $x == list(0,none,none,none)
+                                        skip
+                                    else 
+                                        $x
+                                );
+        
+                for $row in $uniqueData.sort         
+
+            </xule:expression>
+
+            <td class="xbrl line-number">
+                    <xule:lineNumber name="PreferredStockConvertedLineItems"><xule:startNumber>
+                            $heading = 4;
+                            $total = 3;
+                            $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                        else
+                                            3;
+                            $group2 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*]))
+                                        else
+                                         3;
+                            $group3 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*]))
+                                        else
+                                         3;
+                            $heading + $group1 + $group2 + $group3 + $total +1
+                    </xule:startNumber></xule:lineNumber>
+                    <xule:template-display>1</xule:template-display>
+            </td>
+            <!--  Name of Account -->
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" name="PreferredStockConvertedLineItems" part="4">$row[2]</xule:expression>
+                    <xule:template-display>
+                           Preferred Stock
+                    </xule:template-display>
+                </xule:replace>        
+                </td>
+            <!--Indicator -->
+            <td class="xbrl gray-out"></td> 
+            <!-- Shares -->
+            <td class="numeric_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="PreferredStockConvertedLineItems" part="3">$row[3]</xule:expression>
+                    <xule:template-display>
+                            400 shares
+                    </xule:template-display>
+                </xule:replace>        
+            </td> 
+            <!-- Amount -->
+            <td class="monetary_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="PreferredStockConvertedLineItems" part="4">$row[4]</xule:expression>
+                <xule:template-display>
+                        $4,000,000
+                </xule:template-display>
+            </xule:replace>        
+        </td> 
+    </tr>
+    <tr>
+        <td class="xbrl line-number">
+                <xule:replace><xule:expression class="hide">
+                        $heading = 4;
+                        $total = 4;
+                        $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                    else
+                                        3;
+                        $group2 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*]))
+                                    else
+                                       3;
+                        $group3 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*]))
+                                    else
+                                    3;
+                        $group4 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockLiabilityForConversionAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockLiabilityForConversionAxis=*]))
+                                    else
+                                    3;
+                        $heading + $group1 + $group2 + $group3 + $group4 + $total
+                </xule:expression></xule:replace>
+                <xule:template-display>1</xule:template-display>
+        </td>
+        <td class="xbrl">
+            <xule:replace>
+                <xule:expression class="hide">
+                    taxonomy().concept(ferc:PreferredStockLiabilityForConversion).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                </xule:expression>
+                <div>
+                    <xule:template-display>
+                        Total
+                    </xule:template-display>
+                </div>
+            </xule:replace>
+        </td>
+        <td class="gray-out xbrl"></td>
+        <!-- Shares -->
+        <td class="numeric_items xbrl">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:PreferredStockLiabilityForConversionShares @period = $currentInstant]))
+                        </xule:expression>
+                        <xule:template-display>
+                                4,080,200 shares
+                        </xule:template-display>
+                </xule:replace>  
+        </td>
+        <!-- Amount -->
+        <td class="monetary_items xbrl">
+            <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:PreferredStockLiabilityForConversion @period = $currentInstant]))
+                    </xule:expression>
+                    <xule:template-display>
+                            $4,080,200,000 
+                    </xule:template-display>
+            </xule:replace>  
+        </td>
+    </tr>
+<!-- Premium on Capital Stock -->
+    <tr>
+        <td class="xbrl line-number">
+                <xule:replace><xule:expression class="hide">
+                        $heading = 5;
+                        $total = 4;
+                        $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                    else
+                                        3;
+                        $group2 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*]))
+                                    else
+                                     3;
+                        $group3 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*]))
+                                    else
+                                    3;
+                        $group4 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockLiabilityForConversionAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockLiabilityForConversionAxis=*]))
+                                    else
+                                    3;
+                        $heading + $group1 + $group2 + $group3 + $group4 + $total
+                </xule:expression></xule:replace>
+                <xule:template-display>1</xule:template-display>
+        </td>
+        <td class="xbrl">
+            <xule:replace>
+                <xule:expression class="hide">
+                    taxonomy().concept(ferc:CaptalAccountPremiumOnCapitalStockAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2CapitalStock").text
+                </xule:expression>
+                <div>
+                    <xule:template-display>
+                            Premium on Capital Stock 
+                    </xule:template-display>
+                </div>
+            </xule:replace>
+        </td>
+        <td class="gray-out xbrl"></td>
+        <td class="gray-out xbrl"></td>
+        <td class="gray-out xbrl"></td>
+    </tr>
+    <tr class="schedule-row" xule:repeat="PremiumLineItems">
+            <xule:expression class="hide" name="PremiumLineItems">// adding a comment
+                
+            $data2 =   list(for $i in range(3)
+                            list($i,none,none,none,none)
+            );
+            
+            $data = if count(list({covered @ferc:PremiumCapitalStockAxis=*})) > 0  
+                list({covered @ferc:PremiumCapitalStockAxis=*  {list(
+                    
+                if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                    first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                else
+                    0,
+                if exists({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}) 
+                    first(list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration})) 
+                else  
+                    none,
+                if exists({@ferc:IndicationOfPremiumOnCapitalStock @unit @period=$currentDuration})
+                    if  first(list({@ferc:IndicationOfPremiumOnCapitalStock @unit @period=$currentDuration}))
+                        "*"
+                    else
+                        none
+                else 
+                    none,
+                    if exists({@ferc:PremiumOnCapitalStockShares @unit=* @period=$currentInstant})
+                    first(list({@ferc:PremiumOnCapitalStockShares @unit=* @period=$currentInstant})) 
+                else 
+                    none,
+                if exists({@ferc:PremiumOnCapitalStock @unit=* @period=$currentInstant})
+                    first(list({@ferc:PremiumOnCapitalStock @unit=* @period=$currentInstant}))
+                else 
+                    none
+                
+                
+                )}})
+                else $data2;
+
+                $uniqueData = list(for $x in  $data
+                                    if $x == list(0,none,none,none,none)
+                                        skip
+                                    else 
+                                        $x
+                                );
+        
+                for $row in $uniqueData.sort          
+
+            </xule:expression>
+    
+            <td class="xbrl line-number">
+                    <xule:lineNumber name="PremiumLineItems"><xule:startNumber>
+                            $heading = 5;
+                            $total = 4;
+                            $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                        else
+                                            3;
+                            $group2 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*]))
+                                        else
+                                         3;
+                            $group3 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*]))
+                                        else
+                                         3;
+                            $group4 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*]))
+                                        else
+                                         3;
+                            $heading + $group1 + $group2 + $group3 + $group4 + $total +1
+                    </xule:startNumber></xule:lineNumber>
+                <xule:template-display>1</xule:template-display>
+            </td>
+            
+            <!-- Name of Account  -->
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" name="PremiumLineItems" part="4">$row[2]</xule:expression>
+                    <xule:template-display>
+                            300
+                    </xule:template-display>
+                </xule:replace>        
+                </td>
+            <!--Indicator    -->
+            <td class="xbrl boolean-flag">
+                    <xule:replace>
+                        <xule:expression class="hide" name="PremiumLineItems" part="3">$row[3]</xule:expression>
+                        <xule:template-display>
+                                *
+                        </xule:template-display>
+                    </xule:replace>        
+            </td> 
+    
+            <!-- Shares --> 
+            <td class="numeric_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="PremiumLineItems" part="4">$row[4]</xule:expression>
+                    <xule:template-display>
+                            400 shares
+                    </xule:template-display>
+                </xule:replace>        
+            </td> 
+             
+            <!-- Amount -->
+            <td class="monetary_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="PremiumLineItems" part="5">$row[5]</xule:expression>
+                <xule:template-display>
+                        $4,000,000
+                </xule:template-display>
+            </xule:replace>        
+        </td> 
+
+    </tr>
+    <tr>
+            <td class="xbrl line-number">
+                    <xule:replace><xule:expression class="hide">
+                            $heading = 5;
+                            $total = 5;
+                            $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                        else
+                                            3;
+                            $group2 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*]))
+                                        else
+                                            3;
+                            $group3 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*]))
+                                        else
+                                        3;
+                            $group4 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockLiabilityForConversionAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockLiabilityForConversionAxis=*]))
+                                        else
+                                        3;
+                            $group5 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PremiumCapitalStockAxis=*])) > 0
+                                        count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PremiumCapitalStockAxis=*]))
+                                        else
+                                        3;
+                            $heading + $group1 + $group2 + $group3 + $group4 + $group5 + $total
+                    </xule:expression></xule:replace>
+                    <xule:template-display>1</xule:template-display>
+            </td>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:PremiumOnCapitalStock).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                            Total
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="gray-out xbrl"></td>
+            <!-- Shares -->
+            <td class="numeric_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:PremiumOnCapitalStockShares @period = $currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    4,080,200 shares
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <!-- Amount -->
+            <td class="monetary_items xbrl">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:PremiumOnCapitalStock @period = $currentInstant]))
+                        </xule:expression>
+                        <xule:template-display>
+                                $4,080,200,000 
+                        </xule:template-display>
+                </xule:replace>  
+            </td>
+        </tr>
+    <!-- Installments on Capital Stock (Account 212) -->
+    <tr>
+        <td class="xbrl line-number">
+                <xule:replace><xule:expression class="hide">
+                        $heading = 6
+                        $total = 5
+                        $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                    else
+                                    3;
+                        $group2 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*]))
+                                    else
+                                     3;
+                        $group3 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*]))
+                                    else
+                                    3;
+                        $group4 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockLiabilityForConversionAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockLiabilityForConversionAxis=*]))
+                                    else
+                                    3;
+                        $group5 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PremiumCapitalStockAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PremiumCapitalStockAxis=*]))
+                                    else
+                                    3;
+                        $heading + $group1 + $group2 + $group3 + $group4 + $group5 + $total
+                </xule:expression></xule:replace>
+                <xule:template-display>1</xule:template-display>
+        </td>
+        <td class="xbrl description_items">
+            <xule:replace>
+                <xule:expression class="hide">
+                    taxonomy().concept(ferc:CaptalAccountInstallmentsOnCapitalStockAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2CapitalStock").text
+                </xule:expression>
+                <div>
+                    <xule:template-display>
+                        Installments on Capital Stock (Account 212)
+                    </xule:template-display>
+                </div>
+            </xule:replace>
+        </td>
+        <td class="gray-out xbrl"></td>
+        <td class="gray-out xbrl"></td>
+        <td class="gray-out xbrl"></td>
+    </tr>
+    <tr class="schedule-row" xule:repeat="InstallmentsLineItems">
+            <xule:expression class="hide" name="InstallmentsLineItems">// adding a comment
+                
+            $data2 =   list(for $i in range(3)
+                            list($i,none,none,none)
+            );
+            
+            $data = if list({covered @ferc:InstallmentCapitalStockAxis=*}).length > 0  
+                list({covered @ferc:InstallmentCapitalStockAxis=*  {list(
+                    
+                if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                    first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                else
+                    0,
+                if exists({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}) 
+                    first(list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration})) 
+                else  
+                    none,
+                if exists({@ferc:InstallmentsReceivedOnCapitalStockShares @unit @period=$currentInstant})
+                    first(list({@ferc:InstallmentsReceivedOnCapitalStockShares @unit @period=$currentInstant})) 
+                else 
+                    none,
+                if exists({@ferc:InstallmentsReceivedOnCapitalStock @unit @period=$currentInstant})
+                    first(list({@ferc:InstallmentsReceivedOnCapitalStock @unit @period=$currentInstant})) 
+                else 
+                    none
+                
+                
+                )}})
+                else $data2;
+        
+                $uniqueData = list(for $x in  $data
+                                    if $x == list(0,none,none,none)
+                                        skip
+                                    else 
+                                        $x
+                                );
+        
+                for $row in $uniqueData.sort         
+
+            </xule:expression>
+
+            <td class="xbrl line-number">
+                    <xule:lineNumber name="InstallmentsLineItems"><xule:startNumber>
+                        $heading = 6
+                        $total = 5
+                        $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                    else
+                                    3;
+                        $group2 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*]))
+                                    else
+                                     3;
+                        $group3 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*]))
+                                    else
+                                    3;
+                        $group4 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockLiabilityForConversionAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockLiabilityForConversionAxis=*]))
+                                    else
+                                    3;
+                        $group5 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PremiumCapitalStockAxis=*])) > 0
+                                    count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PremiumCapitalStockAxis=*]))
+                                    else
+                                    3;
+                        $heading + $group1 + $group2 + $group3 + $group4 + $group5 + $total +1
+                    </xule:startNumber></xule:lineNumber>
+                    <xule:template-display>1</xule:template-display>
+            </td>
+            <!-- Name of Account-->
+            <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" name="InstallmentsLineItems" part="2">$row[2]</xule:expression>
+                    <xule:template-display>
+                        Capital Stock
+                    </xule:template-display>
+                </xule:replace>        
+            </td>
+            <!--Indicator -->
+            <td class="xbrl gray-out"></td> 
+             
+            <!-- Shares  -->
+            <td class="numeric_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="InstallmentsLineItems" part="3">$row[3]</xule:expression>
+                    <xule:template-display>
+                            400 shares
+                    </xule:template-display>
+                </xule:replace>        
+            </td> 
+            
+            <!-- Amount  -->
+            <td class="monetary_items xbrl">
+                <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="InstallmentsLineItems" part="4">$row[4]</xule:expression>
+                <xule:template-display>
+                        $4,000,000
+                </xule:template-display>
+            </xule:replace>        
+        </td> 
+        
+    </tr>
+    <tr>
+        <td class="xbrl line-number">
+                <xule:replace><xule:expression class="hide">
+                    $heading = 6
+                    $total = 6
+                    $group1 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*])) > 0
+                                count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:CommonStockSubscribedAxis=*]))
+                                else
+                                3;
+                    $group2 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*])) > 0
+                                count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:LiabilityToCommonStockConversionAxis=*]))
+                                else
+                                 3;
+                    $group3 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*])) > 0
+                                count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockSubscribedAxis=*]))
+                                else
+                                3;
+                    $group4 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockLiabilityForConversionAxis=*])) > 0
+                                count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PreferredStockLiabilityForConversionAxis=*]))
+                                else
+                                3;
+                    $group5 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PremiumCapitalStockAxis=*])) > 0
+                                count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:PremiumCapitalStockAxis=*]))
+                                else
+                                3;
+                    $group6 = if count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:InstallmentCapitalStockAxis=*])) > 0
+                                count(list([covered @ferc:NameOfAccountAndDescriptionOfCapitalStockItems @ferc:InstallmentCapitalStockAxis=*]))
+                                else
+                                3;
+                    $heading + $group1 + $group2 + $group3 + $group4 + $group5 + $group6 + $total
+                </xule:expression></xule:replace>
+                <xule:template-display>1</xule:template-display>
+        </td>
+        <td class="xbrl">
+            <xule:replace>
+                <xule:expression class="hide">
+                    taxonomy().concept(ferc:InstallmentsReceivedOnCapitalStock).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                </xule:expression>
+                <div>
+                    <xule:template-display>
+                        Total
+                    </xule:template-display>
+                </div>
+            </xule:replace>
+        </td>
+        <td class="gray-out xbrl"></td>
+        <!-- Shares -->
+        <td class="numeric_items xbrl">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:InstallmentsReceivedOnCapitalStockShares @period = $currentInstant]))
+                        </xule:expression>
+                        <xule:template-display>
+                                4,080,200 shares
+                        </xule:template-display>
+                </xule:replace>  
+        </td>
+        <!-- Amount -->
+        <td class="monetary_items xbrl">
+            <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:InstallmentsReceivedOnCapitalStock @period = $currentInstant]))
+                    </xule:expression>
+                    <xule:template-display>
+                            $4,080,200,000 
+                    </xule:template-display>
+            </xule:replace>  
+        </td>
+    </tr>
+
+    <!-- Capital Stock - Data Conversion -->
+
+        <tr class="schedule-row" xule:repeat="CapitalStockHeader">
+            <xule:expression class="hide" name="CapitalStockHeader">
+                $Historicalheader = list(if count(list({covered @ferc:CapitalStockByUsagesAxis=*})) > 0 
+                            "Historical Data"
+                        else
+                             skip);
+                for $row in $Historicalheader 
+            </xule:expression>
+            <td class="xbrl" colspan="5">
+                <xule:replace>
+                        <xule:expression class="hide"  name="CapitalStockHeader" part="1">$row</xule:expression>
+                </xule:replace>
+            </td> 
+        </tr>    
+        <tr class="schedule-row" xule:repeat="CapitalStockDataLineItems">
+                <xule:expression class="hide" name="CapitalStockDataLineItems">// adding a comment
+                    
+                
+                $data = if count(list({covered @ferc:CapitalStockByUsagesAxis=*})) > 0  
+                    list({covered @ferc:CapitalStockByUsagesAxis=*  {list(
+                        
+                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                        first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                    else
+                        0,
+                    if exists({@ferc:CapitalStockDescription @unit @period=$currentDuration})
+                        first(list({@ferc:CapitalStockDescription @unit @period=$currentDuration})) 
+                    else 
+                        none,
+                    if exists({@ferc:IndicationOfPremiumOnCapitalStock @unit @period=$currentDuration})
+                        if  first(list({@ferc:IndicationOfPremiumOnCapitalStock @unit @period=$currentDuration}))
+                            "*"
+                        else
+                            none
+                    else 
+                        none,
+                    if exists({@ferc:NumberOfCapitalStockShares @unit @period=$currentInstant})
+                        first(list({@ferc:NumberOfCapitalStockShares @unit @period=$currentInstant})) 
+                    else 
+                        none,
+                    if exists({@ferc:CapitalStock @unit @period=$currentInstant})
+                        first(list({@ferc:CapitalStock @unit @period=$currentInstant})) 
+                    else 
+                        none
+                    
+                    
+                    )}})
+                    else skip;
+            
+                    $uniqueData = list(for $x in  $data
+                                        if $x == list($x[1],none,none,none,none)
+                                            skip
+                                        else 
+                                            $x
+                                    );
+            
+                    for $row in $uniqueData.sort        
+
+                </xule:expression>
+
+                <td class="xbrl line-number">
+                    <xule:lineNumber name="CapitalStockDataLineItems"><xule:startNumber>1</xule:startNumber></xule:lineNumber>
+                    <xule:template-display>1</xule:template-display>
+                </td>
+                <!-- Name of Account -->           
+                <td class="xbrl description_items">
+                        <xule:replace>
+                            <xule:expression class="hide" fact="true" name="CapitalStockDataLineItems"  part="3">$row[2]</xule:expression>
+                        </xule:replace>
+                        <xule:template-display>Capital Stock</xule:template-display>
+                </td> 
+                
+    
+                <!--Indicator  -->  
+                <td class="xbrl boolean-flag">
+                        <xule:replace>
+                            <xule:expression class="hide" name="CapitalStockDataLineItems" part="4">$row[3]</xule:expression>
+                            <xule:template-display>
+                                    *
+                            </xule:template-display>
+                        </xule:replace>        
+                </td> 
+    
+                <!-- Shares -->
+                <td class="numeric_items xbrl">
+                        <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockDataLineItems" part="5">$row[4]</xule:expression>
+                        <xule:template-display>
+                                400 shares
+                        </xule:template-display>
+                    </xule:replace>        
+                </td> 
+            
+                <!-- Amount -->  
+                <td class="monetary_items xbrl">
+                    <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockDataLineItems" part="6">$row[5]</xule:expression>
+                    <xule:template-display>
+                            $4,000,000
+                    </xule:template-display>
+                </xule:replace>        
+            </td> 
+        </tr>
+        <tr>
+            <td class="xbrl line-number">
+                    <xule:replace><xule:expression class="hide">
+                           40
+                    </xule:expression></xule:replace>
+                    <xule:template-display>1</xule:template-display>
+            </td>
+            <td class="xbrl">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:CapitalStock).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                    </xule:expression>
+                    <div>
+                        <xule:template-display>
+                            Total
+                        </xule:template-display>
+                    </div>
+                </xule:replace>
+            </td>
+            <td class="gray-out xbrl"></td>
+            <!-- Shares -->
+            <td class="numeric_items xbrl">
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:NumberOfCapitalStockShares @period = $currentInstant]))
+                            </xule:expression>
+                            <xule:template-display>
+                                    4,080,200 shares
+                            </xule:template-display>
+                    </xule:replace>  
+            </td>
+            <!-- Amount -->
+            <td class="monetary_items xbrl">
+                <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:CapitalStock @period = $currentInstant]))
+                        </xule:expression>
+                        <xule:template-display>
+                                $4,080,200,000 
+                        </xule:template-display>
+                </xule:replace>  
+            </td>
+        </tr>
+    </table>
+<br/>
+    <div class="schedule-footer">
+        <div>FERC FORM No. 
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                    <xule:template-display>2/3-Q</xule:template-display>
+                </xule:replace>
+                <span> </span>
+                <xule:replace>
+                    <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleCapitalStockSubscribedLiabilityForConversionPremiumOnAndInstallmentsReceivedOnAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2DateRevised").text + ")"
+                    </xule:expression>
+                    <xule:template-display>
+                            12-96
+                    </xule:template-display>
+                </xule:replace>                
+        </div>
+        <div class="center-text">Page 
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleCapitalStockSubscribedLiabilityForConversionPremiumOnAndInstallmentsReceivedOnAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Page").text
+                        </xule:expression>
+                        <xule:template-display>
+                        252
+                        </xule:template-display>
+                </xule:replace>
+        </div> 
+</div>
+</body>
+</html>

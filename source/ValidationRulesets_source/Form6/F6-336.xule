@@ -1,0 +1,75 @@
+/**FERC Form 6 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F6.336.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@DividendIncome]; 
+        $addend = [@DividendIncomeSecuritiesInvestedInAffiliatedCompanies]#f1
+        + [@DividendIncomeFromOtherSecuritiesInvestments]#f2
+        + [@DividendIncomeFromTemporaryCashInvestments]#f3
+        + sum(list([nonils @DividendIncome @InterestAndDividendIncomeAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InterestAndDividendIncomeAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are:
+
++ DividendIncomeSecuritiesInvestedInAffiliatedCompanies                 {$f1}
++ DividendIncomeFromOtherSecuritiesInvestments                          {$f2}
++ DividendIncomeFromTemporaryCashInvestments                            {$f3}
++ DividendIncome with the InterestAndDividendIncomeAxis                 {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F6.336.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('6-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@InterestIncome]; 
+        $addend = [@InterestIncomeSecuritiesInvestedInAffiliatedCompanies]#f1
+        + [@InterestIncomeFromOtherSecuritiesInvestments]#f2
+        + [@InterestIncomeFromTemporaryCashInvestments]#f3
+        + sum(list([nonils @InterestIncome @InterestAndDividendIncomeAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis InterestAndDividendIncomeAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are:
+
++ InterestIncomeSecuritiesInvestedInAffiliatedCompanies                 {$f1}
++ InterestIncomeFromOtherSecuritiesInvestments                          {$f2}
++ InterestIncomeFromTemporaryCashInvestments                            {$f3}
++ InterestIncome with the InterestAndDividendIncomeAxis                 {$breakdown.join(' + ')}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions: {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

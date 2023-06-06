@@ -1,0 +1,56 @@
+/**FERC Form 714 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F714.2.2.1 satisfied 
+$rule_id = (rule-name().split('.'))[rule-name().split('.').length];
+
+ $sum1 = {@NetCapabilityFromPlants}; 
+ $addend = ({@PlantsAvailableCapability}#f0
+ + {@UnavailableCapabilityDueToPlannedOutageAndDerating}#f1
+ + {@UnavailableCapabilityDueToUnplannedOutageAndDerating}#f2
+ + {@UnavailableCapabilityDueToOtherOutageAndDerating}#f3);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetCapabilityFromPlants with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+The value is calculated as follows:
+PlantsAvailableCapability = {$f0}
++ UnavailableCapabilityDueToPlannedOutageAndDerating = {$f1}
++ UnavailableCapabilityDueToUnplannedOutageAndDerating = {$f2}
++ UnavailableCapabilityDueToOtherOutageAndDerating = {$f3}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Month : {$sum1.dimensions.join(', ','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F714.2.2.2 satisfied 
+$rule_id = (rule-name().split('.'))[rule-name().split('.').length];
+
+ $sum1 = {@NetCapabilityAtTheTimeOfTheMonthlyPeakDemand}; 
+ $addend = ({@NetCapabilityFromPlants}#f1
+ + {@ExternalToTheBalancingAuthorityAreaNetUnitOrFirmCapabilityAvailable}#f2
+ + {@ExternalToTheBalancingAuthorityAreaNetUnitOrFirmCapabilityNotAvailable}#f3);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetCapabilityAtTheTimeOfTheMonthlyPeakDemand with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}.
+
+The value is calculated as follows:
+NetCapabilityFromPlants = {$f1}
++ ExternalToTheBalancingAuthorityAreaNetUnitOrFirmCapabilityAvailable = {$f2}
++ ExternalToTheBalancingAuthorityAreaNetUnitOrFirmCapabilityNotAvailable = {$f3}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

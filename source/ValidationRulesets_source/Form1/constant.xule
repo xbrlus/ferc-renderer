@@ -199,3 +199,6 @@ constant $associatedUnits = dict(for $concept in $ConceptsInTaxonomy
 
 
  constant $monthMembers = list(JanuaryMember, FebruaryMember, MarchMember, AprilMember, MayMember, JuneMember, JulyMember, AugustMember, SeptemberMember, OctoberMember, NovemberMember, DecemberMember)
+
+ constant $DEP_CONCEPTS = navigate parent-child descendants from DeprecatedItemsAbstract returns set (target-name)
+

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xule="http://xbrl.us/xule/2.0/template"
     xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
     xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-    xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
+    xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
 
 <head>
     <title>Template - F1 - 304-445</title>
@@ -34,7 +34,7 @@
                 <xule:replace>
                     <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]
                     </xule:expression>
-                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
                 </xule:replace>
             </td>
             <td class="xbrl">
@@ -189,27 +189,27 @@
                             first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                         else
                             0,
-                        if exists({@ferc:DescriptionOfNumberAndTitleOfRateSchedule @unit @period=$currentDuration})
+                        if list({@ferc:DescriptionOfNumberAndTitleOfRateSchedule @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DescriptionOfNumberAndTitleOfRateSchedule @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:MegawattHoursSoldOtherSalesToPublicAuthoritiesBilled @unit @period=$currentDuration})
+                        if list({@ferc:MegawattHoursSoldOtherSalesToPublicAuthoritiesBilled @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:MegawattHoursSoldOtherSalesToPublicAuthoritiesBilled @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:OtherSalesToPublicAuthoritiesBilled @unit @period=$currentDuration})
+                        if list({@ferc:OtherSalesToPublicAuthoritiesBilled @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:OtherSalesToPublicAuthoritiesBilled @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:AverageNumberOfCustomersPerMonthOtherSalesToPublicAuthoritiesBilled @unit @period=$currentDuration})
+                        if list({@ferc:AverageNumberOfCustomersPerMonthOtherSalesToPublicAuthoritiesBilled @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:AverageNumberOfCustomersPerMonthOtherSalesToPublicAuthoritiesBilled @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:KilowattHoursOfSalesPerCustomerOtherSalesToPublicAuthoritiesBilled @unit @period=$currentDuration})
+                        if list({@ferc:KilowattHoursOfSalesPerCustomerOtherSalesToPublicAuthoritiesBilled @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:KilowattHoursOfSalesPerCustomerOtherSalesToPublicAuthoritiesBilled @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:RevenuePerKilowattHourSoldOtherSalesToPublicAuthoritiesBilled @unit @period=$currentDuration})
+                        if list({@ferc:RevenuePerKilowattHourSoldOtherSalesToPublicAuthoritiesBilled @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:RevenuePerKilowattHourSoldOtherSalesToPublicAuthoritiesBilled @unit @period=$currentDuration}))
                         else 
                             none

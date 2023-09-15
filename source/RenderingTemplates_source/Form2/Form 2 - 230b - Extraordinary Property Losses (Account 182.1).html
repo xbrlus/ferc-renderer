@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -189,41 +189,41 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             $data = if count(list({covered @ferc:ExtraordinaryPropertyLossesAxis=*})) > 0 
         
             list({covered @ferc:ExtraordinaryPropertyLossesAxis=*  {list(
-                if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                     first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                 else
                     0,
-                if exists({@ferc:DescriptionOfExtraordinaryPropertyLoss @unit @period=$currentDuration})
+                if list({@ferc:DescriptionOfExtraordinaryPropertyLoss @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:DescriptionOfExtraordinaryPropertyLoss @unit @period=$currentDuration}))
                 else
                     none,
-                if exists({@ferc:ExtraordinaryPropertyLosses @unit @period=$priorInstant})
+                if list({@ferc:ExtraordinaryPropertyLosses @unit @period=$priorInstant}).length > 0
                     first(list({@ferc:ExtraordinaryPropertyLosses @unit @period=$priorInstant}))
                 else
                     none,
-                if exists({@ferc:ExtraordinaryPropertyLossesNotYetRecognized @unit @period=$currentDuration})
+                if list({@ferc:ExtraordinaryPropertyLossesNotYetRecognized @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:ExtraordinaryPropertyLossesNotYetRecognized @unit @period=$currentDuration}))
                 else
                     none,
-                if exists({@ferc:ExtraordinaryPropertyLossesRecognized @unit @period=$currentDuration})
+                if list({@ferc:ExtraordinaryPropertyLossesRecognized @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:ExtraordinaryPropertyLossesRecognized @unit @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:ExtraordinaryPropertyLossesWrittenOffAccountCharged @unit @period=$currentDuration})
+                if list({@ferc:ExtraordinaryPropertyLossesWrittenOffAccountCharged @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:ExtraordinaryPropertyLossesWrittenOffAccountCharged @unit @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:ExtraordinaryPropertyLossesWrittenOff @unit @period=$currentDuration})
+                if list({@ferc:ExtraordinaryPropertyLossesWrittenOff @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:ExtraordinaryPropertyLossesWrittenOff @unit @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:ExtraordinaryPropertyLosses @unit @period=$currentInstant})
+                if list({@ferc:ExtraordinaryPropertyLosses @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:ExtraordinaryPropertyLosses @unit @period=$currentInstant}))
                 else 
                     none
                 /**
                 for $row in $heading_dict.keys.sort
-                    if exists({@concept = $heading_dict[$row][2] @unit @period = $heading_dict[$row][1]})
+                    if list({@concept = $heading_dict[$row][2] @unit @period = $heading_dict[$row][1]}).length > 0
                             {@concept = $heading_dict[$row][2] @unit @period = $heading_dict[$row][1]}
                     else
                         none**/

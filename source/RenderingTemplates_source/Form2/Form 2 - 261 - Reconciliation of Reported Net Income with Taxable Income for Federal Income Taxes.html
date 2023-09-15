@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -222,15 +222,15 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 $data = if count(list([covered @ferc:TaxableIncomeNotReportedOnBooksAxis=*])) > 0  
                 
                     list({covered @ferc:TaxableIncomeNotReportedOnBooksAxis=*  {list(
-                        if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                        if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:TaxableIncomeNotReportedOnBooksDescription @unit  @period=$currentDuration}) 
+                    if list({@ferc:TaxableIncomeNotReportedOnBooksDescription @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:TaxableIncomeNotReportedOnBooksDescription @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:TaxableIncomeNotReportedOnBooks @unit @period=$currentDuration})
+                    if list({@ferc:TaxableIncomeNotReportedOnBooks @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:TaxableIncomeNotReportedOnBooks @unit @period=$currentDuration}))
                     else 
                         none
@@ -321,15 +321,15 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             $data = if count(list([covered @ferc:DeductionsRecordedOnBooksNotDeductedForReturnAxis=*])) > 0  
             
                 list({covered @ferc:DeductionsRecordedOnBooksNotDeductedForReturnAxis=*  {list(
-                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                     {@ferc:OrderNumber @unit=* @period=$currentDuration}
                 else
                     0,
-                if exists({@ferc:DeductionsRecordedOnBooksNotDeductedForReturnDescription @unit  @period=$currentDuration}) 
+                if list({@ferc:DeductionsRecordedOnBooksNotDeductedForReturnDescription @unit  @period=$currentDuration}).length > 0 
                     first(list({@ferc:DeductionsRecordedOnBooksNotDeductedForReturnDescription @unit @period=$currentDuration})) 
                 else 
                     none,
-                if exists({@ferc:DeductionsRecordedOnBooksNotDeductedForReturn @unit @period=$currentDuration})
+                if list({@ferc:DeductionsRecordedOnBooksNotDeductedForReturn @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:DeductionsRecordedOnBooksNotDeductedForReturn @unit @period=$currentDuration})) 
                 else none
                 )}})
@@ -421,7 +421,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         $data = if count(list([covered @ferc:IncomeRecordedOnBooksNotIncludedInReturnAxis=*])) > 0  
         
             list({covered @ferc:IncomeRecordedOnBooksNotIncludedInReturnAxis=*  {list(
-            if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+            if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                 {@ferc:OrderNumber @unit=* @period=$currentDuration}
             else
                 0,
@@ -521,7 +521,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             $data = if count(list([covered @ferc:DeductionsOnReturnNotChargedAgainstBookIncomeAxis=*])) > 0  
             
                 list({covered @ferc:DeductionsOnReturnNotChargedAgainstBookIncomeAxis=*  {list(
-                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                     {@ferc:OrderNumber @unit=* @period=$currentDuration}
                 else
                     0,
@@ -645,15 +645,15 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 $data = if count(list([covered @ferc:ReconciliationOfNetIncomeWithTaxableIncomeForFederalIncomeTaxesAxis=*])) > 0  
                 
                     list({covered @ferc:ReconciliationOfNetIncomeWithTaxableIncomeForFederalIncomeTaxesAxis=*  {list(
-                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:ComputationOfTaxDescription @unit  @period=$currentDuration}) 
+                    if list({@ferc:ComputationOfTaxDescription @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:ComputationOfTaxDescription @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:ComputationOfTax @unit @period=$currentDuration})
+                    if list({@ferc:ComputationOfTax @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:ComputationOfTax @unit @period=$currentDuration}))
                     else none
                     )}})

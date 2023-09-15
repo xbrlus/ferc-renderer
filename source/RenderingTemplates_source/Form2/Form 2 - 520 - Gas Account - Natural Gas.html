@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -209,12 +209,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                                                         $data1 = if count(list({covered where $fact.dimension($axis) != none})) > 0  
                                                         
                                                                                     list({covered  {list(
-                                                                                        if exists({@ferc:OrderNumber @unit=* @ferc:SystemNameAxis = $system @period = $currentDuration where $fact.dimension($axis) != none})
+                                                                                        if list({@ferc:OrderNumber @unit=* @ferc:SystemNameAxis = $system @period = $currentDuration where $fact.dimension($axis) != none}).length > 0
                                                                                             first(list({@ferc:OrderNumber @unit=* @ferc:SystemNameAxis = $system @period = $currentDuration where $fact.dimension($axis) != none}))
                                                                                         else
                                                                                             0,
                                                                                             /** Description **/   
-                                                                                        if exists({@concept = $lineItemsList[2][1] @unit @ferc:SystemNameAxis = $system @period = $currentDuration where $fact.dimension($axis) != none}) 
+                                                                                        if list({@concept = $lineItemsList[2][1] @unit @ferc:SystemNameAxis = $system @period = $currentDuration where $fact.dimension($axis) != none}).length > 0 
                                                                                             first(list({@concept = $lineItemsList[2][1] @unit @ferc:SystemNameAxis = $system @period = $currentDuration where $fact.dimension($axis) != none}))
                                                                                         else 
                                                                                             none,

@@ -38,4 +38,5 @@ Form 1 - 022 - 1F - Purchases and Sales of Ancillary Services.zip
 Form 1 - 023 - 1F - Monthly Trans Peak Load.zip
 Form 1 - 024 - 1F - Transmission Service and Generation Interconnection Study Cost.zip
 Form 1 - 025 - 1F - Amounts Included in ISO RTO Settlement Statments.zip
+Form 1 - 414 - ENERGY STORAGE OPERATIONS.zip
 Form 1 - 419 - ENERGY STORAGE OPERATIONS (Small Plants).zip

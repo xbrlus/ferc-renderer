@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -25,7 +25,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     
                     <xule:replace>
                         <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
-                        <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                        <xule:template-display>Name of Respondent:</xule:template-display>
                     </xule:replace>
                 </td>
                 <td class="xbrl">
@@ -181,21 +181,21 @@ agreement or understanding between two or more parties who together have control
             $data = if count(list({covered @ferc:CorporationsControlledByRespondentAxis=*})) > 0 
             
                 list( {covered @ferc:CorporationsControlledByRespondentAxis=*  {list(
-                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
                     first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:NameOfCompanyControlledByRespondent @unit @period=$currentDuration})   
+                    if list({@ferc:NameOfCompanyControlledByRespondent @unit @period=$currentDuration}).length > 0   
                     first(list({@ferc:NameOfCompanyControlledByRespondent @unit @period=$currentDuration}))
                         else none,
                    
-                    if exists({@ferc:CompanyControlledByRespondentKindOfBusinessDescription @unit @period=$currentDuration}) 
+                    if list({@ferc:CompanyControlledByRespondentKindOfBusinessDescription @unit @period=$currentDuration}).length > 0 
                     first(list({@ferc:CompanyControlledByRespondentKindOfBusinessDescription @unit @period=$currentDuration}))
                         else none,
-                    if exists({@ferc:VotingStockOwnedByRespondentPercentage @unit @period=$currentInstant}) 
+                    if list({@ferc:VotingStockOwnedByRespondentPercentage @unit @period=$currentInstant}).length > 0 
                     first(list({@ferc:VotingStockOwnedByRespondentPercentage @unit @period=$currentInstant}))
                         else none,
-                    if exists({@ferc:FootnoteReferences @unit @period=$currentDuration}) 
+                    if list({@ferc:FootnoteReferences @unit @period=$currentDuration}).length > 0 
                     first(list({@ferc:FootnoteReferences @unit @period=$currentDuration}))
                         else none,
                     )}})

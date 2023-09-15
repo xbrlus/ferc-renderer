@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -24,7 +24,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     </xule:replace><br/>
                     <xule:replace>
                         <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
-                        <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                        <xule:template-display>Name of Respondent:</xule:template-display>
                     </xule:replace>
                 </td>
                 <td class="xbrl">
@@ -159,27 +159,27 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:ClassAndSeriesOfObligationCouponRateDescription @unit @period=$currentDuration})
+                    if list({@ferc:ClassAndSeriesOfObligationCouponRateDescription @unit @period=$currentDuration}).length>0
                         first(list({@ferc:ClassAndSeriesOfObligationCouponRateDescription @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:NominalDateOfIssue @unit @period=$currentDuration})
+                    if list({@ferc:NominalDateOfIssue @unit @period=$currentDuration}).length>0
                         first(list({@ferc:NominalDateOfIssue @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:DateOfMaturity @unit @period=$currentDuration})
+                    if list({@ferc:DateOfMaturity @unit @period=$currentDuration}).length>0
                         first(list({@ferc:DateOfMaturity @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:LongTermDebtOutstanding @unit @period=$currentInstant})
+                    if list({@ferc:LongTermDebtOutstanding @unit @period=$currentInstant}).length>0
                         first(list({@ferc:LongTermDebtOutstanding @unit @period=$currentInstant}))
                     else 
                         none,
-                    if exists({@ferc:LongTermDebtInterestRate @unit @period=$currentDuration})
+                    if list({@ferc:LongTermDebtInterestRate @unit @period=$currentDuration}).length>0
                         first(list({@ferc:LongTermDebtInterestRate @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:InterestExpenseOnLongTermDebtIssued @unit @period=$currentDuration})
+                    if list({@ferc:InterestExpenseOnLongTermDebtIssued @unit @period=$currentDuration}).length>0
                         first(list({@ferc:InterestExpenseOnLongTermDebtIssued @unit @period=$currentDuration}))
                     else 
                         none

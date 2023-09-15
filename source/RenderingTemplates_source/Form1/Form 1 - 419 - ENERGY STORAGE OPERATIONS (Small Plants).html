@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xule="http://xbrl.us/xule/2.0/template"
     xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
     xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-    xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc" 
+    xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc" 
     xmlns:ferc-part="http://www.ferc.gov/form/parts">
 
 <head>
@@ -26,7 +26,7 @@
                 <xule:replace>
                     <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]
                     </xule:expression>
-                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
                 </xule:replace>
             </td>
             <td class="xbrl">
@@ -113,7 +113,10 @@
 
         <tr class="sch-title">
             <td class="xbrl" colspan="10"><xule:replace>
-                <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleEnergyStorageOperationsSmallPlantsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FScheduleTitle").text
+                <xule:expression class="hide" html="true">if taxonomy().entry-point.contains('form1F')
+                    taxonomy().concept(ferc:ScheduleEnergyStorageOperationsSmallPlantsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FScheduleTitle").text
+                    else
+                    taxonomy().concept(ferc:ScheduleEnergyStorageOperationsSmallPlantsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1ScheduleTitle").text
                 </xule:expression>
                 <xule:template-display>
                     ENERGY STORAGE OPERATIONS (Small Plants)
@@ -197,39 +200,39 @@
                             first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                         else
                             0,
-                        if exists({@ferc:EnergyStorageProjectName @unit @period=$currentDuration})
+                        if list({@ferc:EnergyStorageProjectName @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:EnergyStorageProjectName @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:FunctionalClassificationEnergyStorageOperations @unit @period=$currentDuration})
+                        if list({@ferc:FunctionalClassificationEnergyStorageOperations @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:FunctionalClassificationEnergyStorageOperations @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:ProjectLocation @unit @period=$currentDuration})
+                        if list({@ferc:ProjectLocation @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:ProjectLocation @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:ProjectPlantCost @unit @period=$currentDuration})
+                        if list({@ferc:ProjectPlantCost @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:ProjectPlantCost @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:OperationExpenseExcludingFuel @unit @period=$currentDuration})
+                        if list({@ferc:OperationExpenseExcludingFuel @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:OperationExpenseExcludingFuel @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:MaintenanceExpense @unit @period=$currentDuration})
+                        if list({@ferc:MaintenanceExpense @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:MaintenanceExpense @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:FuelUsedInStorageOperations @unit @period=$currentDuration})
+                        if list({@ferc:FuelUsedInStorageOperations @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:FuelUsedInStorageOperations @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:PowerPurchasedForStorageOperations @unit @period=$currentDuration})
+                        if list({@ferc:PowerPurchasedForStorageOperations @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:PowerPurchasedForStorageOperations @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:OtherExpenses @unit @period=$currentDuration})
+                        if list({@ferc:OtherExpenses @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:OtherExpenses @unit @period=$currentDuration}))
                         else 
                             none
@@ -341,7 +344,7 @@
             
         </tr>
             <!-- "Line 36 -->
-  <!--      <tr>
+        <tr>
             <td class="xbrl line-number">36</td>
             <td class="xbrl description_items">TOTAL</td>
             <td class="xbrl"></td>
@@ -403,7 +406,7 @@
             </td>
 
             
-        </tr> -->
+        </tr>
     </table>
     <p></p>
     <div class="schedule-footer">

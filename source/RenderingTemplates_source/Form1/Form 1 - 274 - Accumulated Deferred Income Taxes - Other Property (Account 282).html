@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -25,7 +25,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 
                 <xule:replace>
                     <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
-                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
                 </xule:replace>
             </td>
             <td class="xbrl">
@@ -305,47 +305,47 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                 else
                     0,
-                if exists({@ferc:DescriptionOfNonUtilityAccountDetails @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration})
+                if list({@ferc:DescriptionOfNonUtilityAccountDetails @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:DescriptionOfNonUtilityAccountDetails @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}))
                 else
                     none,
-                if exists({@ferc:AccumulatedDeferredIncomeTaxesOtherProperty @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$priorInstant})
+                if list({@ferc:AccumulatedDeferredIncomeTaxesOtherProperty @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$priorInstant}).length > 0
                     first(list({@ferc:AccumulatedDeferredIncomeTaxesOtherProperty @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$priorInstant}))
                 else
                     none,
-                if exists({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration})
+                if list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}))
                 else
                     none,
-                if exists({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration})
+                if list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}))
                 else
                     none,
-                if exists({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration})
+                if list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}))
                 else
                     none,
-                if exists({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration})
+                if list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}))
                 else
                     none,
-                if exists({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyDescriptionOfDebitedAccountNumber @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration})
+                if list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyDescriptionOfDebitedAccountNumber @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyDescriptionOfDebitedAccountNumber @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}))
                 else
                     none,
-                if exists({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyAdjustmentsDebitedToAccount @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration})
+                if list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyAdjustmentsDebitedToAccount @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyAdjustmentsDebitedToAccount @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyDescriptionOfCreditedAccountNumber @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration})
+                if list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyDescriptionOfCreditedAccountNumber @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyDescriptionOfCreditedAccountNumber @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyAdjustmentsCreditedToAccount @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration})
+                if list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyAdjustmentsCreditedToAccount @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:AccumulatedDeferredIncomeTaxLiabilitiesOtherPropertyAdjustmentsCreditedToAccount @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:AccumulatedDeferredIncomeTaxesOtherProperty @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentInstant})
+                if list({@ferc:AccumulatedDeferredIncomeTaxesOtherProperty @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:AccumulatedDeferredIncomeTaxesOtherProperty @ferc:UtilityTypeAxis=ferc:NonUtilityMember @unit @period=$currentInstant}))
                 else 
                     none

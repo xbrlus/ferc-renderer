@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-04-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -282,7 +282,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <td class="xbrl monetary_items">
                             <xule:replace>
                                 <xule:expression class="hide" name="ChargesLineItems" fact="true" format="ixt4:num-dot-decimal" part="12">$rowl[13]</xule:expression>
-                               <!--<xule:sign>if $rowl[13].name in list(ferc:AllowanceForOtherFundsUsedDuringConstruction,ferc:AllowanceForBorrowedFundsUsedDuringConstructionCredit) "-" else none</xule:sign>-->
+                                <xule:sign>if $rowl[13].name in list(ferc:AllowanceForOtherFundsUsedDuringConstruction,ferc:AllowanceForBorrowedFundsUsedDuringConstructionCredit) "-" else none</xule:sign>
                             </xule:replace>
                         </td>
 

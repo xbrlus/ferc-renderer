@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xule="http://xbrl.us/xule/2.0/template"
     xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
     xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-    xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
+    xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
 
 <head>
     <title>Template - F1 - 350</title>
@@ -25,7 +25,7 @@
                 <xule:replace>
                     <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]
                     </xule:expression>
-                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
                 </xule:replace>
             </td>
             <td class="xbrl">
@@ -226,51 +226,51 @@
                 else
                     0,
 
-                if exists({@ferc:RegulatoryCommissionDescription @unit @period=$currentDuration})
+                if list({@ferc:RegulatoryCommissionDescription @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:RegulatoryCommissionDescription @unit @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:RegulatoryExpensesAssessedByRegulatoryCommission @unit @period=$currentInstant})
+                if list({@ferc:RegulatoryExpensesAssessedByRegulatoryCommission @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:RegulatoryExpensesAssessedByRegulatoryCommission @unit @period=$currentInstant}))
                 else 
                     none,
-                if exists({@ferc:RegulatoryExpensesOfUtility @unit @period=$currentInstant})
+                if list({@ferc:RegulatoryExpensesOfUtility @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:RegulatoryExpensesOfUtility @unit @period=$currentInstant}))
                 else 
                     none,
-                if exists({@ferc:RegulatoryCommissionExpensesAmount @unit @period=$currentInstant})
+                if list({@ferc:RegulatoryCommissionExpensesAmount @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:RegulatoryCommissionExpensesAmount @unit @period=$currentInstant}))
                 else 
                     none,
-                if exists({@ferc:OtherRegulatoryAssetsRegulatoryCommissionExpenses @unit @period=$priorInstant})
+                if list({@ferc:OtherRegulatoryAssetsRegulatoryCommissionExpenses @unit @period=$priorInstant}).length > 0
                     first(list({@ferc:OtherRegulatoryAssetsRegulatoryCommissionExpenses @unit @period=$priorInstant}))
                 else 
                     none,
-                if exists({@ferc:NameOfDepartmentRegulatoryCommissionExpensesCharged @unit @period=$currentDuration})
+                if list({@ferc:NameOfDepartmentRegulatoryCommissionExpensesCharged @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:NameOfDepartmentRegulatoryCommissionExpensesCharged @unit @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:AccountNumberRegulatoryCommissionExpensesCharged @unit @period=$currentDuration})
+                if list({@ferc:AccountNumberRegulatoryCommissionExpensesCharged @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:AccountNumberRegulatoryCommissionExpensesCharged @unit @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:RegulatoryComissionExpensesIncurredAndCharged @unit @period=$currentDuration})
+                if list({@ferc:RegulatoryComissionExpensesIncurredAndCharged @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:RegulatoryComissionExpensesIncurredAndCharged @unit @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:RegulatoryCommissionExpensesDeferredToOtherRegulatoryAssets @unit @period=$currentDuration})
+                if list({@ferc:RegulatoryCommissionExpensesDeferredToOtherRegulatoryAssets @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:RegulatoryCommissionExpensesDeferredToOtherRegulatoryAssets @unit @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:DeferredRegulatoryCommissionExpensesAmortizedInContraAccount @unit @period=$currentDuration})
+                if list({@ferc:DeferredRegulatoryCommissionExpensesAmortizedInContraAccount @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:DeferredRegulatoryCommissionExpensesAmortizedInContraAccount @unit @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:DeferredRegulatoryCommissionExpensesAmortized @unit @period=$currentDuration})
+                if list({@ferc:DeferredRegulatoryCommissionExpensesAmortized @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:DeferredRegulatoryCommissionExpensesAmortized @unit @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:OtherRegulatoryAssetsRegulatoryCommissionExpenses @unit @period=$currentInstant})
+                if list({@ferc:OtherRegulatoryAssetsRegulatoryCommissionExpenses @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:OtherRegulatoryAssetsRegulatoryCommissionExpenses @unit @period=$currentInstant}))
                 else 
                     none

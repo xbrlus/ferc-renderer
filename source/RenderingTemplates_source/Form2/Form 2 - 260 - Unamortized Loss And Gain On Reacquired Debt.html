@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -177,35 +177,35 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 
                
                     list({covered @ferc:UnamortizedLossOnReacquiredDebtAxis=*  {list(
-                        if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                        if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                             {@ferc:OrderNumber @unit=* @period=$currentDuration}
                         else
                             0,
-                        if exists({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration})
+                        if list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:DateOfMaturity @unit @period=$currentDuration})
+                        if list({@ferc:DateOfMaturity @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DateOfMaturity @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:DateOfDebtReacquired @unit @period=$currentDuration})
+                        if list({@ferc:DateOfDebtReacquired @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DateOfDebtReacquired @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:LongTermDebtReacquiredPrincipalAmount @unit @period=$currentDuration})
+                        if list({@ferc:LongTermDebtReacquiredPrincipalAmount @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:LongTermDebtReacquiredPrincipalAmount @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:UnamortizedTotalLossOnReacquiredLongTermDebt @unit @period=$currentDuration})
+                        if list({@ferc:UnamortizedTotalLossOnReacquiredLongTermDebt @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:UnamortizedTotalLossOnReacquiredLongTermDebt @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:UnamortizedLossOnReacquiredDebt @unit @period=$priorInstant})
+                        if list({@ferc:UnamortizedLossOnReacquiredDebt @unit @period=$priorInstant}).length > 0
                             first(list({@ferc:UnamortizedLossOnReacquiredDebt @unit @period=$priorInstant}))
                         else 
                             none,
-                        if exists({@ferc:UnamortizedLossOnReacquiredDebt @unit @period=$currentInstant})
+                        if list({@ferc:UnamortizedLossOnReacquiredDebt @unit @period=$currentInstant}).length > 0
                             first(list({@ferc:UnamortizedLossOnReacquiredDebt @unit @period=$currentInstant}))
                         else 
                             none
@@ -293,34 +293,34 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 
                
                     list({covered @ferc:UnamortizedGainOnReacquiredDebtAxis=*  {list(
-                        if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                        if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                             {@ferc:OrderNumber @unit=* @period=$currentDuration}
                         else
                             0,
-                        if exists({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration})
+                        if list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:DateOfMaturity @unit @period=$currentDuration})
+                        if list({@ferc:DateOfMaturity @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DateOfMaturity @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:DateOfDebtReacquired @unit @period=$currentDuration})
+                        if list({@ferc:DateOfDebtReacquired @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DateOfDebtReacquired @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:LongTermDebtReacquiredPrincipalAmount @unit @period=$currentDuration})
+                        if list({@ferc:LongTermDebtReacquiredPrincipalAmount @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:LongTermDebtReacquiredPrincipalAmount @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:UnamortizedTotalGainOnReacquiredLongTermDebt @unit @period=$currentDuration})
+                        if list({@ferc:UnamortizedTotalGainOnReacquiredLongTermDebt @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:UnamortizedTotalGainOnReacquiredLongTermDebt @unit @period=$currentDuration}))
                         else none,
-                        if exists({@ferc:UnamortizedGainOnReacquiredDebt @unit @period=$priorInstant})
+                        if list({@ferc:UnamortizedGainOnReacquiredDebt @unit @period=$priorInstant}).length > 0
                             first(list({@ferc:UnamortizedGainOnReacquiredDebt @unit @period=$priorInstant}))
                         else 
                             none,
-                        if exists({@ferc:UnamortizedGainOnReacquiredDebt @unit @period=$currentInstant})
+                        if list({@ferc:UnamortizedGainOnReacquiredDebt @unit @period=$currentInstant}).length > 0
                             first(list({@ferc:UnamortizedGainOnReacquiredDebt @unit @period=$currentInstant}))
                         else 
                             none
@@ -419,29 +419,29 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 
                
                     list({covered @ferc:UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAxis=*  {list(
-                        if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                        if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                             first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                         else
                             0,
-                        if exists({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration})
+                        if list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:DateOfDebtReacquired @unit @period=$currentDuration})
+                        if list({@ferc:DateOfDebtReacquired @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DateOfDebtReacquired @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:LongTermDebtReacquiredPrincipalAmount @unit @period=$currentDuration})
+                        if list({@ferc:LongTermDebtReacquiredPrincipalAmount @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:LongTermDebtReacquiredPrincipalAmount @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:UnamortizedNetGainOrLossOnReacquiredLongTermDebt @unit @period=$currentDuration})
+                        if list({@ferc:UnamortizedNetGainOrLossOnReacquiredLongTermDebt @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:UnamortizedNetGainOrLossOnReacquiredLongTermDebt @unit @period=$currentDuration}))
                         else none,
-                        if exists({@ferc:UnamortizedBalanceOnGainOrLossesOnReacquiredBonds @unit @period=$priorInstant})
+                        if list({@ferc:UnamortizedBalanceOnGainOrLossesOnReacquiredBonds @unit @period=$priorInstant}).length > 0
                             first(list({@ferc:UnamortizedBalanceOnGainOrLossesOnReacquiredBonds @unit @period=$priorInstant}))
                         else none,
-                        if exists({@ferc:UnamortizedBalanceOnGainOrLossesOnReacquiredBonds @unit @period=$currentInstant})
+                        if list({@ferc:UnamortizedBalanceOnGainOrLossesOnReacquiredBonds @unit @period=$currentInstant}).length > 0
                             first(list({@ferc:UnamortizedBalanceOnGainOrLossesOnReacquiredBonds @unit @period=$currentInstant}))
                         else none
                     )}})

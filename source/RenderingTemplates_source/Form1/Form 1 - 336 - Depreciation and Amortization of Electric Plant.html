@@ -3,7 +3,7 @@
     xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
     xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
     xmlns:ixt-sec="http://www.sec.gov/inlineXBRL/transformation/2015-08-31"
-    xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
+    xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
 
 <head>
     <title>Template - F1 - 336</title>
@@ -26,7 +26,7 @@
                 <xule:replace>
                     <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]
                     </xule:expression>
-                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
                 </xule:replace>
             </td>
             <td class="xbrl">
@@ -915,31 +915,31 @@
                                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                                     else
                                         0,
-                                    if exists({@ferc:AccountNumberFactorsUsedInEstimatingDepreciationCharges @unit @period=$currentDuration})
+                                    if list({@ferc:AccountNumberFactorsUsedInEstimatingDepreciationCharges @unit @period=$currentDuration}).length > 0
                                         first(list({@ferc:AccountNumberFactorsUsedInEstimatingDepreciationCharges @unit @period=$currentDuration}))
                                     else
                                         none,
-                                    if exists({@ferc:DepreciablePlantBase @unit @period=$currentDuration})
+                                    if list({@ferc:DepreciablePlantBase @unit @period=$currentDuration}).length > 0
                                         first(list({@ferc:DepreciablePlantBase @unit @period=$currentDuration}))
                                     else
                                         none,
-                                    if exists({@ferc:UtilityPlantEstimatedAverageServiceLife @unit @period=$currentDuration})
+                                    if list({@ferc:UtilityPlantEstimatedAverageServiceLife @unit @period=$currentDuration}).length > 0
                                         first(list({@ferc:UtilityPlantEstimatedAverageServiceLife @unit @period=$currentDuration}))
                                     else
                                         none,
-                                    if exists({@ferc:UtilityPlantNetSalvageValuePercentage @unit @period=$currentDuration})
+                                    if list({@ferc:UtilityPlantNetSalvageValuePercentage @unit @period=$currentDuration}).length > 0
                                         first(list({@ferc:UtilityPlantNetSalvageValuePercentage @unit @period=$currentDuration}))
                                     else 
                                         none,
-                                    if exists({@ferc:UtilityPlantAppliedDepreciationRate @unit @period=$currentDuration})
+                                    if list({@ferc:UtilityPlantAppliedDepreciationRate @unit @period=$currentDuration}).length > 0
                                         first(list({@ferc:UtilityPlantAppliedDepreciationRate @unit @period=$currentDuration}))
                                     else 
                                         none,
-                                    if exists({@ferc:MortalityCurveType @unit @period=$currentDuration})
+                                    if list({@ferc:MortalityCurveType @unit @period=$currentDuration}).length > 0
                                         first(list({@ferc:MortalityCurveType @unit @period=$currentDuration}))
                                     else 
                                         none,
-                                    if exists({@ferc:UtilityPlantWeightedAverageRemainingLife @unit @period=$currentDuration})
+                                    if list({@ferc:UtilityPlantWeightedAverageRemainingLife @unit @period=$currentDuration}).length > 0
                                         first(list({@ferc:UtilityPlantWeightedAverageRemainingLife @unit @period=$currentDuration}))
                                     else 
                                         none

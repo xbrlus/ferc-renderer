@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -188,37 +188,37 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
     
             list({covered @ferc:UnrecoveredPlantAndRegulatoryStudyCostsAxis=*  {list(
 
-            if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+            if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                 first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
             else
                 0,
-            if exists({@ferc:DescriptionOfUnrecoveredPlantAndRegulatoryStudyCosts @unit @period=$currentDuration})
+            if list({@ferc:DescriptionOfUnrecoveredPlantAndRegulatoryStudyCosts @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:DescriptionOfUnrecoveredPlantAndRegulatoryStudyCosts @unit @period=$currentDuration}))
             else
                 none,
-            if exists({@ferc:UnrecoveredPlantAndRegulatoryStudyCosts @unit @period=$priorInstant})
+            if list({@ferc:UnrecoveredPlantAndRegulatoryStudyCosts @unit @period=$priorInstant}).length > 0
                 first(list({@ferc:UnrecoveredPlantAndRegulatoryStudyCosts @unit @period=$priorInstant}))
             else
                 none,
-            if exists({@ferc:UnrecoveredPlantAndRegulatoryStudyCostsNotYetRecognized @unit @period=$currentDuration})
+            if list({@ferc:UnrecoveredPlantAndRegulatoryStudyCostsNotYetRecognized @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:UnrecoveredPlantAndRegulatoryStudyCostsNotYetRecognized @unit @period=$currentDuration}))
             else
                 none,
-            if exists({@ferc:UnrecoveredPlantAndRegulatoryStudyCostsRecognized @unit @period=$currentDuration})
+            if list({@ferc:UnrecoveredPlantAndRegulatoryStudyCostsRecognized @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:UnrecoveredPlantAndRegulatoryStudyCostsRecognized @unit @period=$currentDuration}))
             else none,
-            if exists({@ferc:UnrecoveredPlantAndRegulatoryStudyCostsWrittenOffAccountCharged @unit @period=$currentDuration})
+            if list({@ferc:UnrecoveredPlantAndRegulatoryStudyCostsWrittenOffAccountCharged @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:UnrecoveredPlantAndRegulatoryStudyCostsWrittenOffAccountCharged @unit @period=$currentDuration}))
             else none,
-            if exists({@ferc:UnrecoveredPlantAndRegulatoryStudyCostsWrittenOff @unit @period=$currentDuration})
+            if list({@ferc:UnrecoveredPlantAndRegulatoryStudyCostsWrittenOff @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:UnrecoveredPlantAndRegulatoryStudyCostsWrittenOff @unit @period=$currentDuration}))
             else none,
-            if exists({@ferc:UnrecoveredPlantAndRegulatoryStudyCosts @unit @period=$currentInstant})
+            if list({@ferc:UnrecoveredPlantAndRegulatoryStudyCosts @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:UnrecoveredPlantAndRegulatoryStudyCosts @unit @period=$currentInstant}))
             else none
            /** THIS SHOULD WORK BUT XULE HAS AN ALIGNMENT PROBLEM WITH NONE SO DO NOT USE **/
             /** for $row in $heading_dict.keys.sort
-            if exists({@concept = $heading_dict[$row][2] @unit @period = $heading_dict[$row][1]})
+            if list({@concept = $heading_dict[$row][2] @unit @period = $heading_dict[$row][1]}).length > 0
                     {@concept = $heading_dict[$row][2] @unit @period = $heading_dict[$row][1]}
             else
                 none**/

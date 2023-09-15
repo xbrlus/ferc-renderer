@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -314,23 +314,23 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                    
                     list({covered @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=*  {list(
                         
-                    if exists({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration})
+                    if list({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}).length > 0
                         first(list({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}) 
+                    if list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}).length > 0 
                         first(list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration})
+                    if list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration} ))
                     else 
                         none,
-                    if exists({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration})
+                    if list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=*  @unit @period=$currentDuration} ))
                     else 
                         none,
-                    if exists({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration})
+                    if list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=*  @unit @period=$currentDuration} ))
                     else 
                         none,
@@ -538,23 +538,23 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                    
                     list({covered @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*  {list(
                         
-                    if exists({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @period=$currentDuration})
+                    if list({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @period=$currentDuration}).length > 0
                         first(list({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @period=$currentDuration}) 
+                    if list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @period=$currentDuration}).length > 0 
                         first(list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @period=$currentDuration} ))
                     else 
                         none,
-                    if exists({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @unit @period=$currentDuration})
+                    if list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @unit @period=$currentDuration} ))
                     else 
                         none,
-                    if exists({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @unit @period=$currentDuration})
+                    if list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*  @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @unit @period=$currentDuration})
+                    if list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=* @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*  @unit @period=$currentDuration} ))
                     else 
                         none,
@@ -763,23 +763,23 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                    
                     list({covered @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*  {list(
                         
-                    if exists({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @period=$currentDuration})
+                    if list({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @period=$currentDuration}).length > 0
                         first(list({@ferc:OrderNumber @unit=* @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit  @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @period=$currentDuration}) 
+                    if list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit  @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @period=$currentDuration}).length > 0 
                         first(list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember   @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                    if list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                    if list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember   @unit @period=$currentDuration} ))
                     else 
                         none,
-                    if exists({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=none @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                    if list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=none @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=none @ferc:PeakDeliveryDayTypeAxis=ferc:SingleDayPeakDeliveriesMember  @unit @period=$currentDuration})) 
                     else 
                         none,
@@ -1019,23 +1019,23 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                    
                     list({covered @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=*  {list(
                         
-                    if exists({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration})
+                    if list({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}).length > 0
                         first(list({@ferc:OrderNumber @unit=* @ferc:TransmissionSystemDeliveriesToAxis=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}) 
+                    if list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}).length > 0 
                         first(list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration})
+                    if list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration})
+                    if list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=*  @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration})
+                    if list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=* @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:OtherTransportationVolumesOfGasTransported @ferc:TransmissionSystemDeliveriesToAxis!=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @ferc:TransmissionSystemDeliveriesOfGasGasTransportedAxis=*  @unit @period=$currentDuration}))
                     else 
                         none,
@@ -1242,23 +1242,23 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                
                 list({covered @ferc:TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*  {list(
                     
-                if exists({@ferc:OrderNumber @unit=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration})
+                if list({@ferc:OrderNumber @unit=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration}).length > 0
                     first(list({@ferc:OrderNumber @unit=*  @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration}))
                 else
                     0,
-                if exists({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit  @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration}) 
+                if list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit  @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration}).length > 0 
                     first(list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit  @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                if list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                if list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember   @unit @period=$currentDuration}))
                 else 
                     none,
-                if exists({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=none @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                if list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=none @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @ferc:TransmissionSystemDeliveriesToAxis=none @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration}))
                 else 
                     none,
@@ -1465,23 +1465,23 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                        
                         list({covered @ferc:TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*  {list(
                             
-                        if exists({@ferc:OrderNumber @unit=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @period=$currentDuration})
+                        if list({@ferc:OrderNumber @unit=* @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @period=$currentDuration}).length > 0
                             first(list({@ferc:OrderNumber @unit=*  @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @period=$currentDuration}))
                         else
                             0,
-                        if exists({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @period=$currentDuration}) 
+                        if list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @period=$currentDuration}).length > 0 
                             first(list({@ferc:DescriptionOfTransmissionSystemDeliveriesOfGasGasTransported @unit @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember   @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                        if list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToInterstatePipelinesMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                        if list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=ferc:DeliveredToOthersMember @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember   @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=none @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration})
+                        if list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=none @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember  @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:OtherOtherOperationalActivities @ferc:TransmissionSystemDeliveriesToAxis=none @ferc:PeakDeliveryDayTypeAxis=ferc:ThreeDayPeakDeliveriesMember   @unit @period=$currentDuration}))
                         else 
                             none,

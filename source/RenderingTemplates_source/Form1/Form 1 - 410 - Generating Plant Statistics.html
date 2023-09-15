@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -25,7 +25,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         
                         <xule:replace>
                             <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
-                            <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                            <xule:template-display>Name of Respondent:</xule:template-display>
                         </xule:replace>
                     </td>
                     <td class="xbrl">
@@ -195,51 +195,51 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:PlantName @unit  @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:YearPlantOriginallyConstructed @unit @period=$currentDuration})
+                    if list({@ferc:YearPlantOriginallyConstructed @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:YearPlantOriginallyConstructed @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:InstalledCapacityOfPlant @unit @period=$currentInstant})
+                    if list({@ferc:InstalledCapacityOfPlant @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:InstalledCapacityOfPlant @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:NetPeakDemandOnPlant @unit @period=$currentDuration})
+                    if list({@ferc:NetPeakDemandOnPlant @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:NetPeakDemandOnPlant @unit  @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:NetGenerationExcludingPlantUse @unit  @period=$currentDuration}) 
+                    if list({@ferc:NetGenerationExcludingPlantUse @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:NetGenerationExcludingPlantUse @unit  @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:CostOfPlant @unit @period=$currentInstant}) 
+                    if list({@ferc:CostOfPlant @unit @period=$currentInstant}).length > 0 
                         first(list({@ferc:CostOfPlant @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:PlantCostPerMw @unit  @period=$currentInstant})
+                    if list({@ferc:PlantCostPerMw @unit  @period=$currentInstant}).length > 0
                         first(list({@ferc:PlantCostPerMw @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:OperatingExpensesExcludingFuel @unit  @period=$currentDuration})
+                    if list({@ferc:OperatingExpensesExcludingFuel @unit  @period=$currentDuration}).length > 0
                         first(list({@ferc:OperatingExpensesExcludingFuel @unit  @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:FuelProductionExpenses @unit @period=$currentDuration})
+                    if list({@ferc:FuelProductionExpenses @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:FuelProductionExpenses @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:MaintenanceProductionExpenses @unit @period=$currentDuration})
+                    if list({@ferc:MaintenanceProductionExpenses @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:MaintenanceProductionExpenses @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:FuelKind @unit @period=$currentDuration})
+                    if list({@ferc:FuelKind @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:FuelKind @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:FuelCostPerMmbtus @unit @period=$currentDuration})
+                    if list({@ferc:FuelCostPerMmbtus @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:FuelCostPerMmbtus @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:GenerationType @unit @period=$currentDuration})
+                    if list({@ferc:GenerationType @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:GenerationType @unit @period=$currentDuration})) 
                     else 
                         none

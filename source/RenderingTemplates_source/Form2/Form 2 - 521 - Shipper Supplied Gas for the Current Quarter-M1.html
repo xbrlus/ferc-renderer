@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -675,7 +675,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     <td class="xbrl numeric_items">
                             <xule:replace>
                                     <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
-                                        if exists({@ferc:ForwardhaulVolumeOfThroughput @unit @period=$current3M})
+                                        if list({@ferc:ForwardhaulVolumeOfThroughput @unit @period=$current3M}).length > 0
                                             first(list({@ferc:ForwardhaulVolumeOfThroughput  @unit @period=$current3M}))
                                         else 
                                             none
@@ -695,7 +695,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <td class="xbrl numeric_items">
                                 <xule:replace>
                                         <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
-                                            if exists({@ferc:BackhaulVolumeOfThroughput @unit @period=$current3M})
+                                            if list({@ferc:BackhaulVolumeOfThroughput @unit @period=$current3M}).length > 0
                                                 first(list({@ferc:BackhaulVolumeOfThroughput  @unit @period=$current3M}))
                                             else 
                                                 none
@@ -716,7 +716,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             <td class="xbrl numeric_items">
                                     <xule:replace>
                                             <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
-                                                if exists({@ferc:TotalVolumeOfThroughput @unit @period=$current3M})
+                                                if list({@ferc:TotalVolumeOfThroughput @unit @period=$current3M}).length > 0
                                                     first(list({@ferc:TotalVolumeOfThroughput  @unit @period=$current3M}))
                                                 else 
                                                     none

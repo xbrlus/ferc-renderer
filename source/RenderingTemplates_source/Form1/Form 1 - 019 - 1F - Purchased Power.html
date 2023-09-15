@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xule="http://xbrl.us/xule/2.0/template"
     xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
     xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-    xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc" 
+    xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc" 
     xmlns:ferc-part="http://www.ferc.gov/form/parts">
 
 <head>
@@ -32,7 +32,7 @@
                 <xule:replace>
                     <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]
                     </xule:expression>
-                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
                 </xule:replace>
             </td>
             <td class="xbrl">
@@ -129,11 +129,11 @@
         </tr>
         <tr>
             <td class="instruction xbrl" colspan="6">
-               <!-- <xule:replace>
+                <xule:replace>
                     <xule:expression class="hide" html="true">
                         taxonomy().concept(ferc:SchedulePurchasedPowerShortAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FInstructions").text
                     </xule:expression>
-                    <xule:template-display>-->
+                    <xule:template-display>
                         <ol>
                             <li>Report below the information called for concerning power purchased during the year. Power exchange transactions should be reported net in this schedule whether net is a receipt or a delivery. Indicate such transactions by an asterisk.</li>
                             <li>Enter the name of the seller in column (a). Abbreviate if necessary but do not truncate the name or use acronyms. Report in column (e) the total cost of power shown on bills rendered by the seller.</li>
@@ -143,8 +143,8 @@
                             <li>Report in column (e) the total cost of power shown on bills rendered by the seller.</li>
                             <li>Footnote entries as required and provide explanations following all required data.</li>
                             </ol>
-                   <!-- </xule:template-display>
-                </xule:replace> -->
+                    </xule:template-display>
+                </xule:replace>
             </td>
         </tr>
         <tr class="col-heading-row">     
@@ -266,23 +266,23 @@
                             first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                         else
                             0,
-                        if exists({@ferc:NameOfCompanyOrPublicAuthorityProvidingPurchasedPower @unit @period=$currentDuration})
+                        if list({@ferc:NameOfCompanyOrPublicAuthorityProvidingPurchasedPower @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:NameOfCompanyOrPublicAuthorityProvidingPurchasedPower @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:RateScheduleTariffNumber @unit @period=$currentDuration})
+                        if list({@ferc:RateScheduleTariffNumber @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:RateScheduleTariffNumber @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:PurchasedPowerAnnualMaximumDemand @unit @period=$currentDuration})
+                        if list({@ferc:PurchasedPowerAnnualMaximumDemand @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:PurchasedPowerAnnualMaximumDemand @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:MegawattHoursPurchased @unit @period=$currentDuration})
+                        if list({@ferc:MegawattHoursPurchased @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:MegawattHoursPurchased @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:SettlementOfPower @unit @period=$currentDuration})
+                        if list({@ferc:SettlementOfPower @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:SettlementOfPower @unit @period=$currentDuration}))
                         else 
                             none     

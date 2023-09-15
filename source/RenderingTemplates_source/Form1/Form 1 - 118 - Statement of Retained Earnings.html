@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -33,7 +33,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 <br></br>
                 <xule:replace>
                     <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
-                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
                 </xule:replace>
             </td>
             <td class="xbrl">
@@ -188,6 +188,20 @@ $data-labels = list(for $row in $treeElements
 
         $contraAccount = if $concept.name == ferc:TransfersFromUnappropriatedUndistributedSubsidiaryEarnings
                             first(list([covered @concept = ferc:TransfersFromUnappropriatedUndistributedSubsidiaryEarningsContraPrimaryAccountAffected @unit @period=$currentDuration]))
+                        else if $concept.name == ferc:UnappropriatedRetainedEarnings
+                            first(list([covered @concept = ferc:UnappropriatedRetainedEarningsContraPrimaryAccountAffected @unit @period=$currentDuration]))
+                        else if $concept.name == ferc:AppropriatedRetainedEarningsAmortizationReserveFederal
+                            first(list([covered @concept = ferc:AppropriatedRetainedEarningsAmortizationReserveFederalContraPrimaryAccountAffected @unit @period=$currentDuration]))
+                        else if $concept.name == ferc:AppropriatedRetainedEarningsIncludingReserveAmortization
+                            first(list([covered @concept = ferc:AppropriatedRetainedEarningsIncludingReserveAmortizationContraPrimaryAccountAffected @unit @period=$currentDuration]))
+                        else if $concept.name == ferc:RetainedEarnings
+                            first(list([covered @concept = ferc:RetainedEarningsPrimaryContraAccountAffected @unit @period=$currentDuration]))
+                        else if $concept.name == ferc:UnappropriatedUndistributedSubsidiaryEarnings
+                            first(list([covered @concept = ferc:UnappropriatedUndistributedSubsidiaryEarningsContraPrimaryAccountAffected @unit @period=$currentDuration]))
+                        else if $concept.name == ferc:EquityInEarningsOfSubsidiaryCompanies
+                            first(list([covered @concept = ferc:EquityInEarningsOfSubsidiaryCompaniesContraPrimaryAccountAffected @unit @period=$currentDuration]))
+                        else if $concept.name == ferc:DividendsReceived
+                            first(list([covered @concept = ferc:DividendsReceivedContraPrimaryAccountAffected @unit @period=$currentDuration]))
                          else
                             none
                             

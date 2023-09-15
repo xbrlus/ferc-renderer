@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -33,7 +33,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         
                         <xule:replace>
                             <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
-                            <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                            <xule:template-display>Name of Respondent:</xule:template-display>
                         </xule:replace>
                     </td>
                     <td class="xbrl">
@@ -209,59 +209,59 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration @ferc:PurchasedPowerAxis = $x}))
                     else
                         0,
-                    if exists({@ferc:NameOfCompanyOrPublicAuthorityProvidingPurchasedPower @unit  @period=$currentDuration @ferc:PurchasedPowerAxis = $x}) 
+                    if list({@ferc:NameOfCompanyOrPublicAuthorityProvidingPurchasedPower @unit  @period=$currentDuration @ferc:PurchasedPowerAxis = $x}).length > 0 
                         first(list({@ferc:NameOfCompanyOrPublicAuthorityProvidingPurchasedPower @unit  @period=$currentDuration @ferc:PurchasedPowerAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:StatisticalClassificationCode @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})
+                    if list({@ferc:StatisticalClassificationCode @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x}).length > 0
                         first(list({@ferc:StatisticalClassificationCode @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:RateScheduleTariffNumber @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})
+                    if list({@ferc:RateScheduleTariffNumber @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x}).length > 0
                         first(list({@ferc:RateScheduleTariffNumber @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:AverageMonthlyBillingDemand @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})
+                    if list({@ferc:AverageMonthlyBillingDemand @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x}).length > 0
                         first(list({@ferc:AverageMonthlyBillingDemand @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:AverageMonthlyNonCoincidentPeakDemand @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})
+                    if list({@ferc:AverageMonthlyNonCoincidentPeakDemand @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x}).length > 0
                         first(list({@ferc:AverageMonthlyNonCoincidentPeakDemand @unit  @period=$currentDuration @ferc:PurchasedPowerAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:AverageMonthlyCoincidentPeakDemand @unit  @period=$currentDuration @ferc:PurchasedPowerAxis = $x}) 
+                    if list({@ferc:AverageMonthlyCoincidentPeakDemand @unit  @period=$currentDuration @ferc:PurchasedPowerAxis = $x}).length > 0 
                         first(list({@ferc:AverageMonthlyCoincidentPeakDemand @unit  @period=$currentDuration @ferc:PurchasedPowerAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:MegawattHoursPurchasedOtherThanStorage @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x}) 
+                    if list({@ferc:MegawattHoursPurchasedOtherThanStorage @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x}).length > 0 
                         first(list({@ferc:MegawattHoursPurchasedOtherThanStorage @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})) 
                     else 
                         none,
-                        if exists({@ferc:MegawattHoursPurchasedForEnergyStorage @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x}) 
+                        if list({@ferc:MegawattHoursPurchasedForEnergyStorage @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x}).length > 0 
                         first(list({@ferc:MegawattHoursPurchasedForEnergyStorage @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:EnergyReceivedThroughPowerExchanges @unit  @period=$currentDuration @ferc:PurchasedPowerAxis = $x})
+                    if list({@ferc:EnergyReceivedThroughPowerExchanges @unit  @period=$currentDuration @ferc:PurchasedPowerAxis = $x}).length > 0
                         first(list({@ferc:EnergyReceivedThroughPowerExchanges @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:EnergyDeliveredThroughPowerExchanges @unit  @period=$currentDuration @ferc:PurchasedPowerAxis = $x})
+                    if list({@ferc:EnergyDeliveredThroughPowerExchanges @unit  @period=$currentDuration @ferc:PurchasedPowerAxis = $x}).length > 0
                         first(list({@ferc:EnergyDeliveredThroughPowerExchanges @unit  @period=$currentDuration @ferc:PurchasedPowerAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:DemandChargesOfPurchasedPower @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})
+                    if list({@ferc:DemandChargesOfPurchasedPower @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x}).length > 0
                         first(list({@ferc:DemandChargesOfPurchasedPower @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:EnergyChargesOfPurchasedPower @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})
+                    if list({@ferc:EnergyChargesOfPurchasedPower @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x}).length > 0
                         first(list({@ferc:EnergyChargesOfPurchasedPower @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:OtherChargesOfPurchasedPower @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})
+                    if list({@ferc:OtherChargesOfPurchasedPower @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x}).length > 0
                         first(list({@ferc:OtherChargesOfPurchasedPower @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:SettlementOfPower @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})
+                    if list({@ferc:SettlementOfPower @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x}).length > 0
                         first(list({@ferc:SettlementOfPower @unit @period=$currentDuration @ferc:PurchasedPowerAxis = $x})) 
                     else 
                         none

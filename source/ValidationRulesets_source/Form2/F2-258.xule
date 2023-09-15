@@ -52,8 +52,8 @@ message
 "The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
 
 = \t {$f0.concept.name.local-name} \t = \t {$f0}
-+ \t {$f1.concept.name.local-name} \t = \t {$f1}
-- \t {$f2.concept.name.local-name} \t = \t {$f2}
+- \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
 
 Total Element : {$sum1.concept.name}
 Total Dimensions: {$sum1.dimensions.join(', ','=')} 

@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -183,16 +183,16 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:MiscellaneousItemsAccountNumber @unit@period=$currentDuration}) 
+                    if list({@ferc:MiscellaneousItemsAccountNumber @unit@period=$currentDuration}).length > 0 
                         first(list({@ferc:MiscellaneousItemsAccountNumber @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration})
+                    if list({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:DecreaseInMiscellaneousIncome @unit @period=$currentDuration})
+                    if list({@ferc:DecreaseInMiscellaneousIncome @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DecreaseInMiscellaneousIncome @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:IncreaseInMiscellaneousIncome @unit @period=$currentDuration})
+                    if list({@ferc:IncreaseInMiscellaneousIncome @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:IncreaseInMiscellaneousIncome @unit @period=$currentDuration})) 
                     else none
                     
@@ -285,19 +285,19 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:MiscellaneousItemsAccountNumber @unit@period=$currentDuration}) 
+                    if list({@ferc:MiscellaneousItemsAccountNumber @unit@period=$currentDuration}).length > 0 
                         first(list({@ferc:MiscellaneousItemsAccountNumber @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration})
+                    if list({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:IncreaseInMiscellaneousIncomeCharges @unit @period=$currentDuration})
+                    if list({@ferc:IncreaseInMiscellaneousIncomeCharges @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:IncreaseInMiscellaneousIncomeCharges @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:DecreaseInMiscellaneousIncomeCharges @unit @period=$currentDuration})
+                    if list({@ferc:DecreaseInMiscellaneousIncomeCharges @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DecreaseInMiscellaneousIncomeCharges @unit @period=$currentDuration})) 
                     else 
                         none
@@ -390,16 +390,16 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:MiscellaneousItemsAccountNumber @unit@period=$currentDuration}) 
+                    if list({@ferc:MiscellaneousItemsAccountNumber @unit@period=$currentDuration}).length > 0 
                         first(list({@ferc:MiscellaneousItemsAccountNumber @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration})
+                    if list({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:DecreaseInMiscellaneousIncomeExtraordinaryItems @unit @period=$currentDuration})
+                    if list({@ferc:DecreaseInMiscellaneousIncomeExtraordinaryItems @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DecreaseInMiscellaneousIncomeExtraordinaryItems @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:IncreaseInMiscellaneousIncomeExtraordinaryItems @unit @period=$currentDuration})
+                    if list({@ferc:IncreaseInMiscellaneousIncomeExtraordinaryItems @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:IncreaseInMiscellaneousIncomeExtraordinaryItems @unit @period=$currentDuration})) 
                     else none
                     )}})
@@ -491,16 +491,16 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:MiscellaneousItemsAccountNumber @unit@period=$currentDuration}) 
+                    if list({@ferc:MiscellaneousItemsAccountNumber @unit@period=$currentDuration}).length > 0 
                         first(list({@ferc:MiscellaneousItemsAccountNumber @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration})
+                    if list({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:DecreaseInMiscellaneousIncomeIncomeTaxesOnExtraordinaryItems @unit @period=$currentDuration})
+                    if list({@ferc:DecreaseInMiscellaneousIncomeIncomeTaxesOnExtraordinaryItems @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DecreaseInMiscellaneousIncomeIncomeTaxesOnExtraordinaryItems @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:IncreaseInMiscellaneousIncomeIncomeTaxesOnExtraordinaryItems @unit @period=$currentDuration})
+                    if list({@ferc:IncreaseInMiscellaneousIncomeIncomeTaxesOnExtraordinaryItems @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:IncreaseInMiscellaneousIncomeIncomeTaxesOnExtraordinaryItems @unit @period=$currentDuration})) 
                     else none
                     
@@ -593,16 +593,16 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:MiscellaneousItemsAccountNumber @unit@period=$currentDuration}) 
+                    if list({@ferc:MiscellaneousItemsAccountNumber @unit@period=$currentDuration}).length > 0 
                         first(list({@ferc:MiscellaneousItemsAccountNumber @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration})
+                    if list({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:DecreaseInOtherCreditsToRetainedIncome @unit @period=$currentDuration})
+                    if list({@ferc:DecreaseInOtherCreditsToRetainedIncome @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DecreaseInOtherCreditsToRetainedIncome @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:IncreaseInOtherCreditsToRetainedIncome @unit @period=$currentDuration})
+                    if list({@ferc:IncreaseInOtherCreditsToRetainedIncome @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:IncreaseInOtherCreditsToRetainedIncome @unit @period=$currentDuration})) 
                     else none
                     
@@ -695,16 +695,16 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:MiscellaneousItemsAccountNumber @unit@period=$currentDuration}) 
+                    if list({@ferc:MiscellaneousItemsAccountNumber @unit@period=$currentDuration}).length > 0 
                         first(list({@ferc:MiscellaneousItemsAccountNumber @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration})
+                    if list({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:DecreaseInOtherDebitsToRetainedIncome @unit @period=$currentDuration})
+                    if list({@ferc:DecreaseInOtherDebitsToRetainedIncome @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DecreaseInOtherDebitsToRetainedIncome @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:IncreaseInOtherDebitsToRetainedIncome @unit @period=$currentDuration})
+                    if list({@ferc:IncreaseInOtherDebitsToRetainedIncome @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:IncreaseInOtherDebitsToRetainedIncome @unit @period=$currentDuration})) 
                     else none
                     )}})
@@ -793,16 +793,16 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:MiscellaneousItemsAccountNumber @unit@period=$currentDuration}) 
+                    if list({@ferc:MiscellaneousItemsAccountNumber @unit@period=$currentDuration}).length > 0 
                         first(list({@ferc:MiscellaneousItemsAccountNumber @unit @period=$currentDuration}))
                     else none,
-                    if exists({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration})
+                    if list({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DescriptionOfMiscellaneousItem @unit @period=$currentDuration}))
                     else none,
-                    if exists({@ferc:DecreaseInMiscellaneousItemsInIncomeAndRetainedIncomeAccounts @unit @period=$currentDuration})
+                    if list({@ferc:DecreaseInMiscellaneousItemsInIncomeAndRetainedIncomeAccounts @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DecreaseInMiscellaneousItemsInIncomeAndRetainedIncomeAccounts @unit @period=$currentDuration}))
                     else none,
-                    if exists({@ferc:IncreaseInMiscellaneousItemsInIncomeAndRetainedIncomeAccounts @unit @period=$currentDuration})
+                    if list({@ferc:IncreaseInMiscellaneousItemsInIncomeAndRetainedIncomeAccounts @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:IncreaseInMiscellaneousItemsInIncomeAndRetainedIncomeAccounts @unit @period=$currentDuration}))
                     else none
                     

@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -163,29 +163,29 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 
                
                     list({covered @ferc:OtherDeferredCreditsAxis=*  {list(
-                        if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                        if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                             first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                         else
                             0,
-                        if exists({@ferc:DescriptionOfOtherDeferredCredits @unit @period=$currentDuration})
+                        if list({@ferc:DescriptionOfOtherDeferredCredits @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DescriptionOfOtherDeferredCredits @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:OtherDeferredCredits @unit @period=$priorInstant})
+                        if list({@ferc:OtherDeferredCredits @unit @period=$priorInstant}).length > 0
                             first(list({@ferc:OtherDeferredCredits @unit @period=$priorInstant}))
                         else
                             none,
-                        if exists({@ferc:DecreaseInOtherDeferredCreditsContraAccount @unit @period=$currentDuration})
+                        if list({@ferc:DecreaseInOtherDeferredCreditsContraAccount @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DecreaseInOtherDeferredCreditsContraAccount @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:DecreaseInOtherDeferredCredits @unit @period=$currentDuration})
+                        if list({@ferc:DecreaseInOtherDeferredCredits @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DecreaseInOtherDeferredCredits @unit @period=$currentDuration}))
                         else none,
-                        if exists({@ferc:IncreaseInOtherDeferredCredits @unit @period=$currentDuration})
+                        if list({@ferc:IncreaseInOtherDeferredCredits @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:IncreaseInOtherDeferredCredits @unit @period=$currentDuration}))
                         else none,
-                        if exists({@ferc:OtherDeferredCredits @unit @period=$currentInstant})
+                        if list({@ferc:OtherDeferredCredits @unit @period=$currentInstant}).length > 0
                             first(list({@ferc:OtherDeferredCredits @unit @period=$currentInstant}))
                         else none
                     )}})

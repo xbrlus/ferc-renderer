@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xule="http://xbrl.us/xule/2.0/template"
     xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
     xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-    xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
+    xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
 
 <head>
     <title>Template - F1 - 328</title>
@@ -24,7 +24,7 @@
                 <xule:replace>
                     <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]
                     </xule:expression>
-                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
                 </xule:replace>
             </td>
             <td class="xbrl">
@@ -217,59 +217,59 @@
                             first(list({@ferc:OrderNumber @unit=* @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}))
                         else
                             0,
-                        if exists({@ferc:PaymentByCompanyOrPublicAuthority @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x})
+                        if list({@ferc:PaymentByCompanyOrPublicAuthority @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}).length > 0
                             first(list({@ferc:PaymentByCompanyOrPublicAuthority @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}))
                         else
                             none,
-                        if exists({@ferc:TransmissionEnergyReceivedFromCompanyOrPublicAuthorityName @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x})
+                        if list({@ferc:TransmissionEnergyReceivedFromCompanyOrPublicAuthorityName @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}).length > 0
                             first(list({@ferc:TransmissionEnergyReceivedFromCompanyOrPublicAuthorityName @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}))
                         else
                             none,
-                        if exists({@ferc:TransmissionEnergyDeliveredToCompanyOrPublicAuthorityName @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x})
+                        if list({@ferc:TransmissionEnergyDeliveredToCompanyOrPublicAuthorityName @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}).length > 0
                             first(list({@ferc:TransmissionEnergyDeliveredToCompanyOrPublicAuthorityName @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}))
                         else
                             none,
-                        if exists({@ferc:StatisticalClassificationCode @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x})
+                        if list({@ferc:StatisticalClassificationCode @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}).length > 0
                             first(list({@ferc:StatisticalClassificationCode @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}))
                         else 
                             none,
-                        if exists({@ferc:RateScheduleTariffNumber @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x})
+                        if list({@ferc:RateScheduleTariffNumber @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}).length > 0
                             first(list({@ferc:RateScheduleTariffNumber @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}))
                         else 
                             none,
-                        if exists({@ferc:TransmissionPointOfReceipt @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x})
+                        if list({@ferc:TransmissionPointOfReceipt @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}).length > 0
                             first(list({@ferc:TransmissionPointOfReceipt @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}))
                         else 
                             none,
-                        if exists({@ferc:TransmissionPointOfDelivery @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x})
+                        if list({@ferc:TransmissionPointOfDelivery @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}).length > 0
                             first(list({@ferc:TransmissionPointOfDelivery @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}))
                          else
                              none,
-                        if exists({@ferc:BillingDemand @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x})
+                        if list({@ferc:BillingDemand @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}).length > 0
                             first(list({@ferc:BillingDemand @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}))
                         else
                             none,
-                        if exists({@ferc:TransmissionOfElectricityForOthersEnergyReceived @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x})
+                        if list({@ferc:TransmissionOfElectricityForOthersEnergyReceived @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}).length > 0
                             first(list({@ferc:TransmissionOfElectricityForOthersEnergyReceived @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}))
                         else
                             none,
-                        if exists({@ferc:TransmissionOfElectricityForOthersEnergyDelivered @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x})
+                        if list({@ferc:TransmissionOfElectricityForOthersEnergyDelivered @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}).length > 0
                             first(list({@ferc:TransmissionOfElectricityForOthersEnergyDelivered @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}))
                         else 
                             none,
-                        if exists({@ferc:DemandChargesRevenueTransmissionOfElectricityForOthers @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x})
+                        if list({@ferc:DemandChargesRevenueTransmissionOfElectricityForOthers @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}).length > 0
                             first(list({@ferc:DemandChargesRevenueTransmissionOfElectricityForOthers @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}))
                         else 
                             none,
-                        if exists({@ferc:EnergyChargesRevenueTransmissionOfElectricityForOthers @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x})
+                        if list({@ferc:EnergyChargesRevenueTransmissionOfElectricityForOthers @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}).length > 0
                             first(list({@ferc:EnergyChargesRevenueTransmissionOfElectricityForOthers @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}))
                         else 
                             none,
-                        if exists({@ferc:OtherChargesRevenueTransmissionOfElectricityForOthers @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x})
+                        if list({@ferc:OtherChargesRevenueTransmissionOfElectricityForOthers @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}).length > 0
                             first(list({@ferc:OtherChargesRevenueTransmissionOfElectricityForOthers @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}))
                         else 
                             none,
-                        if exists({@ferc:RevenuesFromTransmissionOfElectricityForOthers @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x})
+                        if list({@ferc:RevenuesFromTransmissionOfElectricityForOthers @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}).length > 0
                             first(list({@ferc:RevenuesFromTransmissionOfElectricityForOthers @unit @period=$currentDuration @ferc:TransmissionOfElectricityForOthersAxis = $x}))
                         else 
                             none

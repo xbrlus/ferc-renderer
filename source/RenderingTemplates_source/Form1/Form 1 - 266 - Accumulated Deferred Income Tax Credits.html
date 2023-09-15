@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -25,7 +25,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                
                 <xule:replace>
                     <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
-                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
                 </xule:replace>
             </td>
             <td class="xbrl">
@@ -192,43 +192,43 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 first(list({@ferc:OrderNumber  @unit=* @period=$currentDuration}))
                             else
                                 0,
-                            if exists({@ferc:DescriptionOfAccumulatedDeferredInvestmentTaxCreditsAccountSubdivision @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit  @period=$currentDuration}) 
+                            if list({@ferc:DescriptionOfAccumulatedDeferredInvestmentTaxCreditsAccountSubdivision @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit  @period=$currentDuration}).length > 0 
                                 first(list({@ferc:DescriptionOfAccumulatedDeferredInvestmentTaxCreditsAccountSubdivision @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit  @period=$currentDuration})) 
                             else 
                                 none,
-                            if exists({@ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$priorInstant})
+                            if list({@ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$priorInstant}).length > 0
                                 first(list({@ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$priorInstant})) 
                             else 
                                 none,
-                            if exists({@ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAccountNumber @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration})
+                            if list({@ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAccountNumber @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration}).length > 0
                                 first(list({@ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAccountNumber @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration})) 
                             else 
                                 none,
-                            if exists({@ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAmount @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration})
+                            if list({@ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAmount @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration}).length > 0
                                 first(list({@ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAmount @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit  @period=$currentDuration})) 
                             else 
                                 none,
-                            if exists({@ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAccountNumber @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit  @period=$currentDuration}) 
+                            if list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAccountNumber @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit  @period=$currentDuration}).length > 0 
                                 first(list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAccountNumber @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit  @period=$currentDuration})) 
                             else 
                                 none,
-                            if exists({@ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAmount @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration}) 
+                            if list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAmount @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration}).length > 0 
                                 first(list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAmount @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration})) 
                             else 
                                 none,
-                            if exists({@ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustments @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit  @period=$currentDuration})
+                            if list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustments @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit  @period=$currentDuration}).length > 0
                                 first(list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustments @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration})) 
                             else 
                                 none,
-                            if exists({@ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit  @period=$currentInstant})
+                            if list({@ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit  @period=$currentInstant}).length > 0
                                 first(list({@ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit  @period=$currentInstant})) 
                             else 
                                 none,
-                            if exists({@ferc:AccumulatedDeferredInvestmentTaxCreditsAveragePeriodOfAllocationToIncome @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration})
+                            if list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAveragePeriodOfAllocationToIncome @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration}).length > 0
                                 first(list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAveragePeriodOfAllocationToIncome @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration})) 
                             else 
                                 none,
-                            if exists({@ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustmentDescription @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration})
+                            if list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustmentDescription @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration}).length > 0
                                 first(list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustmentDescription @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @unit @period=$currentDuration})) 
                             else 
                                 none
@@ -418,43 +418,43 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                             first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                                         else
                                             0,
-                                        if exists({@ferc:DescriptionOfAccumulatedDeferredInvestmentTaxCreditsAccountSubdivision @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit  @period=$currentDuration}) 
+                                        if list({@ferc:DescriptionOfAccumulatedDeferredInvestmentTaxCreditsAccountSubdivision @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit  @period=$currentDuration}).length > 0 
                                             first(list({@ferc:DescriptionOfAccumulatedDeferredInvestmentTaxCreditsAccountSubdivision @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit  @period=$currentDuration})) 
                                         else 
                                             none,
-                                        if exists({@ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$priorInstant})
+                                        if list({@ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$priorInstant}).length > 0
                                             first(list({@ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$priorInstant})) 
                                         else 
                                             none,
-                                        if exists({@ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAccountNumber @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$currentDuration})
+                                        if list({@ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAccountNumber @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$currentDuration}).length > 0
                                             first(list({@ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAccountNumber @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$currentDuration})) 
                                         else 
                                             none,
-                                        if exists({@ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAmount @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$currentDuration})
+                                        if list({@ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAmount @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$currentDuration}).length > 0
                                             first(list({@ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAmount @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit  @period=$currentDuration})) 
                                         else 
                                             none,
-                                        if exists({@ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAccountNumber @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit  @period=$currentDuration}) 
+                                        if list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAccountNumber @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit  @period=$currentDuration}).length > 0 
                                             first(list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAccountNumber @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit  @period=$currentDuration})) 
                                         else 
                                             none,
-                                        if exists({@ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAmount @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$currentDuration}) 
+                                        if list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAmount @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$currentDuration}).length > 0 
                                             first(list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAmount @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$currentDuration})) 
                                         else 
                                             none,
-                                        if exists({@ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustments @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit  @period=$currentDuration})
+                                        if list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustments @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit  @period=$currentDuration}).length > 0
                                             first(list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustments @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$currentDuration})) 
                                         else 
                                             none,
-                                        if exists({@ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit  @period=$currentInstant})
+                                        if list({@ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit  @period=$currentInstant}).length > 0
                                             first(list({@ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit  @period=$currentInstant})) 
                                         else 
                                             none,
-                                        if exists({@ferc:AccumulatedDeferredInvestmentTaxCreditsAveragePeriodOfAllocationToIncome @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$currentDuration})
+                                        if list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAveragePeriodOfAllocationToIncome @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$currentDuration}).length > 0
                                             first(list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAveragePeriodOfAllocationToIncome @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$currentDuration})) 
                                         else 
                                             none,
-                                        if exists({@ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustmentDescription @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$currentDuration})
+                                        if list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustmentDescription @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$currentDuration}).length > 0
                                             first(list({@ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustmentDescription @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @unit @period=$currentDuration})) 
                                         else 
                                             none

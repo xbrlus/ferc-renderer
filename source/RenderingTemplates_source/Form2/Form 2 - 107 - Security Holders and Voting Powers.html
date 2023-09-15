@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 >
 
 <head>
@@ -466,23 +466,23 @@ xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:NameTitleAndAddressOfSecurityHolder @unit @period=$currentDuration}) 
+                    if list({@ferc:NameTitleAndAddressOfSecurityHolder @unit @period=$currentDuration}).length > 0 
                         first(list({@ferc:NameTitleAndAddressOfSecurityHolder @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:NumberOfVotesOfSecurityHolders @ferc:VotingSecuritiesTypeAxis=none @unit @period=$currentInstant})
+                    if list({@ferc:NumberOfVotesOfSecurityHolders @ferc:VotingSecuritiesTypeAxis=none @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:NumberOfVotesOfSecurityHolders @ferc:VotingSecuritiesTypeAxis=none @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:NumberOfVotesOfSecurityHolders @ferc:VotingSecuritiesTypeAxis=ferc:CommonStockMember @unit @period=$currentInstant})
+                    if list({@ferc:NumberOfVotesOfSecurityHolders @ferc:VotingSecuritiesTypeAxis=ferc:CommonStockMember @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:NumberOfVotesOfSecurityHolders @ferc:VotingSecuritiesTypeAxis=ferc:CommonStockMember @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:NumberOfVotesOfSecurityHolders @ferc:VotingSecuritiesTypeAxis=ferc:PreferredStockMember @unit @period=$currentInstant})
+                    if list({@ferc:NumberOfVotesOfSecurityHolders @ferc:VotingSecuritiesTypeAxis=ferc:PreferredStockMember @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:NumberOfVotesOfSecurityHolders @ferc:VotingSecuritiesTypeAxis=ferc:PreferredStockMember @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:NumberOfVotesOfSecurityHolders @ferc:VotingSecuritiesTypeAxis=ferc:OtherSecuritiesMember @unit @period=$currentInstant})
+                    if list({@ferc:NumberOfVotesOfSecurityHolders @ferc:VotingSecuritiesTypeAxis=ferc:OtherSecuritiesMember @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:NumberOfVotesOfSecurityHolders @ferc:VotingSecuritiesTypeAxis=ferc:OtherSecuritiesMember @unit @period=$currentInstant})) 
                     else 
                         none

@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -245,43 +245,43 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                                                     first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                                                                 else
                                                                     0,
-                                                                if exists({@ferc:StateOfOriginOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit@period=$currentDuration @ferc:NameOfOperatorAxis = $x}) 
+                                                                if list({@ferc:StateOfOriginOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit@period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0 
                                                                     first(list({@ferc:StateOfOriginOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                 else 
                                                                     none,
-                                                                if exists({@ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit@period=$currentDuration @ferc:NameOfOperatorAxis = $x}) 
+                                                                if list({@ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit@period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0 
                                                                     first(list({@ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                 else 
                                                                     none,
-                                                                if exists({@ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                if list({@ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                     first(list({@ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                 else 
                                                                     none,
-                                                                if exists({@ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                if list({@ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                     first(list({@ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                 else 
                                                                     none,
-                                                                if exists({@ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                if list({@ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                     first(list({@ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                 else 
                                                                     none,
-                                                                if exists({@ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                if list({@ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                     first(list({@ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                 else 
                                                                     none,
-                                                                if exists({@ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                if list({@ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                     first(list({@ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                 else 
                                                                     none,
-                                                                if exists({@ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                if list({@ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                     first(list({@ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                 else 
                                                                     none,
-                                                                if exists({@ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                if list({@ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                     first(list({@ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                 else 
                                                                     none,
-                                                                if exists({@ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                if list({@ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                     first(list({@ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:CrudeOilMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                 else 
                                                                     none ,
@@ -341,43 +341,43 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                                                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                                                                     else
                                                                         0,
-                                                                    if exists({@ferc:StateOfOriginOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit@period=$currentDuration @ferc:NameOfOperatorAxis = $x}) 
+                                                                    if list({@ferc:StateOfOriginOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit@period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0 
                                                                         first(list({@ferc:StateOfOriginOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                     else 
                                                                         none,
-                                                                    if exists({@ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit@period=$currentDuration @ferc:NameOfOperatorAxis = $x}) 
+                                                                    if list({@ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit@period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0 
                                                                         first(list({@ferc:RefinedProductTypeOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                     else 
                                                                         none,
-                                                                    if exists({@ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    if list({@ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                         first(list({@ferc:NumberOfBarrelsReceivedFromConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                     else 
                                                                         none,
-                                                                    if exists({@ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    if list({@ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                         first(list({@ferc:NumberOfBarrelsReceivedOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                     else 
                                                                         none,
-                                                                    if exists({@ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    if list({@ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                         first(list({@ferc:NumberOfBarrelsReceivedOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                     else 
                                                                         none,
-                                                                    if exists({@ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    if list({@ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                         first(list({@ferc:NumberOfBarrelsReceivedOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                     else 
                                                                         none,
-                                                                    if exists({@ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    if list({@ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                         first(list({@ferc:NumberOfBarrelsDeliveredOutToConnectingCarriersOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                     else 
                                                                         none,
-                                                                    if exists({@ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    if list({@ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                         first(list({@ferc:NumberOfBarrelsDeliveredOutOnGatheringLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                     else 
                                                                         none,
-                                                                    if exists({@ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    if list({@ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                         first(list({@ferc:NumberOfBarrelsDeliveredOutOnTrunkLinesOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                     else 
                                                                         none,
-                                                                    if exists({@ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})
+                                                                    if list({@ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x}).length > 0
                                                                         first(list({@ferc:NumberOfBarrelsDeliveredOutOwnedByRespondentButOperatedByOthers @ferc:ProductsAndServicesAxis=ferc:OilProductsMember @unit @period=$currentDuration @ferc:NameOfOperatorAxis = $x})) 
                                                                     else 
                                                                         none,

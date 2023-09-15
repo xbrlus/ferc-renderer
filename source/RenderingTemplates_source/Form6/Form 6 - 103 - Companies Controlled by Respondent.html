@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -170,19 +170,19 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                         else
                             0,
-                        if exists({@ferc:NameOfCompanyControlledByRespondent @unit@period=$currentDuration}) 
+                        if list({@ferc:NameOfCompanyControlledByRespondent @unit@period=$currentDuration}).length > 0 
                             first(list({@ferc:NameOfCompanyControlledByRespondent @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:StateOfIncorporation @unit @period=$currentDuration})
+                        if list({@ferc:StateOfIncorporation @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:StateOfIncorporation @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:CompanyControlledByRespondentKindOfBusinessDescription @unit @period=$currentDuration})
+                        if list({@ferc:CompanyControlledByRespondentKindOfBusinessDescription @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:CompanyControlledByRespondentKindOfBusinessDescription @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:VotingStockOwnedByRespondentPercentage @unit @period=$currentInstant})
+                        if list({@ferc:VotingStockOwnedByRespondentPercentage @unit @period=$currentInstant}).length > 0
                             first(list({@ferc:VotingStockOwnedByRespondentPercentage @unit @period=$currentInstant}))
                         else none
                         )}})

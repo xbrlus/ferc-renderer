@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -25,7 +25,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 <br></br>
                 <xule:replace>
                     <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
-                    <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
                 </xule:replace>
             </td>
             <td class="xbrl">
@@ -141,7 +141,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 <xule:expression class="hide" name="ListLineItems">
     $data = navigate parent-child descendants from ferc:Form1Abstract role "http://ferc.gov/form/2020-01-01/roles/Schedule/F1/ListOfSchedules" returns list (target-name, preferred-label, navigation-depth);
     $data-labels = list(for $row in $data
-            if $row[3] > 1
+            if $row[3] > 1 or $row[1] == ferc:DeprecatedItemsAbstract
                 skip
             else
                 $concept = taxonomy().concept($row[1]);

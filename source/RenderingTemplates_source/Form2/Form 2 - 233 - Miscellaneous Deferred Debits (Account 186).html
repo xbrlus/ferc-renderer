@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -186,34 +186,34 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             
             
                 list({covered @ferc:MiscellaneousDeferredDebitsAxis=*  {list(
-                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:DescriptionOfMiscellaneousDeferredDebits @unit @period=$currentDuration})
+                    if list({@ferc:DescriptionOfMiscellaneousDeferredDebits @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DescriptionOfMiscellaneousDeferredDebits @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:AmortizationPeriodMiscellaneousDeferredDebits @unit @period=$currentDuration})
+                    if list({@ferc:AmortizationPeriodMiscellaneousDeferredDebits @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:AmortizationPeriodMiscellaneousDeferredDebits @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:MiscellaneousDeferredDebitsExcludingMiscellaneousWorkInProgress @unit @period=$priorInstant})
+                    if list({@ferc:MiscellaneousDeferredDebitsExcludingMiscellaneousWorkInProgress @unit @period=$priorInstant}).length > 0
                         first(list({@ferc:MiscellaneousDeferredDebitsExcludingMiscellaneousWorkInProgress @unit @period=$priorInstant}))
                     else
                         none,
-                    if exists({@ferc:IncreaseInMiscellaneousDeferredExpense @unit @period=$currentDuration})
+                    if list({@ferc:IncreaseInMiscellaneousDeferredExpense @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:IncreaseInMiscellaneousDeferredExpense @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:DecreaseInMiscellaneousDeferredExpenseAccountCharged @unit @period=$currentDuration})
+                    if list({@ferc:DecreaseInMiscellaneousDeferredExpenseAccountCharged @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DecreaseInMiscellaneousDeferredExpenseAccountCharged @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:DecreaseInMiscellaneousDeferredExpense @unit @period=$currentDuration})
+                    if list({@ferc:DecreaseInMiscellaneousDeferredExpense @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DecreaseInMiscellaneousDeferredExpense @unit @period=$currentDuration}))
                     else none,
-                    if exists({@ferc:MiscellaneousDeferredDebitsExcludingMiscellaneousWorkInProgress @unit @period=$currentInstant})
+                    if list({@ferc:MiscellaneousDeferredDebitsExcludingMiscellaneousWorkInProgress @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:MiscellaneousDeferredDebitsExcludingMiscellaneousWorkInProgress @unit @period=$currentInstant}))
                     else none
                 )}})

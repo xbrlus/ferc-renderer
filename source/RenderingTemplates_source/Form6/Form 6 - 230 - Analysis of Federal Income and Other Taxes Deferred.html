@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc" 
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc" 
 xmlns:ferc-part="http://www.ferc.gov/form/parts">
 
 <head>
@@ -200,23 +200,23 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts">
                     first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                 else
                     0,
-                if exists({@ferc:ItemsCausingTemporaryDifferences @unit @period=$currentDuration})
+                if list({@ferc:ItemsCausingTemporaryDifferences @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:ItemsCausingTemporaryDifferences @unit @period=$currentDuration}))
                 else
                     none,
-                if exists({@ferc:DeferredIncomeTaxAssetsLiabilitiesCurrent @unit @period=$priorInstant})
+                if list({@ferc:DeferredIncomeTaxAssetsLiabilitiesCurrent @unit @period=$priorInstant}).length > 0
                     first(list({@ferc:DeferredIncomeTaxAssetsLiabilitiesCurrent @unit @period=$priorInstant}))
                 else
                     none,
-                if exists({@ferc:NetChangeInDeferredIncomeTaxAssetsLiabilitiesCurrent @unit @period=$currentDuration})
+                if list({@ferc:NetChangeInDeferredIncomeTaxAssetsLiabilitiesCurrent @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:NetChangeInDeferredIncomeTaxAssetsLiabilitiesCurrent @unit @period=$currentDuration}))
                 else
                     none,
-                if exists({@ferc:DeferredIncomeTaxAssetsLiabilitiesAdjustmentCurrent @unit @period=$currentDuration})
+                if list({@ferc:DeferredIncomeTaxAssetsLiabilitiesAdjustmentCurrent @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:DeferredIncomeTaxAssetsLiabilitiesAdjustmentCurrent @unit @period=$currentDuration}))
                 else
                     none,
-                if exists({@ferc:DeferredIncomeTaxAssetsLiabilitiesCurrent @unit @period=$currentInstant})
+                if list({@ferc:DeferredIncomeTaxAssetsLiabilitiesCurrent @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:DeferredIncomeTaxAssetsLiabilitiesCurrent @unit @period=$currentInstant}))
                 else
                     none
@@ -364,23 +364,23 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts">
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:ItemsCausingTemporaryDifferences @unit @period=$currentDuration})
+                    if list({@ferc:ItemsCausingTemporaryDifferences @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:ItemsCausingTemporaryDifferences @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:DeferredIncomeTaxAssetsLiabilitiesNoncurrent @unit @period=$priorInstant})
+                    if list({@ferc:DeferredIncomeTaxAssetsLiabilitiesNoncurrent @unit @period=$priorInstant}).length > 0
                         first(list({@ferc:DeferredIncomeTaxAssetsLiabilitiesNoncurrent @unit @period=$priorInstant}))
                     else
                         none,
-                    if exists({@ferc:NetChangeInDeferredIncomeTaxAssetsLiabilitiesNoncurrent @unit @period=$currentDuration})
+                    if list({@ferc:NetChangeInDeferredIncomeTaxAssetsLiabilitiesNoncurrent @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:NetChangeInDeferredIncomeTaxAssetsLiabilitiesNoncurrent @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:DeferredIncomeTaxAssetsLiabilitiesAdjustmentNoncurrent @unit @period=$currentDuration})
+                    if list({@ferc:DeferredIncomeTaxAssetsLiabilitiesAdjustmentNoncurrent @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DeferredIncomeTaxAssetsLiabilitiesAdjustmentNoncurrent @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:DeferredIncomeTaxAssetsLiabilitiesNoncurrent @unit @period=$currentInstant})
+                    if list({@ferc:DeferredIncomeTaxAssetsLiabilitiesNoncurrent @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:DeferredIncomeTaxAssetsLiabilitiesNoncurrent @unit @period=$currentInstant}))
                     else
                         none

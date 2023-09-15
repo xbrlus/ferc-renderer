@@ -100,44 +100,22 @@ if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
 else
         $all_source = navigate summation-item descendants include start role "http://ferc.gov/form/2020-01-01/roles/Schedule/F1/ScheduleSalesOfElectricityByRateSchedulesTotals" returns  (source-name);
 
-        $extra_calc = dict(list(RevenueFromSalesOfElectricityByRateSchedules,list(CommercialAndIndustrialSalesBilled,1)),
-                        list(RevenueFromSalesOfElectricityByRateSchedulesIncludingUnbilledRevenue,list(CommercialAndIndustrialSales,1)),
-                        list(RevenueFromSalesOfElectricityByRateSchedulesUnbilled,list(CommercialAndIndustrialSalesUnbilled,1)))
-
         for $concept_item in $all_source.to-set
         if $concept_item == none
                 skip
         else
                 $data = navigate summation-item children from $concept_item role "http://ferc.gov/form/2020-01-01/roles/Schedule/F1/ScheduleSalesOfElectricityByRateSchedulesTotals" returns  (target-name, weight)
 
-                $data2 = list($extra_calc[$concept_item])
+        /**$addendConcepts = filter $data returns $item[1]; **/
 
-        /** The next part prevents double coundting of combined Commercial and Industrial **/
-
-        /**Go and get the sub element values if reported on Schedule 300 **/
-
-        $CommercialAndIndustrialSalesBilledSub = list([nonils @concept in list(SmallOrCommercialSalesElectricOperatingRevenueBilled, LargeOrIndustrialSalesElectricOperatingRevenueBilled)]);
-        $CommercialAndIndustrialSalesSub = list([nonils @concept in list(SmallOrCommercialSalesElectricOperatingRevenue, LargeOrIndustrialSalesElectricOperatingRevenue)]);
-        $CommercialAndIndustrialSalesUnbilledSub = list([nonils @concept in list(SmallOrCommercialSalesElectricOperatingRevenueUnbilled, LargeOrIndustrialSalesElectricOperatingRevenueUnbilled)]);
-
-
-        $addend = sum(list(for $x in ($data + $data2).to-set
+        $addend = sum(list(for $x in $data
                                                 $targetElement = $x[1];
                                                 $targetWeight = $x[2];
-                                                if $targetElement == CommercialAndIndustrialSalesBilled and $CommercialAndIndustrialSalesBilledSub.length > 0
-                                                                skip
-                                                else
-                                                        if $targetElement == CommercialAndIndustrialSales and  $CommercialAndIndustrialSalesSub.length > 0
-                                                                skip 
-                                                        else 
-                                                                if $targetElement == CommercialAndIndustrialSalesUnbilled and $CommercialAndIndustrialSalesUnbilledSub.length > 0
-                                                                        skip
-                                                                else
-                                                                        [nonils @concept = $targetElement] * $targetWeight
+                                        [nonils @concept = $targetElement] * $targetWeight
                                                 )
                                 )
                                 
-        $addend_string = sum(list(for $x in ($data + $data2).sort
+        $addend_string = sum(list(for $x in $data.sort
                                                 $targetElement = $x[1];
                                                 $factAmt = [nonils @concept = $targetElement].string;
                                                 $weight =  if $x[2] == 1

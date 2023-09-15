@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -202,43 +202,43 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration}) 
+                    if list({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration}) 
+                    if list({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @unit @period=$currentDuration})
+                    if list({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:PercentageOfControlInAffiliatedCompany @unit @period=$currentDuration})
+                    if list({@ferc:PercentageOfControlInAffiliatedCompany @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:PercentageOfControlInAffiliatedCompany  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:InvestmentsInAffiliatedCompaniesStocks @unit @period=$currentInstant})
+                    if list({@ferc:InvestmentsInAffiliatedCompaniesStocks @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:InvestmentsInAffiliatedCompaniesStocks  @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:InvestmentInAffiliatedCompaniesStockAdditions @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentInAffiliatedCompaniesStockAdditions @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentInAffiliatedCompaniesStockAdditions  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:InvestmentsDisposedOfOrWrittenDownStockBookValue @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsDisposedOfOrWrittenDownStockBookValue @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsDisposedOfOrWrittenDownStockBookValue  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:InvestmentsDisposedOfOrWrittenDownStockSellingPrice @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsDisposedOfOrWrittenDownStockSellingPrice @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsDisposedOfOrWrittenDownStockSellingPrice  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:DividendRate @unit @period=$currentDuration})
+                    if list({@ferc:DividendRate @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DividendRate  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:InterestAndDividendIncomeStock @unit @period=$currentDuration})
+                    if list({@ferc:InterestAndDividendIncomeStock @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InterestAndDividendIncomeStock  @unit @period=$currentDuration})) 
                     else 
                         none
@@ -408,43 +408,43 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration}) 
+                    if list({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration}) 
+                    if list({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @unit @period=$currentDuration})
+                    if list({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:PercentageOfControlInAffiliatedCompany @unit @period=$currentDuration})
+                    if list({@ferc:PercentageOfControlInAffiliatedCompany @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:PercentageOfControlInAffiliatedCompany  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:InvestmentInAffiliatedCompaniesBonds @unit @period=$currentInstant})
+                    if list({@ferc:InvestmentInAffiliatedCompaniesBonds @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:InvestmentInAffiliatedCompaniesBonds  @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:InvestmentInAffiliatedCompaniesBondsAdditions @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentInAffiliatedCompaniesBondsAdditions @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentInAffiliatedCompaniesBondsAdditions  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:InvestmentsDisposedOfOrWrittenDownBondsBookValue @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsDisposedOfOrWrittenDownBondsBookValue @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsDisposedOfOrWrittenDownBondsBookValue  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:InvestmentsDisposedOfOrWrittenDownBondsSellingPrice @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsDisposedOfOrWrittenDownBondsSellingPrice @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsDisposedOfOrWrittenDownBondsSellingPrice  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:InvestmentInterestRate @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentInterestRate @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentInterestRate  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:InterestAndDividendIncomeBonds @unit @period=$currentDuration})
+                    if list({@ferc:InterestAndDividendIncomeBonds @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InterestAndDividendIncomeBonds  @unit @period=$currentDuration})) 
                     else 
                         none
@@ -627,34 +627,34 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration}) 
+                    if list({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration}) 
+                    if list({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @unit @period=$currentDuration})
+                    if list({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:PercentageOfControlInAffiliatedCompany @unit @period=$currentDuration})
+                    if list({@ferc:PercentageOfControlInAffiliatedCompany @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:PercentageOfControlInAffiliatedCompany  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentsInAffiliatedCompaniesOtherSecuredObligations @unit @period=$currentInstant})
+                    if list({@ferc:InvestmentsInAffiliatedCompaniesOtherSecuredObligations @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:InvestmentsInAffiliatedCompaniesOtherSecuredObligations  @unit @period=$currentInstant})) 
                     else none,
-                    if exists({@ferc:InvestmentsInAffiliatedCompaniesOtherSecuredObligationsAdditions @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsInAffiliatedCompaniesOtherSecuredObligationsAdditions @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsInAffiliatedCompaniesOtherSecuredObligationsAdditions  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsBookValue @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsBookValue @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsBookValue  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsSellingPrice @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsSellingPrice @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsDisposedOfOrWrittenDownOtherSecuredObligationsSellingPrice  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentInterestRate @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentInterestRate @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentInterestRate  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InterestAndDividendIncomeOtherSecuredObligations @unit @period=$currentDuration})
+                    if list({@ferc:InterestAndDividendIncomeOtherSecuredObligations @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InterestAndDividendIncomeOtherSecuredObligations  @unit @period=$currentDuration})) 
                     else none
                     )}})
@@ -841,34 +841,34 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration}) 
+                    if list({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration}) 
+                    if list({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @unit @period=$currentDuration})
+                    if list({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:PercentageOfControlInAffiliatedCompany @unit @period=$currentDuration})
+                    if list({@ferc:PercentageOfControlInAffiliatedCompany @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:PercentageOfControlInAffiliatedCompany  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentsInAffiliatedCompaniesUnsecuredNotes @unit @period=$currentInstant})
+                    if list({@ferc:InvestmentsInAffiliatedCompaniesUnsecuredNotes @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:InvestmentsInAffiliatedCompaniesUnsecuredNotes  @unit @period=$currentInstant})) 
                     else none,
-                    if exists({@ferc:InvestmentsInAffiliatedCompaniesUnsecuredNotesAdditions @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsInAffiliatedCompaniesUnsecuredNotesAdditions @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsInAffiliatedCompaniesUnsecuredNotesAdditions  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentsDisposedOfOrWrittenDownUnsecuredNotesBookValue @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsDisposedOfOrWrittenDownUnsecuredNotesBookValue @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsDisposedOfOrWrittenDownUnsecuredNotesBookValue  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentsDisposedOfOrWrittenDownUnsecuredNotesSellingPrice @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsDisposedOfOrWrittenDownUnsecuredNotesSellingPrice @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsDisposedOfOrWrittenDownUnsecuredNotesSellingPrice  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentInterestRate @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentInterestRate @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentInterestRate  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InterestAndDividendIncomeUnsecuredNotes @unit @period=$currentDuration})
+                    if list({@ferc:InterestAndDividendIncomeUnsecuredNotes @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InterestAndDividendIncomeUnsecuredNotes  @unit @period=$currentDuration})) 
                     else none
                     )}})
@@ -1063,34 +1063,34 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration}) 
+                    if list({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration}) 
+                    if list({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @unit @period=$currentDuration})
+                    if list({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:PercentageOfControlInAffiliatedCompany @unit @period=$currentDuration})
+                    if list({@ferc:PercentageOfControlInAffiliatedCompany @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:PercentageOfControlInAffiliatedCompany  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentsInAffiliatedCompaniesInvestmentAdvances @unit @period=$currentInstant})
+                    if list({@ferc:InvestmentsInAffiliatedCompaniesInvestmentAdvances @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:InvestmentsInAffiliatedCompaniesInvestmentAdvances  @unit @period=$currentInstant})) 
                     else none,
-                    if exists({@ferc:InvestmentsInAffiliatedCompaniesInvestmentAdvancesAdditions @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsInAffiliatedCompaniesInvestmentAdvancesAdditions @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsInAffiliatedCompaniesInvestmentAdvancesAdditions  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesBookValue @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesBookValue @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesBookValue  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesSellingPrice @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesSellingPrice @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsDisposedOfOrWrittenDownInvestmentAdvancesSellingPrice  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentInterestRate @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentInterestRate @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentInterestRate  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InterestAndDividendIncomeInvestmentAdvances @unit @period=$currentDuration})
+                    if list({@ferc:InterestAndDividendIncomeInvestmentAdvances @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InterestAndDividendIncomeInvestmentAdvances  @unit @period=$currentDuration})) 
                     else none
                     )}})
@@ -1342,34 +1342,34 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration}) 
+                    if list({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration}) 
+                    if list({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @unit @period=$currentDuration})
+                    if list({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:PercentageOfControlInAffiliatedCompany @unit @period=$currentDuration})
+                    if list({@ferc:PercentageOfControlInAffiliatedCompany @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:PercentageOfControlInAffiliatedCompany  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:SinkingAndOtherFunds @unit @period=$currentInstant})
+                    if list({@ferc:SinkingAndOtherFunds @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:SinkingAndOtherFunds  @unit @period=$currentInstant})) 
                     else none,
-                    if exists({@ferc:SinkingAndOtherFundsAdditions @unit @period=$currentDuration})
+                    if list({@ferc:SinkingAndOtherFundsAdditions @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:SinkingAndOtherFundsAdditions  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownBookValue @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownBookValue @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownBookValue  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownSellingPrice @unit @period=$currentDuration})
+                    if list({@ferc:InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownSellingPrice @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InvestmentsInSinkingAndOtherFundsDisposedOfOrWrittenDownSellingPrice  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:SinkingAndOtherFundsInterestRate @unit @period=$currentDuration})
+                    if list({@ferc:SinkingAndOtherFundsInterestRate @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:SinkingAndOtherFundsInterestRate  @unit @period=$currentDuration})) 
                     else none,
-                    if exists({@ferc:InterestAndDividendIncomeInvestmentsInSinkingAndOtherFunds @unit @period=$currentDuration})
+                    if list({@ferc:InterestAndDividendIncomeInvestmentsInSinkingAndOtherFunds @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InterestAndDividendIncomeInvestmentsInSinkingAndOtherFunds  @unit @period=$currentDuration})) 
                     else none
                     )}})
@@ -1540,34 +1540,34 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     {@ferc:OrderNumber @unit=* @period=$currentDuration}
                 else
                     0,
-                if exists({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration}) 
+                if list({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration}).length > 0 
                     first(list({@ferc:AccountNumberInvestmentClassification @unit  @period=$currentDuration})) 
                 else none,
-                if exists({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration}) 
+                if list({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration}).length > 0 
                     first(list({@ferc:InvestmentClassificationCode @unit  @period=$currentDuration})) 
                 else none,
-                if exists({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @unit @period=$currentDuration})
+                if list({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:NameOfIssuingCompanyAndDescriptionOfSecurityHeld  @unit @period=$currentDuration})) 
                 else none,
-                if exists({@ferc:PercentageOfControlInAffiliatedCompany @unit @period=$currentDuration})
+                if list({@ferc:PercentageOfControlInAffiliatedCompany @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:PercentageOfControlInAffiliatedCompany  @unit @period=$currentDuration})) 
                 else none,
-                if exists({@ferc:InvestmentsInAffiliatedCompanies @unit @period=$currentInstant})
+                if list({@ferc:InvestmentsInAffiliatedCompanies @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:InvestmentsInAffiliatedCompanies  @unit @period=$currentInstant})) 
                 else none,
-                if exists({@ferc:InvestmentsInAffiliatedCompaniesAdditions @unit @period=$currentDuration})
+                if list({@ferc:InvestmentsInAffiliatedCompaniesAdditions @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:InvestmentsInAffiliatedCompaniesAdditions  @unit @period=$currentDuration})) 
                 else none,
-                if exists({@ferc:InvestmentsInAffiliatedCompaniesDisposedOfOrWrittenDownBookValue @unit @period=$currentDuration})
+                if list({@ferc:InvestmentsInAffiliatedCompaniesDisposedOfOrWrittenDownBookValue @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:InvestmentsInAffiliatedCompaniesDisposedOfOrWrittenDownBookValue  @unit @period=$currentDuration})) 
                 else none,
-                if exists({@ferc:InvestmentsInAffiliatedCompaniesDisposedOfOrWrittenDownSellingPrice @unit @period=$currentDuration})
+                if list({@ferc:InvestmentsInAffiliatedCompaniesDisposedOfOrWrittenDownSellingPrice @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:InvestmentsInAffiliatedCompaniesDisposedOfOrWrittenDownSellingPrice  @unit @period=$currentDuration})) 
                 else none,
-                if exists({@ferc:InvestmentsInAffiliatedCompaniesInterestRate @unit @period=$currentDuration})
+                if list({@ferc:InvestmentsInAffiliatedCompaniesInterestRate @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:InvestmentsInAffiliatedCompaniesInterestRate  @unit @period=$currentDuration})) 
                 else none,
-                if exists({@ferc:InterestAndDividendIncomeInvestmentsInAffiliatedCompanies @unit @period=$currentDuration})
+                if list({@ferc:InterestAndDividendIncomeInvestmentsInAffiliatedCompanies @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:InterestAndDividendIncomeInvestmentsInAffiliatedCompanies  @unit @period=$currentDuration})) 
                 else none
 

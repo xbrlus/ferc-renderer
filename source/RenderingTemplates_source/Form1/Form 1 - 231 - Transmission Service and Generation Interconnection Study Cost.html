@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -24,7 +24,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     
                     <xule:replace>
                         <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
-                        <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                        <xule:template-display>Name of Respondent:</xule:template-display>
                     </xule:replace>
                 </td>
                 <td class="xbrl">
@@ -199,23 +199,23 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     else
                         0,
                     $x,
-                    if exists({@ferc:DescriptionOfStudyPerformed @ferc:StudyTypeAxis=ferc:TransmissionStudiesMember @unit @period=$currentDuration @ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=$x})
+                    if list({@ferc:DescriptionOfStudyPerformed @ferc:StudyTypeAxis=ferc:TransmissionStudiesMember @unit @period=$currentDuration @ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=$x}).length > 0
                         first(list({@ferc:DescriptionOfStudyPerformed @ferc:StudyTypeAxis=ferc:TransmissionStudiesMember @unit @period=$currentDuration @ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=$x}))
                     else
                         none,
-                    if exists({@ferc:StudyCostsIncurred @ferc:StudyTypeAxis=ferc:TransmissionStudiesMember @unit @period=$currentDuration @ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=$x})
+                    if list({@ferc:StudyCostsIncurred @ferc:StudyTypeAxis=ferc:TransmissionStudiesMember @unit @period=$currentDuration @ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=$x}).length > 0
                         first(list({@ferc:StudyCostsIncurred @ferc:StudyTypeAxis=ferc:TransmissionStudiesMember @unit @period=$currentDuration @ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=$x}))
                     else
                         none,
-                    if exists({@ferc:StudyCostsAccountCharged @ferc:StudyTypeAxis=ferc:TransmissionStudiesMember @unit @period=$currentDuration @ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=$x})
+                    if list({@ferc:StudyCostsAccountCharged @ferc:StudyTypeAxis=ferc:TransmissionStudiesMember @unit @period=$currentDuration @ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=$x}).length > 0
                         first(list({@ferc:StudyCostsAccountCharged @ferc:StudyTypeAxis=ferc:TransmissionStudiesMember @unit @period=$currentDuration @ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=$x}))
                     else
                         none,
-                    if exists({@ferc:StudyCostsReimbursements @ferc:StudyTypeAxis=ferc:TransmissionStudiesMember @unit @period=$currentDuration @ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=$x})
+                    if list({@ferc:StudyCostsReimbursements @ferc:StudyTypeAxis=ferc:TransmissionStudiesMember @unit @period=$currentDuration @ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=$x}).length > 0
                         first(list({@ferc:StudyCostsReimbursements @ferc:StudyTypeAxis=ferc:TransmissionStudiesMember @unit @period=$currentDuration @ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=$x}))
                     else 
                         none,
-                    if exists({@ferc:StudyCostsAccountReimbursed @ferc:StudyTypeAxis=ferc:TransmissionStudiesMember @unit @period=$currentDuration @ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=$x})
+                    if list({@ferc:StudyCostsAccountReimbursed @ferc:StudyTypeAxis=ferc:TransmissionStudiesMember @unit @period=$currentDuration @ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=$x}).length > 0
                         first(list({@ferc:StudyCostsAccountReimbursed @ferc:StudyTypeAxis=ferc:TransmissionStudiesMember @unit @period=$currentDuration @ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis=$x}))
                     else 
                         none
@@ -341,23 +341,23 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:DescriptionOfStudyPerformed @ferc:StudyTypeAxis=ferc:GenerationStudiesMember @unit @period=$currentDuration})
+                    if list({@ferc:DescriptionOfStudyPerformed @ferc:StudyTypeAxis=ferc:GenerationStudiesMember @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DescriptionOfStudyPerformed @ferc:StudyTypeAxis=ferc:GenerationStudiesMember @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:StudyCostsIncurred @ferc:StudyTypeAxis=ferc:GenerationStudiesMember @unit @period=$currentDuration})
+                    if list({@ferc:StudyCostsIncurred @ferc:StudyTypeAxis=ferc:GenerationStudiesMember @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:StudyCostsIncurred @ferc:StudyTypeAxis=ferc:GenerationStudiesMember @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:StudyCostsAccountCharged @ferc:StudyTypeAxis=ferc:GenerationStudiesMember @unit @period=$currentDuration})
+                    if list({@ferc:StudyCostsAccountCharged @ferc:StudyTypeAxis=ferc:GenerationStudiesMember @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:StudyCostsAccountCharged @ferc:StudyTypeAxis=ferc:GenerationStudiesMember @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:StudyCostsReimbursements @ferc:StudyTypeAxis=ferc:GenerationStudiesMember @unit @period=$currentDuration})
+                    if list({@ferc:StudyCostsReimbursements @ferc:StudyTypeAxis=ferc:GenerationStudiesMember @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:StudyCostsReimbursements @ferc:StudyTypeAxis=ferc:GenerationStudiesMember @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:StudyCostsAccountReimbursed @ferc:StudyTypeAxis=ferc:GenerationStudiesMember @unit @period=$currentDuration})
+                    if list({@ferc:StudyCostsAccountReimbursed @ferc:StudyTypeAxis=ferc:GenerationStudiesMember @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:StudyCostsAccountReimbursed @ferc:StudyTypeAxis=ferc:GenerationStudiesMember @unit @period=$currentDuration}))
                     else 
                         none

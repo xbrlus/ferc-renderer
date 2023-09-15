@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -232,15 +232,15 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:ClassOfOtherAppropriationOfRetainedIncome @ferc:ClassOfAppropriationAxis=ferc:OtherAppropriationsMember @unit@period=$currentDuration}) 
+                    if list({@ferc:ClassOfOtherAppropriationOfRetainedIncome @ferc:ClassOfAppropriationAxis=ferc:OtherAppropriationsMember @unit@period=$currentDuration}).length > 0 
                         first(list({@ferc:ClassOfOtherAppropriationOfRetainedIncome @ferc:ClassOfAppropriationAxis=ferc:OtherAppropriationsMember @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:AppropriatedRetainedIncome @ferc:ClassOfAppropriationAxis=ferc:OtherAppropriationsMember @unit @period=$currentInstant})
+                    if list({@ferc:AppropriatedRetainedIncome @ferc:ClassOfAppropriationAxis=ferc:OtherAppropriationsMember @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:AppropriatedRetainedIncome @ferc:ClassOfAppropriationAxis=ferc:OtherAppropriationsMember @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:AppropriatedRetainedIncome @ferc:ClassOfAppropriationAxis=ferc:OtherAppropriationsMember @unit @period=$priorInstant})
+                    if list({@ferc:AppropriatedRetainedIncome @ferc:ClassOfAppropriationAxis=ferc:OtherAppropriationsMember @unit @period=$priorInstant}).length > 0
                         first(list({@ferc:AppropriatedRetainedIncome @ferc:ClassOfAppropriationAxis=ferc:OtherAppropriationsMember @unit @period=$priorInstant})) 
                     else 
                         none

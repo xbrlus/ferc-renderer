@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -25,7 +25,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         
                         <xule:replace>
                             <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
-                            <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                            <xule:template-display>Name of Respondent:</xule:template-display>
                         </xule:replace>
                     </td>
                     <td class="xbrl">
@@ -212,73 +212,73 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:TransmissionLineStartPoint @unit  @period=$currentDuration}) 
+                    if list({@ferc:TransmissionLineStartPoint @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:TransmissionLineStartPoint @unit  @period=$currentDuration}))
                     else 
                         none,
                     
-                    if exists({@ferc:TransmissionLineEndPoint @unit @period=$currentDuration})
+                    if list({@ferc:TransmissionLineEndPoint @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:TransmissionLineEndPoint @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:LengthOfTransmissionLineAdded @unit @period=$currentDuration})
+                    if list({@ferc:LengthOfTransmissionLineAdded @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:LengthOfTransmissionLineAdded @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:SupportingStructureOfTransmissionLineType @unit @period=$currentDuration})
+                    if list({@ferc:SupportingStructureOfTransmissionLineType @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:SupportingStructureOfTransmissionLineType @unit @period=$currentDuration})) 
                     else 
                         none,
                     
-                    if exists({@ferc:AverageNumberOfSupportingStructuresOfTransmissionLinePerMiles @unit @period=$currentDuration})
+                    if list({@ferc:AverageNumberOfSupportingStructuresOfTransmissionLinePerMiles @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:AverageNumberOfSupportingStructuresOfTransmissionLinePerMiles @unit  @period=$currentDuration})) 
                     else
                         none,
-                    if exists({@ferc:NumberOfTransmissionCircuitsPerStructurePresent @unit  @period=$currentDuration}) 
+                    if list({@ferc:NumberOfTransmissionCircuitsPerStructurePresent @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:NumberOfTransmissionCircuitsPerStructurePresent @unit  @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:NumberOfTransmissionCircuitsPerStructureUltimate @unit @period=$currentDuration}) 
+                    if list({@ferc:NumberOfTransmissionCircuitsPerStructureUltimate @unit @period=$currentDuration}).length > 0 
                         first(list({@ferc:NumberOfTransmissionCircuitsPerStructureUltimate @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:ConductorSize @unit  @period=$currentDuration})
+                    if list({@ferc:ConductorSize @unit  @period=$currentDuration}).length > 0
                         first(list({@ferc:ConductorSize @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:ConductorSpecification @unit  @period=$currentDuration})
+                    if list({@ferc:ConductorSpecification @unit  @period=$currentDuration}).length > 0
                         first(list({@ferc:ConductorSpecification @unit  @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:ConductorConfigurationAndSpacing @unit @period=$currentDuration})
+                    if list({@ferc:ConductorConfigurationAndSpacing @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:ConductorConfigurationAndSpacing @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:OperatingVoltageOfTransmissionLine @unit @period=$currentDuration})
+                    if list({@ferc:OperatingVoltageOfTransmissionLine @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:OperatingVoltageOfTransmissionLine @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:CostOfLandAndLandRightsTransmissionLinesAdded @unit @period=$currentDuration})
+                    if list({@ferc:CostOfLandAndLandRightsTransmissionLinesAdded @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:CostOfLandAndLandRightsTransmissionLinesAdded @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:CostOfPolesTowersAndFixturesTransmissionLinesAdded @unit @period=$currentDuration})
+                    if list({@ferc:CostOfPolesTowersAndFixturesTransmissionLinesAdded @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:CostOfPolesTowersAndFixturesTransmissionLinesAdded @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:CostOfConductorsAndDevicesTransmissionLinesAdded @unit @period=$currentDuration})
+                    if list({@ferc:CostOfConductorsAndDevicesTransmissionLinesAdded @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:CostOfConductorsAndDevicesTransmissionLinesAdded @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:AssetRetirementCostsTransmissionLinesAdded @unit @period=$currentDuration})
+                    if list({@ferc:AssetRetirementCostsTransmissionLinesAdded @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:AssetRetirementCostsTransmissionLinesAdded @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:CostOfTransmissionLinesAdded @unit @period=$currentDuration})
+                    if list({@ferc:CostOfTransmissionLinesAdded @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:CostOfTransmissionLinesAdded @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:SupportingStructureConstructionType @unit @period=$currentDuration})
+                    if list({@ferc:SupportingStructureConstructionType @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:SupportingStructureConstructionType @unit @period=$currentDuration})) 
                     else 
                         none

@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -23,7 +23,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         </xule:replace><br/>
                         <xule:replace>
                             <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
-                            <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                            <xule:template-display>Name of Respondent:</xule:template-display>
                         </xule:replace>
                     </td>
                     <td class="xbrl">
@@ -222,11 +222,11 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:TaxableIncomeNotReportedOnBooksDescription @unit  @period=$currentDuration}) 
+                    if list({@ferc:TaxableIncomeNotReportedOnBooksDescription @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:TaxableIncomeNotReportedOnBooksDescription @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:TaxableIncomeNotReportedOnBooks @unit @period=$currentDuration})
+                    if list({@ferc:TaxableIncomeNotReportedOnBooks @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:TaxableIncomeNotReportedOnBooks @unit @period=$currentDuration})) 
                     else 
                         none
@@ -300,11 +300,11 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                 else
                     0,
-                if exists({@ferc:DeductionsRecordedOnBooksNotDeductedForReturnDescription @unit  @period=$currentDuration}) 
+                if list({@ferc:DeductionsRecordedOnBooksNotDeductedForReturnDescription @unit  @period=$currentDuration}).length > 0 
                     first(list({@ferc:DeductionsRecordedOnBooksNotDeductedForReturnDescription @unit @period=$currentDuration})) 
                 else 
                     none,
-                if exists({@ferc:DeductionsRecordedOnBooksNotDeductedForReturn @unit @period=$currentDuration})
+                if list({@ferc:DeductionsRecordedOnBooksNotDeductedForReturn @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:DeductionsRecordedOnBooksNotDeductedForReturn @unit @period=$currentDuration})) 
                 else 
                     none
@@ -379,11 +379,11 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
             else
                 0,
-            if exists({@ferc:IncomeRecordedOnBooksNotIncludedInReturnDescription @unit  @period=$currentDuration}) 
+            if list({@ferc:IncomeRecordedOnBooksNotIncludedInReturnDescription @unit  @period=$currentDuration}).length > 0 
                 first(list({@ferc:IncomeRecordedOnBooksNotIncludedInReturnDescription @unit @period=$currentDuration}))
             else 
                 none,
-            if exists({@ferc:IncomeRecordedOnBooksNotIncludedInReturn @unit @period=$currentDuration})
+            if list({@ferc:IncomeRecordedOnBooksNotIncludedInReturn @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:IncomeRecordedOnBooksNotIncludedInReturn @unit @period=$currentDuration})) 
             else 
                 none
@@ -458,11 +458,11 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                 else
                     0,
-                if exists({@ferc:DeductionsOnReturnNotChargedAgainstBookIncomeDescription @unit  @period=$currentDuration}) 
+                if list({@ferc:DeductionsOnReturnNotChargedAgainstBookIncomeDescription @unit  @period=$currentDuration}).length > 0 
                     first(list({@ferc:DeductionsOnReturnNotChargedAgainstBookIncomeDescription @unit @period=$currentDuration})) 
                 else 
                     none,
-                if exists({@ferc:DeductionsOnReturnNotChargedAgainstBookIncome @unit @period=$currentDuration})
+                if list({@ferc:DeductionsOnReturnNotChargedAgainstBookIncome @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:DeductionsOnReturnNotChargedAgainstBookIncome @unit @period=$currentDuration})) 
                 else 
                     none
@@ -561,11 +561,11 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:ComputationOfTaxDescription @unit  @period=$currentDuration}) 
+                    if list({@ferc:ComputationOfTaxDescription @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:ComputationOfTaxDescription @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:ComputationOfTax @unit @period=$currentDuration})
+                    if list({@ferc:ComputationOfTax @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:ComputationOfTax @unit @period=$currentDuration})) 
                     else 
                         none

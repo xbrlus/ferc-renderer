@@ -26,7 +26,7 @@ rule-focus $fact1
 
 /** Checks that all monetary amounts are in USD **/
 
-assert F2.all.2 satisfied 
+assert F714.all.2 satisfied 
 
 $rule_id = rule-name();
 
@@ -207,7 +207,7 @@ Rule Id:{$rule_id}"
 severity error
 rule-focus $fact1
 
-assert F1.all.10 satisfied
+assert F714.all.10 satisfied
 $rule_id = rule-name();
 
 $Durationlookup = dict(list("Current",$currentDuration),
@@ -259,7 +259,7 @@ severity error
 rule-focus $fact1
 
 
-assert F1.all.11 satisfied 
+assert F714.all.11 satisfied 
 $rule_id = rule-name();
 
 $invalid_period = {nonils @concept = OrderNumber @period != $currentDuration};

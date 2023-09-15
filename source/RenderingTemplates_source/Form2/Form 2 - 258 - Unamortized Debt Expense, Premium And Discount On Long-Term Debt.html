@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -192,38 +192,38 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             
            
                 list({covered @ferc:UnamortizedDebtExpenseAxis=*  {list(
-                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                         {@ferc:OrderNumber @unit=* @period=$currentDuration}
                     else
                         0,
-                    if exists({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration})
+                    if list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration})
+                    if list({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:LongTermDebtIssuanceExpenses @unit @period=$currentDuration})
+                    if list({@ferc:LongTermDebtIssuanceExpenses @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:LongTermDebtIssuanceExpenses @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration})
+                    if list({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration}))
                     else none,
-                    if exists({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration})
+                    if list({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration}))
                     else none,
-                    if exists({@ferc:UnamortizedDebtExpense @unit @period=$priorInstant})
+                    if list({@ferc:UnamortizedDebtExpense @unit @period=$priorInstant}).length > 0
                         first(list({@ferc:UnamortizedDebtExpense @unit @period=$priorInstant}))
                     else none,
-                    if exists({@ferc:DebtIssuanceExpensesLongTermDebtAdditions @unit @period=$currentDuration})
+                    if list({@ferc:DebtIssuanceExpensesLongTermDebtAdditions @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DebtIssuanceExpensesLongTermDebtAdditions @unit @period=$currentDuration}))
                     else none,
-                    if exists({@ferc:AmortizationOfDebtIssuanceExpensesLongTermDebt @unit @period=$currentDuration})
+                    if list({@ferc:AmortizationOfDebtIssuanceExpensesLongTermDebt @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:AmortizationOfDebtIssuanceExpensesLongTermDebt @unit @period=$currentDuration}))
                     else none,
-                    if exists({@ferc:UnamortizedDebtExpense @unit @period=$currentInstant})
+                    if list({@ferc:UnamortizedDebtExpense @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:UnamortizedDebtExpense @unit @period=$currentInstant}))
                     else none
 
@@ -346,41 +346,41 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 
                
                     list({covered @ferc:UnamortizedPremiumOnLongTermDebtAxis=*  {list(
-                        if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                        if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                             {@ferc:OrderNumber @unit=* @period=$currentDuration}
                         else
                             0,
-                        if exists({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration})
+                        if list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration})
+                        if list({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:LongTermDebtPremium @unit @period=$currentDuration})
+                        if list({@ferc:LongTermDebtPremium @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:LongTermDebtPremium @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration})
+                        if list({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration}))
                         else none,
-                        if exists({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration})
+                        if list({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration}))
                         else none,
-                        if exists({@ferc:UnamortizedPremiumOnLongTermDebt @unit @period=$priorInstant})
+                        if list({@ferc:UnamortizedPremiumOnLongTermDebt @unit @period=$priorInstant}).length > 0
                             first(list({@ferc:UnamortizedPremiumOnLongTermDebt @unit @period=$priorInstant}))
                         else 
                             none,
-                        if exists({@ferc:AmortizationOfPremiumOnLongTermDebt @unit @period=$currentDuration})
+                        if list({@ferc:AmortizationOfPremiumOnLongTermDebt @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:AmortizationOfPremiumOnLongTermDebt @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:PremiumLongTermDebtAdditions @unit @period=$currentDuration})
+                        if list({@ferc:PremiumLongTermDebtAdditions @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:PremiumLongTermDebtAdditions @unit @period=$currentDuration}))
                         else none,
                        
-                        if exists({@ferc:UnamortizedPremiumOnLongTermDebt @unit @period=$currentInstant})
+                        if list({@ferc:UnamortizedPremiumOnLongTermDebt @unit @period=$currentInstant}).length > 0
                             first(list({@ferc:UnamortizedPremiumOnLongTermDebt @unit @period=$currentInstant}))
                         else none
 
@@ -517,42 +517,42 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 
                
                     list({covered @ferc:UnamortizedDiscountOnLongTermDebtAxis=*  {list(
-                        if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                        if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                             {@ferc:OrderNumber @unit=* @period=$currentDuration}
                         else
                             0,
-                        if exists({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration})
+                        if list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration})
+                        if list({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:LongTermDebtDiscount @unit @period=$currentDuration})
+                        if list({@ferc:LongTermDebtDiscount @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:LongTermDebtDiscount @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration})
+                        if list({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration}))
                         else none,
-                        if exists({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration})
+                        if list({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:UnamortizedDiscountOnLongTermDebtDebit @unit @period=$priorInstant})
+                        if list({@ferc:UnamortizedDiscountOnLongTermDebtDebit @unit @period=$priorInstant}).length > 0
                             first(list({@ferc:UnamortizedDiscountOnLongTermDebtDebit @unit @period=$priorInstant}))
                         else 
                             none,
-                        if exists({@ferc:DiscountLongTermDebtAdditions @unit @period=$currentDuration})
+                        if list({@ferc:DiscountLongTermDebtAdditions @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DiscountLongTermDebtAdditions @unit @period=$currentDuration}))
                         else 
                             none,
-                        if exists({@ferc:AmortizationOfDiscountLongTermDebt @unit @period=$currentDuration})
+                        if list({@ferc:AmortizationOfDiscountLongTermDebt @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:AmortizationOfDiscountLongTermDebt @unit @period=$currentDuration}))
                         else 
                         none,
-                        if exists({@ferc:UnamortizedDiscountOnLongTermDebtDebit @unit @period=$currentInstant})
+                        if list({@ferc:UnamortizedDiscountOnLongTermDebtDebit @unit @period=$currentInstant}).length > 0
                             first(list({@ferc:UnamortizedDiscountOnLongTermDebtDebit @unit @period=$currentInstant}))
                         else 
                             none
@@ -655,38 +655,38 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 
                
                     list({covered @ferc:UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAxis=*  {list(
-                        if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                        if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                             first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                         else
                             0,
-                        if exists({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration})
+                        if list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DesignationOfLongTermDebt @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration})
+                        if list({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:LongTermDebtPrincipalAmountIssued @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:UnamortizedDebtIssuanceExpensesPremiumsOnLongTermDebtOrDiscountsOnLongTermDebt @unit @period=$currentInstant})
+                        if list({@ferc:UnamortizedDebtIssuanceExpensesPremiumsOnLongTermDebtOrDiscountsOnLongTermDebt @unit @period=$currentInstant}).length > 0
                             first(list({@ferc:UnamortizedDebtIssuanceExpensesPremiumsOnLongTermDebtOrDiscountsOnLongTermDebt @unit @period=$currentInstant}))
                         else
                             none,
-                        if exists({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration})
+                        if list({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:AmortizationPeriodStartDate @unit @period=$currentDuration}))
                         else none,
-                        if exists({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration})
+                        if list({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:AmortizationPeriodEndDate @unit @period=$currentDuration}))
                         else none,
-                        if exists({@ferc:BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @unit @period=$priorInstant})
+                        if list({@ferc:BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @unit @period=$priorInstant}).length > 0
                             first(list({@ferc:BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @unit @period=$priorInstant}))
                         else none,
-                        if exists({@ferc:UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtDebits @unit @period=$currentDuration})
+                        if list({@ferc:UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtDebits @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtDebits @unit @period=$currentDuration}))
                         else none,
-                        if exists({@ferc:UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtCredits @unit @period=$currentDuration})
+                        if list({@ferc:UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtCredits @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtCredits @unit @period=$currentDuration}))
                         else none,
-                        if exists({@ferc:BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @unit @period=$currentInstant})
+                        if list({@ferc:BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @unit @period=$currentInstant}).length > 0
                             first(list({@ferc:BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @unit @period=$currentInstant}))
                         else none
 

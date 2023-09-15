@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -173,47 +173,47 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                 else
                     0,
-                if exists({@ferc:ZoneOfDeliveryOrReceiptRateSchedule @unit  @period=$currentDuration}) 
+                if list({@ferc:ZoneOfDeliveryOrReceiptRateSchedule @unit  @period=$currentDuration}).length > 0 
                     first(list({@ferc:ZoneOfDeliveryOrReceiptRateSchedule @unit  @period=$currentDuration})) 
                 else
                     none,
-                if exists({@ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$currentDuration})
+                if list({@ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$currentDuration})) 
                 else
                     none,
-                if exists({@ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$priorDuration})
+                if list({@ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$priorDuration}).length > 0
                     first(list({@ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$priorDuration})) 
                 else
                     none,
-                if exists({@ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$currentDuration})
+                if list({@ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$currentDuration})) 
                 else
                     none,
-                if exists({@ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$priorDuration})
+                if list({@ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$priorDuration}).length > 0
                     first(list({@ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$priorDuration})) 
                 else
                     none,
-                if exists({@ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$currentDuration})
+                if list({@ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$currentDuration})) 
                 else
                     none,
-                if exists({@ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$priorDuration})
+                if list({@ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$priorDuration}).length > 0
                     first(list({@ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$priorDuration})) 
                 else
                     none,
-                if exists({@ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$currentDuration})
+                if list({@ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$currentDuration})) 
                 else
                     none,
-                if exists({@ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$priorDuration})
+                if list({@ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$priorDuration}).length > 0
                     first(list({@ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$priorDuration})) 
                 else
                     none,
-                    if exists({@ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$currentDuration})
+                    if list({@ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$currentDuration}).length > 0
                     first(list({@ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$currentDuration})) 
                 else
                     none,
-                if exists({@ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$priorDuration})
+                if list({@ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$priorDuration}).length > 0
                     first(list({@ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$priorDuration})) 
                 else
                     none
@@ -292,6 +292,152 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 </xule:template-display>
             </td>
         </tr>
+
+        <tr class="schedule-row" xule:repeat="ZoneDeliverySubtotalItems">
+            <xule:expression class="hide" name="ZoneDeliverySubtotalItems">
+                
+            $data2 =   list(for $i in range(1)
+                            list($i,none,none,none,none,none,none,none,none,none,none,none,none)
+            );
+            $AxisUsed = if list([covered @ferc:ZoneOfDelivery @ferc:ZoneAxis]).length > 0
+                            ferc:ZoneAxis
+                        else if list([covered @ferc:RateSchedule @ferc:RateScheduleAxis]).length > 0
+                            ferc:RateScheduleAxis
+                        else none
+
+            $data = if $AxisUsed != none
+            
+            
+                list({covered @$AxisUsed=*  {list(
+                    
+                if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
+                    first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
+                else
+                    0,
+                if list({@concept in list(ferc:RateSchedule, ferc:ZoneOfDelivery) @unit @period=$currentDuration}).length > 0 
+                    first(list({@concept in list(ferc:RateSchedule, ferc:ZoneOfDelivery) @unit @period=$currentDuration})) 
+                else
+                    none,
+                if list({@ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$currentDuration}).length > 0
+                    first(list({@ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$currentDuration})) 
+                else
+                    none,
+                if list({@ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$priorDuration}).length > 0
+                    first(list({@ferc:RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$priorDuration})) 
+                else
+                    none,
+                if list({@ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$currentDuration}).length > 0
+                    first(list({@ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$currentDuration})) 
+                else
+                    none,
+                if list({@ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$priorDuration}).length > 0
+                    first(list({@ferc:RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$priorDuration})) 
+                else
+                    none,
+                if list({@ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$currentDuration}).length > 0
+                    first(list({@ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$currentDuration})) 
+                else
+                    none,
+                if list({@ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$priorDuration}).length > 0
+                    first(list({@ferc:OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$priorDuration})) 
+                else
+                    none,
+                if list({@ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$currentDuration}).length > 0
+                    first(list({@ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$currentDuration})) 
+                else
+                    none,
+                if list({@ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$priorDuration}).length > 0
+                    first(list({@ferc:RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$priorDuration})) 
+                else
+                    none,
+                    if list({@ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$currentDuration}).length > 0
+                    first(list({@ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$currentDuration})) 
+                else
+                    none,
+                if list({@ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @unit @period=$priorDuration}).length > 0
+                    first(list({@ferc:QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities  @unit @period=$priorDuration})) 
+                else
+                    none,
+                if $AxisUsed == ferc:ZoneAxis
+                    "Zone SubTotal " 
+                else 
+                    "Rate Schedule SubTotal "
+                )}})
+                else $data2;
+            
+                $uniqueData = list(for $x in  $data
+                        if $x == list(0,none,none,none,none,none,none,none,none,none,none,none,$x[13])
+                            skip
+                        else 
+                            $x
+                        );
+
+                    for $row in $uniqueData.sort
+
+            </xule:expression>
+            
+            <td class="xbrl line-number">
+            </td>
+            <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="ZoneDeliverySubtotalItems" fact="false"  part="2">$row[13] + $row[2].string</xule:expression></xule:replace>
+                <xule:template-display>
+                        Interruptible Gathering - MT, ND
+                </xule:template-display>
+            </td>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="ZoneDeliverySubtotalItems" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                <xule:template-display>
+                    $0
+                </xule:template-display>
+            </td>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="ZoneDeliverySubtotalItems" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+                <xule:template-display>
+                    $0
+                </xule:template-display>
+            </td>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="ZoneDeliverySubtotalItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
+                <xule:template-display>
+                    $0
+                </xule:template-display>
+            </td>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="ZoneDeliverySubtotalItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[6]</xule:expression></xule:replace>
+                <xule:template-display>
+                    $0
+                </xule:template-display>
+            </td>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="ZoneDeliverySubtotalItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[7]</xule:expression></xule:replace>
+                <xule:template-display>
+                    $4,458,543
+                </xule:template-display>
+            </td>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="ZoneDeliverySubtotalItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[8]</xule:expression></xule:replace>
+                <xule:template-display>
+                    $4,726,918
+                </xule:template-display>
+            </td>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="ZoneDeliverySubtotalItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[9]</xule:expression></xule:replace>
+                <xule:template-display>
+                    $4,458,543
+                </xule:template-display>
+            </td>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="ZoneDeliverySubtotalItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[10]</xule:expression></xule:replace>
+                <xule:template-display>
+                    $4,726,918
+                </xule:template-display>
+            </td>
+            <!-- Dekatherm of Natural Gas (Current) -->
+            <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="ZoneDeliverySubtotalItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[11]</xule:expression></xule:replace>
+                <xule:template-display>
+                        6,247,695 dth
+                </xule:template-display>
+            </td>
+            <!-- Dekatherm of Natural Gas (Current) -->
+            <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="ZoneDeliverySubtotalItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[12]</xule:expression></xule:replace>
+                <xule:template-display>
+                        6,623,765 dth
+                </xule:template-display>
+            </td>
+        </tr>
+
+
         <tr> <!-- Line 40: Total -->
             <td class="xbrl line-number">40</td>
             <!-- Zone Of Delivery -->

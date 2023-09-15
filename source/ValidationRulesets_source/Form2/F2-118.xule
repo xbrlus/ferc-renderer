@@ -141,19 +141,19 @@ else
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
-    $sum1 = {@UnappropriatedUndistributedSubsidiaryEarnings @period=$currentInstant}; 
-    $addend = ({@UnappropriatedUndistributedSubsidiaryEarnings @period=$priorInstant}#f0
-    + {@EquityInEarningsOfSubsidiaryCompanies @period=$currentDuration}#f1
-    - {@DividendsReceived @period=$currentDuration}#f2
-    + {@ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @period=$currentDuration}#f3
-    );
-    tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+    $sum1 = [@UnappropriatedUndistributedSubsidiaryEarnings @period=$currentInstant]; 
+    $addend = ([@UnappropriatedUndistributedSubsidiaryEarnings @period=$priorInstant]#f0 
+    + [@EquityInEarningsOfSubsidiaryCompanies @period=$currentDuration]#f1 
+    - [@DividendsReceived @period=$currentDuration]#f2
+    + (sum(list([nonils @ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=* @period=$currentDuration]
+    )#f3)));
+    tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
 message 
 "The company has reported a value for UnappropriatedUndistributedSubsidiaryEarnings  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
 = \t {$f0.concept.name.local-name} \t = \t {$f0}
 + \t {$f1.concept.name.local-name} \t = \t {$f1}
 - \t {$f2.concept.name.local-name} \t = \t {$f2}
-+ \t {$f3.concept.name.local-name} \t = \t {$f3}
+ {list(for $line in $f3 "+ \t" + $line.concept.name.local-name + "\t = \t " + $line + "\n").join(" ")}
 
 Total Element : {$sum1.concept.name}
 Total Period : {$sum1.period}
@@ -275,19 +275,18 @@ else
 if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
         skip
 else
-    $sum1 = {@UnappropriatedUndistributedSubsidiaryEarnings @period=$priorInstant}; 
+    $sum1 = {@UnappropriatedUndistributedSubsidiaryEarnings @period=$priorInstant};
     $addend = ({@UnappropriatedUndistributedSubsidiaryEarnings @period=$prior2Instant}#f0
     + {@EquityInEarningsOfSubsidiaryCompanies @period=$priorDuration}#f1
     - {@DividendsReceived @period=$priorDuration}#f2
-    + {@ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @period=$priorDuration}#f3
-    );
-    tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+    + (sum(list([nonils @ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=* @period=$priorDuration])#f3)));
+    tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
 message 
 "The company has reported a value for UnappropriatedUndistributedSubsidiaryEarnings  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
 = \t {$f0.concept.name.local-name} \t = \t {$f0}
 + \t {$f1.concept.name.local-name} \t = \t {$f1}
 - \t {$f2.concept.name.local-name} \t = \t {$f2}
-+ \t {$f3.concept.name.local-name} \t = \t {$f3}
+ {list(for $line in $f3 "+ \t" + $line.concept.name.local-name + "\t = \t " + $line + "\n").join(" ")}
 
 Total Element : {$sum1.concept.name}
 Total Period : {$sum1.period}

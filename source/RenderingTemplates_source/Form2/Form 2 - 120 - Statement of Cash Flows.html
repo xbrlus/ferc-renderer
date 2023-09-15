@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -239,7 +239,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             $data1 = 
                                     
                                             list({covered {list(
-                                                if exists({@ferc:OrderNumber @unit=* @period = $currentDuration where $fact.dimension($axis) != none})
+                                                if list({@ferc:OrderNumber @unit=* @period = $currentDuration where $fact.dimension($axis) != none}).length > 0
                                                     {@ferc:OrderNumber @unit=* @period = $currentDuration where $fact.dimension($axis) != none}
                                                 else
                                                     0,
@@ -249,7 +249,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                                     $endingRow,
                                                 $lineItemsList[3][1],
                                                     
-                                                if exists({@concept = $lineItemsList[3][1] @unit @period = $currentDuration where $fact.dimension($axis) != none}) 
+                                                if list({@concept = $lineItemsList[3][1] @unit @period = $currentDuration where $fact.dimension($axis) != none}).length > 0 
                                                     {@concept = $lineItemsList[3][1] @unit @period = $currentDuration where $fact.dimension($axis) != none} 
                                                 else 
                                                     none,
@@ -257,7 +257,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                                     {@concept = $lineItemsList[2][1] @unit @period = $currentDuration where $fact.dimension($axis) != none} 
                                                 else 
                                                     none,
-                                                if exists({@concept = $lineItemsList[2][1] @unit=* @period = $priorDuration where $fact.dimension($axis) != none}) 
+                                                if list({@concept = $lineItemsList[2][1] @unit=* @period = $priorDuration where $fact.dimension($axis) != none}).length > 0 
                                                     {@concept = $lineItemsList[2][1] @unit=* @period = $priorDuration where $fact.dimension($axis) != none}     
                                                 else 
                                                     none

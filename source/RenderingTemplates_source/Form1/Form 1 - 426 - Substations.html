@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -25,7 +25,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         
                         <xule:replace>
                             <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
-                            <xule:template-display>Duke Energy Kentucky, Inc.</xule:template-display>
+                            <xule:template-display>Name of Respondent:</xule:template-display>
                         </xule:replace>
                     </td>
                     <td class="xbrl">
@@ -186,51 +186,51 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration @ferc:SubstationsAxis = $x}))
                     else
                         0,
-                    if exists({@ferc:SubstationNameAndLocation @unit  @period=$currentDuration @ferc:SubstationsAxis = $x}) 
+                    if list({@ferc:SubstationNameAndLocation @unit  @period=$currentDuration @ferc:SubstationsAxis = $x}).length > 0 
                         first(list({@ferc:SubstationNameAndLocation @unit  @period=$currentDuration @ferc:SubstationsAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:SubstationCharacterDescription @unit @period=$currentDuration @ferc:SubstationsAxis = $x})
+                    if list({@ferc:SubstationCharacterDescription @unit @period=$currentDuration @ferc:SubstationsAxis = $x}).length > 0
                         first(list({@ferc:SubstationCharacterDescription @unit @period=$currentDuration @ferc:SubstationsAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:SubstationCharacterAttendedOrUnattended @unit @period=$currentDuration @ferc:SubstationsAxis = $x})
+                    if list({@ferc:SubstationCharacterAttendedOrUnattended @unit @period=$currentDuration @ferc:SubstationsAxis = $x}).length > 0
                         first(list({@ferc:SubstationCharacterAttendedOrUnattended @unit @period=$currentDuration @ferc:SubstationsAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:PrimaryVoltageLevel @unit @period=$currentInstant @ferc:SubstationsAxis = $x})
+                    if list({@ferc:PrimaryVoltageLevel @unit @period=$currentInstant @ferc:SubstationsAxis = $x}).length > 0
                         first(list({@ferc:PrimaryVoltageLevel @unit @period=$currentInstant @ferc:SubstationsAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:SecondaryVoltageLevel @unit @period=$currentInstant @ferc:SubstationsAxis = $x})
+                    if list({@ferc:SecondaryVoltageLevel @unit @period=$currentInstant @ferc:SubstationsAxis = $x}).length > 0
                         first(list({@ferc:SecondaryVoltageLevel @unit  @period=$currentInstant @ferc:SubstationsAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:TertiaryVoltageLevel @unit  @period=$currentInstant @ferc:SubstationsAxis = $x}) 
+                    if list({@ferc:TertiaryVoltageLevel @unit  @period=$currentInstant @ferc:SubstationsAxis = $x}).length > 0 
                         first(list({@ferc:TertiaryVoltageLevel @unit  @period=$currentInstant @ferc:SubstationsAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:SubstationInServiceCapacity @unit @period=$currentInstant @ferc:SubstationsAxis = $x}) 
+                    if list({@ferc:SubstationInServiceCapacity @unit @period=$currentInstant @ferc:SubstationsAxis = $x}).length > 0 
                         first(list({@ferc:SubstationInServiceCapacity @unit @period=$currentInstant @ferc:SubstationsAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:NumberOfTransformersInService @unit  @period=$currentInstant @ferc:SubstationsAxis = $x})
+                    if list({@ferc:NumberOfTransformersInService @unit  @period=$currentInstant @ferc:SubstationsAxis = $x}).length > 0
                         first(list({@ferc:NumberOfTransformersInService @unit @period=$currentInstant @ferc:SubstationsAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:NumberOfSpareTransformers @unit  @period=$currentInstant @ferc:SubstationsAxis = $x})
+                    if list({@ferc:NumberOfSpareTransformers @unit  @period=$currentInstant @ferc:SubstationsAxis = $x}).length > 0
                         first(list({@ferc:NumberOfSpareTransformers @unit  @period=$currentInstant @ferc:SubstationsAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:ConversionApparatusAndSpecialEquipmentType @unit @period=$currentDuration @ferc:SubstationsAxis = $x})
+                    if list({@ferc:ConversionApparatusAndSpecialEquipmentType @unit @period=$currentDuration @ferc:SubstationsAxis = $x}).length > 0
                         first(list({@ferc:ConversionApparatusAndSpecialEquipmentType @unit @period=$currentDuration @ferc:SubstationsAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:NumberOfConversionApparatusAndSpecialEquipmentUnits @unit @period=$currentInstant @ferc:SubstationsAxis = $x})
+                    if list({@ferc:NumberOfConversionApparatusAndSpecialEquipmentUnits @unit @period=$currentInstant @ferc:SubstationsAxis = $x}).length > 0
                         first(list({@ferc:NumberOfConversionApparatusAndSpecialEquipmentUnits @unit @period=$currentInstant @ferc:SubstationsAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:CapacityOfConversionApparatusAndSpecialEquipment @unit @period=$currentInstant @ferc:SubstationsAxis = $x})
+                    if list({@ferc:CapacityOfConversionApparatusAndSpecialEquipment @unit @period=$currentInstant @ferc:SubstationsAxis = $x}).length > 0
                         first(list({@ferc:CapacityOfConversionApparatusAndSpecialEquipment @unit @period=$currentInstant @ferc:SubstationsAxis = $x})) 
                     else 
                         none
@@ -325,39 +325,39 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                
                 list(for $x in $substations
                     list(
-                    if exists({@ferc:SubstationNameAndLocation @unit  @period=$currentDuration @ferc:SubstationByFunctionalCharacterAxis = $x}) 
+                    if list({@ferc:SubstationNameAndLocation @unit  @period=$currentDuration @ferc:SubstationByFunctionalCharacterAxis = $x}).length > 0 
                         first(list({@ferc:SubstationNameAndLocation @unit  @period=$currentDuration @ferc:SubstationByFunctionalCharacterAxis = $x})) 
                     else 
                         "Total" + $x.local-name,
-                    if exists({@ferc:PrimaryVoltageLevel @unit @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x})
+                    if list({@ferc:PrimaryVoltageLevel @unit @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x}).length > 0
                         first(list({@ferc:PrimaryVoltageLevel @unit @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:SecondaryVoltageLevel @unit @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x})
+                    if list({@ferc:SecondaryVoltageLevel @unit @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x}).length > 0
                         first(list({@ferc:SecondaryVoltageLevel @unit  @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:TertiaryVoltageLevel @unit  @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x}) 
+                    if list({@ferc:TertiaryVoltageLevel @unit  @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x}).length > 0 
                         first(list({@ferc:TertiaryVoltageLevel @unit  @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:SubstationInServiceCapacity @unit @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x}) 
+                    if list({@ferc:SubstationInServiceCapacity @unit @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x}).length > 0 
                         first(list({@ferc:SubstationInServiceCapacity @unit @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:NumberOfTransformersInService @unit  @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x})
+                    if list({@ferc:NumberOfTransformersInService @unit  @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x}).length > 0
                         first(list({@ferc:NumberOfTransformersInService @unit @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:NumberOfSpareTransformers @unit  @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x})
+                    if list({@ferc:NumberOfSpareTransformers @unit  @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x}).length > 0
                         first(list({@ferc:NumberOfSpareTransformers @unit  @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:NumberOfConversionApparatusAndSpecialEquipmentUnits @unit @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x})
+                    if list({@ferc:NumberOfConversionApparatusAndSpecialEquipmentUnits @unit @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x}).length > 0
                         first(list({@ferc:NumberOfConversionApparatusAndSpecialEquipmentUnits @unit @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x})) 
                     else 
                         none,
-                    if exists({@ferc:CapacityOfConversionApparatusAndSpecialEquipment @unit @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x})
+                    if list({@ferc:CapacityOfConversionApparatusAndSpecialEquipment @unit @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x}).length > 0
                         first(list({@ferc:CapacityOfConversionApparatusAndSpecialEquipment @unit @period=$currentInstant @ferc:SubstationByFunctionalCharacterAxis = $x})) 
                     else 
                         none

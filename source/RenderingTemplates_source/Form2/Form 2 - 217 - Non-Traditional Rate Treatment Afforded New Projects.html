@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -174,51 +174,51 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             $data = if count(list({covered @ferc:NonTraditionalRateTreatmentAffordedNewProjectsAxis=*})) > 0 
             
                 list({covered @ferc:NonTraditionalRateTreatmentAffordedNewProjectsAxis=*  {list(
-                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:LocationOrNameOfFacility @unit @period=$currentDuration})
+                    if list({@ferc:LocationOrNameOfFacility @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:LocationOrNameOfFacility @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:CPDocketNumber @unit @period=$currentDuration})
+                    if list({@ferc:CPDocketNumber @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:CPDocketNumber @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:TypeOfRateTreatment @unit @period=$currentDuration})
+                    if list({@ferc:TypeOfRateTreatment @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:TypeOfRateTreatment @unit @period=$currentDuration}))
                     else
                         none,
-                    if exists({@ferc:GasPlantInServiceNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentInstant})
+                    if list({@ferc:GasPlantInServiceNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:GasPlantInServiceNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentInstant}))
                     else 
                         none,
-                    if exists({@ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlantNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentInstant})
+                    if list({@ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlantNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:AccumulatedProvisionForDepreciationOfGasUtilityPlantNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentInstant}))
                     else 
                         none,
-                    if exists({@ferc:AccumulatedDeferredIncomeTaxesNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentInstant})
+                    if list({@ferc:AccumulatedDeferredIncomeTaxesNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:AccumulatedDeferredIncomeTaxesNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentInstant}))
                     else 
                         none,
-                    if exists({@ferc:OperationExpenseNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentDuration})
+                    if list({@ferc:OperationExpenseNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:OperationExpenseNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:MaintenanceExpenseNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentDuration})
+                    if list({@ferc:MaintenanceExpenseNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:MaintenanceExpenseNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:DepreciationExpenseNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentDuration})
+                    if list({@ferc:DepreciationExpenseNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DepreciationExpenseNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:OtherExpensesIncludingTaxesNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentDuration})
+                    if list({@ferc:OtherExpensesIncludingTaxesNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:OtherExpensesIncludingTaxesNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentDuration}))
                     else 
                         none,
-                    if exists({@ferc:IncrementalRevenuesNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentDuration})
+                    if list({@ferc:IncrementalRevenuesNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:IncrementalRevenuesNonTraditionalRateTreatmentAffordedNewProjects @unit @period=$currentDuration}))
                     else none
                 )}})

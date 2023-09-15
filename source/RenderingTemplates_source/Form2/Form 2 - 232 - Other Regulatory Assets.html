@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -175,40 +175,40 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 
                
                     list({covered @ferc:OtherRegulatoryAssetsAxis=*  {list(
-                        if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
+                        if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0 
                             first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                         else
                             0,
-                        if exists({@ferc:DescriptionAndPurposeOfOtherRegulatoryAssets @unit @period=$currentDuration})
+                        if list({@ferc:DescriptionAndPurposeOfOtherRegulatoryAssets @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:DescriptionAndPurposeOfOtherRegulatoryAssets @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:AmortizationPeriodOtherRegulatoryAssets @unit @period=$currentDuration})
+                        if list({@ferc:AmortizationPeriodOtherRegulatoryAssets @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:AmortizationPeriodOtherRegulatoryAssets @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:CitationAuthorizationForOtherRegulatoryAssets @unit @period=$currentDuration})
+                        if list({@ferc:CitationAuthorizationForOtherRegulatoryAssets @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:CitationAuthorizationForOtherRegulatoryAssets @unit @period=$currentDuration}))
                         else
                             none,
-                        if exists({@ferc:OtherRegulatoryAssets @unit @period=$prior3MYInstant})
+                        if list({@ferc:OtherRegulatoryAssets @unit @period=$prior3MYInstant}).length > 0
                             first(list({@ferc:OtherRegulatoryAssets @unit @period=$prior3MYInstant}))
                         else
                             none,
-                        if exists({@ferc:IncreaseDecreaseInOtherRegulatoryAssets @unit @period=$current3MYDuration})
+                        if list({@ferc:IncreaseDecreaseInOtherRegulatoryAssets @unit @period=$current3MYDuration}).length > 0
                             first(list({@ferc:IncreaseDecreaseInOtherRegulatoryAssets @unit @period=$current3MYDuration}))
                         else
                             none,
-                        if exists({@ferc:OtherRegulatoryAssetsWrittenOffAccountCharged @unit @period=$currentDuration})
+                        if list({@ferc:OtherRegulatoryAssetsWrittenOffAccountCharged @unit @period=$currentDuration}).length > 0
                             first(list({@ferc:OtherRegulatoryAssetsWrittenOffAccountCharged @unit @period=$currentDuration}))
                         else none,
-                        if exists({@ferc:OtherRegulatoryAssetsWrittenOffRecovered @unit @period=$current3MYDuration})
+                        if list({@ferc:OtherRegulatoryAssetsWrittenOffRecovered @unit @period=$current3MYDuration}).length > 0
                             first(list({@ferc:OtherRegulatoryAssetsWrittenOffRecovered @unit @period=$current3MYDuration}))
                         else none,
-                        if exists({@ferc:OtherRegulatoryAssetsWrittenOffDeemedUnrecoverable @unit @period=$current3MYDuration})
+                        if list({@ferc:OtherRegulatoryAssetsWrittenOffDeemedUnrecoverable @unit @period=$current3MYDuration}).length > 0
                             first(list({@ferc:OtherRegulatoryAssetsWrittenOffDeemedUnrecoverable @unit @period=$current3MYDuration}))
                         else none,
-                        if exists({@ferc:OtherRegulatoryAssets @unit @period=$currentInstant})
+                        if list({@ferc:OtherRegulatoryAssets @unit @period=$currentInstant}).length > 0
                             first(list({@ferc:OtherRegulatoryAssets @unit @period=$currentInstant}))
                         else none
                     )}})

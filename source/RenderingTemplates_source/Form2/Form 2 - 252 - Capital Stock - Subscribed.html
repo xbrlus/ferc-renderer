@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -175,17 +175,17 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 $data = if count(list({covered @ferc:CommonStockSubscribedAxis=*})) > 0  
                     list({covered @ferc:CommonStockSubscribedAxis=*  {list(
                         
-                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}) 
+                    if list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}).length > 0 
                         first(list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration})) 
                     else  none,
-                    if exists({@ferc:CommonStockSubscribedShares @unit @period=$currentInstant})
+                    if list({@ferc:CommonStockSubscribedShares @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:CommonStockSubscribedShares @unit @period=$currentInstant})) 
                     else none,
-                    if exists({@ferc:CommonStockSubscribed @unit @period=$currentInstant})
+                    if list({@ferc:CommonStockSubscribed @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:CommonStockSubscribed @unit @period=$currentInstant})) 
                     else none
                     
@@ -323,17 +323,17 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             $data = if count(list({covered @ferc:LiabilityToCommonStockConversionAxis=*})) > 0  
                 list({covered @ferc:LiabilityToCommonStockConversionAxis=*  {list(
                     
-                if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
                     first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                 else
                     0,
-                if exists({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}) 
+                if list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}).length > 0 
                     first(list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration})) 
                 else  none,
-                if exists({@ferc:CommonStockLiabilityForConversionShares @unit @period=$currentInstant})
+                if list({@ferc:CommonStockLiabilityForConversionShares @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:CommonStockLiabilityForConversionShares @unit @period=$currentInstant})) 
                 else none,
-                if exists({@ferc:CommonStockLiabilityForConversion @unit @period=$currentInstant})
+                if list({@ferc:CommonStockLiabilityForConversion @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:CommonStockLiabilityForConversion @unit @period=$currentInstant})) 
                 else none
                 
@@ -489,17 +489,17 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             $data = if count(list({covered @ferc:PreferredStockSubscribedAxis=*})) > 0  
                 list({covered @ferc:PreferredStockSubscribedAxis=*  {list(
                     
-                if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
                     first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                 else
                     0,
-                if exists({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}) 
+                if list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}).length > 0 
                     first(list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration})) 
                 else  none,
-                if exists({@ferc:PreferredStockSubscribedShares @unit @period=$currentInstant})
+                if list({@ferc:PreferredStockSubscribedShares @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:PreferredStockSubscribedShares @unit @period=$currentInstant})) 
                 else none,
-                if exists({@ferc:PreferredStockSubscribed @unit @period=$currentInstant})
+                if list({@ferc:PreferredStockSubscribed @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:PreferredStockSubscribed @unit @period=$currentInstant})) 
                 else none
                 
@@ -666,19 +666,19 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             $data = if count(list({covered @ferc:PreferredStockLiabilityForConversionAxis=*})) > 0  
                 list({covered @ferc:PreferredStockLiabilityForConversionAxis=*  {list(
                     
-                if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
                     first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                 else
                     0,
-                if exists({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}) 
+                if list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}).length > 0 
                     first(list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration})) 
                 else  
                     none,
-                if exists({@ferc:PreferredStockLiabilityForConversionShares @unit @period=$currentInstant})
+                if list({@ferc:PreferredStockLiabilityForConversionShares @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:PreferredStockLiabilityForConversionShares @unit @period=$currentInstant})) 
                 else 
                     none,
-                if exists({@ferc:PreferredStockLiabilityForConversion @unit @period=$currentInstant})
+                if list({@ferc:PreferredStockLiabilityForConversion @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:PreferredStockLiabilityForConversion @unit @period=$currentInstant})) 
                 else 
                     none
@@ -857,26 +857,26 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             $data = if count(list({covered @ferc:PremiumCapitalStockAxis=*})) > 0  
                 list({covered @ferc:PremiumCapitalStockAxis=*  {list(
                     
-                if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
                     first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                 else
                     0,
-                if exists({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}) 
+                if list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}).length > 0 
                     first(list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration})) 
                 else  
                     none,
-                if exists({@ferc:IndicationOfPremiumOnCapitalStock @unit @period=$currentDuration})
+                if list({@ferc:IndicationOfPremiumOnCapitalStock @unit @period=$currentDuration}).length > 0
                     if  first(list({@ferc:IndicationOfPremiumOnCapitalStock @unit @period=$currentDuration}))
                         "*"
                     else
                         none
                 else 
                     none,
-                    if exists({@ferc:PremiumOnCapitalStockShares @unit=* @period=$currentInstant})
+                    if list({@ferc:PremiumOnCapitalStockShares @unit=* @period=$currentInstant}).length > 0
                     first(list({@ferc:PremiumOnCapitalStockShares @unit=* @period=$currentInstant})) 
                 else 
                     none,
-                if exists({@ferc:PremiumOnCapitalStock @unit=* @period=$currentInstant})
+                if list({@ferc:PremiumOnCapitalStock @unit=* @period=$currentInstant}).length > 0
                     first(list({@ferc:PremiumOnCapitalStock @unit=* @period=$currentInstant}))
                 else 
                     none
@@ -1078,19 +1078,19 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             $data = if list({covered @ferc:InstallmentCapitalStockAxis=*}).length > 0  
                 list({covered @ferc:InstallmentCapitalStockAxis=*  {list(
                     
-                if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
                     first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                 else
                     0,
-                if exists({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}) 
+                if list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration}).length > 0 
                     first(list({@ferc:NameOfAccountAndDescriptionOfCapitalStockItems @unit @period=$currentDuration})) 
                 else  
                     none,
-                if exists({@ferc:InstallmentsReceivedOnCapitalStockShares @unit @period=$currentInstant})
+                if list({@ferc:InstallmentsReceivedOnCapitalStockShares @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:InstallmentsReceivedOnCapitalStockShares @unit @period=$currentInstant})) 
                 else 
                     none,
-                if exists({@ferc:InstallmentsReceivedOnCapitalStock @unit @period=$currentInstant})
+                if list({@ferc:InstallmentsReceivedOnCapitalStock @unit @period=$currentInstant}).length > 0
                     first(list({@ferc:InstallmentsReceivedOnCapitalStock @unit @period=$currentInstant})) 
                 else 
                     none
@@ -1260,26 +1260,26 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 $data = if count(list({covered @ferc:CapitalStockByUsagesAxis=*})) > 0  
                     list({covered @ferc:CapitalStockByUsagesAxis=*  {list(
                         
-                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration})
+                    if list({@ferc:OrderNumber @unit=* @period=$currentDuration}).length > 0
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:CapitalStockDescription @unit @period=$currentDuration})
+                    if list({@ferc:CapitalStockDescription @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:CapitalStockDescription @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:IndicationOfPremiumOnCapitalStock @unit @period=$currentDuration})
+                    if list({@ferc:IndicationOfPremiumOnCapitalStock @unit @period=$currentDuration}).length > 0
                         if  first(list({@ferc:IndicationOfPremiumOnCapitalStock @unit @period=$currentDuration}))
                             "*"
                         else
                             none
                     else 
                         none,
-                    if exists({@ferc:NumberOfCapitalStockShares @unit @period=$currentInstant})
+                    if list({@ferc:NumberOfCapitalStockShares @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:NumberOfCapitalStockShares @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:CapitalStock @unit @period=$currentInstant})
+                    if list({@ferc:CapitalStock @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:CapitalStock @unit @period=$currentInstant})) 
                     else 
                         none

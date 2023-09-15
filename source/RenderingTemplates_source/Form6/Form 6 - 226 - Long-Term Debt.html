@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -210,55 +210,55 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,
-                    if exists({@ferc:NameAndDescriptionOfObligation @unit  @period=$currentDuration}) 
+                    if list({@ferc:NameAndDescriptionOfObligation @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:NameAndDescriptionOfObligation @unit  @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:NominalDateOfIssueLongTermDebt @unit  @period=$currentDuration}) 
+                    if list({@ferc:NominalDateOfIssueLongTermDebt @unit  @period=$currentDuration}).length > 0 
                         first(list({@ferc:NominalDateOfIssueLongTermDebt @unit  @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:DateOfMaturityLongTermDebt @unit @period=$currentDuration})
+                    if list({@ferc:DateOfMaturityLongTermDebt @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:DateOfMaturityLongTermDebt  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:TreasuryObligationsParValue @unit @period=$currentInstant})
+                    if list({@ferc:TreasuryObligationsParValue @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:TreasuryObligationsParValue  @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:SinkingAndOtherFundsParValue @unit @period=$currentInstant})
+                    if list({@ferc:SinkingAndOtherFundsParValue @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:SinkingAndOtherFundsParValue  @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:LongTermDebtPledgedAsCollateralParValue @unit @period=$currentInstant})
+                    if list({@ferc:LongTermDebtPledgedAsCollateralParValue @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:LongTermDebtPledgedAsCollateralParValue  @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:MortgageBondsPayableWithinOneYear @unit @period=$currentInstant})
+                    if list({@ferc:MortgageBondsPayableWithinOneYear @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:MortgageBondsPayableWithinOneYear  @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:MortgageBondsPayableAfterOneYear @unit @period=$currentInstant})
+                    if list({@ferc:MortgageBondsPayableAfterOneYear @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:MortgageBondsPayableAfterOneYear  @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:InterestProvisionRateForLongTermDebt @unit @period=$currentInstant})
+                    if list({@ferc:InterestProvisionRateForLongTermDebt @unit @period=$currentInstant}).length > 0
                         first(list( {@ferc:InterestProvisionRateForLongTermDebt  @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:InterestProvisionDueDateForLongTermDebt @unit @period=$currentDuration})
+                    if list({@ferc:InterestProvisionDueDateForLongTermDebt @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InterestProvisionDueDateForLongTermDebt  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:AccruedInterestMortgageBonds @unit @period=$currentInstant})
+                    if list({@ferc:AccruedInterestMortgageBonds @unit @period=$currentInstant}).length > 0
                         first(list({@ferc:AccruedInterestMortgageBonds  @unit @period=$currentInstant})) 
                     else 
                         none,
-                    if exists({@ferc:InterestChargedToConstructionOrOtherInvestmentAccountMortgageBonds @unit @period=$currentDuration})
+                    if list({@ferc:InterestChargedToConstructionOrOtherInvestmentAccountMortgageBonds @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InterestChargedToConstructionOrOtherInvestmentAccountMortgageBonds  @unit @period=$currentDuration})) 
                     else 
                         none,
-                    if exists({@ferc:InterestPaidMortgageBonds @unit @period=$currentDuration})
+                    if list({@ferc:InterestPaidMortgageBonds @unit @period=$currentDuration}).length > 0
                         first(list({@ferc:InterestPaidMortgageBonds  @unit @period=$currentDuration})) 
                     else 
                         none
@@ -459,55 +459,55 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
             else
                 0,
-            if exists({@ferc:NameAndDescriptionOfObligation @unit  @period=$currentDuration}) 
+            if list({@ferc:NameAndDescriptionOfObligation @unit  @period=$currentDuration}).length > 0 
                 first(list({@ferc:NameAndDescriptionOfObligation @unit  @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:NominalDateOfIssueLongTermDebt @unit  @period=$currentDuration}) 
+            if list({@ferc:NominalDateOfIssueLongTermDebt @unit  @period=$currentDuration}).length > 0 
                 first(list({@ferc:NominalDateOfIssueLongTermDebt @unit  @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:DateOfMaturityLongTermDebt @unit @period=$currentDuration})
+            if list({@ferc:DateOfMaturityLongTermDebt @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:DateOfMaturityLongTermDebt  @unit @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:TreasuryObligationsParValue @unit @period=$currentInstant})
+            if list({@ferc:TreasuryObligationsParValue @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:TreasuryObligationsParValue  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:SinkingAndOtherFundsParValue @unit @period=$currentInstant})
+            if list({@ferc:SinkingAndOtherFundsParValue @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:SinkingAndOtherFundsParValue  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:LongTermDebtPledgedAsCollateralParValue @unit @period=$currentInstant})
+            if list({@ferc:LongTermDebtPledgedAsCollateralParValue @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:LongTermDebtPledgedAsCollateralParValue  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:CollateralTrustBondsPayableWithinOneYear @unit @period=$currentInstant})
+            if list({@ferc:CollateralTrustBondsPayableWithinOneYear @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:CollateralTrustBondsPayableWithinOneYear  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:CollateralTrustBondsPayableAfterOneYear @unit @period=$currentInstant})
+            if list({@ferc:CollateralTrustBondsPayableAfterOneYear @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:CollateralTrustBondsPayableAfterOneYear  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:InterestProvisionRateForLongTermDebt @unit @period=$currentInstant})
+            if list({@ferc:InterestProvisionRateForLongTermDebt @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:InterestProvisionRateForLongTermDebt  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:InterestProvisionDueDateForLongTermDebt @unit @period=$currentDuration})
+            if list({@ferc:InterestProvisionDueDateForLongTermDebt @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:InterestProvisionDueDateForLongTermDebt  @unit @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:AccruedInterestCollateralTrustBonds @unit @period=$currentInstant})
+            if list({@ferc:AccruedInterestCollateralTrustBonds @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:AccruedInterestCollateralTrustBonds  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:InterestChargedToConstructionOrOtherInvestmentAccountCollateralTrustBonds @unit @period=$currentDuration})
+            if list({@ferc:InterestChargedToConstructionOrOtherInvestmentAccountCollateralTrustBonds @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:InterestChargedToConstructionOrOtherInvestmentAccountCollateralTrustBonds  @unit @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:InterestPaidCollateralTrustBonds @unit @period=$currentDuration})
+            if list({@ferc:InterestPaidCollateralTrustBonds @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:InterestPaidCollateralTrustBonds  @unit @period=$currentDuration})) 
             else 
                 none
@@ -708,55 +708,55 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
             else
                 0,
-            if exists({@ferc:NameAndDescriptionOfObligation @unit  @period=$currentDuration}) 
+            if list({@ferc:NameAndDescriptionOfObligation @unit  @period=$currentDuration}).length > 0 
                 first(list({@ferc:NameAndDescriptionOfObligation @unit  @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:NominalDateOfIssueLongTermDebt @unit  @period=$currentDuration}) 
+            if list({@ferc:NominalDateOfIssueLongTermDebt @unit  @period=$currentDuration}).length > 0 
                 first(list({@ferc:NominalDateOfIssueLongTermDebt @unit  @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:DateOfMaturityLongTermDebt @unit @period=$currentDuration})
+            if list({@ferc:DateOfMaturityLongTermDebt @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:DateOfMaturityLongTermDebt  @unit @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:TreasuryObligationsParValue @unit @period=$currentInstant})
+            if list({@ferc:TreasuryObligationsParValue @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:TreasuryObligationsParValue  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:SinkingAndOtherFundsParValue @unit @period=$currentInstant})
+            if list({@ferc:SinkingAndOtherFundsParValue @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:SinkingAndOtherFundsParValue  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:LongTermDebtPledgedAsCollateralParValue @unit @period=$currentInstant})
+            if list({@ferc:LongTermDebtPledgedAsCollateralParValue @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:LongTermDebtPledgedAsCollateralParValue  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:IncomeBondsPayableWithinOneYear @unit @period=$currentInstant})
+            if list({@ferc:IncomeBondsPayableWithinOneYear @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:IncomeBondsPayableWithinOneYear  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:IncomeBondsPayableAfterOneYear @unit @period=$currentInstant})
+            if list({@ferc:IncomeBondsPayableAfterOneYear @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:IncomeBondsPayableAfterOneYear  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:InterestProvisionRateForLongTermDebt @unit @period=$currentInstant})
+            if list({@ferc:InterestProvisionRateForLongTermDebt @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:InterestProvisionRateForLongTermDebt  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:InterestProvisionDueDateForLongTermDebt @unit @period=$currentDuration})
+            if list({@ferc:InterestProvisionDueDateForLongTermDebt @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:InterestProvisionDueDateForLongTermDebt  @unit @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:AccruedInterestIncomeBonds @unit @period=$currentInstant})
+            if list({@ferc:AccruedInterestIncomeBonds @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:AccruedInterestIncomeBonds  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:InterestChargedToConstructionOrOtherInvestmentAccountIncomeBonds @unit @period=$currentDuration})
+            if list({@ferc:InterestChargedToConstructionOrOtherInvestmentAccountIncomeBonds @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:InterestChargedToConstructionOrOtherInvestmentAccountIncomeBonds  @unit @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:InterestPaidIncomeBonds @unit @period=$currentDuration})
+            if list({@ferc:InterestPaidIncomeBonds @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:InterestPaidIncomeBonds  @unit @period=$currentDuration})) 
             else 
                 none
@@ -958,55 +958,55 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
             else
                 0,
-            if exists({@ferc:NameAndDescriptionOfObligation @unit  @period=$currentDuration}) 
+            if list({@ferc:NameAndDescriptionOfObligation @unit  @period=$currentDuration}).length > 0 
                 first(list({@ferc:NameAndDescriptionOfObligation @unit  @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:NominalDateOfIssueLongTermDebt @unit  @period=$currentDuration}) 
+            if list({@ferc:NominalDateOfIssueLongTermDebt @unit  @period=$currentDuration}).length > 0 
                 first(list({@ferc:NominalDateOfIssueLongTermDebt @unit  @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:DateOfMaturityLongTermDebt @unit @period=$currentDuration})
+            if list({@ferc:DateOfMaturityLongTermDebt @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:DateOfMaturityLongTermDebt  @unit @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:TreasuryObligationsParValue @unit @period=$currentInstant})
+            if list({@ferc:TreasuryObligationsParValue @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:TreasuryObligationsParValue  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:SinkingAndOtherFundsParValue @unit @period=$currentInstant})
+            if list({@ferc:SinkingAndOtherFundsParValue @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:SinkingAndOtherFundsParValue  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:LongTermDebtPledgedAsCollateralParValue @unit @period=$currentInstant})
+            if list({@ferc:LongTermDebtPledgedAsCollateralParValue @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:LongTermDebtPledgedAsCollateralParValue  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:MiscellaneousObligationsPayableWithinOneYear @unit @period=$currentInstant})
+            if list({@ferc:MiscellaneousObligationsPayableWithinOneYear @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:MiscellaneousObligationsPayableWithinOneYear  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:MiscellaneousObligationsPayableAfterOneYear @unit @period=$currentInstant})
+            if list({@ferc:MiscellaneousObligationsPayableAfterOneYear @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:MiscellaneousObligationsPayableAfterOneYear  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:InterestProvisionRateForLongTermDebt @unit @period=$currentInstant})
+            if list({@ferc:InterestProvisionRateForLongTermDebt @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:InterestProvisionRateForLongTermDebt  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:InterestProvisionDueDateForLongTermDebt @unit @period=$currentDuration})
+            if list({@ferc:InterestProvisionDueDateForLongTermDebt @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:InterestProvisionDueDateForLongTermDebt  @unit @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:AccruedInterestMiscellaneousObligations @unit @period=$currentInstant})
+            if list({@ferc:AccruedInterestMiscellaneousObligations @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:AccruedInterestMiscellaneousObligations  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:InterestChargedToConstructionOrOtherInvestmentAccountMiscellaneousObligations @unit @period=$currentDuration})
+            if list({@ferc:InterestChargedToConstructionOrOtherInvestmentAccountMiscellaneousObligations @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:InterestChargedToConstructionOrOtherInvestmentAccountMiscellaneousObligations  @unit @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:InterestPaidMiscellaneousObligations @unit @period=$currentDuration})
+            if list({@ferc:InterestPaidMiscellaneousObligations @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:InterestPaidMiscellaneousObligations  @unit @period=$currentDuration})) 
             else 
                 none
@@ -1207,55 +1207,55 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
             else
                 0,
-            if exists({@ferc:NameAndDescriptionOfObligation @unit  @period=$currentDuration}) 
+            if list({@ferc:NameAndDescriptionOfObligation @unit  @period=$currentDuration}).length > 0 
                 first(list({@ferc:NameAndDescriptionOfObligation @unit  @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:NominalDateOfIssueLongTermDebt @unit  @period=$currentDuration}) 
+            if list({@ferc:NominalDateOfIssueLongTermDebt @unit  @period=$currentDuration}).length > 0 
                 first(list({@ferc:NominalDateOfIssueLongTermDebt @unit  @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:DateOfMaturityLongTermDebt @unit @period=$currentDuration})
+            if list({@ferc:DateOfMaturityLongTermDebt @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:DateOfMaturityLongTermDebt  @unit @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:TreasuryObligationsParValue @unit @period=$currentInstant})
+            if list({@ferc:TreasuryObligationsParValue @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:TreasuryObligationsParValue  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:SinkingAndOtherFundsParValue @unit @period=$currentInstant})
+            if list({@ferc:SinkingAndOtherFundsParValue @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:SinkingAndOtherFundsParValue  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:LongTermDebtPledgedAsCollateralParValue @unit @period=$currentInstant})
+            if list({@ferc:LongTermDebtPledgedAsCollateralParValue @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:LongTermDebtPledgedAsCollateralParValue  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:DebtToAffiliatedCompaniesPayableWithinOneYear @unit @period=$currentInstant})
+            if list({@ferc:DebtToAffiliatedCompaniesPayableWithinOneYear @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:DebtToAffiliatedCompaniesPayableWithinOneYear  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:DebtToAffiliatedCompaniesPayableAfterOneYear @unit @period=$currentInstant})
+            if list({@ferc:DebtToAffiliatedCompaniesPayableAfterOneYear @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:DebtToAffiliatedCompaniesPayableAfterOneYear  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:InterestProvisionRateForLongTermDebt @unit @period=$currentInstant})
+            if list({@ferc:InterestProvisionRateForLongTermDebt @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:InterestProvisionRateForLongTermDebt  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:InterestProvisionDueDateForLongTermDebt @unit @period=$currentDuration})
+            if list({@ferc:InterestProvisionDueDateForLongTermDebt @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:InterestProvisionDueDateForLongTermDebt  @unit @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:AccruedInterestDebtToAffiliatedCompanies @unit @period=$currentInstant})
+            if list({@ferc:AccruedInterestDebtToAffiliatedCompanies @unit @period=$currentInstant}).length > 0
                 first(list({@ferc:AccruedInterestDebtToAffiliatedCompanies  @unit @period=$currentInstant})) 
             else 
                 none,
-            if exists({@ferc:InterestChargedToConstructionOrOtherInvestmentAccountDebtToAffiliatedCompanies @unit @period=$currentDuration})
+            if list({@ferc:InterestChargedToConstructionOrOtherInvestmentAccountDebtToAffiliatedCompanies @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:InterestChargedToConstructionOrOtherInvestmentAccountDebtToAffiliatedCompanies  @unit @period=$currentDuration})) 
             else 
                 none,
-            if exists({@ferc:InterestPaidDebtToAffiliatedCompanies @unit @period=$currentDuration})
+            if list({@ferc:InterestPaidDebtToAffiliatedCompanies @unit @period=$currentDuration}).length > 0
                 first(list({@ferc:InterestPaidDebtToAffiliatedCompanies  @unit @period=$currentDuration})) 
             else 
                 none

@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2022-01-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -168,7 +168,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             $dataRow1 =   list(for $y in $data
                                 $conceptPeriod = $y[1].period-type
                                 if $conceptPeriod == "instant"
-                                    if ($y[2].role.uri == "http://ferc.gov/form/2020-01-01/roles/label/F2BeginningBalance" or $y[3].number == 1) and not ($y[1].name == ferc:BaseLoadLiquefiedNaturalGasTerminalingAndProcessingPlant and $y[3].number == 6)
+                                    if $y[2].role.uri == "http://ferc.gov/form/2020-01-01/roles/label/F2BeginningBalance" or $y[3].number == 1
                                         if list([covered @concept = $y[1].name @period = $priorInstant]).length > 0
                                             first(list([covered @concept = $y[1].name @period = $priorInstant]))
                                         else

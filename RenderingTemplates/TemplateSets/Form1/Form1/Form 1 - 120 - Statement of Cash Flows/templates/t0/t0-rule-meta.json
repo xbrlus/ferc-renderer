@@ -1,0 +1,221 @@
+{
+    "substitutions": {
+        "rule-1": [
+            {
+                "part": null,
+                "replacement-node": 0,
+                "template-line-number": 22,
+                "node-pos": 9
+            }
+        ],
+        "rule-2": [
+            {
+                "part": null,
+                "replacement-node": 3,
+                "expression-node": 4,
+                "template-line-number": 27,
+                "node-pos": 13
+            }
+        ],
+        "rule-3": [
+            {
+                "part": null,
+                "replacement-node": 6,
+                "template-line-number": 33,
+                "node-pos": 17
+            }
+        ],
+        "rule-4": [
+            {
+                "part": null,
+                "replacement-node": 9,
+                "template-line-number": 39,
+                "node-pos": 21,
+                "html": true
+            }
+        ],
+        "rule-5": [
+            {
+                "part": null,
+                "replacement-node": 12,
+                "template-line-number": 51,
+                "node-pos": 26,
+                "html": true
+            }
+        ],
+        "rule-6": [
+            {
+                "part": null,
+                "replacement-node": 15,
+                "template-line-number": 62,
+                "node-pos": 31
+            }
+        ],
+        "rule-7": [
+            {
+                "part": null,
+                "replacement-node": 18,
+                "expression-node": 19,
+                "template-line-number": 67,
+                "node-pos": 35
+            }
+        ],
+        "rule-8": [
+            {
+                "part": null,
+                "replacement-node": 21,
+                "template-line-number": 72,
+                "node-pos": 39
+            }
+        ],
+        "rule-9": [
+            {
+                "part": null,
+                "replacement-node": 24,
+                "expression-node": 25,
+                "template-line-number": 77,
+                "node-pos": 43
+            }
+        ],
+        "rule-10": [
+            {
+                "part": null,
+                "replacement-node": 27,
+                "expression-node": 28,
+                "template-line-number": 82,
+                "node-pos": 47
+            }
+        ],
+        "rule-11": [
+            {
+                "part": null,
+                "replacement-node": 30,
+                "template-line-number": 92,
+                "node-pos": 53
+            }
+        ],
+        "rule-12": [
+            {
+                "part": null,
+                "replacement-node": 33,
+                "template-line-number": 103,
+                "node-pos": 58,
+                "html": true
+            }
+        ],
+        "rule-13": [
+            {
+                "part": null,
+                "replacement-node": 64,
+                "expression-node": 65,
+                "template-line-number": 359,
+                "node-pos": 109
+            }
+        ],
+        "rule-14": [
+            {
+                "part": null,
+                "replacement-node": 67,
+                "template-line-number": 366,
+                "node-pos": 113
+            }
+        ],
+        "rule-15": [
+            {
+                "part": null,
+                "replacement-node": 70,
+                "template-line-number": 376,
+                "node-pos": 117
+            }
+        ],
+        "rule-16": {
+            "name": "CFLineItems",
+            "subs": [
+                {
+                    "name": "CFLineItems",
+                    "part": "1",
+                    "replacement-node": 44,
+                    "template-line-number": 306,
+                    "extras": {},
+                    "node-pos": 81
+                },
+                {
+                    "name": "CFLineItems",
+                    "part": "2",
+                    "replacement-node": 49,
+                    "expression-node": 50,
+                    "template-line-number": 317,
+                    "node-pos": 89
+                },
+                {
+                    "name": "CFLineItems",
+                    "part": "4",
+                    "replacement-node": 54,
+                    "expression-node": 55,
+                    "template-line-number": 329,
+                    "node-pos": 95
+                },
+                {
+                    "name": "CFLineItems",
+                    "part": "5",
+                    "replacement-node": 59,
+                    "expression-node": 60,
+                    "template-line-number": 339,
+                    "node-pos": 101
+                },
+                {
+                    "name": "CFLineItems",
+                    "part": "6",
+                    "replacement-node": 47,
+                    "template-line-number": 313,
+                    "extras": {},
+                    "node-pos": 87
+                }
+            ]
+        },
+        "rule-17": {
+            "name": "ISHeadings",
+            "subs": [
+                {
+                    "name": "ISHeadings",
+                    "part": "1",
+                    "replacement-node": 37,
+                    "template-line-number": 131,
+                    "extras": {},
+                    "node-pos": 71
+                },
+                {
+                    "name": "ISHeadings",
+                    "part": "2",
+                    "replacement-node": 40,
+                    "template-line-number": 138,
+                    "extras": {},
+                    "node-pos": 75
+                }
+            ]
+        }
+    },
+    "line-numbers": {},
+    "showifs": {},
+    "footnotes": {},
+    "standard-rules": [
+        "rule-1",
+        "rule-2",
+        "rule-3",
+        "rule-4",
+        "rule-5",
+        "rule-6",
+        "rule-7",
+        "rule-8",
+        "rule-9",
+        "rule-10",
+        "rule-11",
+        "rule-12",
+        "rule-13",
+        "rule-14",
+        "rule-15",
+        "rule-16",
+        "rule-17"
+    ],
+    "footnote-rules": []
+}

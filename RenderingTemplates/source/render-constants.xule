@@ -1,10 +1,29 @@
-constant $current-start = None
-constant $current-end = None
-constant $prior-start = None
-constant $prior-end = None
-constant $prior2-start = None
-constant $prior2-end = None
-constant $month-ends = None
+
+constant $period-lookup = dict(
+							list('Q4',list('01-01', '12-31')),
+							list('Q3',list('01-01', '09-30')),
+							list('Q2',list('01-01', '06-30')),
+							list('Q1',list('01-01', '03-31'))
+   						 )
+
+constant $current-start = $report-year + '-01-01'
+constant $current-end = $report-year + '-' + $period-lookup[$report-period][2]
+constant $prior-start =  (($report-year.int - 1)).plain-string + '-01-01'
+constant $prior-end = (($report-year.int - 1)).plain-string + '-' + $period-lookup[$report-period][2]
+constant $prior2-start = (($report-year.int - 2)).plain-string + '-01-01'
+constant $prior2-end = (($report-year.int - 2)).plain-string + '-' + $period-lookup[$report-period][2]
+constant $month-ends = if mod($report-year.int,4) == 0 
+							if mod($report-year.int,100) != 0 
+								list(31,29,31,30,31,30,31,31,30,31,30,31)
+							else
+								if  mod($report-year.int,400) == 0 
+									list(31,29,31,30,31,30,31,31,30,31,30,31)
+								else
+									list(31,28,31,30,31,30,31,31,30,31,30,31)
+						else
+							list(31,28,31,30,31,30,31,31,30,31,30,31)
+
+constant $report-year = max(list([covered @ferc:ReportYear]))
 
 constant $currentInstant = if ($current-end == none) none 
 					       else date($current-end)  /** REFERENCE Current. **/

@@ -285,3 +285,32 @@ Rule Id:{$rule_id}"
 severity error
 rule-focus $volume_facts
 
+assert F6.all.13 satisfied
+$rule_id = rule-name();
+
+
+$fact1 = {@concept not in list(VendorName, LegalEntityIdentifier)};
+
+$PeriodRefs = $associatedRefs[$fact1.concept]
+
+$valueToReport = if $fact1.concept.data-type.name == xbrli:stringItemType
+					"a text block string"
+				else
+					$fact1
+											
+$fact1.period.string not in $PeriodRefs
+			
+message
+
+"The value for {$fact1.concept.name.local-name} with a datatype of {$fact1.concept.data-type.name.local-name} with a value of {$valueToReport} is reported for an invalid period. 
+
+Element : {$fact1.concept.name}
+Period : {$fact1.period}
+Dimensions :{$fact1.dimensions.join(', ','=')}
+Unit : {$fact1.unit}
+
+Rule Id:{$rule_id}"
+
+severity error	
+rule-focus $fact1
+

@@ -117,7 +117,7 @@ else
 
  $sum1 = {@RetainedEarnings @period=$currentInstant}; 
  $addend = ({@UnappropriatedRetainedEarnings @period=$currentInstant}#f0
- + {@AppropriatedRetainedEarnings @period=$currentInstant}#f1
+ + {@AppropriatedRetainedEarningsIncludingReserveAmortization @period=$currentInstant}#f1
 );
 tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
 message 
@@ -149,7 +149,7 @@ else
     )#f3)));
     tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
 message 
-"The company has reported a value for UnappropriatedUndistributedSubsidiaryEarnings  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+"The company has reported a value for UnappropriatedUndistributedSubsidiaryEarnings with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
 = \t {$f0.concept.name.local-name} \t = \t {$f0}
 + \t {$f1.concept.name.local-name} \t = \t {$f1}
 - \t {$f2.concept.name.local-name} \t = \t {$f2}

@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:ix="http://www.xbrl.org/2013/inlineXBRL" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ixtsec="http://www.sec.gov/inlineXBRL/transformation/2015-08-31" xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xbrldt="http://xbrl.org/2005/xbrldt" xmlns:ferc-form-714="http://ferc.gov/form/2023-04-01/ferc-form-714">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:ix="http://www.xbrl.org/2013/inlineXBRL" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ixtsec="http://www.sec.gov/inlineXBRL/transformation/2015-08-31" xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xbrldt="http://xbrl.org/2005/xbrldt" xmlns:ferc-form-714="http://ferc.gov/form/2024-04-01/ferc-form-714">
   <head><title>FERC Form</title><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></meta><style type="text/css">
 /*<![CDATA[*/       /*
         Theme Name: Form Templates
@@ -373,6 +373,12 @@
         div.sub-value {
             display:inline-block
         }
+        div.sub-value div.xbrl.fact div.sub-html {
+            display:block
+        }
+        div.sub-value:has(div.xbrl.fact div.sub-html) {
+            display:block
+        }
         div.sub-html {
             display:inline-block
         }
@@ -706,7 +712,8 @@
             .print-page-separator {
                 display: none;
             }
-        }        /*]]>*/
+        }        
+/*]]>*/
 </style></head>
   <body><div style="display:none"><ix:header><ix:hidden></ix:hidden><ix:references></ix:references><ix:resources></ix:resources></ix:header></div><div class="xbrl">
     <table class="schedule-header xbrl" width="100%">
@@ -730,7 +737,7 @@
     <table class="xbrl" width="100%">
         <tr class="sch-title">
             <td class="xbrl" colspan="4">
-                <div class="sub-value sub-no-replacement"></div></td>
+                <div class="sub-value sub-replacement">Part I - Schedule 1. Identification and Certification</div></td>
         </tr>
         <tr>
             <td colspan="4"></td>
@@ -741,9 +748,9 @@
         </tr>
         <tr>
             <td class="col-heading-row left-id-col split-page" colspan="2">
-                <div class="sub-value sub-replacement"><div class="sub-html">None</div></div></td>
+                <div class="sub-value sub-replacement"><div class="sub-html">1. Respondent Identification:</div></div></td>
             <td class="col-heading-row right-id-col split-page" colspan="2">
-                <div class="sub-value sub-replacement"><div class="sub-html">None</div></div></td>
+                <div class="sub-value sub-replacement"><div class="sub-html">3. Respondent Mailing Address:</div></div></td>
         </tr>
         <tr>
         <td class="left-id-col split-page" style="padding-bottom: 20px" colspan="2"></td>
@@ -751,11 +758,11 @@
         </tr>
         <tr>
             <td class="right-id-col quart-split">
-                <div class="sub-value sub-no-replacement"></div><div>
+                <div class="sub-value sub-replacement">Code:</div><div>
                     <div class="sub-value sub-no-replacement"></div></div>
             </td>
             <td class="left-id-col quart-split">
-                <div class="sub-value sub-no-replacement"></div><div>
+                <div class="sub-value sub-replacement">Name:</div><div>
                     <div class="sub-value sub-no-replacement"></div></div>
             </td>
 
@@ -768,7 +775,7 @@
         </tr>
         <tr>
             <td class="col-heading-row left-id-col split-page" colspan="2">
-                <div class="sub-value sub-no-replacement"></div></td>
+                <div class="sub-value sub-replacement">2. Respondent Type: (Please check appropriate box and fill in name)</div></td>
             <td class="right-id-col split-page" colspan="2"></td>
 
 
@@ -783,7 +790,7 @@
                         <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> Part I: Balancing Authority Area (Complete Parts I, II, and IV)</div></div></td>
 
             <td class="col-heading-row right-id-col split-page" colspan="2">
-                <div class="sub-value sub-no-replacement"></div></td>
+                <div class="sub-value sub-replacement">4. Contact Person:</div></td>
         </tr>
         <tr>
             <td class="left-id-col split-page" style="padding-bottom: 10px" colspan="2"></td>
@@ -794,7 +801,7 @@
                     
                 <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> Unit dispatch is not based on the economic dispatch of thermal units (i.e., a system lambda is not calculated)</div></div></td>
             <td class="right-id-col split-page" colspan="2">
-                <div class="sub-value sub-no-replacement"></div><div>
+                <div class="sub-value sub-replacement">Name:</div><div>
                     <div class="sub-value sub-no-replacement"></div></div>
             </td>
         </tr>
@@ -809,7 +816,7 @@
                 </div>
             </td>
             <td class="right-id-col split-page" colspan="2">
-                <div class="sub-value sub-no-replacement"></div><div>
+                <div class="sub-value sub-replacement">Title:</div><div>
                     <div class="sub-value sub-no-replacement"></div></div>
             </td>
         </tr>
@@ -823,7 +830,7 @@
         <tr>
             <td class="left-id-col split-page" colspan="2"></td>
             <td class="right-id-col split-page" colspan="2">
-                <div class="sub-value sub-no-replacement"></div><div>
+                <div class="sub-value sub-replacement">E-mail address:</div><div>
                     <div class="sub-value sub-no-replacement"></div></div>
             </td>
         </tr>
@@ -835,11 +842,11 @@
             <td class="left-id-col split-page" colspan="2">
                 <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> Part II: Planning Area (Complete Parts I, III, and IV)</div></div></td>
             <td class="right-id-col quart-split">
-                <div class="sub-value sub-no-replacement"></div><div>
+                <div class="sub-value sub-replacement">Telephone #:</div><div>
                     <div class="sub-value sub-no-replacement"></div></div>
             </td>
             <td class="right-id-col quart-split">
-                <div class="sub-value sub-no-replacement"></div><div>
+                <div class="sub-value sub-replacement">Ext:</div><div>
                     <div class="sub-value sub-no-replacement"></div></div>
             </td>
         </tr>
@@ -865,7 +872,7 @@
             <td class="left-id-col" colspan="2">    
             </td>
             <td class="col-heading-row right-id-col" colspan="2">
-                <div class="sub-value sub-no-replacement"></div></td>
+                <div class="sub-value sub-replacement">5. Certifying Official:</div></td>
         </tr>
         <tr>
             <td class="left-id-col split-page" style="padding-bottom: 10px" colspan="2"></td>
@@ -874,7 +881,7 @@
         <tr>
             <td class="left-id-col split-page" colspan="2"></td>
             <td class="right-id-col split-page" colspan="2">
-                <div class="sub-value sub-no-replacement"></div><div>
+                <div class="sub-value sub-replacement">Name:</div><div>
                     <div class="sub-value sub-no-replacement"></div></div>
             </td>
         </tr>
@@ -885,7 +892,7 @@
         <tr>
             <td class="left-id-col split-page" colspan="2"></td>
             <td class="right-id-col split-page" colspan="2">
-                <div class="sub-value sub-no-replacement"></div><div>
+                <div class="sub-value sub-replacement">Title:</div><div>
                     <div class="sub-value sub-no-replacement"></div></div>
             </td>
         </tr>
@@ -897,7 +904,7 @@
         <tr>
             <td class="left-id-col split-page" colspan="2"></td>
             <td class="right-id-col split-page" colspan="2">
-                <div class="sub-value sub-no-replacement"></div><div>
+                <div class="sub-value sub-replacement">Date:</div><div>
                     <div class="sub-value sub-no-replacement"></div></div>
             </td>
         </tr>
@@ -906,7 +913,7 @@
    <table class="xbrl" width="100%">
          <tr>
             <td class="left-id-col" colspan="4">
-                <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> Original</div></div><div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> Revised Filing</div></div></td>
+                <div class="sub-value sub-replacement">This report is an</div><div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> Original</div></div><div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> Revised Filing</div></div></td>
         </tr>
         <tr>
             <td class="split-page" style="padding-bottom: 50px" colspan="4"></td>
@@ -926,7 +933,7 @@
     <p></p>
     <div class="schedule-footer">
         <div class="center-text">Page
-            <div class="sub-value sub-no-replacement"></div></div>
+            <div class="sub-value sub-replacement">1</div></div>
     </div>
 </div>
 
@@ -945,8 +952,8 @@
                             <div class="sub-value sub-no-replacement"></div></div>
                     </td>
                     <td class="xbrl form-id-code-top">
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div><br/>
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div></td>
+                        <div class="sub-value sub-replacement">Utility Code:</div><div class="sub-value sub-no-replacement"></div><br/>
+                        <div class="sub-value sub-replacement">Utility Name:</div><div class="sub-value sub-no-replacement"></div></td>
                 </tr>
             </table>
     <table class="xbrl">
@@ -956,11 +963,253 @@
         </tr>
         <tr>
             <td class="instruction xbrl" colspan="6">
-                <div class="sub-value sub-replacement"><div class="sub-html">None</div></div></td>
+                <div class="sub-value sub-replacement"><div class="sub-html"><p>Under the name of its operating electric utility, list all generating plants (1) within the respondent's balancing authority area which are controlled, metered or for which the required information is otherwise available to balancing authority area operators and (2) dynamically scheduled plants or units outside the balancing authority area. Specifically identify dynamically scheduled plants. Report only plant totals with generators in an operating or standby status. Provide totals for columns (d) and (e) as a last line. The total in column (d) should equal the value in column (c) on Schedule 2 for the month of the annual peak demand. The total in column (e) should equal the value in column (f) on Schedule 3 for the month of the annual peak demand. Any differences must be explained in a footnote. Refer to the Form 714 instructions for specific guidelines.</p></div></div></td>
         </tr>
         <tr class="col-heading-row">
             <td class="col-heading xbrl line-number"><div>Line No.</div><div>(a)</div></td>
-            </tr>
+            <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">ElectricUtilityName</div></div>    
+                        <div class="sub-value sub-replacement">Electric Utility Name</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
+            </td>
+        <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">PlantName</div></div>    
+                        <div class="sub-value sub-replacement">Plant Name</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(c)</div></div>
+            </td>
+        <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">PlantAvailableCapacityAtTheHourOfTheAnnualPeakDemandOnNetEnergyForLoad</div></div>    
+                        <div class="sub-value sub-replacement">Plant Available Capacity at the Hour of the Annual Peak Demand on Net Energy for Load (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
+            </td>
+        <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">IntegratedNetLoadOnThePlantAtTheHourOfTheAnnualPeakDemandBasedOnNetEnergyForLoad</div></div>    
+                        <div class="sub-value sub-replacement">Integrated Net Load on the Plant at the Hour of the Annual Peak Demand Based on Net Energy for Load (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(e)</div></div>
+            </td>
+        
+        </tr>
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">2</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">3</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">4</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">5</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">6</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">7</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">8</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">9</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">10</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">11</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">12</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">13</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">14</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">15</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">16</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">17</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">18</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">19</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">20</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">21</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">22</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">23</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">24</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">25</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+             
             <tr class="schedule-row">
                 <td class="xbrl">
                 </td>
@@ -976,7 +1225,7 @@
 <p></p>
 <div class="schedule-footer">
         <div class="center-text">Page 
-                <div class="sub-value sub-no-replacement"></div></div> 
+                <div class="sub-value sub-replacement">2</div></div> 
 </div>
 </div>
 <hr class="screen-page-separator schedule-separator"></hr><div class="print-page-separator sechedule-separator"></div><div class="xbrl">
@@ -994,18 +1243,18 @@
                             <div class="sub-value sub-no-replacement"></div></div>
                     </td>
                     <td class="xbrl form-id-code-top">
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div><br/>
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div></td>
+                        <div class="sub-value sub-replacement">Utility Code:</div><div class="sub-value sub-no-replacement"></div><br/>
+                        <div class="sub-value sub-replacement">Utility Name:</div><div class="sub-value sub-no-replacement"></div></td>
                 </tr>
             </table>
     <table class="xbrl">
         <tr class="sch-title">
             <td class="xbrl" colspan="10">
-                    <div class="sub-value sub-no-replacement"></div></td>
+                    <div class="sub-value sub-replacement">Part II - Schedule 2. Balancing Authority Area Monthly Capabilities at Time of Monthly Peak Demand</div></td>
         </tr>
         <tr>
             <td class="instruction xbrl" colspan="10">
-                <div class="sub-value sub-replacement"><div class="sub-html">None</div></div></td>
+                <div class="sub-value sub-replacement"><div class="sub-html"><p>The peak demand and other terms used in this schedule are defined in the Form 714 instructions. Please first read the instructions, then complete this Schedule. The value in column (c) for the month of the annual peak demand should equal the total in column (d) in Schedule 1. Any difference must be explained in a footnote.</p></div></div></td>
         </tr>
         <tr class="col-heading-row">
             <td class="xbrl-no-bottom-line" colspan="1"> </td>
@@ -1031,13 +1280,273 @@
         </tr>
         <tr class="col-heading-row">
             <td class="col-heading xbrl-no-top-line line-number"><div>Line No.</div><div>(a)</div></td>
-            </tr>
-            </table>
+            <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">MonthAxis</div></div>    
+                        <div class="sub-value sub-replacement">Month</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">PlantsAvailableCapability</div></div>    
+                        <div class="sub-value sub-replacement">Available Capability (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(c)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">UnavailableCapabilityDueToPlannedOutageAndDerating</div></div>    
+                        <div class="sub-value sub-replacement">Planned Outage and Derating (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">UnavailableCapabilityDueToUnplannedOutageAndDerating</div></div>    
+                        <div class="sub-value sub-replacement">Unplanned Outage and Derating (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(e)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">UnavailableCapabilityDueToOtherOutageAndDerating</div></div>    
+                        <div class="sub-value sub-replacement">Other Outage and Derating (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(f)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">NetCapabilityFromPlants</div></div>    
+                        <div class="sub-value sub-replacement">Total (c + d + e + f) (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(g)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">ExternalToTheBalancingAuthorityAreaNetUnitOrFirmCapabilityAvailable</div></div>    
+                        <div class="sub-value sub-replacement">Available (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(h)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">ExternalToTheBalancingAuthorityAreaNetUnitOrFirmCapabilityNotAvailable</div></div>    
+                        <div class="sub-value sub-replacement">Not Available (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(i)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">NetCapabilityAtTheTimeOfTheMonthlyPeakDemand</div></div>    
+                        <div class="sub-value sub-replacement">Total Capability (g + h + i) (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(j)</div></div>
+            </td>
+        
+        </tr>
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">Jan</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+<tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">2</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">Feb</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+<tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">3</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">Mar</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+<tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">4</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">Apr</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+<tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">5</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">May</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+<tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">6</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">Jun</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+<tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">7</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">Jul</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+<tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">8</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">Aug</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+<tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">9</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">Sep</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+<tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">10</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">Oct</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+<tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">11</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">Nov</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+<tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">12</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">Dec</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+ 
+</table>
        
 <p></p>
 <div class="schedule-footer">
         <div class="center-text">Page 
-                <div class="sub-value sub-no-replacement"></div></div> 
+                <div class="sub-value sub-replacement">3</div></div> 
 </div>
 </div>
 <hr class="screen-page-separator schedule-separator"></hr><div class="print-page-separator sechedule-separator"></div><div class="xbrl">
@@ -1055,18 +1564,18 @@
                             <div class="sub-value sub-no-replacement"></div></div>
                     </td>
                     <td class="xbrl form-id-code-top">
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div><br/>
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div></td>
+                        <div class="sub-value sub-replacement">Utility Code:</div><div class="sub-value sub-no-replacement"></div><br/>
+                        <div class="sub-value sub-replacement">Utility Name:</div><div class="sub-value sub-no-replacement"></div></td>
                 </tr>
             </table>
     <table class="xbrl">
         <tr class="sch-title">
             <td class="xbrl" colspan="11">
-                    <div class="sub-value sub-no-replacement"></div></td>
+                    <div class="sub-value sub-replacement">Part II - Schedule 3. Balancing Authority Area Net Energy for Load and Peak Demand Sources by Month</div></td>
         </tr>
         <tr>
             <td class="instruction xbrl" colspan="11">
-                <div class="sub-value sub-replacement"><div class="sub-html">None</div></div></td>
+                <div class="sub-value sub-replacement"><div class="sub-html"><p>Enter the monthly "Net Energy for Load" which is the amount of energy that the balancing authority area requires internally including balancing authority area losses. The total in column (d) should equal the difference in the totals for columns (e) minus (f) on Schedule 5. The value in column (f) for the month of the annual peak demand should equal the total in column (e) in Schedule 1. Any differences must be explained in a footnote. Refer to the Form 714 instructions for specific guidelines.</p></div></div></td>
         </tr>
         <tr class="col-heading-row">
             <td class="xbrl-no-bottom-line" colspan="1"> </td>
@@ -1080,7 +1589,289 @@
         </tr>
         <tr class="col-heading-row">
             <td class="col-heading xbrl-no-top-line line-number"><div>Line No.</div><div>(a)</div></td>
-            </tr>
+            <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">MonthAxis</div></div>    
+                        <div class="sub-value sub-replacement">Month</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">NetEnergyForLoadAndPeakDemandSourcesByMonthBalancingAuthorityAreaNetGeneration</div></div>    
+                        <div class="sub-value sub-replacement">Balancing Authority Area Net Generation (MWh)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(c)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">NetEnergyForLoadAndPeakDemandSourcesByMonthNetActualInterchange</div></div>    
+                        <div class="sub-value sub-replacement">Net Actual Interchange (MWh)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">NetEnergyForLoadAndPeakDemandSourcesByMonthNetEnergyForLoad</div></div>    
+                        <div class="sub-value sub-replacement">Net Energy for Load (MWh) (c + d)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(e)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandOutputOfGeneratingPlants</div></div>    
+                        <div class="sub-value sub-replacement">Output of Generating Plants (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(f)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandUnitOrFirmPurchases</div></div>    
+                        <div class="sub-value sub-replacement">Unit or Firm Purchases (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(g)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandUnitOrFirmSales</div></div>    
+                        <div class="sub-value sub-replacement">Unit or Firm Sales (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(h)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandNetNonFirmAndInadvertent</div></div>    
+                        <div class="sub-value sub-replacement">Net Non-Firm &amp; Inadvertent (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(i)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">LoadSourcesAtTimeOfBalancingAuthorityAreaMonthlyPeakDemandMonthlyPeakDemand</div></div>    
+                        <div class="sub-value sub-replacement">Monthly Peak Demand (MW) (f + g - h + i)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(j)</div></div>
+            </td>
+        <td class="col-heading xbrl-no-top-line">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">NetEnergyForLoadAndPeakDemandSourcesByMonthMonthlyMinimumDemand</div></div>    
+                        <div class="sub-value sub-replacement">Monthly Minimum Demand (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(k)</div></div>
+            </td>
+        
+        </tr>
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">January</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">2</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">February</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">3</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">March</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">4</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">April</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">5</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">May</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">6</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">June</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">7</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">July</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">8</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">August</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">9</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">September</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">10</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">October</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">11</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">November</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">12</span></td>
+                <td class="xbrl short_months"><div class="sub-value sub-replacement">December</div></td>
+               <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+             
             <tr class="schedule-row">
                 <td class="xbrl line-number">
                     13
@@ -1111,7 +1902,7 @@
 <p></p>
 <div class="schedule-footer">
         <div class="center-text">Page 
-                <div class="sub-value sub-no-replacement"></div></div> 
+                <div class="sub-value sub-replacement">4</div></div> 
 </div>
 </div>
 <hr class="screen-page-separator schedule-separator"></hr><div class="print-page-separator sechedule-separator"></div><div class="xbrl">
@@ -1129,8 +1920,8 @@
                             <div class="sub-value sub-no-replacement"></div></div>
                     </td>
                     <td class="xbrl form-id-code-top">
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div><br/>
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div></td>
+                        <div class="sub-value sub-replacement">Utility Code:</div><div class="sub-value sub-no-replacement"></div><br/>
+                        <div class="sub-value sub-replacement">Utility Name:</div><div class="sub-value sub-no-replacement"></div></td>
                 </tr>
             </table>
     <table class="xbrl">
@@ -1140,16 +1931,319 @@
         </tr>
         <tr>
             <td class="instruction xbrl" colspan="6">
-                <div class="sub-value sub-replacement"><div class="sub-html">None</div></div></td>
+                <div class="sub-value sub-replacement"><div class="sub-html"><p>Identify on this schedule: each balancing authority area with which the respondent balancing authority area has actual or scheduled interchange of energy, in column (b); the total annual megawatthours (MWh) of the scheduled interchange that were received by the respondent balancing authority area through all interconnection points with each balancing authority area, in column (c); the MWh of scheduled interchange delivered to each balancing authority area, in column (d); the MWh of total annual actual interchange received and delivered within each adjacent balancing authority area, in columns (e) and (f). Provide totals for columns (c), (d), (e) and (f). The difference in the totals for columns (e) minus (f) should equal the total in column (d) on Schedule 3. Any difference must be explained in a footnote. Refer to the Form 714 instructions for specific guidelines.</p></div></div></td>
         </tr>
         <tr class="col-heading-row">
             <td class="col-heading xbrl line-number"><div>Line No.</div><div>(a)</div></td>
-            </tr>
-            </table>
+            <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">NameOfAdjacentBalancingAuthorityArea</div></div>    
+                        <div class="sub-value sub-replacement">Name of Adjacent Balancing Authority Area</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
+            </td>
+        <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">BalancingAuthorityAreaInterconnectionLineOrBusNames</div></div>    
+                        <div class="sub-value sub-replacement">Balancing Authority Area Interconnection Line or Bus Names</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(c)</div></div>
+            </td>
+        <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">LineOrBusVoltage</div></div>    
+                        <div class="sub-value sub-replacement">Line or Bus Voltage (kV)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
+            </td>
+        
+        </tr>
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">2</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">3</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">4</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">5</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">6</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">7</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">8</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">9</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">10</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">11</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">12</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">13</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">14</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">15</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">16</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">17</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">18</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">19</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">20</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">21</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">22</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">23</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">24</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">25</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">26</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">27</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">28</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">29</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">30</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="description_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+     
+            
+    </table>
 <p></p>
 <div class="schedule-footer">
         <div class="center-text">Page 
-                <div class="sub-value sub-no-replacement"></div></div> 
+                <div class="sub-value sub-replacement">5</div></div> 
 </div>
 </div>
 <hr class="screen-page-separator schedule-separator"></hr><div class="print-page-separator sechedule-separator"></div><div class="xbrl">
@@ -1167,8 +2261,8 @@
                             <div class="sub-value sub-no-replacement"></div></div>
                     </td>
                     <td class="xbrl form-id-code-top">
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div><br/>
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div></td>
+                        <div class="sub-value sub-replacement">Utility Code:</div><div class="sub-value sub-no-replacement"></div><br/>
+                        <div class="sub-value sub-replacement">Utility Name:</div><div class="sub-value sub-no-replacement"></div></td>
                 </tr>
             </table>
     <table class="xbrl">
@@ -1178,7 +2272,7 @@
         </tr>
         <tr>
             <td class="instruction xbrl" colspan="6">
-                <div class="sub-value sub-replacement"><div class="sub-html">None</div></div></td>
+                <div class="sub-value sub-replacement"><div class="sub-html"><p>Identify on this schedule: each balancing authority area with which the respondent balancing authority area has actual or scheduled interchange of energy, in column (b); the total annual megawatthours (MWh) of the scheduled interchange that were received by the respondent balancing authority area through all interconnection points with each balancing authority area, in column (c); the MWh of scheduled interchange delivered to each balancing authority area, in column (d); the MWh of total annual actual interchange received and delivered within each adjacent balancing authority area, in columns (e) and (f). Provide totals for columns (c), (d), (e) and (f). The difference in the totals for columns (e) minus (f) should equal the total in column (d) on Schedule 3. Any difference must be explained in a footnote. Refer to the Form 714 instructions for specific guidelines.</p></div></div></td>
         </tr>
         <tr>
             <td colspan="2"></td>
@@ -1189,7 +2283,284 @@
         </tr>
         <tr class="col-heading-row">
             <td class="col-heading xbrl line-number"><div>Line No.</div><div>(a)</div></td>
-            </tr>
+            <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">NameOfBalancingAuthorityArea</div></div>    
+                        <div class="sub-value sub-replacement">Name of Balancing Authority Area</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
+            </td>
+        <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">ScheduledInterchangeBetweenBalancingAuthorityAreasReceived</div></div>    
+                        <div class="sub-value sub-replacement">Received</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(c)</div></div>
+            </td>
+        <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">ScheduledInterchangeBetweenBalancingAuthorityAreasDelivered</div></div>    
+                        <div class="sub-value sub-replacement">Delivered</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
+            </td>
+        <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">ActualInterchangeBetweenAdjacentBalancingAuthorityAreasReceived</div></div>    
+                        <div class="sub-value sub-replacement">Received</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(e)</div></div>
+            </td>
+        <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">ActualInterchangeBetweenAdjacentBalancingAuthorityAreasDelivered</div></div>    
+                        <div class="sub-value sub-replacement">Delivered</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(f)</div></div>
+            </td>
+        
+        </tr>
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">2</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">3</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">4</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">5</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">6</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">7</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">8</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">9</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">10</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">11</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">12</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">13</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">14</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">15</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">16</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">17</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">18</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">19</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">20</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">21</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">22</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">23</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">24</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">25</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+             
             <tr class="schedule-row">
                 <td class="xbrl">
                 </td>
@@ -1206,7 +2577,7 @@
 <p></p>
 <div class="schedule-footer">
         <div class="center-text">Page 
-                <div class="sub-value sub-no-replacement"></div></div> 
+                <div class="sub-value sub-replacement">6</div></div> 
 </div>
 </div>
 <hr class="screen-page-separator schedule-separator"></hr><div class="print-page-separator sechedule-separator"></div><div class="xbrl">
@@ -1224,18 +2595,20 @@
                             <div class="sub-value sub-no-replacement"></div></div>
                     </td>
                     <td class="xbrl form-id-code-top">
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div><br/>
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div></td>
+                        <div class="sub-value sub-replacement">Utility Code:</div><div class="sub-value sub-no-replacement"></div><br/>
+                        <div class="sub-value sub-replacement">Utility Name:</div><div class="sub-value sub-no-replacement"></div></td>
                 </tr>
             </table>
     <table class="xbrl">
         <tr class="sch-title">
             <td class="xbrl" colspan="26">
-                <div class="sub-value sub-no-replacement"></div></td>
+                <div class="sub-value sub-replacement">Part II - Schedule 6. Balancing Authority Area System Lambda Data</div></td>
         </tr>
         <tr>
             <td class="instruction xbrl" colspan="26">
-                <div class="sub-value sub-replacement"><div class="sub-html">None</div></div></td>
+                <div class="sub-value sub-replacement"><div class="sub-html"><p>For balancing authority areas where demand following is primarily performed by thermal generating units, the system lambda is derived from the economic dispatch function associated with automatic generation control performed at the controlling utility or pool control center. Excluding transmission losses, the fuel cost ($/hr) for a set of on-line and loaded thermal generating units (steam and gas turbines) is minimum 1/ when each unit is loaded and operating at the same incremental fuel cost ($/MWh) 2/ with the sum of the unit loadings (MW) equal to the system demand plus the net of interchange with other Balancing Authority Areas. This single incremental cost of energy is the system lambda. System lambdas are likely recalculated many times in one clock hour. However, the indicated system lambda  occurring on each clock hour would be sufficient for reporting purposes. Respondents must provide the following data: the system lambda, in dollars, for each hour of the year starting with 1 a.m. January 1 as more fully described in the Form 714 instructions. In column (b) indicate the time zone and the days for which daylight savings time was observed. This schedule will have 365 rows for the report year (366 rows for a leap year).</p>
+<p>Provide, as a footnote, an explanation describing the reason for the unavailability of system lambda information. The Commission expects that all Energy Management Systems, with proper instructions, can record the system lambda being used for economic dispatch of the balancing authority area's thermal units.</p>
+<p>Respondents should be able to report system lambda, along with the other information reported on a Balancing Authority Area basis, that describe the operation of such areas from information that should be readily available. The Commission is not requesting Respondents to develop incremental or marginal cost (either short or long term) according to any formula. Nor is the Commission requesting "avoided cost rates" that electric utilities file with state commissions or otherwise make available for prospective qualified facilities.</p></div></div></td>
         </tr>
         
         <tr class="col-heading-row">
@@ -1391,7 +2764,7 @@
 <p></p>
 <div class="schedule-footer">
         <div class="center-text">Page 
-                <div class="sub-value sub-no-replacement"></div></div> 
+                <div class="sub-value sub-replacement">7a</div></div> 
 </div>
 </div>
 <hr class="screen-page-separator schedule-separator"></hr><div class="print-page-separator sechedule-separator"></div><div class="xbrl">
@@ -1409,18 +2782,18 @@
                             <div class="sub-value sub-no-replacement"></div></div>
                     </td>
                     <td class="xbrl form-id-code-top">
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div><br/>
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div></td>
+                        <div class="sub-value sub-replacement">Utility Code:</div><div class="sub-value sub-no-replacement"></div><br/>
+                        <div class="sub-value sub-replacement">Utility Name:</div><div class="sub-value sub-no-replacement"></div></td>
                 </tr>
             </table>
     <table class="xbrl" width="100%">
         <tr class="sch-title">
             <td class="xbrl">
-                <div class="sub-value sub-no-replacement"></div></td>
+                <div class="sub-value sub-replacement">Part II - Schedule 6. Description of Economic Dispatch</div></td>
         </tr>
         <tr>
             <td class="instruction xbrl">
-                <div class="sub-value sub-replacement"><div class="sub-html">None</div></div></td>
+                <div class="sub-value sub-replacement"><div class="sub-html">Disclosure of How Respondent Calculates System Lambda</div></div></td>
         </tr>
         <tr class="schedule-row">
             
@@ -1432,7 +2805,7 @@
 <p></p>
 <div class="schedule-footer">
         <div class="center-text">Page 
-                <div class="sub-value sub-no-replacement"></div></div> 
+                <div class="sub-value sub-replacement">7b</div></div> 
 </div>
 </div>
 <hr class="screen-page-separator schedule-separator"></hr><div class="print-page-separator sechedule-separator"></div><div class="xbrl">
@@ -1450,8 +2823,8 @@
                             <div class="sub-value sub-no-replacement"></div></div>
                     </td>
                     <td class="xbrl form-id-code-top">
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div><br/>
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div></td>
+                        <div class="sub-value sub-replacement">Utility Code:</div><div class="sub-value sub-no-replacement"></div><br/>
+                        <div class="sub-value sub-replacement">Utility Name:</div><div class="sub-value sub-no-replacement"></div></td>
                 </tr>
             </table>
     <table class="xbrl">
@@ -1461,7 +2834,7 @@
         </tr>
         <tr>
             <td class="instruction xbrl" colspan="6">
-                <div class="sub-value sub-replacement"><div class="sub-html">None</div></div></td>
+                <div class="sub-value sub-replacement"><div class="sub-html"><p>Enter the name of each entity, including the respondent, that forms the planning area for which this report is being prepared and their coincident summer and winter peak demands in megawatts. Refer to the Form 714 instructions for specific guidelines.</p></div></div></td>
         </tr>
         <tr>
             <td colspan="2"></td>
@@ -1471,12 +2844,254 @@
         </tr>
         <tr class="col-heading-row">
             <td class="col-heading xbrl line-number"><div>Line No.</div><div>(a)</div></td>
-            </tr>
-            </table>
+            <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">ElectricUtilityName</div></div>    
+                        <div class="sub-value sub-replacement">Electric Utility Name</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
+            </td>
+        <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">ElectricUtilityCoincidentPeakDemandSummer</div></div>    
+                        <div class="sub-value sub-replacement">Summer</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(c)</div></div>
+            </td>
+        <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">ElectricUtilityCoincidentPeakDemandWinter</div></div>    
+                        <div class="sub-value sub-replacement">Winter</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
+            </td>
+        
+        </tr>
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">2</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">3</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">4</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">5</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">6</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">7</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">8</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">9</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">10</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">11</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">12</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">13</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">14</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">15</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">16</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">17</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">18</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">19</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">20</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">21</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">22</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">23</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">24</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">25</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">26</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">27</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">28</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">29</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">30</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                
+            </tr> 
+     
+    </table>
 <p></p>
 <div class="schedule-footer">
         <div class="center-text">Page 
-                <div class="sub-value sub-no-replacement"></div></div> 
+                <div class="sub-value sub-replacement">8</div></div> 
 </div>
 </div>
 <hr class="screen-page-separator schedule-separator"></hr><div class="print-page-separator sechedule-separator"></div><div class="xbrl">
@@ -1494,18 +3109,18 @@
                             <div class="sub-value sub-no-replacement"></div></div>
                     </td>
                     <td class="xbrl form-id-code-top">
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div><br/>
-                        <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div></td>
+                        <div class="sub-value sub-replacement">Utility Code:</div><div class="sub-value sub-no-replacement"></div><br/>
+                        <div class="sub-value sub-replacement">Utility Name:</div><div class="sub-value sub-no-replacement"></div></td>
                 </tr>
             </table>
     <table class="xbrl">
         <tr class="sch-title">
             <td class="xbrl" colspan="26">
-                <div class="sub-value sub-no-replacement"></div></td>
+                <div class="sub-value sub-replacement">Part III - Schedule 2. Planning Area Hourly Demand</div></td>
         </tr>
         <tr>
             <td class="instruction xbrl" colspan="26">
-                <div class="sub-value sub-replacement"><div class="sub-html">None</div></div></td>
+                <div class="sub-value sub-replacement"><div class="sub-html"><p>Respondents must provide the following data: the planning area's actual hourly demand, in megawatts, for each hour of the year starting with 1 a.m. January 1 as more fully described in the Form 714 instructions. In column (b) indicate the time zone and the days for which daylight savings time was observed. This schedule will have 365 rows for the report year (366 rows for a leap year). For hours when this information is not available, enter "0.00" and provide, as a footnote to those hours, an explanation describing the reason for the unavailability of the data.</p></div></div></td>
         </tr>
         
         <tr class="col-heading-row">
@@ -1661,7 +3276,7 @@
 <p></p>
 <div class="schedule-footer">
         <div class="center-text">Page 
-                <div class="sub-value sub-no-replacement"></div></div> 
+                <div class="sub-value sub-replacement">9a</div></div> 
 </div>
 </div>
 <hr class="screen-page-separator schedule-separator"></hr><div class="print-page-separator sechedule-separator"></div><div class="xbrl">
@@ -1679,27 +3294,170 @@
                     <div class="sub-value sub-no-replacement"></div></div>
             </td>
             <td class="xbrl form-id-code-top">
-                <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div><br/>
-                <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div></td>
+                <div class="sub-value sub-replacement">Utility Code:</div><div class="sub-value sub-no-replacement"></div><br/>
+                <div class="sub-value sub-replacement">Utility Name:</div><div class="sub-value sub-no-replacement"></div></td>
         </tr>
     </table>
     <table class="xbrl">
         <tr class="sch-title">
             <td class="xbrl" colspan="6">
-                    <div class="sub-value sub-replacement">Part III - Schedule 2. Planning Area Hourly Demand and Forecast Summer and Winter Peak Demand and Annual Net Energy for Load</div></td>
+                    <div class="sub-value sub-replacement">Part III - Schedule 2. Forecast Summer and Winter Peak Demand and Annual Net Energy for Load</div></td>
         </tr>
         <tr>
             <td class="instruction xbrl" colspan="6">
-                <div class="sub-value sub-replacement"><div class="sub-html">None</div></div></td>
+                <div class="sub-value sub-replacement"><div class="sub-html"><p>Provide the planning area's forecast summer and winter peak demand, in megawatts, and annual net energy for load, in megawatthours, for the next ten years.</p></div></div></td>
         </tr>
         <tr class="col-heading-row">
             <td class="col-heading xbrl line-number"><div>Line No.</div><div>(a)</div></td>
-            </tr>
-            </table>
+            <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">PlanningAreaHourlyDemandAndForecastYear</div></div>    
+                        <div class="sub-value sub-replacement">Year</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
+            </td>
+        <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">PlanningAreaHourlyDemandAndForecastSummerForecast</div></div>    
+                        <div class="sub-value sub-replacement">Summer Forecast (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(c)</div></div>
+            </td>
+        <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">PlanningAreaHourlyDemandAndForecastWinterForecast</div></div>    
+                        <div class="sub-value sub-replacement">Winter Forecast (MW)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
+            </td>
+        <td class="col-heading xbrl">
+                <div style="text-align: center">
+                    <div class="tooltip">
+                            <div class="tooltiptext">
+                                    <div class="sub-value sub-replacement">PlanningAreaHourlyDemandAndForecastForecastOfAnnualNetEnergyForLoad</div></div>    
+                        <div class="sub-value sub-replacement">Forecast of Annual Net Energy for Load (MWh)</div></div>
+                </div>
+
+                <div style="text-align: center"><div class="sub-value sub-replacement">(e)</div></div>
+            </td>
+        
+        </tr>
+            <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">2</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">3</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">4</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">5</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">6</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">7</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">8</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">9</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+    <tr class="schedule-row">
+                <td class="xbrl line-number"><span class="sub-line-number">10</span></td>
+                <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+                <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
+              
+                
+            </tr> 
+            
+     
+            
+    </table>
 <p></p>
 <div class="schedule-footer">
         <div class="center-text">Page 
-                <div class="sub-value sub-no-replacement"></div></div> 
+                <div class="sub-value sub-replacement">9b</div></div> 
 </div>
 </div>
 </body>

@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:ix="http://www.xbrl.org/2013/inlineXBRL" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ixtsec="http://www.sec.gov/inlineXBRL/transformation/2015-08-31" xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12" xmlns:ferc="http://ferc.gov/form/2023-01-01/ferc" xmlns:utr="http://www.xbrl.org/2009/utr" xmlns:iso4217="http://www.xbrl.org/2003/iso4217">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:ix="http://www.xbrl.org/2013/inlineXBRL" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ixtsec="http://www.sec.gov/inlineXBRL/transformation/2015-08-31" xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12" xmlns:ferc="http://ferc.gov/form/2024-04-01/ferc" xmlns:utr="http://www.xbrl.org/2009/utr" xmlns:iso4217="http://www.xbrl.org/2003/iso4217">
   <head><title>FERC Form</title><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></meta><style type="text/css">
 /*<![CDATA[*/       /*
         Theme Name: Form Templates
@@ -373,6 +373,12 @@
         div.sub-value {
             display:inline-block
         }
+        div.sub-value div.xbrl.fact div.sub-html {
+            display:block
+        }
+        div.sub-value:has(div.xbrl.fact div.sub-html) {
+            display:block
+        }
         div.sub-html {
             display:inline-block
         }
@@ -706,770 +712,791 @@
             .print-page-separator {
                 display: none;
             }
-        }        /*]]>*/
+        }        
+/*]]>*/
 </style></head>
-  <body><div style="display:none"><ix:header><ix:hidden><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-35" name="ferc:OrderNumber" id="f-1157-dup-1">7</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-94" name="ferc:OrderNumber" id="f-1185-dup-1">4</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-71" name="ferc:OrderNumber" id="f-1173-dup-1">4</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-107" name="ferc:OrderNumber" id="f-1198-dup-1">17</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-10" name="ferc:OrderNumber" id="f-1146-dup-1">31</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-38" name="ferc:OrderNumber" id="f-1158-dup-1">9</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-95" name="ferc:OrderNumber" id="f-1186-dup-1">5</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-10.1" name="ferc:OrderNumber">39</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-72" name="ferc:OrderNumber" id="f-1174-dup-1">5</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-108" name="ferc:OrderNumber" id="f-1199-dup-1">18</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="0" contextRef="c-302_2" name="ferc:OrderNumber">2</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-39" name="ferc:OrderNumber" id="f-1159-dup-1">10</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-96" name="ferc:OrderNumber" id="f-1187-dup-1">6</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-10.01" name="ferc:OrderNumber">40</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-75" name="ferc:OrderNumber" id="f-1175-dup-1">7</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-109" name="ferc:OrderNumber" id="f-1200-dup-1">19</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-42" name="ferc:OrderNumber" id="f-1160-dup-1">12</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-97" name="ferc:OrderNumber" id="f-1188-dup-1">7</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-10.001" name="ferc:OrderNumber">41</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-78" name="ferc:OrderNumber" id="f-1176-dup-1">9</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-110" name="ferc:OrderNumber" id="f-1201-dup-1">20</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-43" name="ferc:OrderNumber" id="f-1161-dup-1">13</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-98" name="ferc:OrderNumber" id="f-1189-dup-1">8</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-13" name="ferc:OrderNumber" id="f-1147-dup-1">5</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-79" name="ferc:OrderNumber" id="f-1177-dup-1">10</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-68" name="ferc:OrderNumber" id="f-1172-dup-1">2</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-111" name="ferc:OrderNumber" id="f-1202-dup-1">21</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="0" contextRef="c-331_1" name="ferc:OrderNumber">1</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-46" name="ferc:OrderNumber" id="f-1162-dup-1">15</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-99" name="ferc:OrderNumber" id="f-1190-dup-1">9</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-15" name="ferc:OrderNumber" id="f-1148-dup-1">18</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-82" name="ferc:OrderNumber" id="f-1178-dup-1">12</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-112" name="ferc:OrderNumber" id="f-1203-dup-1">22</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-49" name="ferc:OrderNumber" id="f-1163-dup-1">17</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-100" name="ferc:OrderNumber" id="f-1191-dup-1">10</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-17" name="ferc:OrderNumber" id="f-1149-dup-1">31</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-83" name="ferc:OrderNumber" id="f-1179-dup-1">13</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-113" name="ferc:OrderNumber" id="f-1204-dup-1">1</ix:nonFraction><ix:nonNumeric contextRef="c-01" name="ferc:SubmissionType" id="f-13-dup-1">O</ix:nonNumeric><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-132" name="ferc:AmortizationOfLimitedTermPlantOrProperty" id="f-976-dup-1">6562714</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-52" name="ferc:OrderNumber" id="f-1164-dup-1">19</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-101" name="ferc:OrderNumber" id="f-1192-dup-1">11</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-19" name="ferc:OrderNumber" id="f-1150-dup-1">53</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-86" name="ferc:OrderNumber" id="f-1180-dup-1">16</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-115" name="ferc:OrderNumber" id="f-1206-dup-1">2</ix:nonFraction><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-132" name="ferc:DepreciationAndAmortization" id="f-977-dup-1">6562714</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-55" name="ferc:OrderNumber" id="f-1165-dup-1">21</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-102" name="ferc:OrderNumber" id="f-1193-dup-1">12</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-21" name="ferc:OrderNumber" id="f-1151-dup-1">67</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-89" name="ferc:OrderNumber" id="f-1181-dup-1">18</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-140" name="ferc:OrderNumber" id="f-1223-dup-1">7</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="0" contextRef="c-331_2" name="ferc:OrderNumber">2</ix:nonFraction><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-07" name="ferc:UnappropriatedUndistributedSubsidiaryEarnings">28315873</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-58" name="ferc:OrderNumber" id="f-1166-dup-1">23</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-103" name="ferc:OrderNumber" id="f-1194-dup-1">13</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-23" name="ferc:OrderNumber" id="f-1152-dup-1">76</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-91" name="ferc:OrderNumber" id="f-1182-dup-1">1</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-106" name="ferc:OrderNumber" id="f-1197-dup-1">16</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-141" name="ferc:OrderNumber" id="f-1224-dup-1">8</ix:nonFraction><ix:nonNumeric contextRef="c-01" name="ferc:CompanyIdentifier" id="f-05-dup-1">C001552</ix:nonNumeric><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-61" name="ferc:OrderNumber" id="f-1167-dup-1">25</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-104" name="ferc:OrderNumber" id="f-1195-dup-1">14</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-28" name="ferc:OrderNumber" id="f-1154-dup-1">2</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-92" name="ferc:OrderNumber" id="f-1183-dup-1">2</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-142" name="ferc:OrderNumber" id="f-1225-dup-1">9</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-67" name="ferc:OrderNumber" id="f-1171-dup-1">1</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-105" name="ferc:OrderNumber" id="f-1196-dup-1">15</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-32" name="ferc:OrderNumber" id="f-1156-dup-1">5</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-93" name="ferc:OrderNumber" id="f-1184-dup-1">3</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="0" contextRef="c-302_1" name="ferc:OrderNumber">1</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-08" name="ferc:OrderNumber" id="f-1145-dup-1">24</ix:nonFraction></ix:hidden><ix:references><link:schemaRef xlink:type="simple" xlink:href="https://eCollection.ferc.gov/taxonomy/form1/2023-01-01/form/form1Q/form-1Q_2023-01-01.xsd"></link:schemaRef></ix:references><ix:resources><xbrli:context id="c-52">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-19</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-12">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-88">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-16</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-24">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis">
-					<ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>0-76</ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-95">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-5</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-70">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-2</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-108">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-18</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-39">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-10</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="s-110">
-      <xbrli:entity>
-          <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-              <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
-                  <ferc:ScheduleRemarksDomain>ScheduleComparativeBalanceSheetAbstract</ferc:ScheduleRemarksDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-          <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-89">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-18</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-133">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:SteamProductionPlantMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-26">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:OtherUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-231_5">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:TransmissionStudiesMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-74">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-5</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-231_6">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:GenerationStudiesMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-134">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:NuclearProductionPlantMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-16">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
-					<ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain>0-18</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-10.001">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
-					<ferc:RetainedEarningsDomain>0-41</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-331_1">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityByIsosOrRtosAxis">
-					<ferc:TransmissionOfElectricityByIsosOrRtosDomain>0-1</ferc:TransmissionOfElectricityByIsosOrRtosDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-01">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-76">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-7</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-112">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-22</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-86">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-16</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-99">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-9</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-73">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-5</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-139">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:GeneralPlantMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-75">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-7</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-22">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesAxis">
-					<ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesDomain>0-67</ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-107">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-17</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-100">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-10</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-92">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-2</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-142">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:AmountsIncludedInIsoOrRtoSettlementStatementsAxis">
-					<ferc:AmountsIncludedInIsoOrRtoSettlementStatementsDomain>0-9</ferc:AmountsIncludedInIsoOrRtoSettlementStatementsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-53">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-19</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-133_4">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:CommonPlantElectricMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-48">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-15</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-11.1">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
-					<ferc:RetainedEarningsDomain>0-39</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-10.2">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
-					<ferc:RetainedEarningsDomain>0-39</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-19">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesAxis">
-					<ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDomain>0-53</ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-146">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:MonthAxis">ferc:Quarter1Member</xbrldi:explicitMember><xbrldi:typedMember dimension="ferc:NameOfTransmissionSystemAxis">
-					<ferc:NameOfTransmissionSystemDomain>0</ferc:NameOfTransmissionSystemDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-135">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:HydraulicProductionPlantConventionalMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-60">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-23</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-302_2">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:RegionalTransmissionServiceRevenuesAxis">
-					<ferc:RegionalTransmissionServiceRevenuesDomain>0-2</ferc:RegionalTransmissionServiceRevenuesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-29">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-2</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-20">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesAxis">
-					<ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDomain>0-53</ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="s-108">
-      <xbrli:entity>
-          <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-              <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
-                  <ferc:ScheduleRemarksDomain>ScheduleImportantChangesDuringTheQuarterYearAbstract</ferc:ScheduleRemarksDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-          <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-79">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-10</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-50">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-17</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-13">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
-					<ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain>0-5</ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-06">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-10">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsCommonStockAxis">
-					<ferc:RetainedEarningsCommonStockDomain>0-31</ferc:RetainedEarningsCommonStockDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-231_3">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis">
-					<ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain>0-22</ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain></xbrldi:typedMember><xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:GenerationStudiesMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-44">
+  <body><div style="display:none"><ix:header><ix:hidden><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-15" name="ferc:OrderNumber" id="f-1148-dup-1">18</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-82" name="ferc:OrderNumber" id="f-1178-dup-1">12</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-112" name="ferc:OrderNumber" id="f-1203-dup-1">22</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-49" name="ferc:OrderNumber" id="f-1163-dup-1">17</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-118.91" name="ferc:OrderNumber">1</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-17" name="ferc:OrderNumber" id="f-1149-dup-1">31</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-83" name="ferc:OrderNumber" id="f-1179-dup-1">13</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-100" name="ferc:OrderNumber" id="f-1191-dup-1">10</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-113" name="ferc:OrderNumber" id="f-1204-dup-1">1</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-111" name="ferc:OrderNumber" id="f-1202-dup-1">21</ix:nonFraction><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-132" name="ferc:AmortizationOfLimitedTermPlantOrProperty" id="f-976-dup-1">6562714</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-52" name="ferc:OrderNumber" id="f-1164-dup-1">19</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-118.92" name="ferc:OrderNumber">2</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-19" name="ferc:OrderNumber" id="f-1150-dup-1">53</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-86" name="ferc:OrderNumber" id="f-1180-dup-1">16</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-101" name="ferc:OrderNumber" id="f-1192-dup-1">11</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-115" name="ferc:OrderNumber" id="f-1206-dup-1">2</ix:nonFraction><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-132" name="ferc:DepreciationAndAmortization" id="f-977-dup-1">6562714</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-55" name="ferc:OrderNumber" id="f-1165-dup-1">21</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-102" name="ferc:OrderNumber" id="f-1193-dup-1">12</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-21" name="ferc:OrderNumber" id="f-1151-dup-1">67</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-89" name="ferc:OrderNumber" id="f-1181-dup-1">18</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-140" name="ferc:OrderNumber" id="f-1223-dup-1">7</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="0" contextRef="c-331_2" name="ferc:OrderNumber">2</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-58" name="ferc:OrderNumber" id="f-1166-dup-1">23</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-103" name="ferc:OrderNumber" id="f-1194-dup-1">13</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-23" name="ferc:OrderNumber" id="f-1152-dup-1">76</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-91" name="ferc:OrderNumber" id="f-1182-dup-1">1</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-141" name="ferc:OrderNumber" id="f-1224-dup-1">8</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-61" name="ferc:OrderNumber" id="f-1167-dup-1">25</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-104" name="ferc:OrderNumber" id="f-1195-dup-1">14</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-28" name="ferc:OrderNumber" id="f-1154-dup-1">2</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-92" name="ferc:OrderNumber" id="f-1183-dup-1">2</ix:nonFraction><ix:nonNumeric contextRef="c-01" name="ferc:VendorName">Vendor ABC</ix:nonNumeric><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-142" name="ferc:OrderNumber" id="f-1225-dup-1">9</ix:nonFraction><ix:nonNumeric contextRef="c-01" name="ferc:SubmissionType" id="f-13-dup-1">O</ix:nonNumeric><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-67" name="ferc:OrderNumber" id="f-1171-dup-1">1</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-105" name="ferc:OrderNumber" id="f-1196-dup-1">15</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-32" name="ferc:OrderNumber" id="f-1156-dup-1">5</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-93" name="ferc:OrderNumber" id="f-1184-dup-1">3</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="0" contextRef="c-302_1" name="ferc:OrderNumber">1</ix:nonFraction><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-07" name="ferc:UnappropriatedUndistributedSubsidiaryEarnings">28315873</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-08" name="ferc:OrderNumber" id="f-1145-dup-1">24</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-68" name="ferc:OrderNumber" id="f-1172-dup-1">2</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-35" name="ferc:OrderNumber" id="f-1157-dup-1">7</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-94" name="ferc:OrderNumber" id="f-1185-dup-1">4</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-106" name="ferc:OrderNumber" id="f-1197-dup-1">16</ix:nonFraction><ix:nonNumeric contextRef="c-01" name="ferc:CompanyIdentifier" id="f-05-dup-1">C001552</ix:nonNumeric><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-71" name="ferc:OrderNumber" id="f-1173-dup-1">4</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-107" name="ferc:OrderNumber" id="f-1198-dup-1">17</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-38" name="ferc:OrderNumber" id="f-1158-dup-1">9</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-95" name="ferc:OrderNumber" id="f-1186-dup-1">5</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="0" contextRef="c-302_2" name="ferc:OrderNumber">2</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-10" name="ferc:OrderNumber" id="f-1146-dup-1">31</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-79" name="ferc:OrderNumber" id="f-1177-dup-1">10</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-10.1" name="ferc:OrderNumber">39</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-72" name="ferc:OrderNumber" id="f-1174-dup-1">5</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-39" name="ferc:OrderNumber" id="f-1159-dup-1">10</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-96" name="ferc:OrderNumber" id="f-1187-dup-1">6</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-108" name="ferc:OrderNumber" id="f-1199-dup-1">18</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-10.01" name="ferc:OrderNumber">40</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-75" name="ferc:OrderNumber" id="f-1175-dup-1">7</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-42" name="ferc:OrderNumber" id="f-1160-dup-1">12</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-97" name="ferc:OrderNumber" id="f-1188-dup-1">7</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-99" name="ferc:OrderNumber" id="f-1190-dup-1">9</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-109" name="ferc:OrderNumber" id="f-1200-dup-1">19</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-10.001" name="ferc:OrderNumber">41</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-78" name="ferc:OrderNumber" id="f-1176-dup-1">9</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-43" name="ferc:OrderNumber" id="f-1161-dup-1">13</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-98" name="ferc:OrderNumber" id="f-1189-dup-1">8</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-110" name="ferc:OrderNumber" id="f-1201-dup-1">20</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="0" contextRef="c-331_1" name="ferc:OrderNumber">1</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-13" name="ferc:OrderNumber" id="f-1147-dup-1">5</ix:nonFraction><ix:nonFraction unitRef="u-01" decimals="INF" contextRef="c-46" name="ferc:OrderNumber" id="f-1162-dup-1">15</ix:nonFraction></ix:hidden><ix:references><link:schemaRef xlink:type="simple" xlink:href="https://eCollection.ferc.gov/taxonomy/form1/2024-04-01/form/form1Q/form-1Q_2024-04-01.xsd"></link:schemaRef></ix:references><ix:resources><xbrli:context id="c-43">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
 					<ferc:OtherRegulatoryAssetsDomain>0-13</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-331_2">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityByIsosOrRtosAxis">
-					<ferc:TransmissionOfElectricityByIsosOrRtosDomain>0-2</ferc:TransmissionOfElectricityByIsosOrRtosDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-97">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-7</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-67">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-1</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-90">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-18</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-93">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-3</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-141">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:AmountsIncludedInIsoOrRtoSettlementStatementsAxis">
-					<ferc:AmountsIncludedInIsoOrRtoSettlementStatementsDomain>0-8</ferc:AmountsIncludedInIsoOrRtoSettlementStatementsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-115">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityByOthersAxis">
-					<ferc:TransmissionOfElectricityByOthersDomain>0-2</ferc:TransmissionOfElectricityByOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-38">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-9</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-10.1">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
-					<ferc:RetainedEarningsDomain>0-39</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-40">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-10</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-113">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityByOthersAxis">
-					<ferc:TransmissionOfElectricityByOthersDomain>0-1</ferc:TransmissionOfElectricityByOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-136">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:OtherProductionPlantMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-09">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsPreferredStockAxis">
-					<ferc:RetainedEarningsPreferredStockDomain>0-24</ferc:RetainedEarningsPreferredStockDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-85">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-13</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-02">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-58">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-23</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-63">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-25</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-231_2">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis">
-					<ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain>0-3</ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain></xbrldi:typedMember><xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:TransmissionStudiesMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-21">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesAxis">
-					<ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesDomain>0-67</ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-133_3">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:HydraulicProductionPlantPumpedStorageMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-26_5">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:GasUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-145">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:MonthAxis">ferc:MarchMember</xbrldi:explicitMember><xbrldi:typedMember dimension="ferc:NameOfTransmissionSystemAxis">
-					<ferc:NameOfTransmissionSystemDomain>0</ferc:NameOfTransmissionSystemDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-140">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:AmountsIncludedInIsoOrRtoSettlementStatementsAxis">
-					<ferc:AmountsIncludedInIsoOrRtoSettlementStatementsDomain>0-7</ferc:AmountsIncludedInIsoOrRtoSettlementStatementsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
       <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-144">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:explicitMember dimension="ferc:MonthAxis">ferc:FebruaryMember</xbrldi:explicitMember><xbrldi:typedMember dimension="ferc:NameOfTransmissionSystemAxis">
 					<ferc:NameOfTransmissionSystemDomain>0</ferc:NameOfTransmissionSystemDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-26_4">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:CommonUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-98">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-8</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-132">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:IntangiblePlantMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="s-120">
-        <xbrli:entity>
-            <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-                <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
-                    <ferc:ScheduleRemarksDomain>ScheduleStatementOfCashFlowsAbstract</ferc:ScheduleRemarksDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-            <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-18">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesAxis">
-					<ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesDomain>0-31</ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-49">
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-49">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
 					<ferc:OtherRegulatoryAssetsDomain>0-17</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-11">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsCommonStockAxis">
-					<ferc:RetainedEarningsCommonStockDomain>0-31</ferc:RetainedEarningsCommonStockDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-106">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-16</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-68">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-2</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-96">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-6</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-28">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-2</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="s-117">
-        <xbrli:entity>
-            <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-                <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
-                    <ferc:ScheduleRemarksDomain>ScheduleStatementOfAccumulatedOtherComprehensiveIncomeAndHedgingActivitiesAbstract</ferc:ScheduleRemarksDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-            <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-56">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-21</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-04">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-78">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-9</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-231_4">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis">
-					<ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain>0-23</ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain></xbrldi:typedMember><xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:GenerationStudiesMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-55">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-21</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-72">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-5</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-41">
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-39">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
 					<ferc:OtherRegulatoryAssetsDomain>0-10</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-45">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-13</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-17">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesAxis">
-					<ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesDomain>0-31</ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-43">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-13</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-81">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-10</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-109">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-19</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-10.02">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
-					<ferc:RetainedEarningsDomain>0-40</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-111">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-21</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-32">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-5</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-91">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-1</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-143">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:MonthAxis">ferc:JanuaryMember</xbrldi:explicitMember><xbrldi:typedMember dimension="ferc:NameOfTransmissionSystemAxis">
-					<ferc:NameOfTransmissionSystemDomain>0</ferc:NameOfTransmissionSystemDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="s-114">
-        <xbrli:entity>
-            <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-                <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
-                    <ferc:ScheduleRemarksDomain>ScheduleStatementOfIncomeAbstract</ferc:ScheduleRemarksDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-            <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-94">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-4</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-35">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-7</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-34">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-5</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-110">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-20</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-51">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-17</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="s-122">
-        <xbrli:entity>
-            <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-                <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
-                    <ferc:ScheduleRemarksDomain>ScheduleNotesToFinancialStatementsAbstract</ferc:ScheduleRemarksDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-            <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-133_2">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:IntangiblePlantMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-14">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
-					<ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain>0-5</ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-07">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier></xbrli:entity><xbrli:period>
-      <xbrli:instant>2016-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-147">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:NameOfTransmissionSystemAxis">
-					<ferc:NameOfTransmissionSystemDomain>0</ferc:NameOfTransmissionSystemDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-61">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-25</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-101">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-11</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-138">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:DistributionPlantMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-102">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-12</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-26_3">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:OtherUtility3Member</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-103">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-13</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-87">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-16</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-10.01">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
-					<ferc:RetainedEarningsDomain>0-40</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-231_1">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis">
-					<ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain>0-2</ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain></xbrldi:typedMember><xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:TransmissionStudiesMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
       <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-30">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
 					<ferc:OtherRegulatoryAssetsDomain>0-2</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-05">
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-133">
     <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-77">
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:SteamProductionPlantMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-134">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:NuclearProductionPlantMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-77">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
 					<ferc:OtherRegulatoryLiabilityDomain>0-7</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-59">
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-15">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-23</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-11.001">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
-					<ferc:RetainedEarningsDomain>0-41</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-33">
+        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
+					<ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain>0-18</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-32">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
 					<ferc:OtherRegulatoryAssetsDomain>0-5</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-08">
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-19">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:RetainedEarningsPreferredStockAxis">
-					<ferc:RetainedEarningsPreferredStockDomain>0-24</ferc:RetainedEarningsPreferredStockDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-83">
+        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesAxis">
+					<ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDomain>0-53</ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-91">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-1</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-21">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesAxis">
+					<ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesDomain>0-67</ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-20">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesAxis">
+					<ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDomain>0-53</ferc:OtherAdjustmentsToCashFlowsFromInvestmentActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-04">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-72">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-13</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="s-118">
-        <xbrli:entity>
-            <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-                <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
-                    <ferc:ScheduleRemarksDomain>ScheduleRetainedEarningsAbstract</ferc:ScheduleRemarksDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-            <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-47">
+					<ferc:OtherRegulatoryLiabilityDomain>0-5</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-37">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-15</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-137">
+					<ferc:OtherRegulatoryAssetsDomain>0-7</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-28">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:TransmissionPlantMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-2</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
       <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-11.01">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
 					<ferc:RetainedEarningsDomain>0-40</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-23">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis">
-					<ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>0-76</ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-25">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-69">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-2</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-46">
+      <xbrli:instant>2017-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-57">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-15</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-54">
+					<ferc:OtherRegulatoryAssetsDomain>0-21</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="s-122">
+        <xbrli:entity>
+            <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+                <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
+                    <ferc:ScheduleRemarksDomain>ScheduleNotesToFinancialStatementsAbstract</ferc:ScheduleRemarksDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+            <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-118.91">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsAdjustmentsAxis">
+					<ferc:RetainedEarningsAdjustmentDomain>0-1</ferc:RetainedEarningsAdjustmentDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-18">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesAxis">
+					<ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesDomain>0-31</ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-97">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-7</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-231_4">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis">
+					<ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain>0-23</ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain></xbrldi:typedMember><xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:GenerationStudiesMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-145">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:MonthAxis">ferc:MarchMember</xbrldi:explicitMember><xbrldi:typedMember dimension="ferc:NameOfTransmissionSystemAxis">
+					<ferc:NameOfTransmissionSystemDomain>0</ferc:NameOfTransmissionSystemDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-112">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-22</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-35">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-7</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-106">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-16</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-139">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:GeneralPlantMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-118.94">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsAdjustmentsAxis">
+					<ferc:RetainedEarningsAdjustmentDomain>0-2</ferc:RetainedEarningsAdjustmentDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-132">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:IntangiblePlantMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-16">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
+					<ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain>0-18</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-42">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-12</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-55">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-21</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-111">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-21</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-01">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-45">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-13</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-52">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
 					<ferc:OtherRegulatoryAssetsDomain>0-19</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-104">
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-108">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-14</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+					<ferc:TransmissionOfElectricityForOthersDomain>0-18</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-53">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-19</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-85">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-13</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-133_3">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:HydraulicProductionPlantPumpedStorageMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-231_3">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis">
+					<ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain>0-22</ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain></xbrldi:typedMember><xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:GenerationStudiesMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-41">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-10</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-133_2">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:IntangiblePlantMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-34">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-5</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-87">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-16</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-147">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:NameOfTransmissionSystemAxis">
+					<ferc:NameOfTransmissionSystemDomain>0</ferc:NameOfTransmissionSystemDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-118.92">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsAdjustmentsAxis">
+					<ferc:RetainedEarningsAdjustmentDomain>0-2</ferc:RetainedEarningsAdjustmentDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-05">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-48">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-15</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-113">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityByOthersAxis">
+					<ferc:TransmissionOfElectricityByOthersDomain>0-1</ferc:TransmissionOfElectricityByOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-23">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis">
+					<ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>0-76</ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-73">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-5</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-110">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-20</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
       <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-10.002">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
 					<ferc:RetainedEarningsDomain>0-41</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-03">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-302_1">
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-24">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:RegionalTransmissionServiceRevenuesAxis">
-					<ferc:RegionalTransmissionServiceRevenuesDomain>0-1</ferc:RegionalTransmissionServiceRevenuesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-62">
+        <xbrldi:typedMember dimension="ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesAxis">
+					<ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain>0-76</ferc:OtherRetirementsOfBalancesImpactingCashFlowsFromFinancingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="s-117">
+        <xbrli:entity>
+            <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+                <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
+                    <ferc:ScheduleRemarksDomain>ScheduleStatementOfAccumulatedOtherComprehensiveIncomeAndHedgingActivitiesAbstract</ferc:ScheduleRemarksDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+            <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-17">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesAxis">
+					<ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesDomain>0-31</ferc:OtherConstructionAndAcquisitionOfPlantInvestmentActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-40">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-25</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-105">
+					<ferc:OtherRegulatoryAssetsDomain>0-10</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-93">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
-					<ferc:TransmissionOfElectricityForOthersDomain>0-15</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-15">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-3</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-115">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
-					<ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain>0-18</ferc:OtherAdjustmentsToCashFlowsFromOperatingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-36">
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityByOthersAxis">
+					<ferc:TransmissionOfElectricityByOthersDomain>0-2</ferc:TransmissionOfElectricityByOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-02">
     <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-7</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-37">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-7</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-42">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-12</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-57">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
-					<ferc:OtherRegulatoryAssetsDomain>0-21</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-26_2">
-    <xbrli:entity>
-      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
-        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:OtherUtility2Member</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-84">
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-68">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-13</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+					<ferc:OtherRegulatoryLiabilityDomain>0-2</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-78">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-9</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-74">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-5</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-47">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-15</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-26_5">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:GasUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="s-114">
+        <xbrli:entity>
+            <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+                <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
+                    <ferc:ScheduleRemarksDomain>ScheduleStatementOfIncomeAbstract</ferc:ScheduleRemarksDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+            <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-26_3">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:OtherUtility3Member</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-08">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsPreferredStockAxis">
+					<ferc:RetainedEarningsPreferredStockDomain>0-24</ferc:RetainedEarningsPreferredStockDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-101">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-11</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-25">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-10.01">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
+					<ferc:RetainedEarningsDomain>0-40</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-26_2">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:OtherUtility2Member</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-60">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-23</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-69">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-2</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
       <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-82">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
 					<ferc:OtherRegulatoryLiabilityDomain>0-12</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-80">
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-86">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
-					<ferc:OtherRegulatoryLiabilityDomain>0-10</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+					<ferc:OtherRegulatoryLiabilityDomain>0-16</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-96">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-6</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-136">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:OtherProductionPlantMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-62">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-25</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="s-118">
+        <xbrli:entity>
+            <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+                <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
+                    <ferc:ScheduleRemarksDomain>ScheduleRetainedEarningsAbstract</ferc:ScheduleRemarksDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+            <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-12">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-50">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-17</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-76">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-7</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-59">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-23</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-99">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-9</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-61">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-25</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-46">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-15</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-98">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-8</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-103">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-13</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-137">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:TransmissionPlantMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-10.1">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
+					<ferc:RetainedEarningsDomain>0-39</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-109">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-19</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-22">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesAxis">
+					<ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesDomain>0-67</ferc:OtherAdjustmentsByOutsideSourcesToCashFlowsFromFinancingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="s-120">
+        <xbrli:entity>
+            <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+                <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
+                    <ferc:ScheduleRemarksDomain>ScheduleStatementOfCashFlowsAbstract</ferc:ScheduleRemarksDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+            <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-10">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsCommonStockAxis">
+					<ferc:RetainedEarningsCommonStockDomain>0-31</ferc:RetainedEarningsCommonStockDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-75">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-7</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-100">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-10</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="s-110">
+      <xbrli:entity>
+          <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+              <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
+                  <ferc:ScheduleRemarksDomain>ScheduleComparativeBalanceSheetAbstract</ferc:ScheduleRemarksDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+          <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-06">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-29">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-2</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
       <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-71">
     <xbrli:entity>
       <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
         <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
 					<ferc:OtherRegulatoryLiabilityDomain>0-4</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
-      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:unit id="u-02">
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-135">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:HydraulicProductionPlantConventionalMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-79">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-10</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-26_4">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:CommonUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-10.02">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
+					<ferc:RetainedEarningsDomain>0-40</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-14">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
+					<ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain>0-5</ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-107">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-17</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-10.2">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
+					<ferc:RetainedEarningsDomain>0-39</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-44">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-13</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-302_2">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RegionalTransmissionServiceRevenuesAxis">
+					<ferc:RegionalTransmissionServiceRevenuesDomain>0-2</ferc:RegionalTransmissionServiceRevenuesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-83">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-13</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-89">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-18</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-67">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-1</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-10.001">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
+					<ferc:RetainedEarningsDomain>0-41</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-302_1">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RegionalTransmissionServiceRevenuesAxis">
+					<ferc:RegionalTransmissionServiceRevenuesDomain>0-1</ferc:RegionalTransmissionServiceRevenuesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-138">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:DistributionPlantMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-36">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-7</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-94">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-4</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="s-108">
+      <xbrli:entity>
+          <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+              <xbrldi:typedMember dimension="ferc:ScheduleRemarksAxis">
+                  <ferc:ScheduleRemarksDomain>ScheduleImportantChangesDuringTheQuarterYearAbstract</ferc:ScheduleRemarksDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+          <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-231_6">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:GenerationStudiesMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-13">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesAxis">
+					<ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain>0-5</ferc:NoncashAdjustmentsToCashFlowsFromOperatingActivitiesDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-104">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-14</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-92">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-2</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-09">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsPreferredStockAxis">
+					<ferc:RetainedEarningsPreferredStockDomain>0-24</ferc:RetainedEarningsPreferredStockDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-102">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-12</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-58">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-23</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-140">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:AmountsIncludedInIsoOrRtoSettlementStatementsAxis">
+					<ferc:AmountsIncludedInIsoOrRtoSettlementStatementsDomain>0-7</ferc:AmountsIncludedInIsoOrRtoSettlementStatementsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-88">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-16</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-146">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:MonthAxis">ferc:Quarter1Member</xbrldi:explicitMember><xbrldi:typedMember dimension="ferc:NameOfTransmissionSystemAxis">
+					<ferc:NameOfTransmissionSystemDomain>0</ferc:NameOfTransmissionSystemDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-03">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-70">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-2</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-84">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-13</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-331_2">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityByIsosOrRtosAxis">
+					<ferc:TransmissionOfElectricityByIsosOrRtosDomain>0-2</ferc:TransmissionOfElectricityByIsosOrRtosDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-142">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:AmountsIncludedInIsoOrRtoSettlementStatementsAxis">
+					<ferc:AmountsIncludedInIsoOrRtoSettlementStatementsDomain>0-9</ferc:AmountsIncludedInIsoOrRtoSettlementStatementsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-33">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-5</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-331_1">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityByIsosOrRtosAxis">
+					<ferc:TransmissionOfElectricityByIsosOrRtosDomain>0-1</ferc:TransmissionOfElectricityByIsosOrRtosDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-63">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-25</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-26">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:OtherUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-118.93">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsAdjustmentsAxis">
+					<ferc:RetainedEarningsAdjustmentDomain>0-1</ferc:RetainedEarningsAdjustmentDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-38">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-9</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-231_5">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:TransmissionStudiesMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-11.1">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
+					<ferc:RetainedEarningsDomain>0-39</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-105">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-15</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-141">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:AmountsIncludedInIsoOrRtoSettlementStatementsAxis">
+					<ferc:AmountsIncludedInIsoOrRtoSettlementStatementsDomain>0-8</ferc:AmountsIncludedInIsoOrRtoSettlementStatementsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-51">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-17</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-231_2">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis">
+					<ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain>0-3</ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain></xbrldi:typedMember><xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:TransmissionStudiesMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-81">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-10</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-11">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsCommonStockAxis">
+					<ferc:RetainedEarningsCommonStockDomain>0-31</ferc:RetainedEarningsCommonStockDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2017-01-01</xbrli:startDate><xbrli:endDate>2017-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-80">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-10</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-11.001">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:RetainedEarningsAxis">
+					<ferc:RetainedEarningsDomain>0-41</ferc:RetainedEarningsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-90">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryLiabilityAxis">
+					<ferc:OtherRegulatoryLiabilityDomain>0-18</ferc:OtherRegulatoryLiabilityDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-95">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionOfElectricityForOthersAxis">
+					<ferc:TransmissionOfElectricityForOthersDomain>0-5</ferc:TransmissionOfElectricityForOthersDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-133_4">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:FunctionalClassificationAxis">ferc:CommonPlantElectricMember</xbrldi:explicitMember><xbrldi:explicitMember dimension="ferc:UtilityTypeAxis">ferc:ElectricUtilityMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-231_1">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsAxis">
+					<ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain>0-2</ferc:TransmissionServiceAndGenerationInterconnectionStudyCostsDomain></xbrldi:typedMember><xbrldi:explicitMember dimension="ferc:StudyTypeAxis">ferc:TransmissionStudiesMember</xbrldi:explicitMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-143">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:explicitMember dimension="ferc:MonthAxis">ferc:JanuaryMember</xbrldi:explicitMember><xbrldi:typedMember dimension="ferc:NameOfTransmissionSystemAxis">
+					<ferc:NameOfTransmissionSystemDomain>0</ferc:NameOfTransmissionSystemDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:startDate>2018-01-01</xbrli:startDate><xbrli:endDate>2018-03-31</xbrli:endDate></xbrli:period></xbrli:context><xbrli:context id="c-56">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-21</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2018-03-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-54">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier><xbrli:segment>
+        <xbrldi:typedMember dimension="ferc:OtherRegulatoryAssetsAxis">
+					<ferc:OtherRegulatoryAssetsDomain>0-19</ferc:OtherRegulatoryAssetsDomain></xbrldi:typedMember></xbrli:segment></xbrli:entity><xbrli:period>
+      <xbrli:instant>2017-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="c-07">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://www.ferc.gov/CID">C001552</xbrli:identifier></xbrli:entity><xbrli:period>
+      <xbrli:instant>2016-12-31</xbrli:instant></xbrli:period></xbrli:context><xbrli:unit id="u-02">
     <xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit><xbrli:unit id="u-03">
-    <xbrli:measure>utr:MWh</xbrli:measure></xbrli:unit><xbrli:unit id="u-04">
-    <xbrli:measure>utr:MW</xbrli:measure></xbrli:unit><xbrli:unit id="u-01">
-    <xbrli:measure>xbrli:pure</xbrli:measure></xbrli:unit><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-373-dup-1" toRefs="fn-f-373-dup-1-t10-n0"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-375-dup-1" toRefs="fn-f-375-dup-1-t10-n1"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-390-dup-1" toRefs="fn-f-390-dup-1-t10-n2"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-392-dup-1" toRefs="fn-f-392-dup-1-t10-n3"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-394-dup-1" toRefs="fn-f-394-dup-1-t10-n4"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-396-dup-1" toRefs="fn-f-396-dup-1-t10-n5"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-399-dup-1" toRefs="fn-f-399-dup-1-t10-n6"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-401-dup-1" toRefs="fn-f-401-dup-1-t10-n7"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-405-dup-1" toRefs="fn-f-405-dup-1-t10-n8"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-420-dup-1" toRefs="fn-f-420-dup-1-t10-n9"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-374-dup-1" toRefs="fn-f-374-dup-1-t10-n10"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-376-dup-1" toRefs="fn-f-376-dup-1-t10-n11"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-391-dup-1" toRefs="fn-f-391-dup-1-t10-n12"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-393-dup-1" toRefs="fn-f-393-dup-1-t10-n13"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-395-dup-1" toRefs="fn-f-395-dup-1-t10-n14"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-397-dup-1" toRefs="fn-f-397-dup-1-t10-n15"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-402-dup-1" toRefs="fn-f-402-dup-1-t10-n16"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-406-dup-1" toRefs="fn-f-406-dup-1-t10-n17"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-418-dup-1" toRefs="fn-f-418-dup-1-t10-n18"></ix:relationship></ix:resources></ix:header></div><div class="xbrl">
+    <xbrli:measure>utr:MWh</xbrli:measure></xbrli:unit><xbrli:unit id="u-01">
+    <xbrli:measure>xbrli:pure</xbrli:measure></xbrli:unit><xbrli:unit id="u-04">
+    <xbrli:measure>utr:MW</xbrli:measure></xbrli:unit><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-373-dup-1" toRefs="fn-f-373-dup-1-t10-n0"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-375-dup-1" toRefs="fn-f-375-dup-1-t10-n1"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-390-dup-1" toRefs="fn-f-390-dup-1-t10-n2"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-392-dup-1" toRefs="fn-f-392-dup-1-t10-n3"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-394-dup-1" toRefs="fn-f-394-dup-1-t10-n4"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-396-dup-1" toRefs="fn-f-396-dup-1-t10-n5"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-399-dup-1" toRefs="fn-f-399-dup-1-t10-n6"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-401-dup-1" toRefs="fn-f-401-dup-1-t10-n7"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-405-dup-1" toRefs="fn-f-405-dup-1-t10-n8"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-420-dup-1" toRefs="fn-f-420-dup-1-t10-n9"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-374-dup-1" toRefs="fn-f-374-dup-1-t10-n10"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-376-dup-1" toRefs="fn-f-376-dup-1-t10-n11"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-391-dup-1" toRefs="fn-f-391-dup-1-t10-n12"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-393-dup-1" toRefs="fn-f-393-dup-1-t10-n13"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-395-dup-1" toRefs="fn-f-395-dup-1-t10-n14"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-397-dup-1" toRefs="fn-f-397-dup-1-t10-n15"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-402-dup-1" toRefs="fn-f-402-dup-1-t10-n16"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-406-dup-1" toRefs="fn-f-406-dup-1-t10-n17"></ix:relationship><ix:relationship arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote" linkRole="http://www.xbrl.org/2003/role/link" fromRefs="f-418-dup-1" toRefs="fn-f-418-dup-1-t10-n18"></ix:relationship></ix:resources></ix:header></div><div class="xbrl">
         <table width="100%">
             <tr>
                 <td class="cell-top">
@@ -9766,6 +9793,52 @@ offering shippers enhanced connectivity and service optionality in the New York 
 
     <tr class="schedule-row">
             <td class="xbrl line-number">
+                        <div class="sub-value sub-replacement">4.1</div></td> 
+                    <td class="xbrl description_items">
+                            <div class="tooltip">
+                                    <div class="tooltiptext">
+                                            <div class="sub-value sub-replacement">AdjustmentsToRetainedEarningsCredit</div></div>
+                            <div class="sub-value sub-replacement"><div class="xbrl fact"><ix:nonNumeric contextRef="c-118.91" name="ferc:AdjustmentsToRetainedEarningsCreditDescription">Adjustment Credit 1</ix:nonNumeric></div></div></div>
+                    </td> 
+
+                     
+                     <td class="account-number xbrl">
+                        <div class="sub-value sub-replacement"><div class="xbrl fact"><ix:nonNumeric contextRef="c-118.91" name="ferc:AdjustmentsToRetainedEarningsCreditContraPrimaryAccountAffected">123</ix:nonNumeric></div></div></td> 
+
+                  
+                    <td class="xbrl monetary_items">
+                            <div class="sub-value sub-replacement"><div class="unit unit-USD xbrl fact"><div class="sign sign-postive"><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-118.91" name="ferc:AdjustmentsToRetainedEarningsCredit" format="ixt4:num-dot-decimal">100</ix:nonFraction></div></div></div></td> 
+                    
+                    <td class="xbrl monetary_items">
+                            <div class="sub-value sub-replacement"><div class="unit unit-USD xbrl fact"><div class="sign sign-postive"><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-118.93" name="ferc:AdjustmentsToRetainedEarningsCredit" format="ixt4:num-dot-decimal">200</ix:nonFraction></div></div></div></td> 
+    
+    </tr>
+
+    <tr class="schedule-row">
+            <td class="xbrl line-number">
+                        <div class="sub-value sub-replacement">4.2</div></td> 
+                    <td class="xbrl description_items">
+                            <div class="tooltip">
+                                    <div class="tooltiptext">
+                                            <div class="sub-value sub-replacement">AdjustmentsToRetainedEarningsCredit</div></div>
+                            <div class="sub-value sub-replacement"><div class="xbrl fact"><ix:nonNumeric contextRef="c-118.92" name="ferc:AdjustmentsToRetainedEarningsCreditDescription">Adjustment Credit 2</ix:nonNumeric></div></div></div>
+                    </td> 
+
+                     
+                     <td class="account-number xbrl">
+                        <div class="sub-value sub-replacement"><div class="xbrl fact"><ix:nonNumeric contextRef="c-118.92" name="ferc:AdjustmentsToRetainedEarningsCreditContraPrimaryAccountAffected">321</ix:nonNumeric></div></div></td> 
+
+                  
+                    <td class="xbrl monetary_items">
+                            <div class="sub-value sub-replacement"><div class="unit unit-USD xbrl fact"><div class="sign sign-negative"><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-118.92" name="ferc:AdjustmentsToRetainedEarningsCredit" format="ixt4:num-dot-decimal" sign="-">100</ix:nonFraction></div></div></div></td> 
+                    
+                    <td class="xbrl monetary_items">
+                            <div class="sub-value sub-replacement"><div class="unit unit-USD xbrl fact"><div class="sign sign-negative"><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-118.94" name="ferc:AdjustmentsToRetainedEarningsCredit" format="ixt4:num-dot-decimal" sign="-">200</ix:nonFraction></div></div></div></td> 
+    
+    </tr>
+
+    <tr class="schedule-row">
+            <td class="xbrl line-number">
                         <div class="sub-value sub-replacement">9</div></td> 
                     <td class="xbrl description_items">
                             <div class="tooltip">
@@ -9780,10 +9853,10 @@ offering shippers enhanced connectivity and service optionality in the New York 
 
                   
                     <td class="xbrl monetary_items">
-                            <div class="sub-value sub-no-replacement"></div></td> 
+                            <div class="sub-value sub-replacement"><div class="unit unit-USD xbrl fact"><div class="sign sign-zero"><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-01" name="ferc:AdjustmentsToRetainedEarningsCredit" format="ixt4:num-dot-decimal">0</ix:nonFraction></div></div></div></td> 
                     
                     <td class="xbrl monetary_items">
-                            <div class="sub-value sub-no-replacement"></div></td> 
+                            <div class="sub-value sub-replacement"><div class="unit unit-USD xbrl fact"><div class="sign sign-zero"><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-05" name="ferc:AdjustmentsToRetainedEarningsCredit" format="ixt4:num-dot-decimal">0</ix:nonFraction></div></div></div></td> 
     
     </tr>
 
@@ -9812,6 +9885,52 @@ offering shippers enhanced connectivity and service optionality in the New York 
 
     <tr class="schedule-row">
             <td class="xbrl line-number">
+                        <div class="sub-value sub-replacement">10.1</div></td> 
+                    <td class="xbrl description_items">
+                            <div class="tooltip">
+                                    <div class="tooltiptext">
+                                            <div class="sub-value sub-replacement">AdjustmentsToRetainedEarningsDebit</div></div>
+                            <div class="sub-value sub-no-replacement"></div></div>
+                    </td> 
+
+                     
+                     <td class="account-number xbrl">
+                        <div class="sub-value sub-no-replacement"></div></td> 
+
+                  
+                    <td class="xbrl monetary_items">
+                            <div class="sub-value sub-no-replacement"></div></td> 
+                    
+                    <td class="xbrl monetary_items">
+                            <div class="sub-value sub-no-replacement"></div></td> 
+    
+    </tr>
+
+    <tr class="schedule-row">
+            <td class="xbrl line-number">
+                        <div class="sub-value sub-replacement">10.2</div></td> 
+                    <td class="xbrl description_items">
+                            <div class="tooltip">
+                                    <div class="tooltiptext">
+                                            <div class="sub-value sub-replacement">AdjustmentsToRetainedEarningsDebit</div></div>
+                            <div class="sub-value sub-no-replacement"></div></div>
+                    </td> 
+
+                     
+                     <td class="account-number xbrl">
+                        <div class="sub-value sub-no-replacement"></div></td> 
+
+                  
+                    <td class="xbrl monetary_items">
+                            <div class="sub-value sub-no-replacement"></div></td> 
+                    
+                    <td class="xbrl monetary_items">
+                            <div class="sub-value sub-no-replacement"></div></td> 
+    
+    </tr>
+
+    <tr class="schedule-row">
+            <td class="xbrl line-number">
                         <div class="sub-value sub-replacement">15</div></td> 
                     <td class="xbrl description_items">
                             <div class="tooltip">
@@ -9826,10 +9945,10 @@ offering shippers enhanced connectivity and service optionality in the New York 
 
                   
                     <td class="xbrl monetary_items">
-                            <div class="sub-value sub-no-replacement"></div></td> 
+                            <div class="sub-value sub-replacement"><div class="unit unit-USD xbrl fact"><div class="sign sign-zero"><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-01" name="ferc:AdjustmentsToRetainedEarningsDebit" format="ixt4:num-dot-decimal">0</ix:nonFraction></div></div></div></td> 
                     
                     <td class="xbrl monetary_items">
-                            <div class="sub-value sub-no-replacement"></div></td> 
+                            <div class="sub-value sub-replacement"><div class="unit unit-USD xbrl fact"><div class="sign sign-zero"><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-05" name="ferc:AdjustmentsToRetainedEarningsDebit" format="ixt4:num-dot-decimal">0</ix:nonFraction></div></div></div></td> 
     
     </tr>
 
@@ -9895,10 +10014,10 @@ offering shippers enhanced connectivity and service optionality in the New York 
 
                   
                     <td class="xbrl monetary_items">
-                            <div class="sub-value sub-no-replacement"></div></td> 
+                            <div class="sub-value sub-replacement"><div class="unit unit-USD xbrl fact"><div class="sign sign-zero"><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-01" name="ferc:AppropriationsOfRetainedEarnings" format="ixt4:num-dot-decimal">0</ix:nonFraction></div></div></div></td> 
                     
                     <td class="xbrl monetary_items">
-                            <div class="sub-value sub-no-replacement"></div></td> 
+                            <div class="sub-value sub-replacement"><div class="unit unit-USD xbrl fact"><div class="sign sign-zero"><ix:nonFraction unitRef="u-02" decimals="INF" contextRef="c-05" name="ferc:AppropriationsOfRetainedEarnings" format="ixt4:num-dot-decimal">0</ix:nonFraction></div></div></div></td> 
     
     </tr>
 

@@ -322,3 +322,22 @@ Rule Id:{$rule_id}"
 
 severity error
 rule-focus $voltage_facts
+
+assert F714.all.14 satisfied 
+$rule_id = rule-name();
+
+$TimeZones = list('EST','EDT','CST','CDT','MST','MDT','PST','PDT','HST','AKT','AKDT')
+$InvalidTimeZone = {@concept = TimeZone where $fact not in $TimeZones};
+exists($InvalidTimeZone)
+
+message
+
+"The concept TimeZone has a value of {$InvalidTimeZone}. This is an invalid value.  The time zone must have a value of one of the following {$TimeZones.join(', ')}.
+
+Element : {$InvalidTimeZone.concept.name}
+Period : {$InvalidTimeZone.period}
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $InvalidTimeZone

@@ -5,7 +5,7 @@ To render forms using the Arelle processor, the XULE plugin and FERC render plug
 ## <a name="deploying"></a>Deploying the FERC eForms renderer plugin for Arelle
 ### Windows/Mac/Linux Application Install
 1. Download the latest version of [Arelle](http://arelle.org/pub/) to your environment and install. 
-2. Download the latest release archive of the [FERC Renderer plugin](../../releases) 
+2. Download the latest [XULE release](https://github.com/xbrlus/xule/releases) 
 3. Extract the archive and copy the ```plugin/xule``` folder and files and ```plugin/FERC``` folder and files to the plugin directory of Arelle in your environment (if prompted, overwrite files in the existing xule subfolder). In a Windows environment, this would be located on a path similar to C:\Program Files\Arelle\plugin; on a Mac, the location would be at /Applications/Arelle.app/Contents/MacOS/plugin. 
 
 ### Source Install
@@ -16,7 +16,7 @@ To render forms using the Arelle processor, the XULE plugin and FERC render plug
   * numpy
 * Follow steps 2 and 3 from the **Windows/Mac/Linux Application Install** section above to add the xule and FERC plugin folders and files to the plugin directory of Arelle. The Arelle location is where the Arelle source code from GitHub was extracted on the local machine or server. The Arelle plugin foler is at ```arelle/plugin``` in the source distribution. For *step 2*, add the xule and FERC folders and files to the ```arelle/plugin``` folder.
 
-The FERC plugin requires **Python 3.9** or later and is **not compatible with earlier versions of Python**.
+The FERC plugin requires **Python 3.10** or later and is **not compatible with earlier versions of Python**.
 
 ## Rendering a Filing
 
@@ -41,7 +41,7 @@ The templates can also be used from this repository with the Arelle command belo
 
 ### Arelle Commands to render the filing
 The command to generate a rendered filing is as follows (exclude the _{location}_ text - this is illustrative of which file is referenced):
-`python3 Arelle-master/arellecmdline.py --plugin FERC/render --ferc-render-render --ferc-render-template-set {location of template}https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_1.zip -f {location of instance}/AepAppalachianTransmissionCompanyInc-436-2018Q1F1.xbrl' --ferc-render-inline {location of output}/MyCompanyInc-2020Q1-combined.html --noCertificateCheck --ferc-render-debug`
+`python3 Arelle-master/arellecmdline.py --plugin FERC/render --ferc-render-render --ferc-render-template-set {location of template}https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates/Form_1.zip -f {location of instance}/sample.xbrl' --ferc-render-inline {location of output}/sample-combined.html --noCertificateCheck --ferc-render-debug`
 
 This will refer to an external CSS file in the template. To include the css file in the rendered file the following options are used:
 
@@ -61,7 +61,7 @@ This will refer to an external CSS file in the template. To include the css file
 These two options should be used by default.  To include FERC rendering CSS styles from the template in the head your rendered HTML, use ``--ferc-render-css-file = form-template.css`` along with the ``--ferc-render-inline-css`` command.  Excluding the ``--ferc-render-inline-css`` will generate a separate CSS file linked within the HTML. All FERC rendering templates use **form-template.css** as the default name for CSS files.
 
 ### Arelle Commands to render the HTML without an instance
-`.\arellecmdline.exe --plugin FERC/render --ferc-render-render --ferc-render-template-set https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates_Form_1.zip -f https://ecollection.ferc.gov/taxonomy/form1/2023-04-01/form/form1/form-1_2023-04-01.xsd --ferc-render-css-file {Location of CSS - this is in Arelle's FERC plugin folder}form-template.css --ferc-render-inline-css --ferc-render-inline {Location of output}/inline.html --noCertificateCheck --ferc-render-debug`
+`.\arellecmdline.exe --plugin FERC/render --ferc-render-render --ferc-render-template-set https://github.com/xbrlus/ferc-renderer/raw/master/RenderingTemplates_Form_1.zip -f https://ecollection.ferc.gov/taxonomy/form1/2024-04-01/form/form1/form-1_2024-04-01.xsd --ferc-render-css-file {Location of CSS - this is in Arelle's FERC plugin folder}form-template.css --ferc-render-inline-css --ferc-render-inline {Location of output}/inline.html --noCertificateCheck --ferc-render-debug`
 
 ## Validating a Filing
 FERC forms are validated during the submission process with a series of checks.  These validations can also be downloaded from [the repository's `ValidationRulesets' directory](ValidationRulesets/) and invoked as .zip files using Arelle and the xule processor *version 3.0.23570* or later. The command to validate a filing is as follows (exclude the _{location}_ text - this is illustrative of which file is referenced):

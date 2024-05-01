@@ -4,6 +4,8 @@ python3.9 ~/arelle/Arelle-master/arellecmdline.py --plugin xendr --xendr-combine
 
 python3.9 ~/arelle/Arelle-master/arellecmdline.py --plugin xendr --xendr-render --xendr-template-set '/Users/campbellpryde/Documents/GitHub/ferc-renderer/RenderingTemplates/form1_combined.zip' -f '/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F1/Sample_Form_1.xbrl' --xendr-inline /Users/campbellpryde/Documents/GitHub/ferc-renderer/RenderedInstance/F1/SampleForms/Sample_Form_1.html --xendr-debug --xendr-show-xule-log
 
+python3 ~/arelle/Arelle-master/arellecmdline.py --plugin 'xendr|xule' --xendr-render --xendr-template-set '/Users/campbellpryde/Documents/GitHub/ferc-renderer/RenderingTemplates/form1_combined.zip' -f '/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F1/Sample_Form_1.xbrl' --xendr-inline /Users/campbellpryde/Documents/GitHub/ferc-renderer/RenderedInstance/F1/SampleForms/Sample_Form_1.html --xendr-debug --xendr-show-xule-log
+
 python3 ~/arelle/Arelle-master/arellecmdline.py --plugin 'xendr' --xendr-render --noCertificateCheck --xendr-template-set '/Users/campbellpryde/Documents/GitHub/ferc-renderer/RenderingTemplates/TemplateSets/Form1/Form1/Form 1 - 256 - Long-Term Debt.zip'  -f /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F1/Sample_Form_1.xbrl --xendr-inline '/Users/campbellpryde/Documents/GitHub/ferc-renderer/RenderedInstance/F1/SampleForms/Sample_Form_1-256.html'  --xendr-debug --xendr-show-xule-log --xule-arg current-start=2018-01-01 --xule-arg current-end=2018-12-31 --xule-arg $prior-start=2017-01-01 --xule-arg prior-end=2017-12-31 --xule-arg prior2-start=2016-01-01 --xule-arg prior2-end==2016-12-31
 
 

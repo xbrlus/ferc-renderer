@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<log>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in XBRL rule processor (xule) successful, version Check version using Tools->Xule->Version on the GUI or --xule-version on the command line. - xule </message>
+ <ref href="xule"/></entry>
+<entry code="info" level="info">
+ <message>[info] Xule version: 3.0.23735 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] loaded in 0.99 secs at 2024-05-02T13:38:51 - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="report-year-guess" level="info">
+ <message alignment="None" name="report-year-guess">[report-year-guess] 2018-12-31 - </message>
+ <ref href=""/></entry>
+<entry code="report-year-guess" level="info">
+ <message alignment="None" name="report-year-guess">[report-year-guess] 2018-12-31 - </message>
+ <ref href=""/></entry>
+<entry code="report-year-guess" level="info">
+ <message alignment="None" name="report-year-guess">[report-year-guess] 2018-12-31 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 37.31 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 37.31 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 37.31 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+</log>
+<?xml version="1.0" encoding="utf-8"?>
+<log>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in XBRL rule processor (xule) successful, version Check version using Tools->Xule->Version on the GUI or --xule-version on the command line. - xule </message>
+ <ref href="xule"/></entry>
+<entry code="info" level="info">
+ <message>[info] Xule version: 3.0.23735 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] loaded in 0.98 secs at 2024-05-02T13:40:00 - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="report-year-guess" level="info">
+ <message alignment="None" name="report-year-guess">[report-year-guess] 2018-12-31 - </message>
+ <ref href=""/></entry>
+<entry code="report-year-guess" level="info">
+ <message alignment="None" name="report-year-guess">[report-year-guess] 2018-12-31 - </message>
+ <ref href=""/></entry>
+<entry code="report-year-guess" level="info">
+ <message alignment="None" name="report-year-guess">[report-year-guess] 2018-12-31 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 33.62 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 33.62 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 33.62 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+</log>
+<?xml version="1.0" encoding="utf-8"?>
+<log>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in XBRL rule processor (xule) successful, version Check version using Tools->Xule->Version on the GUI or --xule-version on the command line. - xule </message>
+ <ref href="xule"/></entry>
+<entry code="info" level="info">
+ <message>[info] Xule version: 3.0.23735 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] loaded in 1.02 secs at 2024-05-02T13:41:02 - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="report-year-guess" level="info">
+ <message alignment="None" name="report-year-guess">[report-year-guess] 2018-12-31 - </message>
+ <ref href=""/></entry>
+<entry code="report-year-guess" level="info">
+ <message alignment="None" name="report-year-guess">[report-year-guess] 2018-12-31 - </message>
+ <ref href=""/></entry>
+<entry code="report-year-guess" level="info">
+ <message alignment="None" name="report-year-guess">[report-year-guess] 2018-12-31 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 33.47 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 33.47 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 33.47 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+</log>
+<?xml version="1.0" encoding="utf-8"?>
+<log>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in XBRL rule processor (xule) successful, version Check version using Tools->Xule->Version on the GUI or --xule-version on the command line. - xule </message>
+ <ref href="xule"/></entry>
+<entry code="info" level="info">
+ <message>[info] Xule version: 3.0.23735 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] loaded in 0.98 secs at 2024-05-02T13:46:46 - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="report-year-guess" level="info">
+ <message alignment="None" name="report-year-guess">[report-year-guess] 2018-12-31 - </message>
+ <ref href=""/></entry>
+<entry code="report-year-guess" level="info">
+ <message alignment="None" name="report-year-guess">[report-year-guess] 2018-12-31 - </message>
+ <ref href=""/></entry>
+<entry code="report-year-guess" level="info">
+ <message alignment="None" name="report-year-guess">[report-year-guess] 2018-12-31 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 35.21 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 35.21 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 35.21 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+</log>
+<?xml version="1.0" encoding="utf-8"?>
+<log>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in XBRL rule processor (xule) successful, version Check version using Tools->Xule->Version on the GUI or --xule-version on the command line. - xule </message>
+ <ref href="xule"/></entry>
+<entry code="info" level="info">
+ <message>[info] Xule version: 3.0.23735 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] loaded in 0.99 secs at 2024-05-02T13:47:38 - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="report-year-guess" level="info">
+ <message alignment="None" name="report-year-guess">[report-year-guess] 2018-12-31 - </message>
+ <ref href=""/></entry>
+<entry code="report-year-guess" level="info">
+ <message alignment="None" name="report-year-guess">[report-year-guess] 2018-12-31 - </message>
+ <ref href=""/></entry>
+<entry code="report-year-guess" level="info">
+ <message alignment="None" name="report-year-guess">[report-year-guess] 2018-12-31 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 35.83 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 35.83 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 35.83 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+</log>
+<?xml version="1.0" encoding="utf-8"?>
+<log>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in XBRL rule processor (xule) successful, version Check version using Tools->Xule->Version on the GUI or --xule-version on the command line. - xule </message>
+ <ref href="xule"/></entry>
+<entry code="info" level="info">
+ <message>[info] Xule version: 3.0.23735 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] loaded in 1.03 secs at 2024-05-02T13:48:29 - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 15.22 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+</log>
+<?xml version="1.0" encoding="utf-8"?>
+<log>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in XBRL rule processor (xule) successful, version Check version using Tools->Xule->Version on the GUI or --xule-version on the command line. - xule </message>
+ <ref href="xule"/></entry>
+<entry code="info" level="info">
+ <message>[info] Xule version: 3.0.23735 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] loaded in 118.69 secs at 2024-05-02T16:22:47 - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+<entry code="info" level="info">
+ <message>[info] validated in 15.63 secs - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+</log>
+<?xml version="1.0" encoding="utf-8"?>
+<log>
+<entry code="info" level="info">
+ <message>[info] Activation of plug-in XBRL rule processor (xule) successful, version Check version using Tools->Xule->Version on the GUI or --xule-version on the command line. - xule </message>
+ <ref href="xule"/></entry>
+<entry code="info" level="info">
+ <message>[info] Xule version: 3.0.23735 - </message>
+ <ref href=""/></entry>
+<entry code="info" level="info">
+ <message>[info] loaded in 0.99 secs at 2024-05-02T16:27:01 - /Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl </message>
+ <ref href="/Users/campbellpryde/Documents/GitHub/ferc-renderer/SampleInstances/F6/Sample_Form_6.xbrl"/></entry>
+</log>

@@ -1,0 +1,59 @@
+{
+    "http://ferc.gov/form/2024-04-01/types": [
+        {
+            "localName": "transmissionLineConstructionItemType",
+            "type": "Type",
+            "label": "transmissionLineConstructionItemType"
+        },
+        {
+            "localName": "formItemType",
+            "type": "Type",
+            "label": "formItemType"
+        },
+        {
+            "localName": "formTypeItemType",
+            "type": "Type",
+            "label": "formTypeItemType"
+        },
+        {
+            "localName": "ShareholdersReportSubmittedItemType",
+            "type": "Type",
+            "label": "ShareholdersReportSubmittedItemType"
+        },
+        {
+            "localName": "reportPeriodItemType",
+            "type": "Type",
+            "label": "reportPeriodItemType"
+        },
+        {
+            "localName": "statesOfUnitedStatesItemType",
+            "type": "Type",
+            "label": "statesOfUnitedStatesItemType"
+        },
+        {
+            "localName": "MajorNonmajorType",
+            "type": "Type",
+            "label": "MajorNonmajorType"
+        },
+        {
+            "localName": "taxTypeItemType",
+            "type": "Type",
+            "label": "taxTypeItemType"
+        },
+        {
+            "localName": "scheduleItemType",
+            "type": "Type",
+            "label": "scheduleItemType"
+        },
+        {
+            "localName": "submissionItemType",
+            "type": "Type",
+            "label": "submissionItemType"
+        },
+        {
+            "localName": "plantGenerationType",
+            "type": "Type",
+            "label": "plantGenerationType"
+        }
+    ]
+}

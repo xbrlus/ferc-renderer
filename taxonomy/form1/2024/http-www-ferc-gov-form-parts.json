@@ -1,0 +1,137 @@
+{
+    "http://www.ferc.gov/form/parts": [
+        {
+            "localName": "Sign",
+            "type": "Reference",
+            "label": "Sign",
+            "isAbstract": "false",
+            "dataType": "parts:Sign@anonymousType"
+        },
+        {
+            "localName": "ScheduleRole",
+            "type": "Reference",
+            "label": "ScheduleRole",
+            "isAbstract": "false",
+            "dataType": "anyURI"
+        },
+        {
+            "localName": "ElementName",
+            "type": "Reference",
+            "label": "ElementName",
+            "isAbstract": "false",
+            "dataType": "token"
+        },
+        {
+            "localName": "DoNotConvert",
+            "type": "Reference",
+            "label": "DoNotConvert",
+            "isAbstract": "false",
+            "dataType": "token"
+        },
+        {
+            "localName": "ColumnName",
+            "type": "Reference",
+            "label": "ColumnName",
+            "isAbstract": "false",
+            "dataType": "token"
+        },
+        {
+            "localName": "MemberValue",
+            "type": "Reference",
+            "label": "MemberValue",
+            "isAbstract": "false",
+            "dataType": "string"
+        },
+        {
+            "localName": "RowStart",
+            "type": "Reference",
+            "label": "RowStart",
+            "isAbstract": "false",
+            "dataType": "token"
+        },
+        {
+            "localName": "SequenceDimension",
+            "type": "Reference",
+            "label": "SequenceDimension",
+            "isAbstract": "false",
+            "dataType": "anyURI"
+        },
+        {
+            "localName": "Account",
+            "type": "Reference",
+            "label": "Account",
+            "isAbstract": "false",
+            "dataType": "token"
+        },
+        {
+            "localName": "FixedMember",
+            "type": "Reference",
+            "label": "FixedMember",
+            "isAbstract": "false",
+            "dataType": "string"
+        },
+        {
+            "localName": "Period",
+            "type": "Reference",
+            "label": "Period",
+            "isAbstract": "false",
+            "dataType": "parts:Period@anonymousType"
+        },
+        {
+            "localName": "Column",
+            "type": "Reference",
+            "label": "Column",
+            "isAbstract": "false",
+            "dataType": "token"
+        },
+        {
+            "localName": "Schedule",
+            "type": "Reference",
+            "label": "Schedule",
+            "isAbstract": "false",
+            "dataType": "token"
+        },
+        {
+            "localName": "SequenceRole",
+            "type": "Reference",
+            "label": "SequenceRole",
+            "isAbstract": "false",
+            "dataType": "anyURI"
+        },
+        {
+            "localName": "Row",
+            "type": "Reference",
+            "label": "Row",
+            "isAbstract": "false",
+            "dataType": "token"
+        },
+        {
+            "localName": "RowEnd",
+            "type": "Reference",
+            "label": "RowEnd",
+            "isAbstract": "false",
+            "dataType": "token"
+        },
+        {
+            "localName": "Form",
+            "type": "Reference",
+            "label": "Form",
+            "isAbstract": "false",
+            "dataType": "token"
+        },
+        {
+            "localName": "ValueType",
+            "type": "Reference",
+            "label": "ValueType",
+            "isAbstract": "false",
+            "dataType": "parts:ValueType@anonymousType"
+        },
+        {
+            "localName": "Dimension",
+            "type": "Reference",
+            "label": "Dimension",
+            "isAbstract": "false",
+            "dataType": "token"
+        }
+    ]
+}

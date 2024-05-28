@@ -1,0 +1,71 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.233.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MiscellaneousDeferredDebitsExcludingMiscellaneousWorkInProgress @period=$currentInstant}; 
+ $addend = ({@MiscellaneousDeferredDebitsExcludingMiscellaneousWorkInProgress @period=$priorInstant} 
+ + {@IncreaseInMiscellaneousDeferredExpense @period=$currentDuration} 
+ - {@DecreaseInMiscellaneousDeferredExpense @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MiscellaneousDeferredDebitsExcludingMiscellaneousWorkInProgress with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.233.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@DeferredRegulatoryCommissionExpense @period=$currentInstant}; 
+ $addend = ({@DeferredRegulatoryCommissionExpense @period=$priorInstant} 
+ + {@IncreaseInDeferredRegulatoryCommissionExpense @period=$currentDuration} 
+ - {@DecreaseInDeferredRegulatoryCommissionExpense @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DeferredRegulatoryCommissionExpense  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.233.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $MisDefDbts = [@MiscellaneousDeferredDebits]; 
+ $MisDefDbtsAddend = (sum(list([nonils @MiscellaneousDeferredDebitsExcludingMiscellaneousWorkInProgress @MiscellaneousDeferredDebitsAxis=*])#breakdown) 
+ + [@MiscellaneousWorkInProgress]
+ + [@DeferredRegulatoryCommissionExpense]);
+tolerance_for_decimals($MisDefDbts,$MisDefDbtsAddend,$tolerance_factor)  
+message 
+"The company has reported a value for MiscellaneousDeferredDebits  with a value of {$MisDefDbts} that is not equal to the value of the sum of its components of {$MisDefDbtsAddend}. It is expected that the sum of MiscellaneousDeferredDebitsExcludingMiscellaneousWorkInProgress ({$breakdown}) + MiscellaneousWorkInProgress + DeferredRegulatoryCommissionExpense is equal to the total of MiscellaneousDeferredDebits.
+
+Total Element : {$MisDefDbts.concept.name}
+Total Period : {$MisDefDbts.period}
+Total Value : {$MisDefDbts} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $MisDefDbts

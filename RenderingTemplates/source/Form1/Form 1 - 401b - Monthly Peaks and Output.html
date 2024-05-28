@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:xendr="http://xbrl.us/xendr/2.0/template"
+xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2024-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -18,91 +18,91 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
     <table class="schedule-header xbrl" width="100%">
         <tr>
             <td class="xbrl">
-                <xendr:replace>
-                    <xendr:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xendr:expression>
-                    <xendr:template-display>Name of Respondent:</xendr:template-display>
-                </xendr:replace><br/>
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xule:expression>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
+                </xule:replace><br/>
                 
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xendr:expression>
-                    <xendr:template-display>Name of Respondent:</xendr:template-display>
-                </xendr:replace>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
+                </xule:replace>
             </td>
             <td class="xbrl">
-                <xendr:replace>
-                    <xendr:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xendr:expression>
-                    <xendr:template-display>This report is:</xendr:template-display>
-                </xendr:replace>
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xule:expression>
+                    <xule:template-display>This report is:</xule:template-display>
+                </xule:replace>
                     <br/>
                     (1) 
-                        <xendr:replace>
-                                <xendr:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                        <xule:replace>
+                                <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
                                 '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
                                 '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
                                 '<span class="checkbox">&#9744;</span> An Original']]>
-                                </xendr:expression>  
-                            <xendr:template-display>
+                                </xule:expression>  
+                            <xule:template-display>
                                     <input type="checkbox"/> An Original
-                            </xendr:template-display>
-                        </xendr:replace>
+                            </xule:template-display>
+                        </xule:replace>
                         <br/>
                     (2)
-                        <xendr:replace>
-                                <xendr:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                        <xule:replace>
+                                <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
                                 '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
                                 '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
                                 '<span class="checkbox">&#9744;</span> A Resubmission']]>
-                                    </xendr:expression> 
-                                <xendr:template-display>
+                                    </xule:expression> 
+                                <xule:template-display>
                                         <input type="checkbox" checked = "checked"/> A Resubmission
-                                </xendr:template-display>
-                        </xendr:replace> 
+                                </xule:template-display>
+                        </xule:replace> 
             </td>
-            <td class="xbrl"><xendr:replace>
-                <xendr:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xendr:expression>
-                <xendr:template-display>Date of Report:</xendr:template-display>
-                </xendr:replace><br/>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xule:expression>
+                <xule:template-display>Date of Report:</xule:template-display>
+                </xule:replace><br/>
                 
-                    <xendr:replace>
-                        <xendr:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xendr:expression>
-                        <xendr:template-display>04/26/2019</xendr:template-display>
-                </xendr:replace>
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xule:expression>
+                        <xule:template-display>04/26/2019</xule:template-display>
+                </xule:replace>
             </td>
-            <td class="xbrl"><xendr:replace>
-                <xendr:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xendr:expression>
-                <xendr:template-display>Year/Period of Report:</xendr:template-display>
-                </xendr:replace><br/>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xule:expression>
+                <xule:template-display>Year/Period of Report:</xule:template-display>
+                </xule:replace><br/>
                 
-                End of: <xendr:replace>
-                    <xendr:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xendr:expression>
-                    <xendr:template-display>2018</xendr:template-display>
-                </xendr:replace>
+                End of: <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                    <xule:template-display>2018</xule:template-display>
+                </xule:replace>
                 <span>/</span>
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xendr:expression>
-                    <xendr:template-display>Q4</xendr:template-display>
-                </xendr:replace>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xule:expression>
+                    <xule:template-display>Q4</xule:template-display>
+                </xule:replace>
             </td>
         </tr>
     </table>
     <table class="xbrl">
         <tr class="sch-title">
             <td class="xbrl" colspan="7">
-                <xendr:replace>
-                            <xendr:expression class="hide">taxonomy().concept(ferc:ScheduleMonthlyPeakAndOutputAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1ScheduleTitle").text
-                            </xendr:expression>
-                            <xendr:template-display>
+                <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleMonthlyPeakAndOutputAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1ScheduleTitle").text
+                            </xule:expression>
+                            <xule:template-display>
                                 MONTHLY PEAKS AND OUTPUT
-                            </xendr:template-display>
-                    </xendr:replace>
+                            </xule:template-display>
+                    </xule:replace>
             </td>
         </tr>
         <tr>
             <td class="instruction xbrl" colspan="7">
-                <xendr:replace>
-                    <xendr:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleMonthlyPeakAndOutputAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Instructions").text
-                    </xendr:expression>
-                    <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleMonthlyPeakAndOutputAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
                         <ol>
                             <li>Report the monthly peak load and energy output. If the respondent has two or more power which are not physically integrated, furnish the required information for each non- integrated system.</li>
                             <li>Report in column (b) by month the system’s output in Megawatt hours for each month.</li>
@@ -110,14 +110,14 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             <li>Report in column (d) by month the system’s monthly maximum megawatt load (60 minute integration) associated with the system.</li>
                             <li>Report in column (e) and (f) the specified information for each monthly peak load reported in column (d).</li>
                         </ol>
-                    </xendr:template-display>
-                </xendr:replace>
+                    </xule:template-display>
+                </xule:replace>
             </td>
         </tr>
         <tr class="col-heading-row">     
             <td class="col-heading xbrl line-number">Line No.</td>
-            <td class="col-heading xbrl" xendr:repeat="MTSPeakLoadHeadings">
-                    <xendr:expression class="hide" name="MTSPeakLoadHeadings">
+            <td class="col-heading xbrl" xule:repeat="MTSPeakLoadHeadings">
+                    <xule:expression class="hide" name="MTSPeakLoadHeadings">
                             $headings = filter (taxonomy().concept(ferc:ScheduleMonthlyPeakAndOutputAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "401b - Schedule - Monthly Peaks and Output") 
 
                             $heading = list(for $ref in $headings 
@@ -131,33 +131,33 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                                         taxonomy().concept(to-qname($row[3]))))
                                         );
                                         for $row in $heading_dict.keys.sort
-            </xendr:expression>
+            </xule:expression>
 
             <div style="text-align: center">
                 <div class="tooltip">
                         <div class="tooltiptext">
-                                <xendr:replace>
-                                        <xendr:expression class="hide" name="MTSPeakLoadHeadings" part="3">$heading_dict[$row][2].name.local-name</xendr:expression>
-                                    </xendr:replace>
+                                <xule:replace>
+                                        <xule:expression class="hide" name="MTSPeakLoadHeadings" part="3">$heading_dict[$row][2].name.local-name</xule:expression>
+                                    </xule:replace>
                         </div>    
-                    <xendr:replace>
-                        <xendr:expression class="hide" name="MTSPeakLoadHeadings" part="1">$heading_dict[$row][1]</xendr:expression>
-                        <xendr:template-display>
+                    <xule:replace>
+                        <xule:expression class="hide" name="MTSPeakLoadHeadings" part="1">$heading_dict[$row][1]</xule:expression>
+                        <xule:template-display>
                             Classification
-                        </xendr:template-display>
-                    </xendr:replace>
+                        </xule:template-display>
+                    </xule:replace>
                 </div>
             </div>
-        <div style="text-align: center"><xendr:replace>
-                <xendr:expression class="hide" name="MTSPeakLoadHeadings" part="2">$row</xendr:expression>
-                <xendr:template-display>
+        <div style="text-align: center"><xule:replace>
+                <xule:expression class="hide" name="MTSPeakLoadHeadings" part="2">$row</xule:expression>
+                <xule:template-display>
                     (a)
-                </xendr:template-display>
-            </xendr:replace></div>
+                </xule:template-display>
+            </xule:replace></div>
     </td>
         </tr>
-        <tr class="schedule-row" xendr:repeat="MTSPeakLoadLineItems">
-            <xendr:expression class="hide" name="MTSPeakLoadLineItems">// adding a comment
+        <tr class="schedule-row" xule:repeat="MTSPeakLoadLineItems">
+            <xule:expression class="hide" name="MTSPeakLoadLineItems">// adding a comment
                 $data2 = navigate parent-child descendants from ferc:MonthlyPeakAndOutputLineItems role
                 "http://ferc.gov/form/2020-01-01/roles/Schedule/F1/ScheduleMonthlyPeaksAndOutput" where $relationship.target.name != ferc:NameOfSystem returns list (target-name); 
 
@@ -218,58 +218,58 @@ for $system in $allSystems
         for $rowl in $system.sort
                     
 
-            </xendr:expression>
-            <td class="xbrl line-number"><xendr:replace><xendr:expression  class="hide"  name="MTSPeakLoadLineItems" part="3">if $rowl[1] == 0 none else $rowl[1]</xendr:expression>
-               <xendr:class name="MTSPeakLoadLineItems" location="parent">if $rowl[1] == 0 "data-heading" else ""</xendr:class> 
-            </xendr:replace>
-                <xendr:template-display>
+            </xule:expression>
+            <td class="xbrl line-number"><xule:replace><xule:expression  class="hide"  name="MTSPeakLoadLineItems" part="3">if $rowl[1] == 0 none else $rowl[1]</xule:expression>
+               <xule:class name="MTSPeakLoadLineItems" location="parent">if $rowl[1] == 0 "data-heading" else ""</xule:class> 
+            </xule:replace>
+                <xule:template-display>
                     29                   
-                </xendr:template-display>
+                </xule:template-display>
             </td>
-            <td class="xbrl description_items"><xendr:replace><xendr:expression  class="hide"  name="MTSPeakLoadLineItems" part="2">$rowl[2]</xendr:expression>
-                <xendr:class name="MTSPeakLoadLineItems" location="parent">if $rowl[1] == 0 "data-heading" else ""</xendr:class>
-            </xendr:replace>
-                <xendr:template-display>
+            <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="MTSPeakLoadLineItems" part="2">$rowl[2]</xule:expression>
+                <xule:class name="MTSPeakLoadLineItems" location="parent">if $rowl[1] == 0 "data-heading" else ""</xule:class>
+            </xule:replace>
+                <xule:template-display>
                     January                    
-                </xendr:template-display>
+                </xule:template-display>
             </td>
             <td class="xbrl numeric_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true" name="MTSPeakLoadLineItems" format="ixt4:num-dot-decimal" part="4">$rowl[3]</xendr:expression>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" name="MTSPeakLoadLineItems" format="ixt4:num-dot-decimal" part="4">$rowl[3]</xule:expression>
                    
-                    <xendr:class name="MTSPeakLoadLineItems" location="parent">if $rowl[1] == 0 "data-heading" else ""</xendr:class>
-        </xendr:replace>
-                <xendr:template-display>
+                    <xule:class name="MTSPeakLoadLineItems" location="parent">if $rowl[1] == 0 "data-heading" else ""</xule:class>
+        </xule:replace>
+                <xule:template-display>
                     300,000
-                </xendr:template-display>
+                </xule:template-display>
             </td>
-            <td class="xbrl numeric_items"><xendr:replace><xendr:expression class="hide"  fact="true" name="MTSPeakLoadLineItems" format="ixt4:num-dot-decimal" part="5">$rowl[4]</xendr:expression>
-                <xendr:class name="MTSPeakLoadLineItems" location="parent">if $rowl[1] == 0 "data-heading" else ""</xendr:class>
-            </xendr:replace>
-                <xendr:template-display>
+            <td class="xbrl numeric_items"><xule:replace><xule:expression class="hide"  fact="true" name="MTSPeakLoadLineItems" format="ixt4:num-dot-decimal" part="5">$rowl[4]</xule:expression>
+                <xule:class name="MTSPeakLoadLineItems" location="parent">if $rowl[1] == 0 "data-heading" else ""</xule:class>
+            </xule:replace>
+                <xule:template-display>
                     $7,000,000
-                </xendr:template-display>
+                </xule:template-display>
             </td>
-            <td class="xbrl numeric_items"><xendr:replace><xendr:expression class="hide"  fact="true" name="MTSPeakLoadLineItems" format="ixt4:num-dot-decimal" part="6">$rowl[5]</xendr:expression>
-                <xendr:class name="MTSPeakLoadLineItems" location="parent">if $rowl[1] == 0 "data-heading" else ""</xendr:class>
-            </xendr:replace>
-                <xendr:template-display>
+            <td class="xbrl numeric_items"><xule:replace><xule:expression class="hide"  fact="true" name="MTSPeakLoadLineItems" format="ixt4:num-dot-decimal" part="6">$rowl[5]</xule:expression>
+                <xule:class name="MTSPeakLoadLineItems" location="parent">if $rowl[1] == 0 "data-heading" else ""</xule:class>
+            </xule:replace>
+                <xule:template-display>
                     13,000,000
-                </xendr:template-display>
+                </xule:template-display>
             </td>
-            <td class="xbrl numeric_items"><xendr:replace><xendr:expression class="hide"  fact="true" name="MTSPeakLoadLineItems" format="ixt4:num-dot-decimal" part="7">$rowl[6]</xendr:expression>
-                <xendr:class name="MTSPeakLoadLineItems" location="parent">if $rowl[1] == 0 "data-heading" else ""</xendr:class>
-            </xendr:replace>
-                <xendr:template-display>
+            <td class="xbrl numeric_items"><xule:replace><xule:expression class="hide"  fact="true" name="MTSPeakLoadLineItems" format="ixt4:num-dot-decimal" part="7">$rowl[6]</xule:expression>
+                <xule:class name="MTSPeakLoadLineItems" location="parent">if $rowl[1] == 0 "data-heading" else ""</xule:class>
+            </xule:replace>
+                <xule:template-display>
                     13
-                </xendr:template-display>
+                </xule:template-display>
             </td>
-            <td class="xbrl numeric_items"><xendr:replace><xendr:expression class="hide"  fact="true" name="MTSPeakLoadLineItems" format="ixt4:num-dot-decimal" part="8">$rowl[7]</xendr:expression>
-                <xendr:class name="MTSPeakLoadLineItems" location="parent">if $rowl[1] == 0 "data-heading" else ""</xendr:class>
-            </xendr:replace>
-                <xendr:template-display>
+            <td class="xbrl numeric_items"><xule:replace><xule:expression class="hide"  fact="true" name="MTSPeakLoadLineItems" format="ixt4:num-dot-decimal" part="8">$rowl[7]</xule:expression>
+                <xule:class name="MTSPeakLoadLineItems" location="parent">if $rowl[1] == 0 "data-heading" else ""</xule:class>
+            </xule:replace>
+                <xule:template-display>
                     1400
-                </xendr:template-display>
+                </xule:template-display>
             </td>
 
         </tr> 
@@ -283,30 +283,30 @@ for $system in $allSystems
     <div class="schedule-footer">
 
         <div>FERC FORM NO. 
-                <xendr:replace>
-                        <xendr:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))
+                <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))
                                                                 
-                                                        </xendr:expression>
-                        <xendr:template-display>1</xendr:template-display>
-                </xendr:replace>
+                                                        </xule:expression>
+                        <xule:template-display>1</xule:template-display>
+                </xule:replace>
                 <span> </span>
-                <xendr:replace>
-                        <xendr:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleMonthlyPeakAndOutputAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1DateRevised").text + ")"
-                        </xendr:expression>
-                        <xendr:template-display>
+                <xule:replace>
+                        <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleMonthlyPeakAndOutputAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1DateRevised").text + ")"
+                        </xule:expression>
+                        <xule:template-display>
                                 (ED. 12-90)
-                        </xendr:template-display>
-                </xendr:replace>
+                        </xule:template-display>
+                </xule:replace>
                             
         </div>
         <div class="center-text">Page 
-                <xendr:replace>
-                        <xendr:expression class="hide">taxonomy().concept(ferc:ScheduleMonthlyPeakAndOutputAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1PageRange").text
-                        </xendr:expression>
-                        <xendr:template-display>
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleMonthlyPeakAndOutputAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1PageRange").text
+                        </xule:expression>
+                        <xule:template-display>
                         401b
-                        </xendr:template-display>
-                </xendr:replace>
+                        </xule:template-display>
+                </xule:replace>
         </div> 
     </div>
     </body>

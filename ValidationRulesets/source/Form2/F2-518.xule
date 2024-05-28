@@ -1,0 +1,574 @@
+/**FERC Form 2 Rules 
+** We have blown out allthe rules here rather than using alignment of dimensions.  The reason to do this is because of issues with alignment using first-values function with multiple combinations of dimensions, especially when some are types and some are default.
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.518.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([nonils @OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+
+ $sum1 = [@VolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]; 
+ $addend = ([@NoNoticeTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + [@OtherFirmTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + [@InterruptibleTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + $OtherTransportationVolumesOfGasTransported);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VolumesOfGasTransported with the SingleDayPeakDeliveriesMember and the DeliveredToInterstatePipelinesMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.518.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([nonils @OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+
+ $sum1 = [@VolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]; 
+ $addend = ([@NoNoticeTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + [@OtherFirmTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + [@InterruptibleTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + $OtherTransportationVolumesOfGasTransported);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VolumesOfGasTransported with the SingleDayPeakDeliveriesMember and the DeliveredToOthersMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.518.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([nonils @OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+
+ $sum1 = [@VolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]; 
+ $addend = ([@NoNoticeTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + [@OtherFirmTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + [@InterruptibleTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + $OtherTransportationVolumesOfGasTransported);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VolumesOfGasTransported with the SingleDayPeakDeliveriesMember  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+
+assert F2.518.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = {@TransmissionSystemDeliveriesToAxis=none}; 
+ $addend = ({@TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember}#f1
+ + {@TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember}#f2);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for {$sum1.concept.name}  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend} when broken down by the 
+TransmissionSystemDeliveriesToAxis.  The components of the sum are :
+{$f1.concept.name}  = {$f1}
+{$f2.concept.name}  = {$f2}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F2.518.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([nonils @OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+
+ $sum1 = [@VolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]; 
+ $addend = ([@NoNoticeStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + [@OtherFirmStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + [@InterruptibleStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + $OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VolumesOfGasWithdrawnFromStorageUnderStorageContract with the SingleDayPeakDeliveriesMember and the DeliveredToInterstatePipelinesMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F2.518.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([nonils @OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+
+ $sum1 = [@VolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]; 
+ $addend = ([@NoNoticeStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + [@OtherFirmStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + [@InterruptibleStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + $OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VolumesOfGasWithdrawnFromStorageUnderStorageContract with the SingleDayPeakDeliveriesMember and the DeliveredToOthersMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.518.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([nonils @OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+
+ $sum1 = [@VolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]; 
+ $addend = ([@NoNoticeStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + [@OtherFirmStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + [@InterruptibleStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + $OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VolumesOfGasWithdrawnFromStorageUnderStorageContract with the SingleDayPeakDeliveriesMember for all deliveries with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F2.518.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([nonils @OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+
+ $sum1 = [@OtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]; 
+ $addend = ([@GasWithdrawnFromStorageForSystemOperationsOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]
+ + [@ReductionInLinePackOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]
+
+ + $OtherOtherOperationalActivities);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherOperationalActivities with the SingleDayPeakDeliveriesMember and the DeliveredToInterstatePipelinesMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.518.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([nonils @OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+
+ $sum1 = [@OtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]; 
+ $addend = ([@GasWithdrawnFromStorageForSystemOperationsOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]
+ + [@ReductionInLinePackOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]
+
+ + $OtherOtherOperationalActivities);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherOperationalActivities with the SingleDayPeakDeliveriesMember and the DeliveredToOthersMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.518.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([nonils @OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+
+ $sum1 = [@OtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]; 
+ $addend = ([@GasWithdrawnFromStorageForSystemOperationsOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]#f1
+ + [@ReductionInLinePackOtherOperationalActivities @PeakDeliveryDayTypeAxis=SingleDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]#f2
+ + $OtherOtherOperationalActivities);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherOperationalActivities with the SingleDayPeakDeliveriesMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}.
+
++ GasWithdrawnFromStorageForSystemOperationsOtherOperationalActivities = {$f1}
++ ReductionInLinePackOtherOperationalActivities = {$f2}
++ OtherOtherOperationalActivities = {$OtherOtherOperationalActivities}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F2.518.11 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([nonils @OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+
+ $sum1 = [@VolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]; 
+ $addend = ([@NoNoticeTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + [@OtherFirmTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + [@InterruptibleTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + $OtherTransportationVolumesOfGasTransported);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VolumesOfGasTransported with the ThreeDayPeakDeliveriesMember and the DeliveredToInterstatePipelinesMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.518.12 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([nonils @OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+
+ $sum1 = [@VolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]; 
+ $addend = ([@NoNoticeTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + [@OtherFirmTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + [@InterruptibleTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + $OtherTransportationVolumesOfGasTransported);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VolumesOfGasTransported with the ThreeDayPeakDeliveriesMember and the DeliveredToOthersMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.518.13 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherTransportationVolumesOfGasTransported = first-value([@OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none], sum(list([nonils @OtherTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=*])));
+
+ $sum1 = [@VolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]; 
+ $addend = ([@NoNoticeTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + [@OtherFirmTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + [@InterruptibleTransportationVolumesOfGasTransported @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasTransportedAxis=none]
+ + $OtherTransportationVolumesOfGasTransported);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VolumesOfGasTransported with the ThreeDayPeakDeliveriesMember  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.518.15 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([nonils @OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+
+ $sum1 = [@VolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]; 
+ $addend = ([@NoNoticeStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + [@OtherFirmStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + [@InterruptibleStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + $OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VolumesOfGasWithdrawnFromStorageUnderStorageContract with the ThreeDayPeakDeliveriesMember and the DeliveredToInterstatePipelinesMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F2.518.16 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([nonils @OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+
+ $sum1 = [@VolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]; 
+ $addend = ([@NoNoticeStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + [@OtherFirmStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + [@InterruptibleStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + $OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VolumesOfGasWithdrawnFromStorageUnderStorageContract with the ThreeDayPeakDeliveriesMember and the DeliveredToOthersMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.518.17 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract = first-value([@OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none], sum(list([nonils @OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=*])));
+
+ $sum1 = [@VolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]; 
+ $addend = ([@NoNoticeStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + [@OtherFirmStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + [@InterruptibleStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasGasWithdrawnAxis=none]
+ + $OtherStorageVolumesOfGasWithdrawnFromStorageUnderStorageContract);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for VolumesOfGasWithdrawnFromStorageUnderStorageContract with the ThreeDayPeakDeliveriesMember for all deliveries with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F2.518.18 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([nonils @OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+
+ $sum1 = [@OtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]; 
+ $addend = ([@GasWithdrawnFromStorageForSystemOperationsOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]
+ + [@ReductionInLinePackOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToInterstatePipelinesMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]
+
+ + $OtherOtherOperationalActivities);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherOperationalActivities with the ThreeDayPeakDeliveriesMember and the DeliveredToInterstatePipelinesMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.518.19 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([nonils @OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+
+ $sum1 = [@OtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]; 
+ $addend = ([@GasWithdrawnFromStorageForSystemOperationsOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]
+ + [@ReductionInLinePackOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = DeliveredToOthersMember @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]
+
+ + $OtherOtherOperationalActivities);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherOperationalActivities with the ThreeDayPeakDeliveriesMember and the DeliveredToOthersMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.518.20 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$OtherOtherOperationalActivities = first-value([@OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none], sum(list([nonils @OtherOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=*])));
+
+ $sum1 = [@OtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]; 
+ $addend = ([@GasWithdrawnFromStorageForSystemOperationsOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]#f1
+ + [@ReductionInLinePackOtherOperationalActivities @PeakDeliveryDayTypeAxis=ThreeDayPeakDeliveriesMember @TransmissionSystemDeliveriesToAxis = none @TransmissionSystemDeliveriesOfGasOtherOperationalActivitiesAxis=none]#f2
+ + $OtherOtherOperationalActivities);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherOperationalActivities with the ThreeDayPeakDeliveriesMember with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}.
+
++ GasWithdrawnFromStorageForSystemOperationsOtherOperationalActivities = {$f1}
++ ReductionInLinePackOtherOperationalActivities = {$f2}
++ OtherOtherOperationalActivities = {$OtherOtherOperationalActivities}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+

@@ -1,0 +1,232 @@
+/**FERC Form 1 Rules 
+**/
+
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.219.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:AccumulatedProvisionForDepreciationAndAmortizationOfUtilityPlantMajorNonmajor]))  != "Major"
+        skip
+else
+ $OtherAccounts1 = first-value({@OtherAccounts @UtilityTypeAxis=ElectricUtilityMember @OtherClearingAccountsAxis=none }, sum(list({ @OtherAccounts @UtilityTypeAxis=ElectricUtilityMember @OtherClearingAccountsAxis=* })));
+ 
+ $sum219-1 = {@DepreciationProvision @UtilityTypeAxis=ElectricUtilityMember @OtherClearingAccountsAxis=none}; 
+ $addend = ({@DepreciationExpenseExcludingAdjustments @UtilityTypeAxis=ElectricUtilityMember @OtherClearingAccountsAxis=none }#f219-1-1
+ + {@DepreciationExpenseForAssetRetirementCosts @UtilityTypeAxis=ElectricUtilityMember @OtherClearingAccountsAxis=none }#f219-1-2
+ + {@ExpensesOfElectricPlantLeasedToOthers @UtilityTypeAxis=ElectricUtilityMember @OtherClearingAccountsAxis=none }#f219-1-3
+ + {@TransportationExpensesClearing @UtilityTypeAxis=ElectricUtilityMember @OtherClearingAccountsAxis=none }#f219-1-4
+ + {@concept = OtherClearingAccounts @UtilityTypeAxis=ElectricUtilityMember  @OtherClearingAccountsAxis=none}#f219-1-5
+ + $OtherAccounts1);
+tolerance_for_decimals($sum219-1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DepreciationProvision with a value of {$sum219-1} that is not equal to the value of the sum of its components of {$addend}. The addend is comprised of the following:
++ {$f219-1-1.name.local-name}	= 	{$f219-1-1}
++ {$f219-1-2.name.local-name}	= 	{$f219-1-2}
++ {$f219-1-3.name.local-name}	= 	{$f219-1-3}
++ {$f219-1-4.name.local-name}	= 	{$f219-1-4}
++ {$OtherAccounts1.name.local-name}	= 	{$OtherAccounts1}
+
+Total Element : {$sum219-1.concept.name}
+Total Period : {$sum219-1.period}
+Total Dimensions : {$sum219-1.dimensions.join(',','=')}
+Total Value : {$sum219-1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum219-1
+
+assert F1.219.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:AccumulatedProvisionForDepreciationAndAmortizationOfUtilityPlantMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum219-2 = {@NetChargesForRetiredPlant}; 
+ $addend = ({@BookCostOfRetiredPlant} 
+ + {@CostOfRemovalOfPlant} 
+ - {@SalvageValueOfRetiredPlant});
+tolerance_for_decimals($sum219-2,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NetChargesForRetiredPlant with a value of {$sum219-2} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum219-2.concept.name}
+Total Period : {$sum219-2.period}
+Total Dimensions : {$sum219-2.dimensions.join(',','=')}
+Total Value : {$sum219-2} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum219-2
+
+assert F1.219.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:AccumulatedProvisionForDepreciationAndAmortizationOfUtilityPlantMajorNonmajor]))  != "Major"
+        skip
+else
+
+$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantInServiceMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @OtherDebitOrCreditItemsAxis=* @ElectricPlantClassificationAxis=ElectricPlantInServiceMember @period=$currentDuration})));
+
+
+ $sum219-3 = {@AccumulatedProvisionForDepreciationOfElectricUtilityPlant @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantInServiceMember @OtherDebitOrCreditItemsAxis=none @period=$currentInstant}; 
+ $addend = ({@AccumulatedProvisionForDepreciationOfElectricUtilityPlant @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantInServiceMember @OtherDebitOrCreditItemsAxis=none @period=$priorInstant}#f219-3-1
+ + {@DepreciationProvision @period=$currentDuration @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantInServiceMember @OtherDebitOrCreditItemsAxis=none}#f219-3-2
+ - {@NetChargesForRetiredPlant @period=$currentDuration @UtilityTypeAxis=ElectricUtilityMember  @ElectricPlantClassificationAxis=ElectricPlantInServiceMember @OtherDebitOrCreditItemsAxis=none}#f219-3-3
+ - $OtherAdjustmentsToAccumulatedDepreciation
+ - {@BookCostOfAssetRetirementCosts @period=$currentDuration @UtilityTypeAxis=ElectricUtilityMember  @ElectricPlantClassificationAxis=ElectricPlantInServiceMember @OtherDebitOrCreditItemsAxis=none}#f219-3-5);
+tolerance_for_decimals($sum219-3,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationOfElectricUtilityPlant with a value of {$sum219-3} that is not equal to the value of the sum of its components of {$addend} for the ElectricPlantInServiceMember.
+The addend is comprised of the following:
++ AccumulatedProvisionForDepreciationOfGasUtilityPlant	{$f219-3-1}  {$f219-3-1.dimensions.join(',','=')}
++ DepreciationProvision	                         	{$f219-3-2}  {$f219-3-2.dimensions.join(',','=')}
+- NetChargesForRetiredPlant	                 	{$f219-3-3}  {$f219-3-3.dimensions.join(',','=')}
+- OtherAdjustmentsToAccumulatedDepreciation	        {$OtherAdjustmentsToAccumulatedDepreciation}
+- BookCostOfAssetRetirementCosts	 	        {$f219-3-5}  {$f219-3-5.dimensions.join(',','=')}
+
+Total Element : {$sum219-3.concept.name}
+Total Period : {$sum219-3.period}
+Total Dimensions : {$sum219-3.dimensions.join(',','=')}
+Total Value : {$sum219-3} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum219-3
+
+assert F1.219.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:AccumulatedProvisionForDepreciationAndAmortizationOfUtilityPlantMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum219-4 = {@AccumulatedProvisionForDepreciationOfElectricUtilityPlant}; 
+ $addend = ({@AccumulatedDepreciationSteamProduction} 
+ + {@AccumulatedDepreciationNuclearProduction} 
+ + {@AccumulatedDepreciationHydraulicProductionConventional} 
+ + {@AccumulatedDepreciationHydraulicProductionPumpedStorage} 
+ + {@AccumulatedDepreciationOtherProduction} 
+ + {@AccumulatedDepreciationTransmission} 
+ + {@AccumulatedDepreciationDistribution} 
+ + {@AccumulatedDepreciationRegionalTransmissionAndMarketOperation} 
+ + {@AccumulatedDepreciationGeneral});
+
+tolerance_for_decimals($sum219-4,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationOfElectricUtilityPlant with a value of {$sum219-4} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum219-4.concept.name}
+Total Period : {$sum219-4.period}
+Total Dimensions : {$sum219-4.dimensions.join(',','=')}
+Total Value : {$sum219-4} 
+
+Rule Id:{$rule_id}"
+severity error
+
+
+assert F1.219.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:AccumulatedProvisionForDepreciationAndAmortizationOfUtilityPlantMajorNonmajor]))  != "Major"
+        skip
+else
+
+$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantLeasedToOthersMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @OtherDebitOrCreditItemsAxis=* @ElectricPlantClassificationAxis=ElectricPlantLeasedToOthersMember @period=$currentDuration})));
+
+
+ $sum219-5 = {@AccumulatedProvisionForDepreciationOfElectricUtilityPlant @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantLeasedToOthersMember @OtherDebitOrCreditItemsAxis=none @period=$currentInstant}; 
+ $addend = ({@AccumulatedProvisionForDepreciationOfElectricUtilityPlant @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantLeasedToOthersMember @OtherDebitOrCreditItemsAxis=none @period=$priorInstant}#f219-5-1
+ + {@DepreciationProvision @period=$currentDuration @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantLeasedToOthersMember @OtherDebitOrCreditItemsAxis=none}#f219-5-2
+ - {@NetChargesForRetiredPlant @period=$currentDuration @UtilityTypeAxis=ElectricUtilityMember  @ElectricPlantClassificationAxis=ElectricPlantLeasedToOthersMember @OtherDebitOrCreditItemsAxis=none}#f219-5-3
+ - $OtherAdjustmentsToAccumulatedDepreciation
+ - {@BookCostOfAssetRetirementCosts @period=$currentDuration @UtilityTypeAxis=ElectricUtilityMember  @ElectricPlantClassificationAxis=ElectricPlantLeasedToOthersMember @OtherDebitOrCreditItemsAxis=none}#f219-5-5);
+tolerance_for_decimals($sum219-5,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationOfElectricUtilityPlant with a value of {$sum219-5} that is not equal to the value of the sum of its components of {$addend} for the ElectricPlantLeasedToOthersMember.
+The addend is comprised of the following:
++ AccumulatedProvisionForDepreciationOfGasUtilityPlant	{$f219-5-1}  {$f219-5-1.dimensions.join(',','=')}
++ DepreciationProvision	                         	{$f219-5-2}  {$f219-5-2.dimensions.join(',','=')}
+- NetChargesForRetiredPlant	                 	{$f219-5-3}  {$f219-5-3.dimensions.join(',','=')}
+- OtherAdjustmentsToAccumulatedDepreciation	        {$OtherAdjustmentsToAccumulatedDepreciation}
+- BookCostOfAssetRetirementCosts	 	        {$f219-5-5}  {$f219-5-5.dimensions.join(',','=')}
+
+Total Element : {$sum219-5.concept.name}
+Total Period : {$sum219-5.period}
+Total Dimensions : {$sum219-5.dimensions.join(',','=')}
+Total Value : {$sum219-5} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum219-5
+
+assert F1.219.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:AccumulatedProvisionForDepreciationAndAmortizationOfUtilityPlantMajorNonmajor]))  != "Major"
+        skip
+else
+
+$OtherAdjustmentsToAccumulatedDepreciation = first-value({@OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantHeldForFutureUseMember @OtherDebitOrCreditItemsAxis=none @period=$currentDuration}, sum(list({nonils @OtherAdjustmentsToAccumulatedDepreciation @UtilityTypeAxis=ElectricUtilityMember @OtherDebitOrCreditItemsAxis=* @ElectricPlantClassificationAxis=ElectricPlantHeldForFutureUseMember @period=$currentDuration})));
+
+
+ $sum219-6 = {@AccumulatedProvisionForDepreciationOfElectricUtilityPlant @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantHeldForFutureUseMember @OtherDebitOrCreditItemsAxis=none @period=$currentInstant}; 
+ $addend = ({@AccumulatedProvisionForDepreciationOfElectricUtilityPlant @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantHeldForFutureUseMember @OtherDebitOrCreditItemsAxis=none @period=$priorInstant}#f219-6-1
+ + {@DepreciationProvision @period=$currentDuration @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=ElectricPlantHeldForFutureUseMember @OtherDebitOrCreditItemsAxis=none}#f219-6-2
+ - {@NetChargesForRetiredPlant @period=$currentDuration @UtilityTypeAxis=ElectricUtilityMember  @ElectricPlantClassificationAxis=ElectricPlantHeldForFutureUseMember @OtherDebitOrCreditItemsAxis=none}#f219-6-3
+ - $OtherAdjustmentsToAccumulatedDepreciation
+ - {@BookCostOfAssetRetirementCosts @period=$currentDuration @UtilityTypeAxis=ElectricUtilityMember  @ElectricPlantClassificationAxis=ElectricPlantHeldForFutureUseMember @OtherDebitOrCreditItemsAxis=none}#f219-6-5);
+tolerance_for_decimals($sum219-6,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationOfElectricUtilityPlant with a value of {$sum219-6} that is not equal to the value of the sum of its components of {$addend} for the ElectricPlantHeldForFutureUseMember.
+The addend is comprised of the following:
++ AccumulatedProvisionForDepreciationOfGasUtilityPlant	{$f219-6-1}  {$f219-6-1.dimensions.join(',','=')}
++ DepreciationProvision	                         	{$f219-6-2}  {$f219-6-2.dimensions.join(',','=')}
+- NetChargesForRetiredPlant	                 	{$f219-6-3}  {$f219-6-3.dimensions.join(',','=')}
+- OtherAdjustmentsToAccumulatedDepreciation	        {$OtherAdjustmentsToAccumulatedDepreciation}
+- BookCostOfAssetRetirementCosts	 	        {$f219-6-5}  {$f219-6-5.dimensions.join(',','=')}
+
+Total Element : {$sum219-6.concept.name}
+Total Period : {$sum219-6.period}
+Total Dimensions : {$sum219-6.dimensions.join(',','=')}
+Total Value : {$sum219-6} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum219-6
+
+
+
+assert F1.219.8 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:AccumulatedProvisionForDepreciationAndAmortizationOfUtilityPlantMajorNonmajor]))  != "Major"
+        skip
+else
+
+$OtherAdjustmentsToAccumulatedDepreciation1 = first-value([covered @OtherAdjustmentsToAccumulatedDepreciation @ElectricPlantClassificationAxis=none @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration], sum(list([covered @OtherAdjustmentsToAccumulatedDepreciation @ElectricPlantClassificationAxis=none @UtilityTypeAxis=ElectricUtilityMember @OtherDebitOrCreditItemsAxis=* @period=$currentDuration])));
+
+ $sum219-8 = {@AccumulatedProvisionForDepreciationOfElectricUtilityPlant @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=none   @period=$currentInstant}; 
+ $addend = ({@AccumulatedProvisionForDepreciationOfElectricUtilityPlant @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=none   @period=$priorInstant}#f219-8-1
+ + {@DepreciationProvision @period=$currentDuration @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=none  }#f219-8-2
+ - {@NetChargesForRetiredPlant @period=$currentDuration @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=none  }#f219-8-3
+ - $OtherAdjustmentsToAccumulatedDepreciation1
+ - {@BookCostOfAssetRetirementCosts @period=$currentDuration @UtilityTypeAxis=ElectricUtilityMember @ElectricPlantClassificationAxis=none  }#f219-8-5);
+tolerance_for_decimals($sum219-8,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedProvisionForDepreciationOfElectricUtilityPlant with a value of {$sum219-8} that is not equal to the value of the sum of its components of {$addend}. The addend is comprised of the following:
++ {$f219-8-1.name.local-name}	= 	{$f219-8-1}
++ {$f219-8-2.name.local-name}	= 	{$f219-8-2}
+- {$f219-8-3.name.local-name}	= 	{$f219-8-3}
+- {$OtherAdjustmentsToAccumulatedDepreciation1.name.local-name}	= 	{$OtherAdjustmentsToAccumulatedDepreciation1}
+- {$f219-8-5.name.local-name}	= 	{$f219-8-5}
+
+Total Element : {$sum219-8.concept.name}
+Total Period : {$sum219-8.period}
+Total Dimensions : {$sum219-8.dimensions.join(',','=')}
+Total Value : {$sum219-8} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum219-8

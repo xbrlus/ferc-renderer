@@ -1,0 +1,253 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1F.5.1 unsatisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:StatementOfRetainedEarningsMajorNonmajor]))  == "Major"
+        skip
+else
+ exists([@UnappropriatedRetainedEarnings @period=$priorInstant])  
+message 
+"Prior period Unappropriated Retained Earnings must be reported. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F1F.5.2 unsatisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:StatementOfRetainedEarningsMajorNonmajor]))  == "Major"
+        skip
+else
+ exists([@UnappropriatedRetainedEarnings @period=$currentInstant])  
+message 
+"Unappropriated Retained Earnings must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F1F.5.3 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:StatementOfRetainedEarningsMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = [@AdjustmentsToRetainedEarningsCredit]; 
+ $addend = sum(list([nonils @AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis RetainedEarningsAdjustmentsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.5.4 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:StatementOfRetainedEarningsMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = [@AdjustmentsToRetainedEarningsDebit]; 
+ $addend = sum(list([nonils @AdjustmentsToRetainedEarningsDebit @RetainedEarningsAdjustmentsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis RetainedEarningsAdjustmentsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.5.5 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:StatementOfRetainedEarningsMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = [@AppropriationsOfRetainedEarnings]; 
+ $addend = sum(list([nonils @AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis AppropriatedRetainedEarningsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.5.6 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:StatementOfRetainedEarningsMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = [@DividendsDeclaredPreferredStock]; 
+ $addend = sum(list([nonils @DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis RetainedEarningsPreferredStockAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.5.7 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:StatementOfRetainedEarningsMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = [@DividendsDeclaredCommonStock]; 
+ $addend = sum(list([nonils @DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis RetainedEarningsCommonStockAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.5.8 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:StatementOfRetainedEarningsMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = [@AppropriatedRetainedEarnings]; 
+ $addend = sum(list([nonils @AppropriatedRetainedEarnings @RetainedEarningsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis RetainedEarningsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.5.9 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:StatementOfRetainedEarningsMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@UnappropriatedRetainedEarnings @period=$currentInstant}; 
+ $addend = ({@UnappropriatedRetainedEarnings @period=$priorInstant}#f0
+ + {@AdjustmentsToRetainedEarningsCredit @period=$currentDuration}#f1 
+ - {@AdjustmentsToRetainedEarningsDebit @period=$currentDuration}#f2 
+ + {@BalanceTransferredFromIncome @period=$currentDuration}#f3 
+ - {@AppropriationsOfRetainedEarnings @period=$currentDuration}#f4 
+ - {@DividendsDeclaredPreferredStock @period=$currentDuration}#f5 
+ - {@DividendsDeclaredCommonStock @period=$currentDuration}#f6
+); 
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UnappropriatedRetainedEarnings with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
++ \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
+- \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.5.10 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:StatementOfRetainedEarningsMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@AppropriatedRetainedEarningsIncludingReserveAmortization}; 
+ $addend = ({@AppropriatedRetainedEarnings}#f0
+ + {@AppropriatedRetainedEarningsAmortizationReserveFederal}#f1
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)
+message 
+"The company has reported a value for AppropriatedRetainedEarningsIncludingReserveAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
++ \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.5.11 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:StatementOfRetainedEarningsMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@RetainedEarnings}; 
+ $addend = ({@UnappropriatedRetainedEarnings}#f0
+ + {@AppropriatedRetainedEarningsIncludingReserveAmortization}#f1
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RetainedEarnings with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
++ \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

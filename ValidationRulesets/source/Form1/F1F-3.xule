@@ -1,0 +1,355 @@
+/**
+FERC Rules
+**/
+
+RULE-NAME-PREFIX FERC
+
+assert F1F.3.1 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:ComparativeBalanceSheetMajorNonmajor])) == "Major"
+        skip
+else
+ $sum1 = {@UtilityPlantNet}; 
+ $addend = ({@UtilityPlantAndConstructionWorkInProgress}#f0
+ - {@AccumulatedProvisionForDepreciationAndAmortizationOfElectricAndOtherUtilityPlant}#f1
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UtilityPlantNet with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
++ \t {$f0.concept.name.local-name} \t = \t {$f0}
+- \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.3.2 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:ComparativeBalanceSheetMajorNonmajor])) == "Major"
+        skip
+else
+ $sum1 = {@CurrentAndAccruedAssets}; 
+ $addend = ({@CashAndWorkingFunds}#f0
+ + {@TemporaryCashInvestments}#f1
+ + {@NotesAndAccountsReceivable}#f2
+ - {@AccumulatedProvisionForUncollectibleAccountsCredit}#f3
+ + {@PlantMaterialsAndOperatingSupplies}#f4
+ + {@AllowanceInventoryAndWithheld}#f5
+ - {@NoncurrentPortionOfAllowances}#f6
+ + {@GasStored}#f7
+ + {@Prepayments}#f8
+ + {@MiscellaneousCurrentAndAccruedAssets}#f9
+ + {@DerivativeInstrumentAssets}#f10
+ + {@DerivativeInstrumentAssetsHedges}#f11
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CurrentAndAccruedAssets with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
++ \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
+- \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
+- \t {$f6.concept.name.local-name} \t = \t {$f6}
++ \t {$f7.concept.name.local-name} \t = \t {$f7}
++ \t {$f8.concept.name.local-name} \t = \t {$f8}
++ \t {$f9.concept.name.local-name} \t = \t {$f9}
++ \t {$f10.concept.name.local-name} \t = \t {$f10}
++ \t {$f11.concept.name.local-name} \t = \t {$f11}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.3.3 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:ComparativeBalanceSheetMajorNonmajor])) == "Major"
+        skip
+else
+ $sum1 = {@DeferredDebits}; 
+ $addend = ({@UnamortizedDebtExpense}#f0
+ + {@ExtraordinaryPropertyLosses}#f1 
+ + {@UnrecoveredPlantAndRegulatoryStudyCosts}#f2 
+ + {@OtherRegulatoryAssets}#f3 
+ + {@MiscellaneousDeferredDebits}#f4 
+ + {@DeferredLossesFromDispositionOfUtilityPlant}#f5
+ + {@UnamortizedLossOnReacquiredDebt}#f6
+ + {@AccumulatedDeferredIncomeTaxes}#f7
+ + {@UnrecoveredPurchasedGasCosts}#f8
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DeferredDebits with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
++ \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
++ \t {$f7.concept.name.local-name} \t = \t {$f7}
++ \t {$f8.concept.name.local-name} \t = \t {$f8}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.3.4 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:ComparativeBalanceSheetMajorNonmajor])) == "Major"
+        skip
+else
+ $sum1 = {@AssetsAndOtherDebits}; 
+ $addend = ({@UtilityPlantNet}#f0
+ + {@OtherElectricPlantAdjustments}#f1
+ + {@GasStoredUndergroundNoncurrent}#f2
+ + {@NonutilityProperty}#f3
+ - {@AccumulatedProvisionForDepreciationAndAmortizationOfNonutilityProperty}#f4
+ + {@NoncurrentPortionOfAllowances}#f5
+ + {@OtherInvestmentsAndSpecialFunds}#f6
+ + {@CurrentAndAccruedAssets}#f7
+ + {@DeferredDebits}#f8
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetsAndOtherDebits with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
++ \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
++ \t {$f7.concept.name.local-name} \t = \t {$f7}
++ \t {$f8.concept.name.local-name} \t = \t {$f8}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.3.5 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:ComparativeBalanceSheetMajorNonmajor])) == "Major"
+        skip
+else
+ $sum1 = {@ProprietaryCapital};
+ $addend = ({@CommonStockIssued}#f0
+ + {@PreferredStockIssued}#f1 
+ + {@MiscellaneousPaidInCapital}#f2 
+ + {@InstallmentsReceivedOnCapitalStock}#f3 
+ - {@DiscountOnCapitalStock}#f4 
+ - {@CapitalStockExpense}#f5 
+ + {@RetainedEarnings}#f6 
+ - {@ReacquiredCapitalStock}#f7 
+ + {@NoncorporateProprietorship}#f8 
+ + {@AccumulatedOtherComprehensiveIncome}#f9
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ProprietaryCapital with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
++ \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+- \t {$f7.concept.name.local-name} \t = \t {$f7}
++ \t {$f8.concept.name.local-name} \t = \t {$f8}
++ \t {$f9.concept.name.local-name} \t = \t {$f9}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.3.6 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:ComparativeBalanceSheetMajorNonmajor])) == "Major"
+        skip
+else
+ $sum1 = {@LongTermDebt}; 
+ $addend = ({@Bonds}#f0
+ + {@AdvancesFromAssociatedCompanies}#f1
+ + {@OtherLongTermDebt}#f2 
+ + {@UnamortizedPremiumOnLongTermDebt}#f3 
+ - {@UnamortizedDiscountOnLongTermDebtDebit}#f4
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LongTermDebt with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
++ \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.3.7 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:ComparativeBalanceSheetMajorNonmajor])) == "Major"
+        skip
+else
+ $sum1 = {@OtherNoncurrentLiabilities};
+ $addend = ({@ObligationsUnderCapitalLeaseNoncurrent}#f0 
+ + {@AccumulatedProvisionForPropertyInsurance}#f1
+ + {@AccumulatedProvisionForInjuriesAndDamages}#f2 
+ + {@AccumulatedProvisionForPensionsAndBenefits}#f3 
+ + {@AccumulatedMiscellaneousOperatingProvisions}#f4 
+ + {@AccumulatedProvisionForRateRefunds}#f5 
+ + {@AssetRetirementObligations}#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherNoncurrentLiabilities with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
++ \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.3.8 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:ComparativeBalanceSheetMajorNonmajor])) == "Major"
+        skip
+else
+ $sum1 = {@CurrentAndAccruedLiabilities}; 
+ $addend = ({@NotesAndAccountsPayable}#f0
+ + {@CustomerDeposits}#f1
+ + {@TaxesAccrued}#f2 
+ + {@InterestAccrued}#f3 
+ + {@MiscellaneousCurrentAndAccruedLiabilities}#f4
+ + {@ObligationsUnderCapitalLeasesCurrent}#f5
+ + {@DerivativesInstrumentLiabilities}#f6
+ + {@DerivativeInstrumentLiabilitiesHedges}#f7
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CurrentAndAccruedLiabilities with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
++ \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
++ \t {$f7.concept.name.local-name} \t = \t {$f7}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.3.9 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:ComparativeBalanceSheetMajorNonmajor])) == "Major"
+        skip
+else
+ $sum1 = {@DeferredCredits}; 
+ $addend = ({@CustomerAdvancesForConstruction}#f0 
+ + {@OtherDeferredCredits}#f1
+ + {@OtherRegulatoryLiabilities}#f2 
+ + {@AccumulatedDeferredInvestmentTaxCredits}#f3
+ + {@DeferredGainsFromDispositionOfUtilityPlant}#f4 
+ + {@UnamortizedGainOnReacquiredDebt}#f5 
+ + {@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationPropertyOtherPropertyAndOther}#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ProprietaryCapital with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
++ \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}
+"
+severity error
+rule-focus $sum1
+
+assert F1F.3.10 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:ComparativeBalanceSheetMajorNonmajor])) == "Major"
+        skip
+else
+ $sum1 = {@LiabilitiesAndOtherCredits}; 
+ $addend = ({@ProprietaryCapital}#f0
+ + {@LongTermDebt}#f1
+ + {@OtherNoncurrentLiabilities}#f2 
+ + {@CurrentAndAccruedLiabilities}#f3 
+ + {@DeferredCredits}#f4
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LiabilitiesAndOtherCredits with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
++ \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}
+"
+severity error
+rule-focus $sum1

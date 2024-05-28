@@ -1,0 +1,114 @@
+/**FERC Form 1 Rules 
+**/
+RULE-NAME-PREFIX FERC
+
+assert F1.400.1 satisfied 
+$rule_id = rule-name();
+
+ $elementsToSum = list(FirmNetworkServiceForSelf, FirmNetworkServiceForOther, LongTermFirmPointToPointReservations, OtherLongTermFirmService, ShortTermFirmPointToPointReservations, OtherService);
+
+for $concept in $elementsToSum
+ $sum1 = {@concept = $concept @@NameOfTransmissionSystemAxis=* @MonthAxis = none}; 
+ $addend = sum(list({nonils @concept = $concept @MonthAxis in $monthMembers @@NameOfTransmissionSystemAxis=* })#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis MonthAxis with month members has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.400.2 satisfied 
+$rule_id = rule-name();
+
+$QuarterMembers = list(Quarter1Member,Quarter2Member,Quarter3Member,Quarter4Member)
+
+ $elementsToSum = list(FirmNetworkServiceForSelf, FirmNetworkServiceForOther, LongTermFirmPointToPointReservations, OtherLongTermFirmService, ShortTermFirmPointToPointReservations, OtherService);
+
+for $concept in $elementsToSum
+ $sum1 = [@concept = $concept @@NameOfTransmissionSystemAxis=*]; 
+ $addend = sum(list([nonils @concept = $concept @MonthAxis in $QuarterMembers @@NameOfTransmissionSystemAxis=* ])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis MonthAxis with quarter members has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F1.400.3 satisfied 
+$rule_id = rule-name();
+
+{@concept = DayOfMonthlyPeakExcludingIsoAndRto}#dayMonth > 31
+
+message 
+"The element {$dayMonth.concept.name} with a value of {$dayMonth} is a day of the month. The value should not exceed 31.
+
+Total Element : {$dayMonth.concept.name}
+Total Period : {$dayMonth.period}
+Total Value : {$dayMonth} 
+Dimensions : {$dayMonth.dimensions.join(',','=')}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $dayMonth
+
+assert F1.400.4 satisfied 
+$rule_id = rule-name();
+
+$HourDay = {@concept = HourOfMonthlyPeakExcludingIsoAndRto};
+$ValidHours = list(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24);
+if $HourDay not in $ValidHours 
+        true
+else
+        false
+
+message 
+"The element {$HourDay.concept.name} with a value of {$HourDay} is an hour of the day. The value should be a valid hour between 1 and 24.
+
+Total Element : {$HourDay.concept.name}
+Total Period : {$HourDay.period}
+Total Value : {$HourDay} 
+Dimensions : {$HourDay.dimensions.join(',','=')}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $HourDay
+
+assert F1.400.5 satisfied 
+$rule_id = rule-name();
+
+$QuarterMembers = list(Quarter1Member,Quarter2Member,Quarter3Member,Quarter4Member)
+
+$elementsNoValue = list(MonthlyPeakLoadExcludingIsoAndRto, DayOfMonthlyPeakExcludingIsoAndRto, HourOfMonthlyPeakExcludingIsoAndRto);
+
+for $concept in $elementsNoValue
+ 
+        exists([@concept = $concept @MonthAxis in $QuarterMembers @NameOfTransmissionSystemAxis=* ]#badValue)
+
+message 
+"The  element {$badValue.concept.name} using the axis MonthAxis with a quarter member has a value of {$badValue}. Filers should not report values for this element and a quarterly member.
+
+Element : {$badValue.concept.name}
+Period : {$badValue.period}
+Dimensions : {$badValue.dimensions.join(',','=')}
+Value : {$badValue} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $badValue

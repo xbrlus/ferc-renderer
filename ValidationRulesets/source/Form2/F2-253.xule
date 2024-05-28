@@ -1,0 +1,158 @@
+/**FERC Form 2 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+/** F2.253.1 USED FOR HISTORICAL DATA CONVERSION ONLY **/
+assert F2.253.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@OtherPaidInCapitalDetail @OtherPaidInCapitalAxis=none @period=$currentInstant]; 
+ $addend = ([@OtherPaidInCapitalDetail @OtherPaidInCapitalAxis=none @period=$priorInstant]
+ + (sum(list([nonils @IncreasesDecreasesInOtherPaidInCapital @OtherPaidInCapitalAxis=* @period=$currentDuration]))));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of OtherPaidInCapitalDetail sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for OtherPaidInCapitalDetail. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.253.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@DonationsReceivedFromStockholders @DonationsReceivedFromStockholdersAxis=none @period=$currentInstant]; 
+ $addend = ([@DonationsReceivedFromStockholders @DonationsReceivedFromStockholdersAxis=none @period=$priorInstant]
+ + (sum(list([nonils @IncreasesDecreasesFromSalesOfDonationsReceivedFromStockholders @DonationsReceivedFromStockholdersAxis=* @period=$currentDuration]))));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of DonationsReceivedFromStockholders sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for DonationsReceivedFromStockholders. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.253.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@ReductionInParOrStatedValueOfCapitalStock @ReductionInParOrStatedValueOfCapitalStockAxis=none @period=$currentInstant]; 
+ $addend = ([@ReductionInParOrStatedValueOfCapitalStock @ReductionInParOrStatedValueOfCapitalStockAxis=none @period=$priorInstant]
+ + (sum(list([nonils @IncreasesDecreasesDueToReductionsInParOrStatedValueOfCapitalStock @ReductionInParOrStatedValueOfCapitalStockAxis=* @period=$currentDuration]))));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of ReductionInParOrStatedValueOfCapitalStock sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for ReductionInParOrStatedValueOfCapitalStock. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.253.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@GainOnResaleOrCancellationOfReacquiredCapitalStock @GainOnResaleOrCancellationOfReacquiredCapitalStockAxis=none @period=$currentInstant]; 
+ $addend = ([@GainOnResaleOrCancellationOfReacquiredCapitalStock @ReductionInParOrStatedValueOfCapitalStockAxis=none @period=$priorInstant]
+ + (sum(list([nonils @IncreasesDecreasesFromGainOrResaleOrCancellationOfReacquiredCapitalStock @GainOnResaleOrCancellationOfReacquiredCapitalStockAxis=* @period=$currentDuration]))));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of GainOnResaleOrCancellationOfReacquiredCapitalStock sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for GainOnResaleOrCancellationOfReacquiredCapitalStock. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.253.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@MiscellaneousPaidInCapital @MiscellaneousPaidInCapitalAxis=none @period=$currentInstant]; 
+ $addend = ([@MiscellaneousPaidInCapital @ReductionInParOrStatedValueOfCapitalStockAxis=none @period=$priorInstant]
+ + (sum(list([nonils @IncreasesDecreasesDueToMiscellaneousPaidInCapital @MiscellaneousPaidInCapitalAxis=* @period=$currentDuration]))));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of MiscellaneousPaidInCapital sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for MiscellaneousPaidInCapital. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.253.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@OtherPaidInCapital @period=$currentInstant]; 
+ $addend = ([@DonationsReceivedFromStockholders @period=$currentInstant]#f0
+ + [@ReductionInParOrStatedValueOfCapitalStock @period=$currentInstant]#f1
+ + [@GainOnResaleOrCancellationOfReacquiredCapitalStock @period=$currentInstant]#f2
+ + [@MiscellaneousPaidInCapital @period=$currentInstant]#f3);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of OtherPaidInCapital sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for OtherPaidInCapital. 
+The breakdown is as follows:
+= \t DonationsReceivedFromStockholders                                  {$f0}
++ \t ReductionInParOrStatedValueOfCapitalStock                          {$f1}
++ \t GainOnResaleOrCancellationOfReacquiredCapitalStock                 {$f2}
++ \t MiscellaneousPaidInCapital                                         {$f3}
+
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

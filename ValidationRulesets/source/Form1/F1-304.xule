@@ -1,0 +1,154 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.304.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@MegawattHoursOfElectricitySoldByRateSchedulesIncludingUnbilledRevenue]; 
+ $addend = ([@MegawattHoursOfElectricitySoldByRateSchedules] 
+ + [@MegawattHoursOfElectricitySoldByRateSchedulesUnbilled]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MegawattHoursOfElectricitySoldByRateSchedulesIncludingUnbilledRevenue with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.304.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@RevenueFromSalesOfElectricityByRateSchedulesIncludingUnbilledRevenue]; 
+ $addend = ([@RevenueFromSalesOfElectricityByRateSchedules] 
+ + [@RevenueFromSalesOfElectricityByRateSchedulesUnbilled]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RevenueFromSalesOfElectricityByRateSchedulesIncludingUnbilledRevenue with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.304.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@MegawattHoursOfElectricitySoldByRateSchedules]; 
+ $addend = sum(list([nonils @MegawattHoursOfElectricitySoldByRateSchedules @SalesOfElectricityByRateSchedulesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis SalesOfElectricityByRateSchedulesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.304.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@RevenueFromSalesOfElectricityByRateSchedules]; 
+ $addend = sum(list([nonils @RevenueFromSalesOfElectricityByRateSchedules @SalesOfElectricityByRateSchedulesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis SalesOfElectricityByRateSchedulesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.304.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $all_source = navigate summation-item descendants include start role "http://ferc.gov/form/2020-01-01/roles/Schedule/F1/ScheduleSalesOfElectricityByRateSchedulesTotals" returns  (source-name);
+
+        for $concept_item in $all_source.to-set
+        if $concept_item == none
+                skip
+        else
+                $data = navigate summation-item children from $concept_item role "http://ferc.gov/form/2020-01-01/roles/Schedule/F1/ScheduleSalesOfElectricityByRateSchedulesTotals" returns  (target-name, weight)
+
+        /**$addendConcepts = filter $data returns $item[1]; **/
+
+        $addend = sum(list(for $x in $data
+                                                $targetElement = $x[1];
+                                                $targetWeight = $x[2];
+                                        [nonils @concept = $targetElement] * $targetWeight
+                                                )
+                                )
+                                
+        $addend_string = sum(list(for $x in $data.sort
+                                                $targetElement = $x[1];
+                                                $factAmt = [nonils @concept = $targetElement].string;
+                                                $weight =  if $x[2] == 1
+                                                                                "+"
+                                                                        else
+                                                                        "-";
+                                                $strLength = $targetElement.local-name.string.length;
+                                                $pad = sum(list(for $x in range(150 - $strLength - $factAmt.length)
+                                                                                " " 
+                                                                                )
+                                                                        )
+                                        "" + $weight + "  \t" + $targetElement.local-name.string + $pad + $factAmt + " \n"
+                                                )
+                                )
+
+        $sum2 = [@concept=$concept_item]
+
+        $conceptReported = $concept_item;
+        tolerance_for_decimals($sum2,$addend,$tolerance_factor)
+
+message
+
+"The value reported for {$conceptReported.local-name} is {$sum2} and the calculated value is {$addend} comprising the following values:
+
+{$addend_string}
+
+ Total Element : {$sum2.concept.name}
+ Total Period : {$sum2.period}
+ Total Value : {$sum2} 
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $sum2
+
+

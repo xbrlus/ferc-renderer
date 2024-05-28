@@ -1,0 +1,573 @@
+/**FERC Form 2 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.117.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@AccumulatedOtherComprehensiveIncomeLossChangesInUnrealizedGainsAndLossesOnAvailableForSaleSecurities}; 
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossUnrealizedGainsAndLossesOnAvailableForSaleSecuritiesReclassificationsToNetIncomeLoss}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossUnrealizedGainsAndLossesOnAvailableForSaleSecuritiesChangesInFairValue}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossChangesInUnrealizedGainsAndLossesOnAvailableForSaleSecurities with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@AccumulatedOtherComprehensiveIncomeLossChangesInMinimumPensionLiabilityAdjustment}; 
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossMinimumPensionLiabilityAdjustmentReclassificationsToNetIncomeLoss}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossMinimumPensionLiabilityAdjustmentChangesInFairValue}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossChangesInMinimumPensionLiabilityAdjustment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@AccumulatedOtherComprehensiveIncomeLossChangesInForeignCurrencyHedges}; 
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossForeignCurrencyHedgesReclassificationsToNetIncomeLoss}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossForeignCurrencyHedgesChangesInFairValue}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossChangesInForeignCurrencyHedges with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@AccumulatedOtherComprehensiveIncomeLossChangesInOtherAdjustmentsToComprehensiveIncomeLoss}; 
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherAdjustmentsToComprehensiveIncomeLossReclassificationsToNetIncomeLoss}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossOtherAdjustmentsToComprehensiveIncomeLossChangesInFairValue}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossChangesInOtherAdjustmentsToComprehensiveIncomeLoss with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@AccumulatedOtherComprehensiveIncomeLossChangesInOtherCashFlowHedgesInterestRateSwaps}; 
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesInterestRateSwapsReclassificationsToNetIncomeLoss}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesInterestRateSwapsChangesInFairValue}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossChangesInOtherCashFlowHedgesInterestRateSwaps with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@AccumulatedOtherComprehensiveIncomeLossChangesInOtherCashFlowHedges}; 
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesReclassificationsToNetIncomeLoss}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesChangesInFairValue}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossChangesInOtherCashFlowHedges with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@AccumulatedOtherComprehensiveIncome};
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossUnrealizedGainsAndLossesOnAvailableForSaleSecuritiesBalance}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossMinimumPensionLiabilityAdjustmentBalance }#f1
+ + {@AccumulatedOtherComprehensiveIncomeLossForeignCurrencyHedgesBalance}#f2
+ + {@AccumulatedOtherComprehensiveIncomeLossOtherAdjustmentsToComprehensiveIncomeLossBalance}#f3
+ + {@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesInterestRateSwapsBalance}#f4
+ + {@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesBalance}#f5);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLoss with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@ComprehensiveIncomeLoss}; 
+ $addend = ({@ChangesInAccumulatedOtherComprehensiveIncomeLoss}#f0
+ + {@NetIncomeLoss}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ComprehensiveIncomeLoss with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+$sum1= {@AccumulatedOtherComprehensiveIncomeLossUnrealizedGainsAndLossesOnAvailableForSaleSecuritiesBalance @period=$prior12MonthsInstant};
+$addend = ({@AccumulatedOtherComprehensiveIncomeLossUnrealizedGainsAndLossesOnAvailableForSaleSecuritiesBalance @period=$prior2Instant}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInUnrealizedGainsAndLossesOnAvailableForSaleSecurities @period=$priorDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossUnrealizedGainsAndLossesOnAvailableForSaleSecuritiesBalance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@AccumulatedOtherComprehensiveIncomeLossUnrealizedGainsAndLossesOnAvailableForSaleSecuritiesBalance @period=$currentInstant};
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossUnrealizedGainsAndLossesOnAvailableForSaleSecuritiesBalance @period=$priorInstant}#f0
+  + {@AccumulatedOtherComprehensiveIncomeLossChangesInUnrealizedGainsAndLossesOnAvailableForSaleSecurities @period=$currentDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossUnrealizedGainsAndLossesOnAvailableForSaleSecuritiesBalance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.11 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1= {@AccumulatedOtherComprehensiveIncomeLossMinimumPensionLiabilityAdjustmentBalance @period=$prior12MonthsInstant};
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossMinimumPensionLiabilityAdjustmentBalance @period=$prior2Instant}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInMinimumPensionLiabilityAdjustment @period=$priorDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossMinimumPensionLiabilityAdjustmentBalance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.12 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@AccumulatedOtherComprehensiveIncomeLossMinimumPensionLiabilityAdjustmentBalance @period=$currentInstant};
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossMinimumPensionLiabilityAdjustmentBalance @period=$priorInstant}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInMinimumPensionLiabilityAdjustment @period=$currentDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossMinimumPensionLiabilityAdjustmentBalance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.13 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1= {@AccumulatedOtherComprehensiveIncomeLossForeignCurrencyHedgesBalance @period=$prior12MonthsInstant};
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossForeignCurrencyHedgesBalance @period=$prior2Instant}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInForeignCurrencyHedges @period=$priorDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossForeignCurrencyHedgesBalance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.14 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@AccumulatedOtherComprehensiveIncomeLossForeignCurrencyHedgesBalance @period=$currentInstant};
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossForeignCurrencyHedgesBalance @period=$priorInstant}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInForeignCurrencyHedges @period=$currentDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossForeignCurrencyHedgesBalance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.15 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1= {@AccumulatedOtherComprehensiveIncomeLossOtherAdjustmentsToComprehensiveIncomeLossBalance @period=$prior12MonthsInstant};
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherAdjustmentsToComprehensiveIncomeLossBalance @period=$prior2Instant}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInOtherAdjustmentsToComprehensiveIncomeLoss @period=$priorDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossOtherAdjustmentsToComprehensiveIncomeLossBalance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.16 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@AccumulatedOtherComprehensiveIncomeLossOtherAdjustmentsToComprehensiveIncomeLossBalance @period=$currentInstant};
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherAdjustmentsToComprehensiveIncomeLossBalance @period=$priorInstant}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInOtherAdjustmentsToComprehensiveIncomeLoss @period=$currentDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossOtherAdjustmentsToComprehensiveIncomeLossBalance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.17 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1= {@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesInterestRateSwapsBalance @period=$prior12MonthsInstant};
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesInterestRateSwapsBalance @period=$prior2Instant}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInOtherCashFlowHedgesInterestRateSwaps @period=$priorDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesInterestRateSwapsBalance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.18 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesInterestRateSwapsBalance @period=$currentInstant};
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesInterestRateSwapsBalance @period=$priorInstant}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInOtherCashFlowHedgesInterestRateSwaps @period=$currentDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesInterestRateSwapsBalance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.19 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1= {@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesBalance @period=$prior12MonthsInstant};
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesBalance @period=$prior2Instant}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInOtherCashFlowHedges @period=$priorDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesBalance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.20 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesBalance @period=$currentInstant};
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesBalance @period=$priorInstant}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInOtherCashFlowHedges @period=$currentDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncomeLossOtherCashFlowHedgesBalance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.21 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1= {@AccumulatedOtherComprehensiveIncome @period=$prior12MonthsInstant};
+ $addend = ({@AccumulatedOtherComprehensiveIncome @period=$prior2Instant}#f0
+ + {@ChangesInAccumulatedOtherComprehensiveIncomeLoss @period=$priorDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncome with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.22 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@AccumulatedOtherComprehensiveIncome @period=$currentInstant};
+ $addend = ({@AccumulatedOtherComprehensiveIncome @period=$priorInstant}#f0
+ + {@ChangesInAccumulatedOtherComprehensiveIncomeLoss @period=$currentDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedOtherComprehensiveIncome with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.23 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@ChangesInAccumulatedOtherComprehensiveIncomeLoss};
+ $addend =  {@AccumulatedOtherComprehensiveIncomeLossChangesInUnrealizedGainsAndLossesOnAvailableForSaleSecurities}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInMinimumPensionLiabilityAdjustment}#f1
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInForeignCurrencyHedges}#f2
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInOtherAdjustmentsToComprehensiveIncomeLoss}#f3
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInOtherCashFlowHedgesInterestRateSwaps}#f4
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInOtherCashFlowHedges}#f5;
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ChangesInAccumulatedOtherComprehensiveIncomeLoss with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
++ \t {$f4.concept.name.local-name} \t = \t {$f4}
++ \t {$f5.concept.name.local-name} \t = \t {$f5}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.117.24 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@ChangesInAccumulatedOtherComprehensiveIncomeLoss};
+ $addend = ({@AccumulatedOtherComprehensiveIncomeLossReclassificationsToNetIncomeLoss}#f0
+ + {@AccumulatedOtherComprehensiveIncomeLossChangesInFairValue}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ChangesInAccumulatedOtherComprehensiveIncomeLoss with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

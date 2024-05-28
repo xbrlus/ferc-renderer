@@ -1,0 +1,84 @@
+/**
+FERC Rules
+**/
+
+RULE-NAME-PREFIX FERC
+
+assert F1F.16.1 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:ElectricSalesDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@SalesToUltimateConsumers}; 
+ $addend = ({@ResidentialSales}#F1F16-1-2
+ + {@CommercialAndIndustrialSalesRevenues}#F1F16-1-3
+ + {@PublicStreetAndHighwayLighting}#F1F16-1-4
+ + {@InterdepartmentalSales}#F1F16-1-5
+ + {@OtherSalesToPublicAuthorities}#F1F16-1-6);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalesToUltimateConsumers with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}.  The components are as follows:
+= \t {$F1F16-1-2.concept.name.local-name} \t = \t {$F1F16-1-2}
++ \t {$F1F16-1-3.concept.name.local-name} \t = \t {$F1F16-1-3}
++ \t {$F1F16-1-4.concept.name.local-name} \t = \t {$F1F16-1-4}
++ \t {$F1F16-1-5.concept.name.local-name} \t = \t {$F1F16-1-5}
++ \t {$F1F16-1-6.concept.name.local-name} \t = \t {$F1F16-1-6}
+
+
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.16.2 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:ElectricSalesDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@SalesOfElectricity}; 
+ $addend = ({@SalesToUltimateConsumers}#F1F16-2-2
+ + {@SalesForResale}#F1F16-2-3);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalesOfElectricity with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}.  The components are as follows:
+
+= \t {$F1F16-2-2.concept.name.local-name} \t = \t {$F1F16-2-2}
++ \t {$F1F16-2-3.concept.name.local-name} \t = \t {$F1F16-2-3}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1F.16.3 satisfied 
+$rule_id = rule-name();
+
+if set('1','1/3-Q').contains([covered @concept.local-name ='FormType']) or first(list([covered @ferc:ElectricSalesDataMajorNonmajor]))  == "Major"
+        skip
+else
+ $sum1 = {@ElectricOperatingRevenues}; 
+ $addend = ({@SalesOfElectricity}#F1F16-3-2
+ + (sum(list([nonils @OtherOperatingRevenues @OtherOperatingRevenuesAxis=*])#F1F16-3-3)));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricOperatingRevenues with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}, comprised of the following:
+
+= \t {$F1F16-3-2.concept.name.local-name} \t = \t {$F1F16-3-2}
++ \t OtherOperatingRevenues \t = \t {$F1F16-3-3.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

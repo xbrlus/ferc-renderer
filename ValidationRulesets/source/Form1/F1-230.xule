@@ -1,0 +1,94 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.230a.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@ExtraordinaryPropertyLossesNotYetRecognized]; 
+ $addend = sum(list([nonils @ExtraordinaryPropertyLossesNotYetRecognized @ExtraordinaryPropertyLossesAxis=*]));
+ if $addend == none
+ 	skip
+ else
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of ExtraordinaryPropertyLossesNotYetRecognized sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for ExtraordinaryPropertyLossesNotYetRecognized. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.230a.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@ExtraordinaryPropertyLossesRecognized]; 
+ $addend = sum(list([nonils @ExtraordinaryPropertyLossesRecognized @ExtraordinaryPropertyLossesAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis ExtraordinaryPropertyLossesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}  
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.230a.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@ExtraordinaryPropertyLossesWrittenOff]; 
+ $addend = sum(list([nonils @ExtraordinaryPropertyLossesWrittenOff @ExtraordinaryPropertyLossesAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis ExtraordinaryPropertyLossesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.230a.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@ExtraordinaryPropertyLosses]; 
+ $addend = sum(list([nonils @ExtraordinaryPropertyLosses @ExtraordinaryPropertyLossesAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis ExtraordinaryPropertyLossesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}  
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

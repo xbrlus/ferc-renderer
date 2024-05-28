@@ -1,0 +1,124 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.258.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@UnamortizedDebtExpense @@UnamortizedDebtExpenseAxis=* @period=$currentInstant}; 
+ $addend = ({@UnamortizedDebtExpense @@UnamortizedDebtExpenseAxis=* @period=$priorInstant}#f0
+ - {@AmortizationOfDebtIssuanceExpensesLongTermDebt @@UnamortizedDebtExpenseAxis=* @period=$currentDuration}#f2
+ + {@DebtIssuanceExpensesLongTermDebtAdditions @@UnamortizedDebtExpenseAxis=* @period=$currentDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
+
+Total Element : {$sum1.concept.name}
+Total Dimensions: {$sum1.dimensions.join(', ','=')} 
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.258.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@UnamortizedPremiumOnLongTermDebt @@UnamortizedPremiumOnLongTermDebtAxis=* @period=$currentInstant}; 
+ $addend = ({@UnamortizedPremiumOnLongTermDebt @@UnamortizedPremiumOnLongTermDebtAxis=* @period=$priorInstant}#f0
+ <- {@AmortizationOfPremiumOnLongTermDebt @@UnamortizedPremiumOnLongTermDebtAxis=* @period=$currentDuration}#f1
+ + {@PremiumLongTermDebtAdditions @@UnamortizedPremiumOnLongTermDebtAxis=* @period=$currentDuration}#f2);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
+- \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$f2.concept.name.local-name} \t = \t {$f2}
+
+Total Element : {$sum1.concept.name}
+Total Dimensions: {$sum1.dimensions.join(', ','=')} 
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.258.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@UnamortizedDiscountOnLongTermDebtDebit @@UnamortizedDiscountOnLongTermDebtAxis=* @period=$currentInstant}; 
+ $addend = ({@UnamortizedDiscountOnLongTermDebtDebit @@UnamortizedDiscountOnLongTermDebtAxis=* @period=$priorInstant}#f0
+ - {@AmortizationOfDiscountLongTermDebt @@UnamortizedDiscountOnLongTermDebtAxis=* @period=$currentDuration}#f2
+ + {@DiscountLongTermDebtAdditions @@UnamortizedDiscountOnLongTermDebtAxis=* @period=$currentDuration}#f1);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
+
+Total Element : {$sum1.concept.name}
+Total Dimensions: {$sum1.dimensions.join(', ','=')} 
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.258.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @@UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAxis=* @period=$currentInstant};
+ $v1 = {@BalanceOfUnamortizedDebtExpensesPremiumsOrDiscountsOnLongTermDebt @@UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAxis=* @period=$priorInstant};
+ $addend = ($v1 + {@UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtDebits @@UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAxis=* @period=$currentDuration}#v2
+ - {@UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtCredits @@UnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAxis=* @period=$currentDuration}#v3);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}. This is comprised of:
+- {$v1.concept.name} with a value of {$v1} with dimensions of {$v1.dimensions.join(', ','=')}
+- {$v2.concept.name} with a value of {$v2} with dimensions of {$v2.dimensions.join(', ','=')}
+- {$v3.concept.name} with a value of {$v3} with dimensions of {$v3.dimensions.join(', ','=')}
+
+Total Element : {$sum1.concept.name}
+Total Dimensions: {$sum1.dimensions.join(', ','=')} 
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $v1

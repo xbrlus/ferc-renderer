@@ -1,0 +1,524 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.272.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+$ElectricOtherFacilities = first-value({@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricOtherFacilitiesMember}, sum(list({nonils @AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @AcceleratedAmortizationPropertyElectricOtherAxis=* @UtilityTypeAxis=ElectricOtherFacilitiesMember})));
+
+ $sum1 = {@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricUtilityMember}; 
+ $addend = ({@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricDefenseFacilitiesMember}#f0 
+ + {@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricPollutionControlFacilitiesMember}#f1
+ + $ElectricOtherFacilities
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t ElectricOtherFacilities \t = \t {$ElectricOtherFacilities}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.272.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+$GasOtherFacilities = first-value({@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasOtherFacilitiesMember}, sum(list({nonils @AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @AcceleratedAmortizationPropertyGasOtherAxis=* @UtilityTypeAxis=GasOtherFacilitiesMember})));
+
+ $sum1 = {@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasUtilityMember}; 
+ $addend = ({@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasDefenseFacilitiesMember}#f0
+ + {@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasPollutionControlFacilitiesMember}#f1 
+ + $GasOtherFacilities
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t GasOtherFacilities \t = \t {$GasOtherFacilities}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.272.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+$OtherFacilities = first-value([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=OtherUtilityMember], sum(list({nonils @AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @AcceleratedAmortizationPropertyOtherAxis=* @UtilityTypeAxis=OtherUtilityMember})));
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=none]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricUtilityMember]#f0
+ + [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasUtilityMember]#f1 
+ + $OtherFacilities
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
++ \t {$OtherFacilities.concept.name.local-name} \t = \t {$OtherFacilities}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.272.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricUtilityMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricUtilityMember @period=$priorInstant]#f0
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration]#f1
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration]#f2
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration]#f3
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration]#f4
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsDebitedToAccount @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration]#f5
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsCreditedToAccount @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration]#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F1.272.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasUtilityMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasUtilityMember @period=$priorInstant]#f0
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=GasUtilityMember @period=$currentDuration]#f1
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=GasUtilityMember @period=$currentDuration]#f2
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=GasUtilityMember @period=$currentDuration]#f3
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=GasUtilityMember @period=$currentDuration]#f4
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsDebitedToAccount @UtilityTypeAxis=GasUtilityMember @period=$currentDuration]#f5
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsCreditedToAccount @UtilityTypeAxis=GasUtilityMember @period=$currentDuration]#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.272.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=OtherUtilityMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=OtherUtilityMember @period=$priorInstant]#f0
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]#f1
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]#f2
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]#f3
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]#f4
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsDebitedToAccount @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]#f5
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsCreditedToAccount @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.272.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricDefenseFacilitiesMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricDefenseFacilitiesMember @period=$priorInstant]#f0
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=ElectricDefenseFacilitiesMember @period=$currentDuration]#f1
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=ElectricDefenseFacilitiesMember @period=$currentDuration]#f2
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=ElectricDefenseFacilitiesMember @period=$currentDuration]#f3
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=ElectricDefenseFacilitiesMember @period=$currentDuration]#f4
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsDebitedToAccount @UtilityTypeAxis=ElectricDefenseFacilitiesMember @period=$currentDuration]#f5
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsCreditedToAccount @UtilityTypeAxis=ElectricDefenseFacilitiesMember @period=$currentDuration]#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.272.8 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricPollutionControlFacilitiesMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=ElectricPollutionControlFacilitiesMember @period=$priorInstant]#f0
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=ElectricPollutionControlFacilitiesMember @period=$currentDuration]#f1
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=ElectricPollutionControlFacilitiesMember @period=$currentDuration]#f2
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=ElectricPollutionControlFacilitiesMember @period=$currentDuration]#f3
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=ElectricPollutionControlFacilitiesMember @period=$currentDuration]#f4
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsDebitedToAccount @UtilityTypeAxis=ElectricPollutionControlFacilitiesMember @period=$currentDuration]#f5
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsCreditedToAccount @UtilityTypeAxis=ElectricPollutionControlFacilitiesMember @period=$currentDuration]#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.272.9 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasDefenseFacilitiesMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasDefenseFacilitiesMember @period=$priorInstant]#f0
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=GasDefenseFacilitiesMember @period=$currentDuration]#f1
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=GasDefenseFacilitiesMember @period=$currentDuration]#f2
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=GasDefenseFacilitiesMember @period=$currentDuration]#f3
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=GasDefenseFacilitiesMember @period=$currentDuration]#f4
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsDebitedToAccount @UtilityTypeAxis=GasDefenseFacilitiesMember @period=$currentDuration]#f5
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsCreditedToAccount @UtilityTypeAxis=GasDefenseFacilitiesMember @period=$currentDuration]#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.272.10 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasPollutionControlFacilitiesMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=GasPollutionControlFacilitiesMember @period=$priorInstant]#f0
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=GasPollutionControlFacilitiesMember @period=$currentDuration]#f1
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=GasPollutionControlFacilitiesMember @period=$currentDuration]#f2
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=GasPollutionControlFacilitiesMember @period=$currentDuration]#f3
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=GasPollutionControlFacilitiesMember @period=$currentDuration]#f4
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsDebitedToAccount @UtilityTypeAxis=GasPollutionControlFacilitiesMember @period=$currentDuration]#f5
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsCreditedToAccount @UtilityTypeAxis=GasPollutionControlFacilitiesMember @period=$currentDuration]#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.272.11 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @AcceleratedAmortizationPropertyElectricOtherAxis=none @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @AcceleratedAmortizationPropertyElectricOtherAxis=none @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$priorInstant]#f0
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @AcceleratedAmortizationPropertyElectricOtherAxis=none @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$currentDuration]#f1
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @AcceleratedAmortizationPropertyElectricOtherAxis=none @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$currentDuration]#f2
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @AcceleratedAmortizationPropertyElectricOtherAxis=none @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$currentDuration]#f3
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @AcceleratedAmortizationPropertyElectricOtherAxis=none @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$currentDuration]#f4
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsDebitedToAccount @AcceleratedAmortizationPropertyElectricOtherAxis=none @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$currentDuration]#f5
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsCreditedToAccount @AcceleratedAmortizationPropertyElectricOtherAxis=none @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$currentDuration]#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.272.12 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @AcceleratedAmortizationPropertyGasOtherAxis
+=none @UtilityTypeAxis=GasOtherFacilitiesMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @AcceleratedAmortizationPropertyGasOtherAxis
+=none @UtilityTypeAxis=GasOtherFacilitiesMember @period=$priorInstant]#f0
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @AcceleratedAmortizationPropertyGasOtherAxis
+=none @UtilityTypeAxis=GasOtherFacilitiesMember @period=$currentDuration]#f1
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @AcceleratedAmortizationPropertyGasOtherAxis
+=none @UtilityTypeAxis=GasOtherFacilitiesMember @period=$currentDuration]#f2
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @AcceleratedAmortizationPropertyGasOtherAxis
+=none @UtilityTypeAxis=GasOtherFacilitiesMember @period=$currentDuration]#f3
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @AcceleratedAmortizationPropertyGasOtherAxis
+=none @UtilityTypeAxis=GasOtherFacilitiesMember @period=$currentDuration]#f4
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsDebitedToAccount @AcceleratedAmortizationPropertyGasOtherAxis
+=none @UtilityTypeAxis=GasOtherFacilitiesMember @period=$currentDuration]#f5
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsCreditedToAccount @AcceleratedAmortizationPropertyGasOtherAxis
+=none @UtilityTypeAxis=GasOtherFacilitiesMember @period=$currentDuration]#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.272.13 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @@AcceleratedAmortizationPropertyGasOtherAxis=* @UtilityTypeAxis=GasOtherFacilitiesMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @@AcceleratedAmortizationPropertyGasOtherAxis=* @UtilityTypeAxis=GasOtherFacilitiesMember @period=$priorInstant]#f0
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @@AcceleratedAmortizationPropertyGasOtherAxis=* @UtilityTypeAxis=GasOtherFacilitiesMember @period=$currentDuration]#f1
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @@AcceleratedAmortizationPropertyGasOtherAxis=* @UtilityTypeAxis=GasOtherFacilitiesMember @period=$currentDuration]#f2
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @@AcceleratedAmortizationPropertyGasOtherAxis=* @UtilityTypeAxis=GasOtherFacilitiesMember @period=$currentDuration]#f3
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @@AcceleratedAmortizationPropertyGasOtherAxis=* @UtilityTypeAxis=GasOtherFacilitiesMember @period=$currentDuration]#f4
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsDebitedToAccount @@AcceleratedAmortizationPropertyGasOtherAxis=* @UtilityTypeAxis=GasOtherFacilitiesMember @period=$currentDuration]#f5
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsCreditedToAccount @@AcceleratedAmortizationPropertyGasOtherAxis=* @UtilityTypeAxis=GasOtherFacilitiesMember @period=$currentDuration]#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.272.14 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @@AcceleratedAmortizationPropertyElectricOtherAxis=* @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @@AcceleratedAmortizationPropertyElectricOtherAxis=* @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$priorInstant]#f0
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @@AcceleratedAmortizationPropertyElectricOtherAxis=* @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$currentDuration]#f1
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @@AcceleratedAmortizationPropertyElectricOtherAxis=* @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$currentDuration]#f2
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @@AcceleratedAmortizationPropertyElectricOtherAxis=* @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$currentDuration]#f3
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @@AcceleratedAmortizationPropertyElectricOtherAxis=* @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$currentDuration]#f4
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsDebitedToAccount @@AcceleratedAmortizationPropertyElectricOtherAxis=* @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$currentDuration]#f5
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsCreditedToAccount @@AcceleratedAmortizationPropertyElectricOtherAxis=* @UtilityTypeAxis=ElectricOtherFacilitiesMember @period=$currentDuration]#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.272.15 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=none @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty @UtilityTypeAxis=none @period=$priorInstant]#f0
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=none @period=$currentDuration]#f1
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=none @period=$currentDuration]#f2
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=none @period=$currentDuration]#f3
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=none @period=$currentDuration]#f4
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsDebitedToAccount @UtilityTypeAxis=none @period=$currentDuration]#f5
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesAssetsAcceleratedAmortizationPropertyAdjustmentsCreditedToAccount @UtilityTypeAxis=none @period=$currentDuration]#f6
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesAcceleratedAmortizationProperty  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
++ \t {$f3.concept.name.local-name} \t = \t {$f3}
+- \t {$f4.concept.name.local-name} \t = \t {$f4}
+- \t {$f5.concept.name.local-name} \t = \t {$f5}
++ \t {$f6.concept.name.local-name} \t = \t {$f6}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:xendr="http://xbrl.us/xendr/2.0/template"
+xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2024-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
     <head>
@@ -28,28 +28,28 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             <td class="left-id-col xbrl" >
                                 <span>Item 1:</span>
                                     
-                                    <xendr:replace>
-                                            <xendr:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                    <xule:replace>
+                                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
                                             '<span class="checkbox">&#9744;</span> An Initial (Original) Submission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
                                             '<span class="checkbox">&#9745;</span> An Initial (Original) Submission']]> else <![CDATA[
                                             '<span class="checkbox">&#9744;</span> An Initial (Original) Submission']]>
-                                            </xendr:expression>  
-                                        <xendr:template-display>
+                                            </xule:expression>  
+                                        <xule:template-display>
                                                 <input type="checkbox"/> An Initial (Original) Submission
-                                        </xendr:template-display>
-                                    </xendr:replace>
+                                        </xule:template-display>
+                                    </xule:replace>
                                     
                                     <span> OR </span>
-                                    <xendr:replace>
-                                            <xendr:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                                    <xule:replace>
+                                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
                                             '<span class="checkbox">&#9744;</span> Resubmission No.']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
                                             '<span class="checkbox">&#9745;</span> Resubmission No.']]> else <![CDATA[
                                             '<span class="checkbox">&#9744;</span> Resubmission No.']]>
-                                                </xendr:expression> 
-                                            <xendr:template-display>
+                                                </xule:expression> 
+                                            <xule:template-display>
                                                     <input type="checkbox" checked="checked"/> Resubmission No.
-                                            </xendr:template-display>
-                                    </xendr:replace>     
+                                            </xule:template-display>
+                                    </xule:replace>     
                                               
                             </td>
                         </tr>
@@ -102,31 +102,31 @@ Major Electric Utilities, Licensees <br/>and Others and Supplemental <br/>Form 3
             <td class="xbrl">
                 <div class="abstract">Exact Legal Name of Respondent (Company)</div><br/>
                 
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]
-                    </xendr:expression>
-                    <xendr:template-display>Name of Respondent:</xendr:template-display>
-                </xendr:replace>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]
+                    </xule:expression>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
+                </xule:replace>
             </td>
             
             <td class="xbrl">
-                <xendr:replace>
-                    <xendr:expression class="hide">
+                <xule:replace>
+                    <xule:expression class="hide">
                         taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text
-                    </xendr:expression>
-                    <xendr:template-display>Year/Period of Report:</xendr:template-display>
-                </xendr:replace><br/>
+                    </xule:expression>
+                    <xule:template-display>Year/Period of Report:</xule:template-display>
+                </xule:replace><br/>
                
-                End of: <xendr:replace>
-                    <xendr:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xendr:expression>
-                    <xendr:template-display>2018</xendr:template-display>
-                </xendr:replace>
+                End of: <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                    <xule:template-display>2018</xule:template-display>
+                </xule:replace>
                 <span>/</span>
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]
-                    </xendr:expression>
-                    <xendr:template-display>Q4</xendr:template-display>
-                </xendr:replace>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]
+                    </xule:expression>
+                    <xule:template-display>Q4</xule:template-display>
+                </xule:replace>
             </td>
         </tr>
         </table>
@@ -134,20 +134,20 @@ Major Electric Utilities, Licensees <br/>and Others and Supplemental <br/>Form 3
         <div class="schedule-footer">
 
             <div>FERC FORM NO. 
-                    <xendr:replace>
-                            <xendr:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))
                                                                     
-                                                            </xendr:expression>
-                            <xendr:template-display>1</xendr:template-display>
-                    </xendr:replace>
+                                                            </xule:expression>
+                            <xule:template-display>1</xule:template-display>
+                    </xule:replace>
                     <span> </span>
-                    <xendr:replace>
-                            <xendr:expression class="hide">" (" + taxonomy().concept(ferc:Form1Abstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1DateRevised").text + ")"
-                            </xendr:expression>
-                            <xendr:template-display>
+                    <xule:replace>
+                            <xule:expression class="hide">" (" + taxonomy().concept(ferc:Form1Abstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1DateRevised").text + ")"
+                            </xule:expression>
+                            <xule:template-display>
                                     (ED. 02-04)
-                            </xendr:template-display>
-                    </xendr:replace>
+                            </xule:template-display>
+                    </xule:replace>
                                 
             </div>
            

@@ -1,0 +1,230 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.300.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricSalesDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@SalesToUltimateConsumers}; 
+ $addend = ({@ResidentialSales} 
+ + {@SmallOrCommercialSalesElectricOperatingRevenue} 
+ + {@LargeOrIndustrialSalesElectricOperatingRevenue} 
+ + {@PublicStreetAndHighwayLighting} 
+ + {@OtherSalesToPublicAuthorities} 
+ + {@SalesToRailroadsAndRailways} 
+ + {@InterdepartmentalSales});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalesToUltimateConsumers with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.300.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricSalesDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@SalesOfElectricity}; 
+ $addend = ({@SalesToUltimateConsumers} 
+ + {@SalesForResale});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalesOfElectricity with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.300.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricSalesDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@RevenuesNetOfProvisionForRefunds}; 
+ $addend = ({@SalesOfElectricity} 
+ - {@ProvisionForRateRefunds});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RevenuesNetOfProvisionForRefunds with a value of {$sum1} that is not equal to the value of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.300.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricSalesDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@ElectricOperatingRevenues}; 
+ $addend = ({@RevenuesNetOfProvisionForRefunds} 
+ + {@OtherOperatingRevenues});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricOperatingRevenues with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.300.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricSalesDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@MegawattHoursSoldSalesToUltimateConsumers}; 
+ $addend = ({@MegawattHoursSoldResidentialSales} 
+ + {@MegawattHoursSoldSmallOrCommercial} 
+ + {@MegawattHoursSoldLargeOrIndustrial} 
+ + {@MegawattHoursSoldPublicStreetAndHighwayLighting} 
+ + {@MegawattHoursSoldOtherSalesToPublicAuthorities} 
+ + {@MegawattHoursSoldSalesToRailroadsAndRailways} 
+ + {@MegawattHoursSoldInterdepartmentalSales});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MegawattHoursSoldSalesToUltimateConsumers with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.300.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricSalesDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@MegawattHoursSoldSalesOfElectricity}; 
+ $addend = ({@MegawattHoursSoldSalesToUltimateConsumers} 
+ + {@MegawattHoursSoldSalesForResale});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MegawattHoursSoldSalesOfElectricity with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.300.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricSalesDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@MegawattHoursSoldRevenuesNetOfProvisionForRefunds}; 
+ $addend = ({@MegawattHoursSoldSalesOfElectricity} 
+ - {@MegawattHoursSoldProvisionForRateRefunds});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MegawattHoursSoldRevenuesNetOfProvisionForRefunds with a value of {$sum1} that is not equal to the value of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.300.8 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricSalesDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@AverageNumberOfCustomersPerMonthSalesToUltimateConsumers}; 
+ $addend = ({@AverageNumberOfCustomersPerMonthResidentialSales} 
+ + {@AverageNumberOfCustomersPerMonthSmallOrCommercial} 
+ + {@AverageNumberOfCustomersPerMonthLargeOrIndustrial} 
+ + {@AverageNumberOfCustomersPerMonthPublicStreetAndHighwayLighting} 
+ + {@AverageNumberOfCustomersPerMonthOtherSalesToPublicAuthorities} 
+ + {@AverageNumberOfCustomersPerMonthSalesToRailroadsAndRailways} 
+ + {@AverageNumberOfCustomersPerMonthInterdepartmentalSales});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AverageNumberOfCustomersPerMonthSalesToUltimateConsumers with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.300.9 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricSalesDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@AverageNumberOfCustomersPerMonthSalesOfElectricity}; 
+ $addend = ({@AverageNumberOfCustomersPerMonthSalesToUltimateConsumers} 
+ + {@AverageNumberOfCustomersPerMonthSalesForResale});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AverageNumberOfCustomersPerMonthSalesOfElectricity with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.300.10 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType']) and first(list([covered @ferc:ElectricSalesDataMajorNonmajor]))  != "Major"
+        skip
+else
+ $sum1 = {@AverageNumberOfCustomersPerMonthRevenuesNetOfProvisionForRefunds}; 
+ $addend = ({@AverageNumberOfCustomersPerMonthSalesOfElectricity} 
+ - {@AverageNumberOfCustomersPerMonthProvisionForRateRefunds});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AverageNumberOfCustomersPerMonthRevenuesNetOfProvisionForRefunds with a value of {$sum1} that is not equal to the value of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

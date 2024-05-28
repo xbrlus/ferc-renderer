@@ -1,0 +1,181 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.336.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=none @period=$currentDuration]; 
+ $addend = ({@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=IntangiblePlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=SteamProductionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=NuclearProductionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=HydraulicProductionPlantConventionalMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=HydraulicProductionPlantPumpedStorageMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=OtherProductionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=TransmissionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=DistributionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=RegionalTransmissionAndMarketOperationMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=GeneralPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=CommonPlantElectricMember @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.336.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=none @period=$currentDuration]; 
+ $addend = ({@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=IntangiblePlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=SteamProductionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=NuclearProductionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=HydraulicProductionPlantConventionalMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=HydraulicProductionPlantPumpedStorageMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=OtherProductionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=TransmissionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=DistributionPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=RegionalTransmissionAndMarketOperationMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=GeneralPlantMember @period=$currentDuration}
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=CommonPlantElectricMember @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.336.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@AmortizationOfLimitedTermPlantOrProperty @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=none @period=$currentDuration]; 
+ $addend = ({@AmortizationOfLimitedTermPlantOrProperty @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=IntangiblePlantMember @period=$currentDuration}
+ + {@AmortizationOfLimitedTermPlantOrProperty @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=SteamProductionPlantMember @period=$currentDuration}
+ + {@AmortizationOfLimitedTermPlantOrProperty @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=NuclearProductionPlantMember @period=$currentDuration}
+ + {@AmortizationOfLimitedTermPlantOrProperty @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=HydraulicProductionPlantConventionalMember @period=$currentDuration}
+ + {@AmortizationOfLimitedTermPlantOrProperty @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=HydraulicProductionPlantPumpedStorageMember @period=$currentDuration}
+ + {@AmortizationOfLimitedTermPlantOrProperty @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=OtherProductionPlantMember @period=$currentDuration}
+ + {@AmortizationOfLimitedTermPlantOrProperty @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=TransmissionPlantMember @period=$currentDuration}
+ + {@AmortizationOfLimitedTermPlantOrProperty @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=DistributionPlantMember @period=$currentDuration}
+ + {@AmortizationOfLimitedTermPlantOrProperty @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=RegionalTransmissionAndMarketOperationMember @period=$currentDuration}
+ + {@AmortizationOfLimitedTermPlantOrProperty @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=GeneralPlantMember @period=$currentDuration}
+ + {@AmortizationOfLimitedTermPlantOrProperty @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=CommonPlantElectricMember @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for AmortizationOfLimitedTermPlantOrProperty. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.336.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@AmortizationOfOtherElectricPlant @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=none @period=$currentDuration]; 
+ $addend = ({@AmortizationOfOtherElectricPlant @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=IntangiblePlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherElectricPlant @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=SteamProductionPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherElectricPlant @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=NuclearProductionPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherElectricPlant @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=HydraulicProductionPlantConventionalMember @period=$currentDuration}
+ + {@AmortizationOfOtherElectricPlant @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=HydraulicProductionPlantPumpedStorageMember @period=$currentDuration}
+ + {@AmortizationOfOtherElectricPlant @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=OtherProductionPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherElectricPlant @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=TransmissionPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherElectricPlant @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=DistributionPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherElectricPlant @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=RegionalTransmissionAndMarketOperationMember @period=$currentDuration}
+ + {@AmortizationOfOtherElectricPlant @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=GeneralPlantMember @period=$currentDuration}
+ + {@AmortizationOfOtherElectricPlant @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=CommonPlantElectricMember @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for AmortizationOfOtherElectricPlant. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.336.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@DepreciationAndAmortization @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=none @period=$currentDuration]; 
+ $addend = ({@DepreciationAndAmortization @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=IntangiblePlantMember @period=$currentDuration}
+ + {@DepreciationAndAmortization @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=SteamProductionPlantMember @period=$currentDuration}
+ + {@DepreciationAndAmortization @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=NuclearProductionPlantMember @period=$currentDuration}
+ + {@DepreciationAndAmortization @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=HydraulicProductionPlantConventionalMember @period=$currentDuration}
+ + {@DepreciationAndAmortization @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=HydraulicProductionPlantPumpedStorageMember @period=$currentDuration}
+ + {@DepreciationAndAmortization @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=OtherProductionPlantMember @period=$currentDuration}
+ + {@DepreciationAndAmortization @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=TransmissionPlantMember @period=$currentDuration}
+ + {@DepreciationAndAmortization @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=DistributionPlantMember @period=$currentDuration}
+ + {@DepreciationAndAmortization @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=RegionalTransmissionAndMarketOperationMember @period=$currentDuration}
+ + {@DepreciationAndAmortization @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=GeneralPlantMember @period=$currentDuration}
+ + {@DepreciationAndAmortization @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=CommonPlantElectricMember @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for DepreciationAndAmortization. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.336.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@DepreciationAndAmortization  @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=none]; 
+ $addend = ([@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments  @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=none] 
+ + [@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments  @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=none] 
+ + [@AmortizationOfLimitedTermPlantOrProperty  @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=none] 
+ + [@AmortizationOfOtherElectricPlant  @UtilityTypeAxis=ElectricUtilityMember @FunctionalClassificationAxis=none]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.336.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@DepreciationAndAmortization  @UtilityTypeAxis=ElectricUtilityMember  @@FunctionalClassificationAxis=*}; 
+ $addend = ({@DepreciationExpenseExcludingAmortizationOfAcquisitionAdjustments  @UtilityTypeAxis=ElectricUtilityMember @@FunctionalClassificationAxis=*} 
+ + {@DepreciationExpenseForAssetRetirementCostsExcludingAmortizationgOfAcquisitionAdjustments  @UtilityTypeAxis=ElectricUtilityMember @@FunctionalClassificationAxis=*} 
+ + {@AmortizationOfLimitedTermPlantOrProperty  @UtilityTypeAxis=ElectricUtilityMember @@FunctionalClassificationAxis=*} 
+ + {@AmortizationOfOtherElectricPlant  @UtilityTypeAxis=ElectricUtilityMember @@FunctionalClassificationAxis=*});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DepreciationAndAmortization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

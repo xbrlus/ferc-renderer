@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:xendr="http://xbrl.us/xendr/2.0/template"
+xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2024-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -19,13 +19,13 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         <table class="xbrl">
         <tr class="sch-title">
                 <td colspan="6" class="xbrl">
-                        <xendr:replace>
-                                <xendr:expression class="hide">taxonomy().concept(ferc:ScheduleAnnualReportCorporateOfficerCertificationAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FScheduleTitle").text
-                                </xendr:expression>
-                                <xendr:template-display>
+                        <xule:replace>
+                                <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAnnualReportCorporateOfficerCertificationAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FScheduleTitle").text
+                                </xule:expression>
+                                <xule:template-display>
                                         PART II: ANNUAL REPORT CORPORATE OFFICER CERTIFICATION
-                                </xendr:template-display>
-                        </xendr:replace>
+                                </xule:template-display>
+                        </xule:replace>
                     </td>
             </tr>        
          <tr>
@@ -51,46 +51,46 @@ respects to the Uniform System of Accounts.
                 <td class="xbrl line-number">Line No. </td>
                        
                 <td class="combinedField cell-top xbrl decription_items" >
-                        <xendr:replace>
-                                <xendr:expression class="hide">taxonomy().concept(ferc:NameOfCertifyingOfficial).label("http://ferc.gov/form/2020-01-01/roles/label/F1FIdentification").text
-                                </xendr:expression>
-                                <xendr:template-display>
+                        <xule:replace>
+                                <xule:expression class="hide">taxonomy().concept(ferc:NameOfCertifyingOfficial).label("http://ferc.gov/form/2020-01-01/roles/label/F1FIdentification").text
+                                </xule:expression>
+                                <xule:template-display>
                                         Name of Certifying Official
-                                </xendr:template-display>
-                         </xendr:replace>
+                                </xule:template-display>
+                         </xule:replace>
                            
                                   
                 </td>
                 <td class="combinedField cell-top xbrl decription_items">
-                        <xendr:replace>
-                                <xendr:expression class="hide">taxonomy().concept(ferc:CorporateOfficerCertificationSignature).label("http://ferc.gov/form/2020-01-01/roles/label/F1FIdentification").text
-                                </xendr:expression>
-                                <xendr:template-display>
+                        <xule:replace>
+                                <xule:expression class="hide">taxonomy().concept(ferc:CorporateOfficerCertificationSignature).label("http://ferc.gov/form/2020-01-01/roles/label/F1FIdentification").text
+                                </xule:expression>
+                                <xule:template-display>
                                         Signature
-                                </xendr:template-display>
-                         </xendr:replace>
+                                </xule:template-display>
+                         </xule:replace>
                            
                                   
                 </td>
                 <td class="combinedField cell-top xbrl decription_items" >
-                        <xendr:replace>
-                                <xendr:expression class="hide">taxonomy().concept(ferc:TitleOfCertifyingOfficial).label("http://ferc.gov/form/2020-01-01/roles/label/F1FIdentification").text
-                                </xendr:expression>
-                                <xendr:template-display>
+                        <xule:replace>
+                                <xule:expression class="hide">taxonomy().concept(ferc:TitleOfCertifyingOfficial).label("http://ferc.gov/form/2020-01-01/roles/label/F1FIdentification").text
+                                </xule:expression>
+                                <xule:template-display>
                                         Title
-                                </xendr:template-display>
-                        </xendr:replace>
+                                </xule:template-display>
+                        </xule:replace>
                           
                                   
                 </td>
                 <td class="combinedField cell-top xbrl" >
-                        <xendr:replace>
-                                <xendr:expression class="hide">taxonomy().concept(ferc:CertifyingOfficialDate).label("http://ferc.gov/form/2020-01-01/roles/label/F1FIdentification").text
-                                </xendr:expression>
-                                <xendr:template-display>
+                        <xule:replace>
+                                <xule:expression class="hide">taxonomy().concept(ferc:CertifyingOfficialDate).label("http://ferc.gov/form/2020-01-01/roles/label/F1FIdentification").text
+                                </xule:expression>
+                                <xule:template-display>
                                         Date
-                                </xendr:template-display>
-                        </xendr:replace>
+                                </xule:template-display>
+                        </xule:replace>
                         
                                   
                 </td>
@@ -98,40 +98,40 @@ respects to the Uniform System of Accounts.
         <tr>
                 <td class="xbrl line-number">1</td>
                 <td class="xbrl decription_items">
-                        <xendr:replace>
-                                <xendr:expression class="hide" fact="true" >first(list([@concept=ferc:NameOfCertifyingOfficial @period=$currentDuration]))
-                                </xendr:expression>
-                                <xendr:template-display>
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true" >first(list([@concept=ferc:NameOfCertifyingOfficial @period=$currentDuration]))
+                                </xule:expression>
+                                <xule:template-display>
                                         4,600,000 
-                                </xendr:template-display>
-                        </xendr:replace>  
+                                </xule:template-display>
+                        </xule:replace>  
                     </td>
                     <td class="xbrl decription_items">
-                        <xendr:replace>
-                                <xendr:expression class="hide" fact="true" >first(list([@concept=ferc:CorporateOfficerCertificationSignature @period=$currentDuration]))
-                                </xendr:expression>
-                                <xendr:template-display>
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true" >first(list([@concept=ferc:CorporateOfficerCertificationSignature @period=$currentDuration]))
+                                </xule:expression>
+                                <xule:template-display>
                                         4,600,000 
-                                </xendr:template-display>
-                        </xendr:replace>  
+                                </xule:template-display>
+                        </xule:replace>  
                     </td>
                     <td class="xbrl decription_items">
-                        <xendr:replace>
-                                <xendr:expression class="hide" fact="true" >first(list([@concept=ferc:TitleOfCertifyingOfficial @period=$currentDuration]))
-                                </xendr:expression>
-                                <xendr:template-display>
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true" >first(list([@concept=ferc:TitleOfCertifyingOfficial @period=$currentDuration]))
+                                </xule:expression>
+                                <xule:template-display>
                                         4,600,000 
-                                </xendr:template-display>
-                        </xendr:replace>  
+                                </xule:template-display>
+                        </xule:replace>  
                     </td>
                     <td class="xbrl">
-                        <xendr:replace>
-                                <xendr:expression class="hide" fact="true" >first(list([@concept=ferc:CertifyingOfficialDate @period=$currentDuration]))
-                                </xendr:expression>
-                                <xendr:template-display>
+                        <xule:replace>
+                                <xule:expression class="hide" fact="true" >first(list([@concept=ferc:CertifyingOfficialDate @period=$currentDuration]))
+                                </xule:expression>
+                                <xule:template-display>
                                         4,600,000 
-                                </xendr:template-display>
-                        </xendr:replace>  
+                                </xule:template-display>
+                        </xule:replace>  
                     </td>
                 
         </tr>      
@@ -151,27 +151,27 @@ respects to the Uniform System of Accounts.
     </table>
     <div class="schedule-footer">
         <div>FERC FORM No.
-                <xendr:replace>
-                        <xendr:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xendr:expression>
-                        <xendr:template-display>1-F</xendr:template-display>
-                </xendr:replace>
+                <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                        <xule:template-display>1-F</xule:template-display>
+                </xule:replace>
                 <span> </span>
-                <xendr:replace>
-                        <xendr:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleAnnualReportCorporateOfficerCertificationAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FDateRevised").text + ")"
-                        </xendr:expression>
-                        <xendr:template-display>
+                <xule:replace>
+                        <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleAnnualReportCorporateOfficerCertificationAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FDateRevised").text + ")"
+                        </xule:expression>
+                        <xule:template-display>
                                 REVISED 1-05
-                        </xendr:template-display>
-                </xendr:replace>       
+                        </xule:template-display>
+                </xule:replace>       
         </div>
         <div class="center-text">Page 
-                <xendr:replace>
-                        <xendr:expression class="hide">taxonomy().concept(ferc:ScheduleAnnualReportCorporateOfficerCertificationAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPageRange").text
-                        </xendr:expression>
-                        <xendr:template-display>
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAnnualReportCorporateOfficerCertificationAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPageRange").text
+                        </xule:expression>
+                        <xule:template-display>
                         3a
-                        </xendr:template-display>
-                </xendr:replace>
+                        </xule:template-display>
+                </xule:replace>
         </div> 
     </div>
 </body>

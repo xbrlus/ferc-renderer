@@ -1,0 +1,218 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.304.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember]; 
+        $addend = sum(list([nonils @RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis RateScheduleAndZoneOfDeliveryAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.304.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember]; 
+        $addend = sum(list([nonils @RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis RateScheduleAndZoneOfDeliveryAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.304.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember]; 
+        $addend = sum(list([nonils @OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis RateScheduleAndZoneOfDeliveryAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.304.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember]; 
+        $addend = sum(list([nonils @RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis RateScheduleAndZoneOfDeliveryAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.304.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities @ferc:UtilityTypeAxis=ferc:GasUtilityMember
+]; 
+        $addend = sum(list([nonils @QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities
+ @RateScheduleAndZoneOfDeliveryAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis RateScheduleAndZoneOfDeliveryAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.304.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        for $elementName in list(RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities, RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities, OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities, RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities, QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities)
+        $sum1 = [@concept = $elementName @ferc:UtilityTypeAxis=ferc:GasUtilityMember
+]; 
+        $addend = sum(list([nonils @concept = $elementName @RateScheduleAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis RateScheduleAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.304.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        for $elementName in list(RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities, RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities, OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities, RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities, QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities)
+        $sum1 = [@concept = $elementName @ferc:UtilityTypeAxis=ferc:GasUtilityMember
+]; 
+        $addend = sum(list([nonils @concept = $elementName @ZoneAxis=*])#breakdown);
+        if $addend == none
+                skip
+        else
+                tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis ZoneAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.304.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $elementNames = list(RevenuesFromTransitionCostsAndTakeOrPayRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities, RevenuesForGriAndAcaRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities, OtherRevenuesRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities, RevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities, QuantityOfNaturalGasRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilities)
+
+        $rateScheduleList = list([covered @concept in $elementNames @RateScheduleAxis = *]).sort
+        if $rateScheduleList.length > 0 
+        and
+        list([covered @concept in $elementNames @ZoneAxis = *]).length > 0 
+                true
+        else
+                false
+message 
+"Values have been reported using the RateScheduleAxis with one or more of the following concepts {$elementNames.join(', ')} as well as values using the ZoneAxis. Subtotals should be defined using Zone of Delivery, if respondent does not have separate zones, subtotals should be defined by rate schedule. Values cannot be reported using both RateScheduleAxis and ZoneAxis.
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus first($rateScheduleList)

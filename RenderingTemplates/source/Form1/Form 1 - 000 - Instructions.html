@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:xendr="http://xbrl.us/xendr/2.0/template"
+xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2024-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
     <head>
@@ -13,10 +13,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
     </head>
     <body class="xbrl">
         <h2 class="center-text">INSTRUCTIONS FOR FILING FERC FORM NOS. 1 and 3-Q</h2>
-        <xendr:replace>
-            <xendr:expression class="hide" html="true">taxonomy().concept(ferc:Form1Abstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Instructions").text
-            </xendr:expression>
-            <xendr:template-display>
+        <xule:replace>
+            <xule:expression class="hide" html="true">taxonomy().concept(ferc:Form1Abstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Instructions").text
+            </xule:expression>
+            <xule:template-display>
                 <div class="two_column">
                     <h2>GENERAL INFORMATION</h2>
                     <ol type="I">
@@ -284,15 +284,15 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     The Commission may assess up to $1 million per day per violation of its rules and regulations. See FPA § 316(a) (2005), 16 U.S.C. § 825o(a).
 
                 </div>
-            </xendr:template-display>
-        </xendr:replace>
+            </xule:template-display>
+        </xule:replace>
         <p></p>
         <div class="schedule-footer">
             <div>FERC FORM NO. 
-                    <xendr:replace>
-                            <xendr:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xendr:expression>
-                            <xendr:template-display>1</xendr:template-display>
-                    </xendr:replace>
+                    <xule:replace>
+                            <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))</xule:expression>
+                            <xule:template-display>1</xule:template-display>
+                    </xule:replace>
                     <span> </span>
                     (ED. 03-07)     
             </div>

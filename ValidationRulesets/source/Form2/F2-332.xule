@@ -1,0 +1,57 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.332.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@TransmissionAndCompressionOfGasByOthers]; 
+ $addend = sum(list([nonils @TransmissionAndCompressionOfGasByOthers @TransmissionAndCompressionOfGasByOthersAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionAndCompressionOfGasByOthersAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.332.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@QuantityOfNaturalGasDeliveredByUtilityDeliveriesOfGasToOthersForTransportation]; 
+ $addend = sum(list([nonils @QuantityOfNaturalGasDeliveredByUtilityDeliveriesOfGasToOthersForTransportation @TransmissionAndCompressionOfGasByOthersAxis=*])#breakdown);
+ if $addend == none
+ 	skip
+ else
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis TransmissionAndCompressionOfGasByOthersAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

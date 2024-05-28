@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xendr="http://xbrl.us/xendr/2.0/template"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xule="http://xbrl.us/xule/2.0/template"
     xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
     xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-    xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
+    xmlns:ferc="http://ferc.gov/form/2024-04-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
 
 <head>
     <title>Template - F1 - 350</title>
@@ -15,30 +15,30 @@
     <table class="schedule-header xbrl" width="100%">
         <tr>
             <td class="xbrl">
-                <xendr:replace>
-                    <xendr:expression class="hide">
+                <xule:replace>
+                    <xule:expression class="hide">
                         taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text
-                    </xendr:expression>
-                    <xendr:template-display>Name of Respondent:</xendr:template-display>
-                </xendr:replace><br/>
+                    </xule:expression>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
+                </xule:replace><br/>
                 
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]
-                    </xendr:expression>
-                    <xendr:template-display>Name of Respondent:</xendr:template-display>
-                </xendr:replace>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]
+                    </xule:expression>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
+                </xule:replace>
             </td>
             <td class="xbrl">
-                <xendr:replace>
-                    <xendr:expression class="hide">
+                <xule:replace>
+                    <xule:expression class="hide">
                         taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text
-                    </xendr:expression>
-                    <xendr:template-display>This report is:</xendr:template-display>
-                </xendr:replace><br/>
+                    </xule:expression>
+                    <xule:template-display>This report is:</xule:template-display>
+                </xule:replace><br/>
                 
                 (1)
-                <xendr:replace>
-                    <xendr:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType})
+                <xule:replace>
+                    <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType})
                         <![CDATA[
                                         '<span class="checkbox">&#9744;</span> An Original']]> else if
                         [@concept=ferc:SubmissionType @period=$currentDuration] == "O"
@@ -47,15 +47,15 @@
                         else
                         <![CDATA[
                                         '<span class="checkbox">&#9744;</span> An Original']]>
-                    </xendr:expression>
-                    <xendr:template-display>
+                    </xule:expression>
+                    <xule:template-display>
                         <input type="checkbox" /> An Original
-                    </xendr:template-display>
-                </xendr:replace><br/>
+                    </xule:template-display>
+                </xule:replace><br/>
                 
                 (2)
-                <xendr:replace>
-                    <xendr:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType
+                <xule:replace>
+                    <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType
                         @period=$currentDuration])
                         <![CDATA[
                                         '<span class="checkbox">&#9744;</span> A Resubmission']]> else if
@@ -65,45 +65,45 @@
                         else
                         <![CDATA[
                                         '<span class="checkbox">&#9744;</span> A Resubmission']]>
-                    </xendr:expression>
-                    <xendr:template-display>
+                    </xule:expression>
+                    <xule:template-display>
                         <input type="checkbox" checked="checked" /> A Resubmission
-                    </xendr:template-display>
-                </xendr:replace>
+                    </xule:template-display>
+                </xule:replace>
             </td>
             <td class="xbrl">
-                <xendr:replace>
-                    <xendr:expression class="hide">
+                <xule:replace>
+                    <xule:expression class="hide">
                         taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text
-                    </xendr:expression>
-                    <xendr:template-display>Date of Report:</xendr:template-display>
-                </xendr:replace><br/>
+                    </xule:expression>
+                    <xule:template-display>Date of Report:</xule:template-display>
+                </xule:replace><br/>
                 
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]
-                    </xendr:expression>
-                    <xendr:template-display>04/26/2019</xendr:template-display>
-                </xendr:replace>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]
+                    </xule:expression>
+                    <xule:template-display>04/26/2019</xule:template-display>
+                </xule:replace>
             </td>
             <td class="xbrl">
-                <xendr:replace>
-                    <xendr:expression class="hide">
+                <xule:replace>
+                    <xule:expression class="hide">
                         taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text
-                    </xendr:expression>
-                    <xendr:template-display>Year/Period of Report:</xendr:template-display>
-                </xendr:replace><br/>
+                    </xule:expression>
+                    <xule:template-display>Year/Period of Report:</xule:template-display>
+                </xule:replace><br/>
                 
-                End of: <xendr:replace>
-                    <xendr:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]
-                    </xendr:expression>
-                    <xendr:template-display>2018</xendr:template-display>
-                </xendr:replace>
+                End of: <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]
+                    </xule:expression>
+                    <xule:template-display>2018</xule:template-display>
+                </xule:replace>
                 <span>/</span>
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]
-                    </xendr:expression>
-                    <xendr:template-display>Q4</xendr:template-display>
-                </xendr:replace>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]
+                    </xule:expression>
+                    <xule:template-display>Q4</xule:template-display>
+                </xule:replace>
             </td>
         </tr>
     </table>
@@ -111,22 +111,22 @@
 
         <tr class="sch-title">
             <td class="xbrl" colspan="13">
-                <xendr:replace>
-                            <xendr:expression class="hide">taxonomy().concept(ferc:ScheduleRegulatoryCommissionExpensesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1ScheduleTitle").text
-                            </xendr:expression>
-                            <xendr:template-display>
+                <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleRegulatoryCommissionExpensesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1ScheduleTitle").text
+                            </xule:expression>
+                            <xule:template-display>
                                 REGULATORY COMMISSION EXPENSES
-                            </xendr:template-display>
-                    </xendr:replace>
+                            </xule:template-display>
+                    </xule:replace>
             </td>
         </tr>
         <tr>
             <td class="instruction xbrl" colspan="13">
-                <xendr:replace>
-                    <xendr:expression class="hide" html="true">
+                <xule:replace>
+                    <xule:expression class="hide" html="true">
                         taxonomy().concept(ferc:ScheduleRegulatoryCommissionExpensesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Instructions").text
-                    </xendr:expression>
-                    <xendr:template-display>
+                    </xule:expression>
+                    <xule:template-display>
                         <ol>
                             <li>Report particulars (details) of regulatory commission expenses incurred during the
                                 current year (or incurred in previous years, if being amortized) relating to format
@@ -140,8 +140,8 @@
                                 currently to income, plant, or other accounts.</li>
                             <li>Minor items (less than $25,000) may be grouped.</li>
                         </ol>
-                    </xendr:template-display>
-                </xendr:replace>
+                    </xule:template-display>
+                </xule:replace>
             </td>
         </tr>
         <tr class="col-heading-row">
@@ -169,8 +169,8 @@
         </tr>
         <tr class="col-heading-row">     
             <td class="col-heading xbrl-no-top-line">Line No.</td>
-            <td class="col-heading xbrl-no-top-line" xendr:repeat="ColumnHeadings">
-                <xendr:expression class="hide" name="ColumnHeadings">
+            <td class="col-heading xbrl-no-top-line" xule:repeat="ColumnHeadings">
+                <xule:expression class="hide" name="ColumnHeadings">
                     $headings = filter (taxonomy().concept(ferc:ScheduleRegulatoryCommissionExpensesAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "350 - Schedule - Regulatory Commission Expenses") 
 
                     $heading = list(for $ref in $headings 
@@ -184,33 +184,33 @@
                                     taxonomy().concept(to-qname($row[3]))))
                     );
                     for $row in $heading_dict.keys.sort
-            </xendr:expression>
+            </xule:expression>
 
             <div style="text-align: center">
                 <div class="tooltip">
                         <div class="tooltiptext">
-                                <xendr:replace>
-                                        <xendr:expression class="hide" name="ColumnHeadings" part="3">$heading_dict[$row][2].name.local-name</xendr:expression>
-                                    </xendr:replace>
+                                <xule:replace>
+                                        <xule:expression class="hide" name="ColumnHeadings" part="3">$heading_dict[$row][2].name.local-name</xule:expression>
+                                    </xule:replace>
                         </div>    
-                    <xendr:replace>
-                        <xendr:expression class="hide" name="ColumnHeadings" part="1">$heading_dict[$row][1]</xendr:expression>
-                        <xendr:template-display>
+                    <xule:replace>
+                        <xule:expression class="hide" name="ColumnHeadings" part="1">$heading_dict[$row][1]</xule:expression>
+                        <xule:template-display>
                             Description 
-                        </xendr:template-display>
-                    </xendr:replace>
+                        </xule:template-display>
+                    </xule:replace>
                 </div>
             </div>
-        <div style="text-align: center"><xendr:replace>
-                <xendr:expression class="hide" name="ColumnHeadings" part="2">$row</xendr:expression>
-                <xendr:template-display>
+        <div style="text-align: center"><xule:replace>
+                <xule:expression class="hide" name="ColumnHeadings" part="2">$row</xule:expression>
+                <xule:template-display>
                     (a)
-                </xendr:template-display>
-            </xendr:replace></div>
+                </xule:template-display>
+            </xule:replace></div>
     </td>
         </tr>
-        <tr class="schedule-row" xendr:repeat="RegulatoryCommissionExpenses">
-            <xendr:expression class="hide" name="RegulatoryCommissionExpenses">// adding a comment
+        <tr class="schedule-row" xule:repeat="RegulatoryCommissionExpenses">
+            <xule:expression class="hide" name="RegulatoryCommissionExpenses">// adding a comment
 
                 $data2 = list(for $i in range(45)
                 list($i,none,none,none,none,none,none,none,none,none,none,none,none)
@@ -287,112 +287,112 @@
 
                 for $row in $uniqueData.sort  
 
-            </xendr:expression>
+            </xule:expression>
             <td class="xbrl line-number">
-                <xendr:lineNumber class="hide" name="RegulatoryCommissionExpenses">
-                    <xendr:startNumber>1</xendr:startNumber>
-                </xendr:lineNumber>
-                <xendr:template-display>1</xendr:template-display>
+                <xule:lineNumber class="hide" name="RegulatoryCommissionExpenses">
+                    <xule:startNumber>1</xule:startNumber>
+                </xule:lineNumber>
+                <xule:template-display>1</xule:template-display>
             </td>
             <td class="xbrl description_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" part="2">$row[2]
-                    </xendr:expression>
-                </xendr:replace>
-                <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" part="2">$row[2]
+                    </xule:expression>
+                </xule:replace>
+                <xule:template-display>
                     Kentucky Public Service Commission Expense - Gas Related
-                </xendr:template-display>
+                </xule:template-display>
             </td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xendr:expression>
-                </xendr:replace>
-                <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression>
+                </xule:replace>
+                <xule:template-display>
                     $186,988
-                </xendr:template-display>
+                </xule:template-display>
             </td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xendr:expression>
-                </xendr:replace>
-                <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression>
+                </xule:replace>
+                <xule:template-display>
                     $0
-                </xendr:template-display>
+                </xule:template-display>
             </td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xendr:expression>
-                </xendr:replace>
-                <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression>
+                </xule:replace>
+                <xule:template-display>
                     $186,988
-                </xendr:template-display>
+                </xule:template-display>
             </td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="6">$row[6]</xendr:expression>
-                </xendr:replace>
-                <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="6">$row[6]</xule:expression>
+                </xule:replace>
+                <xule:template-display>
                     $0
-                </xendr:template-display>
+                </xule:template-display>
             </td>
             <td class="xbrl description_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" part="7">$row[7]
-                    </xendr:expression>
-                </xendr:replace>
-                <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" part="7">$row[7]
+                    </xule:expression>
+                </xule:replace>
+                <xule:template-display>
                     Gas
-                </xendr:template-display>
+                </xule:template-display>
             </td>
             <td class="xbrl account-number">
-                <xendr:replace>
-                    <xendr:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" part="8">$row[8]
-                    </xendr:expression>
-                </xendr:replace>
-                <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" part="8">$row[8]
+                    </xule:expression>
+                </xule:replace>
+                <xule:template-display>
                     928
-                </xendr:template-display>
+                </xule:template-display>
             </td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="9">$row[9]</xendr:expression>
-                </xendr:replace>
-                <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="9">$row[9]</xule:expression>
+                </xule:replace>
+                <xule:template-display>
                     $186,988
-                </xendr:template-display>
+                </xule:template-display>
             </td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="10">$row[10]</xendr:expression>
-                </xendr:replace>
-                <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="10">$row[10]</xule:expression>
+                </xule:replace>
+                <xule:template-display>
                     $0
-                </xendr:template-display>
+                </xule:template-display>
             </td>
             <td class="xbrl account-number">
-                <xendr:replace>
-                    <xendr:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" part="11">$row[11]
-                    </xendr:expression>
-                </xendr:replace>
-                <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" part="11">$row[11]
+                    </xule:expression>
+                </xule:replace>
+                <xule:template-display>
                     (not reported)
-                </xendr:template-display>
+                </xule:template-display>
             </td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="12">$row[12]</xendr:expression>
-                </xendr:replace>
-                <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="12">$row[12]</xule:expression>
+                </xule:replace>
+                <xule:template-display>
                     $0
-                </xendr:template-display>
+                </xule:template-display>
             </td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="13">$row[13]</xendr:expression>
-                </xendr:replace>
-                <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" name="RegulatoryCommissionExpenses" fact="true" format="ixt4:num-dot-decimal" part="13">$row[13]</xule:expression>
+                </xule:replace>
+                <xule:template-display>
                     $0
-                </xendr:template-display>
+                </xule:template-display>
             </td>
 
         </tr>
@@ -400,95 +400,95 @@
         <tr>
             <td class="xbrl line-number">46</td>
             <td class="xbrl description_items">
-                <xendr:replace>
-                    <xendr:expression class="hide">
+                <xule:replace>
+                    <xule:expression class="hide">
                         taxonomy().concept(ferc:OtherRegulatoryAssetsRegulatoryCommissionExpenses).label("http://ferc.gov/form/2020-01-01/roles/label/F1Total").text
-                    </xendr:expression>
+                    </xule:expression>
                     <div>
-                        <xendr:template-display>
+                        <xule:template-display>
                             TOTAL
-                        </xendr:template-display>
+                        </xule:template-display>
                     </div>
-                </xendr:replace>
+                </xule:replace>
             </td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:RegulatoryExpensesAssessedByRegulatoryCommission @period = $currentInstant]))
-                    </xendr:expression>
-                    <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:RegulatoryExpensesAssessedByRegulatoryCommission @period = $currentInstant]))
+                    </xule:expression>
+                    <xule:template-display>
                         $868,971
-                    </xendr:template-display>
-                </xendr:replace>
+                    </xule:template-display>
+                </xule:replace>
             </td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:RegulatoryExpensesOfUtility @period = $currentInstant]))
-                    </xendr:expression>
-                    <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:RegulatoryExpensesOfUtility @period = $currentInstant]))
+                    </xule:expression>
+                    <xule:template-display>
                         $138,071
-                    </xendr:template-display>
-                </xendr:replace>
+                    </xule:template-display>
+                </xule:replace>
             </td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered
                         @concept=ferc:RegulatoryCommissionExpensesAmount @period = $currentInstant]))
-                    </xendr:expression>
-                    <xendr:template-display>
+                    </xule:expression>
+                    <xule:template-display>
                         $1,007,042
-                    </xendr:template-display>
-                </xendr:replace>
+                    </xule:template-display>
+                </xule:replace>
             </td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:OtherRegulatoryAssetsRegulatoryCommissionExpenses @period = $priorInstant]))
-                    </xendr:expression>
-                    <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:OtherRegulatoryAssetsRegulatoryCommissionExpenses @period = $priorInstant]))
+                    </xule:expression>
+                    <xule:template-display>
                         $0
-                    </xendr:template-display>
-                </xendr:replace>
+                    </xule:template-display>
+                </xule:replace>
             </td>
             <td class="gray-out"></td>
             <td class="gray-out"></td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered
                         @concept=ferc:RegulatoryComissionExpensesIncurredAndCharged @period = $currentDuration]))
-                    </xendr:expression>
-                    <xendr:template-display>
+                    </xule:expression>
+                    <xule:template-display>
                         $1,007,042
-                    </xendr:template-display>
-                </xendr:replace>
+                    </xule:template-display>
+                </xule:replace>
             </td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered
                         @concept=ferc:RegulatoryCommissionExpensesDeferredToOtherRegulatoryAssets @period = $currentDuration]))
-                    </xendr:expression>
-                    <xendr:template-display>
+                    </xule:expression>
+                    <xule:template-display>
                         $0
-                    </xendr:template-display>
-                </xendr:replace>
+                    </xule:template-display>
+                </xule:replace>
             </td>
             <td class="gray-out"></td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered
                         @concept=ferc:DeferredRegulatoryCommissionExpensesAmortized @period = $currentDuration]))
-                    </xendr:expression>
-                    <xendr:template-display>
+                    </xule:expression>
+                    <xule:template-display>
                         $0
-                    </xendr:template-display>
-                </xendr:replace>
+                    </xule:template-display>
+                </xule:replace>
             </td>
             <td class="xbrl monetary_items">
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered                         @concept=ferc:OtherRegulatoryAssetsRegulatoryCommissionExpenses @period = $currentInstant]))
-                    </xendr:expression>
-                    <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered                         @concept=ferc:OtherRegulatoryAssetsRegulatoryCommissionExpenses @period = $currentInstant]))
+                    </xule:expression>
+                    <xule:template-display>
                         $569,764
-                    </xendr:template-display>
-                </xendr:replace>
+                    </xule:template-display>
+                </xule:replace>
             </td>
 
         </tr>
@@ -498,30 +498,30 @@
     <div class="schedule-footer">
 
         <div>FERC FORM NO. 
-                <xendr:replace>
-                        <xendr:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))
+                <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))
                                                                 
-                                                        </xendr:expression>
-                        <xendr:template-display>1</xendr:template-display>
-                </xendr:replace>
+                                                        </xule:expression>
+                        <xule:template-display>1</xule:template-display>
+                </xule:replace>
                 <span> </span>
-                <xendr:replace>
-                        <xendr:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleRegulatoryCommissionExpensesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1DateRevised").text + ")"
-                        </xendr:expression>
-                        <xendr:template-display>
+                <xule:replace>
+                        <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleRegulatoryCommissionExpensesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1DateRevised").text + ")"
+                        </xule:expression>
+                        <xule:template-display>
                                 (ED. 12-96)
-                        </xendr:template-display>
-                </xendr:replace>
+                        </xule:template-display>
+                </xule:replace>
                             
         </div>
         <div class="center-text">Page 
-                <xendr:replace>
-                        <xendr:expression class="hide">taxonomy().concept(ferc:ScheduleRegulatoryCommissionExpensesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1PageRange").text
-                        </xendr:expression>
-                        <xendr:template-display>
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleRegulatoryCommissionExpensesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1PageRange").text
+                        </xule:expression>
+                        <xule:template-display>
                         350
-                        </xendr:template-display>
-                </xendr:replace>
+                        </xule:template-display>
+                </xule:replace>
         </div> 
     </div>
     </body>

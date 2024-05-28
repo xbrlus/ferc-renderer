@@ -1,0 +1,297 @@
+/**FERC Form 2 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.118.1 unsatisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+    exists({covered @UnappropriatedRetainedEarnings @period=$priorInstant})  
+message 
+"Prior period Unappropriated Retained Earnings must be reported. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F2.118.2 unsatisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+    exists({covered @UnappropriatedRetainedEarnings @period=$currentInstant})  
+message 
+"Unappropriated Retained Earnings must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F2.118.3 satisfied               
+$rule_id = rule-name();
+
+$AdjustmentsToRetainedEarningsCredit-Default = [@AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=none @period=$currentDuration]
+$AdjustmentsToRetainedEarningsCredit-Default-sum = sum(list([nonils @AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=* @period=$currentDuration]))
+
+$AdjustmentsToRetainedEarningsCredit = first-value($AdjustmentsToRetainedEarningsCredit-Default, $AdjustmentsToRetainedEarningsCredit-Default-sum);
+
+$AppropriationsOfRetainedEarnings-Default = [@AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=none @period=$currentDuration]
+$AppropriationsOfRetainedEarnings-sum = sum(list([nonils @AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=* @period=$currentDuration]))
+
+$AppropriationsOfRetainedEarnings = first-value($AppropriationsOfRetainedEarnings-Default, $AppropriationsOfRetainedEarnings-sum);
+
+$DividendsDeclaredPreferredStock-Default = [@DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=none @period=$currentDuration]
+$DividendsDeclaredPreferredStock-sum = sum(list([nonils @DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=* @period=$currentDuration]))
+
+$DividendsDeclaredPreferredStock = first-value($DividendsDeclaredPreferredStock-Default,$DividendsDeclaredPreferredStock-sum  );
+
+$DividendsDeclaredCommonStock-Default = [@DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=none @period=$currentDuration]
+$DividendsDeclaredCommonStock-sum = sum(list([nonils @DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=* @period=$currentDuration]))
+
+$DividendsDeclaredCommonStock = first-value($DividendsDeclaredCommonStock-Default,$DividendsDeclaredCommonStock-sum);
+
+ $sum118-3 = [@UnappropriatedRetainedEarnings @period=$currentInstant]; 
+ $addend118-3 = ([@UnappropriatedRetainedEarnings @period=$priorInstant]#f118-3-1
+ + $AdjustmentsToRetainedEarningsCredit
+ + [@BalanceTransferredFromIncome @period=$currentDuration]#f118-3-6
+ - $AppropriationsOfRetainedEarnings
+ - $DividendsDeclaredPreferredStock
+ - $DividendsDeclaredCommonStock
+ + [@TransfersFromUnappropriatedUndistributedSubsidiaryEarnings @period=$currentDuration]#f118-3-5
+); 
+
+tolerance_for_decimals($sum118-3,$addend118-3,$tolerance_factor)  
+message 
+"The company has reported a value for UnappropriatedRetainedEarnings with a value of {$sum118-3} that is not equal to the value of the sum of its components of {$addend118-3}.
+
+Total Element : {$sum118-3.concept.name}
+Total Period : {$sum118-3.period}
+Total Value : {$sum118-3} 
+
+Value of Components:
+= \t UnappropriatedRetainedEarnings (Prior) \t = \t {$f118-3-1}
++ \t AdjustmentsToRetainedEarningsCredit \t = \t {$AdjustmentsToRetainedEarningsCredit}
++ \t BalanceTransferredFromIncome \t = \t {$f118-3-6}
+- \t AppropriationsOfRetainedEarnings \t = \t {$AppropriationsOfRetainedEarnings}
+- \t DividendsDeclaredPreferredStock \t = \t {$DividendsDeclaredPreferredStock}
+- \t DividendsDeclaredCommonStock \t = \t {$DividendsDeclaredCommonStock}
++ \t TransfersFromUnappropriatedUndistributedSubsidiaryEarnings \t = \t {$f118-3-5}
+
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus  $sum118-3
+
+assert F2.118.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@concept = AppropriatedRetainedEarningsIncludingReserveAmortization}; 
+ $addend = ({@AppropriatedRetainedEarnings}#f0
+ + {@AppropriatedRetainedEarningsAmortizationReserveFederal}#f1
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AppropriatedRetainedEarnings with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.118.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@RetainedEarnings @period=$currentInstant}; 
+ $addend = ({@UnappropriatedRetainedEarnings @period=$currentInstant}#f0
+ + {@AppropriatedRetainedEarningsIncludingReserveAmortization @period=$currentInstant}#f1
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RetainedEarnings with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.118.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+    $sum1 = [@UnappropriatedUndistributedSubsidiaryEarnings @period=$currentInstant]; 
+    $addend = ([@UnappropriatedUndistributedSubsidiaryEarnings @period=$priorInstant]#f0 
+    + [@EquityInEarningsOfSubsidiaryCompanies @period=$currentDuration]#f1 
+    - [@DividendsReceived @period=$currentDuration]#f2
+    + (sum(list([nonils @ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=* @period=$currentDuration]
+    )#f3)));
+    tolerance_for_decimals($sum1,$addend,$tolerance_factor) 
+message 
+"The company has reported a value for UnappropriatedUndistributedSubsidiaryEarnings with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
+ {list(for $line in $f3 "+ \t" + $line.concept.name.local-name + "\t = \t " + $line + "\n").join(" ")}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.118.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = [@AdjustmentsToRetainedEarningsCredit]; 
+ $addend = sum(list([nonils @AdjustmentsToRetainedEarningsCredit @RetainedEarningsAdjustmentsAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of AdjustmentsToRetainedEarningsCredit sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for Adjustments To Retained Earnings Credit. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.118.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = [@AppropriationsOfRetainedEarnings]; 
+ $addend = sum(list([nonils @AppropriationsOfRetainedEarnings @AppropriatedRetainedEarningsAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for the Appropriations of RetainedEarnings. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.118.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = [@DividendsDeclaredPreferredStock]; 
+ $addend = sum(list([nonils @DividendsDeclaredPreferredStock @RetainedEarningsPreferredStockAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of DividendsDeclaredPreferredStock sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for Dividends Declared for Preferred Stock. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.118.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = [@DividendsDeclaredCommonStock]; 
+ $addend = sum(list([nonils @DividendsDeclaredCommonStock @RetainedEarningsCommonStockAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of DividendsDeclaredCommonStock sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for Dividends Declared for Common Stock. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.118.11 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = [@ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits]; 
+ $addend = sum(list([nonils @ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=*]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for Changes Unappropriated and Undistributed Subsidiary Earnings Credits. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.118.12 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@RetainedEarnings @period=$prior12MonthsInstant}; 
+ $addend = ({@UnappropriatedRetainedEarnings @period=$prior12MonthsInstant}#f0
+ + {@AppropriatedRetainedEarnings @period=$prior12MonthsInstant}#f1
+);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RetainedEarnings with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.118.13 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+    $sum1 = {@UnappropriatedUndistributedSubsidiaryEarnings @period=$priorInstant};
+    $addend = ({@UnappropriatedUndistributedSubsidiaryEarnings @period=$prior2Instant}#f0
+    + {@EquityInEarningsOfSubsidiaryCompanies @period=$priorDuration}#f1
+    - {@DividendsReceived @period=$priorDuration}#f2
+    + (sum(list([nonils @ChangesUnappropriatedUndistributedSubsidiaryEarningsCredits @RetainedEarningsUnappropriatedUndistributedSubsidiaryEarningsAxis=* @period=$priorDuration])#f3)));
+    tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The company has reported a value for UnappropriatedUndistributedSubsidiaryEarnings  with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+= \t {$f0.concept.name.local-name} \t = \t {$f0}
++ \t {$f1.concept.name.local-name} \t = \t {$f1}
+- \t {$f2.concept.name.local-name} \t = \t {$f2}
+ {list(for $line in $f3 "+ \t" + $line.concept.name.local-name + "\t = \t " + $line + "\n").join(" ")}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

@@ -1,0 +1,220 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+/** F1.253.1 USED FOR HISTORICAL DATA CONVERSION ONLY **/
+assert F1.253.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@OtherPaidInCapitalDetail @OtherPaidInCapitalAxis=none @period=$currentInstant]; 
+ $addend = ([@OtherPaidInCapitalDetail @period=$priorInstant]
+ + (sum(list([nonils @IncreasesDecreasesInOtherPaidInCapital @OtherPaidInCapitalAxis=* @period=$currentDuration]))));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for OtherPaidInCapitalDetail. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.253.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@DonationsReceivedFromStockholders @DonationsReceivedFromStockholdersAxis=none @period=$currentInstant]; 
+ $addend = ([@DonationsReceivedFromStockholders @period=$priorInstant]
+ + (sum(list([nonils @IncreasesDecreasesFromSalesOfDonationsReceivedFromStockholders @DonationsReceivedFromStockholdersAxis=* @period=$currentDuration]))));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for DonationsReceivedFromStockholders. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.253.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@ReductionInParOrStatedValueOfCapitalStock @ReductionInParOrStatedValueOfCapitalStockAxis=none @period=$currentInstant]; 
+ $addend = ([@ReductionInParOrStatedValueOfCapitalStock @period=$priorInstant]
+ + (sum(list([nonils @IncreasesDecreasesDueToReductionsInParOrStatedValueOfCapitalStock @ReductionInParOrStatedValueOfCapitalStockAxis=* @period=$currentDuration]))));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for ReductionInParOrStatedValueOfCapitalStock. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.253.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@GainOnResaleOrCancellationOfReacquiredCapitalStock @GainOnResaleOrCancellationOfReacquiredCapitalStockAxis=none @period=$currentInstant]; 
+ $addend = ([@GainOnResaleOrCancellationOfReacquiredCapitalStock @period=$priorInstant]
+ + (sum(list([nonils @IncreasesDecreasesFromGainOrResaleOrCancellationOfReacquiredCapitalStock @GainOnResaleOrCancellationOfReacquiredCapitalStockAxis=* @period=$currentDuration]))));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for GainOnResaleOrCancellationOfReacquiredCapitalStock. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.253.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@MiscellaneousPaidInCapital @MiscellaneousPaidInCapitalAxis=none @period=$currentInstant]; 
+ $addend = ([@MiscellaneousPaidInCapital @period=$priorInstant]
+ + (sum(list([nonils @IncreasesDecreasesDueToMiscellaneousPaidInCapital @MiscellaneousPaidInCapitalAxis=* @period=$currentDuration]))));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for MiscellaneousPaidInCapital. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.253.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@OtherPaidInCapital @period=$currentInstant]; 
+ $addend = ([@DonationsReceivedFromStockholders @period=$currentInstant]
+ + [@ReductionInParOrStatedValueOfCapitalStock @period=$currentInstant]
+ + [@GainOnResaleOrCancellationOfReacquiredCapitalStock @period=$currentInstant]
+ + [@MiscellaneousPaidInCapital @period=$currentInstant]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend}, which is not equal to the total value reported of {$sum1} for OtherPaidInCapital. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+
+assert F1.253.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sumDonationsReceivedFromStockholders = [@DonationsReceivedFromStockholders @period=$currentInstant]; 
+ $addend = ([@DonationsReceivedFromStockholders @period=$priorInstant]#open
+ +> [@IncreasesDecreasesFromSalesOfDonationsReceivedFromStockholders @period=$currentDuration]#change);
+tolerance_for_decimals($sumDonationsReceivedFromStockholders,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sumDonationsReceivedFromStockholders.concept.name} sums to a value of {$addend}, which is not equal to the total value reported of {$sumDonationsReceivedFromStockholders} for DonationsReceivedFromStockholders. The components are comprised of the opening balance of {$open} + the change for the period of {$change}.
+
+Total Element : {$sumDonationsReceivedFromStockholders.concept.name}
+Total Period : {$sumDonationsReceivedFromStockholders.period}
+Total Value : {$sumDonationsReceivedFromStockholders} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sumDonationsReceivedFromStockholders
+
+assert F1.253.8 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sumReductionInParOrStatedValueOfCapitalStock = [@ReductionInParOrStatedValueOfCapitalStock @period=$currentInstant]; 
+ $addend = ([@ReductionInParOrStatedValueOfCapitalStock @period=$priorInstant]#open
+ +> [@IncreasesDecreasesDueToReductionsInParOrStatedValueOfCapitalStock @period=$currentDuration]#change);
+tolerance_for_decimals($sumReductionInParOrStatedValueOfCapitalStock,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sumReductionInParOrStatedValueOfCapitalStock.concept.name} sums to a value of {$addend}, which is not equal to the total value reported of {$sumReductionInParOrStatedValueOfCapitalStock} for ReductionInParOrStatedValueOfCapitalStock. The components are comprised of the opening balance of {$open} + the change for the period of {$change}.
+
+Total Element : {$sumReductionInParOrStatedValueOfCapitalStock.concept.name}
+Total Period : {$sumReductionInParOrStatedValueOfCapitalStock.period}
+Total Value : {$sumReductionInParOrStatedValueOfCapitalStock} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sumReductionInParOrStatedValueOfCapitalStock
+
+assert F1.253.9 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sumGainOnResaleOrCancellationOfReacquiredCapitalStock = [@GainOnResaleOrCancellationOfReacquiredCapitalStock @period=$currentInstant]; 
+ $addend = ([@GainOnResaleOrCancellationOfReacquiredCapitalStock @period=$priorInstant]#open
+ +> [@IncreasesDecreasesFromGainOrResaleOrCancellationOfReacquiredCapitalStock @period=$currentDuration]#change);
+tolerance_for_decimals($sumGainOnResaleOrCancellationOfReacquiredCapitalStock,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sumGainOnResaleOrCancellationOfReacquiredCapitalStock.concept.name} sums to a value of {$addend}, which is not equal to the total value reported of {$sumGainOnResaleOrCancellationOfReacquiredCapitalStock} for GainOnResaleOrCancellationOfReacquiredCapitalStock. The components are comprised of the opening balance of {$open} + the change for the period of {$change}.
+
+Total Element : {$sumGainOnResaleOrCancellationOfReacquiredCapitalStock.concept.name}
+Total Period : {$sumGainOnResaleOrCancellationOfReacquiredCapitalStock.period}
+Total Value : {$sumGainOnResaleOrCancellationOfReacquiredCapitalStock} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sumGainOnResaleOrCancellationOfReacquiredCapitalStock
+
+assert F1.253.10 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sumMiscellaneousPaidInCapital = [@MiscellaneousPaidInCapital @period=$currentInstant]; 
+ $addend = ([@MiscellaneousPaidInCapital @period=$priorInstant]#open
+ +> [@IncreasesDecreasesDueToMiscellaneousPaidInCapital @period=$currentDuration]#change);
+tolerance_for_decimals($sumMiscellaneousPaidInCapital,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sumMiscellaneousPaidInCapital.concept.name} sums to a value of {$addend}, which is not equal to the total value reported of {$sumMiscellaneousPaidInCapital} for MiscellaneousPaidInCapital. The components are comprised of the opening balance of {$open} + the change for the period of {$change}.
+
+Total Element : {$sumMiscellaneousPaidInCapital.concept.name}
+Total Period : {$sumMiscellaneousPaidInCapital.period}
+Total Value : {$sumMiscellaneousPaidInCapital} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sumMiscellaneousPaidInCapital
+

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:xendr="http://xbrl.us/xendr/2.0/template"
+xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2024-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -18,94 +18,94 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
     <table class="schedule-header xbrl" width="100%">
         <tr>
             <td class="xbrl">
-                <xendr:replace>
-                    <xendr:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xendr:expression>
-                    <xendr:template-display>Name of Respondent:</xendr:template-display>
-                </xendr:replace><br/>
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:RespondentLegalName).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xule:expression>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
+                </xule:replace><br/>
                
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xendr:expression>
-                    <xendr:template-display>Name of Respondent:</xendr:template-display>
-                </xendr:replace>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:RespondentLegalName @period=$currentDuration]</xule:expression>
+                    <xule:template-display>Name of Respondent:</xule:template-display>
+                </xule:replace>
             </td>
             <td class="xbrl">
-                <xendr:replace>
-                    <xendr:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xendr:expression>
-                    <xendr:template-display>This report is:</xendr:template-display>
-                </xendr:replace>
+                <xule:replace>
+                    <xule:expression class="hide">taxonomy().concept(ferc:SubmissionType).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xule:expression>
+                    <xule:template-display>This report is:</xule:template-display>
+                </xule:replace>
                     <br/>
                     (1) 
-                        <xendr:replace>
-                                <xendr:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
+                        <xule:replace>
+                                <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
                                 '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
                                 '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
                                 '<span class="checkbox">&#9744;</span> An Original']]>
-                                </xendr:expression>  
-                            <xendr:template-display>
+                                </xule:expression>  
+                            <xule:template-display>
                                     <input type="checkbox"/> An Original
-                            </xendr:template-display>
-                        </xendr:replace>
+                            </xule:template-display>
+                        </xule:replace>
                         <br/>
                     (2)
-                        <xendr:replace>
-                                <xendr:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
+                        <xule:replace>
+                                <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
                                 '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
                                 '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
                                 '<span class="checkbox">&#9744;</span> A Resubmission']]>
-                                    </xendr:expression> 
-                                <xendr:template-display>
+                                    </xule:expression> 
+                                <xule:template-display>
                                         <input type="checkbox" checked = "checked"/> A Resubmission
-                                </xendr:template-display>
-                        </xendr:replace> 
+                                </xule:template-display>
+                        </xule:replace> 
             </td>
-            <td class="xbrl"><xendr:replace>
-                <xendr:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xendr:expression>
-                <xendr:template-display>Date of Report:</xendr:template-display>
-                </xendr:replace><br/>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportDate).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xule:expression>
+                <xule:template-display>Date of Report:</xule:template-display>
+                </xule:replace><br/>
                
-                    <xendr:replace>
-                        <xendr:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xendr:expression>
-                        <xendr:template-display>04/26/2019</xendr:template-display>
-                </xendr:replace>
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:date-month-day-year">[@ferc:ReportDate @period=$currentDuration]</xule:expression>
+                        <xule:template-display>04/26/2019</xule:template-display>
+                </xule:replace>
             </td>
-            <td class="xbrl"><xendr:replace>
-                <xendr:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xendr:expression>
-                <xendr:template-display>Year/Period of Report:</xendr:template-display>
-                </xendr:replace><br/>
+            <td class="xbrl"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ReportYearPeriod).label("http://ferc.gov/form/2020-01-01/roles/label/F1Header").text</xule:expression>
+                <xule:template-display>Year/Period of Report:</xule:template-display>
+                </xule:replace><br/>
                
-                End of: <xendr:replace>
-                    <xendr:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xendr:expression>
-                    <xendr:template-display>2018</xendr:template-display>
-                </xendr:replace>
+                End of: <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportYear @period=$currentDuration]</xule:expression>
+                    <xule:template-display>2018</xule:template-display>
+                </xule:replace>
                 <span>/</span>
-                <xendr:replace>
-                    <xendr:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xendr:expression>
-                    <xendr:template-display>Q4</xendr:template-display>
-                </xendr:replace>
+                <xule:replace>
+                    <xule:expression class="hide" fact="true">[@ferc:ReportPeriod @period=$currentDuration]</xule:expression>
+                    <xule:template-display>Q4</xule:template-display>
+                </xule:replace>
             </td>
         </tr>
     </table>
     <table class="xbrl">
         <tr class="sch-title">
             <td class="xbrl" colspan="12">
-                <xendr:replace>
-                            <xendr:expression class="hide">taxonomy().concept(ferc:ScheduleAccumulatedDeferredInvestmentTaxCreditsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1ScheduleTitle").text
-                            </xendr:expression>
-                            <xendr:template-display>
+                <xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAccumulatedDeferredInvestmentTaxCreditsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1ScheduleTitle").text
+                            </xule:expression>
+                            <xule:template-display>
                                ACCUMULATED DEFERRED INCOME TAX CREDITS (Account 255)
-                            </xendr:template-display>
-                    </xendr:replace>
+                            </xule:template-display>
+                    </xule:replace>
             </td>
         </tr>
         <tr>
             <td class="instruction xbrl" colspan="12">
-                <xendr:replace>
-                    <xendr:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleAccumulatedDeferredInvestmentTaxCreditsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Instructions").text
-                    </xendr:expression>
-                    <xendr:template-display>
+                <xule:replace>
+                    <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleAccumulatedDeferredInvestmentTaxCreditsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Instructions").text
+                    </xule:expression>
+                    <xule:template-display>
                         <p>Report below information applicable to Account 255.  Where appropriate, segregate the balances and transactions by utility and nonutility operations.  Explain by footnote any correction adjustments to the account balance shown in column (g).Include in column (i) the average period over which the tax credits are amortized.</p>
-                    </xendr:template-display>
-                </xendr:replace>
+                    </xule:template-display>
+                </xule:replace>
             </td>
         </tr>
         <tr class="col-heading-row">
@@ -121,8 +121,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         </tr>
         <tr class="col-heading-row">     
             <td class="col-heading xbrl-no-top-line line-number">Line No.</td>
-            <td class="col-heading xbrl-no-top-line" xendr:repeat="ColumnHeadings">
-                    <xendr:expression class="hide" name="ColumnHeadings">
+            <td class="col-heading xbrl-no-top-line" xule:repeat="ColumnHeadings">
+                    <xule:expression class="hide" name="ColumnHeadings">
                             $headings = filter (taxonomy().concept(ferc:ScheduleAccumulatedDeferredInvestmentTaxCreditsAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "266 - Schedule - Accumulated Deferred Investment Tax Credits (Account 255)" and  $item.part-by-name(ferc-part:ValueType).part-value == "Column") 
 
                             $headings = list(for $ref in $headings 
@@ -132,31 +132,31 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 						            list("("+$row[1]+")",$row[2])
 						    );
                             for $row in $heading_dict.keys.sort
-                    </xendr:expression>
-                    <div style="text-align: center"><xendr:replace>
-                    <xendr:expression class="hide" name="ColumnHeadings" part="1">$heading_dict[$row]</xendr:expression>
-                    <xendr:template-display>
+                    </xule:expression>
+                    <div style="text-align: center"><xule:replace>
+                    <xule:expression class="hide" name="ColumnHeadings" part="1">$heading_dict[$row]</xule:expression>
+                    <xule:template-display>
                         Account Subdivisions
-                    </xendr:template-display>
-                </xendr:replace>
+                    </xule:template-display>
+                </xule:replace>
             </div>
-                <div style="text-align: center"><xendr:replace>
-                        <xendr:expression class="hide" name="ColumnHeadings" part="2">$row</xendr:expression>
-                        <xendr:template-display>
+                <div style="text-align: center"><xule:replace>
+                        <xule:expression class="hide" name="ColumnHeadings" part="2">$row</xule:expression>
+                        <xule:template-display>
                             (a)
-                        </xendr:template-display>
-                    </xendr:replace></div>
+                        </xule:template-display>
+                    </xule:replace></div>
             </td>
         </tr>
         <tr class="schedule-row" >
             <td class="xbrl line-number">1</td>
-            <td class="xbrl description_items"><xendr:replace>
-                <xendr:expression class="hide">taxonomy().concept(ferc:ElectricUtilityAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1AccumulatedDeferredInvestmentTaxCredits").text
-                </xendr:expression>
-                <xendr:template-display>
+            <td class="xbrl description_items"><xule:replace>
+                <xule:expression class="hide">taxonomy().concept(ferc:ElectricUtilityAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1AccumulatedDeferredInvestmentTaxCredits").text
+                </xule:expression>
+                <xule:template-display>
                    Electric Utility
-                </xendr:template-display>
-        </xendr:replace>
+                </xule:template-display>
+        </xule:replace>
             </td>
               
             <td class="xbrl gray-out"></td>
@@ -171,8 +171,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             
         </tr>
 
-                    <tr class="schedule-row" xendr:repeat="DeferredIncomeTaxesLineItems">
-                        <xendr:expression class="hide" name="DeferredIncomeTaxesLineItems">// adding a comment
+                    <tr class="schedule-row" xule:repeat="DeferredIncomeTaxesLineItems">
+                        <xule:expression class="hide" name="DeferredIncomeTaxesLineItems">// adding a comment
                          
                         $percentData = list("","3%","4%","7%","10%");
                         
@@ -246,65 +246,65 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         for $row in $uniqueData.sort
                                       
         
-                        </xendr:expression>
+                        </xule:expression>
                         <td class="xbrl line-number">
-                            <xendr:lineNumber name="DeferredIncomeTaxesLineItems">
-                                <xendr:startNumber>2</xendr:startNumber>
-                            </xendr:lineNumber>
+                            <xule:lineNumber name="DeferredIncomeTaxesLineItems">
+                                <xule:startNumber>2</xule:startNumber>
+                            </xule:lineNumber>
                         </td>
                         <td class="xbrl description_items">
-                            <xendr:replace>
-                                <xendr:expression  class="hide"  name="DeferredIncomeTaxesLineItems"  part="2">$row[2]</xendr:expression>
-                                <xendr:fact class="hide"  name="DeferredIncomeTaxesLineItems">if $row[2].is-fact true else false</xendr:fact>
-                            </xendr:replace>
-                            <xendr:template-display>
+                            <xule:replace>
+                                <xule:expression  class="hide"  name="DeferredIncomeTaxesLineItems"  part="2">$row[2]</xule:expression>
+                                <xule:fact class="hide"  name="DeferredIncomeTaxesLineItems">if $row[2].is-fact true else false</xule:fact>
+                            </xule:replace>
+                            <xule:template-display>
                                 3%
-                            </xendr:template-display>
+                            </xule:template-display>
                         </td>
-                        <td class="xbrl monetary_items"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xendr:expression></xendr:replace>
-                            <xendr:template-display>
+                        <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                            <xule:template-display>
                                     $567
-                            </xendr:template-display>
+                            </xule:template-display>
                         </td>
-                        <td class="xbrl account-number"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" part="4">$row[4]</xendr:expression></xendr:replace>
-                            <xendr:template-display>
+                        <td class="xbrl account-number"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" part="4">$row[4]</xule:expression></xule:replace>
+                            <xule:template-display>
                                     115
-                            </xendr:template-display>
+                            </xule:template-display>
                         </td>
-                        <td class="xbrl monetary_items"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xendr:expression></xendr:replace>
-                            <xendr:template-display>
+                        <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
+                            <xule:template-display>
                                    $772
-                            </xendr:template-display>
+                            </xule:template-display>
                         </td>
-                        <td class="xbrl account-number"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" part="6">$row[6]</xendr:expression></xendr:replace>
-                            <xendr:template-display>
+                        <td class="xbrl account-number"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" part="6">$row[6]</xule:expression></xule:replace>
+                            <xule:template-display>
                                     201
-                            </xendr:template-display>
+                            </xule:template-display>
                         </td>  
-                        <td class="xbrl monetary_items"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" format="ixt4:num-dot-decimal" part="7">$row[7]</xendr:expression></xendr:replace>
-                            <xendr:template-display>
+                        <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" format="ixt4:num-dot-decimal" part="7">$row[7]</xule:expression></xule:replace>
+                            <xule:template-display>
                                     $25
-                            </xendr:template-display>
+                            </xule:template-display>
                         </td>
-                        <td class="xbrl monetary_items"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" format="ixt4:num-dot-decimal" part="8">$row[8]</xendr:expression></xendr:replace>
-                            <xendr:template-display>
+                        <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" format="ixt4:num-dot-decimal" part="8">$row[8]</xule:expression></xule:replace>
+                            <xule:template-display>
                                     $4
-                            </xendr:template-display>
+                            </xule:template-display>
                         </td>
-                        <td class="xbrl monetary_items"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" format="ixt4:num-dot-decimal" part="9">$row[9]</xendr:expression></xendr:replace>
-                            <xendr:template-display>
+                        <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" format="ixt4:num-dot-decimal" part="9">$row[9]</xule:expression></xule:replace>
+                            <xule:template-display>
                                     $8
-                            </xendr:template-display>
+                            </xule:template-display>
                         </td>
-                        <td class="xbrl duration_items"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true"  part="10">$row[10]</xendr:expression></xendr:replace>
-                            <xendr:template-display>
+                        <td class="xbrl duration_items"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true"  part="10">$row[10]</xule:expression></xule:replace>
+                            <xule:template-display>
                                     48.675
-                            </xendr:template-display>
+                            </xule:template-display>
                         </td>
-                        <td class="xbrl description_items"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" part="11">$row[11]</xendr:expression></xendr:replace>
-                            <xendr:template-display>
+                        <td class="xbrl description_items"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems" fact="true" part="11">$row[11]</xule:expression></xule:replace>
+                            <xule:template-display>
                                     N/A
-                            </xendr:template-display>
+                            </xule:template-display>
                         </td>
                 
         
@@ -314,63 +314,63 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     <tr>
                         <td class="xbrl line-number">8</td>
                         <td class="xbrl description_items">
-                            <xendr:replace>
-                                <xendr:expression class="hide">
+                            <xule:replace>
+                                <xule:expression class="hide">
                                     taxonomy().concept(ferc:ElectricUtilityMember).label("http://ferc.gov/form/2020-01-01/roles/label/F1AccumulatedDeferredInvestmentTaxCredits").text
-                                </xendr:expression>
+                                </xule:expression>
                                 <div>
-                                    <xendr:template-display>
+                                    <xule:template-display>
                                         TOTAL Electric (Enter Total of lines 2 thru 7)
-                                    </xendr:template-display>
+                                    </xule:template-display>
                                 </div>
-                            </xendr:replace>
+                            </xule:replace>
                         </td>
                         <td class="xbrl monetary_items">
-                            <xendr:replace>
-                                    <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @period = $priorInstant]))
-                                    </xendr:expression>
-                                    <xendr:template-display>
+                            <xule:replace>
+                                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @period = $priorInstant]))
+                                    </xule:expression>
+                                    <xule:template-display>
                                             $92,477,242
-                                    </xendr:template-display>
-                            </xendr:replace>  
+                                    </xule:template-display>
+                            </xule:replace>  
                         </td>
                         <td class="xbrl"></td>
                         <td class="xbrl monetary_items">
-                            <xendr:replace>
-                                    <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAmount @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @period = $currentDuration]))
-                                    </xendr:expression>
-                                    <xendr:template-display>
+                            <xule:replace>
+                                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAmount @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @period = $currentDuration]))
+                                    </xule:expression>
+                                    <xule:template-display>
                                             $15,256,784
-                                    </xendr:template-display>
-                            </xendr:replace> 
+                                    </xule:template-display>
+                            </xule:replace> 
                         </td>
                         <td class="xbrl"></td>
                         <td class="xbrl monetary_items">
-                            <xendr:replace>
-                                    <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAmount @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @period = $currentDuration]))
-                                    </xendr:expression>
-                                    <xendr:template-display>
+                            <xule:replace>
+                                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAmount @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @period = $currentDuration]))
+                                    </xule:expression>
+                                    <xule:template-display>
                                             $92,477,242
-                                    </xendr:template-display>
-                            </xendr:replace>  
+                                    </xule:template-display>
+                            </xule:replace>  
                         </td>
                         <td class="xbrl monetary_items">
-                            <xendr:replace>
-                                    <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustments @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @period = $currentDuration]))
-                                    </xendr:expression>
-                                    <xendr:template-display>
+                            <xule:replace>
+                                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustments @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @period = $currentDuration]))
+                                    </xule:expression>
+                                    <xule:template-display>
                                             $15,256,784
-                                    </xendr:template-display>
-                            </xendr:replace> 
+                                    </xule:template-display>
+                            </xule:replace> 
                         </td>
                         <td class="xbrl monetary_items">
-                            <xendr:replace>
-                                    <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @period = $currentInstant]))
-                                    </xendr:expression>
-                                    <xendr:template-display>
+                            <xule:replace>
+                                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:ElectricUtilityMember @period = $currentInstant]))
+                                    </xule:expression>
+                                    <xule:template-display>
                                             $92,477,242
-                                    </xendr:template-display>
-                            </xendr:replace>  
+                                    </xule:template-display>
+                            </xule:replace>  
                         </td>
                         <td class="xbrl"></td>
                         <td class="xbrl"></td>
@@ -381,13 +381,13 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 
                     <tr class="schedule-row" >
                         <td class="xbrl line-number">9</td>
-                        <td class="xbrl description_items"><xendr:replace>
-                            <xendr:expression class="hide">taxonomy().concept(ferc:OtherUtilityOrNonutilityAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1AccumulatedDeferredInvestmentTaxCredits").text
-                            </xendr:expression>
-                            <xendr:template-display>
+                        <td class="xbrl description_items"><xule:replace>
+                            <xule:expression class="hide">taxonomy().concept(ferc:OtherUtilityOrNonutilityAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1AccumulatedDeferredInvestmentTaxCredits").text
+                            </xule:expression>
+                            <xule:template-display>
                                Other
-                            </xendr:template-display>
-                    </xendr:replace>
+                            </xule:template-display>
+                    </xule:replace>
                         </td>
                           
                         <td class="xbrl gray-out"></td>
@@ -402,8 +402,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         
                     </tr>
             
-                                <tr class="schedule-row" xendr:repeat="DeferredIncomeTaxesLineItems2">
-                                    <xendr:expression class="hide" name="DeferredIncomeTaxesLineItems2">// adding a comment
+                                <tr class="schedule-row" xule:repeat="DeferredIncomeTaxesLineItems2">
+                                    <xule:expression class="hide" name="DeferredIncomeTaxesLineItems2">// adding a comment
                                      
                                     $data2 =   list(for $i in range(10,47)
                                                     list($i,none,none,none,none,none,none,none,none,none,none,none)
@@ -471,61 +471,61 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     
                                     for $row in $uniqueData.sort
                                             
-                                    </xendr:expression>
+                                    </xule:expression>
                                     <td class="xbrl line-number">
-                                        <xendr:lineNumber name="DeferredIncomeTaxesLineItems2">
-                                            <xendr:startNumber>10</xendr:startNumber>
-                                        </xendr:lineNumber>
+                                        <xule:lineNumber name="DeferredIncomeTaxesLineItems2">
+                                            <xule:startNumber>10</xule:startNumber>
+                                        </xule:lineNumber>
                                     </td>
-                                    <td class="xbrl description_items"><xendr:replace><xendr:expression  class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" part="2">$row[2]</xendr:expression></xendr:replace>
-                                        <xendr:template-display>
+                                    <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" part="2">$row[2]</xule:expression></xule:replace>
+                                        <xule:template-display>
                                             Gas 3%
-                                        </xendr:template-display>
+                                        </xule:template-display>
                                     </td>
-                                    <td class="xbrl monetary_items"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xendr:expression></xendr:replace>
-                                        <xendr:template-display>
+                                    <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+                                        <xule:template-display>
                                                 $567
-                                        </xendr:template-display>
+                                        </xule:template-display>
                                     </td>
-                                    <td class="xbrl account-number"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" part="4">$row[4]</xendr:expression></xendr:replace>
-                                        <xendr:template-display>
+                                    <td class="xbrl account-number"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" part="4">$row[4]</xule:expression></xule:replace>
+                                        <xule:template-display>
                                                 115
-                                        </xendr:template-display>
+                                        </xule:template-display>
                                     </td>
-                                    <td class="xbrl monetary_items"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xendr:expression></xendr:replace>
-                                        <xendr:template-display>
+                                    <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
+                                        <xule:template-display>
                                                $772
-                                        </xendr:template-display>
+                                        </xule:template-display>
                                     </td>
-                                    <td class="xbrl account-number"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" part="6">$row[6]</xendr:expression></xendr:replace>
-                                        <xendr:template-display>
+                                    <td class="xbrl account-number"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" part="6">$row[6]</xule:expression></xule:replace>
+                                        <xule:template-display>
                                                 201
-                                        </xendr:template-display>
+                                        </xule:template-display>
                                     </td>  
-                                    <td class="xbrl monetary_items"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" format="ixt4:num-dot-decimal" part="7">$row[7]</xendr:expression></xendr:replace>
-                                        <xendr:template-display>
+                                    <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" format="ixt4:num-dot-decimal" part="7">$row[7]</xule:expression></xule:replace>
+                                        <xule:template-display>
                                                 $25
-                                        </xendr:template-display>
+                                        </xule:template-display>
                                     </td>
-                                    <td class="xbrl monetary_items"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" format="ixt4:num-dot-decimal" part="8">$row[8]</xendr:expression></xendr:replace>
-                                        <xendr:template-display>
+                                    <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" format="ixt4:num-dot-decimal" part="8">$row[8]</xule:expression></xule:replace>
+                                        <xule:template-display>
                                                 $4
-                                        </xendr:template-display>
+                                        </xule:template-display>
                                     </td>
-                                    <td class="xbrl monetary_items"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" format="ixt4:num-dot-decimal" part="9">$row[9]</xendr:expression></xendr:replace>
-                                        <xendr:template-display>
+                                    <td class="xbrl monetary_items"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" format="ixt4:num-dot-decimal" part="9">$row[9]</xule:expression></xule:replace>
+                                        <xule:template-display>
                                                 $8
-                                        </xendr:template-display>
+                                        </xule:template-display>
                                     </td>
-                                    <td class="xbrl duration_items"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true"  part="10">$row[10]</xendr:expression></xendr:replace>
-                                        <xendr:template-display>
+                                    <td class="xbrl duration_items"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true"  part="10">$row[10]</xule:expression></xule:replace>
+                                        <xule:template-display>
                                                 48.675
-                                        </xendr:template-display>
+                                        </xule:template-display>
                                     </td>
-                                    <td class="xbrl description_items"><xendr:replace><xendr:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" part="11">$row[11]</xendr:expression></xendr:replace>
-                                        <xendr:template-display>
+                                    <td class="xbrl description_items"><xule:replace><xule:expression class="hide"  name="DeferredIncomeTaxesLineItems2" fact="true" part="11">$row[11]</xule:expression></xule:replace>
+                                        <xule:template-display>
                                                 N/A
-                                        </xendr:template-display>
+                                        </xule:template-display>
                                     </td>
                             
                     
@@ -536,51 +536,51 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                     <td class="xbrl line-number">47</td>
                                     <td class="xbrl description_items">OTHER TOTAL</td>
                                     <td class="xbrl monetary_items">
-                                        <xendr:replace>
-                                                <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @period = $priorInstant]))
-                                                </xendr:expression>
-                                                <xendr:template-display>
+                                        <xule:replace>
+                                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @period = $priorInstant]))
+                                                </xule:expression>
+                                                <xule:template-display>
                                                         $92,477,242
-                                                </xendr:template-display>
-                                        </xendr:replace>  
+                                                </xule:template-display>
+                                        </xule:replace>  
                                     </td>
                                     <td class="xbrl"></td>
                                     <td class="xbrl monetary_items">
-                                        <xendr:replace>
-                                                <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAmount @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @period = $currentDuration]))
-                                                </xendr:expression>
-                                                <xendr:template-display>
+                                        <xule:replace>
+                                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAmount @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @period = $currentDuration]))
+                                                </xule:expression>
+                                                <xule:template-display>
                                                         $15,256,784
-                                                </xendr:template-display>
-                                        </xendr:replace> 
+                                                </xule:template-display>
+                                        </xule:replace> 
                                     </td>
                                     <td class="xbrl"></td>
                                     <td class="xbrl monetary_items">
-                                        <xendr:replace>
-                                                <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAmount @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @period = $currentDuration]))
-                                                </xendr:expression>
-                                                <xendr:template-display>
+                                        <xule:replace>
+                                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAmount @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @period = $currentDuration]))
+                                                </xule:expression>
+                                                <xule:template-display>
                                                         $92,477,242
-                                                </xendr:template-display>
-                                        </xendr:replace>  
+                                                </xule:template-display>
+                                        </xule:replace>  
                                     </td>
                                     <td class="xbrl monetary_items">
-                                        <xendr:replace>
-                                                <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustments @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @period = $currentDuration]))
-                                                </xendr:expression>
-                                                <xendr:template-display>
+                                        <xule:replace>
+                                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustments @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @period = $currentDuration]))
+                                                </xule:expression>
+                                                <xule:template-display>
                                                         $15,256,784
-                                                </xendr:template-display>
-                                        </xendr:replace> 
+                                                </xule:template-display>
+                                        </xule:replace> 
                                     </td>
                                     <td class="xbrl monetary_items">
-                                        <xendr:replace>
-                                                <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @period = $currentInstant]))
-                                                </xendr:expression>
-                                                <xendr:template-display>
+                                        <xule:replace>
+                                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCredits @ferc:UtilityTypeAxis=ferc:OtherUtilityOrNonutilityMember @period = $currentInstant]))
+                                                </xule:expression>
+                                                <xule:template-display>
                                                         $92,477,242
-                                                </xendr:template-display>
-                                        </xendr:replace>  
+                                                </xule:template-display>
+                                        </xule:replace>  
                                     </td>
                                     <td class="xbrl"></td>
                                     <td class="xbrl"></td>
@@ -592,51 +592,51 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                     <td class="xbrl line-number">48</td>
                                     <td class="xbrl description_items">GRAND TOTAL</td>
                                     <td class="xbrl monetary_items">
-                                        <xendr:replace>
-                                                <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCredits @period = $priorInstant]))
-                                                </xendr:expression>
-                                                <xendr:template-display>
+                                        <xule:replace>
+                                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCredits @period = $priorInstant]))
+                                                </xule:expression>
+                                                <xule:template-display>
                                                         $92,477,242
-                                                </xendr:template-display>
-                                        </xendr:replace>  
+                                                </xule:template-display>
+                                        </xule:replace>  
                                     </td>
                                     <td class="xbrl"></td>
                                     <td class="xbrl monetary_items">
-                                        <xendr:replace>
-                                                <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAmount @period = $currentDuration]))
-                                                </xendr:expression>
-                                                <xendr:template-display>
+                                        <xule:replace>
+                                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsDeferredAmount @period = $currentDuration]))
+                                                </xule:expression>
+                                                <xule:template-display>
                                                         $15,256,784
-                                                </xendr:template-display>
-                                        </xendr:replace> 
+                                                </xule:template-display>
+                                        </xule:replace> 
                                     </td>
                                     <td class="xbrl"></td>
                                     <td class="xbrl monetary_items">
-                                        <xendr:replace>
-                                                <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAmount @period = $currentDuration]))
-                                                </xendr:expression>
-                                                <xendr:template-display>
+                                        <xule:replace>
+                                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsAllocationToIncomeAmount @period = $currentDuration]))
+                                                </xule:expression>
+                                                <xule:template-display>
                                                         $92,477,242
-                                                </xendr:template-display>
-                                        </xendr:replace>  
+                                                </xule:template-display>
+                                        </xule:replace>  
                                     </td>
                                     <td class="xbrl monetary_items">
-                                        <xendr:replace>
-                                                <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustments @period = $currentDuration]))
-                                                </xendr:expression>
-                                                <xendr:template-display>
+                                        <xule:replace>
+                                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCreditsAdjustments @period = $currentDuration]))
+                                                </xule:expression>
+                                                <xule:template-display>
                                                         $15,256,784
-                                                </xendr:template-display>
-                                        </xendr:replace> 
+                                                </xule:template-display>
+                                        </xule:replace> 
                                     </td>
                                     <td class="xbrl monetary_items">
-                                        <xendr:replace>
-                                                <xendr:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCredits @period = $currentInstant]))
-                                                </xendr:expression>
-                                                <xendr:template-display>
+                                        <xule:replace>
+                                                <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">max(list([covered @concept=ferc:AccumulatedDeferredInvestmentTaxCredits @period = $currentInstant]))
+                                                </xule:expression>
+                                                <xule:template-display>
                                                         $92,477,242
-                                                </xendr:template-display>
-                                        </xendr:replace>  
+                                                </xule:template-display>
+                                        </xule:replace>  
                                     </td>
                                     <td class="xbrl"></td>
                                     <td class="xbrl"></td>
@@ -650,30 +650,30 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
     <div class="schedule-footer">
 
         <div>FERC FORM NO. 
-                <xendr:replace>
-                        <xendr:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))
+                <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))
                                                                 
-                                                        </xendr:expression>
-                        <xendr:template-display>1</xendr:template-display>
-                </xendr:replace>
+                                                        </xule:expression>
+                        <xule:template-display>1</xule:template-display>
+                </xule:replace>
                 <span> </span>
-                <xendr:replace>
-                        <xendr:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleAccumulatedDeferredInvestmentTaxCreditsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1DateRevised").text + ")"
-                        </xendr:expression>
-                        <xendr:template-display>
+                <xule:replace>
+                        <xule:expression class="hide">" (" + taxonomy().concept(ferc:ScheduleAccumulatedDeferredInvestmentTaxCreditsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1DateRevised").text + ")"
+                        </xule:expression>
+                        <xule:template-display>
                                 (ED. 12-89)
-                        </xendr:template-display>
-                </xendr:replace>
+                        </xule:template-display>
+                </xule:replace>
                             
         </div>
         <div class="center-text">Page 
-                <xendr:replace>
-                        <xendr:expression class="hide">taxonomy().concept(ferc:ScheduleAccumulatedDeferredInvestmentTaxCreditsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1PageRange").text
-                        </xendr:expression>
-                        <xendr:template-display>
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:ScheduleAccumulatedDeferredInvestmentTaxCreditsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1PageRange").text
+                        </xule:expression>
+                        <xule:template-display>
                         266
-                        </xendr:template-display>
-                </xendr:replace>
+                        </xule:template-display>
+                </xule:replace>
         </div> 
     </div>
     </body>

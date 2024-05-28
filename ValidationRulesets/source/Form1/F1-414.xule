@@ -1,0 +1,372 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.414.1 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@EnergyPurchasedGeneratedReceivedForStorage]; 
+ $addend = sum(list([nonils @EnergyPurchasedGeneratedReceivedForStorage @EnergyStorageOperationsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis EnergyStorageOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.414.2 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@EnergyDeliveredToSupportProductionPlant]; 
+ $addend = sum(list([nonils @EnergyDeliveredToSupportProductionPlant @EnergyStorageOperationsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis EnergyStorageOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.414.3 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@EnergyDeliveredToSupportTransmissionPlant]; 
+ $addend = sum(list([nonils @EnergyDeliveredToSupportTransmissionPlant @EnergyStorageOperationsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis EnergyStorageOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.414.4 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@EnergyDeliveredToSupportDistributionPlant]; 
+ $addend = sum(list([nonils @EnergyDeliveredToSupportDistributionPlant @EnergyStorageOperationsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis EnergyStorageOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.414.5 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@EnergyLostDuringConversionStorageDischargeAndDischargeOfEnergyProductionPlant]; 
+ $addend = sum(list([nonils @EnergyLostDuringConversionStorageDischargeAndDischargeOfEnergyProductionPlant @EnergyStorageOperationsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis EnergyStorageOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.414.6 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@EnergyLostDuringConversionStorageDischargeAndDischargeOfEnergyTransmissionPlant]; 
+ $addend = sum(list([nonils @EnergyLostDuringConversionStorageDischargeAndDischargeOfEnergyTransmissionPlant @EnergyStorageOperationsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis EnergyStorageOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.414.7 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@EnergyLostDuringConversionStorageDischargeAndDischargeOfEnergyDistributionplant]; 
+ $addend = sum(list([nonils @EnergyLostDuringConversionStorageDischargeAndDischargeOfEnergyDistributionplant @EnergyStorageOperationsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis EnergyStorageOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.414.8 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@EnergySold]; 
+ $addend = sum(list([nonils @EnergySold @EnergyStorageOperationsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis EnergyStorageOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.414.9 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@RevenuesFromEnergyStorageOperations]; 
+ $addend = sum(list([nonils @RevenuesFromEnergyStorageOperations @EnergyStorageOperationsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis EnergyStorageOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.414.10 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@PowerPurchasedForStorageOperationsLargePlants]; 
+ $addend = sum(list([nonils @PowerPurchasedForStorageOperationsLargePlants @EnergyStorageOperationsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis EnergyStorageOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.414.11 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@FuelCostsStorageOperationsSelfGeneratedPower]; 
+ $addend = sum(list([nonils @FuelCostsStorageOperationsSelfGeneratedPower @EnergyStorageOperationsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis EnergyStorageOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.414.12 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@OtherCostsSelfGeneratedPower]; 
+ $addend = sum(list([nonils @OtherCostsSelfGeneratedPower @EnergyStorageOperationsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis EnergyStorageOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.414.13 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@ProjectPlantCostProduction]; 
+ $addend = sum(list([nonils @ProjectPlantCostProduction @EnergyStorageOperationsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis EnergyStorageOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.414.14 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@ProjectPlantCostTransmission]; 
+ $addend = sum(list([nonils @ProjectPlantCostTransmission @EnergyStorageOperationsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis EnergyStorageOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.414.15 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@ProjectPlantCostDistribution]; 
+ $addend = sum(list([nonils @ProjectPlantCostDistribution @EnergyStorageOperationsAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis EnergyStorageOperationsAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.414.16 satisfied 
+$rule_id = rule-name();
+
+if set('1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+$allowedClassifications = list('Production','Transmission','Distribution')
+ $classificationValue = {@FunctionalClassificationEnergyStorageOperationsLargePlants @EnergyStorageOperationsAxis=*}; 
+ $classificationValue not in $allowedClassifications
+
+message 
+"The element {$classificationValue.concept.name} has a value of {$classificationValue}. The value of this concept must be one of the following {$allowedClassifications.join(' + ')}
+
+Element : {$classificationValue.concept.name}
+Period : {$classificationValue.period}
+Value : {$classificationValue}
+Dimensions : {$classificationValue.dimensions.join(',','=')}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $classificationValue

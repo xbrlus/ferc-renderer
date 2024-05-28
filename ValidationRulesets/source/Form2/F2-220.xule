@@ -1,0 +1,546 @@
+/**FERC Form 2 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.220.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasStoredBaseGas @period=$currentInstant}; 
+ $addend = ({@GasStoredBaseGas @period=$priorInstant} 
+ + {@GasStoredBaseGasGasDeliveredToStorage @period=$currentDuration}
+ - {@GasStoredBaseGasGasWithdrawnFromStorage @period=$currentDuration}
+ + {@GasStoredBaseGasOtherDebitsAndCredits @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasStoredBaseGasAmountPerDth @unit = *}; 
+ $addend = ({@GasStoredBaseGas @unit = *} / {nonils @GasStoredBaseGasUnits @unit = *});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasStoredBaseGasAmountPerDth with a value of {$sum1} that is not equal to GasStoredBaseGas / GasStoredBaseGasUnits with a value of  {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SystemBalancingGas @period=$currentInstant}; 
+ $addend = ({@SystemBalancingGas @period=$priorInstant}
+ + {@SystemBalancingGasGasDeliveredToStorage @period=$currentDuration}
+ - {@SystemBalancingGasGasWithdrawnFromStorage @period=$currentDuration}
+ + {@SystemBalancingGasOtherDebitsAndCredits @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SystemBalancingGasAmountPerDth @unit=*}; 
+ $addend = ({@SystemBalancingGas @unit=*} / {nonils @SystemBalancingGasUnits @unit=*});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SystemBalancingGasAmountPerDth with a value of {$sum1} that is not equal to SystemBalancingGas / SystemBalancingGasUnits with a value of  {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasStoredInReservoirsAndPipelinesNoncurrent @period=$currentInstant}; 
+ $addend = ({@GasStoredInReservoirsAndPipelinesNoncurrent @period=$priorInstant}
+ + {@GasStoredInReservoirsAndPipelinesNoncurrentGasDeliveredToStorage @period=$currentDuration}
+ - {@GasStoredInReservoirsAndPipelinesNoncurrentGasWithdrawnFromStorage @period=$currentDuration}
+ + {@GasStoredInReservoirsAndPipelinesNoncurrentOtherDebitsAndCredits @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasStoredInReservoirsAndPipelinesNoncurrentAmountPerDth @unit=*}; 
+ $addend = ({@GasStoredInReservoirsAndPipelinesNoncurrent @unit=*}  / {nonils @GasStoredInReservoirsAndPipelinesNoncurrentUnits @unit=*});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasStoredInReservoirsAndPipelinesNoncurrentAmountPerDth with a value of {$sum1} that is not equal to GasStoredInReservoirsAndPipelinesNoncurrentUnits / SystemBalancingGasUnits with a value of  {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasOwedToSystemGas @period=$currentInstant}; 
+ $addend = ({@GasOwedToSystemGas @period=$priorInstant}
+ + {@GasOwedToSystemGasGasDeliveredToStorage @period=$currentDuration}
+ - {@GasOwedToSystemGasGasWithdrawnFromStorage @period=$currentDuration}
+ + {@GasOwedToSystemGasOtherDebitsAndCredits @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasOwedToSystemGasAmountPerDth @unit=*}; 
+ $addend = ({@GasOwedToSystemGas @unit=*} / {nonils @GasOwedToSystemGasUnits @unit=*});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasOwedToSystemGasAmountPerDth with a value of {$sum1} that is not equal to GasOwedToSystemGas / GasOwedToSystemGasUnits with a value of  {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasStoredCurrent @period=$currentInstant}; 
+ $addend = ({@GasStoredCurrent @period=$priorInstant}
+ + {@GasStoredCurrentGasDeliveredToStorage @period=$currentDuration}
+ - {@GasStoredCurrentGasWithdrawnFromStorage @period=$currentDuration}
+ + {@GasStoredCurrentOtherDebitsAndCredits @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GasStoredCurrentAmountPerDth  @unit=*}; 
+ $addend = ({@GasStoredCurrent  @unit=*} / {nonils @GasStoredCurrentUnits  @unit=*});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasStoredCurrentAmountPerDth with a value of {$sum1} that is not equal to GasStoredCurrent / GasStoredCurrentUnits with a value of  {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.11 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LiquefiedNaturalGasStored @period=$currentInstant}; 
+ $addend = ({@LiquefiedNaturalGasStored @period=$priorInstant}
+ + {@LiquefiedNaturalGasStoredGasDeliveredToStorage @period=$currentDuration}
+ - {@LiquefiedNaturalGasStoredGasWithdrawnFromStorage @period=$currentDuration}
+ + {@LiquefiedNaturalGasStoredOtherDebitsAndCredits @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.12 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LiquefiedNaturalGasStoredAmountPerDth @unit=*}; 
+ $addend = ({@LiquefiedNaturalGasStored @unit=*} / {nonils @LiquefiedNaturalGasStoredUnits @unit=*});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GasStoredCurrentAmountPerDth with a value of {$sum1} that is not equal to LiquefiedNaturalGasStored / LiquefiedNaturalGasStoredUnits with a value of  {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.13 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LiquefiedNaturalGasHeldForProcessing @period=$currentInstant}; 
+ $addend = ({@LiquefiedNaturalGasHeldForProcessing @period=$priorInstant}
+ + {@LiquefiedNaturalGasHeldForProcessingGasDeliveredToStorage @period=$currentDuration}
+ - {@LiquefiedNaturalGasHeldForProcessingGasWithdrawnFromStorage @period=$currentDuration}
+ + {@LiquefiedNaturalGasHeldForProcessingOtherDebitsAndCredits @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.14 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LiquefiedNaturalGasHeldForProcessingAmountPerDth @unit=*}; 
+ $addend = ({@LiquefiedNaturalGasHeldForProcessing @unit=*} / {nonils @LiquefiedNaturalGasHeldForProcessingUnits @unit=*});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LiquefiedNaturalGasHeldForProcessingAmountPerDth with a value of {$sum1} that is not equal to LiquefiedNaturalGasHeldForProcessing / EnergyOfLiquefiedNaturalGasHeldForProcessing with a value of  {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.15 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StoredGasInventory}; 
+ $addend = ({@GasStoredBaseGas}
+ + {@SystemBalancingGas}
+ + {@GasStoredInReservoirsAndPipelinesNoncurrent}
+ + {@GasOwedToSystemGas}
+ + {@GasStoredCurrent}
+ + {@LiquefiedNaturalGasStored}
+ + {@LiquefiedNaturalGasHeldForProcessing});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StoredGasInventory with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.16 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StoredGasInventoryGasDeliveredToStorage}; 
+ $addend = ({@GasStoredBaseGasGasDeliveredToStorage}
+ + {@SystemBalancingGasGasDeliveredToStorage}
+ + {@GasStoredInReservoirsAndPipelinesNoncurrentGasDeliveredToStorage}
+ + {@GasOwedToSystemGasGasDeliveredToStorage}
+ + {@GasStoredCurrentGasDeliveredToStorage}
+ + {@LiquefiedNaturalGasStoredGasDeliveredToStorage}
+ + {@LiquefiedNaturalGasHeldForProcessingGasDeliveredToStorage});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StoredGasInventoryGasDeliveredToStorage with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.17 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StoredGasInventoryGasWithdrawnFromStorage}; 
+ $addend = ({@GasStoredBaseGasGasWithdrawnFromStorage}
+ + {@SystemBalancingGasGasWithdrawnFromStorage}
+ + {@GasStoredInReservoirsAndPipelinesNoncurrentGasWithdrawnFromStorage}
+ + {@GasOwedToSystemGasGasWithdrawnFromStorage}
+ + {@GasStoredCurrentGasWithdrawnFromStorage}
+ + {@LiquefiedNaturalGasStoredGasWithdrawnFromStorage}
+ + {@LiquefiedNaturalGasHeldForProcessingGasWithdrawnFromStorage});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StoredGasInventoryGasWithdrawnFromStorage with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.18 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StoredGasInventoryOtherDebitsAndCredits}; 
+ $addend = ({@GasStoredBaseGasOtherDebitsAndCredits}
+ + {@SystemBalancingGasOtherDebitsAndCredits}
+ + {@GasStoredInReservoirsAndPipelinesNoncurrentOtherDebitsAndCredits}
+ + {@GasOwedToSystemGasOtherDebitsAndCredits}
+ + {@GasStoredCurrentOtherDebitsAndCredits}
+ + {@LiquefiedNaturalGasStoredOtherDebitsAndCredits}
+ + {@LiquefiedNaturalGasHeldForProcessingOtherDebitsAndCredits});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StoredGasInventoryOtherDebitsAndCredits with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.19 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StoredGasInventory}; 
+ $addend = ({@GasStoredBaseGas}
+ + {@SystemBalancingGas}
+ + {@GasStoredInReservoirsAndPipelinesNoncurrent}
+ + {@GasOwedToSystemGas}
+ + {@GasStoredCurrent}
+ + {@LiquefiedNaturalGasStored}
+ + {@LiquefiedNaturalGasHeldForProcessing});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StoredGasInventory with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.20 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StoredGasInventory}; 
+ $addend = ({@GasStoredBaseGas}
+ + {@SystemBalancingGas}
+ + {@GasStoredInReservoirsAndPipelinesNoncurrent}
+ + {@GasOwedToSystemGas}
+ + {@GasStoredCurrent}
+ + {@LiquefiedNaturalGasStored}
+ + {@LiquefiedNaturalGasHeldForProcessing});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for EnergyOfStoredGasInventory with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.220.21 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LiquefiedNaturalGasStoredAndHeldForProcessing}; 
+ $addend = ({@LiquefiedNaturalGasStored}
+ + {@LiquefiedNaturalGasHeldForProcessing});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LiquefiedNaturalGasStoredAndHeldForProcessing with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

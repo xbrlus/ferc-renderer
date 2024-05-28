@@ -1,0 +1,106 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.278.1 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = {@OtherRegulatoryLiabilities @period=$currentInstant}; 
+ $addend = ({@OtherRegulatoryLiabilities @period=$prior3MYInstant} 
+ - {@DecreaseInOtherRegulatoryLiabilities @period=$current3MYDuration} 
+ + {@IncreaseInOtherRegulatoryLiabilities @period=$current3MYDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherRegulatoryLiabilities with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.278.2 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@OtherRegulatoryLiabilities @period=$currentInstant]; 
+ $addend = sum(list([nonils @OtherRegulatoryLiabilities @OtherRegulatoryLiabilityAxis=* @period=$currentInstant])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis OtherRegulatoryLiabilityAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.278.3 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@DecreaseInOtherRegulatoryLiabilities]; 
+ $addend = sum(list([nonils @DecreaseInOtherRegulatoryLiabilities @OtherRegulatoryLiabilityAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis OtherRegulatoryLiabilityAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+ 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.278.4 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@IncreaseInOtherRegulatoryLiabilities]; 
+ $addend = sum(list([nonils @IncreaseInOtherRegulatoryLiabilities @OtherRegulatoryLiabilityAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis OtherRegulatoryLiabilityAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.278.5 satisfied 
+$rule_id = rule-name();
+
+ $sum1 = [@OtherRegulatoryLiabilities @period=$prior3MYInstant]; 
+ $addend = sum(list([nonils @OtherRegulatoryLiabilities @OtherRegulatoryLiabilityAxis=* @period=$prior3MYInstant])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis OtherRegulatoryLiabilityAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

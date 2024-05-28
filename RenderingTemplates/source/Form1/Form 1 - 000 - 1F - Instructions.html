@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:xendr="http://xbrl.us/xendr/2.0/template"
+xmlns:xule="http://xbrl.us/xule/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2024-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 <head>
@@ -15,10 +15,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 <body class="xbrl">
     <div id="Form1FAbstract"></div>
     <h2 class="center-text">INSTRUCTIONS FOR FILING FERC Form No. 1-F</h2>
-    <xendr:replace>
-        <xendr:expression class="hide" html="true">taxonomy().concept(ferc:Form1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FInstructions").text
-        </xendr:expression>
-        <xendr:template-display>
+    <xule:replace>
+        <xule:expression class="hide" html="true">taxonomy().concept(ferc:Form1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FInstructions").text
+        </xule:expression>
+        <xule:template-display>
             <div class="two_column"><h2>GENERAL INFORMATION</h2>
                 <ol type="I">
                 <li><h3>Purpose</h3>
@@ -135,34 +135,34 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 <p></p>
                 SPECIFIC INSTRUCTIONS Item No.Instruction All Refer to the form. All items are self-explanatory.
             </div>
-        </xendr:template-display>
-    </xendr:replace>
+        </xule:template-display>
+    </xule:replace>
     <p></p>
     <div class="schedule-footer">
         <div>FERC FORM No. 
-                <xendr:replace>
-                        <xendr:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))
+                <xule:replace>
+                        <xule:expression class="hide" fact="true">first(list([@ferc:FormType @period=$currentDuration]))
                                                                 
-                                                        </xendr:expression>
-                        <xendr:template-display>1-F</xendr:template-display>
-                </xendr:replace>
+                                                        </xule:expression>
+                        <xule:template-display>1-F</xule:template-display>
+                </xule:replace>
                 <span> </span>
-                <xendr:replace>
-                        <xendr:expression class="hide">" (" + taxonomy().concept(ferc:Form1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FDateRevised").text + ")"
-                        </xendr:expression>
-                        <xendr:template-display>
+                <xule:replace>
+                        <xule:expression class="hide">" (" + taxonomy().concept(ferc:Form1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FDateRevised").text + ")"
+                        </xule:expression>
+                        <xule:template-display>
                                 (12-96)
-                        </xendr:template-display>
-                </xendr:replace>
+                        </xule:template-display>
+                </xule:replace>
         </div>
         <div class="center-text">Page 
-                <xendr:replace>
-                        <xendr:expression class="hide">taxonomy().concept(ferc:Form1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPageRange").text
-                        </xendr:expression>
-                        <xendr:template-display>
+                <xule:replace>
+                        <xule:expression class="hide">taxonomy().concept(ferc:Form1FAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1FPageRange").text
+                        </xule:expression>
+                        <xule:template-display>
                         212
-                        </xendr:template-display>
-                </xendr:replace>
+                        </xule:template-display>
+                </xule:replace>
         </div> 
     </div>
 </body>

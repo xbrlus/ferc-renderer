@@ -1,0 +1,340 @@
+/**FERC Form 2 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.276.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+$lineItems = list(AccumulatedDeferredIncomeTaxesOther, AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome, AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome, AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions, AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions,AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount,AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsCreditedToAccount);
+
+ $sum1 = [@@concept in $lineItems @UtilityTypeAxis = OperatingUtilityMember where $fact.is-monetary]; 
+ $addend = ([@@concept in $lineItems @UtilityTypeAxis=ElectricUtilityMember  where $fact.is-monetary]
+ + [@@concept in $lineItems @UtilityTypeAxis=GasUtilityMember where $fact.is-monetary]
+ + [@@concept in $lineItems @UtilityTypeAxis=OtherUtilityMember where $fact.is-monetary]); 
+
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis UtilityTypeAxis. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.276.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+$lineItems = list(AccumulatedDeferredIncomeTaxesOther, AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome, AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome, AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions, AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions,AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount,AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsCreditedToAccount);
+
+ $sum1 = [@@concept in $lineItems @UtilityTypeAxis = none where $fact.is-monetary]; 
+ $addend = ([@@concept in $lineItems @UtilityTypeAxis=OperatingUtilityMember  where $fact.is-monetary]
+ + [@@concept in $lineItems @UtilityTypeAxis=NonUtilityMember where $fact.is-monetary]); 
+
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregated by the axis UtilityTypeAxis. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.276.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesOther @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesOther @period=$priorInstant]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsCreditedToAccount @period=$currentDuration]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.276.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = {@AccumulatedDeferredIncomeTaxLiabilitiesOtherFederalIncomeTax @period=$currentInstant}; 
+ $addend = ({@AccumulatedDeferredIncomeTaxLiabilitiesOtherFederalIncomeTax @period=$priorInstant}
+ + {@FederalIncomeTaxForOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration}
+ - {@FederalIncomeTaxForOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration}
+ + {@FederalIncomeTaxfOrOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration}
+ - {@FederalIncomeTaxForOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration}
+ + {@FederalIncomeTaxForOtherAdjustmentsDebitedToAccount @period=$currentDuration}
+ - {@FederalIncomeTaxForOtherAdjustmentsCreditedToAccount @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.276.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = {@AccumulatedDeferredIncomeTaxLiabilitiesOtherStateIncomeTax @period=$currentInstant}; 
+ $addend = ({@AccumulatedDeferredIncomeTaxLiabilitiesOtherStateIncomeTax @period=$priorInstant} 
+ + {@StateIncomeTaxForOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration} 
+ - {@StateIncomeTaxForOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration} 
+ + {@StateIncomeTaxForOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration} 
+ - {@StateIncomeTaxForOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration} 
+ + {@StateIncomeTaxForOtherAdjustmentsDebitedToAccount @period=$currentDuration} 
+ - {@StateIncomeTaxForOtherAdjustmentsCreditedToAccount @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.276.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = {@AccumulatedDeferredIncomeTaxLiabilitiesOtherLocalIncomeTax @period=$currentInstant}; 
+ $addend = ({@AccumulatedDeferredIncomeTaxLiabilitiesOtherLocalIncomeTax @period=$priorInstant}
+ + {@LocalIncomeTaxForOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration}
+ - {@LocalIncomeTaxForOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration}
+ + {@LocalIncomeTaxForOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration}
+ - {@LocalIncomeTaxForOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration}
+ + {@LocalIncomeTaxForOtherAdjustmentsDebitedToAccount @period=$currentDuration}
+ - {@LocalIncomeTaxForOtherAdjustmentsCreditedToAccount @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.276.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=ElectricUtilityMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=ElectricUtilityMember @period=$priorInstant]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsCreditedToAccount @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period for the ElectricUtilityMember. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.276.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=GasUtilityMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=GasUtilityMember @period=$priorInstant]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=GasUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=GasUtilityMember @period=$currentDuration]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=GasUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=GasUtilityMember @period=$currentDuration]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount @UtilityTypeAxis=GasUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsCreditedToAccount @UtilityTypeAxis=GasUtilityMember @period=$currentDuration]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period for the GasUtilityMember. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.276.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=OtherUtilityMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=OtherUtilityMember @period=$priorInstant]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsCreditedToAccount @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period for the OtherUtilityMember. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.276.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=OperatingUtilityMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=OperatingUtilityMember @period=$priorInstant]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=OperatingUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=OperatingUtilityMember @period=$currentDuration]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=OperatingUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=OperatingUtilityMember @period=$currentDuration]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount @UtilityTypeAxis=OperatingUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsCreditedToAccount @UtilityTypeAxis=OperatingUtilityMember @period=$currentDuration]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period for the OperatingUtilityMember. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.276.11 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+ $sum1 = [@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=NonUtilityMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=NonUtilityMember @period=$priorInstant]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=NonUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=NonUtilityMember @period=$currentDuration]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=NonUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=NonUtilityMember @period=$currentDuration]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount @UtilityTypeAxis=NonUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsCreditedToAccount @UtilityTypeAxis=NonUtilityMember @period=$currentDuration]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported an ending balance for {$sum1.concept.name.local-name} with a value of {$sum1} that is not equal to the value of opening balance of {$sum1.concept.name.local-name} plus any changes during the period for the NonUtilityMember. The calculated ending balance is {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

@@ -1,0 +1,301 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.276.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis = none}; 
+ $addend = ({@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis = ElectricUtilityMember}
+ + {@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis =GasUtilityMember}
+ + {@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis = OtherUtilityMember});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for the concept AccumulatedDeferredIncomeTaxesOther with a value of {$sum1} which is not equal to the value of the sum of its dimensional components of ElectricUtilityMember, GasUtilityMember, and  OtherUtilityMember with a combined value of {$addend}.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.276.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=ElectricUtilityMember @period=$currentInstant}; 
+ $addend = ({@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=ElectricUtilityMember @period=$priorInstant}#f1
+ + {@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration}#f2
+ - {@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration}#f3
+ + {@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration}#f4
+ - {@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration}#f5
+ - {@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration}#f6
+ + {@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsCreditedToAccount @UtilityTypeAxis=ElectricUtilityMember @period=$currentDuration}#f7);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesOther with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+AccumulatedDeferredIncomeTaxesOther = {$f1}
++ AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome = {$f2}
+- AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome = {$f3}
++ AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions = {$f4}
+- AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions = {$f5}
+- AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount = {$f6}
++ AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsCreditedToAccount = {$f7}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.276.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@AccumulatedDeferredIncomeTaxesOther @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesOther @period=$priorInstant]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount @period=$currentDuration]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsCreditedToAccount @period=$currentDuration]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesOther with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.276.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AccumulatedDeferredIncomeTaxLiabilitiesOtherFederalIncomeTax @period=$currentInstant}; 
+ $addend = ({@AccumulatedDeferredIncomeTaxLiabilitiesOtherFederalIncomeTax @period=$priorInstant}
+ + {@FederalIncomeTaxForOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration}
+ - {@FederalIncomeTaxForOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration}
+ + {@FederalIncomeTaxfOrOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration}
+ - {@FederalIncomeTaxForOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration}
+ - {@FederalIncomeTaxForOtherAdjustmentsDebitedToAccount @period=$currentDuration}
+ + {@FederalIncomeTaxForOtherAdjustmentsCreditedToAccount @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxLiabilitiesOtherFederalIncomeTax with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.276.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AccumulatedDeferredIncomeTaxLiabilitiesOtherStateIncomeTax @period=$currentInstant}; 
+ $addend = ({@AccumulatedDeferredIncomeTaxLiabilitiesOtherStateIncomeTax @period=$priorInstant} 
+ + {@StateIncomeTaxForOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration} 
+ - {@StateIncomeTaxForOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration} 
+ + {@StateIncomeTaxForOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration} 
+ - {@StateIncomeTaxForOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration} 
+ - {@StateIncomeTaxForOtherAdjustmentsDebitedToAccount @period=$currentDuration} 
+ + {@StateIncomeTaxForOtherAdjustmentsCreditedToAccount @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxLiabilitiesOtherStateIncomeTax with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.276.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AccumulatedDeferredIncomeTaxLiabilitiesOtherLocalIncomeTax @period=$currentInstant}; 
+ $addend = ({@AccumulatedDeferredIncomeTaxLiabilitiesOtherLocalIncomeTax @period=$priorInstant}
+ + {@LocalIncomeTaxForOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration}
+ - {@LocalIncomeTaxForOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @period=$currentDuration}
+ + {@LocalIncomeTaxfOrOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration}
+ - {@LocalIncomeTaxForOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @period=$currentDuration}
+ - {@LocalIncomeTaxForOtherAdjustmentsDebitedToAccount @period=$currentDuration}
+ + {@LocalIncomeTaxForOtherAdjustmentsCreditedToAccount @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxLiabilitiesOtherLocalIncomeTax with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.276.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@@concept in $TotalsFor276 @AccumulatedDeferredIncomeTaxByElectricTypeAxis=none @UtilityTypeAxis=ElectricUtilityMember where $fact.is-monetary]; 
+ $addend = sum(list([nonils @@concept in $TotalsFor276 @AccumulatedDeferredIncomeTaxByElectricTypeAxis=* @UtilityTypeAxis=ElectricUtilityMember where $fact.is-monetary])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis AccumulatedDeferredIncomeTaxByElectricTypeAxis and UtilityTypeAxis=ElectricUtilityMember has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.276.8 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@@concept in $TotalsFor276 @AccumulatedDeferredIncomeTaxByGasTypeAxis=none @UtilityTypeAxis=GasUtilityMember where $fact.is-monetary]; 
+ $addend = sum(list([nonils @@concept in $TotalsFor276 @AccumulatedDeferredIncomeTaxByGasTypeAxis = * @UtilityTypeAxis=GasUtilityMember where $fact.is-monetary])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis AccumulatedDeferredIncomeTaxByGasTypeAxis and UtilityTypeAxis=GasUtilityMember has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1}
+
+
+Rule Id:{$rule_id}"
+
+severity error
+rule-focus $sum1
+
+/** COMMENTED OUT 276.9 BECAUSE OTHERUTILITYMEMBER HAS NO ADDENDS **/
+/** assert F1.276.9 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@@concept in $TotalsFor276 @AccumulatedDeferredIncomeTaxByOtherAxis=none @UtilityTypeAxis=OtherUtilityMember where $fact.is-monetary]; 
+ $addend = sum(list([nonils @@concept in $TotalsFor276 @AccumulatedDeferredIncomeTaxByOtherAxis = * @UtilityTypeAxis=OtherUtilityMember where $fact.is-monetary]));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of OtherUtilityMember sums to a value of {$addend} that is not equal to the total value reported of {$sum1} when disaggregted by the axis AccumulatedDeferredIncomeTaxByOtherAxis. 
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error 
+rule-focus $sum1
+**/
+
+constant $TotalsFor276 = list(AccumulatedDeferredIncomeTaxesOther,
+AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome,
+AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome,
+AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions,
+AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions,
+AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount,
+AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsCreditedToAccount)
+
+assert F1.276.10 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=GasUtilityMember @period=$currentInstant}; 
+ $addend = ({@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=GasUtilityMember @period=$priorInstant}#f1
+ + {@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=GasUtilityMember @period=$currentDuration}#f2
+ - {@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=GasUtilityMember @period=$currentDuration}#f3
+ + {@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=GasUtilityMember @period=$currentDuration}#f4
+ - {@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=GasUtilityMember @period=$currentDuration}#f5
+ - {@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount @UtilityTypeAxis=GasUtilityMember @period=$currentDuration}#f6
+ + {@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsCreditedToAccount @UtilityTypeAxis=GasUtilityMember @period=$currentDuration}#f7);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesOther with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+AccumulatedDeferredIncomeTaxesOther = {$f1}
++ AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome = {$f2}
+- AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome = {$f3}
++ AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions = {$f4}
+- AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions = {$f5}
+- AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount = {$f6}
++ AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsCreditedToAccount = {$f7}
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.276.11 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=OtherUtilityMember @period=$currentInstant]; 
+ $addend = ([@AccumulatedDeferredIncomeTaxesOther @UtilityTypeAxis=OtherUtilityMember @period=$priorInstant]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOperatingIncome @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]#f1
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesDebitedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherChangesCreditedToProvisionForDeferredIncomeTaxesOtherIncomeAndDeductions @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]
+ - [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsDebitedToAccount @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]
+ + [@AccumulatedDeferredIncomeTaxLiabilitiesOtherAdjustmentsCreditedToAccount @UtilityTypeAxis=OtherUtilityMember @period=$currentDuration]);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccumulatedDeferredIncomeTaxesOther with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+{$f1}
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

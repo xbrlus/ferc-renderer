@@ -1,0 +1,120 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.101.1 unsatisfied 
+$rule_id = rule-name();
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType']) or ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+ exists([@NameOfOfficerWithCustodyOfCorporateBooks @period=$currentDuration])  
+message 
+"The name of the officer with custody of corporate books must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F2.101.2 unsatisfied 
+$rule_id = rule-name();
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType']) or ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+ exists([@TitleOfOfficerWithCustodyOfCorporateBooks @period=$currentDuration])  
+message 
+"The title of the officer with custody of corporate books must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F2.101.3 unsatisfied 
+$rule_id = rule-name();
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType']) or ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+ exists([@AddressWhereCorporateBooksAreKept @period=$currentDuration])  
+message 
+"The address where corporate books are kept must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F2.101.4 unsatisfied 
+$rule_id = rule-name();
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType']) or ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+ if exists([@StateOfIncorporation @period=$currentDuration]) 
+ 	exists([@IncorporationDate @period=$currentDuration]) 
+ else exists([@SpecialLawRespondentIncorporatedUnder @period=$currentDuration])  
+message 
+"The state and date of incorporation or the special law the respondent is incorporated under must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+/**
+assert F2.101.5 unsatisfied 
+$rule_id = rule-name();
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ if exists([@IndicatorThatRespondentIsNotIncorporatedFlag @period=$currentDuration]) exists([@TypeOfOrganizationIfNotIncorporated @period=$currentDuration]) exists([@DateRespondentWasOrganizedIfNotIncorporated @period=$currentDuration])   
+message 
+"The type and date of organization must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+
+assert F2.101.6 unsatisfied 
+$rule_id = rule-name();
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ if exists([@GeneralInformationAboutPropertyOfTheRespondentHeldByReceiverOrTrusteeDescription @period=$currentDuration]) exists([@NameOfReceiverOrTrusteeHoldingPropertyOfTheRespondent @period=$currentDuration]) exists([@DateReceiverTookPossessionOfRespondentProperty @period=$currentDuration]) exists([@AuthorityByWhichTheReceivershipOrTrusteeshipWasCreated @period=$currentDuration]) exists([@DateWhenPossessionByReceiverOrTrusteeCeased @period=$currentDuration])  
+message 
+"The name of receiver or trustee, the date such receiver or trustee took possession, the authority by which the receivership or trusteeship was created, and the date when possession by receiver or trustee ceased must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+**/
+assert F2.101.7 unsatisfied 
+$rule_id = rule-name();
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType']) or ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+ exists([@GeneralInformationAboutStatesInWhichRespondentServicesWereRendered @period=$currentDuration])  
+message 
+"The classes or utility and other services rendered during the year in each State in which the respondent operated must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+/**
+assert F2.101.8 unsatisfied 
+$rule_id = rule-name();
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ if exists([@GeneralInformationChangeInAuditorFlag @period=$currentDuration]) exists([@EngagementDateOfIndependentAuditor @period=$currentDuration])  
+message 
+"The change in auditor and engagement date must be reported in the current period. 
+
+Rule Id:{$rule_id}
+"
+severity error
+**/

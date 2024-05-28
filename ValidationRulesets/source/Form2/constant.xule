@@ -1,0 +1,290 @@
+/** Constants File **/
+
+
+constant $valid_year = (max(list([covered @ferc:ReportYear])) >= 1990) and (max(list([covered @ferc:ReportYear])) <= 2100)
+
+constant $report-year-guess = most_frequent(list({covered @concept}.period.end))
+
+constant $report-year-default = if max(list([covered @ferc:ReportYear])) == none
+								$report-year-guess.year
+							else
+								if $valid_year 
+									max(list([covered @ferc:ReportYear]))
+								else
+									$report-year-guess.year
+								
+constant $report-year-end-default = if max(list([covered @ferc:ReportYear])) == none
+								$report-year-guess.string
+							else
+								max(list([covered @ferc:ReportYear])).period.end.string
+
+constant $report-year_pre = first-value(max(list([covered @ferc:ReportYear])),$report-year-default.number)
+
+constant $report-year_check = if $report-year_pre < 1990
+							$report-year-default.number
+						else
+							if $report-year_pre > 2100
+								$report-year-default.number
+							else
+								$report-year_pre
+
+constant $report-year = $report-year_check
+
+constant $report-period = max(list([covered @ferc:ReportPeriod]))
+
+constant $prior-year = $report-year - 1
+constant $prior-year2 = $report-year - 2
+
+constant $current-start = $report-year + '-01-01'
+constant $current-end = first-value(max(list([covered @ferc:ReportYear])).period.end.string,$report-year-end-default)
+constant $prior-start = $prior-year + '-01-01'
+constant $prior-end = $prior-year + '-' + pad(month(date($current-end)).string,2,'0') + '-' + day(date($current-end)).string
+constant $prior2-start = $prior-year2 + '-01-01'
+constant $prior2-end = $prior-year2 + '-' + pad(month(date($current-end)).string,2,'0') + '-' + day(date($current-end)).string
+constant $month-ends = none
+
+
+constant $currentInstant = date($current-end)  /** REFERENCE Current. **/
+constant $currentDuration = duration(date($current-start), date($current-end)) /** REFERENCE Current. **/
+constant $priorInstant = date($current-start) - time-span("P1D") /** REFERENCE = Prior. ie. 12/31**/
+constant $prior12MonthsInstant = date($prior-end) /** REFERENCE =prior12MonthsInstant. **/
+constant $priorDuration = duration(date($prior-start), date($prior-end)) /** REFERENCE = Prior. **/
+constant $prior2Instant = date($prior-start) - time-span("P1D") /** REFERENCE = Prior2. ie. 12/31**/
+constant $prior24MonthsInstant = date($prior2-end) /** REFERENCE prior24MonthsInstant. ie. 12/31**/
+constant $prior2Duration = duration(date($prior2-start), date($prior2-end)) /** REFERENCE prior2. ie. 12/31**/
+
+constant $currentYear = substring($current-end, 1 , 4)
+constant $priorYear = substring($prior-end, 1, 4)
+/**constant $monthEndList = $month-ends.split(',')**/
+constant $feb = day(date($report-year + '-03-01') - time-span("P1D")).string
+constant $monthEndList = list('31',$feb,'31','30','31','30','31','31','30','31','30','31')
+constant $currentMonth = substring($current-end, 6, 7)
+
+constant $prior3MYInstant = if $report-period == 'Q4'
+									$priorInstant
+							else 
+								if $report-period == 'Q3'
+									$currentQ2Instant
+								else 
+									if $report-period == 'Q2'
+										$currentQ1Instant
+									else
+										if $report-period == 'Q1'
+											$priorInstant
+										else
+											$priorInstant
+
+constant $current3MYDuration = duration(date($prior3MYInstant) + time-span("P1D"), date($current-end))
+
+constant $current3M = duration(
+							   date($currentYear+'-'+pad((month($currentInstant)-2).string, 2, '0')+'-01'),
+					           $currentInstant
+					  )
+constant $prior3M = duration(
+							   date($priorYear+'-'+pad((month($prior12MonthsInstant)-2).string, 2, '0')+'-01'),
+					           $prior12MonthsInstant
+					  )
+
+constant $currentCumQ2 = duration(date($currentYear+'-01-01'), date($currentYear+'-06-30'))
+constant $currentCumQ3 = duration(date($currentYear+'-01-01'), date($currentYear+'-09-30'))
+constant $currentCumQ4 = duration(date($currentYear+'-01-01'), date($currentYear+'-12-31'))
+
+constant $priorCumQ2 = duration(date($priorYear+'-01-01'), date($priorYear+'-06-30'))
+constant $priorCumQ3 = duration(date($priorYear+'-01-01'), date($priorYear+'-09-30'))
+constant $priorCumQ4 = duration(date($priorYear+'-01-01'), date($priorYear+'-12-31'))
+
+constant $currentQ1Instant = date($currentYear+'-03-31')
+constant $currentQ1Duration = duration(date($currentYear+'-01-01'), date($currentYear+'-03-31'))
+constant $currentQ2Instant = date($currentYear+'-06-30')
+constant $currentQ2Duration = duration(date($currentYear+'-04-01'), date($currentYear+'-06-30'))
+constant $currentQ3Instant = date($currentYear+'-09-30')
+constant $currentQ3Duration = duration(date($currentYear+'-07-01'), date($currentYear+'-09-30'))
+constant $currentQ4Instant = date($currentYear+'-12-31')
+constant $currentQ4Duration = duration(date($currentYear+'-10-01'), date($currentYear+'-12-31'))
+
+constant $priorQ1Instant = date($priorYear+'-03-31')
+constant $priorQ1Duration = duration(date($priorYear+'-01-01'), date($priorYear+'-03-31'))
+constant $priorQ2Instant = date($priorYear+'-06-30')
+constant $priorQ2Duration = duration(date($priorYear+'-04-01'), date($priorYear+'-06-30'))
+constant $priorQ3Instant = date($priorYear+'-09-30')
+constant $priorQ3Duration = duration(date($priorYear+'-07-01'), date($priorYear+'-09-30'))
+constant $priorQ4Instant = date($priorYear+'-12-31')
+constant $priorQ4Duration = duration(date($priorYear+'-10-01'), date($priorYear+'-12-31'))
+
+
+constant $month1 = duration(date($currentYear + '-01-01'), date($currentYear + '-01-' + $monthEndList[1]))
+constant $month2 = duration(date($currentYear + '-02-01'), date($currentYear + '-02-' + $monthEndList[2]))
+constant $month3 = duration(date($currentYear + '-03-01'), date($currentYear + '-03-' + $monthEndList[3]))
+constant $month4 = duration(date($currentYear + '-04-01'), date($currentYear + '-04-' + $monthEndList[4]))
+constant $month5 = duration(date($currentYear + '-05-01'), date($currentYear + '-05-' + $monthEndList[5]))
+constant $month6 = duration(date($currentYear + '-06-01'), date($currentYear + '-06-' + $monthEndList[6]))
+constant $month7 = duration(date($currentYear + '-07-01'), date($currentYear + '-07-' + $monthEndList[7]))
+constant $month8 = duration(date($currentYear + '-08-01'), date($currentYear + '-08-' + $monthEndList[8]))
+constant $month9 = duration(date($currentYear + '-09-01'), date($currentYear + '-09-' + $monthEndList[9]))
+constant $month10 = duration(date($currentYear + '-10-01'), date($currentYear + '-10-' + $monthEndList[10]))
+constant $month11 = duration(date($currentYear + '-11-01'), date($currentYear + '-11-' + $monthEndList[11]))
+constant $month12 = duration(date($currentYear + '-12-01'), date($currentYear + '-12-' + $monthEndList[12]))
+
+constant $currentQM1 = duration(date($currentYear + '-' + pad(($currentMonth.number - 2).string, 2, '0') + '-01'),
+							    date($currentYear + '-' + pad(($currentMonth.number - 2).string, 2, '0') + '-' + $monthEndList[$currentMonth.number - 2]))
+
+constant $currentQM2 = duration(date($currentYear + '-' + pad(($currentMonth.number - 1).string, 2, '0') + '-01'),
+							    date($currentYear + '-' + pad(($currentMonth.number - 1).string, 2, '0') + '-' + $monthEndList[$currentMonth.number - 1]))
+
+constant $currentQM3 = duration(date($currentYear + '-' + $currentMonth + '-01'),
+							    date($current-end))
+
+constant $tolerance_factor = 1	
+
+constant $required_form2_items = list(
+									list(RespondentLegalName,"Identification","1"),
+									list(ReportPeriod,"Identification","2"), 
+									list(ReportYear,"Identification","3"),  
+									list(AddressOfPrincipalOfficeAtEndOfPeriod,"Identification","4"),
+									list(NameOfContactPerson,"Identification","5"),
+									list(TitleOfContactPerson,"Identification","6"),
+									list(AddressOfContactPerson,"Identification","7"),
+									list(TelephoneOfContactPerson,"Identification","8"),
+									list(SubmissionType,"Identification","9"),
+									list(ReportDate,"Identification","10"),
+									list(AttestationName,"Identification","11"),
+									list(AttestationTitle,"Identification","12"),
+									list(CorporateOfficerCertificationSignature,"Identification","13"),
+									list(AttestationDate,"Identification","14"))
+
+constant $Durationlookup = dict(list("Current",$currentDuration),
+					   list("Prior", $priorDuration),
+					   list("Prior2", $prior2Duration),
+					   list("Current 3M", $current3M ),
+					   list("Prior 3M", $prior3M),
+					   list("Quarter1", $currentQ1Duration),
+					   list("Quarter2", $currentQ2Duration),
+					   list("Quarter3", $currentQ3Duration),
+					   list("Quarter4", $currentQ4Duration),
+					   list("CumQuarter1", $currentQ1Duration),
+					   list("CumQuarter2", $currentCumQ2),
+					   list("CumQuarter3", $currentCumQ3),
+					   list("CumQuarter4", $currentCumQ4),
+					   list("QYCurrent", $current3MYDuration),
+					   list("Month1", $currentQM1),
+					   list("Month2", $currentQM2),
+					   list("Month3", $currentQM3)
+					   )
+					   
+constant $Instantlookup = dict(list("Current",$currentInstant),
+					   list("Prior", $priorInstant),
+					   list("Prior2", $prior2Instant),
+					   list("prior12MonthsInstant", $prior12MonthsInstant),
+					   list("prior24MonthsInstant", $prior24MonthsInstant),
+					   list("Quarter1", $currentQ1Instant),
+					   list("Quarter2", $currentQ2Instant),
+					   list("Quarter3", $currentQ3Instant),
+					   list("QYPrior", $prior3MYInstant)
+					   )
+
+constant $ConceptsInTaxonomy = taxonomy().concepts
+
+constant $associatedRefs = dict(for $concept in $ConceptsInTaxonomy
+								if $concept.is-abstract
+									skip
+								else
+									list($concept, set(for $period in
+										set(for $itemx in $concept.references("http://ferc.gov/form/2020-01-01/roles/reference/formLocation")
+											if $itemx.part-by-name(ferc-part:ValueType).part-value == "Value"
+												$itemx
+											else
+												skip)
+											
+										if $concept.period-type == duration 
+											$Durationlookup[$period.part-by-name(ferc-part:Period).part-value].string
+										else
+											$Instantlookup[$period.part-by-name(ferc-part:Period).part-value].string
+											)
+										)
+									)
+
+
+
+constant $associatedUnits = dict(for $concept in $ConceptsInTaxonomy
+									if $concept.is-numeric
+										list($concept, set($concept.label("http://ferc.gov/form/2020-01-01/roles/label/Units").text))
+									else
+										skip)
+
+constant $waivedSchedules = set(for $schedule in (list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis=*]))
+												$schedule.dimension(ferc:ScheduleRemarksAxis)
+								)
+
+constant $scheduleLookup = dict(list('101', set("ScheduleGeneralInformationAbstract")),
+								list('110', set("ScheduleComparativeBalanceSheetAssetsAndOtherDebitsAbstract", "ScheduleComparativeBalanceSheetLiabilitiesOtherCreditsAbstract")),
+								list('114', set("ScheduleStatementOfIncomeAbstract")),
+								list('117', set("ScheduleStatementOfAccumulatedOtherComprehensiveIncomeAndHedgingActivitiesAbstract")),
+								list('118', set("ScheduleStatementOfRetainedEarningsAbstract")),
+								list('120', set("ScheduleStatementOfCashFlowsAbstract")),
+								list('200', set("ScheduleSummaryOfUtilityPlantAndAccumulatedProvisionsForDepreciationAmortizationAndDepletionAbstract")),
+								list('204', set("ScheduleGasPlantInServiceAbstract")),
+								list('210', set("ScheduleGasPlantInServiceAndAccumulatedProvisionForDepreciationByFunctionAbstract")),
+								list('212', set("ScheduleGasPropertyAndCapacityLeasedFromOthersAbstract")),
+								list('213', set("ScheduleGasPropertyAndCapacityLeasedToOthersAbstract")),
+								list('214', set("ScheduleGasPlantHeldForFutureUseAbstract")),
+								list('216', set("ScheduleConstructionWorkInProgressGasAbstract")),
+								list('217', set("ScheduleNonTraditionalRateTreatmentAffordedNewProjectsAbstract")),
+								list('218', set("ScheduleGeneralDescriptionOfConstructionOverheadProcedureAbstract")),
+								list('219', set("ScheduleAccumulatedProvisionForDepreciationOfGasUtilityPlantAbstract")),
+								list('220', set("ScheduleGasStoredAbstract")),
+								list('222', set("ScheduleInvestmentsAbstract")),
+								list('224', set("ScheduleInvestmentsInSubsidiaryCompaniesAbstract")),
+								list('230a', set("SchedulePrepaymentsAbstract")),
+								list('230b', set("ScheduleExtraordinaryPropertyLossesAbstract")),
+								list('230c', set("ScheduleUnrecoveredPlantAndRegulatoryStudyCostsAbstract")),
+								list('232', set("ScheduleOtherRegulatoryAssetsAbstract")),
+								list('233', set("ScheduleMiscellaneousDeferredDebitsAbstract")),
+								list('234', set("ScheduleAccumulatedDeferredIncomeTaxesAbstract")),
+								list('250', set("ScheduleCapitalStockAndLongTermDebtDataAbstract", "ScheduleCapitalStockAbstract")),
+								list('252', set("ScheduleCapitalStockSubscribedLiabilityForConversionPremiumOnAndInstallmentsReceivedOnAbstract")),
+								list('253', set("ScheduleOtherPaidInCapitalAbstract")),
+								list('254', set("ScheduleDiscountOnCapitalStockAbstract")),
+								list('256', set("ScheduleLongTermDebtAbstract")),
+								list('258', set("ScheduleUnamortizedDebtExpensePremiumAndDiscountOnLongTermDebtAbstract")),
+								list('260', set("ScheduleUnamortizedLossAndGainOnReacquiredDebtAbstract")),
+								list('261', set("ScheduleReconciliationOfReportedNetIncomeWithTaxableIncomeForFederalIncomeTaxesAbstract")),
+								list('262', set("ScheduleTaxesAccruedPrepaidAndChargedDuringYearDistributionOfTaxesChargedAbstract")),
+								list('268', set("ScheduleMiscellaneousCurrentAndAccruedLiabilitiesAbstract")),
+								list('269', set("ScheduleOtherDeferredCreditsAbstract")),
+								list('274', set("ScheduleAccumulatedDeferredIncomeTaxesOtherPropertyAbstract")),
+								list('276', set("ScheduleAccumulatedDeferredIncomeTaxesOtherAbstract")),
+								list('278', set("ScheduleOtherRegulatoryLiabilitiesAbstract")),
+								list('299', set("ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract")),
+								list('300', set("ScheduleGasOperatingRevenuesAbstract")),
+								list('302', set("ScheduleRevenuesFromTransporationOfGasOfOthersThroughGatheringFacilitiesAbstract")),
+								list('304', set("ScheduleRevenuesFromTransportationOfGasOfOthersThroughTransmissionFacilitiesAbstract")),
+								list('306', set("ScheduleRevenuesFromStoringGasOfOthersAbstract")),
+								list('308', set("ScheduleOtherGasRevenuesAbstract")),
+								list('309', set("ScheduleNaturalGasCompanyGasRevenuesAndDekathermsAbstract")),
+								list('310', set("ScheduleGasProductionAndOtherGasSupplyExpensesAbstract")),
+								list('311', set("ScheduleNaturalGasStorageTerminalingProcessingServicesAbstract")),
+								list('312', set("ScheduleGasCustomerAccountsServiceSalesAdministrativeAndGeneralExpensesAbstract")),
+								list('313', set("ScheduleDiscountedRateServicesAndNegotiatedRateServicesAbstract")),
+								list('317', set("ScheduleGasOperationAndMaintenanceExpensesAbstract")),
+								list('328', set("ScheduleExchangeAndImbalanceTransactionsAbstract")),
+								list('331', set("ScheduleGasUsedInUtilityOperationsAbstract")),
+								list('332', set("ScheduleTransmissionAndCompressionOfGasByOthersAbstract")),
+								list('334', set("ScheduleOtherGasSupplyExpensesAbstract")),
+								list('335', set("ScheduleMiscellaneousGeneralExpensesAbstract")),
+								list('336', set("ScheduleDepreciationDepletionAndAmortizationAbstract","ScheduleFactorsUsedInEstimatingDepreciationChargesAbstract")),
+								list('339', set("ScheduleDepreciationDepletionAndAmortization2QAbstract")),
+								list('340', set("ScheduleParticularsConcerningCertainIncomeDeductionsAndInterestChargesAccountsAbstract")),
+								list('350', set("ScheduleRegulatoryCommissionExpensesAbstract")),
+								list('352', set("ScheduleEmployeePensionsAndBenefitsAbstract")),
+								list('354', set("ScheduleDistributionOfSalariesAndWagesAbstract")),
+								list('357', set("ScheduleChargesForOutsideProfessionalAndOtherConsultativeServicesAbstract")),
+								list('358', set("ScheduleTransactionsWithAssociatedAffiliatedCompaniesAbstract")),
+								list('508', set("ScheduleCompressorStationsAbstract")),
+								list('512', set("ScheduleGasStorageProjectsAbstract")),
+								list('513', set("ScheduleGasStorageProjectsByCapacitiesAbstract")),
+								list('514', set("ScheduleTransmissionLinesAbstract")),
+								list('518', set("ScheduleTransmissionSystemPeakDeliveriesAbstract")),
+								list('519', set("ScheduleAuxiliaryPeakingFacilitiesAbstract")),
+								list('520', set("ScheduleGasAccountNaturalGasAbstract")),
+								list('521', set("ScheduleShipperSuppliedGasForTheCurrentQuarterAbstract"))
+								)

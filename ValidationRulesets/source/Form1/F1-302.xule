@@ -1,0 +1,95 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.302.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=none @period=$currentCumQ4]; 
+ $addend = sum(list([nonils @RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentCumQ4])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis RegionalTransmissionServiceRevenuesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.302.2 satisfied 
+$rule_id = rule-name();
+if set('1-F').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=none @period=$currentQ1Duration]; 
+ $addend = sum(list([nonils @RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentQ1Duration])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis RegionalTransmissionServiceRevenuesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.302.3 satisfied 
+$rule_id = rule-name();
+if set('1-F').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=none @period=$currentCumQ2]; 
+ $addend = sum(list([nonils @RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentCumQ2])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis RegionalTransmissionServiceRevenuesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.302.4 satisfied 
+$rule_id = rule-name();
+if set('1-F').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=none @period=$currentCumQ3]; 
+ $addend = sum(list([nonils @RegionalTransmissionServiceRevenues @RegionalTransmissionServiceRevenuesAxis=*  @period=$currentCumQ3])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis RegionalTransmissionServiceRevenuesAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+

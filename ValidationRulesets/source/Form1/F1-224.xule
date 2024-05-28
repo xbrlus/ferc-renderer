@@ -1,0 +1,110 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.224.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentInSubsidiaryCompanies]; 
+ $addend = sum(list([nonils @InvestmentInSubsidiaryCompanies @SubsidiaryCompanyAxis=*])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis SubsidiaryCompanyAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.224.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@EquityInEarningsOfSubsidiaryCompanies @period=$currentDuration]; 
+ $addend = sum(list([nonils @EquityInEarningsOfSubsidiaryCompanies @SubsidiaryCompanyAxis=* @period=$currentDuration])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis SubsidiaryCompanyAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.224.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        $sum1 = [@InterestAndDividendRevenueFromInvestments @period=$currentDuration]; 
+        $addend = sum(list([nonils @InterestAndDividendRevenueFromInvestments @SubsidiaryCompanyAxis=* @period=$currentDuration])#breakdown);
+if $addend == none
+        skip
+else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)   
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis SubsidiaryCompanyAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.224.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@InvestmentGainLossOnDisplosal @period=$currentDuration]; 
+ $addend = sum(list([nonils @InvestmentGainLossOnDisplosal @SubsidiaryCompanyAxis=* @period=$currentDuration])#breakdown);
+if $addend == none
+ 	skip
+ else
+        tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of the element {$sum1.concept.name} using the axis SubsidiaryCompanyAxis has a total value of {$addend}. The value of the aggregate amount for {$sum1.concept.name} is equal to {$sum1}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+/** assert F1.224.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@InvestmentsInSubsidiaryCompaniesAxis=none @SubsidiaryCompanyAxis=*}; 
+ $addend = sum(list({nonils @InvestmentsInSubsidiaryCompaniesAxis=* @SubsidiaryCompanyAxis=*}));
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for the subtotal by SubsidiaryCompanyAxis. 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1 **/
+

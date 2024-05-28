@@ -1,0 +1,2386 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F1.204.1 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@Organization @period=$currentInstant};
+ $addend = ({@Organization @period=$priorInstant} 
+ + {@OrganizationAdditions @period=$currentDuration} 
+ - {@OrganizationRetirements @period=$currentDuration} 
+ + {@OrganizationAdjustments @period=$currentDuration} 
+ + {@OrganizationTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for Organization with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.2 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@FranchisesAndConsents @period=$currentInstant};
+ $addend = ({@FranchisesAndConsents @period=$priorInstant} 
+ + {@FranchisesAndConsentsAdditions @period=$currentDuration} 
+ - {@FranchisesAndConsentsRetirements @period=$currentDuration} 
+ + {@FranchisesAndConsentsAdjustments @period=$currentDuration} 
+ + {@FranchisesAndConsentsTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for FranchisesAndConsents with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.3 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MiscellaneousIntangiblePlant @period=$currentInstant};
+ $addend = ({@MiscellaneousIntangiblePlant @period=$priorInstant} 
+ + {@MiscellaneousIntangiblePlantAdditions @period=$currentDuration} 
+ - {@MiscellaneousIntangiblePlantRetirements @period=$currentDuration} 
+ + {@MiscellaneousIntangiblePlantAdjustments @period=$currentDuration} 
+ + {@MiscellaneousIntangiblePlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MiscellaneousIntangiblePlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.4 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@IntangiblePlant};
+ $addend = ({@Organization} 
+ + {@FranchisesAndConsents} 
+ + {@MiscellaneousIntangiblePlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for IntangiblePlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.5 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandAndLandRightsSteamProduction @period=$currentInstant};
+ $addend = ({@LandAndLandRightsSteamProduction @period=$priorInstant} 
+ + {@LandAndLandRightsSteamProductionAdditions @period=$currentDuration} 
+ - {@LandAndLandRightsSteamProductionRetirements @period=$currentDuration} 
+ + {@LandAndLandRightsSteamProductionAdjustments @period=$currentDuration} 
+ + {@LandAndLandRightsSteamProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandAndLandRightsSteamProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.6 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StructuresAndImprovementsSteamProduction @period=$currentInstant};
+ $addend = ({@StructuresAndImprovementsSteamProduction @period=$priorInstant} 
+ + {@StructuresAndImprovementsSteamProductionAdditions @period=$currentDuration} 
+ - {@StructuresAndImprovementsSteamProductionRetirements @period=$currentDuration} 
+ + {@StructuresAndImprovementsSteamProductionAdjustments @period=$currentDuration} 
+ + {@StructuresAndImprovementsSteamProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StructuresAndImprovementsSteamProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.7 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@BoilerPlantEquipmentSteamProduction @period=$currentInstant};
+ $addend = ({@BoilerPlantEquipmentSteamProduction @period=$priorInstant} 
+ + {@BoilerPlantEquipmentSteamProductionAdditions @period=$currentDuration} 
+ - {@BoilerPlantEquipmentSteamProductionRetirements @period=$currentDuration} 
+ + {@BoilerPlantEquipmentSteamProductionAdjustments @period=$currentDuration} 
+ + {@BoilerPlantEquipmentSteamProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for BoilerPlantEquipmentSteamProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.8 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@EnginesAndEngineDrivenGeneratorsSteamProduction @period=$currentInstant};
+ $addend = ({@EnginesAndEngineDrivenGeneratorsSteamProduction @period=$priorInstant} 
+ + {@EnginesAndEngineDrivenGeneratorsSteamProductionAdditions @period=$currentDuration} 
+ - {@EnginesAndEngineDrivenGeneratorsSteamProductionRetirements @period=$currentDuration} 
+ + {@EnginesAndEngineDrivenGeneratorsSteamProductionAdjustments @period=$currentDuration} 
+ + {@EnginesAndEngineDrivenGeneratorsSteamProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for EnginesAndEngineDrivenGeneratorsSteamProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.9 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@TurbogeneratorUnitsSteamProduction @period=$currentInstant};
+ $addend = ({@TurbogeneratorUnitsSteamProduction @period=$priorInstant} 
+ + {@TurbogeneratorUnitsSteamProductionAdditions @period=$currentDuration} 
+ - {@TurbogeneratorUnitsSteamProductionRetirements @period=$currentDuration} 
+ + {@TurbogeneratorUnitsSteamProductionAdjustments @period=$currentDuration} 
+ + {@TurbogeneratorUnitsSteamProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TurbogeneratorUnitsSteamProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.10 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AccessoryElectricEquipmentSteamProduction @period=$currentInstant};
+ $addend = ({@AccessoryElectricEquipmentSteamProduction @period=$priorInstant} 
+ + {@AccessoryElectricEquipmentSteamProductionAdditions @period=$currentDuration} 
+ - {@AccessoryElectricEquipmentSteamProductionRetirements @period=$currentDuration} 
+ + {@AccessoryElectricEquipmentSteamProductionAdjustments @period=$currentDuration} 
+ + {@AccessoryElectricEquipmentSteamProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccessoryElectricEquipmentSteamProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.11 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MiscellaneousPowerPlantEquipmentSteamProduction @period=$currentInstant};
+ $addend = ({@MiscellaneousPowerPlantEquipmentSteamProduction @period=$priorInstant} 
+ + {@MiscellaneousPowerPlantEquipmentSteamProductionAdditions @period=$currentDuration} 
+ - {@MiscellaneousPowerPlantEquipmentSteamProductionRetirements @period=$currentDuration} 
+ + {@MiscellaneousPowerPlantEquipmentSteamProductionAdjustments @period=$currentDuration} 
+ + {@MiscellaneousPowerPlantEquipmentSteamProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MiscellaneousPowerPlantEquipmentSteamProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.12 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForSteamProductionPlantSteamProduction @period=$currentInstant};
+ $addend = ({@AssetRetirementCostsForSteamProductionPlantSteamProduction @period=$priorInstant} 
+ + {@AssetRetirementCostsForSteamProductionPlantSteamProductionAdditions @period=$currentDuration} 
+ - {@AssetRetirementCostsForSteamProductionPlantSteamProductionRetirements @period=$currentDuration} 
+ + {@AssetRetirementCostsForSteamProductionPlantSteamProductionAdjustments @period=$currentDuration} 
+ + {@AssetRetirementCostsForSteamProductionPlantSteamProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForSteamProductionPlantSteamProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.13 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SteamProductionPlant};
+ $addend = ({@LandAndLandRightsSteamProduction} 
+ + {@StructuresAndImprovementsSteamProduction} 
+ + {@BoilerPlantEquipmentSteamProduction} 
+ + {@EnginesAndEngineDrivenGeneratorsSteamProduction} 
+ + {@TurbogeneratorUnitsSteamProduction} 
+ + {@AccessoryElectricEquipmentSteamProduction} 
+ + {@MiscellaneousPowerPlantEquipmentSteamProduction} 
+ + {@AssetRetirementCostsForSteamProductionPlantSteamProduction});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SteamProductionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.14 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandAndLandRightsNuclearProduction @period=$currentInstant};
+ $addend = ({@LandAndLandRightsNuclearProduction @period=$priorInstant} 
+ + {@LandAndLandRightsNuclearProductionAdditions @period=$currentDuration} 
+ - {@LandAndLandRightsNuclearProductionRetirements @period=$currentDuration} 
+ + {@LandAndLandRightsNuclearProductionAdjustments @period=$currentDuration} 
+ + {@LandAndLandRightsNuclearProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandAndLandRightsNuclearProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.15 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StructuresAndImprovementNuclearProduction @period=$currentInstant};
+ $addend = ({@StructuresAndImprovementNuclearProduction @period=$priorInstant} 
+ + {@StructuresAndImprovementsNuclearProductionAdditions @period=$currentDuration} 
+ - {@StructuresAndImprovementsNuclearProductionRetirements @period=$currentDuration} 
+ + {@StructuresAndImprovementsNuclearProductionAdjustments @period=$currentDuration} 
+ + {@StructuresAndImprovementsNuclearProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StructuresAndImprovementNuclearProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.16 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ReactorPlantEquipmentNuclearProduction @period=$currentInstant};
+ $addend = ({@ReactorPlantEquipmentNuclearProduction @period=$priorInstant} 
+ + {@ReactorPlantEquipmentNuclearProductionAdditions @period=$currentDuration} 
+ - {@ReactorPlantEquipmentNuclearProductionRetirements @period=$currentDuration} 
+ + {@ReactorPlantEquipmentNuclearProductionAdjustments @period=$currentDuration} 
+ + {@ReactorPlantEquipmentNuclearProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ReactorPlantEquipmentNuclearProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.17 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@TurbogeneratorUnitsNuclearProduction @period=$currentInstant};
+ $addend = ({@TurbogeneratorUnitsNuclearProduction @period=$priorInstant} 
+ + {@TurbogeneratorUnitsNuclearProductionAdditions @period=$currentDuration} 
+ - {@TurbogeneratorUnitsNuclearProductionRetirements @period=$currentDuration} 
+ + {@TurbogeneratorUnitsNuclearProductionAdjustments @period=$currentDuration} 
+ + {@TurbogeneratorUnitsNuclearProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TurbogeneratorUnitsNuclearProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.18 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AccessoryElectricEquipmentNuclearProduction @period=$currentInstant};
+ $addend = ({@AccessoryElectricEquipmentNuclearProduction @period=$priorInstant} 
+ + {@AccessoryElectricEquipmentNuclearProductionAdditions @period=$currentDuration} 
+ - {@AccessoryElectricEquipmentNuclearProductionRetirements @period=$currentDuration} 
+ + {@AccessoryElectricEquipmentNuclearProductionAdjustments @period=$currentDuration} 
+ + {@AccessoryElectricEquipmentNuclearProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccessoryElectricEquipmentNuclearProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.19 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MiscellaneousPowerPlantEquipmentNuclearProduction @period=$currentInstant};
+ $addend = ({@MiscellaneousPowerPlantEquipmentNuclearProduction @period=$priorInstant} 
+ + {@MiscellaneousPowerPlantEquipmentNuclearProductionAdditions @period=$currentDuration} 
+ - {@MiscellaneousPowerPlantEquipmentNuclearProductionRetirements @period=$currentDuration} 
+ + {@MiscellaneousPowerPlantEquipmentNuclearProductionAdjustments @period=$currentDuration} 
+ + {@MiscellaneousPowerPlantEquipmentNuclearProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MiscellaneousPowerPlantEquipmentNuclearProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.20 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForNuclearProductionPlantNuclearProduction @period=$currentInstant};
+ $addend = ({@AssetRetirementCostsForNuclearProductionPlantNuclearProduction @period=$priorInstant} 
+ + {@AssetRetirementCostsForNuclearProductionPlantNuclearProductionAdditions @period=$currentDuration} 
+ - {@AssetRetirementCostsForNuclearProductionPlantNuclearProductionRetirements @period=$currentDuration} 
+ + {@AssetRetirementCostsForNuclearProductionPlantNuclearProductionAdjustments @period=$currentDuration} 
+ + {@AssetRetirementCostsForNuclearProductionPlantNuclearProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForNuclearProductionPlantNuclearProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.21 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@NuclearProductionPlant};
+ $addend = ({@LandAndLandRightsNuclearProduction} 
+ + {@StructuresAndImprovementNuclearProduction} 
+ + {@ReactorPlantEquipmentNuclearProduction} 
+ + {@TurbogeneratorUnitsNuclearProduction} 
+ + {@AccessoryElectricEquipmentNuclearProduction} 
+ + {@MiscellaneousPowerPlantEquipmentNuclearProduction} 
+ + {@AssetRetirementCostsForNuclearProductionPlantNuclearProduction});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for NuclearProductionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.22 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandAndLandRightsHydraulicProduction @period=$currentInstant};
+ $addend = ({@LandAndLandRightsHydraulicProduction @period=$priorInstant} 
+ + {@LandAndLandRightsHydraulicProductionAdditions @period=$currentDuration} 
+ - {@LandAndLandRightsHydraulicProductionRetirements @period=$currentDuration} 
+ + {@LandAndLandRightsHydraulicProductionAdjustments @period=$currentDuration} 
+ + {@LandAndLandRightsHydraulicProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandAndLandRightsHydraulicProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.23 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StructuresAndImprovementsHydraulicProduction @period=$currentInstant};
+ $addend = ({@StructuresAndImprovementsHydraulicProduction @period=$priorInstant} 
+ + {@StructuresAndImprovementsHydraulicProductionAdditions @period=$currentDuration} 
+ - {@StructuresAndImprovementsHydraulicProductionRetirements @period=$currentDuration} 
+ + {@StructuresAndImprovementsHydraulicProductionAdjustments @period=$currentDuration} 
+ + {@StructuresAndImprovementsHydraulicProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StructuresAndImprovementsHydraulicProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.24 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ReservoirsDamsAndWaterwaysHydraulicProduction @period=$currentInstant};
+ $addend = ({@ReservoirsDamsAndWaterwaysHydraulicProduction @period=$priorInstant} 
+ + {@ReservoirsDamsAndWaterwaysHydraulicProductionAdditions @period=$currentDuration} 
+ - {@ReservoirsDamsAndWaterwaysHydraulicProductionRetirements @period=$currentDuration} 
+ + {@ReservoirsDamsAndWaterwaysHydraulicProductionAdjustments @period=$currentDuration} 
+ + {@ReservoirsDamsAndWaterwaysHydraulicProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ReservoirsDamsAndWaterwaysHydraulicProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.25 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@WaterWheelsTurbinesAndGeneratorsHydraulicProduction @period=$currentInstant};
+ $addend = ({@WaterWheelsTurbinesAndGeneratorsHydraulicProduction @period=$priorInstant} 
+ + {@WaterWheelsTurbinesAndGeneratorsHydraulicProductionAdditions @period=$currentDuration} 
+ - {@WaterWheelsTurbinesAndGeneratorsHydraulicProductionRetirements @period=$currentDuration} 
+ + {@WaterWheelsTurbinesAndGeneratorsHydraulicProductionAdjustments @period=$currentDuration} 
+ + {@WaterWheelsTurbinesAndGeneratorsHydraulicProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for WaterWheelsTurbinesAndGeneratorsHydraulicProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.26 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AccessoryElectricEquipmentHydraulicProduction @period=$currentInstant};
+ $addend = ({@AccessoryElectricEquipmentHydraulicProduction @period=$priorInstant} 
+ + {@AccessoryElectricEquipmentHydraulicProductionAdditions @period=$currentDuration} 
+ - {@AccessoryElectricEquipmentHydraulicProductionRetirements @period=$currentDuration} 
+ + {@AccessoryElectricEquipmentHydraulicProductionAdjustments @period=$currentDuration} 
+ + {@AccessoryElectricEquipmentHydraulicProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccessoryElectricEquipmentHydraulicProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.27 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MiscellaneousPowerPlantEquipmentHydraulicProduction @period=$currentInstant};
+ $addend = ({@MiscellaneousPowerPlantEquipmentHydraulicProduction @period=$priorInstant} 
+ + {@MiscellaneousPowerPlantEquipmentHydraulicProductionAdditions @period=$currentDuration} 
+ - {@MiscellaneousPowerPlantEquipmentHydraulicProductionRetirements @period=$currentDuration} 
+ + {@MiscellaneousPowerPlantEquipmentHydraulicProductionAdjustments @period=$currentDuration} 
+ + {@MiscellaneousPowerPlantEquipmentHydraulicProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MiscellaneousPowerPlantEquipmentHydraulicProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.28 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@RoadsRailroadsAndBridgesHydraulicProduction @period=$currentInstant};
+ $addend = ({@RoadsRailroadsAndBridgesHydraulicProduction @period=$priorInstant} 
+ + {@RoadsRailroadsAndBridgesHydraulicProductionAdditions @period=$currentDuration} 
+ - {@RoadsRailroadsAndBridgesHydraulicProductionRetirements @period=$currentDuration} 
+ + {@RoadsRailroadsAndBridgesHydraulicProductionAdjustments @period=$currentDuration} 
+ + {@RoadsRailroadsAndBridgesHydraulicProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RoadsRailroadsAndBridgesHydraulicProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.29 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForHydraulicProductionPlantHydraulicProduction @period=$currentInstant};
+ $addend = ({@AssetRetirementCostsForHydraulicProductionPlantHydraulicProduction @period=$priorInstant} 
+ + {@AssetRetirementCostsForHydraulicProductionPlantHydraulicProductionAdditions @period=$currentDuration} 
+ - {@AssetRetirementCostsForHydraulicProductionPlantHydraulicProductionRetirements @period=$currentDuration} 
+ + {@AssetRetirementCostsForHydraulicProductionPlantHydraulicProductionAdjustments @period=$currentDuration} 
+ + {@AssetRetirementCostsForHydraulicProductionPlantHydraulicProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForHydraulicProductionPlantHydraulicProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.30 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@HydraulicProductionPlant};
+ $addend = ({@LandAndLandRightsHydraulicProduction} 
+ + {@StructuresAndImprovementsHydraulicProduction} 
+ + {@ReservoirsDamsAndWaterwaysHydraulicProduction} 
+ + {@WaterWheelsTurbinesAndGeneratorsHydraulicProduction} 
+ + {@AccessoryElectricEquipmentHydraulicProduction} 
+ + {@MiscellaneousPowerPlantEquipmentHydraulicProduction} 
+ + {@RoadsRailroadsAndBridgesHydraulicProduction} 
+ + {@AssetRetirementCostsForHydraulicProductionPlantHydraulicProduction});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for HydraulicProductionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.31 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandAndLandRightsOtherProduction @period=$currentInstant};
+ $addend = ({@LandAndLandRightsOtherProduction @period=$priorInstant} 
+ + {@LandAndLandRightsOtherProductionAdditions @period=$currentDuration} 
+ - {@LandAndLandRightsOtherProductionRetirements @period=$currentDuration} 
+ + {@LandAndLandRightsOtherProductionAdjustments @period=$currentDuration} 
+ + {@LandAndLandRightsOtherProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandAndLandRightsOtherProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.32 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StructuresAndImprovementsOtherProduction @period=$currentInstant};
+ $addend = ({@StructuresAndImprovementsOtherProduction @period=$priorInstant} 
+ + {@StructuresAndImprovementsOtherProductionAdditions @period=$currentDuration} 
+ - {@StructuresAndImprovementsOtherProductionRetirements @period=$currentDuration} 
+ + {@StructuresAndImprovementsOtherProductionAdjustments @period=$currentDuration} 
+ + {@StructuresAndImprovementsOtherProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StructuresAndImprovementsOtherProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.33 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@FuelHoldersProducersAndAccessoriesOtherProduction @period=$currentInstant};
+ $addend = ({@FuelHoldersProducersAndAccessoriesOtherProduction @period=$priorInstant} 
+ + {@FuelHoldersProductsAndAccessoriesOtherProductionAdditions @period=$currentDuration} 
+ - {@FuelHoldersProductsAndAccessoriesOtherProductionRetirements @period=$currentDuration} 
+ + {@FuelHoldersProductsAndAccessoriesOtherProductionAdjustments @period=$currentDuration} 
+ + {@FuelHoldersProductsAndAccessoriesOtherProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for FuelHoldersProducersAndAccessoriesOtherProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.34 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PrimeMoversOtherProduction @period=$currentInstant};
+ $addend = ({@PrimeMoversOtherProduction @period=$priorInstant} 
+ + {@PrimeMoversOtherProductionAdditions @period=$currentDuration} 
+ - {@PrimeMoversOtherProductionRetirements @period=$currentDuration} 
+ + {@PrimeMoversOtherProductionAdjustments @period=$currentDuration} 
+ + {@PrimeMoversOtherProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PrimeMoversOtherProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.35 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GeneratorsOtherProduction @period=$currentInstant};
+ $addend = ({@GeneratorsOtherProduction @period=$priorInstant} 
+ + {@GeneratorsOtherProductionAdditions @period=$currentDuration} 
+ - {@GeneratorsOtherProductionRetirements @period=$currentDuration} 
+ + {@GeneratorsOtherProductionAdjustments @period=$currentDuration} 
+ + {@GeneratorsOtherProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GeneratorsOtherProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.36 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AccessoryElectricEquipmentOtherProduction @period=$currentInstant};
+ $addend = ({@AccessoryElectricEquipmentOtherProduction @period=$priorInstant} 
+ + {@AccessoryElectricEquipmentOtherProductionAdditions @period=$currentDuration} 
+ - {@AccessoryElectricEquipmentOtherProductionRetirements @period=$currentDuration} 
+ + {@AccessoryElectricEquipmentOtherProductionAdjustments @period=$currentDuration} 
+ + {@AccessoryElectricEquipmentOtherProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AccessoryElectricEquipmentOtherProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.37 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MiscellaneousPowerPlantEquipmentOtherProduction @period=$currentInstant};
+ $addend = ({@MiscellaneousPowerPlantEquipmentOtherProduction @period=$priorInstant} 
+ + {@MiscellaneousPowerPlantEquipmentOtherProductionAdditions @period=$currentDuration} 
+ - {@MiscellaneousPowerPlantEquipmentOtherProductionRetirements @period=$currentDuration} 
+ + {@MiscellaneousPowerPlantEquipmentOtherProductionAdjustments @period=$currentDuration} 
+ + {@MiscellaneousPowerPlantEquipmentOtherProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MiscellaneousPowerPlantEquipmentOtherProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.38 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForOtherProductionPlantOtherProduction @period=$currentInstant};
+ $addend = ({@AssetRetirementCostsForOtherProductionPlantOtherProduction @period=$priorInstant} 
+ + {@AssetRetirementCostsForOtherProductionPlantOtherProductionAdditions @period=$currentDuration} 
+ - {@AssetRetirementCostsForOtherProductionPlantOtherProductionRetirements @period=$currentDuration} 
+ + {@AssetRetirementCostsForOtherProductionPlantOtherProductionAdjustments @period=$currentDuration} 
+ + {@AssetRetirementCostsForOtherProductionPlantOtherProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForOtherProductionPlantOtherProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.39 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherProductionPlant};
+ $addend = ({@LandAndLandRightsOtherProduction} 
+ + {@StructuresAndImprovementsOtherProduction} 
+ + {@FuelHoldersProducersAndAccessoriesOtherProduction} 
+ + {@PrimeMoversOtherProduction} 
+ + {@GeneratorsOtherProduction} 
+ + {@AccessoryElectricEquipmentOtherProduction} 
+ + {@MiscellaneousPowerPlantEquipmentOtherProduction}
+ + {@AssetRetirementCostsForOtherProductionPlantOtherProduction} 
+ + {@EnergyStorageEquipmentOtherProduction});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherProductionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.40 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ProductionPlant};
+ $addend = ({@SteamProductionPlant} 
+ + {@NuclearProductionPlant} 
+ + {@HydraulicProductionPlant} 
+ + {@OtherProductionPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ProductionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.41 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandAndLandRightsTransmissionPlant @period=$currentInstant};
+ $addend = ({@LandAndLandRightsTransmissionPlant @period=$priorInstant} 
+ + {@LandAndLandRightsTransmissionPlantAdditions @period=$currentDuration} 
+ - {@LandAndLandRightsTransmissionPlantRetirements @period=$currentDuration} 
+ + {@LandAndLandRightsTransmissionPlantAdjustments @period=$currentDuration} 
+ + {@LandAndLandRightsTransmissionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandAndLandRightsTransmissionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.42 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StructuresAndImprovementsTransmissionPlant @period=$currentInstant};
+ $addend = ({@StructuresAndImprovementsTransmissionPlant @period=$priorInstant} 
+ + {@StructuresAndImprovementsTransmissionPlantAdditions @period=$currentDuration} 
+ - {@StructuresAndImprovementsTransmissionPlantRetirements @period=$currentDuration} 
+ + {@StructuresAndImprovementsTransmissionPlantAdjustments @period=$currentDuration} 
+ + {@StructuresAndImprovementsTransmissionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StructuresAndImprovementsTransmissionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.43 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StationEquipmentTransmissionPlant @period=$currentInstant};
+ $addend = ({@StationEquipmentTransmissionPlant @period=$priorInstant} 
+ + {@StationEquipmentTransmissionPlantAdditions @period=$currentDuration} 
+ - {@StationEquipmentTransmissionPlantRetirements @period=$currentDuration} 
+ + {@StationEquipmentTransmissionPlantAdjustments @period=$currentDuration} 
+ + {@StationEquipmentTransmissionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StationEquipmentTransmissionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.44 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@TowersAndFixturesTransmissionPlant @period=$currentInstant};
+ $addend = ({@TowersAndFixturesTransmissionPlant @period=$priorInstant} 
+ + {@TowersAndFixturesTransmissionPlantAdditions @period=$currentDuration} 
+ - {@TowersAndFixturesTransmissionPlantRetirements @period=$currentDuration} 
+ + {@TowersAndFixturesTransmissionPlantAdjustments @period=$currentDuration} 
+ + {@TowersAndFixturesTransmissionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TowersAndFixturesTransmissionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.45 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PolesAndFixturesTransmissionPlant @period=$currentInstant};
+ $addend = ({@PolesAndFixturesTransmissionPlant @period=$priorInstant} 
+ + {@PolesAndFixturesTransmissionPlantAdditions @period=$currentDuration} 
+ - {@PolesAndFixturesTransmissionPlantRetirements @period=$currentDuration} 
+ + {@PolesAndFixturesTransmissionPlantAdjustments @period=$currentDuration} 
+ + {@PolesAndFixturesTransmissionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PolesAndFixturesTransmissionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.46 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OverheadConductorsAndDevicesTransmissionPlant @period=$currentInstant};
+ $addend = ({@OverheadConductorsAndDevicesTransmissionPlant @period=$priorInstant} 
+ + {@OverheadConductorsAndDevicesTransmissionPlantAdditions @period=$currentDuration} 
+ - {@OverheadConductorsAndDevicesTransmissionPlantRetirements @period=$currentDuration} 
+ + {@OverheadConductorsAndDevicesTransmissionPlantAdjustments @period=$currentDuration} 
+ + {@OverheadConductorsAndDevicesTransmissionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OverheadConductorsAndDevicesTransmissionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.47 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@UndergroundConduitTransmissionPlant @period=$currentInstant};
+ $addend = ({@UndergroundConduitTransmissionPlant @period=$priorInstant} 
+ + {@UndergroundConduitTransmissionPlantAdditions @period=$currentDuration} 
+ - {@UndergroundConduitTransmissionPlantRetirements @period=$currentDuration} 
+ + {@UndergroundConduitTransmissionPlantAdjustments @period=$currentDuration} 
+ + {@UndergroundConduitTransmissionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UndergroundConduitTransmissionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.48 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@UndergroundConductorsAndDevicesTransmissionPlant @period=$currentInstant};
+ $addend = ({@UndergroundConductorsAndDevicesTransmissionPlant @period=$priorInstant} 
+ + {@UndergroundConductorsAndDevicesTransmissionPlantAdditions @period=$currentDuration} 
+ - {@UndergroundConductorsAndDevicesTransmissionPlantRetirements @period=$currentDuration} 
+ + {@UndergroundConductorsAndDevicesTransmissionPlantAdjustments @period=$currentDuration} 
+ + {@UndergroundConductorsAndDevicesTransmissionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UndergroundConductorsAndDevicesTransmissionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.49 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@RoadsAndTrailsTransmissionPlant @period=$currentInstant};
+ $addend = ({@RoadsAndTrailsTransmissionPlant @period=$priorInstant} 
+ + {@RoadsAndTrailsTransmissionPlantAdditions @period=$currentDuration} 
+ - {@RoadsAndTrailsTransmissionPlantRetirements @period=$currentDuration} 
+ + {@RoadsAndTrailsTransmissionPlantAdjustments @period=$currentDuration} 
+ + {@RoadsAndTrailsTransmissionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for RoadsAndTrailsTransmissionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.50 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForTransmissionPlantTransmissionPlant @period=$currentInstant};
+ $addend = ({@AssetRetirementCostsForTransmissionPlantTransmissionPlant @period=$priorInstant} 
+ + {@AssetRetirementCostsForTransmissionPlantTransmissionPlantAdditions @period=$currentDuration} 
+ - {@AssetRetirementCostsForTransmissionPlantTransmissionPlantRetirements @period=$currentDuration} 
+ + {@AssetRetirementCostsForTransmissionPlantTransmissionPlantAdjustments @period=$currentDuration} 
+ + {@AssetRetirementCostsForTransmissionPlantTransmissionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForTransmissionPlantTransmissionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.51 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@TransmissionPlant};
+ $addend = ({@LandAndLandRightsTransmissionPlant} 
+ + {@EnergyStorageEquipmentTransmissionPlant}
+ + {@StructuresAndImprovementsTransmissionPlant} 
+ + {@StationEquipmentTransmissionPlant} 
+ + {@TowersAndFixturesTransmissionPlant} 
+ + {@PolesAndFixturesTransmissionPlant} 
+ + {@OverheadConductorsAndDevicesTransmissionPlant} 
+ + {@UndergroundConduitTransmissionPlant} 
+ + {@UndergroundConductorsAndDevicesTransmissionPlant} 
+ + {@RoadsAndTrailsTransmissionPlant} 
+ + {@AssetRetirementCostsForTransmissionPlantTransmissionPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TransmissionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.52 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandAndLandRightsDistributionPlant @period=$currentInstant};
+ $addend = ({@LandAndLandRightsDistributionPlant @period=$priorInstant} 
+ + {@LandAndLandRightsDistributionPlantAdditions @period=$currentDuration} 
+ - {@LandAndLandRightsDistributionPlantRetirements @period=$currentDuration} 
+ + {@LandAndLandRightsDistributionPlantAdjustments @period=$currentDuration} 
+ + {@LandAndLandRightsDistributionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandAndLandRightsDistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.53 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StructuresAndImprovementsDistributionPlant @period=$currentInstant};
+ $addend = ({@StructuresAndImprovementsDistributionPlant @period=$priorInstant} 
+ + {@StructuresAndImprovementsDistributionPlantAdditions @period=$currentDuration} 
+ - {@StructuresAndImprovementsDistributionPlantRetirements @period=$currentDuration} 
+ + {@StructuresAndImprovementsDistributionPlantAdjustments @period=$currentDuration} 
+ + {@StructuresAndImprovementsDistributionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StructuresAndImprovementsDistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.54 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StationEquipmentDistributionPlant @period=$currentInstant};
+ $addend  = {@StationEquipmentDistributionPlant @period=$priorInstant} 
+ + {@StationEquipmentDistributionPlantAdditions @period=$currentDuration} 
+ - {@StationEquipmentDistributionPlantRetirements @period=$currentDuration} 
+ + {@StationEquipmentDistributionPlantAdjustments @period=$currentDuration} 
+ + {@StationEquipmentDistributionPlantTransfers @period=$currentDuration}
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StationEquipmentDistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.55 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@EnergyStorageEquipmentDistributionPlant @period=$currentInstant};
+ $addend = ({@EnergyStorageEquipmentDistributionPlant @period=$priorInstant} 
+ + {@EnergyStorageEquipmentDistributionPlantAdditions @period=$currentDuration} 
+ - {@EnergyStorageEquipmentDistributionPlantRetirements @period=$currentDuration} 
+ + {@EnergyStorageEquipmentDistributionPlantAdjustments @period=$currentDuration} 
+ + {@EnergyStorageEquipmentDistributionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for EnergyStorageEquipmentDistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.56 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PolesTowersAndFixturesDistributionPlant @period=$currentInstant};
+ $addend = ({@PolesTowersAndFixturesDistributionPlant @period=$priorInstant} 
+ + {@PolesTowersAndFixturesDistributionPlantAdditions @period=$currentDuration} 
+ - {@PolesTowersAndFixturesDistributionPlantRetirements @period=$currentDuration} 
+ + {@PolesTowersAndFixturesDistributionPlantAdjustments @period=$currentDuration} 
+ + {@PolesTowersAndFixturesDistributionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PolesTowersAndFixturesDistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.57 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OverheadConductorsAndDevicesTransmissionPlant @period=$currentInstant};
+ $addend = ({@OverheadConductorsAndDevicesTransmissionPlant @period=$priorInstant} 
+ + {@OverheadConductorsAndDevicesTransmissionPlantAdditions @period=$currentDuration} 
+ - {@OverheadConductorsAndDevicesTransmissionPlantRetirements @period=$currentDuration} 
+ + {@OverheadConductorsAndDevicesTransmissionPlantAdjustments @period=$currentDuration} 
+ + {@OverheadConductorsAndDevicesTransmissionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OverheadConductorsAndDevicesTransmissionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.58 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@UndergroundConduitDistributionPlant @period=$currentInstant};
+ $addend = ({@UndergroundConduitDistributionPlant @period=$priorInstant} 
+ + {@UndergroundConduitDistributionPlantAdditions @period=$currentDuration} 
+ - {@UndergroundConduitDistributionPlantRetirements @period=$currentDuration} 
+ + {@UndergroundConduitDistributionPlantAdjustments @period=$currentDuration} 
+ + {@UndergroundConduitDistributionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UndergroundConduitDistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.59 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@UndergroundConductorsAndDevicesDistributionPlant @period=$currentInstant};
+ $addend = ({@UndergroundConductorsAndDevicesDistributionPlant @period=$priorInstant} 
+ + {@UndergroundConductorsAndDevicesDistributionPlantAdditions @period=$currentDuration} 
+ - {@UndergroundConductorsAndDevicesDistributionPlantRetirements @period=$currentDuration} 
+ + {@UndergroundConductorsAndDevicesDistributionPlantAdjustments @period=$currentDuration} 
+ + {@UndergroundConductorsAndDevicesDistributionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for UndergroundConductorsAndDevicesDistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.60 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LineTransformersDistributionPlant @period=$currentInstant};
+ $addend = ({@LineTransformersDistributionPlant @period=$priorInstant} 
+ + {@LineTransformersDistributionPlantAdditions @period=$currentDuration} 
+ - {@LineTransformersDistributionPlantRetirements @period=$currentDuration} 
+ + {@LineTransformersDistributionPlantAdjustments @period=$currentDuration} 
+ + {@LineTransformersDistributionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LineTransformersDistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.61 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ServicesDistributionPlant @period=$currentInstant};
+ $addend = ({@ServicesDistributionPlant @period=$priorInstant} 
+ + {@ServicesDistributionPlantAdditions @period=$currentDuration} 
+ - {@ServicesDistributionPlantRetirements @period=$currentDuration} 
+ + {@ServicesDistributionPlantAdjustments @period=$currentDuration} 
+ + {@ServicesDistributionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ServicesDistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.62 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MetersDistributionPlant @period=$currentInstant};
+ $addend = ({@MetersDistributionPlant @period=$priorInstant} 
+ + {@MetersDistributionPlantAdditions @period=$currentDuration} 
+ - {@MetersDistributionPlantRetirements @period=$currentDuration} 
+ + {@MetersDistributionPlantAdjustments @period=$currentDuration} 
+ + {@MetersDistributionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MetersDistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.63 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@InstallationsOnCustomersPremisesDistributionPlant @period=$currentInstant};
+ $addend = ({@InstallationsOnCustomersPremisesDistributionPlant @period=$priorInstant} 
+ + {@InstallationsOnCustomerPremisesDistributionPlantAdditions @period=$currentDuration} 
+ - {@InstallationsOnCustomerPremisesDistributionPlantRetirements @period=$currentDuration} 
+ + {@InstallationsOnCustomerPremisesDistributionPlantAdjustments @period=$currentDuration} 
+ + {@InstallationsOnCustomerPremisesDistributionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for InstallationsOnCustomersPremisesDistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.64 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LeasedPropertyOnCustomersPremisesDistributionPlant @period=$currentInstant};
+ $addend = ({@LeasedPropertyOnCustomersPremisesDistributionPlant @period=$priorInstant} 
+ + {@LeasedPropertyOnCustomerPremisesDistributionPlantAdditions @period=$currentDuration} 
+ - {@LeasedPropertyOnCustomerPremisesDistributionPlantRetirements @period=$currentDuration} 
+ + {@LeasedPropertyOnCustomerPremisesDistributionPlantAdjustments @period=$currentDuration} 
+ + {@LeasedPropertyOnCustomerPremisesDistributionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LeasedPropertyOnCustomersPremisesDistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.65 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StreetLightingAndSignalSystemsDistributionPlant @period=$currentInstant};
+ $addend = ({@StreetLightingAndSignalSystemsDistributionPlant @period=$priorInstant} 
+ + {@StreetLightingAndSignalSystemsDistributionPlantAdditions @period=$currentDuration} 
+ - {@StreetLightingAndSignalSystemsDistributionPlantRetirements @period=$currentDuration} 
+ + {@StreetLightingAndSignalSystemsDistributionPlantAdjustments @period=$currentDuration} 
+ + {@StreetLightingAndSignalSystemsDistributionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StreetLightingAndSignalSystemsDistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.66 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForDistributionPlantDistributionPlant @period=$currentInstant};
+ $addend = ({@AssetRetirementCostsForDistributionPlantDistributionPlant @period=$priorInstant} 
+ + {@AssetRetirementCostsForDistributionPlantDistributionPlantAdditions @period=$currentDuration} 
+ - {@AssetRetirementCostsForDistributionPlantDistributionPlantRetirements @period=$currentDuration} 
+ + {@AssetRetirementCostsForDistributionPlantDistributionPlantAdjustments @period=$currentDuration} 
+ + {@AssetRetirementCostsForDistributionPlantDistributionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForDistributionPlantDistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.67 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@DistributionPlant};
+ $addend = ({@LandAndLandRightsDistributionPlant} 
+ + {@StructuresAndImprovementsDistributionPlant} 
+ + {@StationEquipmentDistributionPlant} 
+ + {@EnergyStorageEquipmentDistributionPlant} 
+ + {@PolesTowersAndFixturesDistributionPlant} 
+ + {@OverheadConductorsAndDevicesDistributionPlant} 
+ + {@UndergroundConduitDistributionPlant} 
+ + {@UndergroundConductorsAndDevicesDistributionPlant} 
+ + {@LineTransformersDistributionPlant} 
+ + {@ServicesDistributionPlant} 
+ + {@MetersDistributionPlant} 
+ + {@InstallationsOnCustomersPremisesDistributionPlant} 
+ + {@LeasedPropertyOnCustomersPremisesDistributionPlant} 
+ + {@StreetLightingAndSignalSystemsDistributionPlant} 
+ + {@AssetRetirementCostsForDistributionPlantDistributionPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DistributionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.68 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandAndLandRightsRegionalTransmissionAndMarketOperationPlant @period=$currentInstant};
+ $addend = ({@LandAndLandRightsRegionalTransmissionAndMarketOperationPlant @period=$priorInstant} 
+ + {@LandAndLandRightsRegionalTransmissionAndMarketOperationPlantAdditions @period=$currentDuration} 
+ - {@LandAndLandRightsRegionalTransmissionAndMarketOperationPlantRetirements @period=$currentDuration} 
+ + {@LandAndLandRightsRegionalTransmissionAndMarketOperationPlantAdjustments @period=$currentDuration} 
+ + {@LandAndLandRightsRegionalTransmissionAndMarketOperationPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandAndLandRightsRegionalTransmissionAndMarketOperationPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.69 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StructuresAndImprovementsRegionalTransmissionAndMarketOperationPlant @period=$currentInstant};
+ $addend = ({@StructuresAndImprovementsRegionalTransmissionAndMarketOperationPlant @period=$priorInstant} 
+ + {@StructuresAndImprovementsRegionalTransmissionAndMarketOperationPlantAdditions @period=$currentDuration} 
+ - {@StructuresAndImprovementsRegionalTransmissionAndMarketOperationPlantRetirements @period=$currentDuration} 
+ + {@StructuresAndImprovementsRegionalTransmissionAndMarketOperationPlantAdjustments @period=$currentDuration} 
+ + {@StructuresAndImprovementsRegionalTransmissionAndMarketOperationPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StructuresAndImprovementsRegionalTransmissionAndMarketOperationPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.70 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ComputerHardwareRegionalTransmissionAndMarketOperationPlant @period=$currentInstant};
+ $addend = ({@ComputerHardwareRegionalTransmissionAndMarketOperationPlant @period=$priorInstant} 
+ + {@ComputerHardwareRegionalTransmissionAndMarketOperationPlantAdditions @period=$currentDuration} 
+ - {@ComputerHardwareRegionalTransmissionAndMarketOperationPlantRetirements @period=$currentDuration} 
+ + {@ComputerHardwareRegionalTransmissionAndMarketOperationPlantAdjustments @period=$currentDuration} 
+ + {@ComputerHardwareRegionalTransmissionAndMarketOperationPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ComputerHardwareRegionalTransmissionAndMarketOperationPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.71 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ComputerSoftwareRegionalTransmissionAndMarketOperationPlant @period=$currentInstant};
+ $addend = ({@ComputerSoftwareRegionalTransmissionAndMarketOperationPlant @period=$priorInstant} 
+ + {@ComputerSoftwareRegionalTransmissionAndMarketOperationPlantAdditions @period=$currentDuration} 
+ - {@ComputerSoftwareRegionalTransmissionAndMarketOperationPlantRetirements @period=$currentDuration} 
+ + {@ComputerSoftwareRegionalTransmissionAndMarketOperationPlantAdjustments @period=$currentDuration} 
+ + {@ComputerSoftwareRegionalTransmissionAndMarketOperationPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ComputerSoftwareRegionalTransmissionAndMarketOperationPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.72 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CommunicationEquipmentRegionalTransmissionAndMarketOperationPlant @period=$currentInstant};
+ $addend = ({@CommunicationEquipmentRegionalTransmissionAndMarketOperationPlant @period=$priorInstant} 
+ + {@CommunicationEquipmentRegionalTransmissionAndMarketOperationPlantAdditions @period=$currentDuration} 
+ - {@CommunicationEquipmentRegionalTransmissionAndMarketOperationPlantRetirements @period=$currentDuration} 
+ + {@CommunicationEquipmentRegionalTransmissionAndMarketOperationPlantAdjustments @period=$currentDuration} 
+ + {@CommunicationEquipmentRegionalTransmissionAndMarketOperationPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CommunicationEquipmentRegionalTransmissionAndMarketOperationPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.73 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MiscellaneousRegionalTransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlant @period=$currentInstant};
+ $addend = ({@MiscellaneousRegionalTransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlant @period=$priorInstant} 
+ + {@MiscellaneousRegionalTransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlantAdditions @period=$currentDuration} 
+ - {@MiscellaneousRegionalTransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlantRetirements @period=$currentDuration} 
+ + {@MiscellaneousRegionalTransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlantAdjustments @period=$currentDuration} 
+ + {@MiscellaneousRegionalTransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MiscellaneousRegionalTransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.74 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForRegionalTransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlant @period=$currentInstant};
+ $addend = ({@AssetRetirementCostsForRegionalTransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlant @period=$priorInstant} 
+ + {@AssetRetirementCostsForRegionalTransmissionAndMarketOperationsRegionalTransmissionAndMarketOperationPlantAdditions @period=$currentDuration} 
+ - {@AssetRetirementCostsForRegionalTransmissionAndMarketOperationsRegionalTransmissionAndMarketOperationPlantRetirements @period=$currentDuration} 
+ + {@AssetRetirementCostsForRegionalTransmissionAndMarketOperationsRegionalTransmissionAndMarketOperationPlantAdjustments @period=$currentDuration} 
+ + {@AssetRetirementCostsForRegionalTransmissionAndMarketOperationsRegionalTransmissionAndMarketOperationPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForRegionalTransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.75 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@TransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlant};
+ $addend = ({@LandAndLandRightsRegionalTransmissionAndMarketOperationPlant} 
+ + {@StructuresAndImprovementsRegionalTransmissionAndMarketOperationPlant} 
+ + {@ComputerHardwareRegionalTransmissionAndMarketOperationPlant} 
+ + {@ComputerSoftwareRegionalTransmissionAndMarketOperationPlant} 
+ + {@CommunicationEquipmentRegionalTransmissionAndMarketOperationPlant} 
+ + {@MiscellaneousRegionalTransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlant} 
+ + {@AssetRetirementCostsForRegionalTransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.76 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LandAndLandRights @period=$currentInstant};
+ $addend = ({@LandAndLandRights @period=$priorInstant} 
+ + {@LandAndLandRightsGeneralPlantAdditions @period=$currentDuration} 
+ - {@LandAndLandRightsGeneralPlantRetirements @period=$currentDuration} 
+ + {@LandAndLandRightsGeneralPlantAdjustments @period=$currentDuration} 
+ + {@LandAndLandRightsGeneralPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LandAndLandRights with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.77 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StructuresAndImprovements @period=$currentInstant};
+ $addend = ({@StructuresAndImprovements @period=$priorInstant} 
+ + {@StructuresAndImprovementsGeneralPlantAdditions @period=$currentDuration} 
+ - {@StructuresAndImprovementsGeneralPlantRetirements @period=$currentDuration} 
+ + {@StructuresAndImprovementsGeneralPlantAdjustments @period=$currentDuration} 
+ + {@StructuresAndImprovementsGeneralPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StructuresAndImprovements with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.78 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OfficeFurnitureAndEquipment @period=$currentInstant};
+ $addend = ({@OfficeFurnitureAndEquipment @period=$priorInstant} 
+ + {@OfficeFurnitureAndEquipmentGeneralPlantAdditions @period=$currentDuration} 
+ - {@OfficeFurnitureAndEquipmentGeneralPlantRetirements @period=$currentDuration} 
+ + {@OfficeFurnitureAndEquipmentGeneralPlantAdjustments @period=$currentDuration} 
+ + {@OfficeFurnitureAndEquipmentGeneralPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OfficeFurnitureAndEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.79 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@TransportationEquipment @period=$currentInstant};
+ $addend = ({@TransportationEquipment @period=$priorInstant} 
+ + {@TransportationEquipmentGeneralPlantAdditions @period=$currentDuration} 
+ - {@TransportationEquipmentGeneralPlantRetirements @period=$currentDuration} 
+ + {@TransportationEquipmentGeneralPlantAdjustments @period=$currentDuration} 
+ + {@TransportationEquipmentGeneralPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for TransportationEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.80 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@StoresEquipment @period=$currentInstant};
+ $addend = ({@StoresEquipment @period=$priorInstant} 
+ + {@StoresEquipmentGeneralPlantAdditions @period=$currentDuration} 
+ - {@StoresEquipmentGeneralPlantRetirements @period=$currentDuration} 
+ + {@StoresEquipmentGeneralPlantAdjustments @period=$currentDuration} 
+ + {@StoresEquipmentGeneralPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for StoresEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.81 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ToolsShopAndGarageEquipment @period=$currentInstant};
+ $addend = ({@ToolsShopAndGarageEquipment @period=$priorInstant} 
+ + {@ToolsShopAndGarageEquipmentGeneralPlantAdditions @period=$currentDuration} 
+ - {@ToolsShopAndGarageEquipmentGeneralPlantRetirements @period=$currentDuration} 
+ + {@ToolsShopAndGarageEquipmentGeneralPlantAdjustments @period=$currentDuration} 
+ + {@ToolsShopAndGarageEquipmentGeneralPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ToolsShopAndGarageEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.82 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@LaboratoryEquipment @period=$currentInstant};
+ $addend = ({@LaboratoryEquipment @period=$priorInstant} 
+ + {@LaboratoryEquipmentGeneralPlantAdditions @period=$currentDuration} 
+ - {@LaboratoryEquipmentGeneralPlantRetirements @period=$currentDuration} 
+ + {@LaboratoryEquipmentGeneralPlantAdjustments @period=$currentDuration} 
+ + {@LaboratoryEquipmentGeneralPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for LaboratoryEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.83 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@PowerOperatedEquipment @period=$currentInstant};
+ $addend = ({@PowerOperatedEquipment @period=$priorInstant} 
+ + {@PowerOperatedEquipmentGeneralPlantAdditions @period=$currentDuration} 
+ - {@PowerOperatedEquipmentGeneralPlantRetirements @period=$currentDuration} 
+ + {@PowerOperatedEquipmentGeneralPlantAdjustments @period=$currentDuration} 
+ + {@PowerOperatedEquipmentGeneralPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for PowerOperatedEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.84 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@CommunicationEquipment @period=$currentInstant};
+ $addend = ({@CommunicationEquipment @period=$priorInstant} 
+ + {@CommunicationEquipmentGeneralPlantAdditions @period=$currentDuration} 
+ - {@CommunicationEquipmentGeneralPlantRetirements @period=$currentDuration} 
+ + {@CommunicationEquipmentGeneralPlantAdjustments @period=$currentDuration} 
+ + {@CommunicationEquipmentGeneralPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for CommunicationEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.85 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@MiscellaneousEquipment @period=$currentInstant};
+ $addend = ({@MiscellaneousEquipment @period=$priorInstant} 
+ + {@MiscellaneousEquipmentGeneralPlantAdditions @period=$currentDuration} 
+ - {@MiscellaneousEquipmentGeneralPlantRetirements @period=$currentDuration} 
+ + {@MiscellaneousEquipmentGeneralPlantAdjustments @period=$currentDuration} 
+ + {@MiscellaneousEquipmentGeneralPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for MiscellaneousEquipment with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.86 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GeneralPlantExcludingOtherTangiblePropertyAndAssetRetirementCostsForGeneralPlant};
+ $addend = ({@LandAndLandRights} 
+ + {@StructuresAndImprovements} 
+ + {@OfficeFurnitureAndEquipment} 
+ + {@TransportationEquipment} 
+ + {@StoresEquipment} 
+ + {@ToolsShopAndGarageEquipment} 
+ + {@LaboratoryEquipment} 
+ + {@PowerOperatedEquipment} 
+ + {@CommunicationEquipment} 
+ + {@MiscellaneousEquipment});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GeneralPlantExcludingOtherTangiblePropertyAndAssetRetirementCostsForGeneralPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.87 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@OtherTangibleProperty @period=$currentInstant};
+ $addend = ({@OtherTangibleProperty @period=$priorInstant} 
+ + {@OtherTangiblePropertyGeneralPlantAdditions @period=$currentDuration} 
+ - {@OtherTangiblePropertyGeneralPlantRetirements @period=$currentDuration} 
+ + {@OtherTangiblePropertyGeneralPlantAdjustments @period=$currentDuration} 
+ + {@OtherTangiblePropertyGeneralPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for OtherTangibleProperty with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.88 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@AssetRetirementCostsForGeneralPlantGeneralPlant @period=$currentInstant};
+ $addend = ({@AssetRetirementCostsForGeneralPlantGeneralPlant @period=$priorInstant} 
+ + {@AssetRetirementCostsForGeneralPlantGeneralPlantAdditions @period=$currentDuration} 
+ - {@AssetRetirementCostsForGeneralPlantGeneralPlantRetirements @period=$currentDuration} 
+ + {@AssetRetirementCostsForGeneralPlantGeneralPlantAdjustments @period=$currentDuration} 
+ + {@AssetRetirementCostsForGeneralPlantGeneralPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for AssetRetirementCostsForGeneralPlantGeneralPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.89 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@GeneralPlant};
+ $addend = ({@GeneralPlantExcludingOtherTangiblePropertyAndAssetRetirementCostsForGeneralPlant} 
+ + {@OtherTangibleProperty} 
+ + {@AssetRetirementCostsForGeneralPlantGeneralPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for GeneralPlant with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.90 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ @period=$currentInstant};
+ $addend = ({@ElectricPlantInServiceAndCompletedConstructionNotClassifiedElectric @period=$priorInstant} 
+ + {@ElectricPlantInServiceAndCompletedConstructionNotClassifiedElectricAdditions @period=$currentDuration} 
+ - {@ElectricPlantInServiceAndCompletedConstructionNotClassifiedElectricRetirements @period=$currentDuration} 
+ + {@ElectricPlantInServiceAndCompletedConstructionNotClassifiedElectricAdjustments @period=$currentDuration} 
+ + {@ElectricPlantInServiceAndCompletedConstructionNotClassifiedElectricTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantInServiceAndCompletedConstructionNotClassifiedElectric with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.91 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ElectricPlantPurchased @period=$currentInstant};
+ $addend = ({@ElectricPlantPurchased @period=$priorInstant} 
+ + {@ElectricPlantPurchasedAdditions @period=$currentDuration} 
+ - {@ElectricPlantPurchasedRetirements @period=$currentDuration} 
+ + {@ElectricPlantPurchasedAdjustments @period=$currentDuration} 
+ + {@ElectricPlantPurchasedTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantPurchased with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.92 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ElectricPlantSold @period=$currentInstant};
+ $addend = ({@ElectricPlantSold @period=$priorInstant} 
+ + {@ElectricPlantSoldAdditions @period=$currentDuration} 
+ - {@ElectricPlantSoldRetirements @period=$currentDuration} 
+ + {@ElectricPlantSoldAdjustments @period=$currentDuration} 
+ + {@ElectricPlantSoldTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantSold with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.93 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ExperimentalElectricPlantUnclassified @period=$currentInstant};
+ $addend = ({@ExperimentalElectricPlantUnclassified @period=$priorInstant} 
+ + {@ExperimentalElectricPlantUnclassifiedAdditions @period=$currentDuration} 
+ - {@ExperimentalElectricPlantUnclassifiedRetirements @period=$currentDuration} 
+ + {@ExperimentalElectricPlantUnclassifiedAdjustments @period=$currentDuration} 
+ + {@ExperimentalElectricPlantUnclassifiedTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ExperimentalElectricPlantUnclassified with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.94 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ElectricPlantInService};
+ $addend = ({@ElectricPlantInServiceAndCompletedConstructionNotClassifiedElectric} 
+ + {@ElectricPlantPurchased} 
+ - {@ElectricPlantSold} 
+ + {@ExperimentalElectricPlantUnclassified});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantInService with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.95 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@EnergyStorageEquipmentTransmissionPlant @period=$currentInstant};
+ $addend = ({@EnergyStorageEquipmentTransmissionPlant @period=$priorInstant} 
+ + {@EnergyStorageEquipmentTransmissionPlantAdditions @period=$currentDuration} 
+ - {@EnergyStorageEquipmentTransmissionPlantRetirements @period=$currentDuration} 
+ + {@EnergyStorageEquipmentTransmissionPlantAdjustments @period=$currentDuration} 
+ + {@EnergyStorageEquipmentTransmissionPlantTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for EnergyStorageEquipmentTransmissionPlant with a value of {$sum1} that is not equal to the value of the sum of its components of:
+EnergyStorageEquipmentTransmissionPlant (Open)
+EnergyStorageEquipmentTransmissionPlantAdditions
+EnergyStorageEquipmentTransmissionPlantRetirements
+EnergyStorageEquipmentTransmissionPlantAdjustments
+EnergyStorageEquipmentTransmissionPlantTransfers
+
+with a calculated value of{$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.96 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@EnergyStorageEquipmentOtherProduction @period=$currentInstant};
+ $addend = ({@EnergyStorageEquipmentOtherProduction @period=$priorInstant} 
+ + {@EnergyStorageEquipmentProductionOtherProductionAdditions @period=$currentDuration} 
+ - {@EnergyStorageEquipmentProductionOtherProductionRetirements @period=$currentDuration} 
+ + {@EnergyStorageEquipmentProductionOtherProductionAdjustments @period=$currentDuration} 
+ + {@EnergyStorageEquipmentProductionOtherProductionTransfers @period=$currentDuration});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for EnergyStorageEquipmentOtherProduction with a value of {$sum1} that is not equal to the value of the sum of its components of:
+EnergyStorageEquipmentOtherProduction (Open)
+EnergyStorageEquipmentProductionOtherProductionAdditions
+EnergyStorageEquipmentProductionOtherProductionRetirements
+EnergyStorageEquipmentProductionOtherProductionAdjustments
+EnergyStorageEquipmentProductionOtherProductionTransfers
+
+with a calculated value of{$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F1.204.97 satisfied 
+$rule_id = rule-name();
+
+if set('1-F','1/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@ElectricPlantInServiceAndCompletedConstructionNotClassifiedElectric};
+ $addend = ({@IntangiblePlant} 
+ + {@ProductionPlant} 
+ + {@TransmissionPlant} 
+ + {@DistributionPlant}
+ + {@TransmissionAndMarketOperationPlantRegionalTransmissionAndMarketOperationPlant}
+ + {@GeneralPlant});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for ElectricPlantInServiceAndCompletedConstructionNotClassifiedElectric with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

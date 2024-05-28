@@ -1,0 +1,97 @@
+/**FERC Form 2 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.520.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+$QuantityOfNaturalGasReceivedByUtilityOther = first-value({@QuantityOfNaturalGasReceivedByUtilityOther}, sum(list({nonils @QuantityOfNaturalGasReceivedByUtilityOther @TypeOfGasUsagesReceivedFromOtherOperationsAxis=*})));
+
+ $sum1 = {@QuantityOfNaturalGasReceivedByUtility}; 
+ $addend = ({@QuantityOfNaturalGasReceivedByUtilityGasPurchases}
+ + {@QuantityOfNaturalGasReceivedByUtilityGasOfOthersReceivedForGathering}
+ + {@QuantityOfNaturalGasReceivedByUtilityGasOfOthersReceivedForTransmission}
+ + {@QuantityOfNaturalGasReceivedByUtilityGasOfOthersReceivedForDistribution}
+ + {@QuantityOfNaturalGasReceivedByUtilityGasOfOthersReceivedForContractStorage}
+ + {@QuantityOfNaturalGasReceivedByUtilityGasOfOthersReceivedForProductionExtractionProcessing}
+ + {@QuantityOfNaturalGasReceivedByUtilityExchangedGasReceivedFromOthers}
+ + {@QuantityOfNaturalGasReceivedByUtilityGasReceivedAsImbalances}
+ + {@QuantityOfNaturalGasReceivedByUtilityReceiptsOfUtilitysGasTransportedByOthers}
+ + {@QuantityOfNaturalGasReceivedByUtilityOtherGasWithdrawnFromStorage}
+ + {@QuantityOfNaturalGasReceivedByUtilityGasReceivedFromShippersAsCompressorStationFuel}
+ + {@QuantityOfNaturalGasReceivedByUtilityGasReceivedFromShippersAsLostAndUnaccountedFor}
+ + $QuantityOfNaturalGasReceivedByUtilityOther);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for QuantityOfNaturalGasReceivedByUtility with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.520.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+
+$GasUsedForOtherDeliveriesAndGasUsedForOtherOperations = first-value({@GasUsedForOtherDeliveriesAndGasUsedForOtherOperations}, sum(list({nonils @GasUsedForOtherDeliveriesAndGasUsedForOtherOperations @TypeOfGasUsagesForOtherOperationsAxis=*})));
+
+ $sum1 = {@QuantityOfNaturalGasDeliveredByUtility}; 
+ $addend = ({@QuantityOfNaturalGasDeliveredByUtilityGasSales}
+ + {@QuantityOfNaturalGasDeliveredByUtilityDeliveriesOfGasGatheredForOthers}
+ + {@QuantityOfNaturalGasDeliveredByUtilityDeliveriesOfGasTransportedForOthers}
+ + {@QuantityOfNaturalGasDeliveredByUtilityDeliveriesOfGasDistributedForOthers}
+ + {@QuantityOfNaturalGasDeliveredByUtilityDeliveriesOfContractStorageGas}
+ + {@QuantityOfNaturalGasDeliveredByUtilityGasOfOthersDeliveredForProductionExtractionProcessing}
+ + {@QuantityOfNaturalGasDeliveredByUtilityExchangeGasDeliveredToOthers}
+ + {@QuantityOfNaturalGasDeliveredByUtilityGasDeliveredAsImbalances}
+ + {@QuantityOfNaturalGasDeliveredByUtilityDeliveriesOfGasToOthersForTransportation}
+ + {@QuantityOfNaturalGasDeliveredByUtilityOtherGasDeliveredToStorage}
+ + {@QuantityOfNaturalGasDeliveredByUtilityGasUsedForCompressorStationFuel}
+ + $GasUsedForOtherDeliveriesAndGasUsedForOtherOperations);
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for QuantityOfNaturalGasDeliveredByUtility with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.520.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+ $sum1 = {@DeliveriesGasLossesAndUnaccountedForGasAccount}; 
+ $addend = ({@QuantityOfNaturalGasDeliveredByUtility}
+ + {@GasAccountGasLossesAndGasUnaccountedForGasAccount});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for DeliveriesGasLossesAndUnaccountedForGasAccount with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Dimensions : {$sum1.dimensions.join(',','=')}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

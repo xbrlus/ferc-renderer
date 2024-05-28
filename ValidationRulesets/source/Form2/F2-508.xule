@@ -1,0 +1,104 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+
+constant $CompressorTypeLookup = dict(list("Field Compressor Stations",FieldCompressorStationsMember),
+                                list("Products Extraction Compressor Station", ProductsExtractionCompressorStationsMember),
+                                list("Undergroud Storage Compressor Stations", UndergroundStorageCompressorStationsMember),
+                                list("Transmission Compressor Stations", TransmissionCompressorStationsMember ),
+                                list("Distribution Compressor Stations", DistributionCompressorStationsMember),
+                                list("Other Compressor Stations", OtherCompressorStationsMember)
+                                )
+
+constant $CompressorItems = list(NumberOfUnitsAtCompressorStation,
+                                CertificatedHorsepowerForEachCompressorStation,
+                                PlantCost,
+                                ExpensesExceptDepreciationAndTaxesFuel,
+                                ExpensesExceptDepreciationAndTaxesPower,
+                                ExpensesExceptDepreciationAndTaxesOther,
+                                GasForCompressorFuel,
+                                ElectricityForCompressorStation,
+                                CompressorHoursOfOperationDuringYear,
+                                NumberOfCompressorsOperatedAtTimeOfStationPeak)
+
+assert F2.508.1 satisfied
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else        
+        for $CompressorType in  $CompressorTypeLookup.keys
+                for $CompressorItem in $CompressorItems
+                        $CompressorMembers = list([covered @TypeOfCompressor @NameAndLocationOfCompressorStationAxis=* where $fact == $CompressorType].dimension(NameAndLocationOfCompressorStationAxis));
+                        $sum2 = [@concept = $CompressorItem @CompressorTypesAxis=$CompressorTypeLookup[$CompressorType] @unit=*]; 
+                        $addend = sum(list([nonils @concept = $CompressorItem @unit=* @NameAndLocationOfCompressorStationAxis in $CompressorMembers])#breakdown);
+                        if $addend == none
+                                skip
+                        else
+                                tolerance_for_decimals($sum2,$addend,$tolerance_factor) 
+message
+
+"The breakdown of the element {$sum2.concept.name} using the axis NameAndLocationOfCompressorStationAxis has a sub total value of {$addend} for {$CompressorType}. The value of the aggregate amount for {$sum2.concept.name} is equal to {$sum2}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum2.concept.name}
+Total Period : {$sum2.period}
+Total Dimensions : {$sum2.dimensions.join(', ','=')}
+Total Value : {$sum2} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum2
+
+assert F2.508.2 satisfied
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        for $row in set({covered @ferc:NameAndLocationOfCompressorStationAxis = *}.dimension(ferc:NameAndLocationOfCompressorStationAxis)).sort
+
+                list([covered @TypeOfCompressor @NameAndLocationOfCompressorStationAxis=$row]).length == 0
+
+message
+"The value for Compressor type in column B is missing for the dimension member {$row}  on the axis NameAndLocationOfCompressorStationAxis. All rows must indicate the compressor type.
+
+Rule Id:{$rule_id}"
+severity error
+
+
+assert F2.508.3 satisfied
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+        for $CompressorItem in $CompressorItems
+                $compressor_addends = sum(list([nonils @concept = $CompressorItem @CompressorTypesAxis=*])#breakdown);
+                $compressor_sum = [@concept = $CompressorItem];
+                if $compressor_addends == none
+ 	                skip
+                else
+                        tolerance_for_decimals($compressor_sum,$compressor_addends,$tolerance_factor)  
+
+message 
+"The breakdown of the element {$compressor_sum.concept.name} using the axis CompressorTypesAxis has a total value of {$compressor_addends}. The value of the aggregate amount for {$compressor_sum.concept.name} is equal to {$compressor_sum}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$compressor_sum.concept.name}
+Total Period : {$compressor_sum.period}
+Total Value : {$compressor_sum} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $compressor_sum

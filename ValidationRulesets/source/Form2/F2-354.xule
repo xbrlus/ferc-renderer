@@ -1,0 +1,547 @@
+/**FERC Form 1 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+
+assert F2.354.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesElectricOperation}; 
+ $addend = ({@SalariesAndWagesElectricOperationProduction}
+ + {@SalariesAndWagesElectricOperationTransmission}
+ + {@SalariesAndWagesElectricOperationDistribution}
+ + {@SalariesAndWagesElectricCustomerAccounts}
+ + {@SalariesAndWagesElectricCustomerServiceAndInformational}
+ + {@SalariesAndWagesElectricSales}
+ + {@SalariesAndWagesElectricOperationAdministrativeAndGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesElectricOperation with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.2 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesElectricMaintenance}; 
+ $addend = ({@SalariesAndWagesElectricMaintenanceProduction}
+ + {@SalariesAndWagesElectricMaintenanceTransmission}
+ + {@SalariesAndWagesElectricMaintenanceDistribution}
+ + {@SalariesAndWagesElectricMaintenanceAdministrativeAndGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesElectricMaintenance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.3 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesElectricProduction}; 
+ $addend = ({@SalariesAndWagesElectricOperationProduction}
+ + {@SalariesAndWagesElectricMaintenanceProduction});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesElectricProduction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.4 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesElectricTransmission}; 
+ $addend = ({@SalariesAndWagesElectricOperationTransmission}
+ + {@SalariesAndWagesElectricMaintenanceTransmission});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesElectricTransmission with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.5 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesElectricDistribution}; 
+ $addend = ({@SalariesAndWagesElectricOperationDistribution}
+ + {@SalariesAndWagesElectricMaintenanceDistribution});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesElectricDistribution with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.6 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesElectricAdministrativeAndGeneral}; 
+ $addend = ({@SalariesAndWagesElectricOperationAdministrativeAndGeneral}
+ + {@SalariesAndWagesElectricMaintenanceAdministrativeAndGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesElectricAdministrativeAndGeneral with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.7 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesElectricOperationAndMaintenance}; 
+ $addend = ({@SalariesAndWagesElectricProduction}
+ + {@SalariesAndWagesElectricTransmission}
+ + {@SalariesAndWagesElectricDistribution}
+ + {@SalariesAndWagesElectricCustomerAccounts}
+ + {@SalariesAndWagesElectricCustomerServiceAndInformational}
+ + {@SalariesAndWagesElectricSales}
+ + {@SalariesAndWagesElectricAdministrativeAndGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesElectricOperationAndMaintenance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.8 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasOperation}; 
+ $addend = ({@SalariesAndWagesGasOperationProductionManufacturedGas}
+ + {@SalariesAndWagesGasOperationProductionNaturalGas}
+ + {@SalariesAndWagesGasOperationOtherGasSupply}
+ + {@SalariesAndWagesGasOperationStorageLiquifiedNaturalGasTerminalingAndProcessing}
+ + {@SalariesAndWagesGasOperationTransmission}
+ + {@SalariesAndWagesGasOperationDistribution}
+ + {@SalariesAndWagesGasCustomerAccounts}
+ + {@SalariesAndWagesGasCustomerServiceAndInformational}
+ + {@SalariesAndWagesGasSales}
+ + {@SalariesAndWagesGasOperationAdministrativeAndGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasOperation with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.9 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasMaintenance}; 
+ $addend = ({@SalariesAndWagesGasMaintenanceProductionManufacturedGas}
+ + {@SalariesAndWagesGasMaintenanceProductionNaturalGas}
+ + {@SalariesAndWagesGasMaintenanceOtherGasSupply}
+ + {@SalariesAndWagesGasMaintenanceStorageLngTerminalingAndProcessing}
+ + {@SalariesAndWagesGasMaintenanceTransmission}
+ + {@SalariesAndWagesGasMaintenanceDistribution}
+ + {@SalariesAndWagesGasMaintenanceAdministrativeAndGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasMaintenance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.10 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasProductionManufacturedGas}; 
+ $addend = ({@SalariesAndWagesGasOperationProductionManufacturedGas}
+ + {@SalariesAndWagesGasMaintenanceProductionManufacturedGas});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasProductionManufacturedGas with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.11 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasProductionNaturalGas}; 
+ $addend = ({@SalariesAndWagesGasOperationProductionNaturalGas}
+ + {@SalariesAndWagesGasMaintenanceProductionNaturalGas});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasProductionNaturalGas with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.12 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasOtherGasSupply}; 
+ $addend = ({@SalariesAndWagesGasOperationOtherGasSupply}
+ + {@SalariesAndWagesGasMaintenanceOtherGasSupply});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasOtherGasSupply with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.13 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasStorageLngTerminalingAndProcessing}; 
+ $addend = ({@SalariesAndWagesGasOperationStorageLiquifiedNaturalGasTerminalingAndProcessing}
+ + {@SalariesAndWagesGasMaintenanceStorageLngTerminalingAndProcessing});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasStorageLngTerminalingAndProcessing with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.14 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasTransmission}; 
+ $addend = ({@SalariesAndWagesGasOperationTransmission}
+ + {@SalariesAndWagesGasMaintenanceTransmission});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasTransmission with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.15 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasDistribution}; 
+ $addend = ({@SalariesAndWagesGasOperationDistribution}
+ + {@SalariesAndWagesGasMaintenanceDistribution});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasDistribution with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.16 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasAdministrativeAndGeneral}; 
+ $addend = ({@SalariesAndWagesGasOperationAdministrativeAndGeneral}
+ + {@SalariesAndWagesGasMaintenanceAdministrativeAndGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasAdministrativeAndGeneral with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.17 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGasOperationAndMaintenance}; 
+ $addend = ({@SalariesAndWagesGasProductionManufacturedGas}
+ + {@SalariesAndWagesGasProductionNaturalGas}
+ + {@SalariesAndWagesGasOtherGasSupply}
+ + {@SalariesAndWagesGasStorageLngTerminalingAndProcessing}
+ + {@SalariesAndWagesGasTransmission}
+ + {@SalariesAndWagesGasDistribution}
+ + {@SalariesAndWagesGasCustomerAccounts}
+ + {@SalariesAndWagesGasCustomerServiceAndInformational}
+ + {@SalariesAndWagesGasSales}
+ + {@SalariesAndWagesGasAdministrativeAndGeneral});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGasOperationAndMaintenance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.18 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesOperationsAndMaintenance}; 
+ $addend = ({@SalariesAndWagesElectricOperationAndMaintenance}
+ + {@SalariesAndWagesGasOperationAndMaintenance}
+ + {@SalariesAndWagesOtherUtilityDepartmentsOperationAndMaintenance});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesOperationsAndMaintenance with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.19 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesUtilityPlantConstruction}; 
+ $addend = ({@SalariesAndWagesUtilityPlantConstructionElectricPlant}
+ + {@SalariesAndWagesUtilityPlantConstructionGasPlant}
+ + {@SalariesAndWagesUtilityPlantConstructionOther});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesUtilityPlantConstruction with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.20 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesPlantRemoval}; 
+ $addend = ({@SalariesAndWagesPlantRemovalElectricPlant}
+ + {@SalariesAndWagesPlantRemovalGasPlant}
+ + {@SalariesAndWagesPlantRemovalOther});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesPlantRemoval with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+
+assert F2.354.21 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = {@SalariesAndWagesGeneralExpense}; 
+ $addend = ({@SalariesAndWagesOperationsAndMaintenance}
+ + {@SalariesAndWagesUtilityPlantConstruction}
+ + {@SalariesAndWagesPlantRemoval}
+ + {@SalariesAndWagesOtherAccounts});
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The company has reported a value for SalariesAndWagesGeneralExpense with a value of {$sum1} that is not equal to the value of the sum of its components of {$addend}
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1

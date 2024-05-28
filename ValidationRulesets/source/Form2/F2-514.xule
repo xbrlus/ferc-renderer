@@ -1,0 +1,72 @@
+/**FERC Form 2 Rules 
+**/
+
+
+RULE-NAME-PREFIX FERC
+/**
+assert F2.514.1 satisfied 
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2-A','2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+ $sum1 = [@LengthOfTransmissionLinesOfTransmissionSystems]; 
+ $addend = sum(list([nonils @LengthOfTransmissionLinesOfTransmissionSystems @DesignationOfTransmissionLinesAxis=*]));
+ if $addend == none
+ 	skip
+ else
+tolerance_for_decimals($sum1,$addend,$tolerance_factor)  
+message 
+"The breakdown of {$sum1.concept.name} sums to a value of {$addend} that is not equal to the total value reported of {$sum1} for LengthOfTransmissionLinesOfTransmissionSystems.
+
+Total Element : {$sum1.concept.name}
+Total Period : {$sum1.period}
+Total Value : {$sum1} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum1
+**/
+
+constant $OperationTypeLookup = dict(list("Fully Owned and Operated by Respondent",FullyOwnedAndOperatedByRespondentMember),
+                                list("Jointly Owned and Operated by Respondent",JointlyOwnedAndOperatedByRespondentMember),
+                                list("Not Operated by Respondent",NotOperatedByRespondentMember),
+                                list("Operated but not Owned by Respondent",OperatedButNotOwnedByRespondentMember)
+                                )
+
+assert F2.514.1 satisfied
+$rule_id = rule-name();
+if ($waivedSchedules intersect $scheduleLookup[(rule-name().split('.'))[3]]).length > 0
+        skip
+else
+
+if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+        skip
+else
+
+        $LineItems = list(LengthOfTransmissionLinesOfTransmissionSystems);
+        
+        for $OperationType in  $OperationTypeLookup.keys
+                for $LineItem in $LineItems
+                        $AllLineMembers = list([covered @TypeOfOperationAndOwnership @DesignationOfTransmissionLinesAxis=* where $fact == $OperationType].dimension(DesignationOfTransmissionLinesAxis));
+                        $sum2 = [@concept = $LineItem @OperationTypeAxis=$OperationTypeLookup[$OperationType] @unit=*]; 
+                        $addend = sum(list([nonils @concept = $LineItem @unit=* @DesignationOfTransmissionLinesAxis in $AllLineMembers])#breakdown);
+                        if $addend == none
+                                skip
+                        else
+                                tolerance_for_decimals($sum2,$addend,$tolerance_factor) 
+message
+
+"The breakdown of the element {$sum2.concept.name} using the axis DesignationOfTransmissionLinesAxis has a sub total value of {$addend} for {$OperationType}. The value of the aggregate amount for {$sum2.concept.name} is equal to {$sum2}.  The disaggregated amounts are {$breakdown.join(' + ')}
+
+Total Element : {$sum2.concept.name}
+Total Period : {$sum2.period}
+Total Dimensions : {$sum2.dimensions.join(', ','=')}
+Total Value : {$sum2} 
+
+Rule Id:{$rule_id}"
+severity error
+rule-focus $sum2

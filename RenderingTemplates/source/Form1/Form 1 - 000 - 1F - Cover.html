@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:xule="http://xbrl.us/xendr/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
 xmlns:ferc="http://ferc.gov/form/2024-04-01/ferc"
@@ -29,10 +29,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 <span>Item 1:</span>
                                     
                                     <xule:replace>
-                                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
-                                            '<span class="checkbox">&#9744;</span> An Initial (Original) Submission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
-                                            '<span class="checkbox">&#9745;</span> An Initial (Original) Submission']]> else <![CDATA[
-                                            '<span class="checkbox">&#9744;</span> An Initial (Original) Submission']]>
+                                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) "<![CDATA[
+                                            '<span class=\"checkbox\">&#9744;</span> An Original']]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" "<![CDATA[
+                                            '<span class=\"checkbox\">&#9745;</span> An Original']]>" else "<![CDATA[
+                                            '<span class=\"checkbox\">&#9744;</span> An Original']]>"
                                             </xule:expression>  
                                         <xule:template-display>
                                                 <input type="checkbox"/> An Initial (Original) Submission
@@ -41,10 +41,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                     
                                     <span> OR </span>
                                     <xule:replace>
-                                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
-                                            '<span class="checkbox">&#9744;</span> Resubmission No.']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
-                                            '<span class="checkbox">&#9745;</span> Resubmission No.']]> else <![CDATA[
-                                            '<span class="checkbox">&#9744;</span> Resubmission No.']]>
+                                            <xule:expression html="true" class="hide"> if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) "<![CDATA[
+                                            '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" "<![CDATA[
+                                            '<span class=\"checkbox\">&#9745;</span> A Resubmission']]>" else "<![CDATA[
+                                            '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>"
                                                 </xule:expression> 
                                             <xule:template-display>
                                                     <input type="checkbox" checked="checked"/> Resubmission No.
@@ -143,7 +143,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     </xule:replace>
                     <span> </span>
                     <xule:replace>
-                            <xule:expression class="hide">" (" + taxonomy().concept(ferc:Form2Abstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1DateRevised").text + ")"
+                            <xule:expression class="hide">" (" + taxonomy().concept(ferc:Form1Abstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1DateRevised").text + ")"
                             </xule:expression>
                             <xule:template-display>
                                     (REV. 1-05)

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:xule="http://xbrl.us/xendr/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
 xmlns:ferc="http://ferc.gov/form/2024-04-01/ferc"
@@ -40,11 +40,11 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             <br/>
                             (1) 
                                 <xule:replace>
-                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
-                                        '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> An Original']]>
-                                        </xule:expression>  
+                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) "<![CDATA[
+                        '<span class=\"checkbox\">&#9744;</span> An Original']]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" "<![CDATA[
+                        '<span class=\"checkbox\">&#9745;</span> An Original']]>" else "<![CDATA[
+                        '<span class=\"checkbox\">&#9744;</span> An Original']]>"
+                        </xule:expression>  
                                     <xule:template-display>
                                             <input type="checkbox"/> An Original
                                     </xule:template-display>
@@ -52,11 +52,11 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 <br/>
                             (2)
                                 <xule:replace>
-                                        <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
-                                        '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> A Resubmission']]>
-                                            </xule:expression> 
+                                        <xule:expression html="true" class="hide"> if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) "<![CDATA[
+                        '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" "<![CDATA[
+                        '<span class=\"checkbox\">&#9745;</span> A Resubmission']]>" else "<![CDATA[
+                        '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>"
+                            </xule:expression> 
                                         <xule:template-display>
                                                 <input type="checkbox" checked = "checked"/> A Resubmission
                                         </xule:template-display>

@@ -11,7 +11,7 @@
 </head>
 
 <body class="xbrl" id="ScheduleSalesOfElectricityByRateSchedulesAbstract448">
-    <xule:showif>if length(set({covered @ferc:InterdepartmentalSalesAxis=*}.dimension(ferc:InterdepartmentalSalesAxis))) > 0
+    <xule:showIf>if length(set({covered @ferc:InterdepartmentalSalesAxis=*}.dimension(ferc:InterdepartmentalSalesAxis))) > 0
                 true
             else
                 $data = navigate parent-child descendants from ferc:InterdepartmentalSalesAbstract returns list (target-name);
@@ -19,7 +19,7 @@
                     true
                 else
                     false
-     </xule:showif>
+     </xule:showIf>
   
     <table class="schedule-header xbrl" width="100%">
         <tr>

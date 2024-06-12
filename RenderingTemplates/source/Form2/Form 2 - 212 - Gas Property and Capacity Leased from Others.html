@@ -14,12 +14,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl" id="ScheduleGasPropertyAndCapacityLeasedFromOthersAbstract">
-    <xule:showif>
+    <xule:showIf>
         if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleGasPropertyAndCapacityLeasedFromOthersAbstract"]).length > 0
                 false
         else
                 true
-    </xule:showif>
+    </xule:showIf>
         <table class="schedule-header xbrl" width="100%">
             <tr>
                 <td class="xbrl">
@@ -52,11 +52,11 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             <br/>
                         (2)
                             <xule:replace>
-                                    <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType]) <![CDATA[
-                                    '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
-                                    '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
-                                    '<span class="checkbox">&#9744;</span> A Resubmission']]>
-                                        </xule:expression> 
+                                <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType]) "<![CDATA[
+                                '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" "<![CDATA[
+                                '<span class=\"checkbox\">&#9745;</span> A Resubmission']]>" else "<![CDATA[
+                                '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>"
+                                    </xule:expression> 
                                     <xule:template-display>
                                             <input type="checkbox" checked = "checked"/> A Resubmission
                                     </xule:template-display>

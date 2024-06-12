@@ -15,12 +15,12 @@ xmlns:ixt-sec="http://www.sec.gov/inlineXBRL/transformation/2015-08-31"
 </head>
 
 <body class="xbrl" id="ScheduleCompressorStationsAbstract">
-    <xule:showif>
+    <xule:showIf>
         if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleCompressorStationsAbstract"]).length > 0
                 false
         else
                 true
-    </xule:showif>
+    </xule:showIf>
         <table class="schedule-header xbrl" width="100%">
                 <tr>
                     <td class="xbrl">

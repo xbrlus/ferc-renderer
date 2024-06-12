@@ -12,12 +12,12 @@ xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
 
 <body class="xbrl">
     <div id="ScheduleMilesOfPipelineOperatedAtEndOfYearAbstract"></div>
-    <xule:showif>
+    <xule:showIf>
         if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleMilesOfPipelineOperatedAtEndOfYearAbstract"]).length > 0
                 false
         else
                 true
-    </xule:showif>
+    </xule:showIf>
     <table class="schedule-header xbrl" width="100%">
         <tr>
             <td class="xbrl">

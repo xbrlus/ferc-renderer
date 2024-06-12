@@ -13,7 +13,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
     <link rel="stylesheet" type="text/css" href="form-template.css"/>
 </head>
 <body class="xbrl" id="ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract">
-<xule:showif>
+<xule:showIf>
 if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"]).length > 0
         false
 else
@@ -24,7 +24,7 @@ else
                         true
         else
                 true
-</xule:showif>
+</xule:showIf>
     <table class="schedule-header xbrl" width="100%">
             <tr>
                 <td class="xbrl">
@@ -174,7 +174,7 @@ else
                 <!-- (a) Items -->
                 <td class="xbrl description_items">
                         <xule:replace>
-                        <xule:expression class="hide">
+                        <xule:expression class="hide" name="SalesLineItems" part="3">
                                 taxonomy().concept(ferc:SalesOfGasForfeitedDiscountsAndMiscellaneousServiceRevenuesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
                         </xule:expression>
                         <div>
@@ -534,7 +534,7 @@ else
                 <!-- (a) Items -->
                 <td class="xbrl description_items">
                         <xule:replace>
-                        <xule:expression class="hide">
+                        <xule:expression class="hide" name="TotalTransportationLineItems" part="1">
                                 taxonomy().concept(ferc:OperatingRevenuesTransportationOfGasForOthers).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
                         </xule:expression>
                         <div>
@@ -899,7 +899,7 @@ else
                 <!-- (a) Items -->
                 <td class="xbrl description_items">
                         <xule:replace>
-                        <xule:expression class="hide">
+                        <xule:expression class="hide" name="TotalStorageLineItems" part="1">
                                 taxonomy().concept(ferc:RevenuesFromStoringGasOfOthers).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
                         </xule:expression>
                         <div>

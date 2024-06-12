@@ -14,12 +14,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl" id="ScheduleRevenuesFromStoringGasOfOthersAbstract">
-    <xule:showif>
+    <xule:showIf>
         if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleRevenuesFromStoringGasOfOthersAbstract"]).length > 0
                 false
         else
                 true
-    </xule:showif>
+    </xule:showIf>
         <table class="schedule-header xbrl" width="100%">
             <tr>
                 <td class="xbrl">
@@ -52,11 +52,11 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             <br/>
                         (2)
                             <xule:replace>
-                                    <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType]) <![CDATA[
-                                    '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
-                                    '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
-                                    '<span class="checkbox">&#9744;</span> A Resubmission']]>
-                                        </xule:expression> 
+                                <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType]) "<![CDATA[
+                                '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" "<![CDATA[
+                                '<span class=\"checkbox\">&#9745;</span> A Resubmission']]>" else "<![CDATA[
+                                '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>"
+                                    </xule:expression> 
                                     <xule:template-display>
                                             <input type="checkbox" checked = "checked"/> A Resubmission
                                     </xule:template-display>
@@ -156,8 +156,8 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 </td>
         </tr>
 
-        <tr class="schedule-row" xule:repeat="RateSchedule LineItems">
-            <xule:expression class="hide" name="RateSchedule LineItems">// adding a comment
+        <tr class="schedule-row" xule:repeat="RateScheduleLineItems">
+            <xule:expression class="hide" name="RateScheduleLineItems">// adding a comment
                 
             $data2 =   list(for $i in range(25)
                             list($i,none,none,none,none,none,none,none,none,none,none,none)
@@ -230,62 +230,62 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 
             </xule:expression>
             
-            <td class="xbrl line-number"><xule:lineNumber name="RateSchedule LineItems"/>
+            <td class="xbrl line-number"><xule:lineNumber name="RateScheduleLineItems"/>
                 <xule:template-display>1</xule:template-display>
             </td>
-            <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="RateSchedule LineItems" fact="true"  part="2">$row[2]</xule:expression></xule:replace>
+            <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="RateScheduleLineItems" fact="true"  part="2">$row[2]</xule:expression></xule:replace>
                 <xule:template-display>
                         Interruptible Storage Service 
                 </xule:template-display>
             </td>
-            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateSchedule LineItems" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateScheduleLineItems" fact="true" format="ixt4:num-dot-decimal" part="3">$row[3]</xule:expression></xule:replace>
                 <xule:template-display>
                     $0
                 </xule:template-display>
             </td>
-            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateSchedule LineItems" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateScheduleLineItems" fact="true" format="ixt4:num-dot-decimal" part="4">$row[4]</xule:expression></xule:replace>
                 <xule:template-display>
                     $0
                 </xule:template-display>
             </td>
-            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateSchedule LineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateScheduleLineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[5]</xule:expression></xule:replace>
                 <xule:template-display>
                     $0
                 </xule:template-display>
             </td>
-            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateSchedule LineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[6]</xule:expression></xule:replace>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateScheduleLineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[6]</xule:expression></xule:replace>
                 <xule:template-display>
                     $0
                 </xule:template-display>
             </td>
-            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateSchedule LineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[7]</xule:expression></xule:replace>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateScheduleLineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[7]</xule:expression></xule:replace>
                 <xule:template-display>
                     $26,533
                 </xule:template-display>
             </td>
-            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateSchedule LineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[8]</xule:expression></xule:replace>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateScheduleLineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[8]</xule:expression></xule:replace>
                 <xule:template-display>
                     $10,683
                 </xule:template-display>
             </td>
-            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateSchedule LineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[9]</xule:expression></xule:replace>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateScheduleLineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[9]</xule:expression></xule:replace>
                 <xule:template-display>
                     $26,533
                 </xule:template-display>
             </td>
-            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateSchedule LineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[10]</xule:expression></xule:replace>
+            <td class="monetary_items xbrl"><xule:replace><xule:expression class="hide"  name="RateScheduleLineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[10]</xule:expression></xule:replace>
                 <xule:template-display>
                     $10,683
                 </xule:template-display>
             </td>
             <!-- Dekatherm of Natural Gas (Current) -->
-            <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="RateSchedule LineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[11]</xule:expression></xule:replace>
+            <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="RateScheduleLineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[11]</xule:expression></xule:replace>
                 <xule:template-display>
                         257,655 dth
                 </xule:template-display>
             </td>
             <!-- Dekatherm of Natural Gas (Prior) -->
-            <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="RateSchedule LineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[12]</xule:expression></xule:replace>
+            <td class="numeric_items xbrl"><xule:replace><xule:expression class="hide"  name="RateScheduleLineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$row[12]</xule:expression></xule:replace>
                 <xule:template-display>
                         50,613 dth
                 </xule:template-display>

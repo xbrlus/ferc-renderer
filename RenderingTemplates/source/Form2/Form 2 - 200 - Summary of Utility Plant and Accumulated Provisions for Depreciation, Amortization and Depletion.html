@@ -14,7 +14,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl" id="ScheduleSummaryOfUtilityPlantAndAccumulatedProvisionsForDepreciationAmortizationAndDepletionAbstract">
-    <xule:showif>
+    <xule:showIf>
         if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleSummaryOfUtilityPlantAndAccumulatedProvisionsForDepreciationAmortizationAndDepletionAbstract"]).length > 0
                 false
         else
@@ -25,7 +25,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 true
                 else
                         true
-        </xule:showif>
+        </xule:showIf>
     <table class="schedule-header xbrl" width="100%">
         <tr>
             <td class="xbrl">

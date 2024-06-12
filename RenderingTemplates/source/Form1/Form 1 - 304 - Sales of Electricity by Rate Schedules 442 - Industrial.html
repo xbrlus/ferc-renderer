@@ -12,7 +12,7 @@
 
 <body class="xbrl">
      <!-- Determines if the  data schedule should show.  If no  data is reported then the scheduke will not sho and only the default schedule will be shown.-->
-    <xule:showif>if length(set({covered @ferc:IndustrialSalesAxis=*}.dimension(ferc:IndustrialSalesAxis))) > 0
+    <xule:showIf>if length(set({covered @ferc:IndustrialSalesAxis=*}.dimension(ferc:IndustrialSalesAxis))) > 0
         true
         else
             $data = navigate parent-child descendants from ferc:IndustrialSalesAbstract returns list (target-name);
@@ -20,7 +20,7 @@
                 true
             else
                 false
-     </xule:showif>
+     </xule:showIf>
     
     <table class="schedule-header xbrl" width="100%">
         <tr>

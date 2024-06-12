@@ -7,6 +7,19 @@
 	"settings": {
 		"cSpell.words": [
 			"ferc"
-		]
-	}
+		],
+		"xmlTools.xqueryExecutionArguments": [
+
+			"-xquery",
+			"$(script)",
+			"-in",
+			"$(input)",
+			"-out",
+			"$(input).output.xml"
+		],
+		"files.associations": {
+        "*.xml": "xml"
+    }
+	},
+	
 }

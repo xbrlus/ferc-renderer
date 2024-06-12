@@ -14,12 +14,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl" id="ScheduleOtherGasRevenuesAbstract">
-    <xule:showif>
+    <xule:showIf>
         if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleOtherGasRevenuesAbstract"]).length > 0
                 false
         else
                 true
-    </xule:showif>
+    </xule:showIf>
     <table class="schedule-header xbrl" width="100%">
         <tr>
             <td class="xbrl">
@@ -141,10 +141,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         </tr>
 
         <tr class="schedule-row" xule:repeat="OtherGasRevenuesLineItems">
-                <xule:expression class="hide" name="OtherGasRevenuesLineItems"><![CDATA[
+                <xule:expression class="hide" name="OtherGasRevenuesLineItems">
     $data = navigate parent-child descendants from ferc:OtherGasRevenuesLineItems role "http://ferc.gov/form/2020-01-01/roles/Schedule/F2/OtherGasRevenues" returns list (target-name, preferred-label, result-order);
     $data-labels = list(for $row in $data
-            if $row[3]  < 11
+            if $row[3] &lt; 11
 
                 $concept = taxonomy().concept($row[1]);
                 $row_num = (filter $concept.references("http://ferc.gov/form/2020-01-01/roles/reference/formLocation") where ($item.part-by-name(ferc-part:Schedule).part-value == "308 - Schedule - Other Gas Revenues (Account 495)" and $item.part-by-name(ferc-part:ValueType).part-value.string == "Label")).to-list;
@@ -162,7 +162,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             );
                     
     for $rowl in $data-labels
-    ]]>
+    
                 </xule:expression>
 
             <td class="xbrl line-number"><xule:lineNumber name="OtherGasRevenuesLineItems"/>
@@ -219,7 +219,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             $data = if count(list({covered @ferc:OtherGasRevenuesAxis=*})) > 0 
             
                 list( {covered @ferc:OtherGasRevenuesAxis=*  {list(
-                    if exists(@ferc:OrderNumber @unit=* @period=$currentDuration) 
+                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,

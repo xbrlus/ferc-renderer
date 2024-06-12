@@ -5,7 +5,9 @@ xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
 xmlns:ferc="http://ferc.gov/form/2024-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
->
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd
+                    http://xbrl.us/xendr/2.0/template /Users/campbellpryde/Documents/GitHub/ferc-renderer/RenderingTemplates/source/Form1/xendr.xsd">
 
 <head>
     <title>Template - F1/F1F - 429</title>
@@ -216,7 +218,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             </td>
             <td class="xbrl description_items"><xule:replace><xule:expression  class="hide"  name="Transactions" fact="true" part="2">$row[2]</xule:expression></xule:replace>
                 <xule:template-display>
-                        Customer &amp; Market Services    
+                        Customer & Market Services    
                 </xule:template-display>
             </td>
             <td class="description_items xbrl"><xule:replace><xule:expression class="hide"  name="Transactions" fact="true" part="3">$row[3]</xule:expression></xule:replace>

@@ -14,12 +14,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl" id="ScheduleChargesForOutsideProfessionalAndOtherConsultativeServicesAbstract">
-    <xule:showif>
+    <xule:showIf>
         if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleChargesForOutsideProfessionalAndOtherConsultativeServicesAbstract"]).length > 0
                 false
         else
                 true
-    </xule:showif>
+    </xule:showIf>
         <table class="schedule-header xbrl" width="100%">
                 <tr>
                     <td class="xbrl">

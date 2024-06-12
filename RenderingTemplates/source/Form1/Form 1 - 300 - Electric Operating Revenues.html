@@ -15,13 +15,13 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl" id="ScheduleElectricOperatingRevenuesAbstract">
-    <xule:showif>if set('1-F').contains([covered @concept.local-name ='FormType']) 
+    <xule:showIf>if set('1-F').contains([covered @concept.local-name ='FormType']) 
         if first(list([covered @ferc:ElectricSalesDataMajorNonmajor])) == "Major"
             true
         else
             false
      else
-        true</xule:showif>
+        true</xule:showIf>
 
   
     <table class="schedule-header xbrl" width="100%">

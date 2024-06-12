@@ -13,15 +13,18 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
     <link rel="stylesheet" type="text/css" href="form-template.css"/>
     
 </head>
+<xule:global>constant $footnoteFacts = list() </xule:global>
 
 <body class="xbrl">
+    
     <div id="ScheduleComparativeBalanceSheetF1FAbstract"></div>    
-    <xule:showif>
+    <xule:showIf>
             if first(list([covered @ferc:ComparativeBalanceSheetMajorNonmajor])) == "Major"
                 false
             else
                 true
-    </xule:showif>
+    </xule:showIf>
+    <xendr:footnoteFacts group="1">
     <table class="ident-table xbrl" width="100%">
         <tr>
             <td class="xbrl">
@@ -193,6 +196,33 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                     
         </tr>
     </table>
+</xendr:footnoteFacts>
+    <table>
+        <tr>FOOTNOTES</tr>
+        <tr xule:repeat="ft1">
+          <xule:footnotes name="ft1" groups="1">
+            <xule:expression class="hide" name="ft1">
+              for $fact in $footnoteFacts
+                  for $footnote in $fact.footnotes
+            </xule:expression>
+            <td>
+               <xule:footnoteNumber name="ft1" footnote-style="roman"/>
+            </td>
+            <td>
+               <xule:footnote name="ft1">$footnote</xule:footnote>
+            </td> 
+            <td>
+              <xule:replace>
+                <xule:expression name="ft1" part="1">
+                   $footnote.lang
+                </xule:expression>
+              </xule:replace>        
+            </td>
+          </xule:footnotes> 
+        </tr>
+        </table>
+        
+        
     <br/>
         <div class="schedule-footer">
             <div>FERC FORM No.

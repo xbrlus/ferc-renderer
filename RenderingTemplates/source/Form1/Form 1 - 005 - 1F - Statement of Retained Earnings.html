@@ -15,12 +15,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 <body class="xbrl">
     <div id="ScheduleRetainedEarningsF1FAbstract"></div>
-    <xule:showif>
+    <xule:showIf>
             if first(list([covered @ferc:StatementOfRetainedEarningsMajorNonmajor])) == "Major"
                 false
             else
                 true
-    </xule:showif>
+    </xule:showIf>
     <table class="schedule-header xbrl" width="100%">
         <tr>
             <td class="xbrl">

@@ -14,12 +14,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl" id="ScheduleCorporationsControlledByRespondentAbstract">
-    <xule:showif>
+    <xule:showIf>
         if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleCorporationsControlledByRespondentAbstract"]).length > 0
                 false
         else
                 true
-    </xule:showif>
+    </xule:showIf>
     <table class="schedule-header xbrl" width="100%">
             <tr>
                 <td class="xbrl">
@@ -178,7 +178,7 @@ agreement or understanding between two or more parties who together have control
             $data = if count(list({covered @ferc:CorporationsControlledByRespondentAxis=*})) > 0 
             
                 list( {covered @ferc:CorporationsControlledByRespondentAxis=*  {list(
-                    if exists(@ferc:OrderNumber @unit=* @period=$currentDuration) 
+                    if exists({@ferc:OrderNumber @unit=* @period=$currentDuration}) 
                         first(list({@ferc:OrderNumber @unit=* @period=$currentDuration}))
                     else
                         0,

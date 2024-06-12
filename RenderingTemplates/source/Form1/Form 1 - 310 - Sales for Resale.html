@@ -11,14 +11,14 @@
 </head>
 
 <body class="xbrl"  id="ScheduleSalesForResaleAbstract">
-    <xule:showif>if ([covered @concept.local-name = "FormType"]) == '1-F'
+    <xule:showIf>if ([covered @concept.local-name = "FormType"]) == '1-F'
                     if first(list([covered @ferc:SalesForResaleMajorNonmajor])) == "Major"
                         true
                     else
                         false
                 else
                     true
-    </xule:showif>
+    </xule:showIf>
 
     <table class="schedule-header xbrl" width="100%">
         <tr>

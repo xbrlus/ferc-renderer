@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:html="http://www.w3.org/1999/xhtml"
+           xmlns:xendr="http://xbrl.us/xendr/2.0/template"
+           targetNamespace="http://xbrl.us/xendr/2.0/template"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+  <!-- Import XHTML schema -->
+  <xs:import namespace="http://www.w3.org/1999/xhtml"
+             schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd"/>
+
+  <!-- Define custom attributes -->
+  <xs:attribute name="repeatWithin" type="xs:string"/>
+  <xs:attribute name="repeat" type="xs:string"/>
+
+  <!-- Define custom elements in the xendr namespace -->
+  <xs:element name="startNumber" type="xs:string"/>
+  <xs:element name="template-display" type="xs:string"/>
+  <xs:element name="class" type="xs:string"/>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="fact" type="xs:string"/>
+  <xs:element name="part" type="xs:string"/>
+  <xs:element name="format" type="xs:string"/>
+  <xs:element name="scale" type="xs:string"/>
+  <xs:element name="sign" type="xs:string"/>
+  <xs:element name="global" type="xs:string"/>
+  <xs:element name="showIf" type="xs:string"/>
+  <xs:element name="attribute" type="xs:string"/>
+  <xs:element name="footnotes" type="xs:string"/>
+  <xs:element name="footnoteFacts" type="xs:string"/>
+
+  <!-- Define custom elements in the xendr namespace with attributes -->
+  <xs:complexType name="expressionType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute ref="xendr:class"/>
+        <xs:attribute ref="xendr:name"/>
+        <xs:attribute ref="xendr:fact"/>
+        <xs:attribute ref="xendr:part"/>
+        <xs:attribute ref="xendr:format"/>
+        <xs:attribute ref="xendr:scale"/>
+        <xs:attribute ref="xendr:sign"/>
+        <xs:attribute ref="html:name" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- Define xendr:replace to include the specified children -->
+  <xs:complexType name="replaceType">
+    <xs:sequence>
+      <xs:element name="template-display" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="class" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="fact" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="part" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="format" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="scale" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="sign" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="expression" type="xendr:expressionType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="lineNumberType">
+    <xs:sequence>
+      <xs:element name="startNumber" type="xs:string" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="expression" type="xendr:expressionType"/>
+  <xs:element name="replace" type="xendr:replaceType"/>
+  <xs:element name="lineNumber" type="xendr:lineNumberType"/>
+
+  <!-- Define a custom complex type for the xhtml:tr element with the xendr:repeat attribute -->
+  <xs:complexType name="customTrType">
+    <xs:complexContent>
+      <xs:extension base="html:tr.type">
+        <xs:attribute ref="xendr:repeat"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- Define a custom complex type for the xhtml:td element with conditional attributes -->
+  <xs:complexType name="customTdType">
+    <xs:complexContent>
+      <xs:extension base="html:td.type">
+        <xs:attributeGroup ref="xendr:conditionalRepeatGroup"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- Define an attribute group with conditional inclusion -->
+  <xs:attributeGroup name="conditionalRepeatGroup">
+    <xs:attribute name="repeatWithin" type="xs:string" use="optional"/>
+    <xs:attribute name="repeat" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Must be used only when repeatWithin is also present.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+  <!-- Override the xhtml:tr element to use the custom complex type -->
+  <xs:element name="tr" type="xendr:customTrType" substitutionGroup="html:tr"/>
+  
+  <!-- Override the xhtml:td element to use the custom complex type -->
+  <xs:element name="td" type="xendr:customTdType" substitutionGroup="html:td"/>
+
+  <!-- Optionally, you can define complex types for any custom structure -->
+  <!-- Example of extending existing XHTML element with custom elements -->
+  <xs:complexType name="customDivType">
+    <xs:complexContent>
+      <xs:extension base="html:div.type">
+        <xs:sequence>
+          <xs:element ref="html:h1" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="xendr:expression" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="xendr:replace" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="xendr:template-display" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="xendr:class" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="xendr:lineNumber" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="xendr:startNumber" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="xendr:global" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="xendr:showIf" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="xendr:attribute" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="xendr:footnotes" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="xendr:footnoteFacts" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- Extend XHTML root element to include custom elements -->
+  <xs:element name="html" type="html:html.type">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="html:html.type">
+          <xs:sequence>
+            <xs:element ref="html:head" minOccurs="0" maxOccurs="1"/>
+            <xs:element ref="html:body" minOccurs="1" maxOccurs="1"/>
+            <xs:element ref="xendr:expression" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="xendr:replace" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="xendr:template-display" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="xendr:class" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="xendr:lineNumber" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="xendr:startNumber" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="xendr:global" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="xendr:showIf" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="xendr:attribute" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="xendr:footnotes" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="xendr:footnoteFacts" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

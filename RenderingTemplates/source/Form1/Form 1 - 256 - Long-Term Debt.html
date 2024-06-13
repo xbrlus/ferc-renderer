@@ -14,6 +14,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl" id="ScheduleLongTermDebtAbstract">
+    <xule:footnoteFacts group="1">
     <table class="schedule-header xbrl" width="100%">
             <tr>
                 <td class="xbrl">
@@ -35,9 +36,9 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         (1) 
                     <xule:replace>
                             <xule:expression html="true" class="hide"> if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) "<![CDATA[
-                        '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" "<![CDATA[
-                        '<span class=\"checkbox\">&#9745;</span> A Resubmission']]>" else "<![CDATA[
-                        '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>"
+                        <span class=\"checkbox\">&#9744;</span> An Original]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" "<![CDATA[
+                        <span class=\"checkbox\">&#9745;</span> An Original]]>" else "<![CDATA[
+                        <span class=\"checkbox\">&#9744;</span> An Original]]>"
                             </xule:expression>  
                         <xule:template-display>
                                 <input type="checkbox"/> An Original
@@ -47,9 +48,9 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         (2)
                     <xule:replace>
                             <xule:expression html="true" class="hide"> if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) "<![CDATA[
-                        '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" "<![CDATA[
-                        '<span class=\"checkbox\">&#9745;</span> A Resubmission']]>" else "<![CDATA[
-                        '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>"
+                        <span class=\"checkbox\">&#9744;</span> A Resubmission]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" "<![CDATA[
+                        <span class=\"checkbox\">&#9745;</span> A Resubmission]]>" else "<![CDATA[
+                        <span class=\"checkbox\">&#9744;</span> A Resubmission]]>"
                             </xule:expression> 
                             <xule:template-display>
                                     <input type="checkbox" checked = "checked"/> A Resubmission
@@ -1645,6 +1646,31 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             </tr> 
     </table>
     <br/>
+</xule:footnoteFacts>
+    <table>
+        <tr>FOOTNOTES</tr>
+        <tr xule:repeat="ft1">
+          <xule:footnotes name="ft1" groups="2">
+            <xule:expression class="hide" name="ft1">
+              for $fact in $footnoteFacts
+                  for $footnote in $fact.footnotes
+            </xule:expression>
+            <td>
+               <xule:footnoteNumber name="ft1" footnote-style="roman"/>
+            </td>
+            <td>
+               <xule:footnote name="ft1">$footnote</xule:footnote>
+            </td> 
+            <td>
+              <xule:replace>
+                <xule:expression name="ft1" part="1">
+                   $footnote.lang
+                </xule:expression>
+              </xule:replace>        
+            </td>
+          </xule:footnotes> 
+        </tr>
+        </table>
 <div class="schedule-footer">
     <div>FERC FORM No. 
             <xule:replace>

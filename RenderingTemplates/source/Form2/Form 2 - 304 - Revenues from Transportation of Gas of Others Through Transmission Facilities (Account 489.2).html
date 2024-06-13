@@ -41,9 +41,9 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         (1) 
                             <xule:replace>
                                     <xule:expression html="true" class="hide"> if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) "<![CDATA[
-                        '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" "<![CDATA[
-                        '<span class=\"checkbox\">&#9745;</span> A Resubmission']]>" else "<![CDATA[
-                        '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>"
+                        <span class=\"checkbox\">&#9744;</span> An Original]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" "<![CDATA[
+                                            <span class=\"checkbox\">&#9745;</span> An Original]]>" else "<![CDATA[
+                                            <span class=\"checkbox\">&#9744;</span> An Original]]>"
                             </xule:expression> 
                                 <xule:template-display>
                                         <input type="checkbox"/> An Original

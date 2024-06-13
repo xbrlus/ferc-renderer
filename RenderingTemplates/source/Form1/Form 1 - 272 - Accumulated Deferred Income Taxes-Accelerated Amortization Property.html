@@ -37,9 +37,9 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     (1) 
                         <xule:replace>
                                 <xule:expression html="true" class="hide"> if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) "<![CDATA[
-                        '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" "<![CDATA[
-                        '<span class=\"checkbox\">&#9745;</span> A Resubmission']]>" else "<![CDATA[
-                        '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>"
+                        <span class=\"checkbox\">&#9744;</span> An Original]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" "<![CDATA[
+                                            <span class=\"checkbox\">&#9745;</span> An Original]]>" else "<![CDATA[
+                                            <span class=\"checkbox\">&#9744;</span> An Original]]>"
                             </xule:expression>  
                             <xule:template-display>
                                     <input type="checkbox"/> An Original
@@ -49,9 +49,9 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     (2)
                         <xule:replace>
                                 <xule:expression html="true" class="hide"> if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) "<![CDATA[
-                        '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" "<![CDATA[
-                        '<span class=\"checkbox\">&#9745;</span> A Resubmission']]>" else "<![CDATA[
-                        '<span class=\"checkbox\">&#9744;</span> A Resubmission']]>"
+                        <span class=\"checkbox\">&#9744;</span> A Resubmission]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" "<![CDATA[
+                        <span class=\"checkbox\">&#9745;</span> A Resubmission]]>" else "<![CDATA[
+                        <span class=\"checkbox\">&#9744;</span> A Resubmission]]>"
                             </xule:expression> 
                                 <xule:template-display>
                                         <input type="checkbox" checked = "checked"/> A Resubmission
@@ -235,7 +235,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                                                                 "";
                                                 
                                                 $NoData = list(for $i in range(2)
-                                                                            list($i, $row_number,'Other', None, None, None, None, None, None, None, None, None, None)
+                                                                            list($i, $row_number,'Other', none, none, none, none, none, none, none, none, none, none)
                                                                     );
                                                     
                                                 $data1 = if count(list({covered @ferc:UtilityTypeAxis=* where $fact.dimension($axis) != none})) > 0  
@@ -347,9 +347,9 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                         );
 
                             /** IF ADD ROW NUMBERS THEN THIS HEADING ROW NEEDS TO BE UPDATED -  SEE 1st ITEM IN THE LISTS **/
-                            $Heading_Numbers = list(list(9,"Gas", None, None, None, None, None, None, None, None, None, None, true),
-                                                    list(2,"Electric", None, None, None, None, None, None, None, None, None, None, true),
-                                                    list(1,"Accelerated Amortization (Account 281)", None, None, None, None, None, None, None, None, None, None, true)
+                            $Heading_Numbers = list(list(9,"Gas", none, none, none, none, none, none, none, none, none, none, true),
+                                                    list(2,"Electric", none, none, none, none, none, none, none, none, none, none, true),
+                                                    list(1,"Accelerated Amortization (Account 281)", none, none, none, none, none, none, none, none, none, none, true)
                                                     );
                             
                             if $abstractLabel[1] == 17

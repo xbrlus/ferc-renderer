@@ -67,7 +67,7 @@ else
  + {@CoolantsAndWater @@PlantNameAxis=*} 
  + {@SteamExpensesSteamPowerGeneration @@PlantNameAxis=*} 
  + {@SteamFromOtherSources @@PlantNameAxis=*} 
- + {@SteamTransferredCredit @@PlantNameAxis=*} 
+ - {@SteamTransferredCredit @@PlantNameAxis=*} 
  + {@ElectricExpensesSteamPowerGeneration @@PlantNameAxis=*} 
  + {@MiscellaneousSteamPowerExpenses @@PlantNameAxis=*}
  + {@RentsSteamPowerGeneration @@PlantNameAxis=*}

@@ -239,7 +239,7 @@ $rule_id = rule-name();
 
 $fact1 = {@concept not in list(OrderNumber)};
 
-$PeriodRefs = $associatedRefs[$fact1.concept]
+$PeriodRefs = $associatedRefs[$fact1.concept];
 
 $valueToReport = if $fact1.concept.data-type.name == nonnum:textBlockItemType
 					"a text block string"
@@ -289,9 +289,9 @@ assert F6.all.13 satisfied
 $rule_id = rule-name();
 
 
-$fact1 = {@concept not in list(VendorName, LegalEntityIdentifier)};
+$fact1 = {@concept not in list(OrderNumber, VendorName, LegalEntityIdentifier)};
 
-$PeriodRefs = $associatedRefs[$fact1.concept]
+$PeriodRefs = $associatedRefs[$fact1.concept];
 
 $valueToReport = if $fact1.concept.data-type.name == xbrli:stringItemType
 					"a text block string"

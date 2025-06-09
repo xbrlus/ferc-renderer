@@ -113,10 +113,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                 </td>
                 <td class= "xbrl" colspan="2">
                         <xule:replace>
-                                <xule:expression html="true" class="hide">if missing({covered @concept=ferc:UsesFormulaRates}) <![CDATA[
-                                '<span class="checkbox">&#9744;</span> Yes']]> else if [@concept=ferc:UsesFormulaRates] == true<![CDATA[
-                                '<span class="checkbox">&#9745;</span> Yes']]> else <![CDATA[
-                                '<span class="checkbox">&#9744;</span> Yes']]>
+                                <xule:expression html="true" class="hide">if missing({covered @concept=ferc:UsesFormulaRates}) "<![CDATA[
+                                <span class=\"checkbox\">&#9744;</span> Yes]]>" else if [@concept=ferc:UsesFormulaRates] == true "<![CDATA[
+                                <span class=\"checkbox\">&#9745;</span> Yes]]>" else "<![CDATA[
+                                <span class=\"checkbox\">&#9744;</span> Yes]]>"
                                 </xule:expression>  
                                 
                                 <xule:template-display>
@@ -125,10 +125,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             </xule:replace>
                             <p></p>
                             <xule:replace>
-                                <xule:expression html="true" class="hide">if missing({covered @concept=ferc:UsesFormulaRates}) <![CDATA[
-                                '<span class="checkbox">&#9744;</span> No']]> else if [@concept=ferc:UsesFormulaRates] == false<![CDATA[
-                                '<span class="checkbox">&#9745;</span> No']]> else <![CDATA[
-                                '<span class="checkbox">&#9744;</span> No']]>
+                                <xule:expression html="true" class="hide">if missing({covered @concept=ferc:UsesFormulaRates}) "<![CDATA[
+                                <span class=\"checkbox\">&#9744;</span> No]]>" else if [@concept=ferc:UsesFormulaRates] == false "<![CDATA[
+                                <span class=\"checkbox\">&#9745;</span> No]]>" else" <![CDATA[
+                                <span class=\"checkbox\">&#9744;</span> No]]>"
                                     </xule:expression> 
                                     <xule:template-display>
                                             <input type="checkbox" checked = "checked"/> No

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-    xmlns:xule="http://xbrl.us/xule/2.0/template"
+    xmlns:xule="http://xbrl.us/xendr/2.0/template"
     xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
     xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-    xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc" 
+    xmlns:ferc="http://ferc.gov/form/2025-04-01/ferc" 
     xmlns:ferc-part="http://www.ferc.gov/form/parts">
 
 <head>
@@ -41,14 +41,14 @@
                 (1)
                 <xule:replace>
                     <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType})
-                        <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> An Original']]> else if
+                        "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> An Original]]>" else if
                         [@concept=ferc:SubmissionType @period=$currentDuration] == "O"
-                        <![CDATA[
-                                        '<span class="checkbox">&#9745;</span> An Original']]>
+                        "<![CDATA[
+                                        <span class=\"checkbox\">&#9745;</span> An Original]]>"
                         else
-                        <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> An Original']]>
+                        "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> An Original]]>"
                     </xule:expression>
                     <xule:template-display>
                         <input type="checkbox" /> An Original
@@ -59,14 +59,14 @@
                 <xule:replace>
                     <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType
                         @period=$currentDuration])
-                        <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> A Resubmission']]> else if
+                        "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> A Resubmission]]>" else if
                         [@concept=ferc:SubmissionType @period=$currentDuration] == "R"
-                        <![CDATA[
-                                        '<span class="checkbox">&#9745;</span> A Resubmission']]>
+                        "<![CDATA[
+                                        <span class=\"checkbox\">&#9745;</span> A Resubmission]]>"
                         else
-                        <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                        "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> A Resubmission]]>"
                     </xule:expression>
                     <xule:template-display>
                         <input type="checkbox" checked="true" /> A Resubmission
@@ -391,6 +391,138 @@
                 </td>
         </tr>
         <tr>
+            <td class="xbrl line-number">6.1</td>
+            <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:SolarGeneration).label("http://ferc.gov/form/2020-01-01/roles/label/F1ElectricEnergyAccount").text
+                        </xule:expression>
+                        <xule:template-display>
+                            Solar
+                        </xule:template-display>
+                    </xule:replace>
+                </td>
+                <td class="xbrl numeric_items">
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                            first(list([@ferc:SolarGeneration @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            7,878,145
+                        </xule:template-display>
+                    </xule:replace>
+                </td>
+                <td class="xbrl line-number">27</td>
+                <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:EnergyLosses).label("http://ferc.gov/form/2020-01-01/roles/label/F1ElectricEnergyAccount").text
+                        </xule:expression>
+                        <xule:template-display>
+                            Total Energy Losses
+                        </xule:template-display>
+                    </xule:replace>
+                </td>
+            <td class="xbrl numeric_items">
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([@ferc:EnergyLosses @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        1,112,549
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+       </tr>
+       <tr>
+        <td class="xbrl line-number">6.2</td>
+        <td class="xbrl description_items">
+                <xule:replace>
+                    <xule:expression class="hide">
+                        taxonomy().concept(ferc:WindGeneration).label("http://ferc.gov/form/2020-01-01/roles/label/F1ElectricEnergyAccount").text
+                    </xule:expression>
+                    <xule:template-display>
+                        Wind
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl numeric_items">
+                <xule:replace>
+                    <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                        first(list([@ferc:WindGeneration @period = $currentDuration]))
+                    </xule:expression>
+                    <xule:template-display>
+                        7,878,145
+                    </xule:template-display>
+                </xule:replace>
+            </td>
+            <td class="xbrl line-number">27.1</td>
+                <td class="xbrl description_items">
+                        <xule:replace>
+                            <xule:expression class="hide">
+                                taxonomy().concept(ferc:EnergyStored).label("http://ferc.gov/form/2020-01-01/roles/label/F1ElectricEnergyAccount").text
+                            </xule:expression>
+                            <xule:template-display>
+                                Total Energy Stored
+                            </xule:template-display>
+                        </xule:replace>
+                    </td>
+                <td class="xbrl numeric_items">
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                            first(list([@ferc:EnergyStored @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            92,816,371
+                        </xule:template-display>
+                    </xule:replace>
+                </td>
+        </tr>
+        <tr>
+            <td class="xbrl line-number">6.3</td>
+            <td class="xbrl description_items">
+                    <xule:replace>
+                        <xule:expression class="hide">
+                            taxonomy().concept(ferc:OtherRenewableGeneration).label("http://ferc.gov/form/2020-01-01/roles/label/F1ElectricEnergyAccount").text
+                        </xule:expression>
+                        <xule:template-display>
+                            Other Renewable
+                        </xule:template-display>
+                    </xule:replace>
+                </td>
+                <td class="xbrl numeric_items">
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                            first(list([@ferc:OtherRenewableGeneration @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            7,878,145
+                        </xule:template-display>
+                    </xule:replace>
+                </td>
+                <td class="xbrl line-number">28</td>
+                <td class="xbrl description_items">
+                        <xule:replace>
+                            <xule:expression class="hide">
+                                taxonomy().concept(ferc:DispositionOfEnergy).label("http://ferc.gov/form/2020-01-01/roles/label/F1Total2").text
+                            </xule:expression>
+                            <xule:template-display>
+                                TOTAL (Enter Total of Lines 22 Through 29) (MUST EQUAL LINE 20)
+                            </xule:template-display>
+                        </xule:replace>
+                    </td>
+                <td class="xbrl numeric_items">
+                    <xule:replace>
+                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
+                            first(list([@ferc:DispositionOfEnergy @period = $currentDuration]))
+                        </xule:expression>
+                        <xule:template-display>
+                            92,816,371
+                        </xule:template-display>
+                    </xule:replace>
+                </td>
+        </tr>
+        <tr>
             <td class="xbrl line-number">7</td>
             <td class="xbrl description_items">
                     <xule:replace>
@@ -409,27 +541,6 @@
                         </xule:expression>
                         <xule:template-display>
                             3,222,735
-                        </xule:template-display>
-                    </xule:replace>
-                </td>
-                <td class="xbrl line-number">27</td>
-                <td class="xbrl description_items">
-                        <xule:replace>
-                            <xule:expression class="hide">
-                                taxonomy().concept(ferc:EnergyLosses).label("http://ferc.gov/form/2020-01-01/roles/label/F1ElectricEnergyAccount").text
-                            </xule:expression>
-                            <xule:template-display>
-                                Total Energy Losses
-                            </xule:template-display>
-                        </xule:replace>
-                    </td>
-                <td class="xbrl numeric_items">
-                    <xule:replace>
-                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
-                            first(list([@ferc:EnergyLosses @period = $currentDuration]))
-                        </xule:expression>
-                        <xule:template-display>
-                            1,112,549
                         </xule:template-display>
                     </xule:replace>
                 </td>
@@ -456,27 +567,6 @@
                         </xule:template-display>
                     </xule:replace>
                 </td>
-                <td class="xbrl line-number">27.1</td>
-                <td class="xbrl description_items">
-                        <xule:replace>
-                            <xule:expression class="hide">
-                                taxonomy().concept(ferc:EnergyStored).label("http://ferc.gov/form/2020-01-01/roles/label/F1ElectricEnergyAccount").text
-                            </xule:expression>
-                            <xule:template-display>
-                                Total Energy Stored
-                            </xule:template-display>
-                        </xule:replace>
-                    </td>
-                <td class="xbrl numeric_items">
-                    <xule:replace>
-                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
-                            first(list([@ferc:EnergyStored @period = $currentDuration]))
-                        </xule:expression>
-                        <xule:template-display>
-                            92,816,371
-                        </xule:template-display>
-                    </xule:replace>
-                </td>
         </tr>
         <tr>
             <td class="xbrl line-number">9</td>
@@ -497,27 +587,6 @@
                         </xule:expression>
                         <xule:template-display>
                             32,899,173
-                        </xule:template-display>
-                    </xule:replace>
-                </td>
-                <td class="xbrl line-number">28</td>
-                <td class="xbrl description_items">
-                        <xule:replace>
-                            <xule:expression class="hide">
-                                taxonomy().concept(ferc:DispositionOfEnergy).label("http://ferc.gov/form/2020-01-01/roles/label/F1Total2").text
-                            </xule:expression>
-                            <xule:template-display>
-                                TOTAL (Enter Total of Lines 22 Through 29) (MUST EQUAL LINE 20)
-                            </xule:template-display>
-                        </xule:replace>
-                    </td>
-                <td class="xbrl numeric_items">
-                    <xule:replace>
-                        <xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal">
-                            first(list([@ferc:DispositionOfEnergy @period = $currentDuration]))
-                        </xule:expression>
-                        <xule:template-display>
-                            92,816,371
                         </xule:template-display>
                     </xule:replace>
                 </td>

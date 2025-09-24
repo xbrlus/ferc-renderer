@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:xule="http://xbrl.us/xendr/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2025-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -36,10 +36,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             
                             (1) 
                                 <xule:replace>
-                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
-                                        '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> An Original']]>
+                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> An Original]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" "<![CDATA[
+                                        <span class=\"checkbox\">&#9745;</span> An Original]]>" else "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> An Original]]>"
                                         </xule:expression>  
                                     <xule:template-display>
                                             <input type="checkbox"/> An Original
@@ -48,10 +48,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 
                             (2)
                                 <xule:replace>
-                                        <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
-                                        '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                        <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> A Resubmission]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" "<![CDATA[
+                                        <span class=\"checkbox\">&#9745;</span> A Resubmission]]>" else "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> A Resubmission]]>"
                                             </xule:expression> 
                                         <xule:template-display>
                                                 <input type="checkbox" checked = "checked"/> A Resubmission
@@ -107,37 +107,62 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <ol>
                             <li>Describe and show below costs incurred and accounts charged during the year for technological research, development, and demonstration (R, D and D) project initiated, continued or concluded during the year.  Report also support given to others during the year for jointly-sponsored projects.(Identify recipient regardless of affiliation.) For any R, D and D work carried with others, show separately the respondent's cost for the year and cost chargeable to others (See definition of research, development, and demonstration in Uniform System of Accounts).</li>
                             <li>Indicate in column (a) the applicable classification, as shown below:
-                            <br>Classifications:</br>
-                            <br>A.  Electric R, D and D Performed Internally:</br>                        
-                            <br>(1) Generation</br>
-                            <br>a.  hydroelectric</br>
-                            <br>i. Recreation fish and wildlife</br>
-                            <br>ii Other hydroelectric</br>
-                            <br>b.  Fossil-fuel steam</br>
-                            <br>c.  Internal combustion or gas turbine</br>
-                            <br>d.  Nuclear</br>
-                            <br>e.  Unconventional generation</br>
-                            <br>f.  Siting and heat rejection</br>
-                            <br>(2) Transmission</br>
-                            <br>a.  Overhead</br>
-                            <br>b.  Underground</br>
-                            <br>(3) Distribution</br>
-                            <br>(4) Regional Transmission and Market Operation</br>
-                            <br>(5) Environment (other than equipment)</br>
-                            <br>(6) Other (Classify and include items in excess of $50,000.)</br>
-                            <br>(7) Total Cost Incurred</br>
-                            <br>B.  Electric, R, D and D Performed Externally:</br>
-                            <br>(1) Research Support to the electrical Research Council or the Electric Power Research Institute</br>
-                            <br>(2) Research Support to Edison Electric Institute</br>
-                            <br>(3) Research Support to Nuclear Power Groups</br>
-                            <br>(4) Research Support to Others (Classify)</br>
-                            <br>(5) Total Cost Incurred</br></li>
-                            <li>Include in column (c) all R, D and D items performed internally and in column (d) those items performed outside the company costing $50,000 or more, briefly describing the specific area of R, D and D (such as safety, corrosion control, pollution, automation, measurement, insulation, type of appliance, etc.). Group items under $50,000 by classifications and indicate the number of items grouped.  Under Other, (A (6) and B (4)) classify items by type of R, D and  D activity.</li>
-                            <li>Show in column (e) the account number charged with expenses during the year or the account to which amounts were capitalized during the year, listing Account 107, Construction Work in Progress, first.  Show in column (f) the amounts related to the account charged in column (e).</li>
-                            <li>Show in column (g) the total unamortized accumulating of costs of projects.  This total must equal the balance in Account 188, Research, Development, and Demonstration Expenditures, Outstanding at the end of the year.</li>
-                            <li>If costs have not been segregated for R, D and D activities or projects, submit estimates for columns (c), (d), and (f) with such amounts identified by "Est."</li>
-                            <li>Report separately research and related testing facilities operated by the respondent.</li>
-                        </ol>
+                                <br/>
+                                Classifications:<br/>
+                                <div class="two_column">
+                                <ol class="upper-alpha">
+                                        <li>Electric R, D and D Performed Internally:                       
+                                            <ol class="number">
+                                                <li>Generation
+                                                    <ol class="lower-alpha">
+                                                        <li>hydroelectric
+                                                                <ol class="lower-roman">
+                                                                <li>Recreation fish and wildlife</li>
+                                                                <li>Other hydroelectric</li>
+                                                                </ol>
+                                                        </li>
+                                                        <li>Fossil-fuel steam</li>
+                                                        <li>Internal combustion or gas turbine</li>
+                                                        <li>Nuclear</li>
+                                                        <li>Solar</li>
+                                                        <li>Wind</li>
+                                                        <li>Other renewable</li>
+                                                        <li>Unconventional generation</li>
+                                                        <li>Siting and heat rejection</li>
+                                                    </ol>
+                                                </li>
+                                                <li>Transmission
+                                                    <ol class="lower-alpha">
+                                                        <li>Overhead</li>
+                                                        <li>Underground</li>
+                                                    </ol>
+                                                </li>
+                                                <li>Distribution</li>
+                                                <li>Regional Transmission and Market Operation</li>
+                                                <li>Energy Storage</li>
+                                                <li>Environment (other than equipment)</li>
+                                                <li>Other (Classify and include items in excess of $50,000.)</li>
+                                                <li>Total Cost Incurred</li>
+                                            </ol>
+                                        </li>
+                                        <li>Electric, R, D and D Performed Externally:
+                                            <ol class="number">
+                                                <li>Research Support to the electrical Research Council or the Electric Power Research Institute</li>
+                                                <li>Research Support to Edison Electric Institute</li>
+                                                <li>Research Support to Nuclear Power Groups</li>
+                                                <li>Research Support to Others (Classify)</li>
+                                                <li>Total Cost Incurred</li>
+                                            </ol>
+                                        </li>
+                                        </ol>
+                                        </div></li>
+                                    <li>Include in column (c) all R, D and D items performed internally and in column (d) those items performed outside the company costing $50,000 or more, briefly describing the specific area of R, D and D (such as safety, corrosion control, pollution, automation, measurement, insulation, type of appliance, etc.). Group items under $50,000 by classifications and indicate the number of items grouped.  Under Other, (A (6) and B (4)) classify items by type of R, D and  D activity.</li>
+                                    <li>Show in column (e) the account number charged with expenses during the year or the account to which amounts were capitalized during the year, listing Account 107, Construction Work in Progress, first.  Show in column (f) the amounts related to the account charged in column (e).</li>
+                                    <li>Show in column (g) the total unamortized accumulating of costs of projects.  This total must equal the balance in Account 188, Research, Development, and Demonstration Expenditures, Outstanding at the end of the year.</li>
+                                    <li>If costs have not been segregated for R, D and D activities or projects, submit estimates for columns (c), (d), and (f) with such amounts identified by ""Est.""</li>
+                                    <li>Report separately research and related testing facilities operated by the respondent.</li>
+                        
+                            </ol>
                     </xule:template-display>
                 </xule:replace>
             </td>

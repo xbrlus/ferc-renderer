@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:xule="http://xbrl.us/xendr/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2025-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -36,10 +36,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         
                         (1) 
                     <xule:replace>
-                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
-                            '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
-                            '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
-                            '<span class="checkbox">&#9744;</span> An Original']]>
+                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) "<![CDATA[
+                            <span class=\"checkbox\">&#9744;</span> An Original]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" "<![CDATA[
+                            <span class=\"checkbox\">&#9745;</span> An Original]]>" else "<![CDATA[
+                            <span class=\"checkbox\">&#9744;</span> An Original]]>"
                             </xule:expression>  
                         <xule:template-display>
                                 <input type="checkbox"/> An Original
@@ -48,10 +48,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     
                         (2)
                     <xule:replace>
-                            <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
-                            '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
-                            '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
-                            '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) "<![CDATA[
+                                <span class=\"checkbox\">&#9744;</span> A Resubmission]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" "<![CDATA[
+                                <span class=\"checkbox\">&#9745;</span> A Resubmission]]>" else "<![CDATA[
+                                <span class=\"checkbox\">&#9744;</span> A Resubmission]]>"
                                 </xule:expression> 
                             <xule:template-display>
                                     <input type="checkbox" checked = "checked"/> A Resubmission
@@ -105,16 +105,16 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     </xule:expression>
                     <xule:template-display>
                         <ol>
-                            <li>Report below the particulars (details) called for concerning allowances.</li>
-                            <li>Report all acquisitions of allowances at cost.</li>
-                            <li>Report allowances in accordance with a weighted average cost allocation method and other accounting as prescribed by General Instruction No. 21 in the Uniform System of Accounts.</li>
-                            <li>Report the allowances transactions by the period they are first eligible for use:  the current year’s allowances in columns (b)-(c), allowances for the three succeeding years in columns (d)-(i), starting with the following year, and allowances for the remaining succeeding years in columns (j)-(k).</li>
-                            <li>Report on line 4 the Environmental Protection Agency (EPA) issued allowances.  Report withheld portions Lines 36-40.</li>
-                            <li>Report on Lines 5 allowances returned by the EPA.  Report on Line 39 the EPA’s sales of the withheld allowances.  Report on Lines 43-46 the net sales proceeds and gains/losses resulting from the EPA’s sale or auction of the withheld allowances.</li>
-                            <li>Report on Lines 8-14 the names of vendors/transferors of allowances acquire and identify associated companies (See "associated company" under "Definitions" in the Uniform System of Accounts).</li>
-                            <li>Report on Lines 22 - 27 the name of purchasers/ transferees of allowances disposed of and identify associated companies.</li>
+                            <li>Report below the details related to allowances and environmental credits. Additional information about the type of allowances/environmental credits required by other regulatory bodies can be disclosed within the footnote data.</li>
+                            <li>Report all acquisitions of allowances and environmental credits at cost.</li>
+                            <li>Report allowances and environmental credits in accordance with a weighted average cost allocation method and other accounting as prescribed by General Instruction No. 21 in the Uniform System of Accounts.</li>
+                            <li>Report the allowances and environmental credits transactions by the period they are first eligible for use:  the current year’s allowances and environmental credits in columns (b)-(c), allowances and environmental credits for the three succeeding years in columns (d)-(i), starting with the following year, and allowances and environmental credits for the remaining succeeding years in columns (j)-(k).</li>
+                            <li>Report on Line 4 authoritative agency issued allowances. Report withheld portions Lines 36-40.</li>
+                            <li>Report on Line 5 allowances returned by an authoritative agency.  Report on Line 39 the authoritative agency’s sales of the withheld allowances.  Report on Lines 43-46 the net sales proceeds and gains/losses resulting from the authoritative agency’s sale or auction of the withheld allowances.</li>
+                            <li>Report on Lines 8-14 the names of vendors/transferors of allowances and environmental credits acquired and identify associated companies (See "associated company" under "Definitions" in the Uniform System of Accounts).</li>
+                            <li>Report on Lines 22 - 27 the name of purchasers/ transferees of allowances and environmental credits disposed of and identify associated companies.</li>
                             <li>Report the net costs and benefits of hedging transactions on a separate line under purchases/transfers and sales/transfers.</li>
-                            <li>Report on Lines 32-35 and 43-46 the net sales proceeds and gains or losses from allowance sales.</li>
+                            <li>Report on Lines 32-35 and 43-46 the net sales proceeds and gains or losses from allowance and environmental credits sales.</li>
                         </ol>
                     </xule:template-display>
                 </xule:replace>
@@ -134,7 +134,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             <td class="col-heading xbrl-no-top-line line-number">Line No.</td>
             <td class="col-heading xbrl-no-top-line" xule:repeat="ColumnHeadings">
                     <xule:expression class="hide" name="ColumnHeadings">
-                            $headings = filter (taxonomy().concept(ferc:ScheduleAllowanceInventoryAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "228a - Schedule - Allowances (Accounts 158.1 and 158.2)") 
+                            $headings = filter (taxonomy().concept(ferc:ScheduleAllowanceInventoryAbstract).references("http://ferc.gov/form/2020-01-01/roles/reference/columnDetails")) where ($item.part-by-name(ferc-part:Schedule).part-value == "228a - Schedule - Allowances and Environmental Credits (Accounts 158.1, 158.2, 158.3 and 158.4)") 
     
                             $heading = list(for $ref in $headings 
                             list($ref.part-by-name(ferc-part:Column).part-value, $ref.part-by-name(ferc-part:ColumnName).part-value, $ref.part-by-name(ferc-part:ElementName).part-value))
@@ -188,19 +188,17 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             /** Add item to list for total of all periods with a value of none **/
            $periods = $periodSub  + list(none);
 
-            $Emmission = ferc:SulfurDioxideMember;
-
             /** Line Variables   **/
         
             /**  Row 1     **/
             $openingBalanceValues = sum(list(for $x in $periods 
                                             
-                                        $values = list(if exists({covered @ferc:AllowanceInventoryNumber @unit=* @period=$priorInstant @ferc:AllowanceInventoryTimePeriodAxis=$x  @ferc:EmissionTypeAxis = $Emmission }) 
-                                                            first(list({covered @ferc:AllowanceInventoryNumber @unit=* @period=$priorInstant  @ferc:AllowanceInventoryTimePeriodAxis=$x @ferc:EmissionTypeAxis = $Emmission })) 
+                                        $values = list(if exists({covered @ferc:AllowanceInventoryNumber @unit=* @period=$priorInstant @ferc:AllowanceInventoryTimePeriodAxis=$x }) 
+                                                            first(list({covered @ferc:AllowanceInventoryNumber @unit=* @period=$priorInstant  @ferc:AllowanceInventoryTimePeriodAxis=$x })) 
                                                         else 
                                                             none,
-                                                        if exists({covered @ferc:AllowanceInventory @unit=* @period=$priorInstant  @ferc:AllowanceInventoryTimePeriodAxis=$x  @ferc:EmissionTypeAxis = $Emmission }) 
-                                                            first(list({covered @ferc:AllowanceInventory @unit=* @period=$priorInstant @ferc:AllowanceInventoryTimePeriodAxis=$x  @ferc:EmissionTypeAxis = $Emmission })) 
+                                                        if exists({covered @ferc:AllowanceInventory @unit=* @period=$priorInstant  @ferc:AllowanceInventoryTimePeriodAxis=$x }) 
+                                                            first(list({covered @ferc:AllowanceInventory @unit=* @period=$priorInstant @ferc:AllowanceInventoryTimePeriodAxis=$x })) 
                                                         else 
                                                             none);
                                                 $values 
@@ -211,12 +209,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 
             $issuedValues = sum(list(for $p in $periods 
                                     
-                                    $values2 = list(if exists({covered @ferc:AllowancesIssuedLessWithheldAllowancesNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis = $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
-                                                    first(list({covered @ferc:AllowancesIssuedLessWithheldAllowancesNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis = $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                    $values2 = list(if exists({covered @ferc:AllowancesIssuedLessWithheldAllowancesNumber @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
+                                                    first(list({covered @ferc:AllowancesIssuedLessWithheldAllowancesNumber @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                 else 
                                                     none,
-                                                if exists({covered @ferc:AllowancesIssuedLessWithheldAllowances @unit=* @period=$currentDuration @ferc:EmissionTypeAxis = $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
-                                                    first(list({covered @ferc:AllowancesIssuedLessWithheldAllowances @unit=* @period=$currentDuration @ferc:EmissionTypeAxis = $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                                if exists({covered @ferc:AllowancesIssuedLessWithheldAllowances @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
+                                                    first(list({covered @ferc:AllowancesIssuedLessWithheldAllowances @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                 else 
                                                     none);
                                     $values2
@@ -228,49 +226,49 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             /**  Row 5   **/
             $returnedValues = sum(list(for $p in $periods 
                                     
-                                    $values3 = list(if exists({covered @ferc:AllowancesReturnedByEnvironmentalProtectionAgencyNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis = $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
-                                                    first(list({covered @ferc:AllowancesReturnedByEnvironmentalProtectionAgencyNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis = $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                    $values3 = list(if exists({covered @ferc:AllowancesReturnedByEnvironmentalProtectionAgencyNumber @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
+                                                    first(list({covered @ferc:AllowancesReturnedByEnvironmentalProtectionAgencyNumber @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                 else 
                                                     none,
-                                                if exists({covered @ferc:AllowancesReturnedByEnvironmentalProtectionAgency @unit=* @period=$currentDuration @ferc:EmissionTypeAxis = $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
-                                                    first(list({covered @ferc:AllowancesReturnedByEnvironmentalProtectionAgency @unit=* @period=$currentDuration @ferc:EmissionTypeAxis = $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                                if exists({covered @ferc:AllowancesReturnedByEnvironmentalProtectionAgency @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
+                                                    first(list({covered @ferc:AllowancesReturnedByEnvironmentalProtectionAgency @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                 else 
                                                     none);
                                     $values3
             ));
 
-            $returned = list(5,false,"Returned by EPA") + $returnedValues;
+            $returned = list(5,false,"Returned by authoritative agency") + $returnedValues;
             
             /** Row 8 **/  
             
-            $number_of_Rows_with_facts = count(set({covered @ferc:AllowancesInventoryAxis=*  @ferc:EmissionTypeAxis = $Emmission}.dimension(ferc:AllowancesInventoryAxis)));
+            $number_of_Rows_with_facts = count(set({covered @ferc:AllowancesInventoryAxis=*}.dimension(ferc:AllowancesInventoryAxis)));
 
             $data2 =   list(for $i in range(7 - min(list(7,$number_of_Rows_with_facts)))
                             list($i + 100000,false,none,none,none,none,none,none,none,none,none,none,none,none,none)
             );
            
             
-            $data = if count(list({covered @ferc:AllowancesInventoryAxis=*  @ferc:EmissionTypeAxis = $Emmission})) > 0           
-                        $allowances = set({covered @ferc:AllowancesInventoryAxis=*  @ferc:EmissionTypeAxis = $Emmission}.dimension(ferc:AllowancesInventoryAxis));
+            $data = if count(list({covered @ferc:AllowancesInventoryAxis=*})) > 0           
+                        $allowances = set({covered @ferc:AllowancesInventoryAxis=*}.dimension(ferc:AllowancesInventoryAxis));
    
                         list(for $x in $allowances
                             sum(list(list(
-                                if list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=$Emmission @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}).length > 0
-                                    first(list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=$Emmission @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}))
+                                if list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}).length > 0
+                                    first(list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}))
                                 else
                                     0,
                                     false,
-                                if exists({covered @ferc:AllowancesInventoryPurchasesTransfersDescription @unit @ferc:EmissionTypeAxis= $Emmission  @period=$currentDuration @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}) 
-                                    first(list({covered @ferc:AllowancesInventoryPurchasesTransfersDescription @unit @ferc:EmissionTypeAxis= $Emmission  @period=$currentDuration @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none})) 
+                                if exists({covered @ferc:AllowancesInventoryPurchasesTransfersDescription @unit @period=$currentDuration @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}) 
+                                    first(list({covered @ferc:AllowancesInventoryPurchasesTransfersDescription @unit @period=$currentDuration @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none})) 
                                 else 
                                     none),
                                 sum(list(for $p in $periods 
-                                        $values4 = list(if exists({covered @ferc:AllowancesInventoryPurchasesTransfersNumber @ferc:EmissionTypeAxis= $Emmission   @unit @period=$currentDuration @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})
-                                                            first(list({covered @ferc:AllowancesInventoryPurchasesTransfersNumber @ferc:EmissionTypeAxis= $Emmission   @unit @period=$currentDuration @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                        $values4 = list(if exists({covered @ferc:AllowancesInventoryPurchasesTransfersNumber @unit @period=$currentDuration @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})
+                                                            first(list({covered @ferc:AllowancesInventoryPurchasesTransfersNumber @unit @period=$currentDuration @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                         else 
                                                             none,
-                                                        if exists({covered @ferc:AllowancesInventoryPurchasesTransfers @ferc:EmissionTypeAxis= $Emmission   @unit @period=$currentDuration @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})
-                                                                first(list({covered @ferc:AllowancesInventoryPurchasesTransfers @ferc:EmissionTypeAxis= $Emmission   @unit @period=$currentDuration @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                                        if exists({covered @ferc:AllowancesInventoryPurchasesTransfers @unit @period=$currentDuration @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})
+                                                                first(list({covered @ferc:AllowancesInventoryPurchasesTransfers @unit @period=$currentDuration @ferc:AllowancesInventoryAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                         else 
                                                             none);
                                         $values4
@@ -297,12 +295,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             /** Row 15 **/
             $totalPurchaseTransfersValue = sum(list(for $p in $periods 
                                     
-                                        $values5 = list(if exists([covered @ferc:AllowancesInventoryPurchasesTransfersNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
-                                                            first(list([covered @ferc:AllowancesInventoryPurchasesTransfersNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
+                                        $values5 = list(if exists([covered @ferc:AllowancesInventoryPurchasesTransfersNumber @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
+                                                            first(list([covered @ferc:AllowancesInventoryPurchasesTransfersNumber @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
                                                         else 
                                                             none,
-                                                        if exists([covered @ferc:AllowancesInventoryPurchasesTransfers @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
-                                                            first(list([covered @ferc:AllowancesInventoryPurchasesTransfers @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
+                                                        if exists([covered @ferc:AllowancesInventoryPurchasesTransfers @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
+                                                            first(list([covered @ferc:AllowancesInventoryPurchasesTransfers @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
                                                         else 
                                                             none);
                                          $values5
@@ -313,30 +311,30 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             /** Row 18 **/
 
             $chargesValue = sum(list(for $p in $periods      
-                                        $values6 = list(if exists({covered @ferc:ChargesToAllowancesInventoryNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
-                                                            first(list({covered @ferc:ChargesToAllowancesInventoryNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                        $values6 = list(if exists({covered @ferc:ChargesToAllowancesInventoryNumber @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
+                                                            first(list({covered @ferc:ChargesToAllowancesInventoryNumber @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                         else 
                                                             none,
-                                                        if exists({covered @ferc:ChargesToAllowancesInventory @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
-                                                                first(list({covered @ferc:ChargesToAllowancesInventory @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                                        if exists({covered @ferc:ChargesToAllowancesInventory @unit=* @period=$currentDuration @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
+                                                                first(list({covered @ferc:ChargesToAllowancesInventory @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                         else 
                                                             none);
                                         $values6
                                     )   
                                 );
 
-            $charges = list(18, false, "Charges to Account 509") + $chargesValue;
+            $charges = list(18, false, "Charges to Account 509, 555.2, and 555.3") + $chargesValue;
 
             /** Row 20 **/
 
             $otherValue = sum(list(for $p in $periods 
                                     
-                                        $values7 = list(if exists([covered  @ferc:AllowancesRelinquishedOtherNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=$Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
-                                                            first(list([covered @ferc:AllowancesRelinquishedOtherNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=$Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
+                                        $values7 = list(if exists([covered  @ferc:AllowancesRelinquishedOtherNumber @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
+                                                            first(list([covered @ferc:AllowancesRelinquishedOtherNumber @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
                                                         else 
                                                             none,
-                                                        if exists([covered @ferc:AllowancesRelinquishedOther @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=$Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
-                                                            first(list([covered @ferc:AllowancesRelinquishedOther @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=$Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
+                                                        if exists([covered @ferc:AllowancesRelinquishedOther @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
+                                                            first(list([covered @ferc:AllowancesRelinquishedOther @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
                                                         else 
                                                             none);
                                         $values7
@@ -346,33 +344,33 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             $other = list(20 , false, "Allowances Used") + $otherValue;
 
             /** Row20 ** Sub **/
-            $number_of_Rows_with_Other_facts = count(set({covered @ferc:AllowancesRelinquishedAxis=* @ferc:EmissionTypeAxis = $Emmission}.dimension(ferc:AllowancesRelinquishedAxis)));
+            $number_of_Rows_with_Other_facts = count(set({covered @ferc:AllowancesRelinquishedAxis=*}.dimension(ferc:AllowancesRelinquishedAxis)));
 
             $Otherdata2 =   list(for $i in range(1 - min(list(1,$number_of_Rows_with_Other_facts)))
                             list($i + 100000,false,none,none,none,none,none,none,none,none,none,none,none,none,none)
             );
                             
-            $otherSubValue = if count(list({covered @ferc:AllowancesRelinquishedAxis=*  @ferc:EmissionTypeAxis = $Emmission})) > 0           
-                                    $allowances3 = set({covered @ferc:AllowancesRelinquishedAxis=*  @ferc:EmissionTypeAxis = $Emmission}.dimension(ferc:AllowancesRelinquishedAxis));
+            $otherSubValue = if count(list({covered @ferc:AllowancesRelinquishedAxis=*})) > 0           
+                                    $allowances3 = set({covered @ferc:AllowancesRelinquishedAxis=*}.dimension(ferc:AllowancesRelinquishedAxis));
 
                                     list(for $x in $allowances3
                                         sum(list(list(
-                                            if list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=$Emmission @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}).length > 0
-                                                first(list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=$Emmission @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}))
+                                            if list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}).length > 0
+                                                first(list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}))
                                             else
                                                 0,
                                                 false,
-                                            if exists({covered @ferc:AllowancesRelinquishedOtherDescription @unit @ferc:EmissionTypeAxis= $Emmission  @period=$currentDuration @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}) 
-                                                first(list({covered @ferc:AllowancesRelinquishedOtherDescription @unit @ferc:EmissionTypeAxis= $Emmission  @period=$currentDuration @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none})) 
+                                            if exists({covered @ferc:AllowancesRelinquishedOtherDescription @unit @period=$currentDuration @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}) 
+                                                first(list({covered @ferc:AllowancesRelinquishedOtherDescription @unit @period=$currentDuration @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none})) 
                                             else 
                                                 none) ,
                                             sum(list(for $p in $periods 
-                                                    $values99 = list(if exists({covered @ferc:AllowancesRelinquishedOtherNumber @ferc:EmissionTypeAxis= $Emmission   @unit @period=$currentDuration @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})
-                                                                        first(list({covered @ferc:AllowancesRelinquishedOtherNumber @ferc:EmissionTypeAxis= $Emmission   @unit @period=$currentDuration @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                                    $values99 = list(if exists({covered @ferc:AllowancesRelinquishedOtherNumber @unit @period=$currentDuration @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})
+                                                                        first(list({covered @ferc:AllowancesRelinquishedOtherNumber @unit @period=$currentDuration @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                                     else 
                                                                         none,
-                                                                    if exists({covered @ferc:AllowancesRelinquishedOther @ferc:EmissionTypeAxis= $Emmission   @unit @period=$currentDuration @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})
-                                                                            first(list({covered @ferc:AllowancesRelinquishedOther @ferc:EmissionTypeAxis= $Emmission   @unit @period=$currentDuration @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                                                    if exists({covered @ferc:AllowancesRelinquishedOther @unit @period=$currentDuration @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})
+                                                                            first(list({covered @ferc:AllowancesRelinquishedOther @unit @period=$currentDuration @ferc:AllowancesRelinquishedAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                                     else 
                                                                         none);
                                                     $values99
@@ -401,33 +399,33 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             
              /** Row 21 **/ 
 
-            $number_of_Rows_with_COS_facts = count(set({covered @ferc:AllowancesCostOfSalesAxis=*  @ferc:EmissionTypeAxis = $Emmission}.dimension(ferc:AllowancesCostOfSalesAxis)));
+            $number_of_Rows_with_COS_facts = count(set({covered @ferc:AllowancesCostOfSalesAxis=*}.dimension(ferc:AllowancesCostOfSalesAxis)));
 
             $COSdata2 =   list(for $i in range(6 - min(list(6,$number_of_Rows_with_COS_facts)) )
                             list($i + 100000,false,none,none,none,none,none,none,none,none,none,none,none,none,none)
             );
 
-            $COSdata = if count(list({covered @ferc:AllowancesCostOfSalesAxis=*  @ferc:EmissionTypeAxis = $Emmission})) > 0           
-                        $allowances2 = set({covered @ferc:AllowancesCostOfSalesAxis=*  @ferc:EmissionTypeAxis = $Emmission}.dimension(ferc:AllowancesCostOfSalesAxis));
+            $COSdata = if count(list({covered @ferc:AllowancesCostOfSalesAxis=*})) > 0           
+                        $allowances2 = set({covered @ferc:AllowancesCostOfSalesAxis=*}.dimension(ferc:AllowancesCostOfSalesAxis));
    
                         list(for $x in $allowances2
                             sum(list(list(
-                                if list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=$Emmission @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}).length > 0
-                                    first(list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis=$Emmission @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}))
+                                if list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}).length > 0
+                                    first(list({covered @ferc:OrderNumber @unit=* @period=$currentDuration @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}))
                                 else
                                     0,
                                     false,
-                                if exists({covered @ferc:AllowancesInventoryCostOfSalesTransfersDescription @unit @ferc:EmissionTypeAxis= $Emmission  @period=$currentDuration @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}) 
-                                    first(list({covered @ferc:AllowancesInventoryCostOfSalesTransfersDescription @unit @ferc:EmissionTypeAxis= $Emmission  @period=$currentDuration @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none})) 
+                                if exists({covered @ferc:AllowancesInventoryCostOfSalesTransfersDescription @unit  @period=$currentDuration @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none}) 
+                                    first(list({covered @ferc:AllowancesInventoryCostOfSalesTransfersDescription @unit @period=$currentDuration @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = none})) 
                                 else 
                                     none) ,
                                 sum(list(for $p in $periods 
-                                        $values4 = list(if exists({covered @ferc:AllowancesInventorySalesTransfersNumber @ferc:EmissionTypeAxis= $Emmission   @unit @period=$currentDuration @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})
-                                                            first(list({covered @ferc:AllowancesInventorySalesTransfersNumber @ferc:EmissionTypeAxis= $Emmission   @unit @period=$currentDuration @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                        $values4 = list(if exists({covered @ferc:AllowancesInventorySalesTransfersNumber @unit @period=$currentDuration @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})
+                                                            first(list({covered @ferc:AllowancesInventorySalesTransfersNumber @unit @period=$currentDuration @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                         else 
                                                             none,
-                                                        if exists({covered @ferc:AllowancesInventorySalesTransfers @ferc:EmissionTypeAxis= $Emmission   @unit @period=$currentDuration @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})
-                                                                first(list({covered @ferc:AllowancesInventorySalesTransfers @ferc:EmissionTypeAxis= $Emmission   @unit @period=$currentDuration @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                                        if exists({covered @ferc:AllowancesInventorySalesTransfers @unit @period=$currentDuration @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})
+                                                                first(list({covered @ferc:AllowancesInventorySalesTransfers @unit @period=$currentDuration @ferc:AllowancesCostOfSalesAxis=$x @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                         else 
                                                             none);
                                         $values4
@@ -459,12 +457,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                      
         $totalSalesValue = sum(list(for $p in $periods 
                                     
-                                $values8 = list(if exists([covered @ferc:AllowancesInventorySalesTransfersNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
-                                                    first(list([covered @ferc:AllowancesInventorySalesTransfersNumber @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
+                                $values8 = list(if exists([covered @ferc:AllowancesInventorySalesTransfersNumber @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
+                                                    first(list([covered @ferc:AllowancesInventorySalesTransfersNumber @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
                                                 else 
                                                     none,
-                                                if exists([covered @ferc:AllowancesInventorySalesTransfers @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
-                                                    first(list([covered @ferc:AllowancesInventorySalesTransfers @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
+                                                if exists([covered @ferc:AllowancesInventorySalesTransfers @unit=* @period=$currentDuration @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
+                                                    first(list([covered @ferc:AllowancesInventorySalesTransfers @unit=* @period=$currentDuration  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
                                                 else 
                                                     none);
                                 $values8
@@ -476,12 +474,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 
         /**  Row 29     **/
         $closingBalanceValues = sum(list(for $p in $periods 
-                                $values9= list(if exists({covered @ferc:AllowanceInventoryNumber @unit=* @period=$currentInstant @ferc:EmissionTypeAxis = $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
-                                                    first(list({covered @ferc:AllowanceInventoryNumber @unit=* @period=$currentInstant @ferc:EmissionTypeAxis = $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                $values9= list(if exists({covered @ferc:AllowanceInventoryNumber @unit=* @period=$currentInstant @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
+                                                    first(list({covered @ferc:AllowanceInventoryNumber @unit=* @period=$currentInstant @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                 else 
                                                     none,
-                                                if exists({covered @ferc:AllowanceInventory @unit=* @period=$currentInstant @ferc:EmissionTypeAxis = $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
-                                                    first(list({covered @ferc:AllowanceInventory @unit=* @period=$currentInstant @ferc:EmissionTypeAxis = $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                                if exists({covered @ferc:AllowanceInventory @unit=* @period=$currentInstant @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
+                                                    first(list({covered @ferc:AllowanceInventory @unit=* @period=$currentInstant @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                 else 
                                                     none);
                                 $values9
@@ -505,12 +503,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             list(31 + $i,"false",$labels32To36[$i]) +
                             sum(list(for $p in $periods 
                                     
-                                    $values32To36 = list(if exists({covered @concept = $numberItems32To36[$i] @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
-                                                        first(list({covered @concept = $numberItems32To36[$i] @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                    $values32To36 = list(if exists({covered @concept = $numberItems32To36[$i] @unit=* @period=$currentDuration @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
+                                                        first(list({covered @concept = $numberItems32To36[$i] @unit=* @period=$currentDuration @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                     else 
                                                         none,
-                                                    if exists({covered @concept = $valueItems32To36[$i]  @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
-                                                        first(list({covered @concept = $valueItems32To36[$i]  @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
+                                                    if exists({covered @concept = $valueItems32To36[$i]  @unit=* @period=$currentDuration @ferc:AllowanceInventoryTimePeriodAxis = $p}) 
+                                                        first(list({covered @concept = $valueItems32To36[$i]  @unit=* @period=$currentDuration @ferc:AllowanceInventoryTimePeriodAxis = $p})) 
                                                     else 
                                                         none);
                                     $values32To36
@@ -667,16 +665,14 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             /** Add item to list for total of all periods with a value of none **/
            $periods = $periodSub  + list(none);
 
-            $Emmission = ferc:SulfurDioxideMember;
-
             $openingBalanceValues2 = sum(list(for $x in $periods 
                                             
-            $values14 = list(if exists([covered @ferc:AllowancesWithheldNumber @unit=* @period=$priorInstant @ferc:AllowanceInventoryTimePeriodAxis=$x  @ferc:EmissionTypeAxis = $Emmission ]) 
-                                first(list([covered @ferc:AllowancesWithheldNumber @unit=* @period=$priorInstant  @ferc:AllowanceInventoryTimePeriodAxis=$x @ferc:EmissionTypeAxis = $Emmission ])) 
+            $values14 = list(if exists([covered @ferc:AllowancesWithheldNumber @unit=* @period=$priorInstant @ferc:AllowanceInventoryTimePeriodAxis=$x ]) 
+                                first(list([covered @ferc:AllowancesWithheldNumber @unit=* @period=$priorInstant  @ferc:AllowanceInventoryTimePeriodAxis=$x ])) 
                             else 
                                 none,
-                            if exists([covered @ferc:AllowancesWithheld @unit=* @period=$priorInstant  @ferc:AllowanceInventoryTimePeriodAxis=$x  @ferc:EmissionTypeAxis = $Emmission ]) 
-                                first(list([covered @ferc:AllowancesWithheld @unit=* @period=$priorInstant @ferc:AllowanceInventoryTimePeriodAxis=$x  @ferc:EmissionTypeAxis = $Emmission ])) 
+                            if exists([covered @ferc:AllowancesWithheld @unit=* @period=$priorInstant  @ferc:AllowanceInventoryTimePeriodAxis=$x ]) 
+                                first(list([covered @ferc:AllowancesWithheld @unit=* @period=$priorInstant @ferc:AllowanceInventoryTimePeriodAxis=$x ])) 
                             else 
                                 none);
             $values14
@@ -696,12 +692,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             list(36 + $i,"false",$labels37To39[$i]) +
                             sum(list(for $p in $periods 
                                     
-                                    $values15 = list(if exists([covered @concept = $numberItems37To39[$i] @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
-                                                        first(list([covered @concept = $numberItems37To39[$i] @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
+                                    $values15 = list(if exists([covered @concept = $numberItems37To39[$i] @unit=* @period=$currentDuration @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
+                                                        first(list([covered @concept = $numberItems37To39[$i] @unit=* @period=$currentDuration @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
                                                     else 
                                                         none,
-                                                    if exists([covered @concept = $valueItems37To39[$i]  @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
-                                                        first(list([covered @concept = $valueItems37To39[$i]  @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
+                                                    if exists([covered @concept = $valueItems37To39[$i]  @unit=* @period=$currentDuration @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
+                                                        first(list([covered @concept = $valueItems37To39[$i]  @unit=* @period=$currentDuration @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
                                                     else 
                                                         none);
                                     $values15
@@ -712,12 +708,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         /** Row 40 **/
         $closingBalanceValues2 = sum(list(for $x in $periods 
                                             
-                        $values14 = list(if exists([covered @ferc:AllowancesWithheldNumber @unit=* @period=$currentInstant @ferc:AllowanceInventoryTimePeriodAxis=$x  @ferc:EmissionTypeAxis = $Emmission ]) 
-                                            first(list([covered @ferc:AllowancesWithheldNumber @unit=* @period=$currentInstant  @ferc:AllowanceInventoryTimePeriodAxis=$x @ferc:EmissionTypeAxis = $Emmission ])) 
+                        $values14 = list(if exists([covered @ferc:AllowancesWithheldNumber @unit=* @period=$currentInstant @ferc:AllowanceInventoryTimePeriodAxis=$x ]) 
+                                            first(list([covered @ferc:AllowancesWithheldNumber @unit=* @period=$currentInstant  @ferc:AllowanceInventoryTimePeriodAxis=$x ])) 
                                         else 
                                             none,
-                                        if exists([covered @ferc:AllowancesWithheld @unit=* @period=$currentInstant  @ferc:AllowanceInventoryTimePeriodAxis=$x  @ferc:EmissionTypeAxis = $Emmission ]) 
-                                            first(list([covered @ferc:AllowancesWithheld @unit=* @period=$currentInstant @ferc:AllowanceInventoryTimePeriodAxis=$x  @ferc:EmissionTypeAxis = $Emmission ])) 
+                                        if exists([covered @ferc:AllowancesWithheld @unit=* @period=$currentInstant  @ferc:AllowanceInventoryTimePeriodAxis=$x ]) 
+                                            first(list([covered @ferc:AllowancesWithheld @unit=* @period=$currentInstant @ferc:AllowanceInventoryTimePeriodAxis=$x ])) 
                                         else 
                                             none);
                         $values14
@@ -739,12 +735,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
         list(42 + $i,"false",$labels43To46[$i]) +
         sum(list(for $p in $periods 
                 
-                $values16 = list(if exists([covered @concept = $numberItems43To46[$i] @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
-                                    first(list([covered @concept = $numberItems43To46[$i] @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
+                $values16 = list(if exists([covered @concept = $numberItems43To46[$i] @unit=* @period=$currentDuration @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
+                                    first(list([covered @concept = $numberItems43To46[$i] @unit=* @period=$currentDuration @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
                                 else 
                                     none,
-                                if exists([covered @concept = $valueItems43To46[$i]  @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
-                                    first(list([covered @concept = $valueItems43To46[$i]  @unit=* @period=$currentDuration @ferc:EmissionTypeAxis= $Emmission  @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
+                                if exists([covered @concept = $valueItems43To46[$i]  @unit=* @period=$currentDuration @ferc:AllowanceInventoryTimePeriodAxis = $p]) 
+                                    first(list([covered @concept = $valueItems43To46[$i]  @unit=* @period=$currentDuration @ferc:AllowanceInventoryTimePeriodAxis = $p])) 
                                 else 
                                     none);
                 $values16
@@ -894,13 +890,6 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     </xule:expression>
                     <xule:template-display>
                     1
-                    </xule:template-display>
-            </xule:replace>
-            <xule:replace>
-                    <xule:expression class="hide">taxonomy().concept(ferc:SulfurDioxideMember).label("http://ferc.gov/form/2020-01-01/roles/label/F1Page").text
-                    </xule:expression>
-                    <xule:template-display>
-                    a
                     </xule:template-display>
             </xule:replace>
     </div> 

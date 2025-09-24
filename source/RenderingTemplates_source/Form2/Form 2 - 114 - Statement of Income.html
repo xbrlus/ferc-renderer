@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:xule="http://xbrl.us/xendr/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2025-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -14,12 +14,12 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
 </head>
 
 <body class="xbrl" id="ScheduleStatementOfIncomeAbstract">
-    <xule:showif>
+    <xule:showIf>
         if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleStatementOfIncomeAbstract"]).length > 0
                 false
         else
                 true
-    </xule:showif>
+    </xule:showIf>
     <table class="schedule-header xbrl" width="100%">
         <tr>
             <td class="xbrl">
@@ -41,10 +41,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     <br/>
                     (1) 
                         <xule:replace>
-                                <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
-                                '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
-                                '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
-                                '<span class="checkbox">&#9744;</span> An Original']]>
+                                <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) "<![CDATA[
+                                <span class=\"checkbox\">&#9744;</span> An Original]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" "<![CDATA[
+                                <span class=\"checkbox\">&#9745;</span> An Original]]>" else "<![CDATA[
+                                <span class=\"checkbox\">&#9744;</span> An Original]]>"
                                 </xule:expression>  
                             <xule:template-display>
                                     <input type="checkbox"/> An Original
@@ -53,10 +53,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                         <br/>
                     (2)
                         <xule:replace>
-                                <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
-                                '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
-                                '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
-                                '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) "<![CDATA[
+                                <span class=\"checkbox\">&#9744;</span> A Resubmission]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" "<![CDATA[
+                                <span class=\"checkbox\">&#9745;</span> A Resubmission]]>" else "<![CDATA[
+                                <span class=\"checkbox\">&#9744;</span> A Resubmission]]>"
                                     </xule:expression> 
                                 <xule:template-display>
                                         <input type="checkbox" checked = "checked"/> A Resubmission
@@ -119,7 +119,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             Annual or Quarterly, if applicable
                             <ol start="5">
                                     <li>Do not report fourth quarter data in columns (e) and (f)</li>
-                                    <li>Report amounts for accounts 412 and 413, Revenues and Expenses from Utility Plant Leased to Others, in another utility columnin a similar manner to a utility department. Spread the amount(s) over lines 2 thru 26 as appropriate. Include these amounts in columns (c) and (d) totals.</li>
+                                    <li>Report amounts for accounts 412 and 413, Revenues and Expenses from Utility Plant Leased to Others, in another utility columnin a similar manner to a utility department. Spread the amount(s) over lines 2 thru 27 as appropriate. Include these amounts in columns (c) and (d) totals.</li>
                                     <li>Report amounts in account 414, Other Utility Operating Income, in the same manner as accounts 412 and 413 above.</li>
                                     <li>Report data for lines 8, 10 and 11 for Natural Gas companies using accounts 404.1, 404.2, 404.3, 407.1 and 407.2.</li>
                                     <li>Use page 122 for important notes regarding the statement of income for any account thereof.</li>

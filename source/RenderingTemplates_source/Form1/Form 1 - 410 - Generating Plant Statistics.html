@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:xule="http://xbrl.us/xendr/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2025-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -36,10 +36,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             
                             (1) 
                                 <xule:replace>
-                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
-                                        '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> An Original']]>
+                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> An Original]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" "<![CDATA[
+                                        <span class=\"checkbox\">&#9745;</span> An Original]]>" else "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> An Original]]>"
                                         </xule:expression>  
                                     <xule:template-display>
                                             <input type="checkbox"/> An Original
@@ -48,10 +48,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 
                             (2)
                                 <xule:replace>
-                                        <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
-                                        '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                        <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> A Resubmission]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" "<![CDATA[
+                                        <span class=\"checkbox\">&#9745;</span> A Resubmission]]>" else "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> A Resubmission]]>"
                                             </xule:expression> 
                                         <xule:template-display>
                                                 <input type="checkbox" checked = "checked"/> A Resubmission
@@ -104,16 +104,13 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     <xule:expression class="hide" html="true">taxonomy().concept(ferc:ScheduleGeneratingPlantStatisticsAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F1Instructions").text
                     </xule:expression>
                     <xule:template-display>
-                    <ol>
-                        <li>Small generating plants are steam plants of, less than 25,000 Kw; internal combustion and gas turbine-plants, conventional hydro plants and pumped
-                            storage plants of less than 10,000 Kw installed capacity (name plate rating).</li>
-                        <li>Designate any plant leased from others, operated under a license from the Federal Energy Regulatory Commission, or operated as a joint facility, and give a concise statement of the facts in a footnote. If licensed project, give project number in footnote.</li>
-                        <li>List plants appropriately under subheadings for steam, hydro, nuclear, internal combustion and gas turbine plants. For nuclear, see instruction 11,
-                            Page 403.</li>
-                        <li>If net peak demand for 60 minutes is not available, give the which is available, specifying period. </li>
-                        <li>If any plant is equipped with combinations of steam, hydro internal combustion or gas turbine equipment, report each as a separate plant. However, if the exhaust heat from the gas turbine is utilized in a steam turbine regenerative feed water cycle, or for preheated combustion air in a boiler, report as one plant.</li>
-                        
-                    </ol>
+                        <ol>
+                            <li>Small generating plants are steam plants of, less than 25,000 Kw; internal combustion and gas turbine-plants, conventional hydro plants, pumped storage plants, and renewable plants of less than 10,000 Kw installed capacity (name plate rating). </li>
+                            <li>Designate any plant leased from others, operated under a license from the Federal Energy Regulatory Commission, or operated as a joint facility, and give a concise statement of the facts in a footnote. If licensed project, give project number in footnote.</li>
+                            <li>List plants appropriately under subheadings for steam, hydro, nuclear, renewable, internal combustion and gas turbine plants. For nuclear, see instruction 11, Page 402.</li>
+                            <li>If net peak demand for 60 minutes is not available, give the which is available, specifying period.</li> 
+                            <li>If any plant is equipped with combinations of steam, hydro internal combustion or gas turbine equipment, report each as a separate plant. However, if the exhaust heat from the gas turbine is utilized in a steam turbine regenerative feed water cycle, or for preheated combustion air in a boiler, report as one plant.</li>
+                        </ol>
                     </xule:template-display>
                 </xule:replace>
             </td>

@@ -1,5 +1,5 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:ix="http://www.xbrl.org/2013/inlineXBRL" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ixtsec="http://www.sec.gov/inlineXBRL/transformation/2015-08-31" xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xbrldt="http://xbrl.org/2005/xbrldt" xmlns:ferc-form-2="http://ferc.gov/form/2024-04-01/ferc-form-2">
-  <head><title>FERC Form</title><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></meta><style type="text/css">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:ix="http://www.xbrl.org/2013/inlineXBRL" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ixtsec="http://www.sec.gov/inlineXBRL/transformation/2015-08-31" xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xbrldt="http://xbrl.org/2005/xbrldt" xmlns:ferc-form-2="http://ferc.gov/form/2025-04-01/ferc-form-2">
+  <head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></meta><style type="text/css">
 /*<![CDATA[*/       /*
         Theme Name: Form Templates
         Theme URI: https:/ferc.org/themes/formTemplates/
@@ -373,12 +373,6 @@
         div.sub-value {
             display:inline-block
         }
-        div.sub-value div.xbrl.fact div.sub-html {
-            display:block
-        }
-        div.sub-value:has(div.xbrl.fact div.sub-html) {
-            display:block
-        }
         div.sub-html {
             display:inline-block
         }
@@ -729,8 +723,10 @@
                             <td class="left-id-col xbrl">
                                 <span>Item 1:</span>
                                     
-                                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Initial (Original) Submission</div></div><span> OR </span>
-                                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> Resubmission No.</div></div></td>
+                                    <div class="sub-value sub-replacement"><div class="sub-html">
+                                            <span class="checkbox">&#9744;</span> An Initial (Original) Submission</div></div><span> OR </span>
+                                    <div class="sub-value sub-replacement"><div class="sub-html">
+                                            <span class="checkbox">&#9744;</span> Resubmission No.</div></div></td>
                         </tr>
                     </table>
                 
@@ -1099,9 +1095,11 @@
                 <td class="xbrl">
                         <div class="sub-value sub-replacement">09 This Report is An Original / A Resubmission</div><br/>
                                 (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                 <td class="xbrl" colspan="1">
                         <div class="sub-value sub-replacement">10 Date of Report (Mo, Da, Yr)</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
@@ -1181,9 +1179,11 @@ respects to the Uniform System of Accounts.
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -1218,7 +1218,6 @@ respects to the Uniform System of Accounts.
                     <div style="text-align: center"><div class="sub-value sub-replacement">Remarks</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
                 <td class="xbrl">
@@ -3267,13 +3266,14 @@ respects to the Uniform System of Accounts.
                 <div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div><div class="sub-value sub-no-replacement"></div></td> 
                                     
         </tr>
-        
         <tr>
             <td class="xbrl"></td>
         <!-- new checkboxes (start) -->
             <td class="xbrl">
-                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> Four copies will be submitted</div></div><br/>
-                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> No annual report to stockholders is prepared</div></div></td>
+                <div class="sub-value sub-replacement"><div class="sub-html">
+                        <span class="checkbox">&#9744;</span> Four copies will be submitted</div></div><br/>
+                <div class="sub-value sub-replacement"><div class="sub-html">
+                        <span class="checkbox">&#9744;</span> No annual report to stockholders is prepared</div></div></td>
         <!-- new checkboxes (end) -->
         <!-- Old checkboxes
             <td class="xbrl">
@@ -3307,9 +3307,11 @@ respects to the Uniform System of Accounts.
                         <td class="xbrl">
                                 <div class="sub-value sub-replacement">This report is:</div><br/>
                                 (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                                 (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                         <td class="xbrl">
                                 <div class="sub-value sub-replacement">Date of Report:</div><br/>
                                 <div class="sub-value sub-no-replacement"></div></td>
@@ -3396,12 +3398,14 @@ respects to the Uniform System of Accounts.
                                 <br/>
                                 <div>
                                                 (1)  
-                                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> Yes  ...Enter the date when such independent accountant was initially engaged: </div></div><div class="sub-value sub-no-replacement"></div></div>
+                                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                                <span class="checkbox">&#9744;</span> Yes  ...Enter the date when such independent accountant was initially engaged: </div></div><div class="sub-value sub-no-replacement"></div></div>
                                         
                                         <br/>
                                         <div>
                                         (2)
-                                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> No</div></div></div>
+                                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                            <span class="checkbox">&#9744;</span> No</div></div></div>
                         </td>
                 </tr>
 
@@ -3424,9 +3428,11 @@ respects to the Uniform System of Accounts.
                 <td class="xbrl">
                     <div class="sub-value sub-replacement">This report is:</div><br/>        
                     (1) 
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>  
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> An Original</div></div><br/>  
                     (2)
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -3490,7 +3496,6 @@ respects to the Uniform System of Accounts.
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
                 </td>
-        
         </tr>
             <tr class="schedule-row">
                 <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -3732,7 +3737,6 @@ respects to the Uniform System of Accounts.
                 <td class="xbrl percent_items"><div class="sub-value sub-no-replacement"></div></td>
                 
             </tr> 
-     
     </table>
 <br/>
 <div class="schedule-footer">
@@ -3752,9 +3756,11 @@ respects to the Uniform System of Accounts.
                 <td class="xbrl">
                     <div class="sub-value sub-replacement">This report is:</div><br/> 
                         (1) 
-                            <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/> 
+                            <div class="sub-value sub-replacement"><div class="sub-html">
+                                    <span class="checkbox">&#9744;</span> An Original</div></div><br/> 
                         (2)
-                            <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                            <div class="sub-value sub-replacement"><div class="sub-html">
+                                    <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/> 
                         <div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/> 
@@ -3840,7 +3846,6 @@ agreement or understanding between two or more parties who together have control
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(e)</div></div>
                 </td>
-        
         </tr>
         <tr class="schedule-row">
             <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -4112,7 +4117,6 @@ agreement or understanding between two or more parties who together have control
             <td class="xbrl percent_items"><div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
-     
     </table>
     <br/>
     <div class="schedule-footer"> 
@@ -4133,9 +4137,11 @@ agreement or understanding between two or more parties who together have control
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <br/>
                             <div class="sub-value sub-no-replacement"></div></td>
@@ -4367,7 +4373,6 @@ respondent and number of such votes cast by proxy.</div><br/>
             <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
-     
     </table>
 <br/>
 <div class="schedule-footer">
@@ -4388,9 +4393,11 @@ respondent and number of such votes cast by proxy.</div><br/>
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -4519,9 +4526,11 @@ respondent and number of such votes cast by proxy.</div><br/>
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -4552,7 +4561,6 @@ respondent and number of such votes cast by proxy.</div><br/>
                     <div style="text-align: center"><div class="sub-value sub-replacement">Prior Year End Balance 12/31</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
                 <td class="xbrl line-number">
@@ -6234,7 +6242,6 @@ respondent and number of such votes cast by proxy.</div><br/>
                                 <div class="sub-value sub-no-replacement"></div></td> 
                                     
         </tr>
-    
     </table>
 <br/>
     <div class="schedule-footer">
@@ -6254,9 +6261,11 @@ respondent and number of such votes cast by proxy.</div><br/>
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -6287,7 +6296,6 @@ respondent and number of such votes cast by proxy.</div><br/>
                     <div style="text-align: center"><div class="sub-value sub-replacement">Prior Year End Balance 12/31</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
                 <td class="xbrl line-number">
@@ -7696,7 +7704,6 @@ respondent and number of such votes cast by proxy.</div><br/>
                                 <div class="sub-value sub-no-replacement"></div></td> 
                                     
         </tr>
-    
     </table>
 <br/>
     <div class="schedule-footer">
@@ -7716,9 +7723,11 @@ respondent and number of such votes cast by proxy.</div><br/>
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -7744,7 +7753,7 @@ respondent and number of such votes cast by proxy.</div><br/>
 Annual or Quarterly, if applicable
 <ol class="start5">
         <li>Do not report fourth quarter data in columns (e) and (f)</li>
-        <li>Report amounts for accounts 412 and 413, Revenues and Expenses from Utility Plant Leased to Others, in another utility column in a similar manner to a utility department. Spread the amount(s) over lines 2 thru 26 as appropriate. Include these amounts in columns (c) and (d) totals.</li>
+        <li>Report amounts for accounts 412 and 413, Revenues and Expenses from Utility Plant Leased to Others, in another utility column in a similar manner to a utility department. Spread the amount(s) over lines 2 thru 27 as appropriate. Include these amounts in columns (c) and (d) totals.</li>
         <li>Report amounts in account 414, Other Utility Operating Income, in the same manner as accounts 412 and 413 above.</li>
         <li>Report data for lines 8, 10 and 11 for Natural Gas companies using accounts 404.1, 404.2, 404.3, 407.1 and 407.2.</li>
         <li>Use page 122 for important notes regarding the statement of income for any account thereof.</li>
@@ -7793,7 +7802,7 @@ Annual or Quarterly, if applicable
                 <div style="text-align: center"><div class="sub-value sub-replacement">(h)</div></div>
             </td>
         <td class="col-heading xbrl">
-                    <div style="text-align: center"><div class="sub-value sub-replacement">Gas Utiity Current Year to Date (in dollars)</div></div>
+                    <div style="text-align: center"><div class="sub-value sub-replacement">Gas Utility Current Year to Date (in dollars)</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(i)</div></div>
             </td>
         <td class="col-heading xbrl">
@@ -7808,7 +7817,6 @@ Annual or Quarterly, if applicable
                     <div style="text-align: center"><div class="sub-value sub-replacement">Other Utility Previous Year to Date (in dollars)</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(l)</div></div>
             </td>
-        
         </tr>
        
         <tr class="schedule-row">
@@ -8938,7 +8946,7 @@ Annual or Quarterly, if applicable
         </tr>
     <tr class="schedule-row">
                 <td class="xbrl line-number">
-                            <div class="sub-value sub-replacement">26</div></td> 
+                            <div class="sub-value sub-replacement">27</div></td> 
                         <td class="xbrl description_items">
                                 <div class="tooltip">
                                         <div class="tooltiptext">
@@ -11276,7 +11284,6 @@ Annual or Quarterly, if applicable
                                 <div class="sub-value sub-no-replacement"></div></td>
                    
         </tr>
-    
     </table>
 <br/>
     <div class="schedule-footer">
@@ -11296,9 +11303,11 @@ Annual or Quarterly, if applicable
                 <td class="xbrl">
                     <div class="sub-value sub-replacement">This report is:</div><br/>
                         (1) 
-                            <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                            <div class="sub-value sub-replacement"><div class="sub-html">
+                                    <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                         (2)
-                            <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                            <div class="sub-value sub-replacement"><div class="sub-html">
+                                    <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -11332,7 +11341,7 @@ Annual or Quarterly, if applicable
                     <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
                 </td>
             <td class="col-heading xbrl">
-                        <div style="text-align: center"><div class="sub-value sub-replacement">Minimum Pension liabililty Adjustment (net amount)</div></div>
+                        <div style="text-align: center"><div class="sub-value sub-replacement">Minimum Pension Liability Adjustment (net amount)</div></div>
                     <div style="text-align: center"><div class="sub-value sub-replacement">(c)</div></div>
                 </td>
             <td class="col-heading xbrl">
@@ -11363,7 +11372,6 @@ Annual or Quarterly, if applicable
                         <div style="text-align: center"><div class="sub-value sub-replacement">Total Comprehensive Income</div></div>
                     <div style="text-align: center"><div class="sub-value sub-replacement">(j)</div></div>
                 </td>
-            
             </tr>
 
         <tr class="schedule-row">
@@ -11526,7 +11534,6 @@ Annual or Quarterly, if applicable
 
             <td class="xbrl monetary_items gray-out"><div class="sub-value sub-no-replacement"></div></td>         
 </tr> 
-     
     </table> 
     <br/>
 
@@ -11548,9 +11555,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -11592,7 +11601,6 @@ Annual or Quarterly, if applicable
                     <div style="text-align: center"><div class="sub-value sub-replacement">Previous Quarter/Year Year to Date Balance</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
             </td>
-        
         </tr>
        
         <tr class="schedule-row">
@@ -12189,7 +12197,6 @@ Annual or Quarterly, if applicable
                                 <div class="sub-value sub-no-replacement"></div></td> 
         
         </tr>
-    
     </table>
 <br/>
     <div class="schedule-footer">
@@ -12209,9 +12216,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -12248,7 +12257,6 @@ Annual or Quarterly, if applicable
                     <div style="text-align: center"><div class="sub-value sub-replacement">Previous Year to Date Quarter/Year</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(c)</div></div>
             </td>
-        
         </tr>
        
         <tr class="schedule-row">
@@ -13578,7 +13586,7 @@ Annual or Quarterly, if applicable
                                 <div class="tooltip">
                                         <div class="tooltiptext">
                                                 <div class="sub-value sub-replacement">NetIncreaseDecreaseInCashAndCashEquivalents</div></div>
-                                <div class="sub-value sub-replacement">(Total of line 18, 49 and 71)</div></div>
+                                <div class="sub-value sub-replacement">(Total of line 18, 49 and 70)</div></div>
                         </td> 
                        
     
@@ -13637,9 +13645,6 @@ Annual or Quarterly, if applicable
         </tr>
 
         
-    
-
-        
     </table>
 <br/>
     <div class="schedule-footer">
@@ -13660,9 +13665,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -13782,9 +13789,11 @@ Annual or Quarterly, if applicable
                 <div class="sub-value sub-replacement">This report is:</div><br/>
 
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -13823,7 +13832,6 @@ Annual or Quarterly, if applicable
                     <div style="text-align: center"><div class="sub-value sub-replacement">Common</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(f)</div></div>
             </td>
-        
         </tr>
        
         <tr class="schedule-row">
@@ -14651,7 +14659,6 @@ Annual or Quarterly, if applicable
                 <td class="monetary_items xbrl">
                         <div class="sub-value sub-no-replacement"></div></td>
         </tr>
-    
     </table>
     <br/>
     <div class="schedule-footer">   
@@ -14671,9 +14678,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/> 
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/> 
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/> 
@@ -14730,7 +14739,6 @@ Annual or Quarterly, if applicable
                 <div style="text-align: center"><div class="sub-value sub-replacement">Balance at End of Year</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(g)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
                 <td class="xbrl line-number">
@@ -17585,7 +17593,7 @@ Annual or Quarterly, if applicable
                         <div class="tooltip padding-3">
                                 <div class="tooltiptext">
                                         <div class="sub-value sub-replacement">BaseLoadLiquefiedNaturalGasTerminalingAndProcessingPlantRollforwardAbstract</div></div>
-                        <div class="sub-value sub-replacement">Total Base Load Liquified Natural Gas , Terminating and Processing Plant (Total of lines 71 thru 79)</div></div>
+                        <div class="sub-value sub-replacement">Total Base Load Liquefied Natural Gas, Terminaling and Processing Plant (Total of lines 71 thru 79)</div></div>
                     </td> 
                        
                     <!-- Opening Balance -->
@@ -19376,7 +19384,6 @@ Annual or Quarterly, if applicable
                     <td class="xbrl monetary_items">
                         <div class="sub-value sub-no-replacement"></div></td> 
         </tr>
-    
     </table>
 <br/>
     <div class="schedule-footer">
@@ -19396,9 +19403,11 @@ Annual or Quarterly, if applicable
                 <td class="xbrl">
                     <div class="sub-value sub-replacement">This report is:</div><br/>
                         (1) 
-                            <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                            <div class="sub-value sub-replacement"><div class="sub-html">
+                                    <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                         (2)
-                            <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                            <div class="sub-value sub-replacement"><div class="sub-html">
+                                    <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -19462,7 +19471,6 @@ Annual or Quarterly, if applicable
         
                             <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
                         </td>
-            
             </tr>
             <tr class="schedule-row">
                 <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -19772,7 +19780,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
                 <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             </tr>
-            
             <tr>
                 <td class="xbrl">45</td>
                 <td class="xbrl">
@@ -19802,9 +19809,11 @@ Annual or Quarterly, if applicable
                 <td class="xbrl">
                     <div class="sub-value sub-replacement">This report is:</div><br/>
                         (1) 
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                         (2)
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -19868,7 +19877,6 @@ Annual or Quarterly, if applicable
     
                         <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
                     </td>
-        
         </tr>
         <tr class="schedule-row">
             <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -20178,7 +20186,6 @@ Annual or Quarterly, if applicable
             <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
             <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-        
         <tr>
             <td class="xbrl line-number">45</td>
             <td class="xbrl">
@@ -20210,9 +20217,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -20274,7 +20283,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
                 </td>
-        
         </tr>
         <tr class="schedule-row">
                 <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -20628,8 +20636,6 @@ Annual or Quarterly, if applicable
                 <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             </tr>
 
-        
-
         <tr>
             <td class="xbrl line-number">45</td>
             <td class="xbrl">
@@ -20658,9 +20664,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -20714,7 +20722,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(c)</div></div>
                 </td>
-        
         </tr>
         <tr class="schedule-row">
             <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -21112,7 +21119,6 @@ Annual or Quarterly, if applicable
             <!-- Estimated Additional Cost of Project -->
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-        
         <tr>
             <td class="xbrl">45</td>
             <td class="xbrl">
@@ -21141,9 +21147,11 @@ Annual or Quarterly, if applicable
                 <td class="xbrl">
                     <div class="sub-value sub-replacement">This report is:</div><br/>
                         (1) 
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                         (2)
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -21287,7 +21295,6 @@ Annual or Quarterly, if applicable
     
                         <div style="text-align: center"><div class="sub-value sub-replacement">(k)</div></div>
                     </td>
-        
         </tr>
         <tr class="schedule-row">
             <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -22189,12 +22196,11 @@ Annual or Quarterly, if applicable
             <!-- Incremental Revenues -->
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-        
         <!-- Total Lines (Line 37) -->
         <tr>
             <td class="xbrl line-number">37</td>
             <td class="xbrl">
-                <div class="sub-value sub-replacement">Gas Plant In Service</div></td>
+                <div class="sub-value sub-replacement">Total</div></td>
             <td class="gray-out"></td>
             <td class="gray-out"></td>
             <td class="xbrl monetary_items">
@@ -22234,9 +22240,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -22324,7 +22332,6 @@ Annual or Quarterly, if applicable
     
                         <div style="text-align: center"><div class="sub-value sub-replacement">(f)</div></div>
                     </td>
-        
         </tr>
         <!-- (1) Average Short-Term Debt -->
         <tr class="schedule-row">
@@ -22404,7 +22411,7 @@ Annual or Quarterly, if applicable
         <tr class="schedule-row">
                 <td class="xbrl"></td>
                 <td class="xbrl description_items">
-                    <div class="sub-value sub-replacement">(6) Total Capitaization</div></td>
+                    <div class="sub-value sub-replacement">(6) Total Capitalization</div></td>
                 <td class="xbrl monetary_items">
                         <div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl gray-out"></td>
@@ -22484,9 +22491,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -22531,7 +22540,6 @@ Annual or Quarterly, if applicable
                     <div style="text-align: center"><div class="sub-value sub-replacement">Gas Plant Leased to Others</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(e)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
                 <td class="xbrl"></td>
@@ -22721,8 +22729,6 @@ Annual or Quarterly, if applicable
                         <div class="sub-value sub-no-replacement"></div></td>    
         </tr>
 
-
-
 <!-- Section A. Lines 8-9 -->
 <tr class="schedule-row">
         <td class="xbrl line-number">
@@ -22773,8 +22779,6 @@ Annual or Quarterly, if applicable
         <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>  
     </tr>
-
-
 
 <!-- Section A. Line 10 -->
 <tr class="schedule-row">
@@ -22911,7 +22915,6 @@ Annual or Quarterly, if applicable
                 <td class="monetary_items xbrl">
                         <div class="sub-value sub-no-replacement"></div></td>    
         </tr>
-        
         <!-- Section A. Line 16 -->
         <tr class="schedule-row">
                 <td class="xbrl line-number">16</td>
@@ -22976,8 +22979,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>  
             </tr>
-
-        
 
         <!-- Section A. Line 18 -->
         <tr class="schedule-row">
@@ -23188,8 +23189,6 @@ Annual or Quarterly, if applicable
                         <div class="sub-value sub-no-replacement"></div></td>   
             </tr> 
                    
-             
-                   
             <!-- Line 30: Total -->
         <tr class="schedule-row">
                 <td class="xbrl">30</td>
@@ -23229,9 +23228,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/> 
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/> 
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/> 
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/> 
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/> 
@@ -23290,7 +23291,6 @@ Annual or Quarterly, if applicable
                 <div style="text-align: center"><div class="sub-value sub-replacement">Total</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(i)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
                 <td class="xbrl line-number">
@@ -23509,7 +23509,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items">
                     <div class="sub-value sub-no-replacement"></div></td> 
         </tr>
-    
     </table>
 <br/>
     <div class="schedule-footer">
@@ -23529,9 +23528,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -23680,7 +23681,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(l)</div></div>
                 </td>
-        
         </tr>
 <!-- Sequence Table for Investment in Associated Companies (Account 123) -->
         <tr class="schedule-row">
@@ -23728,7 +23728,6 @@ Annual or Quarterly, if applicable
                 <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
                 <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             </tr>
-    
     <!-- Subtotal for Investment in Associated Companies (Account 123) -->
     <tr>
             <td class="xbrl line-number"><div class="sub-value sub-replacement">4</div></td>
@@ -23801,8 +23800,6 @@ Annual or Quarterly, if applicable
                 <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
                 <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             </tr>
- 
-        
  
         <!-- Subtotal for Other Investments (Account 124) -->
         <tr>
@@ -23877,8 +23874,6 @@ Annual or Quarterly, if applicable
                 <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td> 
             </tr>
 
-        
-
         <!-- Subtotal for Temporary Cash Investment (Account 136) -->
         <tr>
                 <td class="xbrl line-number"><div class="sub-value sub-replacement">4</div></td>
@@ -23946,9 +23941,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -24059,7 +24056,6 @@ Annual or Quarterly, if applicable
         
                             <div style="text-align: center"><div class="sub-value sub-replacement">(h)</div></div>
                         </td>
-        
         </tr>
 
         <tr class="schedule-row">
@@ -24491,7 +24487,6 @@ Annual or Quarterly, if applicable
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-        
         <tr>
                 <td class="xbrl line-number">40</td>
                 <td class="xbrl description_items">
@@ -24530,9 +24525,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -24569,7 +24566,6 @@ Annual or Quarterly, if applicable
                             <div class="sub-value sub-replacement">Balance at End of Year (in dollars)</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
             <td class="xbrl line-number">
@@ -24655,7 +24651,6 @@ Annual or Quarterly, if applicable
                             <div class="sub-value sub-no-replacement"></div></td> 
                           
         </tr>
-    
     </table>
 <br/>
     <div class="schedule-footer">
@@ -24675,9 +24670,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -24775,7 +24772,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(g)</div></div>
                 </td>
-        
         </tr>
 
         <tr class="schedule-row">
@@ -24922,8 +24918,6 @@ Annual or Quarterly, if applicable
            <div class="sub-value sub-no-replacement"></div></td>
     </tr>
 
-            
-
             <!-- Line 15 for Total  -->
     <tr>
         <td class="xbrl line-number">15</td>
@@ -24960,9 +24954,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                 <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -25058,7 +25054,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(g)</div></div>
                 </td>
-        
         </tr>
         <tr class="schedule-row">
             <td class="xbrl line-number"><span class="sub-line-number">16</span></td>
@@ -25180,7 +25175,6 @@ Annual or Quarterly, if applicable
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-            
             <!-- Line 15 for Total -->
         <tr>
             <td class="xbrl line-number">26</td>
@@ -25219,9 +25213,11 @@ Annual or Quarterly, if applicable
                 <td class="xbrl">
                     <div class="sub-value sub-replacement">This report is:</div><br/>
                         (1) 
-                            <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                            <div class="sub-value sub-replacement"><div class="sub-html">
+                                    <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                         (2)
-                            <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                            <div class="sub-value sub-replacement"><div class="sub-html">
+                                    <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -25336,7 +25332,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(i)</div></div>
                 </td>
-        
         </tr>
         <!-- "Line 1 through 39 -->
         <tr class="schedule-row">
@@ -25807,7 +25802,6 @@ Annual or Quarterly, if applicable
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-        
         <!-- "Line 40 -->
         <tr>
             <td class="xbrl line-number">40</td>
@@ -25853,9 +25847,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -25949,7 +25945,6 @@ Annual or Quarterly, if applicable
     
                         <div style="text-align: center"><div class="sub-value sub-replacement">(g)</div></div>
                     </td>
-        
         </tr>
         <tr class="schedule-row">
             <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -26341,7 +26336,6 @@ Annual or Quarterly, if applicable
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>  
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-        
         <tr>
         <!-- Line 39: Miscellaneous Working in Progress -->
             <td class="xbrl line-number">39</td>
@@ -26403,9 +26397,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                 <br/>
                     <div class="sub-value sub-no-replacement"></div></td>
@@ -26474,7 +26470,6 @@ Annual or Quarterly, if applicable
                     <div style="text-align: center"><div class="sub-value sub-replacement">Balance at End of Year</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(k)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
             <td class="xbrl line-number">1</td>
@@ -26647,7 +26642,6 @@ Annual or Quarterly, if applicable
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
 
         </tr> 
- 
 <!-- Classification of Tax type-->
         <tr class="schedule-row">
             <td class="xbrl line-number">8</td>
@@ -26793,7 +26787,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items">
                     <div class="sub-value sub-no-replacement"></div></td>
     </tr>
-    
     </table>
 <br/>
     <div class="schedule-footer">
@@ -26814,9 +26807,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -26882,7 +26877,6 @@ Annual or Quarterly, if applicable
                         <div style="text-align: center"><div class="sub-value sub-replacement">Held by Respondent In Sinking and Other Funds Amount</div></div>
                     <div style="text-align: center"><div class="sub-value sub-replacement">(j)</div></div>
                 </td>
-            
             </tr>
     <!-- Common Stock Heading-->
         <tr>
@@ -27002,7 +26996,6 @@ Annual or Quarterly, if applicable
             <td class="monetary_items xbrl">
                 <div class="sub-value sub-no-replacement"></div></td> 
         </tr>
-    
     <!-- Common Stock Sub total -->
         <tr>
             <td class="xbrl line-number">
@@ -27141,7 +27134,6 @@ Annual or Quarterly, if applicable
         <td class="monetary_items xbrl">
             <div class="sub-value sub-no-replacement"></div></td> 
     </tr>
-    
     <!-- Preferred Stock Sub total -->
     <tr>
             <td class="xbrl">
@@ -27207,9 +27199,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -27249,7 +27243,6 @@ Annual or Quarterly, if applicable
                     <div style="text-align: center"><div class="sub-value sub-replacement">Amount</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
             </td>
-        
         </tr>
     <!-- Common Stock Subscribed -->
         <tr>
@@ -27308,7 +27301,6 @@ Annual or Quarterly, if applicable
                     <div class="sub-value sub-no-replacement"></div></td>
                    
         </tr>
-        
         <tr>
                 <td class="xbrl line-number"><div class="sub-value sub-replacement">5</div></td>
                 <td class="xbrl">
@@ -27378,7 +27370,6 @@ Annual or Quarterly, if applicable
             <td class="monetary_items xbrl">
                 <div class="sub-value sub-no-replacement"></div></td> 
     </tr>
-    
     <tr>
         <td class="xbrl line-number">
                 <div class="sub-value sub-replacement">10</div></td>
@@ -27448,7 +27439,6 @@ Annual or Quarterly, if applicable
             <td class="monetary_items xbrl">
                 <div class="sub-value sub-no-replacement"></div></td> 
     </tr>
-    
     <tr>
             <td class="xbrl line-number">
                     <div class="sub-value sub-replacement">15</div></td>
@@ -27518,7 +27508,6 @@ Annual or Quarterly, if applicable
             <td class="monetary_items xbrl">
                 <div class="sub-value sub-no-replacement"></div></td> 
     </tr>
-    
     <tr>
         <td class="xbrl line-number">
                 <div class="sub-value sub-replacement">20</div></td>
@@ -27602,7 +27591,6 @@ Annual or Quarterly, if applicable
                 <div class="sub-value sub-no-replacement"></div></td> 
 
     </tr>
-    
     <tr>
             <td class="xbrl line-number">
                     <div class="sub-value sub-replacement">25</div></td>
@@ -27680,7 +27668,6 @@ Annual or Quarterly, if applicable
                 <div class="sub-value sub-no-replacement"></div></td> 
         
     </tr>
-    
     <tr>
         <td class="xbrl line-number">
                 <div class="sub-value sub-replacement">30</div></td>
@@ -27729,9 +27716,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -27765,7 +27754,6 @@ Annual or Quarterly, if applicable
                     <div style="text-align: center"><div class="sub-value sub-replacement">Amount</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
                 <td class="xbrl line-number">
@@ -28061,7 +28049,6 @@ Annual or Quarterly, if applicable
                         <td class="monetary_items xbrl">
                             <div class="sub-value sub-no-replacement"></div></td>             
         </tr>
-    
     </table>
 <br/>
     <div class="schedule-footer">
@@ -28081,9 +28068,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -28128,7 +28117,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
                 </td>
-        
         </tr>
         <tr class="schedule-row">
             <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -28200,7 +28188,6 @@ Annual or Quarterly, if applicable
             <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-        
         <!-- Discount on Capital Stock (Total) Line 15 -->
         <tr>
             <td class="xbrl line-number">15</td>
@@ -28245,7 +28232,6 @@ Annual or Quarterly, if applicable
 
                 <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
             <td class="xbrl line-number"><span class="sub-line-number">16</span></td>
@@ -28312,7 +28298,6 @@ Annual or Quarterly, if applicable
             <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-        
         <!-- Capital Stock Expense (Total) Line 29 -->
         <tr>
             <td class="xbrl line-number">29</td>
@@ -28342,9 +28327,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -28369,10 +28356,10 @@ Annual or Quarterly, if applicable
         </tr>
         <tr>
             <td class="xbrl">
+                <div class="sub-value sub-no-replacement"></div><br/> 
+                <div class="sub-value sub-no-replacement"></div><br/> 
                 <div class="sub-value sub-no-replacement"></div><br/>
-                <div class="sub-value sub-no-replacement"></div><br/>
-                <div class="sub-value sub-no-replacement"></div><br/>
-                <div class="sub-value sub-no-replacement"></div><br/>
+                 <div class="sub-value sub-no-replacement"></div><br/>
                 <div class="sub-value sub-no-replacement"></div><br/>
                 <div class="sub-value sub-no-replacement"></div></td>
         </tr>
@@ -28397,9 +28384,11 @@ Annual or Quarterly, if applicable
                 <td class="xbrl">
                     <div class="sub-value sub-replacement">This report is:</div><br/>
                         (1) 
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                         (2)
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -28518,7 +28507,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(i)</div></div>
                 </td>
-        
         </tr>
          <!-- Bonds (Account 221) Heading -->
         <tr>
@@ -28735,7 +28723,6 @@ Annual or Quarterly, if applicable
             <!-- Redemption Price per $100 at End of Year -->
             <td class="xbrl numeric_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-    
     <!-- Subtotal for Bonds (Account 221) -->
         <tr>
             <td class="xbrl line-number">
@@ -28950,7 +28937,6 @@ Annual or Quarterly, if applicable
             <!-- Redemption Price per $100 -->
             <td class="xbrl numeric_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-        
         <!-- Subtotal for Reacquired Bonds (Account 222) -->
         <tr>
                 <td class="xbrl line-number">
@@ -29180,7 +29166,6 @@ Annual or Quarterly, if applicable
             <!-- Redemption Price per $100 -->
             <td class="xbrl numeric_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-            
             <!-- Subtotal for Advances from Associated Companies (Account 2230 -->
             <tr>
                     <td class="xbrl line-number">
@@ -29417,7 +29402,6 @@ Annual or Quarterly, if applicable
                 <!-- Redemption Price per $100 -->
                 <td class="xbrl numeric_items"><div class="sub-value sub-no-replacement"></div></td>
             </tr>
-            
             <!-- Subtotal for Other Long Term Debt (Account 224) -->
             <tr>
                     <td class="xbrl line-number">
@@ -29489,9 +29473,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -29608,7 +29594,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(i)</div></div>
                 </td>
-        
         </tr>
          <!-- Heading for Unamortized Debt Expense (Account 181)-->
          <tr>
@@ -29685,7 +29670,6 @@ Annual or Quarterly, if applicable
             <!-- Balance at End of Year -->
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
-     
     <!-- Heading for Premium on Long-Term Debt (Account 225) -->
          <tr>
                 <td class="xbrl line-number">
@@ -29765,8 +29749,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
             </tr> 
 
-         
-
         <!-- Heading for Discount on Long-Term Debt (Account 226) -->
         <tr>
                 <td class="xbrl line-number">
@@ -29822,8 +29804,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
             </tr> 
        
-         
-       
         <!-- Heading for Histrical Data Section -->
         <!-- Table for Historical Data Conversion  -->
         </table>
@@ -29847,9 +29827,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -29944,7 +29926,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(g)</div></div>
                 </td>
-        
         </tr>
          <!-- Heading for Unamortized Loss (Account 189) -->
          <tr>
@@ -29988,7 +29969,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
             </tr> 
-     
     <!-- Heading for Unamortized Gain (Account 257) -->
          <tr>
                 <td class="xbrl line-number"><div class="sub-value sub-replacement">5</div></td>
@@ -30033,8 +30013,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
             </tr> 
-
-         
 
         <!-- Heading for Historical Data Section -->
         <!-- Table for Historical Data Conversion -->
@@ -30359,7 +30337,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>  
                 <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
             </tr> 
-     
     </table>
 <br/>
 <div class="schedule-footer">
@@ -30379,9 +30356,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -30411,7 +30390,6 @@ Annual or Quarterly, if applicable
                         <div style="text-align: center"><div class="sub-value sub-replacement">Amount</div></div>
                     <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
                 </td>
-            
             </tr>
        <!-- Line: Net Income for the Year -->
        <tr class="schedule-row">
@@ -30461,7 +30439,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl description_items"><div class="sch-title sub-value sub-no-replacement"></div></td>
                 <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
             </tr> 
-         
         <!-- Line 8: TOTAL for Taxable Income Not Reported on Books -->
         <tr>
             <td class="xbrl line-number">8</td>
@@ -30494,7 +30471,6 @@ Annual or Quarterly, if applicable
             <td class="xbrl description_items"><div class="sch-title sub-value sub-no-replacement"></div></td>
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
-     
     <!-- Line 13: TOTAL  -->
     <tr>
         <td class="xbrl line-number">13</td>
@@ -30528,7 +30504,6 @@ Annual or Quarterly, if applicable
         <td class="xbrl description_items"><div class="sch-title sub-value sub-no-replacement"></div></td>
         <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
     </tr> 
-         
         <!-- Line 18: TOTAL for Income Recorded on Books Not Included in Return  -->
         <tr class="schedule-row">
             <td class="xbrl line-number">18</td>
@@ -30577,7 +30552,6 @@ Annual or Quarterly, if applicable
             <td class="xbrl description_items"><div class="sch-title sub-value sub-no-replacement"></div></td>
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
-     
     <!-- Line 26: TOTAL for Deductions on Return Not Charged Against Book Income  -->
         <tr class="schedule-row">
             <td class="xbrl line-number">26</td>
@@ -30637,7 +30611,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl description_items"><div class="sch-title sub-value sub-no-replacement"></div></td>
                 <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
             </tr> 
-     
     </table>
 <br/>
 <div class="schedule-footer">
@@ -30657,9 +30630,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -30892,7 +30867,6 @@ Annual or Quarterly, if applicable
     
                         <div style="text-align: center"><div class="sub-value sub-replacement">(t)</div></div>
                     </td>
-        
         </tr>
 
         <tr class="schedule-row">
@@ -31831,8 +31805,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl percent_items"><div class="sub-value sub-no-replacement"></div></td>
             </tr> 
 
-             
-
             <tr>
                 <td class="xbrl line-number">40</td>
                 <td class="xbrl description_items">
@@ -31891,9 +31863,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -31935,7 +31909,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
                 </td>
-        
         </tr>
             <tr class="schedule-row">
                     <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -32157,7 +32130,6 @@ Annual or Quarterly, if applicable
                     <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
                     <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
                 </tr> 
-             
             <tr> <!-- Line 40: Total -->
                 <td class="xbrl line-number">45</td>
                 <td class="xbrl description_items">
@@ -32186,9 +32158,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -32271,7 +32245,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(f)</div></div>
                 </td>
-        
         </tr>
             <tr class="schedule-row">
                 <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -32669,7 +32642,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>  
                 <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
             </tr>
-            
             <tr> <!-- Line 45: Total -->
                 <td class="xbrl line-number">45</td>
                 <td class="xbrl description_items">
@@ -32704,9 +32676,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                 <br/>
                     <div class="sub-value sub-no-replacement"></div></td>
@@ -32774,7 +32748,6 @@ Annual or Quarterly, if applicable
                     <div style="text-align: center"><div class="sub-value sub-replacement">Balance at End of Year</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(k)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
             <td class="xbrl line-number">1</td>
@@ -32941,7 +32914,6 @@ Annual or Quarterly, if applicable
             <!-- (k) Ending Balance -->
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
- 
 <!-- Classification of Tax type-->
         <tr class="schedule-row">
             <td class="xbrl line-number">8</td>
@@ -33087,7 +33059,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items">
                     <div class="sub-value sub-no-replacement"></div></td>
     </tr>
-    
     </table>
 <br/>
     <div class="schedule-footer">
@@ -33109,9 +33080,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                 <br/>
                     <div class="sub-value sub-no-replacement"></div></td>
@@ -33180,7 +33153,6 @@ Annual or Quarterly, if applicable
                     <div style="text-align: center"><div class="sub-value sub-replacement">Balance at End of Year</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(k)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
             <td class="xbrl line-number">1</td>
@@ -33287,7 +33259,6 @@ Annual or Quarterly, if applicable
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
 
         </tr> 
- 
 <!-- Classification of Tax type-->
         <tr class="schedule-row">
             <td class="xbrl line-number">8</td>
@@ -33433,7 +33404,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items">
                     <div class="sub-value sub-no-replacement"></div></td>
     </tr>
-    
     </table>
 <br/>
     <div class="schedule-footer">
@@ -33455,9 +33425,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -33551,7 +33523,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(g)</div></div>
                 </td>
-        
         </tr>
             <tr class="schedule-row">
                 <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -33993,7 +33964,6 @@ Annual or Quarterly, if applicable
                 <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
                 <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             </tr>
-            
             <tr> <!-- Line 45: Total -->
                 <td class="xbrl line-number">45</td>
                 <td class="xbrl description_items">
@@ -34031,9 +34001,11 @@ Annual or Quarterly, if applicable
                 <td class="xbrl">
                     <div class="sub-value sub-replacement">This report is:</div><br/>        
                     (1) 
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>  
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> An Original</div></div><br/>  
                     (2)
-                    <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                    <div class="sub-value sub-replacement"><div class="sub-html">
+                            <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -34122,13 +34094,23 @@ Annual or Quarterly, if applicable
                     <div style="text-align: center"><div class="sub-value sub-replacement">Month 3 Revenue (Total)</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(p)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
                 <td class="xbrl line-number">1</td> 
                 <!-- (a) Items -->
                 <td class="xbrl description_items">
-                        <div class="sub-value sub-replacement">Total Sales (480-488)</div></td>
+                        Total Sales (480-488)
+                        <!--<xule:replace>
+                        <xule:expression class="hide"  name="SalesLineItems">
+                                taxonomy().concept(ferc:SalesOfGasForfeitedDiscountsAndMiscellaneousServiceRevenuesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                        </xule:expression>
+                        <div>
+                                <xule:template-display>
+                                        Total Sales (480-488)
+                                </xule:template-display>
+                        </div>
+                        </xule:replace>-->
+                </td>
                 <!-- (b) Month 1 Quantity -->
                 <td class="xbrl numeric_items">
                         <div class="sub-value sub-no-replacement"></div></td>
@@ -34189,7 +34171,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items">
                         <div class="sub-value sub-no-replacement"></div></td> 
         </tr>
-        
         <tr class="schedule-row">
                 <td class="xbrl line-number">2</td>
                 <td class="xbrl description_items">
@@ -36311,13 +36292,12 @@ Annual or Quarterly, if applicable
                 <!-- (p) Month3 Revenue (Total) -->
                 <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             </tr>
-        
         <!-- Line 63: Total Transportation of Gas for Others -->
         <tr class="schedule-row">
                 <td class="xbrl line-number">63</td> 
                 <!-- (a) Items -->
                 <td class="xbrl description_items">
-                        <div class="sub-value sub-replacement">Total Transportation (Other than Gathering)</div></td>
+                         <div class="sub-value sub-replacement">Total Transportation (Other than Gathering)</div></td>
                 <!-- (b) Month 1 Quantity -->
                 <td class="xbrl numeric_items">
                         <div class="sub-value sub-no-replacement"></div></td>
@@ -36378,8 +36358,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items">
                         <div class="sub-value sub-no-replacement"></div></td> 
         </tr>
-
-        
 
         <!-- Line 64: Storage Heading -->
         <tr class="schedule-row">
@@ -37303,13 +37281,23 @@ Annual or Quarterly, if applicable
                 <!-- (p) Month3 Revenue (Total) -->
                 <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             </tr>
-         
          <!-- Line 90: Storage Total -->
          <tr class="schedule-row">
                 <td class="xbrl line-number">90</td> 
                 <!-- (a) Items -->
                 <td class="xbrl description_items">
-                        <div class="sub-value sub-replacement">Total Storage</div></td>
+                        Total Storage
+                        <!--<xule:replace>
+                        <xule:expression class="hide">
+                                taxonomy().concept(ferc:RevenuesFromStoringGasOfOthers).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
+                        </xule:expression>
+                        <div>
+                                <xule:template-display>
+                                        Total Storage
+                                </xule:template-display>
+                        </div>
+                        </xule:replace>-->
+                </td>
                 <!-- (b) Month 1 Quantity -->
                 <td class="xbrl numeric_items">
                         <div class="sub-value sub-no-replacement"></div></td>
@@ -37370,7 +37358,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items">
                         <div class="sub-value sub-no-replacement"></div></td> 
         </tr>
-        
         <!-- Line 91: Gathering Heading -->
         <tr class="schedule-row">
                 <td class="xbrl line-number">91</td>
@@ -37591,7 +37578,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items">
                         <div class="sub-value sub-no-replacement"></div></td> 
         </tr> 
- 
 <!-- Line 95: Additional Revenue Heading -->
         <tr class="schedule-row">
                 <td class="xbrl line-number">95</td>
@@ -38010,7 +37996,6 @@ Annual or Quarterly, if applicable
                 <td class="xbrl monetary_items">
                         <div class="sub-value sub-no-replacement"></div></td> 
         </tr> 
-     
     </table>
 <br/>
 <div class="schedule-footer">
@@ -38030,9 +38015,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/> 
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/> 
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/> 
@@ -38101,7 +38088,6 @@ Annual or Quarterly, if applicable
                 <div style="text-align: center"><div class="sub-value sub-replacement">Dekatherm of Natural Gas Amount for Previous Year</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(k)</div></div>
             </td>
-        
         </tr>
         
        <tr class="schedule-row">
@@ -39259,8 +39245,6 @@ Annual or Quarterly, if applicable
                          
         </tr>
             
-    
-            
     </table>
 <br/>
     <div class="schedule-footer">
@@ -39280,9 +39264,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -39414,7 +39400,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(k)</div></div>
                 </td>
-        
         </tr>
             <tr class="schedule-row">
                 <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -39816,7 +39801,6 @@ Annual or Quarterly, if applicable
                 <!-- Dekatherm of Natural Gas (Previous) -->
                 <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             </tr> 
-         
         </table>
     <br/>
         <div class="schedule-footer">
@@ -39836,9 +39820,11 @@ Annual or Quarterly, if applicable
                 <td class="xbrl">
                     <div class="sub-value sub-replacement">This report is:</div><br/>
                         (1) 
-                            <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                            <div class="sub-value sub-replacement"><div class="sub-html">
+                                    <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                         (2)
-                            <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                            <div class="sub-value sub-replacement"><div class="sub-html">
+                                    <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -39975,7 +39961,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(k)</div></div>
                 </td>
-        
         </tr>
 
         <tr class="schedule-row">
@@ -40403,8 +40388,6 @@ Annual or Quarterly, if applicable
             <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
 
-        
-
         <tr class="schedule-row">
             <td class="xbrl line-number">
             </td>
@@ -40422,9 +40405,6 @@ Annual or Quarterly, if applicable
             <!-- Dekatherm of Natural Gas (Current) -->
             <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-
-
-        
 
 
         <tr> <!-- Line 40: Total -->
@@ -40485,9 +40465,11 @@ Annual or Quarterly, if applicable
                 <td class="xbrl">
                     <div class="sub-value sub-replacement">This report is:</div><br/>
                         (1) 
-                            <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                            <div class="sub-value sub-replacement"><div class="sub-html">
+                                    <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                         (2)
-                            <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                            <div class="sub-value sub-replacement"><div class="sub-html">
+                                    <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                         <div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -40623,7 +40605,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(k)</div></div>
                 </td>
-        
         </tr>
 
         <tr class="schedule-row">
@@ -41026,7 +41007,6 @@ Annual or Quarterly, if applicable
             <!-- Dekatherm of Natural Gas (Prior) -->
             <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-    
     </table>
 <br/>
 <div class="schedule-footer">
@@ -41046,9 +41026,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -41075,7 +41057,6 @@ Annual or Quarterly, if applicable
                     <div style="text-align: center"><div class="sub-value sub-replacement">Amount (in dollars)</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
             </td>
-        
         </tr>
 
         <tr class="schedule-row">
@@ -41197,8 +41178,6 @@ Annual or Quarterly, if applicable
             <td class="monetary_items xbrl">
                     <div class="sub-value sub-no-replacement"></div></td> 
         </tr> 
-
-     
 
     <!-- Line 11: Heading for Other revenues-->
         <tr class="schedule-row">
@@ -41405,8 +41384,6 @@ Annual or Quarterly, if applicable
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
 
-     
-
     <!-- Total Line -->
         <tr>
             <td class="xbrl">40</td>
@@ -41434,9 +41411,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -41510,7 +41489,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(e)</div></div>
                 </td>
-            
             </tr>
 
             <tr class="schedule-row">
@@ -42059,8 +42037,6 @@ Annual or Quarterly, if applicable
                 <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>  
             </tr> 
 
-             
-
             <tr> <!-- Line 40: Total -->
                 <td class="xbrl line-number">40</td>
                 <!-- Account -->
@@ -42098,9 +42074,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -42127,7 +42105,6 @@ Annual or Quarterly, if applicable
                     <div style="text-align: center"><div class="sub-value sub-replacement">Amount for Previous Year</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(c)</div></div>
             </td>
-        
         </tr>
        
         <tr class="schedule-row">
@@ -46466,7 +46443,6 @@ Annual or Quarterly, if applicable
             <td class="monetary_items xbrl">
                     <div class="sub-value sub-no-replacement"></div></td> 
         </tr>
-    
     </table>
 <br/>
     <div class="schedule-footer">
@@ -46487,9 +46463,11 @@ Annual or Quarterly, if applicable
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -46560,7 +46538,6 @@ Annual or Quarterly, if applicable
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(e)</div></div>
                 </td>
-            
             </tr>
             <tr class="schedule-row">
                 <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -46874,7 +46851,6 @@ Annual or Quarterly, if applicable
                 <!-- Gas Delivered to Others (Dth) -->
                 <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>  
             </tr> 
-             
             <tr> <!-- Line 25: Total -->
                 <td class="xbrl line-number">25</td>
                 <td class="xbrl description_items">
@@ -46913,9 +46889,11 @@ Annual or Quarterly, if applicable
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -46953,7 +46931,6 @@ Annual or Quarterly, if applicable
                     <div style="text-align: center"><div class="sub-value sub-replacement">Natural Gas Amount of Credit (in dollars)</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
             </td>
-        
         </tr>
         <!-- Line 1: (810) Gas Used for Compressor Station - Fuel (Credit) -->
         <tr>
@@ -47210,7 +47187,6 @@ Processed by Others - Credit</div></td>
             <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-        
         <tr>
             <td class="xbrl line-number">25</td>
             <td class="xbrl description_items">
@@ -47241,9 +47217,11 @@ Processed by Others - Credit</div></td>
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -47306,7 +47284,6 @@ Processed by Others - Credit</div></td>
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
                 </td>
-        
         </tr>
         <tr class="schedule-row">
                 <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -47524,7 +47501,6 @@ Processed by Others - Credit</div></td>
                 <!-- Dth of Gas Delivered -->
                 <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>   
             </tr> 
-             
             <tr> <!-- Line 25: Total -->
                 <td class="xbrl line-number">25</td>
                 <td class="xbrl description_items">
@@ -47557,9 +47533,11 @@ Processed by Others - Credit</div></td>
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -47600,7 +47578,6 @@ Processed by Others - Credit</div></td>
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
                 </td>
-        
         </tr>
         <tr class="schedule-row">
                 <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -47770,7 +47747,6 @@ Processed by Others - Credit</div></td>
                 <!-- Amount (in dolloars) -->
                 <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             </tr> 
-             
             <!-- Line 25: Total -->
             <tr> 
                 <td class="xbrl line-number line-number">25</td>
@@ -47799,9 +47775,11 @@ Processed by Others - Credit</div></td>
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -47831,7 +47809,6 @@ Processed by Others - Credit</div></td>
                     <div style="text-align: center"><div class="sub-value sub-replacement">Amount</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
                 <td class="xbrl line-number">
@@ -47911,9 +47888,6 @@ Processed by Others - Credit</div></td>
                 <td class="monetary_items xbrl">
                         <div class="sub-value sub-no-replacement"></div></td> 
         </tr>
-       
-        
-        
        
         
         <!-- SECOND COMPONENT -->
@@ -48019,7 +47993,6 @@ Processed by Others - Credit</div></td>
             <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
             <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
-         
         <!-- Line 25: Total -->
         <tr> 
             <td class="xbrl line-number line-number">25</td>
@@ -48049,9 +48022,11 @@ Processed by Others - Credit</div></td>
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                 <br/>
                     <div class="sub-value sub-no-replacement"></div></td>
@@ -48161,7 +48136,6 @@ Processed by Others - Credit</div></td>
 
                 <div style="text-align: center"><div class="sub-value sub-replacement">(h)</div></div>
             </td>
-        
         </tr>
 
         <tr class="schedule-row">
@@ -48392,7 +48366,6 @@ Processed by Others - Credit</div></td>
             <!-- Total (b to g) -->
             <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
-     
     </table>
 <br/>
     <div class="schedule-footer">
@@ -48413,9 +48386,11 @@ Processed by Others - Credit</div></td>
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                 <br/>
                     <div class="sub-value sub-no-replacement"></div></td>
@@ -48475,7 +48450,6 @@ Processed by Others - Credit</div></td>
 
                 <div style="text-align: center"><div class="sub-value sub-replacement">(c)</div></div>
             </td>
-        
         </tr>
 
         <tr class="schedule-row">
@@ -48558,8 +48532,6 @@ Processed by Others - Credit</div></td>
             <td class="xbrl percent_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
 
-         
-
         <tr class="schedule-row">
                 <td class="xbrl line-number"><span class="sub-line-number">9</span></td>
                 <!-- Functional Classification -->
@@ -48630,7 +48602,6 @@ Processed by Others - Credit</div></td>
                 <!-- Applied Depreciation of Amortization Rates (percent) -->
                 <td class="percent_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             </tr>
-    
     </table>
 <br/>
     <div class="schedule-footer">
@@ -48651,9 +48622,11 @@ Processed by Others - Credit</div></td>
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -48698,7 +48671,6 @@ Processed by Others - Credit</div></td>
 
                 <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
             </td>
-        
         </tr>
 
 <!--Account 425 Header-->
@@ -48730,7 +48702,6 @@ Processed by Others - Credit</div></td>
             <!-- Amount -->
             <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
- 
 <!--Account 425 Subtotal-->
         <tr>
             <td class="xbrl line-number">
@@ -48768,7 +48739,6 @@ Processed by Others - Credit</div></td>
             <!-- Amount -->
             <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
- 
 <!--Account 426.1 Subtotal-->
         <tr>
             <td class="xbrl line-number">
@@ -48806,7 +48776,6 @@ Processed by Others - Credit</div></td>
             <!-- Amount -->
             <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
- 
 <!--Account 426.2 Subtotal-->
         <tr>
             <td class="xbrl line-number">
@@ -48848,7 +48817,6 @@ Processed by Others - Credit</div></td>
             <!-- Amount -->
             <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
- 
 <!--Account 426.3 Subtotal-->
         <tr>
             <td class="xbrl line-number">
@@ -48887,7 +48855,6 @@ Processed by Others - Credit</div></td>
             <!-- Amount -->
             <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
- 
 <!--Account 426.4 Subtotal-->
         <tr>
             <td class="xbrl line-number">
@@ -48926,7 +48893,6 @@ Processed by Others - Credit</div></td>
             <!-- Amount -->
             <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
- 
 <!--Account 426.5 Subtotal-->
         <tr>
             <td class="xbrl line-number">
@@ -48965,7 +48931,6 @@ Processed by Others - Credit</div></td>
             <!-- Amount -->
             <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
- 
 <!--Account 430 Subtotal-->
         <tr>
             <td class="xbrl line-number">
@@ -49004,7 +48969,6 @@ Processed by Others - Credit</div></td>
             <!-- Amount -->
             <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
- 
 <!--Account 431 Subtotal-->
         <tr>
             <td class="xbrl line-number">
@@ -49036,9 +49000,11 @@ Processed by Others - Credit</div></td>
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -49184,7 +49150,6 @@ Processed by Others - Credit</div></td>
 
                 <div style="text-align: center"><div class="sub-value sub-replacement">(l)</div></div>
             </td>
-        
         </tr>
         
         <tr class="schedule-row">
@@ -49859,8 +49824,6 @@ Processed by Others - Credit</div></td>
                 <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             </tr>
         
-            
-        
             <tr>
                 <td class="xbrl">25</td>
                 <td class="xbrl">
@@ -49913,9 +49876,11 @@ Processed by Others - Credit</div></td>
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -49956,7 +49921,6 @@ Processed by Others - Credit</div></td>
 
                     <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
                 </td>
-            
             </tr>
         
         <!-- Line 1-5 here -->
@@ -50255,7 +50219,6 @@ Processed by Others - Credit</div></td>
                 <td class="xbrl monetary_items">
                     <div class="sub-value sub-no-replacement"></div></td>
             </tr> 
-         
         <!-- Total Line here -->
             <tr>
                 <td class="xbrl line-number">40</td>
@@ -50286,9 +50249,11 @@ Processed by Others - Credit</div></td>
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -50328,7 +50293,6 @@ Processed by Others - Credit</div></td>
                     <div style="text-align: center"><div class="sub-value sub-replacement">Total</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(e)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
                 <td class="xbrl line-number">
@@ -52082,7 +52046,6 @@ Processed by Others - Credit</div></td>
             <td class="monetary_items xbrl">
                 <div class="sub-value sub-no-replacement"></div></td> 
     </tr>
-
 <!-- Sequence Table for "Other Accounts" -->
     <tr class="schedule-row">
         <td class="xbrl line-number"><span class="sub-line-number">75.1</span></td>
@@ -52108,7 +52071,6 @@ Processed by Others - Credit</div></td>
         <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
         <td class="xbrl monetary_items"><div class="sub-value sub-no-replacement"></div></td>
     </tr>
-
 <!-- Line 76: Other Accounts (Total) --> 
     <tr>
         <td class="xbrl">76</td>
@@ -52156,9 +52118,11 @@ Processed by Others - Credit</div></td>
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -52204,7 +52168,6 @@ Processed by Others - Credit</div></td>
 
                 <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
             <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -52376,7 +52339,6 @@ Processed by Others - Credit</div></td>
             <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
             <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
-         
         <tr>
             <td class="xbrl line-number"> <!-- Historical data is a part of sequence table (since no way to know which database entry is shown as "Total"), users should tag with default for "Total" line without type dimension for subsequence filings. Historical data will show Total Line in both sequence and regular Total lines. -->
                 <div class="sub-value sub-replacement">35</div></td>
@@ -52407,9 +52369,11 @@ Processed by Others - Credit</div></td>
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -52473,7 +52437,6 @@ Processed by Others - Credit</div></td>
 
                 <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
             </td>
-        
         </tr>
         <!-- Line 1 -->
         <tr class="schedule-row">
@@ -52621,7 +52584,6 @@ Processed by Others - Credit</div></td>
             <td class="account-number xbrl"><div class="sub-value sub-no-replacement"></div></td>
             <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
-         
         <!-- Line 19 Total from Line 1-18 -->
         <tr class="schedule-row">
             <td class="xbrl line-number">19</td>
@@ -52794,7 +52756,6 @@ Processed by Others - Credit</div></td>
             <td class="account-number xbrl"><div class="sub-value sub-no-replacement"></div></td>
             <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
-         
         <!-- Line 40 Total Line -->
         <tr class="schedule-row">
             <td class="xbrl line-number">40</td>
@@ -52824,9 +52785,11 @@ Processed by Others - Credit</div></td>
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -52978,7 +52941,6 @@ Processed by Others - Credit</div></td>
 
                 <div style="text-align: center"><div class="sub-value sub-replacement">(m)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
                 <td class="xbrl line-number"><span class="sub-line-number">1</span></td>
@@ -53700,7 +53662,6 @@ Processed by Others - Credit</div></td>
                 <td class="xbrl date_items"><div class="sub-value sub-no-replacement"></div></td> 
                 
             </tr> 
-             
             <tr>
                 <td class="xbrl line-number">25</td>
                 <!-- (a) Name of Station and Location -->
@@ -53762,9 +53723,11 @@ Processed by Others - Credit</div></td>
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                 <br/>
                     <div class="sub-value sub-no-replacement"></div></td>
@@ -53827,7 +53790,6 @@ Processed by Others - Credit</div></td>
 
                 <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
             <td class="xbrl"></td>
@@ -53949,8 +53911,6 @@ Processed by Others - Credit</div></td>
             <td class="xbrl numeric_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
 
-         
-
         <tr class="schedule-row">
             <td class="xbrl line-number">15</td>
             <td class="xbrl description_items">
@@ -54052,7 +54012,6 @@ Processed by Others - Credit</div></td>
             <td class="xbrl numeric_items"><div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl numeric_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
-     
     </table>
 <br/>
     <div class="schedule-footer">
@@ -54073,9 +54032,11 @@ Processed by Others - Credit</div></td>
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -54115,7 +54076,6 @@ Processed by Others - Credit</div></td>
 
                 <div style="text-align: center"><div class="sub-value sub-replacement">(b)</div></div>
             </td>
-        
         </tr>
         <tr class="schedule-row">
                 <td class="xbrl line-number">
@@ -54338,7 +54298,6 @@ Processed by Others - Credit</div></td>
                         <td class="xbrl numeric_items">
                                 <div class="sub-value sub-no-replacement"></div></td>                                   
         </tr>
-    
     </table>
 <br/>
     <div class="schedule-footer">
@@ -54359,9 +54318,11 @@ Processed by Others - Credit</div></td>
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -54435,7 +54396,6 @@ Processed by Others - Credit</div></td>
 
                 <div style="text-align: center"><div class="sub-value sub-replacement">(e)</div></div>
             </td>
-        
         </tr>
     <!-- Lines for Fully Owned and operated by Respondent -->
         <tr class="schedule-row">
@@ -54638,7 +54598,6 @@ Processed by Others - Credit</div></td>
                 <td class="xbrl boolean-flag"><div class="sub-value sub-no-replacement"></div></td>
                 <td class="xbrl numeric_items"><div class="sub-value sub-no-replacement"></div></td>
             </tr> 
-         
         <!-- Grand Total Line -->
         <tr>
             <td class="xbrl line-number grand_total ">25</td>
@@ -54670,9 +54629,11 @@ Processed by Others - Credit</div></td>
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -54709,7 +54670,6 @@ Processed by Others - Credit</div></td>
                     <div style="text-align: center"><div class="sub-value sub-replacement">Total (b) + (c)</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
             </td>
-        
         </tr>
 
         <tr class="schedule-row">
@@ -54801,7 +54761,6 @@ Processed by Others - Credit</div></td>
                 <td class="numeric_items xbrl">
                         <div class="sub-value sub-no-replacement"></div></td> 
         </tr>
-        
         <tr class="schedule-row">
                 <td class="xbrl line-number">6</td>
                 <td class="xbrl description_items">
@@ -54817,7 +54776,6 @@ Processed by Others - Credit</div></td>
                 <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
                 <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             </tr>
-            
             <tr class="schedule-row">
                     <td class="xbrl line-number">7</td>
                     <td class="xbrl description_items">
@@ -54899,8 +54857,6 @@ Processed by Others - Credit</div></td>
                     <div class="sub-value sub-no-replacement"></div></td> 
         </tr>
 
-        
-
         <tr class="schedule-row">
                 <td class="xbrl line-number">12</td>
                 <td class="xbrl description_items">
@@ -54916,7 +54872,6 @@ Processed by Others - Credit</div></td>
                 <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
                 <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             </tr>
-            
             <tr class="schedule-row">
                     <td class="xbrl line-number">13</td>
                     <td class="xbrl description_items">
@@ -54977,7 +54932,6 @@ Processed by Others - Credit</div></td>
             <td class="numeric_items xbrl">
                     <div class="sub-value sub-no-replacement"></div></td> 
         </tr>
-        
         <tr class="schedule-row">
                 <td class="xbrl line-number">17</td>
                 <td class="xbrl description_items">
@@ -54993,7 +54947,6 @@ Processed by Others - Credit</div></td>
                 <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
                 <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             </tr>
-            
             <tr class="schedule-row">
                     <td class="xbrl line-number">18</td>
                     <td class="xbrl description_items">
@@ -55091,8 +55044,6 @@ Processed by Others - Credit</div></td>
                     <div class="sub-value sub-no-replacement"></div></td> 
         </tr>
  
-        
- 
         <tr class="schedule-row">
             <td class="xbrl line-number">25</td>
             <td class="xbrl description_items">
@@ -55108,7 +55059,6 @@ Processed by Others - Credit</div></td>
                 <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
                 <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             </tr>
-        
         <tr class="schedule-row">
                 <td class="xbrl line-number">26</td>
                 <td class="xbrl description_items">
@@ -55187,7 +55137,6 @@ Processed by Others - Credit</div></td>
         <td class="numeric_items xbrl">
                 <div class="sub-value sub-no-replacement"></div></td> 
     </tr>
-    
     <tr class="schedule-row">
             <td class="xbrl line-number">31</td>
             <td class="xbrl description_items">
@@ -55203,7 +55152,6 @@ Processed by Others - Credit</div></td>
             <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
             <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
         </tr>
-        
         <tr class="schedule-row">
                 <td class="xbrl line-number">32</td>
                 <td class="xbrl description_items">
@@ -55260,7 +55208,6 @@ Processed by Others - Credit</div></td>
                 <td class="numeric_items xbrl">
                         <div class="sub-value sub-no-replacement"></div></td> 
             </tr>
-            
             <tr class="schedule-row">
                     <td class="xbrl line-number">36</td>
                     <td class="xbrl description_items">
@@ -55276,7 +55223,6 @@ Processed by Others - Credit</div></td>
                     <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
                     <td class="numeric_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
                 </tr>
-                
                 <tr class="schedule-row">
                         <td class="xbrl line-number">37</td>
                         <td class="xbrl description_items">
@@ -55307,9 +55253,11 @@ Processed by Others - Credit</div></td>
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -55382,7 +55330,6 @@ Processed by Others - Credit</div></td>
     
                     <div style="text-align: center"><div class="sub-value sub-replacement">(e)</div></div>
                 </td>
-        
         </tr>
             <tr class="schedule-row xbrl">
                 <!-- 
@@ -55834,7 +55781,6 @@ Processed by Others - Credit</div></td>
                 <td class="monetary_items xbrl"><div class="sub-value sub-no-replacement"></div></td>
                 <td class="status-flag xbrl"><div class="sub-value sub-no-replacement"></div></td>  
             </tr> 
-     
     </table>
 <br/>
 <div class="schedule-footer">
@@ -55854,9 +55800,11 @@ Processed by Others - Credit</div></td>
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -55902,7 +55850,6 @@ Processed by Others - Credit</div></td>
                     <div style="text-align: center"><div class="sub-value sub-replacement">Current Three Months Ended Amount of Dth Quarterly Only</div></div>
                 <div style="text-align: center"><div class="sub-value sub-replacement">(d)</div></div>
             </td>
-        
         </tr>
         
    
@@ -56518,7 +56465,6 @@ Processed by Others - Credit</div></td>
             <td class="numeric_items xbrl">
                     <div class="sub-value sub-no-replacement"></div></td> 
         </tr>
-    
     </table>
 <br/>
 <div class="schedule-footer">
@@ -56538,9 +56484,11 @@ Processed by Others - Credit</div></td>
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -56737,7 +56685,6 @@ Processed by Others - Credit</div></td>
 
                 <div style="text-align: center"><div class="sub-value sub-replacement">(o)</div></div>
             </td>
-        
         </tr>
 
             <tr class="schedule-row"> 
@@ -59512,9 +59459,6 @@ Processed by Others - Credit</div></td>
         </tr>
     
 
-    
-    
-
     <!-- Line 66 through 68 -->
     </table>
     <br/>
@@ -59581,9 +59525,11 @@ Processed by Others - Credit</div></td>
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -59780,7 +59726,6 @@ Processed by Others - Credit</div></td>
 
                 <div style="text-align: center"><div class="sub-value sub-replacement">(o)</div></div>
             </td>
-        
         </tr>
 
             <tr class="schedule-row"> 
@@ -62687,12 +62632,6 @@ Processed by Others - Credit</div></td>
 
     
 
-    
-    
-    
-
-    
-
     <!-- Line 51 through 54 -->
 
     <!-- Line 55 - 64 Sequence Table -->
@@ -62717,9 +62656,11 @@ Processed by Others - Credit</div></td>
             <td class="xbrl">
                 <div class="sub-value sub-replacement">This report is:</div><br/>
                     (1) 
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                     (2)
-                        <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                        <div class="sub-value sub-replacement"><div class="sub-html">
+                                <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                     <div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -62916,7 +62857,6 @@ Processed by Others - Credit</div></td>
 
                 <div style="text-align: center"><div class="sub-value sub-replacement">(o)</div></div>
             </td>
-        
         </tr>
 
             <tr class="schedule-row"> 
@@ -65823,12 +65763,6 @@ Processed by Others - Credit</div></td>
 
     
 
-    
-    
-    
-
-    
-
     <!-- Line 51 through 54 -->
 
     <!-- Line 55 - 64 Sequence Table -->
@@ -65853,9 +65787,11 @@ Processed by Others - Credit</div></td>
                     <td class="xbrl">
                         <div class="sub-value sub-replacement">This report is:</div><br/>
                             (1) 
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> An Original</div></div><br/>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> An Original</div></div><br/>
                             (2)
-                                <div class="sub-value sub-replacement"><div class="sub-html"><span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
+                                <div class="sub-value sub-replacement"><div class="sub-html">
+                                        <span class="checkbox">&#9744;</span> A Resubmission</div></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Date of Report:</div><br/>
                             <div class="sub-value sub-no-replacement"></div></td>
                     <td class="xbrl"><div class="sub-value sub-replacement">Year/Period of Report:</div><br/>
@@ -65913,7 +65849,6 @@ Processed by Others - Credit</div></td>
             <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
             <td class="xbrl description_items"><div class="sub-value sub-no-replacement"></div></td>
         </tr> 
-     
     </table>
     <br/>
     <div class="schedule-footer">

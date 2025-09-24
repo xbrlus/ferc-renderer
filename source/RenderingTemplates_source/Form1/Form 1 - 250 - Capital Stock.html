@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:xule="http://xbrl.us/xendr/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2025-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -34,10 +34,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                             <br/>
                             (1) 
                                 <xule:replace>
-                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
-                                        '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> An Original']]>
+                                        <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> An Original]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" "<![CDATA[
+                                        <span class=\"checkbox\">&#9745;</span> An Original]]>" else "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> An Original]]>"
                                         </xule:expression>  
                                     <xule:template-display>
                                             <input type="checkbox"/> An Original
@@ -46,10 +46,10 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                                 <br/>
                             (2)
                                 <xule:replace>
-                                        <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
-                                        '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
-                                        '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                                        <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> A Resubmission]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" "<![CDATA[
+                                        <span class=\"checkbox\">&#9745;</span> A Resubmission]]>" else "<![CDATA[
+                                        <span class=\"checkbox\">&#9744;</span> A Resubmission]]>"
                                             </xule:expression> 
                                         <xule:template-display>
                                                 <input type="checkbox" checked = "checked"/> A Resubmission
@@ -662,7 +662,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     <td class="gray-out xbrl"></td>
                 </tr>
         <!-- Capital Stock (Data Conversion) -->
-        <tr>
+   <!--     <tr>
             <td class="xbrl line-number">1</td>
             <td class="xbrl description_items">
                 <xule:replace>
@@ -763,90 +763,90 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             <td class="xbrl line-number">
                     <xule:lineNumber name="CapitalStockLineItems"><xule:startNumber>2</xule:startNumber></xule:lineNumber>
                  
-            </td>
+            </td>-->
             <!-- Description -->
-            <td class="xbrl description_items">
+         <!--   <td class="xbrl description_items">
                 <xule:replace>
                     <xule:expression class="hide" fact="true" name="CapitalStockLineItems" part="2">$row[2]</xule:expression>
                     <xule:template-display>
                             Capital Stock
                     </xule:template-display>
                 </xule:replace>        
-            </td>
+            </td>-->
 
             <!-- Common Shares Authorized -->
-            <td class="xbrl numeric_items">
+         <!--   <td class="xbrl numeric_items">
                     <xule:replace>
                         <xule:expression class="hide" fact="true"  format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="3">$row[3]</xule:expression>
                          <xule:template-display>3,000,000</xule:template-display>
                      </xule:replace>
-            </td> 
+            </td> -->
         
              <!-- Par or Stated Value per Share         -->    
-            <td class="numeric_items xbrl">
+          <!--  <td class="numeric_items xbrl">
                 <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="4">$row[4]</xule:expression>
                 <xule:template-display>
                         $100
                 </xule:template-display>
                 </xule:replace>        
-            </td> 
+            </td> -->
             
              <!-- Call Price at End of Year -->    
-            <td class="numeric_items xbrl">
+         <!--   <td class="numeric_items xbrl">
                 <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="5">$row[5]</xule:expression>
                 <xule:template-display>
                         $400
                 </xule:template-display>
                 </xule:replace>        
-            </td> 
+            </td> -->
            
              <!-- Outstanding (Shares)  -->
-            <td class="numeric_items xbrl">
+         <!--   <td class="numeric_items xbrl">
                     <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="6">$row[6]</xule:expression>
                     <xule:template-display>
                         4,000,000 shares
                     </xule:template-display>
                     </xule:replace>        
-            </td> 
+            </td> -->
            
              <!-- Outstanding (Amount)  -->
-            <td class="numeric_items xbrl">
+         <!--   <td class="numeric_items xbrl">
                     <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="7">$row[7]</xule:expression>
                     <xule:template-display>
                             $4,000,000
                     </xule:template-display>
                     </xule:replace>        
-            </td> 
+            </td> -->
  
              <!-- Held by Respondent as Reacquired Stock (Shares) -->
-            <td class="numeric_items xbrl">
+          <!--  <td class="numeric_items xbrl">
                 <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="8">$row[8]</xule:expression>
                 <xule:template-display>
                     3,000,000 shares
                 </xule:template-display>
                 </xule:replace>        
-            </td> 
+            </td> -->
              
              <!-- Held by Respondent as Reacquired Stock (Cost) -->
-            <td class="numeric_items xbrl">
+          <!--  <td class="numeric_items xbrl">
                 <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="9">$row[9]</xule:expression>
                 <xule:template-display>
                         $3,000,000
                 </xule:template-display>
                 </xule:replace>        
-            </td> 
+            </td> -->
           
              <!-- Held by Respondent In Skinking and Other Funds (Shares)   -->
-            <td class="numeric_items xbrl">
+        <!--    <td class="numeric_items xbrl">
                 <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="10">$row[10]</xule:expression>
                 <xule:template-display>
                         1,000,000 shares
                 </xule:template-display>
                 </xule:replace>        
-            </td> 
+            </td> -->
           
             <!-- Held by Respondent In Skinking and Other Funds (Amount)   -->
-            <td class="numeric_items xbrl">
+         <!--   <td class="numeric_items xbrl">
                 <xule:replace><xule:expression class="hide" fact="true" format="ixt4:num-dot-decimal" name="CapitalStockLineItems" part="11">$row[11]</xule:expression>
                 <xule:template-display>
                         $1,000,000
@@ -916,7 +916,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
             <td class="gray-out xbrl"></td>
             <td class="gray-out xbrl"></td>
             <td class="gray-out xbrl"></td>
-        </tr>
+        </tr>-->
     </table>
 <br/>
 <div class="schedule-footer">

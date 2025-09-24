@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:xule="http://xbrl.us/xule/2.0/template"
+xmlns:xule="http://xbrl.us/xendr/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2023-04-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2025-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
 
@@ -13,7 +13,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
     <link rel="stylesheet" type="text/css" href="form-template.css"/>
 </head>
 <body class="xbrl" id="ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract">
-<xule:showif>
+<xule:showIf>
 if list([covered @concept in list(ferc:ScheduleWaiver, ferc:ScheduleExemption) @ferc:ScheduleRemarksAxis="ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"]).length > 0
         false
 else
@@ -24,7 +24,7 @@ else
                         true
         else
                 true
-</xule:showif>
+</xule:showIf>
     <table class="schedule-header xbrl" width="100%">
             <tr>
                 <td class="xbrl">
@@ -47,10 +47,10 @@ else
                     <br></br>        
                     (1) 
                     <xule:replace>
-                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) <![CDATA[
-                            '<span class="checkbox">&#9744;</span> An Original']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" <![CDATA[
-                            '<span class="checkbox">&#9745;</span> An Original']]> else <![CDATA[
-                            '<span class="checkbox">&#9744;</span> An Original']]>
+                            <xule:expression html="true" class="hide">if missing({covered @concept=ferc:SubmissionType}) "<![CDATA[
+                            <span class=\"checkbox\">&#9744;</span> An Original]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "O" "<![CDATA[
+                            <span class=\"checkbox\">&#9745;</span> An Original]]>" else "<![CDATA[
+                            <span class=\"checkbox\">&#9744;</span> An Original]]>"
                             </xule:expression>  
                             <xule:template-display>
                                     <input type="checkbox"/> An Original
@@ -59,10 +59,10 @@ else
                     <br></br>  
                     (2)
                     <xule:replace>
-                            <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) <![CDATA[
-                            '<span class="checkbox">&#9744;</span> A Resubmission']]> else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" <![CDATA[
-                            '<span class="checkbox">&#9745;</span> A Resubmission']]> else <![CDATA[
-                            '<span class="checkbox">&#9744;</span> A Resubmission']]>
+                            <xule:expression html="true" class="hide">if missing([covered @concept=ferc:SubmissionType @period=$currentDuration]) "<![CDATA[
+                            <span class=\"checkbox\">&#9744;</span> A Resubmission]]>" else if [@concept=ferc:SubmissionType @period=$currentDuration] == "R" "<![CDATA[
+                            <span class=\"checkbox\">&#9745;</span> A Resubmission]]>" else "<![CDATA[
+                            <span class=\"checkbox\">&#9744;</span> A Resubmission]]>"
                                     </xule:expression> 
                             <xule:template-display>
                                     <input type="checkbox" checked = "checked"/> A Resubmission
@@ -173,8 +173,9 @@ else
                 <td class="xbrl line-number">1</td> 
                 <!-- (a) Items -->
                 <td class="xbrl description_items">
-                        <xule:replace>
-                        <xule:expression class="hide">
+                        Total Sales (480-488)
+                        <!--<xule:replace>
+                        <xule:expression class="hide"  name="SalesLineItems">
                                 taxonomy().concept(ferc:SalesOfGasForfeitedDiscountsAndMiscellaneousServiceRevenuesAbstract).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
                         </xule:expression>
                         <div>
@@ -182,7 +183,7 @@ else
                                         Total Sales (480-488)
                                 </xule:template-display>
                         </div>
-                        </xule:replace>
+                        </xule:replace>-->
                 </td>
                 <!-- (b) Month 1 Quantity -->
                 <td class="xbrl numeric_items">
@@ -519,35 +520,30 @@ else
                         $dataHead = navigate parent-child descendants from ferc:RevenueFromTransportationOfGasForOthersAbstract role "http://ferc.gov/form/2020-01-01/roles/Schedule/F2/MonthlyQuantityRevenueDataByRateSchedule" returns list (target-name, preferred-label, order);
                         $months = list($currentQM1, $currentQM2, $currentQM3);
 
-                        $schedule = list(list(for $month in $months
+                        $schedule = list(for $month in $months
                                                         for $x in $dataHead
                                                                 if list([covered @concept = $x[1] @period = $month]).length > 0
                                                                         first(list([covered @concept = $x[1] @period = $month]))
                                                                 else
                                                                         none
-                        ));
+                        );
+                        $TotalLabel = list(taxonomy().concept(ferc:OperatingRevenuesTransportationOfGasForOthers).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text);
 
-                       for $rowl in $schedule
+                       for $rowl in list($TotalLabel + $schedule)
                 </xule:expression>
 
                 <td class="xbrl line-number">63</td> 
                 <!-- (a) Items -->
                 <td class="xbrl description_items">
-                        <xule:replace>
-                        <xule:expression class="hide">
-                                taxonomy().concept(ferc:OperatingRevenuesTransportationOfGasForOthers).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
-                        </xule:expression>
-                        <div>
-                                <xule:template-display>
-                                        Total Transportation (Other than Gathering)
-                                </xule:template-display>
-                        </div>
+                         <xule:replace>
+                                <xule:expression class="hide" name="TotalTransportationLineItems"  part="2">$rowl[1]</xule:expression>
+                                <xule:template-display>Total Transportation (Other than Gathering)</xule:template-display>
                         </xule:replace>
                 </td>
                 <!-- (b) Month 1 Quantity -->
                 <td class="xbrl numeric_items">
                         <xule:replace>
-                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="3">$rowl[1]</xule:expression>
+                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="3">$rowl[2]</xule:expression>
                                 <xule:template-display>400,000 dth</xule:template-display>
                         </xule:replace>
                         </td>
@@ -555,7 +551,7 @@ else
                 <!-- (c) Month 1 Revenue Costs and Take or Pay -->
                 <td class="xbrl monetary_items">
                         <xule:replace>
-                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="4">$rowl[2]</xule:expression>
+                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="4">$rowl[3]</xule:expression>
                                 <xule:template-display>$400,000</xule:template-display>
                         </xule:replace>
                         </td> 
@@ -563,7 +559,7 @@ else
                 <!-- (d) Month 1 Revenue (GRI and ACA) -->
                 <td class="xbrl monetary_items">
                         <xule:replace>
-                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$rowl[3]</xule:expression>
+                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="5">$rowl[4]</xule:expression>
                                 <xule:template-display>$400,000</xule:template-display>
                         </xule:replace>
                         </td> 
@@ -571,7 +567,7 @@ else
                 <!-- (e) Month 1 Rvenue (Other) -->
                 <td class="xbrl monetary_items">
                         <xule:replace>
-                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="6">$rowl[4]</xule:expression>
+                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="6">$rowl[5]</xule:expression>
                                 <xule:template-display>$400,000</xule:template-display>
                         </xule:replace>
                         </td> 
@@ -579,7 +575,7 @@ else
                 <!-- (f) Month 1 Revenue (Total)  -->
                 <td class="xbrl monetary_items">
                         <xule:replace>
-                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="7">$rowl[5]</xule:expression>
+                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="7">$rowl[6]</xule:expression>
                                 <xule:template-display>$400,000</xule:template-display>
                         </xule:replace>
                         </td> 
@@ -587,7 +583,7 @@ else
                 <!-- (g) Month2 Quantity -->
                 <td class="xbrl numeric_items"> 
                         <xule:replace>
-                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="3">$rowl[6]</xule:expression>
+                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="3">$rowl[7]</xule:expression>
                                 <xule:template-display>400,000 dth</xule:template-display>
                         </xule:replace>
                         </td>
@@ -595,7 +591,7 @@ else
                 <!-- (h) Month2 Revenue Costs and Take or Pay  -->
                 <td class="xbrl monetary_items">
                         <xule:replace>
-                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="9">$rowl[7]</xule:expression>
+                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="9">$rowl[8]</xule:expression>
                                 <xule:template-display>$400,000</xule:template-display>
                         </xule:replace>
                         </td> 
@@ -603,7 +599,7 @@ else
                 <!-- (i) Month2 Revenue (GRI and ACA) -->
                 <td class="xbrl monetary_items">
                         <xule:replace>
-                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="10">$rowl[8]</xule:expression>
+                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="10">$rowl[9]</xule:expression>
                                 <xule:template-display>$400,000</xule:template-display>
                         </xule:replace>
                         </td> 
@@ -611,7 +607,7 @@ else
                 <!-- (j) Month2 Rvenue (Other) -->
                 <td class="xbrl monetary_items">
                         <xule:replace>
-                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="11">$rowl[9]</xule:expression>
+                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="11">$rowl[10]</xule:expression>
                                 <xule:template-display>$400,000</xule:template-display>
                         </xule:replace>
                         </td> 
@@ -619,7 +615,7 @@ else
                 <!-- (k) Month2 Revenue (Total) -->
                 <td class="xbrl monetary_items">
                         <xule:replace>
-                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="12">$rowl[10]</xule:expression>
+                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="12">$rowl[11]</xule:expression>
                                 <xule:template-display>$400,000</xule:template-display>
                         </xule:replace>
                         </td> 
@@ -627,7 +623,7 @@ else
                 <!-- (l) Month3 Quantity -->
                 <td class="xbrl numeric_items">
                         <xule:replace>
-                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="13">$rowl[11]</xule:expression>
+                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="13">$rowl[12]</xule:expression>
                                 <xule:template-display>400,000 dth</xule:template-display>
                         </xule:replace>
                         </td>
@@ -635,7 +631,7 @@ else
                 <!-- (m) Month3 Revenue Costs and Take or Pay -->
                 <td class="xbrl monetary_items">
                         <xule:replace>
-                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="14">$rowl[12]</xule:expression>
+                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="14">$rowl[13]</xule:expression>
                                 <xule:template-display>$400,000</xule:template-display>
                         </xule:replace>
                         </td> 
@@ -643,7 +639,7 @@ else
                 <!-- (n) Month3 Revenue (GRI and ACA) -->
                 <td class="xbrl monetary_items">
                         <xule:replace>
-                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="15">$rowl[13]</xule:expression>
+                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="15">$rowl[14]</xule:expression>
                                 <xule:template-display>$400,000</xule:template-display>
                         </xule:replace>
                         </td> 
@@ -651,7 +647,7 @@ else
                 <!-- (o) Month3 Rvenue (Other) -->
                 <td class="xbrl monetary_items">
                         <xule:replace>
-                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="16">$rowl[14]</xule:expression>
+                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="16">$rowl[15]</xule:expression>
                                 <xule:template-display>$400,000</xule:template-display>
                         </xule:replace>
                         </td> 
@@ -659,7 +655,7 @@ else
                 <!-- (p) Month3 Revenue (Total) -->
                 <td class="xbrl monetary_items">
                         <xule:replace>
-                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="17">$rowl[15]</xule:expression>
+                                <xule:expression class="hide" name="TotalTransportationLineItems" fact="true" format="ixt4:num-dot-decimal" part="17">$rowl[16]</xule:expression>
                                 <xule:template-display>$400,000</xule:template-display>
                         </xule:replace>
                 </td> 
@@ -898,7 +894,8 @@ else
                 <td class="xbrl line-number">90</td> 
                 <!-- (a) Items -->
                 <td class="xbrl description_items">
-                        <xule:replace>
+                        Total Storage
+                        <!--<xule:replace>
                         <xule:expression class="hide">
                                 taxonomy().concept(ferc:RevenuesFromStoringGasOfOthers).label("http://ferc.gov/form/2020-01-01/roles/label/F2Total").text
                         </xule:expression>
@@ -907,7 +904,7 @@ else
                                         Total Storage
                                 </xule:template-display>
                         </div>
-                        </xule:replace>
+                        </xule:replace>-->
                 </td>
                 <!-- (b) Month 1 Quantity -->
                 <td class="xbrl numeric_items">

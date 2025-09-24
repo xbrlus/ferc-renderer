@@ -1,0 +1,1 @@
+python ~/arelle/Arelle-master/arellecmdline.py --plugin xendr --xendr-combine './compiled' --xendr-template-set './combined/RenderingTemplates_Form714.zip'

@@ -61,7 +61,7 @@ This will refer to an external CSS file in the template. To include the CSS file
                         generated HTML file. This option must be used with
                         --xendr-css-file.
 
-**These two options should be used by default.**  To include FERC rendering CSS styles from the template in the head your rendered HTML, use ``--xendr-css-file = {location of css file}form-template.css`` along with the ``--xendr-inline-css`` parameter.  _Excluding_ ``--xendr-inline-css`` will generate a separate CSS file linked within the HTML. All FERC rendering templates use **form-template.css** as the default name for CSS files.
+**These two options should be used by default.**  To include FERC rendering CSS styles from the template in the head your rendered HTML, use ``--xendr-css-file = {location of css file}form-template.css`` along with the ``--xendr-inline-css`` parameter.  _Excluding_ ``--xendr-inline-css`` will generate a separate CSS file linked within the HTML. All FERC rendering templates use **form-template.css** as the default name for CSS files.  A version of FERC's .css file is in the root of this repository and can be referenced as https://xbrlus.github.io/ferc-renderer/form-template.css
 
 ### Arelle command to render inline XBRL (HTML) without an instance
 The rendering templates can also be used to generate blank inline XBRL (HTML) forms by specifying the taxonomy entry point instead of an instance:

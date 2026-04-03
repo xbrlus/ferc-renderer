@@ -21,25 +21,27 @@ The eForms rendering process requires **Python 3.10** or later and is **not comp
 For a complete list of Xendr and XULE switches, run `python3 Arelle-master/arellecmdline.py --plugin 'xendr' -h` from the command line.
 
 ## Rendering a Filing
-A file is rendered as a FERC form by processing an XBRL Instance document and a template set with a XULE module called Xendr. The module takes the instance and the template set and generates an inline XBRL file formatted as a traditional FERC form. This document is not filed with the FERC but is used as a tool by filers and users to make the filing human readable.  This file can be used for reviewing the actual filing in a familar format.
+A file is rendered as a FERC eForm by processing an XBRL instance document and a template set with a XULE module called Xendr. The module takes the instance and the template set and generates an HTML file (inline XBRL). This file can be used for reviewing data in a familar format and is not filed with the FERC.
 
 The FERC publihes different template sets for each form, including different template sets for annual and quarterly filings. Depending on the form and form period being reported a different template set should be used. 
 
-- Form 1: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form1/Combined/RenderingTemplates_Form_1.zip 
-- Form 1F: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form1/Combined/RenderingTemplates_Form_1F.zip
-- Form 1 3Q Electric: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form1/Combined/RenderingTemplates_Form_3Q_Electric.zip
-- Form 2: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form2/Combined/RenderingTemplates_Form_2.zip
-- Form 2A: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form2/Combined/RenderingTemplates_Form_2A.zip
-- Form 2 3Q Gas: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form2/Combined/RenderingTemplates_Form_3Q_Gas.zip
-- Form 6: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form6/Combined/RenderingTemplates_Form_6.zip
-- Form 6Q: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form6/Combined/RenderingTemplates_Form_6Q.zip
-- Form 60: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form60/Combined/RenderingTemplates_Form_60.zip
-- Form 714: https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form714/Combined/RenderingTemplates_Form_714.zip
+### 2026 eForms Rendering Templates for processing
+- Form 1: https://raw.githubusercontent.com/xbrlus/ferc-renderer/2026-04-01/RenderingTemplates/Form1/Combined/RenderingTemplates_Form_1.zip 
+- Form 1F: https://raw.githubusercontent.com/xbrlus/ferc-renderer/2026-04-01/RenderingTemplates/Form1/Combined/RenderingTemplates_Form_1F.zip
+- Form 1 3Q Electric: https://raw.githubusercontent.com/xbrlus/ferc-renderer/2026-04-01/RenderingTemplates/Form1/Combined/RenderingTemplates_Form_3Q_Electric.zip
+- Form 2: https://raw.githubusercontent.com/xbrlus/ferc-renderer/2026-04-01/RenderingTemplates/Form2/Combined/RenderingTemplates_Form_2.zip
+- Form 2A: https://raw.githubusercontent.com/xbrlus/ferc-renderer/2026-04-01/RenderingTemplates/Form2/Combined/RenderingTemplates_Form_2A.zip
+- Form 2 3Q Gas: https://raw.githubusercontent.com/xbrlus/ferc-renderer/2026-04-01/RenderingTemplates/Form2/Combined/RenderingTemplates_Form_3Q_Gas.zip
+- Form 6: https://raw.githubusercontent.com/xbrlus/ferc-renderer/2026-04-01/RenderingTemplates/Form6/Combined/RenderingTemplates_Form_6.zip
+- Form 6Q: https://raw.githubusercontent.com/xbrlus/ferc-renderer/2026-04-01/RenderingTemplates/Form6/Combined/RenderingTemplates_Form_6Q.zip
+- Form 60: https://raw.githubusercontent.com/xbrlus/ferc-renderer/2026-04-01/RenderingTemplates/Form60/Combined/RenderingTemplates_Form_60.zip
+- Form 714: https://raw.githubusercontent.com/xbrlus/ferc-renderer/2026-04-01/RenderingTemplates/Form714/Combined/RenderingTemplates_Form_714.zip
 
 ### Arelle command to render the instance as inline XBRL (HTML)
-The templates can also be used from this repository with the following Arelle command to generate a rendered filing (exclude the _{location}_ text in all examples below - this is illustrative of which file is referenced). In this example, replace 'master' with any tag or relase to specify a different rendering template and/or sample XBRL instance for processing. 
+The templates can also be used from this repository with the following Arelle command to generate a rendered filing (exclude the _{location of ...}_ text in all examples below - this is illustrative of which file is referenced). In this example, replace 'master' with any tag or relase to specify a different rendering template and/or sample XBRL instance for processing. 
 
-`python3 Arelle-master/arellecmdline.py --plugin 'xendr' --xendr-render --noCertificateCheck --xendr-template-set {location of template}https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form1/Combined/RenderingTemplates_Form_1.zip -f {location of instance}https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/SampleInstances/Sample_Form_1.xbrl --xendr-inline D:/sample-combined.html --noCertificateCheck --xendr-debug --xule-arg current-start=2018-01-01 --xule-arg current-end=2018-12-31 --xule-arg prior-start=2017-01-01 --xule-arg prior-end=2017-12-31 --xule-arg prior2-start=2016-01-01 --xule-arg prior2-end=2016-12-31`
+#### 2026 example
+`python3 Arelle-master/arellecmdline.py --plugin 'xendr' --xendr-render --noCertificateCheck --xendr-template-set {location of template}https://raw.githubusercontent.com/xbrlus/ferc-renderer/2026-04-01/RenderingTemplates/Form1/Combined/RenderingTemplates_Form_1.zip -f {location of instance}https://raw.githubusercontent.com/xbrlus/ferc-renderer/2026-04-01/SampleInstances/Sample_Form_1.xbrl --xendr-inline D:/sample-combined.html --noCertificateCheck --xendr-debug --xule-arg current-start=2018-01-01 --xule-arg current-end=2018-12-31 --xule-arg prior-start=2017-01-01 --xule-arg prior-end=2017-12-31 --xule-arg prior2-start=2016-01-01 --xule-arg prior2-end=2016-12-31`
 
 Additionally, the FERC publishes seperate template sets for individual schedules, which are in the {TemplateSets}(/RenderingTemplates/Form1/) subdirectory of each eForm Rendering Templates folder in this repository.  TemplateSets can be used to render a single schedule for review instead of rendering the entire form. 
 
@@ -63,4 +65,4 @@ This will refer to an external CSS file in the template. To include the CSS file
 
 ### Arelle command to render inline XBRL (HTML) without an instance
 The rendering templates can also be used to generate blank inline XBRL (HTML) forms by specifying the taxonomy entry point instead of an instance:
-`.\arellecmdline.exe --plugin xendr --xendr-render --xendr-template-set {location of template}https://raw.githubusercontent.com/xbrlus/ferc-renderer/master/RenderingTemplates/Form1/Combined/RenderingTemplates_Form_1.zip -f {location of taxonomy}https://ecollection.ferc.gov/taxonomy/form1/2025-04-01/form/form1/form-1_2025-04-01.xsd --xendr-css-file {location of css file}form-template.css --xendr-inline-css --xendr-inline {location of output}/sample-blank.html --noCertificateCheck --xendr-debug --xule-arg current-start=2018-01-01 --xule-arg current-end=2018-12-31 --xule-arg prior-start=2017-01-01 --xule-arg prior-end=2017-12-31 --xule-arg prior2-start=2016-01-01 --xule-arg prior2-end=2016-12-31`
+`.\arellecmdline.exe --plugin xendr --xendr-render --xendr-template-set {location of template}https://raw.githubusercontent.com/xbrlus/ferc-renderer/2026-04-01/RenderingTemplates/Form1/Combined/RenderingTemplates_Form_1.zip -f {location of taxonomy}https://ecollection.ferc.gov/taxonomy/form1/2026-04-01/form/form1/form-1_2026-04-01.xsd --xendr-css-file {location of css file}form-template.css --xendr-inline-css --xendr-inline {location of output}/sample-blank.html --noCertificateCheck --xendr-debug --xule-arg current-start=2018-01-01 --xule-arg current-end=2018-12-31 --xule-arg prior-start=2017-01-01 --xule-arg prior-end=2017-12-31 --xule-arg prior2-start=2016-01-01 --xule-arg prior2-end=2016-12-31`

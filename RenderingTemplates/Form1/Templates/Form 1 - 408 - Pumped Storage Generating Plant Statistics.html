@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xule="http://xbrl.us/xendr/2.0/template"
     xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
     xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-    xmlns:ferc="http://ferc.gov/form/2025-04-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
+    xmlns:ferc="http://ferc.gov/form/2026-04-01/ferc" xmlns:ferc-part="http://www.ferc.gov/form/parts">
 
 <head>
     <title>Template - F1 - 408</title>
@@ -205,10 +205,10 @@
             $row_num = (filter $concept.references("http://ferc.gov/form/2020-01-01/roles/reference/formLocation") where ($item.part-by-name(ferc-part:Schedule).part-value == "408 - Schedule - Pumped Storage Generating Plant Statistics (Large Plants)" and $item.part-by-name(ferc-part:ValueType).part-value.string == "Label")).to-list;
             $current = list(for $plant in $plants
 
-                    if exists([covered @concept = $row[1] @period = $currentDuration @ferc:LicensedProjectNumberAndPumpedStoragePlantNameAxis=$plant])
+                    if exists([covered @concept = $row[1] @period = $currentDuration @ferc:LicensedProjectNumberAndPumpedStoragePlantNameAxis=$plant]) and not($plant == none)
 					        first(list([covered @concept = $row[1] @period = $currentDuration @ferc:LicensedProjectNumberAndPumpedStoragePlantNameAxis=$plant]))
 					else
-                            if exists([covered @concept = $row[1] @period = $currentInstant @ferc:LicensedProjectNumberAndPumpedStoragePlantNameAxis=$plant])
+                            if exists([covered @concept = $row[1] @period = $currentInstant @ferc:LicensedProjectNumberAndPumpedStoragePlantNameAxis=$plant]) and not($plant == none)
                                 first(list([covered @concept = $row[1] @period = $currentInstant @ferc:LicensedProjectNumberAndPumpedStoragePlantNameAxis=$plant]))
                             else
                                 none);

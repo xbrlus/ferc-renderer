@@ -3,7 +3,7 @@
 xmlns:xule="http://xbrl.us/xendr/2.0/template"
 xmlns:ixt1="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20"
 xmlns:ixt4="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12"
-xmlns:ferc="http://ferc.gov/form/2025-04-01/ferc"
+xmlns:ferc="http://ferc.gov/form/2026-04-01/ferc"
 xmlns:ferc-part="http://www.ferc.gov/form/parts"
 >
     <head>
@@ -74,7 +74,7 @@ xmlns:ferc-part="http://www.ferc.gov/form/parts"
                     <H1>FERC FINANCIAL REPORT<br/> 
                         <xule:replace>
                             <xule:expression html="true" class="hide">                
-                                if $formType == '' and  or $formType == '2/3-Q' or set('2/3-Q').contains([covered @concept.local-name ='FormType'])
+                                if set('2/3-Q').contains([covered @concept.local-name ='FormType'])
                                     if first(list([covered @ferc:Remarks @ferc:ScheduleRemarksAxis="ScheduleMonthlyQuantityRevenueDataByRateScheduleAbstract"])) == "NonMajor"
                                     "<![CDATA['FERC FORM No. 2-A: Annual Report of <br/>
                                         Non-Major Natural Gas Companies and <br/>Supplemental Form 3-Q: Quarterly]]>"
